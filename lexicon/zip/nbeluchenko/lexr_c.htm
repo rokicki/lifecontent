@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+<TITLE>Словарь Жизни (Ц)</TITLE>
+<meta name="author" content="Stephen A. Silver, Nicolay Beluchenko">
+<meta name="description" content="Русский перевод словаря Жизни Стивена Сильвера">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link href="lifelex.css" rel="stylesheet" type="text/css">
+<link rel="begin" type="text/html" href="lexr.htm" title="Словарь Жизни">
+<base target="_top">
+</head>
+<body>
+<center><b class=l>Словарь Жизни</b></center>
+<center><a HREF="http://www.beluch.narod.ru/indexr.html">Bel&amp;Chen Co Home Page</a></center>
+<hr>
+<center>
+<A HREF="lexr.htm">Введение</A> |
+<A HREF="lexr_1.htm">1-9</A> |
+<A HREF="lexr_lat.htm">A-Z</A> |
+<A HREF="lexr_a.htm">А</A> |
+<A HREF="lexr_b.htm">Б</A> |
+<A HREF="lexr_v.htm">В</A> |
+<A HREF="lexr_g.htm">Г</A> |
+<A HREF="lexr_d.htm">Д</A> |
+<A HREF="lexr_e.htm">Е</A> |
+<A HREF="lexr_zh.htm">Ж</A> |
+<A HREF="lexr_z.htm">З</A> |
+<A HREF="lexr_i.htm">И</A> |
+<A HREF="lexr_k.htm">К</A> |
+<A HREF="lexr_l.htm">Л</A> |
+<A HREF="lexr_m.htm">М</A> |
+<A HREF="lexr_n.htm">Н</A> |
+<A HREF="lexr_o.htm">О</A> |
+<A HREF="lexr_p.htm">П</A> |
+<A HREF="lexr_r.htm">Р</A> |
+<A HREF="lexr_s.htm">С</A> |
+<A HREF="lexr_t.htm">Т</A> |
+<A HREF="lexr_u.htm">У</A> |
+<A HREF="lexr_f.htm">Ф</A> |
+<A HREF="lexr_h.htm">Х</A> |
+<A HREF="lexr_c.htm">Ц</A> |
+<A HREF="lexr_ch.htm">Ч</A> |
+<A HREF="lexr_sh.htm">Ш</A> |
+<A HREF="lexr_sc.htm">Щ</A> |
+<A HREF="lexr_ae.htm">Э</A> |
+<A HREF="lexr_yu.htm">Ю</A> |
+<A HREF="lexr_ya.htm">Я</A> |
+<A HREF="lexr_bib.htm">Литература</A> | 
+<A HREF="lexr_eri.htm">Указатель</A>
+</center>
+<hr>
+
+<p><a name=colourofaglider>:</a><b>цвет глайдера</b> Цвет <a href="lexr_g.htm#glider">глайдера</a> - свойство глайдера, которое остается постоянным, в то время как глайдер движется прямо, но которое может быть изменено, когда глайдер отскакивает от <a href="lexr_o.htm#reflector">отражателя</a>. Это - важное соображение при построении конфигураций с использованием отражателей.</p> 
+<p>Цвет глайдера может быть определен следующим образом. Сперва выберите некоторую ячейку, которая будет начальной. Эта ячейка будет считаться белой, а все другие ячейки будут черными или белыми согласно рисунку шахматной доски. (То есть ячейка с координатами (<i>m</i>,<i>n</i>) будет белой, если <i>m</i>+<i>n</i> четно, и черной в обратном случае.) Тогда цвет глайдера - это цвет его ведущей ячейки, когда он находится в фазе, возможно повернутой, подобной этому изображению:</p> 
+
+<pre>
+	OOO
+	..O
+	.O.
+</pre>
+
+<p>Отражатель, который не изменяет цвет глайдеров, очевидно, не может использоваться для перемещения глайдера на траекторию цвета, отличающегося от начального. Но 90 градусный отражатель, который действительно изменяет цвет глайдеров, имеет также подобное ограничение, поскольку цвет результирующего глайдера будет зависеть только от направления глайдера, независимо от того сколько отражателей используется. Поэтому для максимальной гибкости являются необходимыми оба типа отражателя.</p>
+
+<p><a name=gliderblockcycle>:</a><b>цикл глайдер-блок</b> Бесконечный <a href="lexr_o.htm#oscillator">осциллятор</a>, основанный на следующей реакции (вариант  см.<a href="lexr_f.htm#rephaser">фазоинвертор</a>). Осциллятор состоит из копий этой реакции, сдвинутых на 2<i>n</i> мест относительно друг друга (для некоторого <i>n</i>&gt;6) с блоками, добавленными между копиями, чтобы заставить реакцию возникать снова через полупериод. Период результирующего бесконечного осциллятора - 8<i>n</i>-20. (Альтернативно, в цилиндрической вселенной ширины 2<i>n</i> осциллятор состоит только из двух глайдеров и двух блоков.) </p> 
+<pre>
+	...OO...
+	...OO...
+	........
+	........
+	..O..O..
+	O.O..O.O
+	.OO..OO.
+</pre>
+
+<p><a name=cisbeacononanvil>:</a><b>цис-бакен на наковальне</b> (p2)</p> 
+<pre>
+	...OO.
+	....O.
+	.O....
+	.OO...
+	......
+	.OOOO.
+	O....O
+	.OOO.O
+	...O.OO
+</pre>
+
+<p><a name=cisbeaconontable>:</a><b>цис-бакен на столе</b> (p2)</p> 
+<pre>
+	..OO
+	...O
+	O...
+	OO..
+	....
+	OOOO
+	O..O
+</pre>
+
+<p><a name=cissnake>:</a><b>цис-змея</b> = <a href="lexr_k.htm#canoe">каноэ</a></p> 
+<p><a name=cisboatwithtail>:</a><b>цис-лодка с хвостом</b> (p1)</p> 
+<pre>
+	.O...
+	O.O..
+	OO.O.
+	...O.
+	...OO
+</pre>
+
+<p><a name=cismirroredrbee>:</a><b>цис-отраженная R-пчела</b> (p1)</p> 
+<pre>
+	.OO.OO.
+	O.O.O.O
+	O.O.O.O
+	.O...O.
+</pre>
+
+<p><a name=cisfusewithtwotails>:</a><b>цис-фитиль с двумя хвостами</b> (p1) См. также <a href="lexr_s.htm#pulsarquadrant">сектор пульсара</a>.</p> 
+<pre>
+	...O..
+	.OOO..
+	O...OO
+	.O..O.
+	..O.O.
+	...O..
+</pre>
+
+<HR>
+<CENTER>
+<A HREF="lexr.htm">Введение</A> |
+<A HREF="lexr_1.htm">1-9</A> |
+<A HREF="lexr_lat.htm">A-Z</A> |
+<A HREF="lexr_a.htm">А</A> |
+<A HREF="lexr_b.htm">Б</A> |
+<A HREF="lexr_v.htm">В</A> |
+<A HREF="lexr_g.htm">Г</A> |
+<A HREF="lexr_d.htm">Д</A> |
+<A HREF="lexr_e.htm">Е</A> |
+<A HREF="lexr_zh.htm">Ж</A> |
+<A HREF="lexr_z.htm">З</A> |
+<A HREF="lexr_i.htm">И</A> |
+<A HREF="lexr_k.htm">К</A> |
+<A HREF="lexr_l.htm">Л</A> |
+<A HREF="lexr_m.htm">М</A> |
+<A HREF="lexr_n.htm">Н</A> |
+<A HREF="lexr_o.htm">О</A> |
+<A HREF="lexr_p.htm">П</A> |
+<A HREF="lexr_r.htm">Р</A> |
+<A HREF="lexr_s.htm">С</A> |
+<A HREF="lexr_t.htm">Т</A> |
+<A HREF="lexr_u.htm">У</A> |
+<A HREF="lexr_f.htm">Ф</A> |
+<A HREF="lexr_h.htm">Х</A> |
+<A HREF="lexr_c.htm">Ц</A> |
+<A HREF="lexr_ch.htm">Ч</A> |
+<A HREF="lexr_sh.htm">Ш</A> |
+<A HREF="lexr_sc.htm">Щ</A> |
+<A HREF="lexr_ae.htm">Э</A> |
+<A HREF="lexr_yu.htm">Ю</A> |
+<A HREF="lexr_ya.htm">Я</A> |
+<A HREF="lexr_bib.htm">Литература</A> | 
+<A HREF="lexr_eri.htm">Указатель</A>
+</CENTER>
+<HR>
+</BODY>
+</HTML>
