@@ -1,0 +1,82 @@
+<TITLE>David Bell's c/5 spaceship</TITLE>
+<applet codebase=".." code="LifeApp" width=500 height=350>
+<param name=pattern value="newc5/pic1">
+</applet>
+<H1>New c/5 spaceship</H1>
+Over a year ago, when this web page was
+just starting up, Tim Coe found 
+<A HREF="../p5ss.html">the first c/5 orthogonal spaceship</A>,
+appropriately dubbed "the snail" by David Griffeath in his
+<A HREF="http://psoup.math.wisc.edu/kitchen.html">Primordial
+Soup Kitchen</A>.
+David Bell has now found a much smaller c/5.
+Though it lacks the biological synchronicity of Coe's
+discovery, it makes up for this
+with some useful sparks.
+<HR>
+<EM>From: "David I. Bell" <dbell@canb.auug.org.au></EM><BR>
+<EM>Subject: New period 5 c/5 spaceship with sparks</EM><BR>
+<EM>Date: Mon, 14 Apr 1997 17:58:05 +1000</EM><BR>
+<P>
+Today I found a new reasonably small period 5 c/5 spaceship:
+<P>
+<A HREF="pic1.html"><IMG SRC="pic1.gif" ALIGN=TOP></A>
+<P>
+
+
+The spaceship is short and symmetrical with an empty column between them.
+Only in one phase do the two halves react with each other, and that is just
+to suppress a cell.  It turns out that the edge of the spaceship can also
+do this suppression, and so a flipped copy of the component will also work.
+But you then need to terminate THAT component, however.  You can continue
+this arbitrarily often, but finally need the end component to finish it.
+An example of this is the following:
+<P>
+<A HREF="rle1.html"><IMG SRC="rle1.gif"></A>
+<P>
+
+
+This ship has some nice sparks at the edges and back.  So you would expect
+that it might do nice things to gliders, blocks, and other stuff.  It can
+at least do a little bit.  Here is a reaction in which a glider is turned
+into a block by one c/5 ship, and then is deleted by a second one:
+<P>
+<A HREF="rle2.html"><IMG SRC="rle2.gif"></A>
+<P>
+
+
+But I didn't find any other useful reactions with gliders, other than
+deleting them.  (There are lots of ways to do that.)  The hope of making
+a new glider and thus making a puffer out of this isn't realized.
+I even tried a little bit using two of the spaceships to perturb a glider.
+This can be done in a few different ways, but I still found nothing useful.
+Anyone else have better luck?
+<P>
+Finally, the block deleting feature of the spaceship allows us to construct
+a new type of growing spaceship.  Here a c/3 period 24 block puffer has
+its output consumed by the c/5 spaceship.  The line of blocks grows
+longer and longer:
+<P>
+<A HREF="rle3.html"><IMG SRC="rle3.gif"></A>
+<P>
+
+
+My motivation for finding this spaceship is the realization that gliders
+can approach a c/5 ship from the back.  This means that gliders don't have
+to react at the sides, but can react anywhere along the back edge.
+So instead of trying to find long and thin spaceships, it seems better
+to find short and wide ones.  With enough of a grammar built up, some
+back edge might be found which will perturb an incoming glider correctly
+to produce another one (plus junk, probably).
+<P>
+By the way, my recent success in finding objects has come about because
+of a certain circumstance at work.  I happen to have five Pentimum 150's
+available full time for at least the medium term, and so I can do five
+different searches at the same time!  I have also fixed a long term bug
+in my lifesrc program in which cells to be ignored did the wrong thing
+for other generations.
+<P>
+BCNU,
+-dbell-
+<HR>
+Back to <A HREF="../../lifepage.html">main Life page</A>.

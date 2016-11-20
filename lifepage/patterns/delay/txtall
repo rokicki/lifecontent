@@ -1,0 +1,5 @@
+#!/bin/csh
+
+foreach t (*.life)  
+   gawk -f txt.awk $t > `extr $t`.html
+end

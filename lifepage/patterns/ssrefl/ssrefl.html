@@ -1,0 +1,197 @@
+<TITLE>Stephen Silver on Stable Reflectors</TITLE>
+<H1>Introduction</H1>
+This article describes stable reflectors and related constructions in Life.
+A stable reflector is a still life which can reflect a glider (through
+90 or 180 degrees) without suffering any permanent damage.  As Conway himself
+pointed out back in the 1970's, a suitable stable reflector can be used
+to construct oscillators of all sufficiently large periods.  This is done
+by arranging the reflectors to form a track for gliders.  The length of
+the track can be varied by moving the reflectors, and the period of the
+resulting oscillator can be varied still further by altering the number of
+gliders in the track.  The first quarter of a century of the history of Life
+passed without any stable reflector being found.  In 1996 Dave Buckingham
+achieved the goal of constructing oscillators of all large periods using
+Herschel, rather than glider, tracks.  Buckingham's Herschel conduits
+proved to be the key to constructing stable reflectors, and so far no
+stable reflector has been found that does not rely on them.
+<P>
+
+<H1>The first stable reflectors</H1>
+The first stable reflector was found by Paul Callahan in October 1996.
+It is based on a reaction he found in which a glider is converted into
+a glider, a beehive and an R-pentomino.  The beehive is a problem, but
+the R-pentomino provides a means a getting rid of it: using Buckingham's
+conduits the R-pentomino is converted into a Herschel and moved to a
+position where it can fire a glider to delete the unwanted beehive.
+This process, almost incidentally, produces extra output gliders.
+It also makes the reflector very slow, 894 generations being required
+until the reflector is ready to accept another glider.  Improved stable
+reflectors have centred on decreasing this time, which I call the
+recovery time.  Callahan's reflector is shown below.  As with all reflectors
+and converters in this article, it is shown together with an incoming
+glider.
+<P>
+<A HREF="rle1.html"><IMG SRC="rle1.gif"></A>
+<P>
+
+The existence of this stable reflector meant not only that oscillators
+of all sufficiently large periods exist (which had already been proved
+by Dave Buckingham), but also that they need only have a few hundred
+live cells.
+<P>
+Another point to note about the above reflector is that the last two
+blocks are merely used to delete the Herschel after it has fired its
+glider.  Removing these two blocks, and suppressing the unwanted output
+gliders, gives a stable glider-to-Herschel converter (shown below).
+Glider-to-Herschel converters can be used for further interesting
+constructions, as will be shown at the end of this article.
+<P>
+<A HREF="rle2.html"><IMG SRC="rle2.gif"></A>
+<P>
+
+Dean Hickerson soon found a way to modify Callahan's original reflector
+to make it faster.  The Herschel-to-glider mechanism that he used to
+achieve this turns out to be of use also in a later reflector.
+Hickerson's modified reflector is shown below.  The non-standard still
+life used here is needed in order to allow the use of the 64 64 77
+sequence of Herschel conduits.  (In fact a smaller still life will do
+the job, as will be seen in a moment.)
+<P>
+<A HREF="rle3.html"><IMG SRC="rle3.gif"></A>
+<P>
+
+In this reflector the Herschel is destroyed at the end, so we don't
+get a new glider-to-Herschel converter.  Actually this is not strictly
+true.  An arrangement of reflectors could be used to produce a Herschel
+by colliding two gliders, thus giving a glider-to-Herschel converter
+as fast as the reflectors.  But this sort of construction is so large
+(at least with present stable reflectors) that it will be ignored for
+the remainder of this article.
+<P>
+Dave Buckingham found a faster stable reflector that does not use
+Paul Callahan's special reaction.  Instead, the incoming glider
+hits a boat to make a B-heptomino, which is converted into a Herschel
+and moved round to restore the boat.  A compact form of the 119-step
+Herschel conduit is needed here, as is a non-standard still life to
+cope with the 64 64 77 conduit sequence.
+<P>
+<A HREF="rle4.html"><IMG SRC="rle4.gif"></A>
+<P>
+
+Again the Herschel is destroyed at the end, so no new glider-to-Herschel
+converter results.
+<P>
+
+<H1>A new R-to-Herschel conduit</H1>
+In October 1997 I was using Paul Callahan's gencols program to look for
+interesting reactions.  Setting it to search for reactions in which a
+loaf is hit by an R-pentomino and survives (not exactly a likely
+scenario) I found a new R-to-Herschel conduit.  The loaf reacts with
+all the junk the R-pentomino produces as it naturally transforms into a
+Herschel, and miraculously reappears some time later leaving no debris
+at all.  It is necessary to prevent the first Herschel glider from hitting
+the fading remnants of the reaction, and there is no room for an ordinary
+eater.  But luckily a tub with tail and a block can be used instead.
+Here is the conduit:
+<P>
+<A HREF="rle5.html"><IMG SRC="rle5.gif"></A>
+<P>
+
+It is a fact of Life that a given R-to-Herschel conduit almost
+never works with any given source of R-pentominoes.  There is a
+good reason for this.  While Herschels are usually produced by
+a standard evolutionary sequence which throws the Herschel away
+from its source, R-pentominoes (and most other common active objects)
+tend to be produced in relatively inaccessible places.  I was,
+therefore, not very hopeful about the usefulness of the new conduit.
+But it turned out that there was one R-pentomino source with which it
+could be used: Paul Callahan's reflector reaction.  There was
+therefore the possibility of an improved reflector, especially as
+the new conduit produced a Herschel that appears sooner and is
+closer to the beehive that must be deleted.
+<P>
+Putting the relevant data into my Herschel track program produced
+the following stable reflector with a recovery time of 623.  Dean
+Hickerson's method of producing a forwards glider again proves useful.
+<P>
+<A HREF="rle6.html"><IMG SRC="rle6.gif"></A>
+<P>
+
+At the time of writing this is the fastest and smallest known stable
+reflector.  Nonetheless it is still very slow and very large.  Major
+improvements can only come from methods that do not involve moving a
+Herschel round to fix some defect created by the glider impact, but
+all attempts to find such a method have so far failed.
+<P>
+Another track gave the following glider-to-pi converter making
+use of Paul Callahan's 95-step Herschel-to-pi conduit, which
+happens to fire a glider in just the right way.
+<P>
+<A HREF="rle7.html"><IMG SRC="rle7.gif"></A>
+<P>
+
+This was nice, but there was no known way of converting the pi-heptomino
+into a Herschel, so it didn't result in an improved glider-to-Herschel
+converter.  In fact the best I could manage was the following, only
+slightly faster than Paul's original, and also larger.
+<P>
+<A HREF="rle8.html"><IMG SRC="rle8.gif"></A>
+<P>
+
+But later that same month Paul found a pi-to-Herschel conduit that can be
+added to his Herschel-to-pi conduit to make a 176-step Herschel conduit.
+This was just what I needed to produce a much faster glider-to-Herschel
+converter, also smaller than my last one:
+<P>
+<A HREF="rle9.html"><IMG SRC="rle9.gif"></A>
+<P>
+
+It should perhaps be pointed out that all these reflectors and converters
+are not quite as bad as their large recovery times make them appear.
+It is possible, for certain periods, to pack multiple active objects into
+the reflector/converter with each one deleting the beehive (or, in the case
+of Dave Buckingham's reflector, replacing the boat) that would normally be
+dealt with by a later one. 
+
+As an example of this, here is a p157 gun
+consisting of two copies of the latest stable reflector:
+<P>
+p157 glider gun using two stable reflectors.
+<P>
+<A HREF="rle10.html"><IMG SRC="rle10.gif"></A>
+<P>
+<EM>(It can be
+shown that such a reflector loop can be packed 
+to period k iff (r-1) mod k >= 114, where r is the recovery time. The
+time around the whole loop must, of course, be a multiple of k --PBC)</EM>.
+
+
+<H1>Glider-to-spaceship converters</H1>
+Paul Callahan had used his stable glider-to-Herschel converter to
+produce stable glider-to-LWSS and glider-to-MWSS converters.  Unaware
+of Paul's work I produced similar glider-to-spaceship converters, also
+based on his glider-to-Herschel converter.  When we compared notes,
+Paul had the smaller glider-to-MWSS and I had the smaller glider-to-LWSS.
+But all of our constructions were very slow, being limited by the recovery
+time of 894 of the glider-to-Herschel stage.
+<P>
+The new faster glider-to-Herschel converter naturally led to faster
+glider-to-spaceship converters.  New Herschel conduits and a (relatively)
+small method of duplicating a Herschel that I had not previously been
+aware of led to reductions in size as well.  Here then are some of the
+better glider-to-spaceship converters that I have made, one for each
+of the three basic orthogonal spaceships.  In each case the recovery time
+is 629 because of the glider-to-Herschel stage, the Herschel-to-spaceship
+stage being much faster (262 in all cases, the bottleneck being the Herschel
+duplicator).
+<P>
+<A HREF="rle11.html"><IMG SRC="rle11.gif"></A>
+<P>
+
+<A HREF="rle12.html"><IMG SRC="rle12.gif"></A>
+<P>
+
+<A HREF="rle13.html"><IMG SRC="rle13.gif"></A>
+<HR>
+<A HREF="../../lifepage.html#newresults"><IMG SRC="../../larrw.gif"></A>
+Back to Paul's Page of Conway's Life Miscellany

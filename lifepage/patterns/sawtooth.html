@@ -1,0 +1,25 @@
+<TITLE>sawtooth.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=sawtooth>
+</applet>
+<H1>Comments for <A HREF="sawtooth.lif">sawtooth.lif</A></H1>
+<PRE>
+Orthogonal sawtooth with expansion factor 6
+Population is unbounded but does not tend to infinity.  Its graph is
+a sawtooth function with ever-increasing teeth.  More specifically,
+the population in generations  t  near  28*6^n  is about  t/5  if
+t  is odd and about  3t/20  if  t  is even, but the population in
+generation  14*6^n - 84  (n>=2)  is only 562.  (Even more
+specifically, the population in generation  t = 28*6^n + 12  (n>=1),
+is 3t/20 + 555  and it drops to  t/5 + 599  in the next generation.)
+
+This uses a spark from a period 4, speed c/4 orthogonal spaceship,
+found by Tim Coe, to turn one LWSS into a loaf, which is then pulled
+back by subsequent pairs of LWSSs. When the loaf is pulled all the
+way back, it gets deleted and the cycle begins again.
+
+Dean Hickerson, dean@ucdmath.ucdavis.edu  8/14/92
+Tim Coe, coe@vitsemi.com  8/11/95
+</PRE>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

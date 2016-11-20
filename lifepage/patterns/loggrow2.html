@@ -1,0 +1,23 @@
+<TITLE>loggrow2.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=loggrow2>
+</applet>
+<H1>Comments for <A HREF="loggrow2.lif">loggrow2.lif</A></H1>
+<PRE>
+log(t)^2
+Population in generation t is asymptotic to
+(5 log(t)^2)/(3 log(2)^2).  More specifically, for
+n>=2,  the population in generation  960*2^n  is
+5n^2/3 + 60n + 1875 + (if  n mod 3 = 0  then 0 else 25/3).
+This uses a caber tosser, a modified block pusher, and a toggleable
+p120 gun.  Each glider from the caber tosser turns on the gun and
+causes the block pusher to go through one cycle (sending out a
+salvo and awaiting the return gliders).  When the cycle is
+complete, the gun is turned back off.
+Dean Hickerson, dean@ucdmath.ucdavis.edu  4/24/92
+</PRE>
+Xref:
+<A HREF="pusher.html">pusher</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

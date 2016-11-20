@@ -1,0 +1,34 @@
+<TITLE>hacksaw.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=hacksaw>
+</applet>
+<H1>Comments for <A HREF="hacksaw.lif">hacksaw.lif</A></H1>
+<PRE>
+Hacksaw  (orthogonal sawtooth with expansion factor 9)
+Population is unbounded but does not tend to infinity.  Its graph is a
+sawtooth function with ever-increasing teeth.  More specifically, the
+population in generation t = 385*9^n - 189 (n>=1), is t/4 + 1079, but the
+population in generation 1155*9^n - 179 (n>=0) is only 977.
+
+The pattern consists of two parts, a stationary shotgun and a set
+of puffers moving east.  The shotgun produces, and usually destroys, a salvo
+consisting of a MWSS and 2 LWSSs.  The moving part consists of a period 8
+blinker puffer (found by Bob Wainwright), and two p24 glider puffers, whose
+output gliders destroy each other (with help from an accompanying MWSS).  In
+generation 385*9^n - 189 (n>=1) (and 228 for n=0), a salvo hits the back end
+of the row of blinkers, causing it to decay at 2c/3.  When the row is
+completely gone, a new row starts to form and a spark is produced.  The spark
+is turned into a glider by an accompanying HWSS; the glider is turned into a
+westward LWSS, in generation 1155*9^n - 127 (n>=0), by interaction with the
+glider puffers.  (This 3 glider synthesis of a LWSS is due to David
+Buckingham.) When the LWSS hits the shotgun, in generation 2310*9^n - 184
+(n>=0), another salvo is released, starting the cycle again.
+
+The idea for this sawtooth pattern was suggested by Bill Gosper.
+Dean Hickerson, dean@ucdmath.ucdavis.edu  7/8/92
+</PRE>
+Xref:
+<A HREF="sawtooth.html">sawtooth</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

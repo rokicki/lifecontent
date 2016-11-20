@@ -1,0 +1,34 @@
+<TITLE>sawtoot4.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=sawtoot4>
+</applet>
+<H1>Comments for <A HREF="sawtoot4.lif">sawtoot4.lif</A></H1>
+<PRE>
+Orthogonal sawtooth with expansion factor 11
+Population is unbounded but does not tend to infinity.  Its graph is a
+sawtooth function with ever-increasing teeth.  More specifically, the
+population in generation t = 36*11^n - 37 (n>=1), is 7(t+1)/30 + 746, but the
+population in generation 12*11^n - 51 (n>=1) is only 635 if n is even, 633 if
+n is odd.  This uses a spark from a period 9, speed c/3 orthogonal spaceship,
+found by David Bell, to turn a LWSS into a loaf, which is then pulled back by
+pairs of LWSSs.  When the loaf is pulled all the way back, it gets deleted and
+the cycle begins again.  (The deletion is caused by interaction with a LWSS
+and with 3 gliders which would otherwise form a LWSS.)
+
+Try putting something in the path of the c/3, far away from the guns.  When
+the beam of LWSSs hits the resulting garbage, it is likely that a loaf will
+eventually be formed and pulled back.  No matter where the loaf starts, when
+it reaches the guns it will be deleted by one of 3 different reactions.  (The
+block behind the c/3 is used for one of these; it's not needed for the
+sawtooth pattern itself.) The beam of LWSSs will again be released and may
+eventually form another loaf.  The process may be repeated many times until
+either the LWSS beam burns through the garbage or the reaction moves upstream
+and consumes the guns.
+
+Dean Hickerson, dean@ucdmath.ucdavis.edu  5/15/92
+</PRE>
+Xref:
+<A HREF="sawtooth.html">sawtooth</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

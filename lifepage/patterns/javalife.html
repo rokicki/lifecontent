@@ -1,0 +1,106 @@
+<TITLE>The Java-Animated Life Archive</TITLE>
+<H1>The Java-Animated Life Archive</H1>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value="stretch">
+<param name=started value="started">
+</applet>
+<P>
+Shown above
+is the <A HREF="stretch.html">wick stretcher</A>.
+If you see just a heading, then your browser probably
+doesn't support Java.
+Other Life patterns can be found in
+the <A HREF="contents.html">illustrated catalog</A>. 
+The <A HREF="LifeApp.java">Java source code</A> is available,
+and the <A HREF="#algorithm">algorithm</A> is described below.
+<H2>Usage Notes</H2>
+<UL>
+<LI>
+The above display is merely
+a window on a Life pattern that might be much larger.
+Scroll by clicking near the boundaries.
+<LI>
+The <STRONG>Recenter</STRONG> button translates the pattern so that
+at least one live cell is in the window.  Use it
+to find patterns that have moved off-screen.
+<LI>
+The <STRONG>"<"</STRONG> and <STRONG>">"</STRONG> buttons control
+the magnification.
+</UL>
+<H2>Performance</H2>
+The maximum update speed is set at 
+20 generations per second.  The actual speed
+will be slower for extremely large patterns (of which
+there are many in the archive).  
+This animator is only provided for convenience in viewing the
+archive through the web.
+Several simulators available through
+the 
+<A HREF="../lifepage.html">main Life page</A>
+are orders of magnitude faster,
+and are much better suited to viewing large patterns.
+<P>
+Patterns are downloaded as gif-encoded images.   The patterns
+were originally converted to gif files
+for display in the illustrated catalog.  This turned out
+to be a very concise representation,
+so downloading is not a bottleneck even for the patterns that look really big.
+Once you see the gif, you have the pattern.
+The Java API provides methods for
+downloading images and extracting pixels,
+and this novel application may be of interest to those
+looking for an example of the PixelGrabber class.
+<A NAME="algorithm"><H2>Life Algorithm</H2></A>
+There are faster ways to do Life generation, but the approach
+I used is fairly simple and sufficient for present needs.  
+For a more sophisticated Life implementation,
+see <A HREF="http://www.mindspring.com/~alanh/life/">Alan
+Hensel's web page</A>.
+My two main criteria were to
+impose no arbitrary limits on universe size, and to exploit
+pattern sparsity.  Coding simplicity was also a big plus, since
+I wanted to get this applet up and running <EM>correctly</EM> as soon as 
+possible.  
+<P>
+The primary data structure is a list of live cell coordinates in row-major
+order.  That is, cells are ordered top to bottom, and then left to right
+for cells on the same row.  A cell is stored as an int, with coordinates
+packed into bit fields.  The sign bit is unused.  Bits 18-30 store the y
+coordinate, bits 5-17 store the x coordinate, and bits 0-4 are reserved
+for accumulating neighborhood information.
+Note that sorting these int values in increasing order is equivalent to
+sorting the cells in
+row major order.
+<P>
+<EM>
+<BLOCKQUOTE>
+The astute reader may object that the universe
+size is arbitrarily limited to 8192x8192.
+That's true, but this is big enough for all the patterns in
+the archive.  More importantly, the size is tied to
+number representation rather than array allocation, so we could
+make the universe big enough to satisfy just about anyone if we moved up to 64 bit words.
+</BLOCKQUOTE>
+</EM>
+<P>
+Now, given this representation, it is easy, for example, to compute the 
+set of all neighbors to the east of live cells just by adding a displacement.
+This operation also preserves row major order.  A list of cells and their
+neighbors can also be merged while preserving row major order in the
+same manner that sorted lists are merged for merge sort.  The only
+difference is that if
+cells have identical coordinates, we combine them by adding the contents of bits 0-4.
+The method for this can be found in LifeGenerate.combineLists().
+If we initialize the 0-4 bit field of each live cell to 2, then after a sequence of 
+such merges, we obtain twice the total count of
+cells in every non-empty 3x3 box in the Life universe.
+<P>
+Finally, we subtract 1 from the count obtained for each 
+box centered at a live
+cell.  It is easy to see that now the neighborhood list  
+contains enough information to compute the next generation.
+Bit 0 encodes whether the cell is live or dead, while bits 1-4
+contain the number of neighbors.
+A final pass using a lookup table computes the
+next generation, discarding dead cells, while initializing
+live cells for the next generation.

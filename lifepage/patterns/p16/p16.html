@@ -1,0 +1,549 @@
+<TITLE>p16 Puffer Engine Mail Digest</TITLE>
+<H1>Tim Coe's p16 puffer engine</H1>
+Patterns such as the 
+<A HREF="../gun30.html">p30 glider gun</A> 
+and the 
+<A HREF="../puftrain.html">p20 puffer train</A>
+are well
+known to anyone who has looked at the numerous published
+references to Conway's Game of Life.  It is less widely recognized that
+there is almost certainly a great wealth of
+guns, puffers, and other interesting patterns
+that have yet to be discovered.  A combination of 
+computerized search, experience, and ingenuity has led to the
+discovery of many such patterns over the years.
+<P>
+One very recent example is the p16 puffer engine found
+by Tim Coe.  The following mail digest contains a number of
+new patterns not archived elsewhere.  These letters
+illustrate the speed at which such a discovery can be 
+applied to new designs, given the tools and
+experience that have developed over the years.
+Images appearing on this page are links to
+patterns that can be downloaded and viewed using a Life simulator.
+If your browser supports Java, then an animator will 
+be invoked as well.
+<HR>
+<EM>Date: Thu, 26 Oct 95 12:13:45 PDT</EM><BR>
+<EM>From: coe@vitsemi.com (Tim Coe)</EM><BR>
+<EM>Subject: Period 16 puffer engine</EM><BR>
+<P>
+I was looking through the output of one of my flipper
+searches and I saw a ship that looked liked it might
+be robust with respect to some amputation.  I ended
+up with the following period 16 c/2 puffer engine that
+by itself leaves no exhaust.  It is quite robust to
+perturbation and I have included some amusing puffers
+that I have managed to construct.
+<P>
+Have a lively day,
+<P>
+-Tim Coe      coe@vitsemi.com
+<P>
+  A period 16 c/2 puffer engine that by itself leaves  no exhaust.<P>
+<A HREF="pic1.html"><IMG SRC="pic1.gif"></A>
+<P>
+
+  A period 16 c/2 block puffer.  Omitting the top  spaceship results in a period 16 blinker puffer.<P>
+<A HREF="pic2.html"><IMG SRC="pic2.gif"></A>
+<P>
+
+  A period 16 c/2 tub puffer.<P>
+<A HREF="pic3.html"><IMG SRC="pic3.gif"></A>
+<P>
+
+  A period 128 puffer that emits a backwards  going spaceship and assorted other junk.  The lower left spaceship is there to perturb  the exhaust in such a manner as to allow  the generated spaceships to escape.<P>
+<A HREF="pic4.html"><IMG SRC="pic4.gif"></A>
+<P>
+
+
+<HR>
+<EM>From: callahan@blaze.cs.jhu.edu (Paul Callahan)</EM><BR>
+<EM>Date: Thu, 26 Oct 95 19:40:40 EDT</EM><BR>
+<EM>Subject: Re:  Period 16 puffer engine</EM><BR>
+<P>
+The new engine seemed ideally suited to an automated collision enumeration
+(being so small and clean).  The enumeration (interactions between engines
+and spaceships) turned up a smaller block puffer:
+<P>
+<A HREF="pic5.html"><IMG SRC="pic5.gif"></A>
+<P>
+
+The enumeration also found a blinker puffer (I haven't checked if it's 
+identical to the one mentioned by Tim Coe).  I don't trust my choice
+of parameters, and I'm going to try another enumeration, but for now I
+have 14 results total.  Many are "dirty" puffers.  Some are simply
+perturbations of the spark that do not actually result in a puffer.   
+I put all the results together into the following pattern.  They don't
+destroy each other but they do interact, so it will be necessary to
+cut and paste to examine each other separately:
+<P>
+<A HREF="rle1.html"><IMG SRC="rle1.gif"></A>
+<P>
+
+I noticed that two of the interactions with an MWSS result in identical
+exhaust.  However, the placements themselves are slightly different.  I
+haven't done any "human" filtering of this file.  It's just the raw
+results.
+<P>
+Another promising idea may be to react mirror images of the new
+engine against each other.
+<P>
+--Paul
+<P>
+
+<HR>
+<EM>From: callahan@blaze.cs.jhu.edu (Paul Callahan)</EM><BR>
+<EM>Date: Thu, 26 Oct 95 21:34:08 EDT</EM><BR>
+<EM>Subject: Re:  Period 16 puffer engine</EM><BR>
+<P>
+Here are two more clean puffers based on the new engine. These were  
+found by enumerating reactions of spaceships and dirty puffers composed 
+of the engine and another spaceship.  I viewed all non-self-destructive
+combinations in Xlife, and picked these out by eye.  
+<P>
+<A HREF="pic6.html"><IMG SRC="pic6.gif"></A>
+<P>
+
+
+I haven't found a rake (i.e. glider puffer) yet.
+<P>
+--Paul
+<P>
+
+<HR>
+<EM>From: callahan@blaze.cs.jhu.edu (Paul Callahan)</EM><BR>
+<EM>Date: Thu, 26 Oct 95 22:18:37 EDT</EM><BR>
+<EM>Subject: A period 16 rake (backward propagating gliders)</EM><BR>
+<P>
+I knew my collision enumerator would come in handy again one of these
+days (I haven't found much with it in months before today).
+<P>
+Anyway, here is a period 16 rake using Tim Coe's engine.  Gliders propagate
+backward with respect to rake propagation.
+<P>
+
+<A HREF="pic7.html"><IMG SRC="pic7.gif"></A>
+<P>
+
+I haven't found a forward rake, but the enumeration is still going, and 
+I'll post if one shows up.
+<P>
+--Paul
+<P>
+
+<HR>
+<EM>From: callahan@blaze.cs.jhu.edu (Paul Callahan)</EM><BR>
+<EM>Date: Fri, 27 Oct 95 13:42:40 EDT</EM><BR>
+<EM>Subject: Other puffers with Coe's p16 engine</EM><BR>
+<P>
+I went over all the different puffers that came up in the enumeration
+and selected those that seemed well-behaved.  Besides p16 puffers, there
+are p32 puffers for blocks and tubs, and a p48 blinker puffer.
+Here's the full set:
+<P>
+<A HREF="rle2.html"><IMG SRC="rle2.gif"></A>
+<P>
+
+Besides puffers, there were lots of spaceships.  Two had what seemed to
+be interesting sparks.  The spark on this one is really big and chaotic:
+<P>
+
+<A HREF="pic8.html"><IMG SRC="pic8.gif"></A>
+<P>
+
+The next one just seemed to have kind of a pretty spark.  I've caught
+it sparking in the following picture:
+<P>
+
+<A HREF="pic9.html"><IMG SRC="pic9.gif"></A>
+<P>
+
+--Paul
+<P>
+
+<HR>
+<EM>From: callahan@blaze.cs.jhu.edu (Paul Callahan)</EM><BR>
+<EM>Date: Fri, 27 Oct 95 18:09:29 EDT</EM><BR>
+<EM>Subject:  p32 forward rake with Coe's engine</EM><BR>
+<P>
+Two of the dirty puffers I got with my original enumeration produced forward
+gliders with period 32.  I tried adding another spaceship and managed to
+stabilize the exhaust down to a block, but not eliminate it entirely.
+Finally, I added another HWSS to get rid of the block, though I was
+originally hoping I wouldn't have to.  Anyway, here is the resulting
+p32 forward rake:
+<P>
+<A HREF="pic10.html"><IMG SRC="pic10.gif"></A>
+<P>
+
+I don't know if there is a better solution than this.
+<P>
+--Paul
+<P>
+
+<HR>
+<EM>From: Noam Elkies <elkies@MATH.HARVARD.EDU></EM><BR>
+<EM>Date: Fri, 27 Oct 1995 18:19:04 -0400</EM><BR>
+<EM>Subject: Re:  p32 forward rake with Coe's engine</EM><BR>
+<P>
+<A HREF="pic11.html"><IMG SRC="pic11.gif"></A>
+<P>
+
+<BR>
+>I don't know if there is a better solution than this.
+<P>
+Neato!  The only improvement I see is that the trailing HWSS
+could just as well be a MWSS and still delete the blocks cleanly.
+<P>
+NDE
+<P>
+
+<HR>
+<EM>Date: Sat, 28 Oct 1995 01:07-0700</EM><BR>
+<EM>From: Bill Gosper <rwg@NEWTON.macsyma.com></EM><BR>
+<EM>Subject: p16 forward rakes</EM><BR>
+<P>
+Paul> Besides puffers, there were lots of spaceships.
+<PRE>
+Any  o  or  o  or  oo  or  o
+    o      o o    o        o o  sparks?  Or do we only want
+</PRE>
+single-engine rakes?  E.g., if you're *desperate*,
+<P>
+<A HREF="pic12.html"><IMG SRC="pic12.gif"></A>
+<P>
+
+
+<HR>
+<EM>Date: Sat, 28 Oct 1995 13:13:03 -0700</EM><BR>
+<EM>From: Mark D. Niemiec <mniemiec@interserv.com></EM><BR>
+<EM>Subject: Synchronous P32 breeder based on Tim Coe's P16 engine</EM><BR>
+<P>
+#C Synchronous P32 breeder based on Tim Coe's P16 engine:
+#C Breeder makes new puffer every 32 generations;
+#C Puffers make new blinker every 32 generations.
+<P>
+<A HREF="rle3.html"><IMG SRC="rle3.gif"></A>
+<P>
+
+
+-- Mark D. Niemiec <mniemiec@interserv.com>
+<P>
+
+
+<HR>
+<EM>Date: Sat, 28 Oct 1995 13:13:16 -0700</EM><BR>
+<EM>From: Mark D. Niemiec <mniemiec@interserv.com></EM><BR>
+<EM>Subject: P16 spaceship, etc.</EM><BR>
+<P>
+Sorry for delays in responding to mail,
+To Bob Wainwright:
+<BR>
+> Some time ago, you indicated that a list of sparkers and eaters was
+<BR>
+> available.  Is this still true?  If so, I would like a copy.  Either list or
+<BR>
+> both would be greatly appreciated.
+I have recently downloaded the entire Life archives, and am working my way
+through 4 years of back mail, fleshing out my collections of oscillators,
+sparkers, eaters, etc.  When done, I intend to post them, including any
+other stuff I have kicking around which has never been sent to the list.
+<P>
+
+To Dave Buckingham:
+P256gun is extremely elegant (and not obvious;  even after seeing the original,
+I spent two days trying to re-construct part of it from memory, and was not
+able to stumble across the correct placement of even one of the blocks!)
+<P>
+
+To Tim Coe:  Congratulations on the new spaceship!
+This is so simple (and the large part is similar to other
+almost-spaceships which so often arise naturally), that it is amazing
+that nobody found this one before.
+<P>
+Some minor additions to the new P16 spaceship:
+<P>
+
+A simple 2-part glider synthesis (eventually needing 9 gliders):
+<P>
+<A HREF="pic13.html"><IMG SRC="pic13.gif"></A>
+<P>
+
+This requires four gliders from the right side, making it suitable
+for construction by puffers.  If the MWSS is made first and the
+LWSS is inserted instead, it requires one glider from each direction,
+making it more suitable for gun-based construction.
+<P>
+
+The spaceship can be widened by one (although I can't think of
+how this would be useful, since it doesn't provide any extra
+sparks, and is more difficult to construct and get close to
+with catalyzing spaceships):
+<P>
+<A HREF="pic14.html"><IMG SRC="pic14.gif"></A>
+<P>
+
+
+The spaceship can be used as an improved HWSS for sparking other
+puffers, since it has a P4 side-spark, but only a P16 tail-spark,
+making it much less intrusive.
+<P>
+This simple blinker puffer works catalyzed by the P16 (and works in
+3 out of the 4 possible phases), but eats a HWSS employed for the
+same purpose.  There are probably lots of other almost-ran puffers
+which have been overlooked because they attack an HWSS, but could
+work successfully with the P16.
+<P>
+<A HREF="pic15.html"><IMG SRC="pic15.gif"></A>
+<P>
+
+
+Here are some more P32 mechanisms.  The first is a clean
+P32 spaceship with a plume over 100 pixels long:
+<P>
+<A HREF="rle4.html"><IMG SRC="rle4.gif"></A>
+<P>
+
+
+-- Mark D. Niemiec <mniemiec@interserv.com>
+<P>
+
+
+<HR>
+<EM>Date: Sat, 28 Oct 95 17:12:19 PDT</EM><BR>
+<EM>From: coe@vitsemi.com (Tim Coe)</EM><BR>
+<EM>Subject: p32 LWSS backrake</EM><BR>
+<P>
+I am in awe at how quickly so many neat things
+have been created using this new P16 engine.
+<P>
+Great stuff Paul, Bill, and Mark.
+<P>
+Live long and prosper,
+<P>
+-Tim Coe      coe@vitsemi.com
+<P>
+  A period 32 LWSS backrake.  The P32 forward  glider rake prevents period multiplying exhaust  reactions.  The P32 sparker's purpose is to  get rid of a pesky beehive that I could not  eradicate with spaceships.<P>
+<A HREF="pic16.html"><IMG SRC="pic16.gif"></A>
+<P>
+
+  This is the period 4 flipper ship that I  cut up to create the P16 puffer engine.  This illustrates how two engines can share  a stabilizing spaceship and be either 60  or 180 degrees out of phase.<P>
+<A HREF="pic17.html"><IMG SRC="pic17.gif"></A>
+<P>
+
+
+<HR>
+<EM>Date: Sat, 28 Oct 1995 23:26-0700</EM><BR>
+<EM>From: Bill Gosper <rwg@NEWTON.macsyma.com></EM><BR>
+<EM>Subject: Period 16? puffer engine</EM><BR>
+<P>
+    [...]  I ended
+    up with the following period 16 c/2 puffer engine that
+    by itself leaves no exhaust.
+<P>
+Nice work.
+				  It is quite robust
+I'll say
+<P>
+    to perturbation and I have included some amusing puffers
+    that I have managed to construct.
+    [...]
+    #D A period 16 c/2 block puffer.
+    [...]
+    #D A period 16 c/2 tub puffer.
+    [...]
+<P>
+
+  A period 24 hive puffer.<P>
+<A HREF="pic18.html"><IMG SRC="pic18.gif"></A>
+<P>
+
+
+<HR>
+<EM>Date: Sun, 29 Oct 1995 01:56-0700</EM><BR>
+<EM>From: Bill Gosper <rwg@NEWTON.macsyma.com></EM><BR>
+<EM>Subject: Period 16? puffer engine</EM><BR>
+<P>
+	#D A period 16 c/2 block puffer.
+	[...]
+	#D A period 16 c/2 tub puffer.
+	[...]
+    #D A period 24 hive puffer.
+<P>
+A.k.a. p40:
+<P>
+<A HREF="pic19.html"><IMG SRC="pic19.gif"></A>
+<P>
+
+
+<HR>
+<EM>From: "David I. Bell" <dbell@auug.org.au></EM><BR>
+<EM>Subject: P32 sideways LWSS rake</EM><BR>
+<EM>Date: Sun, 29 Oct 1995 21:55:18 +1100</EM><BR>
+<P>
+The new p16 engine is real nice!  I have impacted gliders into it in various
+ways to see what results.  Many different objects can be formed without
+destroying the engine, including one of the rare still-lifes.
+<P>
+This is the most important result.  The following shows a forwards glider
+being converted into a LWSS which travels upwards:
+<P>
+<A HREF="pic20.html"><IMG SRC="pic20.gif"></A>
+<P>
+
+
+The reaction just barely fails to be repeatable every 16 generations, sigh.
+But it easily runs every 32 generations.
+<P>
+Here is a sideways LWSS rake based on this and the recent p32 forwards rake:
+<P>
+<A HREF="rle5.html"><IMG SRC="rle5.gif"></A>
+<P>
+
+
+If a smaller forwards rake can be found, then this LWSS puffer can be
+correspondingly improved.
+<P>
+Finally, here are some glider turning reactions that I found.
+In these three, forwards gliders are reflected back the way they came.
+The outgoing phase differs for each of these reactions.
+<P>
+<A HREF="rle6.html"><IMG SRC="rle6.gif"></A>
+<P>
+
+
+Here is a glider turning reaction which turns a backwards traveling
+glider 90 degrees still moving to the back.  The rear spaceship is just
+there to delete a loaf.
+<P>
+<A HREF="rle7.html"><IMG SRC="rle7.gif"></A>
+<P>
+
+
+It is a shame that no trivial backwards to forwards glider turning reaction
+exists with this engine.  But that can be done using a few standard spaceships
+anyway...
+<P>
+BCNU,
+-dbell-
+<P>
+
+<HR>
+<EM>From: "David I. Bell" <dbell@auug.org.au></EM><BR>
+<EM>Subject: More about the new p16 engine, and "readout" devices</EM><BR>
+<EM>Date: Mon, 30 Oct 1995 23:48:52 +1100</EM><BR>
+<P>
+Here are more results concerning the new puffer engine...
+<P>
+Here is a relatively small p16 forwards glider rake.  This is easily
+built from the previous backwards p16 rake and a glider turning reaction:
+<P>
+<A HREF="rle8.html"><IMG SRC="rle8.gif"></A>
+<P>
+
+
+Here are two reactions in which a LWSS is turned into a glider by the new
+p16 engine.  One of these creates a forwards glider and the other one creates
+a backwards glider.  (These might be useful because of my previously shown
+glider to LWSS reaction.)
+<P>
+<A HREF="rle9.html"><IMG SRC="rle9.gif"></A>
+<P>
+
+
+Here is a reaction in which the new p32 big spark turns a block into
+a glider:
+<P>
+<A HREF="rle10.html"><IMG SRC="rle10.gif"></A>
+<P>
+
+
+Finally here is a reaction in which the p32 big spark engine turns a block
+into a glider and another block in the same column as the original one:
+<P>
+<A HREF="rle11.html"><IMG SRC="rle11.gif"></A>
+<P>
+
+
+By using two copies of this reaction in succession, and adding an extra
+spaceship to delete the extra glider, you can create a "readout" device,
+where a row of blocks can be non-destructively scanned into corresponding
+glider outputs.  The blocks can be placed every 16 cells along the row.
+The following shows the block pattern 1101 being read out:
+<P>
+<A HREF="rle12.html"><IMG SRC="rle12.gif"></A>
+<P>
+
+
+This is pretty complicated for what it does, but was interesting to find!
+Does anyone know of a simpler readout device which can non-destructively
+turn a row of objects into gliders?
+<P>
+
+BCNU,
+-dbell-
+<P>
+
+<HR>
+<EM>From: "David I. Bell" <dbell@auug.org.au></EM><BR>
+<EM>Subject: P32 backwards rake from Tim Coe's engine</EM><BR>
+<EM>Date: Thu, 09 Nov 1995 21:23:20 +1100</EM><BR>
+<P>
+Here is a backwards p32 rake made from the new p16 engine:
+<P>
+<A HREF="rle13.html"><IMG SRC="rle13.gif"></A>
+<P>
+
+
+If the rear beehive is deleted, then a different backwards glider is
+produced from the other side of the puffer, as in the following rake:
+<P>
+<A HREF="rle14.html"><IMG SRC="rle14.gif"></A>
+<P>
+
+
+Deleting the behive on demand with forwards gliders also works,
+switching the output gliders from one side of the rake to the other:
+<P>
+<A HREF="rle15.html"><IMG SRC="rle15.gif"></A>
+<P>
+
+
+As a recap, here are the best known forwards and backwards p16 and p32
+rakes based on this engine all together in one picture:
+<P>
+<A HREF="rle16.html"><IMG SRC="rle16.gif"></A>
+<P>
+
+
+BCNU,
+-dbell-
+<P>
+
+<HR>
+<EM>From: "David I. Bell" <dbell@auug.org.au></EM><BR>
+<EM>Subject: Some more p16 engine results</EM><BR>
+<EM>Date: Sat, 11 Nov 1995 15:32:16 +1100</EM><BR>
+<P>
+Here is a rather large and ugly p32 sideways MWSS rake constructed from
+the new p16 engine.  It turned out to be amazingly difficult to find a
+correct pre-block from any of the the puffer debris of a p16 engine placed
+such that it could be hit by a glider to form a MWSS.  There must be a
+better solution this this!
+<P>
+<A HREF="rle17.html"><IMG SRC="rle17.gif"></A>
+<P>
+
+
+Here is another clean big p32 spark that can be used to perturb stuff:
+<P>
+<A HREF="rle18.html"><IMG SRC="rle18.gif"></A>
+<P>
+
+BCNU,
+-dbell-
+<P>
+<HR>
+<A HREF="../../lifepage.html#newresults"><IMG SRC="../../larrw.gif"></A>
+Back to Paul's Page of Conway's Life Miscellany

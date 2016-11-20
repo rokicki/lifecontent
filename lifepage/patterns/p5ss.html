@@ -1,0 +1,40 @@
+<TITLE>c/5 Orthogonal spaceship</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value="p5ss">
+</applet>
+<H1>c/5 Orthogonal spaceship</H1>
+<EM>From: coe@vitsemi.com (Tim Coe)</EM><BR>
+<EM>Date: Wed, 31 Jan 96 08:45:59 PST</EM><BR>
+<EM>Subject: An orthogonal c/5 ship</EM>
+<P>
+Eight solid weeks of cpu time on a Pentium Pro
+133 and an average of 5 Hypersparcs for six weeks
+have finally resulted in success in my width 9
+search for a c/5 symmetric orthogonal ship with
+dead cells down the middle (actual width 19).
+The Pentium Pro had the actual honors of spitting
+the ship out last night.
+<P>
+Source code for my search program is available to
+anybody who wants it.  It now has a usage statement,
+command line options, and checkpointing.  It still
+has no comments in the main code.  The checkpointing
+format allows fairly easy chopping of a search into
+multiple pieces through the use of "head" and "tail"
+and thus distributing the work among multiple CPUs.
+<P>
+Upon reading some of Harold Mackintosh's writing I
+have learned that my search algorithm can quite
+precisely be described as being an extender of DeBruijn
+diagrams.  Over the next couple of months I am planning
+to write up a more complete description of my algorithm.
+<P>
+I've been searchin' so long,
+<P>
+-Tim Coe     coe@vitsemi.com
+<P>
+  A period 5 spaceship that travels  orthoganally at c/5.  To the best  of my knowledge the first one found.      Tim Coe   January 31, 1996<P>
+<A HREF="p5ss.life"><IMG SRC="p5ss.gif" ALIGN=TOP></A>
+<HR>
+<A HREF="../lifepage.html#newresults"><IMG SRC="../larrw.gif"></A>
+Back to Paul's Page of Conway's Life Miscellany

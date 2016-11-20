@@ -1,0 +1,3110 @@
+From comp.theory.cell-automata Wed Dec  7 16:02:43 1994
+Path: blaze.cs.jhu.edu!biffvm.cs.jhu.edu!not-for-mail
+From: callahan@biffvm.cs.jhu.edu (Paul Callahan)
+Newsgroups: comp.theory.cell-automata
+Subject: Program to search for collisions in Conway's Life (description)
+Date: 6 Dec 1994 23:06:24 -0500
+Organization: Computer Science Department, The Johns Hopkins University
+Lines: 174
+Distribution: inet
+Message-ID: <3c3cc0$rl4@biffvm.cs.jhu.edu>
+NNTP-Posting-Host: biffvm.cs.jhu.edu
+
+Since June, I've been playing around with a fairly general C program I
+wrote to enumerate and test collisions and other pattern interactions
+in Conway's Game of Life, and I've decided to make the code publicly
+available by posting it here.  I'm quite certain I'm not the first
+person to write such a program, but all the same, I never found such
+code available and had to write it myself, so I imagine others may be in a
+similar position.
+
+The code may also be unusual in that it combines fast Life generation
+code (exploiting sparsity and bit parallelism) with an enumerative
+search for collisions.  It is also considerably more sophisticated in
+choosing which collisions to enumerate than the obvious approach of
+overlaying patterns at all sufficiently close translations from each
+other.  For example, it eliminates almost all collisions that cannot
+be attained by patterns that are initially separated from each other.
+
+In any case, it has been fast enough to be much much faster than
+searching for interactions by hand, which makes it a very useful tool.
+For example, in roughly 12 seconds on a SparcStation ELC, it can
+produce all pairs of glider collisions that result in annihilations in
+<=40 steps from interaction.  Also, being very generous with the
+search range, it takes 161 secondes to determine how to combine the
+queenbee shuttles to get a p30 glider gun.  You can speed up this
+particular search considerably if you reduce the search range by
+examining the behavior of the patterns, but the nice thing about the
+program is that it frees you from having to think about the search
+range at all, as long as you have the extra minutes to spare.  In 4.2
+seconds, it can find the block stabilizer for the queenbee, and in 5.1
+seconds it can find both eater stabilizers.  In 46 seconds, it can
+find the position of an LWSS with respect to a b-heptomino that gives
+the interaction necessary for the p20 puffertrain.  As these examples
+show, the program is also quite robust in the variety of searches that
+it supports.  The commands needed to test all of the above searches
+are given in a shell-script that is included with the distribution.
+
+I am distributing code with the next posting as a shell archive.  The
+README is duplicated below:
+
+---From README---
+
+
+Overview:
+--------
+
+The following directory contains the source and related files for
+"gencols" a program that searches for pattern interactions in Conway's 
+Game of Life by generating interactions between pairs of patterns 
+within a range of user-determined parameters, and which filters the output for 
+"interesting" objects (those with special properties).  This 
+includes, but is by no means limited to, collisions occurring between
+pairs of gliders.
+
+The result of a successful search will be a list of patterns, one on
+each line.  Each pattern is encoded as a string in the first field
+of the line, and additional fields give some extra information about
+the collision.  The encoding is quite simple: '.' denotes a
+dead cell, '*' denotes a live cell, and '!' denotes the action "move to 
+beginning of next row" (assumed to have the same x coordinate as the first
+cell in the string).  Also, a program "makematrix" is provided to convert such
+a list into a Life pattern suitable for viewing with Xlife 3.0, in which
+collisions are positioned in a regular array.
+
+Installing:  see the file "Installing"
+----------
+
+What's included?
+---------------
+Three C programs:
+
+     gencols <big complicated list of arguments>
+
+          gencols is a Life collision generator that is the main program 
+          provided in this distribution.  See the file "Arguments.Explanation" 
+          to see how to use it.  Sample invocations are given in the C-shell
+          script "Examples".
+
+          I realize this is not a good user interface, but it is adequate
+          for my purposes, and has been used successfully over a period of
+          about five months as an aid in complex pattern construction.  The 
+          program does not really need human interacton, so the command line 
+          approach is not entirely inappropriate.  Improvements are encouraged,
+          if anyone wants to put the work into it.  One idea I had was to 
+          integrate it with Xlife, so that parts of the current pattern being 
+          viewed could be collided with other objects.  However, I'm more 
+          interested in getting search results than improving the user 
+          interface, so this will have to do for now.
+
+     makematrix [-space #space] [-maxcol #col]
+ 
+          makematrix takes a list of patterns (usually generated as output
+          by gencols) from standard input and prints to standard output a 
+          single Xlife pattern in which each pattern from the input is placed 
+          in a position on a regular grid.  The optional parameter "-space" 
+          changes the spacing, while the optional parameter "-maxcol" changes 
+          the width of the grid.
+
+     makepatlist file1 file2 ... filen
+
+          makepatlist reads the patterns given in the list of files provided
+          and prints a list of patterns, one per line, to standard output. 
+          This is useful for making lists of patterns for which gencols
+          can attempt collisions. 
+          
+A directory containing objects for collisions:
+
+     Successful installation will create a directory called "obj" containing
+     patterns and lists of patterns for collision.  These will be necessary
+     for trying out the file "Examples."
+
+A shell script of sample invocations:
+
+     The shell script "Examples" can be run in Unix by typing "Examples" after
+     installation has finished.  It demonstrates gencols by using it to 
+     find many collisions that are well-known, but remarkable nonetheless.
+     Included are sample runs that "rediscover" both the p30 glider gun 
+     and the interaction that results in the p20 puffer train.  The parameters
+     given on the input line are such that a human being can easily rule other 
+     possible collisions simply by observing the behavior of the patterns to 
+     be collided.  Many of these runs are quite fast, and all should finish in 
+     a realistic amount of time on any desktop machine (though the last two
+     may take over an hour to finish on slower systems).
+
+     In X-windows, it is recommended that you run "Examples" in one xterm 
+     and Xlife in another with the same current directory.  This will allow
+     you to look at the patterns as they are generated by loading in the
+     file that is produced.
+
+     Note on spurious results: Any search with gencols will filter the output 
+     to fit some specific set of constraints, but there may be solutions that
+     satisfy the given constraints and yet do not behave in the manner that
+     was truly intended by the user.  A good example is provided in the run
+     that searches for p30 glider guns.  Two of its results (equivalent by
+     symmetry to each other) do not succeed as guns because the glider that
+     is produced collides with the gun several steps later.  This can be
+     eliminated by increasing the generation time before testing, but it is not
+     really necessary, because the total number of solutions produced (4)
+     is small enough to allow convenient selection by a human observer. 
+
+     In fact, it is often worthwhile to look at all instances of a given
+     set of collisions by displaying the resulting grid in a program such
+     as Xlife.  This is because it is not clear from the beginning what 
+     kinds of collisions are interesting.  It is not necessary that the
+     output filters perfectly characterize the object being sought, but  
+     only that they reduce the possibilities to a manageable level.  Thus, 
+     if you are looking for a specific object containing a certain number
+     of cells, an efficient approach may be to generate all collision 
+     products that contain that number of cellls, and refine the choice
+     by observing them using Xlife. 
+
+Speed of the program:
+--------------------
+
+While I make no claims that this is the fastest way to enumerate collisions,
+I have spent considerable effort at increasing the efficiency of this
+code.  There are two main refinements to an easy brute-force approach of
+trying all relative positions between patterns.  
+
+First, the only collisions that are tested are those such that the patterns do 
+not share any neighbors for a certain number (call it k) of generations but 
+must share neighbors at generation k+1.  These interactions are enumerated
+fairly rapidly for any choice of k by exploiting pattern sparsity using a 
+hashed list of cells.  
+
+Second, the code to generate patterns after the collisions is performed using 
+a variant of the strategy used in many of the fastest Life programs available, 
+including Xlife.   The strategy exploits both bit parallelism and pattern 
+sparsity by representing the pattern as a sparse list of 32x32 boxes and
+using bit manipulation within the boxes.  While the code is several times 
+slower than that used in Xlife, it allows multiple patterns to exist 
+simultaneously, and is (in my opinion) somewhat simpler to understand.
+
+-- 
+Paul Callahan
+callahan@biffvm.cs.jhu.edu
+
+From comp.theory.cell-automata Wed Dec  7 16:02:43 1994
+Path: blaze.cs.jhu.edu!biffvm.cs.jhu.edu!not-for-mail
+From: callahan@biffvm.cs.jhu.edu (Paul Callahan)
+Newsgroups: comp.theory.cell-automata
+Subject: Program to search for collisions in Conway's Life (C code)
+Date: 6 Dec 1994 23:10:45 -0500
+Organization: Computer Science Department, The Johns Hopkins University
+Lines: 2800
+Distribution: inet
+Message-ID: <3c3ck5$rmr@biffvm.cs.jhu.edu>
+NNTP-Posting-Host: biffvm.cs.jhu.edu
+
+# This is a shell archive.  Remove anything before this line,
+# then unpack it by saving it in a file and typing "sh file".
+#
+# Wrapped by biffvm!callahan on Tue Dec  6 23:03:34 EST 1994
+# Contents:  Arguments.Explanation Examples Installing Makefile README boxes.c
+#	defs.h gencols.c lists.c makematrix.c makepatlist.c output.c
+#	patterndir.sh
+ 
+echo x - Arguments.Explanation
+sed 's/^@//' > "Arguments.Explanation" <<'@//E*O*F Arguments.Explanation//'
+The life collision search program "gencols" takes all of its input from
+command-line arguments and from files specified in this arguments.
+For examples of its use, see the file "Examples", which is also an
+executable C-shell script that will produce files suitable for viewing
+with Xlife.
+
+Arguments for basic two-object collisions:
+-----------------------------------------
+The term "product" denotes the pattern that exists after the collision.
+
+-pat <file1> <file2> :         
+     file1 contains a pattern or a list of patterns to try as pattern 1 
+     file2 contains a pattern or a list of patterns to try as pattern 2 
+
+     The format of a single pattern is either a simple character map in 
+     which '.' is dead and '*' is alive, or else a list of cell coordinates.
+     A list of patterns contains one pattern per line, stored as character
+     maps in which '!' is equivalent to a carriage return.
+
+-nph #phases :
+     Try phase differences of 0,...,#phases-1.
+     A phase difference of k means that pattern 2 has been generated
+     k steps, while pattern 1 has been left in its initial form.
+
+-tc #gen1 #gen2:
+     First collision occurs in range generation #gen1 to generation #gen2.
+     Note: the patterns are considered to be in generation 1 initially.
+     (A "collision" is an event such that there exists a single cell with
+     neighbors both in pattern 1 and in pattern 2.  Thus, there are instances
+     in which patterns "collide" but do not affect each other.  These can
+     be selected for output, and are actually useful for finding objects that 
+     pass close to each other.)
+
+-gen #gen :
+     Simulate collision to find product at generation #gen.
+
+Pattern-deletion options:
+------------------------
+
+-del1 :
+     Attempt to delete pattern 1 from product.  Either it will be
+     removed from the product or failure will be flagged.
+
+-del2 :
+     Attempt to delete pattern 2 from product.  Either it will be
+     removed from the product or failure will be flagged.
+
+Special-purpose options: 
+-----------------------
+
+The options below require some analysis of the patterns that will be collided. 
+
+-test1 <file>:
+     Attempt to delete pattern in file from product.  Either it will be
+     removed from the product or failure will be flagged.  See example:
+     "# lwss spark converts b-heptomino into p20 puffer engine"
+
+-test2 <file>:
+     Attempt to delete pattern in file from product.  Also match the phase of
+     this pattern with pattern 2.  Either it will be removed from the 
+     product or failure will be flagged.
+
+     Note: -test1 and -test2 will only succeed if test pattern is located at
+     the same translation position given in specified file.
+
+-nosynch :
+     Normally when a pattern is to be deleted with -del1, -del2, -test1,
+     or -test2, it is generated alone to match the final generation of 
+     the product to be tested.  The -nosynch option eliminates this
+     synchronization step, which can destroy an unstablized oscillator
+     such as a queenbee shuttle.  As a result, the number given for the
+     -gen option must be 1+p, where p is the period of the resulting
+     stabilized oscillator.  (Used in examples that stabilize one end of a
+     shuttle.)
+     
+-genafter #steps :
+     Generate product for #steps steps after attempting deletions.  
+     The result will be the product tested in the output filters. 
+     May sometimes help to eliminate sparks and allow idenitification 
+     of gliders, spaceships, etc.
+
+Output filters:
+--------------
+
+-leq #cells
+     Only output products with population <= #cells
+
+-geq #cells
+     Only output products with population >= #cells
+     
+-filt <filterstring> 
+     Select products according to filter string, as follows:
+
+     A particular selection criterion is activated by including the 
+     corresponding character from the table below:
+
+                p: PERIODIC         (low-period oscillator or spaceship)
+                a: APERIODIC        (no periodicity or too high to detect) 
+                1: PERIOD1          (still-life)
+                2: PERIOD2          (period-2 oscillator)
+                3: PERIOD3          (period-3 oscillator)
+                4: PERIOD4          (period-4 oscillator or spaceship)
+                g: GLIDER           (glider or several in same direction)
+                s: SPACESHIP        (spaceship or several in same direction)
+                n: NOINTERACTION    (patterns do not affect each other)
+                f: FAILURE          (deletion failed assumes -del# or -test#)
+
+     For example:
+         -filt p           (output periodic products)
+         -filt a           (output aperiodic products)
+         -filt 12          (output still-life and period-2 products)
+         -filt gs          (output gliders and spaceships)
+         -filt n           (output collisions that come close and pass by)
+         -filt ap          (output collisions in which the patterns
+                            affect each other, and deletions succeed) 
+
+
+@//E*O*F Arguments.Explanation//
+chmod u=rw,g=r,o=r Arguments.Explanation
+ 
+echo x - Examples
+sed 's/^@//' > "Examples" <<'@//E*O*F Examples//'
+#!/bin/csh
+
+echo 'Making 2-glider annihiliations in Xlife file 2g_annihil.life'
+# glider/glider annihilations (perpendicular collisions)
+#
+time gencols -pat obj/glider_ne.life obj/glider_nw.life -nph 4 -tc 10 13 \
+        -gen 51 -leq 0 > 2g_annihil.col
+#
+makematrix < 2g_annihil.col > 2g_annihil.life
+
+echo 'Making 2-glider object syntheses in Xlife file 2g_synth.life'
+# glider/glider synthesis of small p1 and p2 objects (perpendicular collisions)
+#
+time gencols -pat obj/glider_ne.life obj/glider_nw.life -nph 4 -tc 10 13 \
+        -gen 51 -leq 24 -geq 1 -filt 12 > 2g_synth.col
+#
+makematrix < 2g_synth.col > 2g_synth.life
+
+echo 'Making kickbacks in kickback.life'
+# glider/glider kickback
+#
+time gencols -pat obj/glider_ne.life obj/glider_nw.life -nph 4 -tc 10 13 \
+        -gen 51 -filt g > kickback.col
+#
+makematrix < kickback.col > kickback.life
+
+echo 'Making headon 2 glider -> 1 glider collision in headon_shift.life'
+# headon collision producing 1 glider on shifted path
+#
+time gencols -pat obj/glider_ne.life obj/glider_sw.life -nph 4 -tc 10 13 \
+        -gen 51 -filt g > headon_shift.col
+#
+makematrix < headon_shift.col > headon_shift.life
+
+echo 'Making glider eater collision in eatg.life'
+# eater annihilates a glider
+#
+time gencols -pat obj/eater_nw.list obj/glider_nw.life -nph 1 -tc 10 13 \
+        -gen 20 -del1 -filt p -leq 0 > eatg.col
+#
+makematrix < eatg.col > eatg.life
+
+echo 'Making block stabilizer for queenbee in blockqb.life'
+# block stabilizes one end of p30 queenbee shuttle
+#
+time gencols -pat obj/block.life obj/queenbee.life -nph 1 -tc 10 17 \
+        -gen 31 -nosynch -del1 -del2 -filt p -leq 6 -geq 6 > blockqb.col
+#
+makematrix < blockqb.col > blockqb.life
+
+echo 'Making eater stabilizers for queenbee in eaterqb.life'
+# eater stabilizes one end of p30 queenbee shuttle
+#
+time gencols -pat obj/eater_se1.life obj/queenbee.life -nph 1 -tc 10 17 \
+        -gen 31 -nosynch -del1 -del2 -filt p -leq 6 -geq 6 > eaterqb.col
+#
+makematrix < eaterqb.col > eaterqb.life
+
+echo 'Making queenbee glider reflector in p30refl.life'
+# p30 queenbee reflects glider at eater-stabilized end 
+# Time on SparcStation ELC: 53.5u 0.3s 0:56 95% 0+292k 0+0io 0pf+0w
+#
+time gencols -pat obj/reflector.life obj/glider_ne.life -nph 4 -tc 14 23 \
+        -gen 28 -del1 -filt g > p30refl.col
+#
+makematrix < p30refl.col > p30refl.life
+
+echo 'Making b-heptomino shuttle stabilization in blockbhep.life'
+# block stabilizes one end of p46 b-heptomino shuttle
+# Time on SparcStation ELC: 30.9u 0.2s 0:32 95% 0+308k 2+0io 2pf+0w
+#
+time gencols -pat obj/block.life obj/bhep_shuttle.life -nph 1 -tc 8 17 \
+        -gen 47 -nosynch -del1 -del2 -filt ap > blockbhep.col
+#
+makematrix < blockbhep.col > blockbhep.life
+
+echo 'Making p30 glidergun collisions in glidergun.life'
+# half-stabilized queenbees interact to produce glider stream (p30 glider gun)
+# Time on SparcStation ELC: 157.8u 0.5s 2:42 97% 0+308k 0+0io 0pf+0w
+#
+time gencols -pat obj/gunhalf1.life obj/gunhalf2.life -nph 15 -tc 12 20 \
+        -gen 31 -nosynch -del1 -del2 -filt g > glidergun.col
+#
+makematrix < glidergun.col > glidergun.life
+
+echo 'Making bheptomino/lwss "half-puffer" in halfpuffer.life'
+# lwss spark converts b-heptomino into p20 puffer engine 
+# Note: bhep_tr10.life contains bheptomino translated 10 units east
+# that will be there as long as the lightweight spaceship has done its job.
+# To make p20 puffertrain, we add another lwss to perturb the reflected 
+# phase of the bheptomino.
+# 
+# Such a search is justified by the observation that a single bheptomino
+# will, after 10 steps, reemerge flipped and translated by 5 units.  However, 
+# it will also be surrounded by cells that soon destroy it.  It is natural to
+# ask whether such cells can be eliminated with an appropriate spaceship
+# spark.  This, presumably, was the intuition that motivated the original
+# invention/discovery of the puffertrain.
+#
+# Time on SparcStation ELC: 45.5u 0.1s 0:46 97% 0+280k 0+0io 0pf+0w
+#
+time gencols -pat obj/bheptomino.life obj/lwss_e.life -nph 4 -tc 2 11 \
+            -gen 21 -test1 obj/bhep_tr10.life -del2 -filt ap > halfpuffer.col
+#
+makematrix < halfpuffer.col > halfpuffer.life
+
+echo 'Making 3-glider spaceship syntheses in makess.life' 
+# Three gliders collide to make a spaceship
+# First, get all ne/nw two-glider collisions
+echo 'First make list of two-glider collisions'
+time gencols -pat obj/glider_ne.life obj/glider_nw.life \
+     -nph 4 -tc 10 13 > 2g.col
+# Next, collide se glider into each collision in turn, looking for spaceships
+# Time on SparcStation ELC: 1711.9u 3.8s 28:56 98% 0+304k 0+0io 0pf+0w
+# NOTE: may take a long time to run.
+#
+echo 'Now collide a third glider with each such collision'
+time gencols -pat 2g.col obj/glider_se.life -nph 4 -tc 8 15 -gen 30 \
+             -filt s > makess.col
+#
+makematrix < makess.col > makess.life
+
+echo 'Making b-heptomino shuttle reflections in p46refl.life' 
+# stabilized b-heptomino shuttle reflects glider and lwss
+# Time on SparcStation ELC: 2147.8u 8.9s 38:40 92% 0+332k 2+14io 1pf+0w
+# NOTE: may take a long time to run.
+#
+time gencols -pat obj/gliderlwss.list obj/bhep_shut_stbl.life -nph 4 \
+        -tc 21 43 -gen 50 -del2 -filt sg > p46refl.col
+#
+makematrix -space 150 < p46refl.col > p46refl.life
+@//E*O*F Examples//
+chmod u=rwx,g=rx,o=rx Examples
+ 
+echo x - Installing
+sed 's/^@//' > "Installing" <<'@//E*O*F Installing//'
+This program uses only standard file I/O and should be portable to any
+32-bit system.  To compile, simply type "make".  If your integers are
+smaller than 32-bits, you may still be able to get this to work by
+playing around with WORDLEN defined in defs.h.
+
+Currently, the Makefile uses gcc as the C compiler.  This will need to be
+changed (for example to "cc") if you don't have gcc.
+
+The Makefile also creates a directory "obj" in which it places a small
+library of patterns for collisions.
+@//E*O*F Installing//
+chmod u=rw,g=r,o=r Installing
+ 
+echo x - Makefile
+sed 's/^@//' > "Makefile" <<'@//E*O*F Makefile//'
+CC = gcc
+CFLAGS = -O3
+
+all:	gencols makematrix makepatlist obj
+
+gencols:	gencols.o boxes.o lists.o output.o
+	$(CC) -o gencols gencols.o boxes.o lists.o output.o
+
+makematrix:	makematrix.o lists.o
+	$(CC) -o makematrix makematrix.o lists.o
+
+makepatlist:	makepatlist.o lists.o
+	$(CC) -o makepatlist makepatlist.o lists.o
+
+obj:	patterndir.sh
+	sh patterndir.sh
+@//E*O*F Makefile//
+chmod u=rw,g=r,o=r Makefile
+ 
+echo x - README
+sed 's/^@//' > "README" <<'@//E*O*F README//'
+Overview:
+--------
+
+The following directory contains the source and related files for
+"gencols" a program that searches for pattern interactions in Conway's 
+Game of Life by generating interactions between pairs of patterns 
+within a range of user-determined parameters, and which filters the output for 
+"interesting" objects (those with special properties).  This 
+includes, but is by no means limited to, collisions occurring between
+pairs of gliders.
+
+The result of a successful search will be a list of patterns, one on
+each line.  Each pattern is encoded as a string in the first field
+of the line, and additional fields give some extra information about
+the collision.  The encoding is quite simple: '.' denotes a
+dead cell, '*' denotes a live cell, and '!' denotes the action "move to 
+beginning of next row" (assumed to have the same x coordinate as the first
+cell in the string).  Also, a program "makematrix" is provided to convert such
+a list into a Life pattern suitable for viewing with Xlife 3.0, in which
+collisions are positioned in a regular array.
+
+Installing:  see the file "Installing"
+----------
+
+What's included?
+---------------
+Three C programs:
+
+     gencols <big complicated list of arguments>
+
+          gencols is a Life collision generator that is the main program 
+          provided in this distribution.  See the file "Arguments.Explanation" 
+          to see how to use it.  Sample invocations are given in the C-shell
+          script "Examples".
+
+          I realize this is not a good user interface, but it is adequate
+          for my purposes, and has been used successfully over a period of
+          about five months as an aid in complex pattern construction.  The 
+          program does not really need human interacton, so the command line 
+          approach is not entirely inappropriate.  Improvements are encouraged,
+          if anyone wants to put the work into it.  One idea I had was to 
+          integrate it with Xlife, so that parts of the current pattern being 
+          viewed could be collided with other objects.  However, I'm more 
+          interested in getting search results than improving the user 
+          interface, so this will have to do for now.
+
+     makematrix [-space #space] [-maxcol #col]
+ 
+          makematrix takes a list of patterns (usually generated as output
+          by gencols) from standard input and prints to standard output a 
+          single Xlife pattern in which each pattern from the input is placed 
+          in a position on a regular grid.  The optional parameter "-space" 
+          changes the spacing, while the optional parameter "-maxcol" changes 
+          the width of the grid.
+
+     makepatlist file1 file2 ... filen
+
+          makepatlist reads the patterns given in the list of files provided
+          and prints a list of patterns, one per line, to standard output. 
+          This is useful for making lists of patterns for which gencols
+          can attempt collisions. 
+          
+A directory containing objects for collisions:
+
+     Successful installation will create a directory called "obj" containing
+     patterns and lists of patterns for collision.  These will be necessary
+     for trying out the file "Examples."
+
+A shell script of sample invocations:
+
+     The shell script "Examples" can be run in Unix by typing "Examples" after
+     installation has finished.  It demonstrates gencols by using it to 
+     find many collisions that are well-known, but remarkable nonetheless.
+     Included are sample runs that "rediscover" both the p30 glider gun 
+     and the interaction that results in the p20 puffer train.  The parameters
+     given on the input line are such that a human being can easily rule other 
+     possible collisions simply by observing the behavior of the patterns to 
+     be collided.  Many of these runs are quite fast, and all should finish in 
+     a realistic amount of time on any desktop machine (though the last two
+     may take over an hour to finish on slower systems).
+
+     In X-windows, it is recommended that you run "Examples" in one xterm 
+     and Xlife in another with the same current directory.  This will allow
+     you to look at the patterns as they are generated by loading in the
+     file that is produced.
+
+     Note on spurious results: Any search with gencols will filter the output 
+     to fit some specific set of constraints, but there may be solutions that
+     satisfy the given constraints and yet do not behave in the manner that
+     was truly intended by the user.  A good example is provided in the run
+     that searches for p30 glider guns.  Two of its results (equivalent by
+     symmetry to each other) do not succeed as guns because the glider that
+     is produced collides with the gun several steps later.  This can be
+     eliminated by increasing the generation time before testing, but it is not
+     really necessary, because the total number of solutions produced (4)
+     is small enough to allow convenient selection by a human observer. 
+
+     In fact, it is often worthwhile to look at all instances of a given
+     set of collisions by displaying the resulting grid in a program such
+     as Xlife.  This is because it is not clear from the beginning what 
+     kinds of collisions are interesting.  It is not necessary that the
+     output filters perfectly characterize the object being sought, but  
+     only that they reduce the possibilities to a manageable level.  Thus, 
+     if you are looking for a specific object containing a certain number
+     of cells, an efficient approach may be to generate all collision 
+     products that contain that number of cellls, and refine the choice
+     by observing them using Xlife. 
+
+Speed of the program:
+--------------------
+
+While I make no claims that this is the fastest way to enumerate collisions,
+I have spent considerable effort at increasing the efficiency of this
+code.  There are two main refinements to an easy brute-force approach of
+trying all relative positions between patterns.  
+
+First, the only collisions that are tested are those such that the patterns do 
+not share any neighbors for a certain number (call it k) of generations but 
+must share neighbors at generation k+1.  These interactions are enumerated
+fairly rapidly for any choice of k by exploiting pattern sparsity using a 
+hashed list of cells.  
+
+Second, the code to generate patterns after the collisions is performed using 
+a variant of the strategy used in many of the fastest Life programs available, 
+including Xlife.   The strategy exploits both bit parallelism and pattern 
+sparsity by representing the pattern as a sparse list of 32x32 boxes and
+using bit manipulation within the boxes.  While the code is several times 
+slower than that used in Xlife, it allows multiple patterns to exist 
+simultaneously, and is (in my opinion) somewhat simpler to understand.
+@//E*O*F README//
+chmod u=rw,g=r,o=r README
+ 
+echo x - boxes.c
+sed 's/^@//' > "boxes.c" <<'@//E*O*F boxes.c//'
+/*
+ * Gencols: Copyright 1994, Paul Callahan, callahan@cs.jhu.edu
+ *
+ * Permission to use, copy, modify, distribute, and sell this software and its
+ * documentation for any purpose is hereby granted without fee, provided that
+ * the above copyright notice appear in all copies and that both that
+ * copyright notice and this permission notice appear in supporting
+ * documentation, and that the name of the copyright holders not be used in
+ * advertising or publicity pertaining to distribution of the software without
+ * specific, written prior permission.  The copyright holders make no
+ * representations about the suitability of this software for any purpose.  It
+ * is provided "as is" without express or implied warranty.
+ */
+
+
+#include <stdio.h>
+#include <limits.h>
+#include <malloc.h>
+#include "defs.h"
+
+
+CellList **findcell();
+
+LifeBox *getbox(x,y,hash)
+int x,y;
+HashTable hash;
+{
+  CellList **cell;
+  LifeBox *box;
+
+  cell=findcell(x,y,SPECGEN,hash);
+
+  if (!(*cell)) {
+    int i;    
+
+    (*cell)=(CellList *)malloc(sizeof(CellList));
+    (*cell)->x=x;
+    (*cell)->y=y;
+    (*cell)->gen=SPECGEN;
+    (*cell)->next=NULL;
+
+    box=(*cell)->u.box=(LifeBox *)malloc(sizeof(LifeBox));
+    for (i=0; i<WORDLEN; i++) box->seg[i]=0;
+    box->l=0;
+    box->r=0;
+    box->u=0;
+    box->d=0;
+    box->corners='\0';
+  } 
+  else box=(*cell)->u.box;
+
+  return box;
+}
+
+void delbox(x,y,hash)
+int x,y;
+HashTable hash;
+{
+  CellList **cell;
+
+  cell=findcell(x,y,SPECGEN,hash);
+  free((*cell)->u.box);
+  deletecell(x,y,SPECGEN,hash);
+}
+
+
+HashTable makeboxes(listhash,gen,transx,transy)
+HashTable listhash;
+int gen;
+int *transx,*transy;
+{
+  CellList **cell,**tcell;
+  HashTable boxhash;
+  int boxx,boxy,dx,dy,x,y;
+  LifeBox *box;
+  int x1,y1,x2,y2;
+
+  /* center the pattern at box center so small patterns start in one box */
+  boundingrect(listhash,gen,&x1,&y1,&x2,&y2);
+  *transx=WORDLEN/2-(x1+x2)/2;
+  *transy=WORDLEN/2-(y1+y2)/2;
+
+  allochash(&boxhash,DEFAULTHSIZE);
+
+  for (cell=(CellList **)listhash.table; 
+       cell<(CellList **)listhash.table+listhash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if ((*tcell)->u.val && (gen==ALLGENS || (*tcell)->gen==gen) ) {
+
+        x=(*tcell)->x+ *transx;
+        y=(*tcell)->y+ *transy;
+
+	boxx=div(x,WORDLEN);
+	dx=WORDLEN-1-mod(x,WORDLEN);
+	boxy=div(y,WORDLEN);
+	dy=mod(y,WORDLEN);
+
+        box=getbox(boxx,boxy,boxhash);
+        box->seg[dy]|=(1<<dx);
+
+      }
+      tcell= &((*tcell)->next);
+    }
+  }
+
+
+  return boxhash;
+}
+
+restorecells(boxhash,listhash,gen,transx,transy)
+HashTable boxhash,listhash;
+int gen,transx,transy;
+{
+  CellList **cell,**tcell;
+  int dx,dy;
+
+  for (cell=(CellList **)boxhash.table; 
+       cell<(CellList **)boxhash.table+boxhash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      for (dx=0; dx<WORDLEN; dx++)
+	for (dy=0; dy<WORDLEN; dy++) {
+	  if ((*tcell)->u.box->seg[dy]&(1<<dx))
+           setcell((*tcell)->x*WORDLEN+WORDLEN-1-dx-transx,
+                   (*tcell)->y*WORDLEN+dy-transy,
+		    gen,1,listhash);
+	}
+      tcell= &((*tcell)->next);
+    }
+
+  }
+
+}
+
+clearboxes(boxhash)
+HashTable boxhash;
+{
+  CellList **cell,**tcell;
+
+  for (cell=(CellList **)boxhash.table; 
+       cell<(CellList **)boxhash.table+boxhash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      free((*tcell)->u.box);
+      dodelete(tcell);
+    }
+  }
+}
+
+void genlist(listhash,gen,k) 
+int gen,k;
+HashTable listhash;
+{
+HashTable boxes;
+int tx,ty;
+int i;
+  
+    /* transfer list to box representation */
+    boxes=makeboxes(listhash,gen,&tx,&ty);
+    delgen(listhash,gen);
+
+    /* generate k steps */
+    for (i=0; i<k; i++) genboxes(boxes);
+
+    /* restore list representation */
+    restorecells(boxes,listhash,gen+k,tx,ty);
+    clearboxes(boxes);
+    free(boxes.table);
+    
+}
+
+cellseg dobox();
+
+#ifdef TRACEBOXES
+  int boxcount;
+#endif
+
+genboxes(hash)
+HashTable hash;
+{
+  CellList **cell,**tcell;
+
+
+#ifdef TRACEBOXES
+   boxcount=0;
+#endif
+
+  /* assumes neighborhood information is initially 0 */
+
+  /* pass neighborhood info to appropriate cells */
+  for (cell=(CellList **)hash.table; 
+       cell<(CellList **)hash.table+hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) { 
+      tellneighbors(tcell,hash);
+      tcell= &((*tcell)->next);
+#ifdef TRACEBOXES
+      boxcount++;
+#endif
+     }
+  }
+
+  /* compute next generation */
+  for (cell=(CellList **)hash.table; 
+       cell<(CellList **)hash.table+hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      /* generate box; delete if empty */
+      if (!dobox((*tcell)->u.box)) {
+	free((*tcell)->u.box);
+	dodelete(tcell)
+	}
+       else tcell= &((*tcell)->next);
+    }
+  }
+
+#ifdef TRACEBOXES
+      fprintf(stderr,"boxcount=%d\n",boxcount);
+#endif
+}
+
+tellneighbors(tcell,hash)
+CellList **tcell;
+HashTable hash;
+{
+int x,y,i;
+LifeBox *mybox,*nbrbox;
+cellseg(tseg);
+
+       x=(*tcell)->x;
+       y=(*tcell)->y;
+       mybox=(*tcell)->u.box;
+
+       if (mybox->seg[0]) {
+	 nbrbox=getbox(x,y-1,hash);
+	 nbrbox->d=mybox->seg[0];
+       }
+
+       if (mybox->seg[WORDLEN-1]) {
+	 nbrbox=getbox(x,y+1,hash);
+	 nbrbox->u=mybox->seg[WORDLEN-1];
+       }
+
+       tseg=0;
+       for (i=0; i<WORDLEN; i++) 
+               tseg|=((mybox->seg[i]&(1<<WORDLEN-1))>>WORDLEN-1)<<i;
+       if (tseg) {
+	 nbrbox=getbox(x-1,y,hash);
+	 nbrbox->r=tseg;
+       }
+
+       tseg=0;
+       for (i=0; i<WORDLEN; i++) 
+               tseg|=(mybox->seg[i]&1)<<i;
+       if (tseg) {
+	 nbrbox=getbox(x+1,y,hash);
+	 nbrbox->l=tseg;
+       }
+
+       if (mybox->seg[0]&1) { 
+          nbrbox=getbox(x+1,y-1,hash);
+          nbrbox->corners|=(1<<DLBIT);
+       }
+
+       if (mybox->seg[0]&(1<<WORDLEN-1)) { 
+	 nbrbox=getbox(x-1,y-1,hash);
+	 nbrbox->corners|=(1<<DRBIT);
+       }
+
+       if (mybox->seg[WORDLEN-1]&1) { 
+	 nbrbox=getbox(x+1,y+1,hash);
+	 nbrbox->corners|=(1<<ULBIT);
+       }
+
+       if (mybox->seg[WORDLEN-1]&(1<<WORDLEN-1)) { 
+          nbrbox=getbox(x-1,y+1,hash);
+          nbrbox->corners|=(1<<URBIT);
+       }
+}
+
+/* boolean life function for bitwise operations */
+#define ha0(a,b) {b^=a; a|=b;}
+#define ha1(a,b) {b^=a; a&=b;}
+#define dolife(b8,b0,b1,b2,b3,b4,b5,b6,b7) \
+      ha0(b7,b6);\
+      ha0(b5,b4);\
+      ha0(b3,b2);\
+      ha0(b1,b0);\
+      ha0(b2,b0);\
+      ha1(b0,b4);\
+      ha0(b6,b4);\
+      ha1(b7,b6);\
+      ha1(b3,b2);\
+      ha1(b5,b6);\
+      ha1(b1,b2);\
+      ha1(b0,b2);\
+      ha0(b6,b2);\
+      b0|=b1;\
+      b0|=b3;\
+      b5|=b7;\
+      ha0(b5,b0);\
+      b0&=b6;\
+      b0^=b5;\
+      b8|=b4; \
+      b8&= ~b0;\
+      b8&=b2;
+
+
+
+#define bit(x,i) (((x)>>(i))&1)
+
+/* perform generation on box with correct neighborhood info.
+   zero neighborhood info for next pass.
+   return bitwise or of box rows */
+cellseg dobox(box)
+LifeBox *box;
+{
+  cellseg cell,nu,nd,nl,nr,nur,nul,ndr,ndl;
+  cellseg tnu,tnur,tnul,tnr,tnl,tcell;
+  cellseg orcell=0;
+  int i;
+
+
+  /* compute transition */
+
+  cell=box->seg[0];
+  nu=box->u;
+
+  nr=(cell<<1)+bit(box->r,0);
+  nl=(cell>>1)+(bit(box->l,0)<<WORDLEN-1);
+  nur=(nu<<1)+bit(box->corners,URBIT);
+  nul=(nu>>1)+(bit(box->corners,ULBIT)<<WORDLEN-1);
+
+  /* worth unrolling it? */
+  for (i=0; i<WORDLEN-1; i++) {
+    nd=box->seg[i+1];
+    ndr=(nd<<1)+bit(box->r,i+1);
+    ndl=(nd>>1)+(bit(box->l,i+1)<<WORDLEN-1);
+
+    tnul=nl;    tnu=cell;     tnur=nr;
+    tnl=ndl;    tcell=nd;     tnr=ndr;
+
+    dolife(cell,nu,nd,nl,nr,nur,nul,ndr,ndl);
+    box->seg[i]=cell;
+    orcell|=cell;       
+
+    nul=tnul; nu=tnu; nur=tnur; nl=tnl; nr=tnr; cell=tcell;
+       
+  }
+
+  nd=box->d;
+  ndr=(nd<<1)+bit(box->corners,DRBIT);
+  ndl=(nd>>1)+(bit(box->corners,DLBIT)<<WORDLEN-1);
+  dolife(cell,nu,nd,nl,nr,nur,nul,ndr,ndl);
+  box->seg[i]=cell;
+  orcell|=cell;
+
+
+  /* clear neighborhood info for next pass */
+  box->u=box->d=box->l=box->r=0;
+  box->corners='\0';
+
+
+  return orcell;
+}
+
+
+
+
+
+@//E*O*F boxes.c//
+chmod u=rw,g=r,o=r boxes.c
+ 
+echo x - defs.h
+sed 's/^@//' > "defs.h" <<'@//E*O*F defs.h//'
+/*
+ * Gencols: Copyright 1994, Paul Callahan, callahan@cs.jhu.edu
+ *
+ * Permission to use, copy, modify, distribute, and sell this software and its
+ * documentation for any purpose is hereby granted without fee, provided that
+ * the above copyright notice appear in all copies and that both that
+ * copyright notice and this permission notice appear in supporting
+ * documentation, and that the name of the copyright holders not be used in
+ * advertising or publicity pertaining to distribution of the software without
+ * specific, written prior permission.  The copyright holders make no
+ * representations about the suitability of this software for any purpose.  It
+ * is provided "as is" without express or implied warranty.
+ */
+
+
+
+
+/* various constants */
+/* MAXCOL, MAXROW, DEFMR, DEFMC obsolete for list code */ 
+#define MAXCOL 100  
+#define MAXROW 100  
+#define DEFMR 20    
+#define DEFMC 20   
+#define MAXLINE 512
+#define MAXPATLEN 8192
+#define DEFAULTHSIZE 1024
+#define NOFORCE -1
+#define SPECGEN -1
+#define ALLGENS -2
+
+/* use fast box-generation code */
+#define USEBOXES 1
+
+typedef struct {
+   int cell[MAXCOL][MAXROW];
+   int maxc,maxr;
+ } TORUS;
+
+typedef unsigned long cellseg;
+
+#define WORDLEN 32
+#define URBIT 0
+#define DRBIT 1
+#define ULBIT 2
+#define DLBIT 3
+
+
+#define dodelete(cell) {CellList *tofree; \
+                       tofree= *cell; *cell=tofree->next; free(tofree);}
+
+
+typedef struct {
+
+  cellseg seg[WORDLEN];
+  cellseg l,r,u,d;
+  char corners; /* corner bits in positions URBIT,DRBIT,ULBIT,DLBIT */
+
+} LifeBox;
+
+
+typedef struct celllist {
+   int x,y,gen;
+   union {
+     int val;
+     LifeBox *box;
+   } u;
+   struct celllist *next;
+ } CellList;
+
+
+typedef struct {
+   void **table;
+   int hsize;
+ } HashTable;
+
+#define mod(a,b) ((((a)%(b))+(b))%(b))
+#define div(a,b) (((a)-mod(a,b))/(b))
+@//E*O*F defs.h//
+chmod u=rw,g=r,o=r defs.h
+ 
+echo x - gencols.c
+sed 's/^@//' > "gencols.c" <<'@//E*O*F gencols.c//'
+/*
+ * Gencols: Copyright 1994, Paul Callahan, callahan@cs.jhu.edu 
+ *
+ * Permission to use, copy, modify, distribute, and sell this software and its
+ * documentation for any purpose is hereby granted without fee, provided that
+ * the above copyright notice appear in all copies and that both that
+ * copyright notice and this permission notice appear in supporting
+ * documentation, and that the name of the copyright holders not be used in
+ * advertising or publicity pertaining to distribution of the software without
+ * specific, written prior permission.  The copyright holders make no
+ * representations about the suitability of this software for any purpose.  It
+ * is provided "as is" without express or implied warranty.
+ *
+ * THE COPYRIGHT HOLDERS DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+ * INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
+ * EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+ * CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+ * DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+ * TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include "defs.h"
+
+FILE *loadpat();
+
+main(argc,argv) 
+int argc;
+char *argv[];
+{
+int phase,phases=1,tcol,bound;
+int tcol1=5,tcol2=5;
+int resultafter=0,genresult=0;
+int delpat1=0,delpat2=0,synch=1;
+HashTable pat1,pat2,tmppat1,tmppat2,align,scratch,testpat1,testpat2;
+int argind;
+char *pat1file=NULL,*pat2file=NULL,*testpat1file=NULL,*testpat2file=NULL;
+FILE *pat1fptr,*pat2fptr;
+
+   for (argind=1; argind<argc; argind++) { 
+      if (!strcmp(argv[argind],"-pat")) {
+              pat1file=argv[++argind];
+              pat2file=argv[++argind];
+      } 
+      else if (!strcmp(argv[argind],"-nph")) {
+              sscanf(argv[++argind],"%d",&phases);
+      }
+      else if (!strcmp(argv[argind],"-tc")) {
+              sscanf(argv[++argind],"%d",&tcol1);
+              sscanf(argv[++argind],"%d",&tcol2);
+      }
+      else if (!strcmp(argv[argind],"-gen")) {
+              sscanf(argv[++argind],"%d",&resultafter);
+      }
+      else if (!strcmp(argv[argind],"-del1")) {
+              delpat1=1;
+      }
+      else if (!strcmp(argv[argind],"-del2")) {
+              delpat2=1;
+      }
+      else if (!strcmp(argv[argind],"-nosynch")) {
+              synch=0;
+      }
+      else if (!strcmp(argv[argind],"-genafter")) {
+              sscanf(argv[++argind],"%d",&genresult);
+      } 
+      else if (!strcmp(argv[argind],"-test1")) {
+              testpat1file=argv[++argind];
+      }
+      else if (!strcmp(argv[argind],"-test2")) {
+              testpat2file=argv[++argind];
+      }
+      else if (!strcmp(argv[argind],"-leq")) {
+              sscanf(argv[++argind],"%d",&bound); 
+              setupper(bound);
+      }
+      else if (!strcmp(argv[argind],"-geq")) {
+              sscanf(argv[++argind],"%d",&bound); 
+              setlower(bound);
+      }
+      else if (!strcmp(argv[argind],"-filt")) {
+              setfilters(argv[++argind]);
+      }
+      else {
+         fprintf(stderr,"Unknown option: \"%s\"\n",argv[argind]);
+         exit(0);
+      }
+   }
+
+   allochash(&pat1,DEFAULTHSIZE);
+   allochash(&pat2,DEFAULTHSIZE);
+   allochash(&tmppat1,DEFAULTHSIZE);
+   allochash(&tmppat2,DEFAULTHSIZE);
+   allochash(&align,DEFAULTHSIZE);
+   allochash(&scratch,DEFAULTHSIZE);
+
+   if (testpat1file) allochash(&testpat1,DEFAULTHSIZE);
+   else testpat1.table=NULL;
+
+   if (testpat2file) allochash(&testpat2,DEFAULTHSIZE);
+   else testpat2.table=NULL;
+
+   pat1fptr=pat2fptr=NULL;
+
+   while (pat1fptr=loadpat(pat1,1,pat1file,pat1fptr)) {
+     while (pat2fptr=loadpat(pat2,1,pat2file,pat2fptr)) {
+
+       if (testpat1file) fclose(loadpat(testpat1,1,testpat1file,NULL));
+       if (testpat2file) fclose(loadpat(testpat2,1,testpat2file,NULL));
+    
+       for (phase=1; phase<=phases; phase++) {
+	 copypattern(tmppat1,pat1,0,0,NOFORCE);
+	 copypattern(tmppat2,pat2,0,0,1);    
+	 delgen(align,SPECGEN);
+	 for (tcol=1; tcol<tcol2; tcol++) {
+	   interact(tmppat1,tmppat2,align,tcol); 
+	   gennosave(tmppat1,tcol);
+	   gennosave(tmppat2,tcol);
+	 }
+	 interact(tmppat1,tmppat2,align,tcol);
+	 for (tcol=tcol1; tcol<=tcol2; tcol++) { 
+	   if (resultafter) {
+	     int i;
+	     delgen(tmppat1,ALLGENS); 
+	     delgen(tmppat2,ALLGENS); 
+	     copypattern(tmppat1,pat1,0,0,1);
+	     copypattern(tmppat2,pat2,0,0,1);
+	     for (i=1; i<resultafter; i++) {
+	       gennosave(tmppat1,i);
+	       gennosave(tmppat2,i);
+	     } 
+	   } 
+	   outcollisions(pat1,pat2,align,tcol,scratch,
+			 resultafter,tmppat1,tmppat2,delpat1,delpat2,synch,
+			 genresult,testpat1,testpat2); 
+	 }
+	 delgen(tmppat1,ALLGENS); 
+	 delgen(tmppat2,ALLGENS); 
+	 gennosave(pat2,phase); 
+	 if (testpat2.table) gennosave(testpat2,phase); 
+       } 
+     }
+   }
+}
+
+@//E*O*F gencols.c//
+chmod u=rw,g=r,o=r gencols.c
+ 
+echo x - lists.c
+sed 's/^@//' > "lists.c" <<'@//E*O*F lists.c//'
+/*
+ * Gencols: Copyright 1994, Paul Callahan, callahan@cs.jhu.edu
+ *
+ * Permission to use, copy, modify, distribute, and sell this software and its
+ * documentation for any purpose is hereby granted without fee, provided that
+ * the above copyright notice appear in all copies and that both that
+ * copyright notice and this permission notice appear in supporting
+ * documentation, and that the name of the copyright holders not be used in
+ * advertising or publicity pertaining to distribution of the software without
+ * specific, written prior permission.  The copyright holders make no
+ * representations about the suitability of this software for any purpose.  It
+ * is provided "as is" without express or implied warranty.
+ */
+
+#include <stdio.h>
+#include <limits.h>
+#include <malloc.h>
+#include "defs.h"
+
+#define HASHMULT 1999
+#define hashtriple(x,y,gen,hsize) mod(((((x*HASHMULT)+y)*HASHMULT)+gen),hsize)
+
+/*
+#define TRACEHASH 1
+*/
+
+#ifdef TRACEHASH
+static int lookups=0, tries=0;
+#endif
+
+CellList **findcell(x,y,gen,hash)
+int x,y,gen;
+HashTable hash;
+{
+  CellList **cell;
+
+#ifdef TRACEHASH
+  lookups++;
+#endif
+
+
+  for (cell=(CellList **)hash.table+hashtriple(x,y,gen,hash.hsize); 
+                                              *cell; cell= &((*cell)->next)) {
+#ifdef TRACEHASH
+  tries++;
+#endif
+    if (x==(*cell)->x && y==(*cell)->y && gen==(*cell)->gen) break;
+  }
+
+  return cell;
+}
+
+void allochash(hash,n)
+HashTable *hash;
+int n;
+{
+void **hptr;
+
+   hash->table=(void **)malloc(n*sizeof(void *));
+   hash->hsize=n;
+   for (hptr=hash->table; hptr<hash->table+hash->hsize; hptr++) *hptr=NULL;
+}
+
+
+void setcell(x,y,gen,val,hash)
+int x,y,gen,val;
+HashTable hash;
+{
+ 
+  CellList **cell;
+  
+  cell=findcell(x,y,gen,hash);
+
+  if (!(*cell)) {
+     (*cell)=(CellList *)malloc(sizeof(CellList));
+     (*cell)->x=x;
+     (*cell)->y=y;
+     (*cell)->gen=gen;
+     (*cell)->next=NULL;
+   }
+
+  (*cell)->u.val=val;
+}
+
+int inccell(x,y,gen,hash)
+int x,y,gen;
+HashTable hash;
+{
+
+  CellList **cell;
+  
+  cell=findcell(x,y,gen,hash);
+
+  if (!(*cell)) {
+    (*cell)=(CellList *)malloc(sizeof(CellList));
+    (*cell)->x=x;
+    (*cell)->y=y;
+    (*cell)->gen=gen;
+    (*cell)->next=NULL;
+    (*cell)->u.val=1;
+  }
+  else  (*cell)->u.val++;
+
+  return (*cell)->u.val;
+
+}
+
+
+void deletecell(x,y,gen,hash)
+int x,y,gen;
+HashTable hash;
+{
+  CellList **cell,*tofree;
+
+  cell=findcell(x,y,gen,hash);
+
+  if (*cell) dodelete(cell);
+
+}
+
+void freehash(hash) 
+HashTable *hash;
+{
+  CellList **cell,**tcell;
+
+  for (cell=(CellList **)hash->table; 
+       cell<(CellList **)hash->table+hash->hsize; cell++) {
+    tcell=cell;
+    while (*tcell) dodelete(tcell)
+    }
+
+  free(hash->table);
+}
+
+int getcell(x,y,gen,hash)
+int x,y,gen;
+HashTable hash;
+{
+  CellList **cell;
+
+  cell=findcell(x,y,gen,hash);
+  if (*cell) return (*cell)->u.val;
+  else return 0;
+
+}
+
+int isglider(x,y,dx,dy,gen,hash) 
+int x,y,gen,dx,dy;
+HashTable hash;
+{
+   return 
+       !getcell(x-2*dx,y-2*dy,gen,hash) &&
+       !getcell(x-2*dx,y-1*dy,gen,hash) &&
+       !getcell(x-2*dx,y-0*dy,gen,hash) &&
+       !getcell(x-2*dx,y+1*dy,gen,hash) &&
+       !getcell(x-2*dx,y+2*dy,gen,hash) &&
+
+       !getcell(x-1*dx,y-2*dy,gen,hash) &&
+       !getcell(x-1*dx,y-1*dy,gen,hash) &&
+        getcell(x-1*dx,y-0*dy,gen,hash) &&
+       !getcell(x-1*dx,y+1*dy,gen,hash) &&
+       !getcell(x-1*dx,y+2*dy,gen,hash) &&
+
+       !getcell(x-0*dx,y-2*dy,gen,hash) &&
+       !getcell(x-0*dx,y-1*dy,gen,hash) &&
+       !getcell(x-0*dx,y-0*dy,gen,hash) &&
+        getcell(x-0*dx,y+1*dy,gen,hash) &&
+       !getcell(x-0*dx,y+2*dy,gen,hash) &&
+
+       !getcell(x+1*dx,y-2*dy,gen,hash) &&
+        getcell(x+1*dx,y-1*dy,gen,hash) &&
+        getcell(x+1*dx,y-0*dy,gen,hash) &&
+        getcell(x+1*dx,y+1*dy,gen,hash) &&
+       !getcell(x+1*dx,y+2*dy,gen,hash) &&
+
+       !getcell(x+2*dx,y-2*dy,gen,hash) &&
+       !getcell(x+2*dx,y-1*dy,gen,hash) &&
+       !getcell(x+2*dx,y-0*dy,gen,hash) &&
+       !getcell(x+2*dx,y+1*dy,gen,hash) &&
+       !getcell(x+2*dx,y+2*dy,gen,hash);
+}
+
+reportallgliders(gen,hash)
+int gen;
+HashTable hash;
+{
+   int dx,dy,curgen;
+   CellList **cell,**tcell;
+
+   for (curgen=gen; curgen<gen+4; curgen++) {
+      for (dx=-1; dx<=1; dx+=2)
+         for (dy=-1; dy<=1; dy+=2) {
+           for (cell=(CellList **)hash.table; 
+              cell<(CellList **)hash.table+hash.hsize; cell++) {
+              tcell=cell;
+              while (*tcell) {
+                 if ((*tcell)->gen==curgen) {
+                   if (isglider((*tcell)->x+dx,(*tcell)->y,dx,dy,curgen,hash))
+                     printf("%5d %5d %5d %5d %5d\n",
+                             (*tcell)->x+dx,(*tcell)->y,dx,dy,curgen);   
+                 }
+                 tcell= &((*tcell)->next);
+             } 
+           }
+         }
+      gennosave(hash,curgen);
+   }
+}
+
+
+static int rules[][9]={{0,0,0,1,0,0,0,0,0},{0,0,1,1,0,0,0,0,0}};
+
+gensparse(hash,gen)
+int gen;
+HashTable hash;
+{
+  CellList **cell,**tcell;
+  int i;
+
+  /* assumes next generation has all zero entries */
+
+  /* calculate neighborhoods */
+  for (cell=(CellList **)hash.table; 
+       cell<(CellList **)hash.table+hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if ((*tcell)->gen==gen) {
+	inccell((*tcell)->x-1,(*tcell)->y-1,gen+1,hash);
+	inccell((*tcell)->x  ,(*tcell)->y-1,gen+1,hash);
+	inccell((*tcell)->x+1,(*tcell)->y-1,gen+1,hash);
+	inccell((*tcell)->x-1,(*tcell)->y  ,gen+1,hash);
+	inccell((*tcell)->x+1,(*tcell)->y  ,gen+1,hash);
+	inccell((*tcell)->x-1,(*tcell)->y+1,gen+1,hash);
+	inccell((*tcell)->x  ,(*tcell)->y+1,gen+1,hash);
+	inccell((*tcell)->x+1,(*tcell)->y+1,gen+1,hash);
+
+      }
+      tcell= &((*tcell)->next);
+    }
+  }
+
+
+  /* find next generation */
+  for (cell=(CellList **)hash.table; 
+       cell<(CellList **)hash.table+hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if ((*tcell)->gen==gen+1) {
+	if (rules[getcell((*tcell)->x,(*tcell)->y,gen,hash)][(*tcell)->u.val]) {
+	  (*tcell)->u.val=1;
+          tcell= &((*tcell)->next);
+        }
+	else
+	  dodelete(tcell);
+      } else tcell= &((*tcell)->next);
+    }
+  }
+}
+
+gennosave(hash,gen)
+int gen;
+HashTable hash;
+{
+  gensparse(hash,gen);
+  delgen(hash,gen);
+}
+
+
+outhash(hash) 
+HashTable hash;
+{
+int i;
+CellList *cell;
+
+   for (i=0; i<hash.hsize; i++) {
+     if (cell=(CellList *)hash.table[i]) {
+       printf("Table entry %d\n",i);
+       while (cell) {
+         printf("x=%d y=%d gen=%d val=%d\n",
+                 cell->x,cell->y,cell->gen,cell->u.val);
+         cell=cell->next;
+       }
+       printf("\n");
+     }
+   }
+
+}
+
+outgen(hash,gen) 
+HashTable hash;
+int gen;
+{
+int i;
+CellList *cell;
+
+   for (i=0; i<hash.hsize; i++) {
+     if (cell=(CellList *)hash.table[i]) {
+       while (cell) {
+         if ((cell->gen==gen)&&(cell->u.val)) 
+             printf("%d %d\n",cell->x,cell->y);
+         cell=cell->next;
+       }
+     }
+   }
+
+}
+
+delgen(hash,gen) 
+HashTable hash;
+int gen;
+{
+  int i;
+  CellList **cell,**tcell;
+
+  for (cell=(CellList **)hash.table; 
+          cell<(CellList **)hash.table+hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if (gen==ALLGENS || ((*tcell)->gen==gen)) dodelete(tcell)
+      else tcell= &((*tcell)->next);
+    }
+  }
+}
+
+copypattern(topat,frompat,dx,dy,forcegen)
+HashTable topat,frompat;
+int dx,dy,forcegen;
+{
+  CellList **cell,**tcell;
+
+  for (cell=(CellList **)frompat.table; 
+       cell<(CellList **)frompat.table+frompat.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      setcell(((*tcell)->x)+dx,((*tcell)->y)+dy,
+	      (forcegen==NOFORCE)?(*tcell)->gen:forcegen, 
+                               ((*tcell)->u.val),topat);
+    tcell= &((*tcell)->next);
+  }
+}
+}
+
+boundingrect(hash,gen,x1,y1,x2,y2)
+HashTable hash;
+int gen;
+int *x1,*y1,*x2,*y2;
+{
+  CellList **cell,**tcell;
+
+  *x1= *y1=INT_MAX;
+  *x2= *y2=INT_MIN;
+ 
+  for (cell=(CellList **)hash.table; 
+       cell<(CellList **)hash.table+hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if ((*tcell)->gen==gen) {
+	if ((*tcell)->x < *x1) *x1=((*tcell)->x);
+	if ((*tcell)->y < *y1) *y1=((*tcell)->y);
+	if ((*tcell)->x > *x2) *x2=((*tcell)->x);
+	if ((*tcell)->y > *y2) *y2=((*tcell)->y);
+      }
+      tcell= &((*tcell)->next);
+    }
+  }
+}
+
+int countpat(hash,gen)
+HashTable hash;
+int gen;
+{
+  CellList **cell,**tcell;
+  int cellcount=0;
+ 
+  for (cell=(CellList **)hash.table; 
+       cell<(CellList **)hash.table+hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if ((*tcell)->gen==gen) {
+         if ((*tcell)->u.val) cellcount++;
+      }
+      tcell= &((*tcell)->next);
+    }
+  }
+
+  return cellcount;
+}
+
+printpic(hash,gen) 
+HashTable hash;
+int gen;
+{
+  int x1,y1,x2,y2;
+  int x,y,val;
+  static char outstr[]=".*23456789abcdef";
+
+  boundingrect(hash,gen,&x1,&y1,&x2,&y2);
+
+  for (y=y1; y<=y2; y++) { 
+    for (x=x1; x<=x2; x++) {
+      val=getcell(x,y,gen,hash);
+      putchar(val<16?outstr[val]:'+');
+    }
+    printf("\n");
+  }
+
+}
+
+int match(pat1,pat2,align,gen1,gen2,sx,sy,transpose,mtx,mty)
+HashTable pat1,pat2,align;
+int gen1,gen2,sx,sy,transpose;
+int *mtx,*mty;
+{
+  CellList **cell1,**tcell1,**cell2,**tcell2;
+  int x,y,tmp;
+  int maxmatch=0,countmatch;
+
+  for (cell1=(CellList **)pat1.table; 
+       cell1<(CellList **)pat1.table+pat1.hsize; cell1++) {
+    tcell1=cell1;
+    while (*tcell1) {
+      if ((*tcell1)->gen==gen1) {
+
+        x=sx*(*tcell1)->x;
+        y=sy*(*tcell1)->y;
+        if (transpose) {tmp=x; x=y; y=tmp;}
+
+	for (cell2=(CellList **)pat2.table; 
+	     cell2<(CellList **)pat2.table+pat2.hsize; cell2++) {
+	  tcell2=cell2;
+	  while (*tcell2) {
+	    if ((*tcell2)->gen==gen2) {
+              countmatch=inccell((*tcell2)->x-x,
+                                 (*tcell2)->y-y,SPECGEN,align);
+              if (countmatch>maxmatch) {
+                 maxmatch=countmatch;
+                 *mtx=(*tcell2)->x-x;
+                 *mty=(*tcell2)->y-y;
+              }
+	    }
+	    tcell2= &((*tcell2)->next);
+	  }
+	}
+      }
+      tcell1= &((*tcell1)->next);
+    }
+  }
+
+  return maxmatch;
+}
+
+subpattern(pat1,pat2,dx,dy,gen1,gen2,count)
+HashTable pat1,pat2;
+int dx,dy,gen1,gen2,*count;
+{
+  CellList **cell,**tcell;
+  int mismatch=0;
+
+  *count=0;
+
+  for (cell=(CellList **) pat1.table;
+            cell<(CellList **) pat1.table+ pat1.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+       if ((gen1==ALLGENS || (*tcell)->gen==gen1) &&
+	  !getcell((*tcell)->x+dx,(*tcell)->y+dy,gen2,pat2)) 
+                                            mismatch=1;
+       else (*count)++;
+       tcell= &((*tcell)->next);
+    } 
+  } 
+ 
+  return !mismatch;
+}
+
+delpattern(pat1,pat2,dx,dy,gen1,gen2)
+HashTable pat1,pat2;
+int dx,dy,gen1,gen2;
+{
+  CellList **cell,**tcell;
+
+  for (cell=(CellList **) pat1.table;
+       cell<(CellList **) pat1.table+ pat1.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+       if (gen1==ALLGENS || (*tcell)->gen==gen1)
+	  deletecell((*tcell)->x+dx,(*tcell)->y+dy,gen2,pat2);
+       tcell= &((*tcell)->next);
+    } 
+  } 
+}
+
+
+int comparegen(hash,gen1,gen2,xshift,yshift)
+HashTable hash;
+int gen1,gen2;
+int *xshift,*yshift;
+{
+  CellList **cell,**tcell;
+  int x1,y1,x2,y2;
+  int mismatch=0;
+ 
+  boundingrect(hash,gen1,&x1,&y1,&x2,&y2);
+  boundingrect(hash,gen2,xshift,yshift,&x2,&y2);
+  (*xshift)-=x1;   
+  (*yshift)-=y1;
+
+  for (cell=(CellList **) hash.table;
+       !mismatch && cell<(CellList **) hash.table+ hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if ((*tcell)->gen==gen1 && 
+	  !getcell((*tcell)->x+(*xshift),(*tcell)->y+(*yshift),gen2,hash)) 
+	{mismatch=1; break;}
+      else if ((*tcell)->gen==gen2 && 
+	  !getcell((*tcell)->x-(*xshift),(*tcell)->y-(*yshift),gen1,hash))
+	{mismatch=1; break;}
+      tcell= &((*tcell)->next);
+    }
+  }
+  return (!mismatch);
+}
+
+int findosc(hash,gen,tmp,xshift,yshift) 
+HashTable hash,tmp;
+int gen;
+int *xshift,*yshift;
+{
+int i,j;
+
+  delgen(tmp,ALLGENS);
+
+  copypattern(tmp,hash,0,0,1);
+
+  for (i=1; i<=gen; i++) {
+     gensparse(hash,i);
+     if (comparegen(hash,1,i+1,xshift,yshift)) break;
+  }
+
+  if (i>gen) return 0;
+  else return i;
+}
+
+
+marknghbrhoods(hash,gen)
+int gen;
+HashTable hash;
+{
+  CellList **cell,**tcell;
+
+  /* mark neighborhoods */
+  for (cell=(CellList **)hash.table; 
+       cell<(CellList **)hash.table+hash.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if ((*tcell)->gen==gen) {
+	setcell((*tcell)->x-1,(*tcell)->y-1,SPECGEN,1,hash);
+	setcell((*tcell)->x  ,(*tcell)->y-1,SPECGEN,1,hash);
+	setcell((*tcell)->x+1,(*tcell)->y-1,SPECGEN,1,hash);
+	setcell((*tcell)->x-1,(*tcell)->y  ,SPECGEN,1,hash);
+	setcell((*tcell)->x  ,(*tcell)->y  ,SPECGEN,1,hash);
+	setcell((*tcell)->x+1,(*tcell)->y  ,SPECGEN,1,hash);
+	setcell((*tcell)->x-1,(*tcell)->y+1,SPECGEN,1,hash);
+	setcell((*tcell)->x  ,(*tcell)->y+1,SPECGEN,1,hash);
+	setcell((*tcell)->x+1,(*tcell)->y+1,SPECGEN,1,hash);
+      }
+      tcell= &((*tcell)->next);
+    }
+  }
+}
+
+interact(pat1,pat2,align,gen)
+HashTable pat1,pat2,align;
+int gen;
+{
+  CellList **cell1,**tcell1,**cell2,**tcell2;
+  int dx,dy;
+
+  marknghbrhoods(pat1,gen);
+  marknghbrhoods(pat2,gen);
+
+  for (cell1=(CellList **)pat1.table; 
+       cell1<(CellList **)pat1.table+pat1.hsize; cell1++) {
+    tcell1=cell1;
+    while (*tcell1) {
+      if ((*tcell1)->gen== SPECGEN) {
+	for (cell2=(CellList **)pat2.table; 
+	     cell2<(CellList **)pat2.table+pat2.hsize; cell2++) {
+	  tcell2=cell2;
+	  while (*tcell2) {
+	    if ((*tcell2)->gen== SPECGEN) {
+              dx=(*tcell2)->x-(*tcell1)->x;
+              dy=(*tcell2)->y-(*tcell1)->y;
+              if (!getcell(dx,dy,SPECGEN,align)) 
+                        setcell(dx,dy,SPECGEN,gen,align);
+	    }
+	    tcell2= &((*tcell2)->next);
+	  }
+	}
+      }
+      tcell1= &((*tcell1)->next);
+    }
+  }
+
+  delgen(pat1,SPECGEN);
+  delgen(pat2,SPECGEN);
+}
+
+
+char *patstring(hash,gen,s) 
+HashTable hash;
+int gen;
+char *s;
+{
+
+  int x1,y1,x2,y2,xmax;
+  int x,y,val,i;
+
+  boundingrect(hash,gen,&x1,&y1,&x2,&y2);
+
+  i=0;
+  if (x2<x1) s[i++]='!';
+  else {
+    for (y=y1; i<MAXPATLEN-2 && y<=y2; y++) { 
+      for (xmax=x2; xmax>=x1; xmax--) if (getcell(xmax,y,gen,hash)) break;
+      for (x=x1; i<MAXPATLEN-2 && x<=xmax; x++) {
+	val=getcell(x,y,gen,hash);
+        s[i++]=val?'*':'.';
+      }
+      s[i++]='!';
+    }
+  }
+  s[i]='\0';
+
+  return s;
+
+}
+
+FILE *loadpat(hash,gen,filename,file)
+HashTable hash;
+int gen;
+char *filename;
+FILE *file;
+{
+static char inpline[MAXLINE+2];
+int i,j,x,y;
+int nothing_read=1;
+
+   if (!filename && !file) {
+      printf("No files given\n",filename);
+      exit(0);
+   }
+
+   if (!file) file=fopen(filename,"r");
+   if (!file) {
+      printf("Can't open %s\n",filename);
+      exit(0);
+   } 
+
+   delgen(hash,ALLGENS);
+   
+   i=0;
+   while (fgets(inpline,MAXLINE,file)) {
+
+     /* flag that at least one line was read from file */
+     nothing_read=0;     
+
+     /* if file contains one pattern per line, just read next line */ 
+     if (strchr(inpline,'!')) {  
+        char *c;
+      
+         i=j=0; 
+         for (c=inpline; *c!=' ' && *c!='\0'; c++) {
+            if (*c=='!') { i++; j=0; }
+            else {
+              if (*c=='*') setcell(j,i,gen,1,hash);
+              j++;
+            }
+         }
+
+         break;
+     }
+
+     /* otherwise read entire file */
+     if (sscanf(inpline,"%d %d",&x,&y)==2) {
+        setcell(x,y,gen,1,hash);
+      }
+     else {
+       for (j=0; inpline[j]!='\0'; j++) {
+         if (inpline[j]=='*') setcell(j,i,gen,1,hash);
+       }
+       i++;
+     }
+   }
+
+   if (nothing_read) {
+      fclose(file);
+      file=NULL;
+   } 
+  
+   return file;
+
+}
+
+
+@//E*O*F lists.c//
+chmod u=rw,g=r,o=r lists.c
+ 
+echo x - makematrix.c
+sed 's/^@//' > "makematrix.c" <<'@//E*O*F makematrix.c//'
+/*
+ * Gencols: Copyright 1994, Paul Callahan, callahan@cs.jhu.edu
+ *
+ * Permission to use, copy, modify, distribute, and sell this software and its
+ * documentation for any purpose is hereby granted without fee, provided that
+ * the above copyright notice appear in all copies and that both that
+ * copyright notice and this permission notice appear in supporting
+ * documentation, and that the name of the copyright holders not be used in
+ * advertising or publicity pertaining to distribution of the software without
+ * specific, written prior permission.  The copyright holders make no
+ * representations about the suitability of this software for any purpose.  It
+ * is provided "as is" without express or implied warranty.
+ */
+
+#include <stdio.h>
+#include <limits.h>
+#include <malloc.h>
+#include "defs.h"
+
+char inpline[MAXPATLEN];
+
+main(argc,argv) 
+int argc;
+char *argv[];
+{
+int inc=50;
+int maxcol=500;
+int row=0,col=0,argind;
+char *c;
+
+   for (argind=1; argind<argc; argind++) {
+
+      if (!strcmp(argv[argind],"-space")) {
+              sscanf(argv[++argind],"%d",&inc);
+      }
+      else if (!strcmp(argv[argind],"-maxcol")) {
+              sscanf(argv[++argind],"%d",&maxcol);
+      }
+
+   }
+
+   while (gets(inpline)) {
+ 
+      printf("#P %d %d\n",col,row);
+ 
+      for (c=inpline; *c!=' ' && *c!='\0'; c++) {  
+         if (*c=='!') printf(".\n");
+         else printf("%c",*c); 
+      }
+
+      col+=inc; 
+      if (col>=maxcol) {col=0; row+=inc;}
+
+      printf("\n");
+
+   }
+}
+@//E*O*F makematrix.c//
+chmod u=rw,g=r,o=r makematrix.c
+ 
+echo x - makepatlist.c
+sed 's/^@//' > "makepatlist.c" <<'@//E*O*F makepatlist.c//'
+/*
+ * Gencols: Copyright 1994, Paul Callahan, callahan@cs.jhu.edu
+ *
+ * Permission to use, copy, modify, distribute, and sell this software and its
+ * documentation for any purpose is hereby granted without fee, provided that
+ * the above copyright notice appear in all copies and that both that
+ * copyright notice and this permission notice appear in supporting
+ * documentation, and that the name of the copyright holders not be used in
+ * advertising or publicity pertaining to distribution of the software without
+ * specific, written prior permission.  The copyright holders make no
+ * representations about the suitability of this software for any purpose.  It
+ * is provided "as is" without express or implied warranty.
+ */
+
+
+#include <stdio.h>
+#include <limits.h>
+#include <malloc.h>
+#include "defs.h"
+
+char inpline[MAXPATLEN];
+FILE *loadpat();
+
+main(argc,argv) 
+int argc;
+char *argv[];
+{
+int argind;
+HashTable pat;
+char patstr[MAXPATLEN];
+
+   allochash(&pat,DEFAULTHSIZE);
+
+   for (argind=1; argind<argc; argind++) {
+       fclose(loadpat(pat,1,argv[argind],NULL));
+       printf("%s\n",patstring(pat,1,patstr));
+   }
+}
+@//E*O*F makepatlist.c//
+chmod u=rw,g=r,o=r makepatlist.c
+ 
+echo x - output.c
+sed 's/^@//' > "output.c" <<'@//E*O*F output.c//'
+/*
+ * Gencols: Copyright 1994, Paul Callahan, callahan@cs.jhu.edu
+ *
+ * Permission to use, copy, modify, distribute, and sell this software and its
+ * documentation for any purpose is hereby granted without fee, provided that
+ * the above copyright notice appear in all copies and that both that
+ * copyright notice and this permission notice appear in supporting
+ * documentation, and that the name of the copyright holders not be used in
+ * advertising or publicity pertaining to distribution of the software without
+ * specific, written prior permission.  The copyright holders make no
+ * representations about the suitability of this software for any purpose.  It
+ * is provided "as is" without express or implied warranty.
+ */
+
+
+#include <stdio.h>
+#include <limits.h>
+#include <malloc.h>
+#include "defs.h"
+
+char filterstring[MAXLINE]="apnf";
+int maxcells=MAXPATLEN,mincells= -1;
+
+outcollisions(pat1,pat2,align,gen,tmp,resultafter,
+                       pat1gen,pat2gen,delpat1,delpat2,synch,genresult,
+                       testpat1,testpat2) 
+HashTable pat1,pat2,align,tmp,pat1gen,pat2gen,testpat1,testpat2;
+int gen,resultafter,delpat1,delpat2,synch,genresult;
+{
+  CellList **cell,**tcell;
+  static char outpatini[MAXPATLEN],outpatfin[MAXPATLEN];
+  int tgen,removefailed,count;
+  HashTable remove1,remove2;
+
+  remove1=(synch)?pat1gen:pat1;
+  remove2=(synch)?pat2gen:pat2;
+
+  for (cell=(CellList **)align.table; 
+       cell<(CellList **)align.table+align.hsize; cell++) {
+    tcell=cell;
+    while (*tcell) {
+      if ((*tcell)->gen==SPECGEN && (*tcell)->u.val==gen) {
+	delgen(tmp,ALLGENS);
+
+        /* set up collision */
+        copypattern(tmp,pat1,0,0,1);
+        copypattern(tmp,pat2,-(*tcell)->x,-(*tcell)->y,1);	
+
+        /* copy picture of collision to a string */
+        patstring(tmp,1,outpatini);
+
+        if (!resultafter) printf("%s\n",outpatini);
+        else {
+	  int xshift,yshift,per;
+
+#ifdef USEBOXES
+	  genlist(tmp,1,resultafter-1);
+	  tgen=resultafter;
+#else
+	  for (tgen=1; tgen<resultafter; tgen++) {
+	    gennosave(tmp,tgen);
+	  }
+#endif
+
+#define MAXOSCTEST 4
+	  removefailed=0; 
+	  if (countpat(tmp,tgen)
+	      ==countpat(pat1gen,tgen)+countpat(pat2gen,tgen) 
+	      && subpattern(pat1gen,tmp,0,0,tgen,tgen,&count)
+	      && subpattern(pat2gen,tmp,-(*tcell)->x,-(*tcell)->y,tgen,tgen,&count))
+	    per= -1;
+	  else { 
+	    if (delpat1) { 
+	      if (subpattern(remove1,tmp,0,0,ALLGENS,tgen,&count))
+		delpattern(remove1,tmp,0,0,ALLGENS,tgen);
+	      else removefailed=1; 
+	    }
+	    if (delpat2) {
+	      if  (subpattern(remove2,tmp,
+			      -(*tcell)->x,-(*tcell)->y,ALLGENS,tgen,&count)) 
+		delpattern(remove2,tmp,
+			   -(*tcell)->x,-(*tcell)->y,ALLGENS,tgen);
+	      else removefailed=1;
+	    }
+	    if (testpat1.table) {
+	      if (subpattern(testpat1,tmp,0,0,ALLGENS,tgen,&count))
+		delpattern(testpat1,tmp,0,0,ALLGENS,tgen);
+	      else removefailed=1; 
+	    }
+	    if (testpat2.table) {
+	      if  (subpattern(testpat2,tmp,
+			      -(*tcell)->x,-(*tcell)->y,ALLGENS,tgen,&count)) 
+		delpattern(testpat2,tmp,
+			   -(*tcell)->x,-(*tcell)->y,ALLGENS,tgen);
+	      else removefailed=1; 
+	    }
+
+#ifdef USEBOXES
+	    genlist(tmp,tgen,genresult);
+	    tgen+=genresult;
+#else
+	    for ( ; tgen<resultafter+genresult; tgen++) {    
+	      gennosave(tmp,tgen);
+	    }
+#endif
+ 
+	    for (per=1; per<=MAXOSCTEST; per++) {
+	      gensparse(tmp,tgen+per-1);
+	      if (comparegen(tmp,tgen,tgen+per,&xshift,&yshift)) break;
+	    } 
+	  }
+
+	  if (per>=1 && per<=MAXOSCTEST) patstring(tmp,tgen,outpatfin);
+	  else strcpy(outpatfin,"not_shown");
+
+	  outputpattern(outpatini,outpatfin,
+			countpat(tmp,tgen),removefailed,
+                        per,xshift,yshift);
+
+	}
+      }
+      tcell= &((*tcell)->next);     
+    }
+  }
+}
+
+setfilters(fstring) 
+char *fstring;
+{
+   strcpy(filterstring,fstring);
+}
+
+setlower(lbound) 
+int lbound;
+{
+   mincells=lbound;
+}
+
+setupper(ubound) 
+int ubound;
+{
+   maxcells=ubound;
+}
+
+outputpattern(patstr1,patstr2,numcells,removefailed,per,xshift,yshift) 
+char *patstr1,*patstr2;
+int per,numcells,removefailed,xshift,yshift;
+{
+int maxmove=0;
+
+      if (xshift>maxmove) maxmove=xshift;
+      if (-xshift>maxmove) maxmove= -xshift;
+      if (yshift>maxmove) maxmove=yshift;
+      if (-yshift>maxmove) maxmove= -yshift;
+
+            if (numcells<mincells || numcells>maxcells) return;
+            if (removefailed && !strchr(filterstring,'f') ) return; 
+            if (per== -1 && !strchr(filterstring,'n') ) return; 
+            if (per>MAXOSCTEST && !strchr(filterstring,'a') ) return;
+            if (per>=1 && per <=4 && !strchr(filterstring,'p') && 
+                !strchr(filterstring,'0'+per)
+                && (maxmove!=1 || !strchr(filterstring,'g'))
+                && (maxmove!=2 || !strchr(filterstring,'s'))) return;
+
+            printf("%s %s %d",patstr1,patstr2,numcells);
+
+            if (removefailed) printf(" remove_failed");
+            else if (per== -1) printf(" none");
+            else if (per>MAXOSCTEST) printf(" other");
+            else printf(" (%d,%d,%d)",per,xshift,yshift); 
+
+            printf("\n");
+       
+            fflush(stdout);
+}
+@//E*O*F output.c//
+chmod u=rw,g=r,o=r output.c
+ 
+echo x - patterndir.sh
+sed 's/^@//' > "patterndir.sh" <<'@//E*O*F patterndir.sh//'
+
+
+# This is a shell archive.  Remove anything before this line,
+# then unpack it by saving it in a file and typing "sh file".
+#
+# Wrapped by biffvm!callahan on Tue Dec  6 18:48:40 EST 1994
+# Contents:  obj/allss_e.list obj/allss_n.list obj/allss_s.list
+#	obj/allss_w.list obj/bhep_shut_stbl.life obj/bhep_shuttle.life
+#	obj/bhep_tr10.life obj/bheptomino.life obj/block.life obj/boat1.life
+#	obj/boat2.life obj/boat3.life obj/boat4.life obj/eater.list
+#	obj/eater_ne.list obj/eater_ne1.life obj/eater_ne2.life
+#	obj/eater_nw.list obj/eater_nw1.life obj/eater_nw2.life
+#	obj/eater_se.list obj/eater_se1.life obj/eater_se2.life
+#	obj/eater_sw.list obj/eater_sw1.life obj/eater_sw2.life obj/glider.list
+#	obj/glider_ne.life obj/glider_nw.life obj/glider_se.life
+#	obj/glider_sw.life obj/gliderlwss.list obj/gunhalf1.life
+#	obj/gunhalf2.life obj/hive1.life obj/hive2.life obj/hwss.list
+#	obj/hwss_e.life obj/hwss_n.life obj/hwss_s.life obj/hwss_w.life
+#	obj/loaf1.life obj/loaf2.life obj/loaf3.life obj/loaf4.life
+#	obj/lwss.list obj/lwss_e.life obj/lwss_n.life obj/lwss_s.life
+#	obj/lwss_w.life obj/mwss.list obj/mwss_e.life obj/mwss_n.life
+#	obj/mwss_s.life obj/mwss_w.life obj/pond.life obj/queenbee.life
+#	obj/reflector.life obj/ship1.life obj/ship2.life obj/snake.list
+#	obj/snake1.life obj/snake2.life obj/snake3.life obj/snake4.life
+#	obj/tub.life
+
+if  test -d obj;  then exit; fi
+
+mkdir obj
+ 
+echo x - obj/allss_e.list
+sed 's/^@//' > "obj/allss_e.list" <<'@//E*O*F obj/allss_e.list//'
+@@..**!*....*!......*!*.....*!.******!
+*..*!....*!*...*!.****!
+@@..*!*...*!.....*!*....*!.*****!
+@@//E*O*F obj/allss_e.list//
+chmod u=rw,g=r,o=r obj/allss_e.list
+ 
+echo x - obj/allss_n.list
+sed 's/^@//' > "obj/allss_n.list" <<'@//E*O*F obj/allss_n.list//'
+@@..***!.*..*!....*!*...*!*...*!....*!.*.*!
+@@.***!*..*!...*!...*!*.*!
+@@..***!.*..*!....*!*...*!....*!.*.*!
+@@//E*O*F obj/allss_n.list//
+chmod u=rw,g=r,o=r obj/allss_n.list
+ 
+echo x - obj/allss_s.list
+sed 's/^@//' > "obj/allss_s.list" <<'@//E*O*F obj/allss_s.list//'
+@@.*.*!*!*...*!*...*!*!*..*!***!
+@@.*.*!*!*!*..*!***!
+@@.*.*!*!*...*!*!*..*!***!
+@@//E*O*F obj/allss_s.list//
+chmod u=rw,g=r,o=r obj/allss_s.list
+ 
+echo x - obj/allss_w.list
+sed 's/^@//' > "obj/allss_w.list" <<'@//E*O*F obj/allss_w.list//'
+******!*.....*!*!.*....*!...**!
+****!*...*!*!.*..*!
+*****!*....*!*!.*...*!...*!
+@@//E*O*F obj/allss_w.list//
+chmod u=rw,g=r,o=r obj/allss_w.list
+ 
+echo x - obj/bhep_shut_stbl.life
+sed 's/^@//' > "obj/bhep_shut_stbl.life" <<'@//E*O*F obj/bhep_shut_stbl.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 15:25:07 1994
+#P
+@@....*.......**...............
+@@...**......*..*..............
+@@..*........*..**.............
+@@...**.*....*..*..............
+@@....***......*...............
+@@.............................
+@@....***......*...............
+@@.*.**.*....*..*..............
+*..........*..**...........**
+*...*......*..*............**
+@@.****.......**...............
+@@//E*O*F obj/bhep_shut_stbl.life//
+chmod u=rw,g=r,o=r obj/bhep_shut_stbl.life
+ 
+echo x - obj/bhep_shuttle.life
+sed 's/^@//' > "obj/bhep_shuttle.life" <<'@//E*O*F obj/bhep_shuttle.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 14:57:04 1994
+#P
+*..
+**.
+@@.**
+**.
+@@...
+@@...
+@@...
+**.
+@@.**
+**.
+*..
+@@//E*O*F obj/bhep_shuttle.life//
+chmod u=rw,g=r,o=r obj/bhep_shuttle.life
+ 
+echo x - obj/bhep_tr10.life
+sed 's/^@//' > "obj/bhep_tr10.life" <<'@//E*O*F obj/bhep_tr10.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 16:26:52 1994
+#P
+@@..........*..
+@@..........**.
+@@...........**
+@@..........**.
+@@//E*O*F obj/bhep_tr10.life//
+chmod u=rw,g=r,o=r obj/bhep_tr10.life
+ 
+echo x - obj/bheptomino.life
+sed 's/^@//' > "obj/bheptomino.life" <<'@//E*O*F obj/bheptomino.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 16:26:52 1994
+#P
+*..
+**.
+@@.**
+**.
+@@//E*O*F obj/bheptomino.life//
+chmod u=rw,g=r,o=r obj/bheptomino.life
+ 
+echo x - obj/block.life
+sed 's/^@//' > "obj/block.life" <<'@//E*O*F obj/block.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:21:24 1994
+#P
+**
+**
+@@//E*O*F obj/block.life//
+chmod u=rw,g=r,o=r obj/block.life
+ 
+echo x - obj/boat1.life
+sed 's/^@//' > "obj/boat1.life" <<'@//E*O*F obj/boat1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:26:40 1994
+#P
+@@.**
+*.*
+@@.*.
+@@//E*O*F obj/boat1.life//
+chmod u=rw,g=r,o=r obj/boat1.life
+ 
+echo x - obj/boat2.life
+sed 's/^@//' > "obj/boat2.life" <<'@//E*O*F obj/boat2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:26:48 1994
+#P
+@@.*.
+*.*
+@@.**
+@@//E*O*F obj/boat2.life//
+chmod u=rw,g=r,o=r obj/boat2.life
+ 
+echo x - obj/boat3.life
+sed 's/^@//' > "obj/boat3.life" <<'@//E*O*F obj/boat3.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:26:54 1994
+#P
+@@.*.
+*.*
+**.
+@@//E*O*F obj/boat3.life//
+chmod u=rw,g=r,o=r obj/boat3.life
+ 
+echo x - obj/boat4.life
+sed 's/^@//' > "obj/boat4.life" <<'@//E*O*F obj/boat4.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:27:20 1994
+#P
+**.
+*.*
+@@.*.
+@@//E*O*F obj/boat4.life//
+chmod u=rw,g=r,o=r obj/boat4.life
+ 
+echo x - obj/eater.list
+sed 's/^@//' > "obj/eater.list" <<'@//E*O*F obj/eater.list//'
+@@..**!..*!*.*!**!
+@@...*!.***!*!**!
+**!.*!.*.*!..**!
+*!***!...*!..**!
+**!*.*!..*!..**!
+**!*!.***!...*!
+@@..**!...*!***!*!
+@@..**!.*.*!.*!**!
+@@//E*O*F obj/eater.list//
+chmod u=rw,g=r,o=r obj/eater.list
+ 
+echo x - obj/eater_ne.list
+sed 's/^@//' > "obj/eater_ne.list" <<'@//E*O*F obj/eater_ne.list//'
+@@..**!..*!*.*!**!
+@@...*!.***!*!**!
+@@//E*O*F obj/eater_ne.list//
+chmod u=rw,g=r,o=r obj/eater_ne.list
+ 
+echo x - obj/eater_ne1.life
+sed 's/^@//' > "obj/eater_ne1.life" <<'@//E*O*F obj/eater_ne1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:31:55 1994
+#P
+@@..**
+@@..*.
+*.*.
+**..
+@@//E*O*F obj/eater_ne1.life//
+chmod u=rw,g=r,o=r obj/eater_ne1.life
+ 
+echo x - obj/eater_ne2.life
+sed 's/^@//' > "obj/eater_ne2.life" <<'@//E*O*F obj/eater_ne2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:32:06 1994
+#P
+@@...*
+@@.***
+*...
+**..
+@@//E*O*F obj/eater_ne2.life//
+chmod u=rw,g=r,o=r obj/eater_ne2.life
+ 
+echo x - obj/eater_nw.list
+sed 's/^@//' > "obj/eater_nw.list" <<'@//E*O*F obj/eater_nw.list//'
+**!.*!.*.*!..**!
+*!***!...*!..**!
+@@//E*O*F obj/eater_nw.list//
+chmod u=rw,g=r,o=r obj/eater_nw.list
+ 
+echo x - obj/eater_nw1.life
+sed 's/^@//' > "obj/eater_nw1.life" <<'@//E*O*F obj/eater_nw1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:31:35 1994
+#P
+**..
+@@.*..
+@@.*.*
+@@..**
+@@//E*O*F obj/eater_nw1.life//
+chmod u=rw,g=r,o=r obj/eater_nw1.life
+ 
+echo x - obj/eater_nw2.life
+sed 's/^@//' > "obj/eater_nw2.life" <<'@//E*O*F obj/eater_nw2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:31:45 1994
+#P
+*...
+***.
+@@...*
+@@..**
+@@//E*O*F obj/eater_nw2.life//
+chmod u=rw,g=r,o=r obj/eater_nw2.life
+ 
+echo x - obj/eater_se.list
+sed 's/^@//' > "obj/eater_se.list" <<'@//E*O*F obj/eater_se.list//'
+**!*.*!..*!..**!
+**!*!.***!...*!
+@@//E*O*F obj/eater_se.list//
+chmod u=rw,g=r,o=r obj/eater_se.list
+ 
+echo x - obj/eater_se1.life
+sed 's/^@//' > "obj/eater_se1.life" <<'@//E*O*F obj/eater_se1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:30:34 1994
+#P
+**..
+*.*.
+@@..*.
+@@..**
+@@//E*O*F obj/eater_se1.life//
+chmod u=rw,g=r,o=r obj/eater_se1.life
+ 
+echo x - obj/eater_se2.life
+sed 's/^@//' > "obj/eater_se2.life" <<'@//E*O*F obj/eater_se2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:30:56 1994
+#P
+**..
+*...
+@@.***
+@@...*
+@@//E*O*F obj/eater_se2.life//
+chmod u=rw,g=r,o=r obj/eater_se2.life
+ 
+echo x - obj/eater_sw.list
+sed 's/^@//' > "obj/eater_sw.list" <<'@//E*O*F obj/eater_sw.list//'
+@@..**!...*!***!*!
+@@..**!.*.*!.*!**!
+@@//E*O*F obj/eater_sw.list//
+chmod u=rw,g=r,o=r obj/eater_sw.list
+ 
+echo x - obj/eater_sw1.life
+sed 's/^@//' > "obj/eater_sw1.life" <<'@//E*O*F obj/eater_sw1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:31:10 1994
+#P
+@@..**
+@@...*
+***.
+*...
+@@//E*O*F obj/eater_sw1.life//
+chmod u=rw,g=r,o=r obj/eater_sw1.life
+ 
+echo x - obj/eater_sw2.life
+sed 's/^@//' > "obj/eater_sw2.life" <<'@//E*O*F obj/eater_sw2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:31:23 1994
+#P
+@@..**
+@@.*.*
+@@.*..
+**..
+@@//E*O*F obj/eater_sw2.life//
+chmod u=rw,g=r,o=r obj/eater_sw2.life
+ 
+echo x - obj/glider.list
+sed 's/^@//' > "obj/glider.list" <<'@//E*O*F obj/glider.list//'
+@@.**!*.*!..*!
+**!*.*!*!
+@@..*!*.*!.**!
+*!*.*!**!
+@@//E*O*F obj/glider.list//
+chmod u=rw,g=r,o=r obj/glider.list
+ 
+echo x - obj/glider_ne.life
+sed 's/^@//' > "obj/glider_ne.life" <<'@//E*O*F obj/glider_ne.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:39:31 1994
+#P
+@@.**
+*.*
+@@..*
+@@//E*O*F obj/glider_ne.life//
+chmod u=rw,g=r,o=r obj/glider_ne.life
+ 
+echo x - obj/glider_nw.life
+sed 's/^@//' > "obj/glider_nw.life" <<'@//E*O*F obj/glider_nw.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:40:20 1994
+#P
+**.
+*.*
+*..
+@@//E*O*F obj/glider_nw.life//
+chmod u=rw,g=r,o=r obj/glider_nw.life
+ 
+echo x - obj/glider_se.life
+sed 's/^@//' > "obj/glider_se.life" <<'@//E*O*F obj/glider_se.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:39:42 1994
+#P
+@@..*
+*.*
+@@.**
+@@//E*O*F obj/glider_se.life//
+chmod u=rw,g=r,o=r obj/glider_se.life
+ 
+echo x - obj/glider_sw.life
+sed 's/^@//' > "obj/glider_sw.life" <<'@//E*O*F obj/glider_sw.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:40:01 1994
+#P
+*..
+*.*
+**.
+@@//E*O*F obj/glider_sw.life//
+chmod u=rw,g=r,o=r obj/glider_sw.life
+ 
+echo x - obj/gliderlwss.list
+sed 's/^@//' > "obj/gliderlwss.list" <<'@//E*O*F obj/gliderlwss.list//'
+@@.**!*.*!..*!
+**!*.*!*!
+@@..*!*.*!.**!
+*!*.*!**!
+*..*!....*!*...*!.****!
+@@.***!*..*!...*!...*!*.*!
+@@.*.*!*!*!*..*!***!
+****!*...*!*!.*..*!
+@@//E*O*F obj/gliderlwss.list//
+chmod u=rw,g=r,o=r obj/gliderlwss.list
+ 
+echo x - obj/gunhalf1.life
+sed 's/^@//' > "obj/gunhalf1.life" <<'@//E*O*F obj/gunhalf1.life//'
+#O callahan "Paul Callahan"@astro Tue Dec  6 15:46:42 1994
+#P
+@@...*........
+@@..****......
+@@.**.*.*.....
+***.*..*..**
+@@.**.*.*...**
+@@..****......
+@@...*........
+@@//E*O*F obj/gunhalf1.life//
+chmod u=rw,g=r,o=r obj/gunhalf1.life
+ 
+echo x - obj/gunhalf2.life
+sed 's/^@//' > "obj/gunhalf2.life" <<'@//E*O*F obj/gunhalf2.life//'
+#O callahan "Paul Callahan"@astro Tue Dec  6 15:47:13 1994
+#P
+@@........*...
+@@......****..
+@@.....*.*.**.
+**..*..*.***
+**...*.*.**.
+@@......****..
+@@........*...
+@@//E*O*F obj/gunhalf2.life//
+chmod u=rw,g=r,o=r obj/gunhalf2.life
+ 
+echo x - obj/hive1.life
+sed 's/^@//' > "obj/hive1.life" <<'@//E*O*F obj/hive1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:27:32 1994
+#P
+@@.*.
+*.*
+*.*
+@@.*.
+@@//E*O*F obj/hive1.life//
+chmod u=rw,g=r,o=r obj/hive1.life
+ 
+echo x - obj/hive2.life
+sed 's/^@//' > "obj/hive2.life" <<'@//E*O*F obj/hive2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:27:42 1994
+#P
+@@.**.
+*..*
+@@.**.
+@@//E*O*F obj/hive2.life//
+chmod u=rw,g=r,o=r obj/hive2.life
+ 
+echo x - obj/hwss.list
+sed 's/^@//' > "obj/hwss.list" <<'@//E*O*F obj/hwss.list//'
+@@..**!*....*!......*!*.....*!.******!
+@@..***!.*..*!....*!*...*!*...*!....*!.*.*!
+@@.*.*!*!*...*!*...*!*!*..*!***!
+******!*.....*!*!.*....*!...**!
+@@//E*O*F obj/hwss.list//
+chmod u=rw,g=r,o=r obj/hwss.list
+ 
+echo x - obj/hwss_e.life
+sed 's/^@//' > "obj/hwss_e.life" <<'@//E*O*F obj/hwss_e.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:43:25 1994
+#P
+@@..**...
+*....*.
+@@......*
+*.....*
+@@.******
+@@//E*O*F obj/hwss_e.life//
+chmod u=rw,g=r,o=r obj/hwss_e.life
+ 
+echo x - obj/hwss_n.life
+sed 's/^@//' > "obj/hwss_n.life" <<'@//E*O*F obj/hwss_n.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:43:17 1994
+#P
+@@..***
+@@.*..*
+@@....*
+*...*
+*...*
+@@....*
+@@.*.*.
+@@//E*O*F obj/hwss_n.life//
+chmod u=rw,g=r,o=r obj/hwss_n.life
+ 
+echo x - obj/hwss_s.life
+sed 's/^@//' > "obj/hwss_s.life" <<'@//E*O*F obj/hwss_s.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:43:41 1994
+#P
+@@.*.*.
+*....
+*...*
+*...*
+*....
+*..*.
+***..
+@@//E*O*F obj/hwss_s.life//
+chmod u=rw,g=r,o=r obj/hwss_s.life
+ 
+echo x - obj/hwss_w.life
+sed 's/^@//' > "obj/hwss_w.life" <<'@//E*O*F obj/hwss_w.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:43:56 1994
+#P
+******.
+*.....*
+*......
+@@.*....*
+@@...**..
+@@//E*O*F obj/hwss_w.life//
+chmod u=rw,g=r,o=r obj/hwss_w.life
+ 
+echo x - obj/loaf1.life
+sed 's/^@//' > "obj/loaf1.life" <<'@//E*O*F obj/loaf1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:32:20 1994
+#P
+@@.**.
+*..*
+*.*.
+@@.*..
+@@//E*O*F obj/loaf1.life//
+chmod u=rw,g=r,o=r obj/loaf1.life
+ 
+echo x - obj/loaf2.life
+sed 's/^@//' > "obj/loaf2.life" <<'@//E*O*F obj/loaf2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:32:32 1994
+#P
+@@.**.
+*..*
+@@.*.*
+@@..*.
+@@//E*O*F obj/loaf2.life//
+chmod u=rw,g=r,o=r obj/loaf2.life
+ 
+echo x - obj/loaf3.life
+sed 's/^@//' > "obj/loaf3.life" <<'@//E*O*F obj/loaf3.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:32:38 1994
+#P
+@@..*.
+@@.*.*
+*..*
+@@.**.
+@@//E*O*F obj/loaf3.life//
+chmod u=rw,g=r,o=r obj/loaf3.life
+ 
+echo x - obj/loaf4.life
+sed 's/^@//' > "obj/loaf4.life" <<'@//E*O*F obj/loaf4.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:32:48 1994
+#P
+@@.*..
+*.*.
+*..*
+@@.**.
+@@//E*O*F obj/loaf4.life//
+chmod u=rw,g=r,o=r obj/loaf4.life
+ 
+echo x - obj/lwss.list
+sed 's/^@//' > "obj/lwss.list" <<'@//E*O*F obj/lwss.list//'
+*..*!....*!*...*!.****!
+@@.***!*..*!...*!...*!*.*!
+@@.*.*!*!*!*..*!***!
+****!*...*!*!.*..*!
+@@//E*O*F obj/lwss.list//
+chmod u=rw,g=r,o=r obj/lwss.list
+ 
+echo x - obj/lwss_e.life
+sed 's/^@//' > "obj/lwss_e.life" <<'@//E*O*F obj/lwss_e.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:41:03 1994
+#P
+*..*.
+@@....*
+*...*
+@@.****
+@@//E*O*F obj/lwss_e.life//
+chmod u=rw,g=r,o=r obj/lwss_e.life
+ 
+echo x - obj/lwss_n.life
+sed 's/^@//' > "obj/lwss_n.life" <<'@//E*O*F obj/lwss_n.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:41:35 1994
+#P
+@@.***
+*..*
+@@...*
+@@...*
+*.*.
+@@//E*O*F obj/lwss_n.life//
+chmod u=rw,g=r,o=r obj/lwss_n.life
+ 
+echo x - obj/lwss_s.life
+sed 's/^@//' > "obj/lwss_s.life" <<'@//E*O*F obj/lwss_s.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:41:14 1994
+#P
+@@.*.*
+*...
+*...
+*..*
+***.
+@@//E*O*F obj/lwss_s.life//
+chmod u=rw,g=r,o=r obj/lwss_s.life
+ 
+echo x - obj/lwss_w.life
+sed 's/^@//' > "obj/lwss_w.life" <<'@//E*O*F obj/lwss_w.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:41:21 1994
+#P
+****.
+*...*
+*....
+@@.*..*
+@@//E*O*F obj/lwss_w.life//
+chmod u=rw,g=r,o=r obj/lwss_w.life
+ 
+echo x - obj/mwss.list
+sed 's/^@//' > "obj/mwss.list" <<'@//E*O*F obj/mwss.list//'
+@@..*!*...*!.....*!*....*!.*****!
+@@..***!.*..*!....*!*...*!....*!.*.*!
+@@.*.*!*!*...*!*!*..*!***!
+*****!*....*!*!.*...*!...*!
+@@//E*O*F obj/mwss.list//
+chmod u=rw,g=r,o=r obj/mwss.list
+ 
+echo x - obj/mwss_e.life
+sed 's/^@//' > "obj/mwss_e.life" <<'@//E*O*F obj/mwss_e.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:42:35 1994
+#P
+@@..*...
+*...*.
+@@.....*
+*....*
+@@.*****
+@@//E*O*F obj/mwss_e.life//
+chmod u=rw,g=r,o=r obj/mwss_e.life
+ 
+echo x - obj/mwss_n.life
+sed 's/^@//' > "obj/mwss_n.life" <<'@//E*O*F obj/mwss_n.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:42:56 1994
+#P
+@@..***
+@@.*..*
+@@....*
+*...*
+@@....*
+@@.*.*.
+@@//E*O*F obj/mwss_n.life//
+chmod u=rw,g=r,o=r obj/mwss_n.life
+ 
+echo x - obj/mwss_s.life
+sed 's/^@//' > "obj/mwss_s.life" <<'@//E*O*F obj/mwss_s.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:42:42 1994
+#P
+@@.*.*.
+*....
+*...*
+*....
+*..*.
+***..
+@@//E*O*F obj/mwss_s.life//
+chmod u=rw,g=r,o=r obj/mwss_s.life
+ 
+echo x - obj/mwss_w.life
+sed 's/^@//' > "obj/mwss_w.life" <<'@//E*O*F obj/mwss_w.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:42:49 1994
+#P
+*****.
+*....*
+*.....
+@@.*...*
+@@...*..
+@@//E*O*F obj/mwss_w.life//
+chmod u=rw,g=r,o=r obj/mwss_w.life
+ 
+echo x - obj/pond.life
+sed 's/^@//' > "obj/pond.life" <<'@//E*O*F obj/pond.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:33:13 1994
+#P
+@@.**.
+*..*
+*..*
+@@.**.
+@@//E*O*F obj/pond.life//
+chmod u=rw,g=r,o=r obj/pond.life
+ 
+echo x - obj/queenbee.life
+sed 's/^@//' > "obj/queenbee.life" <<'@//E*O*F obj/queenbee.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 14:34:42 1994
+#P
+**..
+*.*.
+@@...*
+*..*
+@@...*
+*.*.
+**..
+@@//E*O*F obj/queenbee.life//
+chmod u=rw,g=r,o=r obj/queenbee.life
+ 
+echo x - obj/reflector.life
+sed 's/^@//' > "obj/reflector.life" <<'@//E*O*F obj/reflector.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 17:13:11 1994
+#P
+**.....................
+@@.*.....................
+@@.*.*..........*........
+@@..**.........****......
+@@............**.*.*.....
+@@...........***.*..*..**
+@@............**.*.*...**
+@@.............****......
+@@..............*........
+@@//E*O*F obj/reflector.life//
+chmod u=rw,g=r,o=r obj/reflector.life
+ 
+echo x - obj/ship1.life
+sed 's/^@//' > "obj/ship1.life" <<'@//E*O*F obj/ship1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:27:58 1994
+#P
+**.
+*.*
+@@.**
+@@//E*O*F obj/ship1.life//
+chmod u=rw,g=r,o=r obj/ship1.life
+ 
+echo x - obj/ship2.life
+sed 's/^@//' > "obj/ship2.life" <<'@//E*O*F obj/ship2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:28:04 1994
+#P
+@@.**
+*.*
+**.
+@@//E*O*F obj/ship2.life//
+chmod u=rw,g=r,o=r obj/ship2.life
+ 
+echo x - obj/snake.list
+sed 's/^@//' > "obj/snake.list" <<'@//E*O*F obj/snake.list//'
+**!*!.*!**!
+*.**!**.*!
+**.*!*.**!
+**!.*!*!**!
+@@//E*O*F obj/snake.list//
+chmod u=rw,g=r,o=r obj/snake.list
+ 
+echo x - obj/snake1.life
+sed 's/^@//' > "obj/snake1.life" <<'@//E*O*F obj/snake1.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:22:33 1994
+#P
+**
+*.
+@@.*
+**
+@@//E*O*F obj/snake1.life//
+chmod u=rw,g=r,o=r obj/snake1.life
+ 
+echo x - obj/snake2.life
+sed 's/^@//' > "obj/snake2.life" <<'@//E*O*F obj/snake2.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:22:43 1994
+#P
+*.**
+**.*
+@@//E*O*F obj/snake2.life//
+chmod u=rw,g=r,o=r obj/snake2.life
+ 
+echo x - obj/snake3.life
+sed 's/^@//' > "obj/snake3.life" <<'@//E*O*F obj/snake3.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:22:51 1994
+#P
+**.*
+*.**
+@@//E*O*F obj/snake3.life//
+chmod u=rw,g=r,o=r obj/snake3.life
+ 
+echo x - obj/snake4.life
+sed 's/^@//' > "obj/snake4.life" <<'@//E*O*F obj/snake4.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:22:58 1994
+#P
+**
+@@.*
+*.
+**
+@@//E*O*F obj/snake4.life//
+chmod u=rw,g=r,o=r obj/snake4.life
+ 
+echo x - obj/tub.life
+sed 's/^@//' > "obj/tub.life" <<'@//E*O*F obj/tub.life//'
+#O callahan "Paul Callahan"@biffvm Tue Dec  6 12:25:19 1994
+#P
+@@.*.
+*.*
+@@.*.
+@@//E*O*F obj/tub.life//
+chmod u=rw,g=r,o=r obj/tub.life
+ 
+exit 0
+@//E*O*F patterndir.sh//
+chmod u=rw,g=r,o=r patterndir.sh
+ 
+exit 0
+
+-- 
+Paul Callahan
+callahan@biffvm.cs.jhu.edu
+
+From comp.theory.cell-automata Wed Dec  7 16:02:43 1994
+Path: blaze.cs.jhu.edu!biffvm.cs.jhu.edu!not-for-mail
+From: callahan@biffvm.cs.jhu.edu (Paul Callahan)
+Newsgroups: comp.theory.cell-automata
+Subject: Re: Program to search for collisions in Conway's Life (C code)
+Date: 7 Dec 1994 15:33:01 -0500
+Organization: Computer Science Department, The Johns Hopkins University
+Lines: 96
+Distribution: inet
+Message-ID: <3c565t$17g@biffvm.cs.jhu.edu>
+References: <3c3ck5$rmr@biffvm.cs.jhu.edu>
+NNTP-Posting-Host: biffvm.cs.jhu.edu
+
+Here's another example shell script to illustrate some further uses of
+the program I posted.  It begins with the period-20 spaceship that
+consists of a p20 puffer stabilized by a third lwss; this is the
+basis for the standard p20 forward and backward rakes.  It tries
+to make a puffer using various placements and phase differences for
+a fourth lwss.  Of course, this search retrieves the p20 forward and
+backward rakes, but it produces other puffers as well (admittedly all
+of them well-known to the Life experts out there).  With the parameters to
+gencols set as in the following, I was able to construct eleven such
+puffers in slightly over three minutes on a SparcStation ELC.  These
+include the two p20 rakes as well as puffers for loaves, boats, and
+beehives.  You can also get a block puffer among others if you replace
+the fourth lwss with an hwss.
+
+I'm very interested in feedback, so please let me know if you try out
+my code.  I'm particularly interested if anyone with a machine that
+allows 64-bit long values would compile it with WORDLEN (in defs.h)
+set to 64.  I don't know if the program will continue to work without
+additional modification, but if it does, it should exploit twice as
+much bit parallelism, and (hopefully) run faster, especially for
+collisions that fit inside a 64x64 box.
+
+The following is a C-shell script that should be placed in a file
+"PufferExample", which can be run by typing "csh PufferExample".  It
+assumes the existence of two executables: gencols and makematrix.  The
+results can be viewed using Xlife or any other life program (such as
+Al Hensel's PC life) that supports a similar input format.
+
+---- cut here ----
+#!/bin/csh
+
+if (! -d obj) mkdir obj
+
+cat > "obj/p20gen01.life" <<endobj 
+..........**..
+.........****.
+.........**.**
+...........**.
+..............
+..............
+..............
+..............
+.........**...
+..........**..
+.........**...
+.........*....
+..............
+..............
+..........**..
+.****....****.
+*...*....**.**
+....*......**.
+*..*..........
+endobj
+
+
+cat > "obj/p20gen41.life" <<endobj 
+..............................**..
+.............................****.
+.............................**.**
+...............................**.
+..................................
+..................................
+..................................
+..................................
+.............................**...
+..............................**..
+.............................**...
+.............................*....
+..................................
+..................................
+..............................**..
+.....................****....****.
+....................*...*....**.**
+........................*......**.
+....................*..*..........
+endobj
+
+cat > "obj/lwss_e.life" <<endobj 
+*..*.
+....*
+*...*
+.****
+endobj
+ 
+echo 'Adding fourth LWSS to period-20 spaceship to make a puffer or rake'
+time gencols -pat obj/p20gen01.life obj/lwss_e.life -nph 4 -tc 18 35 \
+      -gen 41 -test1 obj/p20gen41.life -del2 -filt ap > p20puffers.col
+# time set maxcol<space to get one eastbound puffer per row
+echo 'Putting puffers in Xlife pattern file p20puffers.life'
+makematrix -maxcol 1 < p20puffers.col > p20puffers.life
+
+exit 0
+-- 
+Paul Callahan
+callahan@biffvm.cs.jhu.edu
+

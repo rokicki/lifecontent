@@ -1,0 +1,20 @@
+<TITLE>Extensible delay line pattern</TITLE>
+<applet codebase=".." code="LifeApp" width=500 height=350>
+<param name=pattern value="delay/delay">
+</applet>
+<BR>
+In the above pattern, there is a gun set up 
+to produce loop-lengthening spaceships, but it is
+normally suppressed by a glider stream. 
+One incoming glider is included to suppress the
+suppressing stream, thus 
+releasing a spaceship to lengthen the loop. Initial bit contents of the loop
+are 01, based on a positive logic rightward stream. 
+When the loop is lengthened, the new contents
+become 011 (a 1 is always what's inserted). 
+<P>
+The output glider stream can be interpreted as as 010101011011011011... 
+That is, the loop is
+lengthened after three full cycles. 
+<P>
+Get <A HREF="delay.life">Pattern File</A>

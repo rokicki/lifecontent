@@ -1,0 +1,104 @@
+<TITLE>Random Still Life Generator</TITLE>
+<applet code="StillLife" width=500 height=500></applet>
+<H1>Random Still Life Generator (requires Java)</H1></A>
+<EM><A HREF="StillLife.java">Java source</A> is now
+available for this applet.  This was a rush job, and I haven't had
+a chance to go back and fix it, so I don't vouch
+the readability of this code.
+</EM>
+<P>
+In the Game of Life, a pattern is called a "still life" if it doesn't
+change from turn to turn.  
+Specifically,
+a still life is an arrangement of live cells satisfying the following
+two conditions.
+<UL>
+   <LI> A live cell must have either 2 or 3 live neighbors.
+   <LI> A dead cell can have any number of live neighbors except 3.
+</UL>
+One can easily see from the rules of Life that the above conditions prevent
+a live cell from dying, and also prevent a new live cell from being born 
+at a location that was previously dead.  Hence, a pattern satisfying
+the above is not changed by a life generation. 
+An arrangement 
+of <A HREF="patterns/still.html">still life patterns</A> can be found in
+the archive. 
+<P>
+This applet is an experimental toy intended to build your intuition about
+still lifes.  You can also use it to generate new still lifes.  It uses
+a random iterative process to modify the pattern to make it satisfy
+the rules above.  The results of this process are
+unpredictable, but
+lead to a variety of unusual still life shapes.  
+<A NAME="moreinfo"><H2>Applet Description</H2>
+The board is initially clear.  That is, it
+contains no live cells.  Clearly, this is a trivial still life.   
+You can toggle the state of a cell with the mouse, and any violation
+of the rules above are shown with a red X.
+Note that border cells are assumed empty.  You may not toggle them,
+but an X will appear on a border cell if it contains three live 
+neighbors.
+<P>
+Besides toggling cell values, you can declare cells to be "fixed" in
+which case they remain at the manually set value and are not
+changed by Clear, Randomize, and Stabilize, described below.
+<P>
+Further information is given to show you how changing the state of a
+cell will affect the number of violations.  This information is only
+given for cells in the neighborhood of a violation.  A green square
+indicates a change that will decrease the number of violations, while a
+red square indicates a change that will increase the number of violations.  
+The extent of the effect is indicated by the size of the square.  A
+small blue square indicates a change that does not affect the total
+number of violations, though it may change the position of one or more
+violations in the neighborhood of the cell. 
+<P>
+Additional functions:
+<UL>
+<LI> <STRONG>Clear</STRONG> removes any live cell that is not fixed.
+<LI> <STRONG>Randomize</STRONG> randomly toggles cells that are not fixed.
+<LI> <STRONG>Stabilize/Stop</STRONG> starts and stops the stabilizer.
+<LI> <STRONG>Set/Fix</STRONG> chooses between toggling cell values
+and declaring cells fixed.
+<LI> <STRONG>1/2, 1/3, etc.</STRONG> sets the random move probability
+in the stabilizer (see below).
+</UL>
+<P>
+<H2>Stabilizer Algorithm</H2>
+The stabilizer algorithm is based on the values
+shown with red, green, and blue squares.  
+At each step we find a cell such that toggling it would
+decrease the number of violations as much as
+possible or would increase it as little as possible
+(i.e., the 
+largest green square if there is one, otherwise a blue square
+if there is one, and otherwise the smallest red square).
+Since there may be several cells that are equally
+good, we pick one of these randomly to toggle.
+<P>
+This method by itself is ineffective, because
+it tends to get stuck in a local minimum.  For this 
+reason, we have some probability (initially
+set to 1/3) of picking an
+arbitrary cell in the neighborhood of a violation and
+toggling it instead of the one determined
+above.
+Once the cell has been found, we toggle it and
+move on to the next iteration until there are no more cells to toggle.
+<P>
+It is somewhat surprising that such a simple approach
+with no backtracking can find non-trivial still life patterns.  
+The random move probability
+was chosen after a brief period of trial and error,
+and seems to be effective.  Note that particularly
+harmful random moves tend to be reversed in the next
+iteration, and this may explain why we can use a value as high as
+1/3.
+<P>
+<EM>This applet is in its experimental stages.  Any comments
+or suggestions to
+<A HREF="mailto:callahan@cs.jhu.edu">callahan@cs.jhu.edu</A> are
+appreciated.
+<HR>
+<A HREF="lifepage.html"><IMG SRC="larrw.gif" border=0></A>
+Back to Paul's Page of Conway's Life Miscellany

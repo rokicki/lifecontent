@@ -1,0 +1,25 @@
+<TITLE>loggrow.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=loggrow>
+</applet>
+<H1>Comments for <A HREF="loggrow.lif">loggrow.lif</A></H1>
+<PRE>
+t log(t)
+Population in generation t is asymptotic to  t log(t)/48.
+More specifically, for  n >= 2,  the population in gen  60n  is
+
+.                  n           n - m          n - m + 4
+. 5747 + 247n + 5 SUM (2 floor(-----) - floor(---------)).
+.                 m=1            4m               4m
+
+Three breeders and two puffers create a sequence of large period
+guns; the N'th gun has period 240N.  In gen t there are about
+t/60 finished guns, which have emitted about t/(240*1) + t/(240*2)
++ t/(240*3) + ... + t/(240*(t/60)) ~ t log(t)/240 gliders.
+Dean Hickerson, dean@ucdmath.ucdavis.edu  11/13/90
+</PRE>
+Xref:
+<A HREF="breeder.html">breeder</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

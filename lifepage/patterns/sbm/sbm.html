@@ -1,0 +1,256 @@
+<TITLE>Sliding block memory</TITLE>
+<H1>Description of sliding block memory</H1>
+<CITE>by Dean Hickerson (1-Mar-90)</CITE>
+<P>
+<A HREF="../sbmem.html"><IMG SRC="../sbmem.gif"></A>
+<P>
+By using 'standard' glider-logic components such as guns and eaters,
+we can build any finite piece of circuitry desired; e.g. one which
+would simulate a real computer.  But to show that Life is computation-
+universal, we need to be able to simulate a Turing machine with its
+infinite storage capacity.  In "Winning Ways", Conway describes an
+infinite storage device.  It consists of a block located along a
+diagonal; the location of the block represents a nonnegative integer.
+Glider salvos are used to push the block (increment the register) and
+pull the block (decrement the register).  A glider fired across the
+diagonal at the zero position is used to test the register to see if
+it equals 0.  (If so, the block is destroyed by the test and must then
+be rebuilt using 2 more gliders.)  So it's possible to build a
+register which can store any nonnegative integer and which has 3 basic
+operations: increment, decrement, and test for zero.  Marvin Minsky
+showed that just 2 such registers suffice to simulate a universal
+Turing machine, but that 3 are far more efficient.  (See Sec. 15.1 of
+Minsky's "Computation: Finite and Infinite Machines".) 
+<EM>[Note, however, that for any constant k,
+a k-counter machine can be exponentially slower 
+than an equivalent Turing machine.  
+For an alternative, see my description of the
+<A HREF="../delay/dldesc.html">extensible delay-line memory</A>. --PBC]</EM>
+<P>
+Conway's design uses a 2-glider salvo to pull the block 3 units and a
+30-glider salvo to push it 3 units; of course it has never been built.
+But we can do much better:  After examining a couple thousand
+collisions between 2 gliders and a block, I found a 2-glider salvo
+which can pull a block 1 unit and a 3-glider salvo which can push it
+1 unit.  I then built a shotgun which produces the necessary salvos
+and a control device which releases them when instructed to do so by
+external circuitry.  This device is not exactly like the one described
+earlier: there is no separate test for zero.  Instead, the device
+automatically reports the transition from 1 to 0.  (If you want to
+know if the register currently equals 0, just send an increment
+command followed by a decrement command.)  This change greatly
+simplifies the design, since the test does not destroy the block.
+<P>
+Figure 0 shows how to decrement the register.  Gliders R and S are
+about to pull the block 1 unit; glider Z is destroyed in the process.
+But if you start with the block farther southeast, then Z will escape
+unharmed.  Thus the absence of Z indicates that the register has been
+decremented to 0.  (The register should not be decremented if it
+already contains 0; doing so would destroy it.)
+<P>
+<PRE>
+     .........s.....
+     .......s.s.....
+     ........ss.....
+     ...............
+     ...............
+     ...............
+     ...............
+     .........r...oo
+     ..........rr.oo
+     zz.......rr....
+     .zz............
+     z..............
+
+        Figure 0
+</PRE>
+<P>
+Figure 1 shows the increment salvo.  By themselves, gliders P and Q
+push the block 1 unit but also create a boat and a traffic light;
+glider R prevents these from forming.  There are several possible
+positions for R; I chose this one because it's on the same flight path
+as one of the decrement gliders, which simplifies the design of the
+shotgun.
+<P>
+<PRE>
+     r..................
+     .rr................
+     rr.................
+     ...................
+     ...................
+     ...................
+     ...................
+     ...................
+     ...............q.q.
+     ................qq.
+     ................q..
+     ...................
+     ...................
+     .................oo
+     .............p...oo
+     ..............pp...
+     .............pp....
+
+          Figure 1
+</PRE>
+<P>
+The sliding block control unit has 3 parts.  At the upstream end is a
+shotgun which produces, every 120 generations, a 4-glider salvo
+containing both the increment and decrement salvos.  Next are the
+suppressors: a pentadecathlon and a pair of guns which normally delete
+all 4 gliders from the shotgun but which can release either an
+increment or decrement salvo when told to do so by an external signal.
+Finally, there's the zero-detector, a gun which supplies the glider Z
+in Figure 0.  This glider usually escapes; it's timed so that it
+misses both the increment and decrement salvos.  But when the register
+is decremented from 1 to 0, Z gets deleted; the external circuitry
+should detect its absence.
+<P>
+The shotgun consists of 4 p120 guns, 4 p30 guns, 4 buckaroos (the
+queen bee shuttle used to reflect a glider 90 degrees), and 2 rephaser
+blocks, as shown in Figure 2.  Here "G" is a p120 gun, "g" is a p30
+gun, and "R" is a rephaser; buckaroos are shown as bends in the glider
+paths.  Each pair of p30 guns is used as a 180 degree reflector since
+the spacing won't allow a pair of buckaroos to be used.
+<P>
+<PRE>
+
+        G    G
+         \  /
+          \/     g
+          /\      \
+         /  \ /\  /\  g     G
+         \   X  \/  \/     /
+          \ / \  R  /     /
+           X   \/\ /     /
+     G    / \  /\ X     /
+      \  /   \/  X \   /
+       \/    /\ / \ \ /
+            /  X   \ X
+           /  / \   X \
+          /  <   \ / \ \
+         /\   \   X   \ \
+        /  \   \ / \   \ \
+       g    \  /R\  \   \ \
+             \/   \  \   \ \
+              \    \  \   \
+               g    \  \
+                     \   output
+
+              Figure 2
+</PRE>
+<P>
+The purpose of the suppressors is to selectively release increment or
+decrement salvos from the shotgun.  Originally I had planned to use a
+5-glider salvo which was a disjoint union of the increment and
+decrement salvos.  One suppressor would have deleted the increment
+salvos and the other would have deleted the decrement salvos.  In
+order to increment or decrement the register, the external circuitry
+would delete a glider from one of the suppressors.  But with p120
+logic, the zero detector would have hit the increment salvo, so I
+decided to use a non-disjoint union of the salvos instead.  This makes
+the suppressors's job more difficult, since they must delete either
+1, 2, or 4 of the gliders, depending on whether the register is to be
+incremented, decremented, or neither.  After much experimenting, I
+came up with the design shown in Figure 3.
+<P>
+The decrement suppressor is a p120 gun supplying the glider D in
+Figure 3; the increment suppressor supplies glider I.  Normally both
+D and I are present; they destroy all 4 gliders from the shotgun.  If
+D is deleted, then I destroys only P and Q, allowing a decrement salvo
+(R and S) to escape.  If I is deleted, then D passes behind P and Q,
+reflects 180 degrees from the pentadecathlon, and deletes S, thereby
+allowing an increment salvo (P, Q, and R) to escape.  (If both D and I
+are deleted, then the block is first pushed and then destroyed,
+effectively setting the value of the register to infinity.
+Conceivably this could be useful.)
+<P>
+<PRE>
+     ...................o.
+     ..................ooo
+     .....................
+     ..s..................
+     s.s...............ooo
+     .ss..................
+     ..................o.o
+     ..................o.o
+     .....................
+     ..................ooo
+     ..r..................
+     ...rr................
+     ..rr..............ooo
+     ...................o.
+     .....................
+     .....................
+     .....................
+     .....................
+     .................q.q.
+     ..................qq.
+     ..................q..
+     .....................
+     .....................
+     .....................
+     ...............p.....
+     ................pp...
+     ...............pp...i
+     .........dd.......ii.
+     ..........dd.......ii
+     .........d...........
+
+           Figure 3
+</PRE>
+<P>
+Figure 4 shows a schematic of the unit, as it would normally be used.
+<P>
+<PRE>
+        input          input               output
+     (decrement)    (increment)              /
+           \             \    Increment     /
+            \             \   suppressor   /
+             \             \      /       /
+              \             \    /       /
+               \             \  /       /
+                \  Shotgun    \/       /
+                 \    \\      /       /
+                  \    \\ PD /       /
+                   \    \\/ /       /
+                    \    X\/       /
+                     \  / \\      /
+                      \/   \\    /
+                      /     \\  /
+                     /       \\/
+            Decrement         X\
+            suppressor       / \\
+                        Zero    \\
+                      detector   \\
+                                 Block
+
+                       Figure 4
+</PRE>
+<P>
+To test and demonstrate the unit, I built a simple external circuit
+consisting of 2 p30 guns, an eater, and a kickback glider.  (To
+decrease the size of the pattern, I put the extras to the southeast.
+Normally the external circuitry would be to the northwest to stay away
+from the block's diagonal.  I also positioned the increment suppressor
+fairly close to the diagonal; it would normally be farther away to
+allow access to its output from northwest.)  The block is initially in
+position 3 and gets incremented to 4.  From then on, the output of the
+zero-detector is inverted twice and becomes the increment suppressing
+glider, so the increment salvo will be released only when the register
+is decremented to 0.  Meanwhile, a glider is kicked back and forth
+between the decrement suppressor's stream and an external gun,
+deleting one glider from the decrement suppressor every 480
+generations.  So the register gets incremented once, then repeatedly
+decremented until it reaches 0, and from then on is alternately
+incremented to 1 and decremented to 0 forever.
+<P>
+The test pattern's initial population is 1685 and it fits in a 240 by
+192 rectangle.
+<P>
+[Note added 11/30/96:  The p120 guns used in this pattern are
+obsolete.  I never got around to rebuilding the SBM using smaller
+guns.]
+<HR>
+<A HREF="../../lifepage.html"><IMG SRC="../../larrw.gif"></A>
+Back to Paul's Page of Conway's Life Miscellany

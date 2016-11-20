@@ -1,0 +1,34 @@
+<TITLE>sawtoot5.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=sawtoot5>
+</applet>
+<H1>Comments for <A HREF="sawtoot5.lif">sawtoot5.lif</A></H1>
+<PRE>
+Orthogonal sawtooth with expansion factor 25
+Population is unbounded but does not tend to infinity.  Its graph is a
+sawtooth function with ever-increasing teeth.  More specifically, the
+population in generations t near 30 * 25^n is about 59t/225 if t is odd,
+about 7t/10 if t is even but not == 46 (mod 60), and about 211t/900 if
+t == 46 (mod 60); the population in generation 6 * 25^n - 1125 (n>=2) is
+only 1846.  (Even more specifically, the population in generation
+t = 30 * 25^n - 525 (n>=1), is 59t/225 + 1951.)
+
+A shotgun produces a salvo of 4 eastward lightweight spaceships every 120
+generations.  Some are deleted; the others eventually catch up to a pair of
+c/3 spaceships and reflect off the backs of them, forming westward
+middleweight spaceships.  When a MWSS returns to the shotgun, it causes the
+deletion of 5 salvos.  (Notice the unusual eatering of a pi heptomino, by 2
+blocks, that's used in this deletion.) So the region between the shotgun and
+the c/3s alternately becomes full and empty of spaceships.
+
+The c/3 spaceships were found by David Bell, who suggested this way of making
+a sawtooth.
+
+Dean Hickerson, dean@ucdmath.ucdavis.edu  8/26/92
+</PRE>
+Xref:
+<A HREF="pi.html">pi</A>
+<A HREF="sawtooth.html">sawtooth</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

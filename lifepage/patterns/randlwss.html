@@ -1,0 +1,17 @@
+<TITLE>randlwss.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=randlwss>
+</applet>
+<H1>Comments for <A HREF="randlwss.lif">randlwss.lif</A></H1>
+<PRE>
+Pseudorandom LWSS generator with p46 logic
+A lightweight spaceship stream is emitted representing a
+pseudorandom binary sequence satisfying the recursion
+a[n] = a[n-1] XOR a[n-19].  (By spreading out the pattern,
+the 19 can be changed.)  The sequence has period 413385,
+so the gun has period 46*413385 = 19015710.
+Built by Bill Gosper, October 1989 or earlier
+(Header by Dean Hickerson, 4/11/93)
+</PRE>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

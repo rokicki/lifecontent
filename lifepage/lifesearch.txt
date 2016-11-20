@@ -1,0 +1,4466 @@
+PLEASE READ
+-----------
+
+This is an exact copy of David Bell's Unix shell archive of his 5 Feb 94 
+release of his search program.  To preserve its integrity, I have avoided
+making any modifications to the archive itself.  However, I have found that 
+in order to compile it on my system, I had to replace the current Makefile 
+with the following one:
+
+--- Text from my Makefile ---
+CFLAGS = -O
+
+CC = gcc
+
+all:	lifesrcdumb lifesrc
+
+lifesrcdumb:	search.o interact.o dumbtty.o
+	$(CC) -o lifesrcdumb search.o interact.o dumbtty.o
+
+lifesrc:	search.o interact.o cursestty.o
+	$(CC) -o lifesrc search.o interact.o cursestty.o -lcurses -ltermcap
+--- End Makefile text ---
+
+This uses gcc as the C compiler, and loads the termcap library for the
+curses-based executable.  Otherwise, it is identical to David Bell's 
+Makefile.
+
+If you want to use this Makefile, just extract the above text
+and put it in a file called "Makefile".
+
+--Paul Callahan (callahan@cs.jhu.edu)
+
+
+#! /bin/sh
+# This is a shell archive.  Remove anything before this line, then unpack
+# it by saving it into a file and typing "sh file".  To overwrite existing
+# files, type "sh file -c".  You can also feed this as standard input via
+# unshar, or by typing "sh <file", e.g..  If this archive is complete, you
+# will see the following message at the end:
+#		"End of shell archive."
+# Contents:  README ORIGIN Makefile lifesrc.h cursestty.c dumbtty.c
+#   interact.c search.c
+# Wrapped by dbell@pdact on Mon Feb 14 18:32:31 1994
+PATH=/bin:/usr/bin:/usr/ucb ; export PATH
+if test -f 'README' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'README'\"
+else
+echo shar: Extracting \"'README'\" \(22924 characters\)
+sed "s/^X//" >'README' <<'END_OF_FILE'
+X				LIFESRC
+X				5 Feb 94
+X
+XThe following is a short explanation on how to run the life search program.
+X
+XThis program attempts to find life objects which are periodic, which are
+Xspaceships, or which are parents of an object.  You specify a region to
+Xsearch in, the number of generations of interest, and some initial cells.
+XThe program then searches for all objects which satisfy the conditions.
+XThe search applies transition and implication rules which restrict the number
+Xof possible objects considered to a small fraction of the total number.  This
+Xmakes it practical to find these objects in a reasonable amount of time.
+X(Reasonable ranges from a few minutes to many days, depending on the size
+Xof the search.)
+X
+XThe algorithm used here is based on the one described by Dean Hickerson
+Xin his document that was included with the xlife program, and which is also
+Xincluded with this distribution.  Reading that document will explain how
+Xthe search in this program works, except for minor changes.
+X
+XThe program usually looks for an object which is periodic in the number of
+Xgenerations specified by the -g option.  For example, use -g3 to look for
+Xperiod 3 oscillators or spaceships.  The program is pretty fast for period 2,
+Xsatisfactory for period 3, long for period 4, and very long for period 5.
+X
+XBy default, the program only finds objects which have the full period specified
+Xby the -g option.  Objects having subperiods of the full period are skipped.
+XFor example, when using -g4, all stable objects or period 2 oscillators will
+Xnot be found.  The -a command line option disables this skipping, thus finding
+Xall objects, even those with subperiods.  You probably want to use -a if you
+Xuse any of the -tr, -tc, or -p options.
+X
+XThe object is limited to the number of rows and columns specified by the -r
+Xand -c options.  Cells outside of this boundary are assumed OFF.  Thus if
+Xany generation of the object would expand out of the box, then the object
+Xwill not be found.  The program finds things quicker for a smaller number of
+Xrows and columns.  Searching proceeds from left to right column by column,
+Xand within a column from middle to edge.  It is quicker to search when there
+Xare less rows than columns.
+X
+XThe three command line options -r, -c, and -g are always required (unless
+Xyou are continuing a search using -l or -ln).  If you do not specify these
+Xoptions, or give them illegal arguments, a brief message will be output and
+Xthe program will exit.  All other options are truly optional.
+X
+XIf you want to find a symmetric object, then use the -sr or -sc options.
+XThe -sr option enforces symmetry around the middle row if the number of rows
+Xis odd, or the middle two rows if the number of rows is even.  The -sc option
+Xdoes the same thing for columns.  You can specify both options to look for
+Xfourfold symmetry.  These options will speed up the search since fewer cells
+Xneed examining, but of course will miss all unsymmetric objects.  If you
+Xgive a numeric argument to these options, then the symmetry will only apply
+Xfrom the specified row or column.  For example, using -sr10 means force
+Xsymmetry only from column 10 onwards.
+X
+XOther forms of symmetry can be specified by -sp, -sf, or -sb.  Using -sp
+Xforces symmetry around the central point of the search area.  Using -sf
+Xforces symmetry around the forwards diagonal (/) of the search area.  Using
+X-sb forces symmetry arounds the backwards diagonal (\) of the search area.
+XWhen using -sf or -sb, the number of rows and columns must be the same.
+XThese options don't accept any numeric argument.
+X
+XAnother way to speed up the search is to use the -mt option to limit the
+Xtotal number of ON cells in generation 0.  This will of course miss any
+Xobjects which have too many cells.
+X
+XAnother way to speed up the search is to use the -mc option to limit the
+Xnumber of ON cells in any column in generation 0.  For example, using -mc5
+Xmeans skip over all objects which have more than 5 cells in any column.
+XCells initially set before the search begins are not subject to this
+Xrestriction.
+X
+XAnother way to speed up the search is to the use -wc option to limit the
+Xwidth of each column.  The width of a column is the distance from the
+Xfirst ON cell in the column to the last ON cell in that column plus 1.
+XFor example, using -wc5 means that for each column, the topmost and the
+Xbottommost ON cell in each column must occupy the ends of 5 or less
+Xadjacent cells.  The difference between this option and the -mc option is
+Xthat using -mc restricts the number of cells in a column, but still allows
+Xthem to appear anywhere within the column, whereas this option forces the
+Xcells to be near each other in the column.  This option is therefore good
+Xfor looking for objects which are thin, but which wander over many rows.
+XIf the -sr or -fr options are used, the meaning of -wc is modified for
+Xthe affected columns so that the width limit is applied to the top and
+Xbottom halfs of the column independently.  Therefore an object which splits
+Xinto upper and lower halfs which are both thin can be searched for.  Cells
+Xinitially set before the search begins are not affected by the -wc restriction.
+X
+XAnother way to speed up the search is to use the -nc option to force cells
+Xto be near the cells in previous columns.  This option takes the number of
+Xcells up, down, and leftwards from the current cell to check.  Thus a cell
+Xcan only be ON if there is another ON cell within the specified distance in
+Xa previous column.  For example, using -nc1 forces cells to be connected to
+Xcells in the previous column, whereas -nc2 forces cells to be near enough to
+Xcells in the previous two columns to probably immediately affect each other.
+XCells in column 1 are not affected by this check, nor are cells initially
+Xset before the search begins.
+X
+XThe final way to speed up the search is to use the -f option to change the
+Xorder of setting ON cells in a column.  Normally, cells are set from the
+Xmiddle row outwards.  But when using this option, cells are set first from
+Xthe row nearest the average position of the ON cells in the nearest previous
+Xcolumn which has any ON cells.  This option thus makes it easier to find
+Xwandering objects in a large area, without eliminating any possibilities.
+XA failed search will be no faster using this option, but a successful search
+Xmay be quicker.
+X
+XBy default, the program looks for purely periodic objects.  To find a
+Xspaceship, you must use the -tr or -tc options to specify a translation.
+XThis makes generation N-1 shift right or down by the specified number of
+Xcells in order to become generation 0.  Thus this finds spaceships which
+Xmove leftwards or upwards.  Use -tc to translate columns (thus making
+Xhorizontal ships), and -tr to translate rows (thus making vertical ships),
+Xor a combination (thus making diagonal spaceships).  The slowest ship for
+Xany period uses a translation of 1, as for example -tc1.  Remember that the
+Xfastest horizontal speed is C/2 and the fastest diagonal speed is C/4, so
+Xthat for example, using -tc2 for a period 3 spaceship will find nothing.
+XYou can specify negative translations if convenient.
+X
+XYou can also change the mapping between generation N-1 and generation 0 by
+Xusing the -fr, -fc, or -fq options.  These flip the cells around the middle
+Xrow, the middle column, or by a 90 degrees rotation around the center.  By
+Xflipping rows or columns, you can search for objects which have actual
+Xperiods of 2N instead of just N, and which flip over.  By flipping quadrants,
+Xyou can look for objects with actual periods of 4N instead of just N, and
+Xwhich rotate.  The -fr and -tc options can be used together, and -fc and -tr
+Xcan also be used together.  This allows searching for spaceships with glide
+Xsymmetry.  For -fq, the number of rows and columns must be the same.  Using
+X-fr and -fc together provides flipping around the central point.
+X
+XBy default, the program looks for objects such that generation N-1 implies
+Xgeneration 0, so that periodic objects can be found.  The -p command line
+Xoption disables this circular dependency, so that generation 0 has no past
+Xand generation N-1 has no future.  This enables you to search for the parents
+Xof any object you desire.  Commonly you specify -g2 with this option, to
+Xlook only one generation back.  To look for parents of an object, you specify
+Xthe cells of the object in generation N-1, and leave the earlier generations
+Xunknown.  The 'c' command is useful with this option to completely specify
+Xthe last generation (see below).
+X
+XBy default, the program makes sure that every cell in the rectangular area
+Xis consistent.  That is, all objects found are sure to correctly work in an
+Xinfinite area according to the life rules.  But it is possible to remove
+Xthis guarantee of consistency for a selected area of the search area.
+XThe reason this might be useful is that this allows searching for puffers.
+XPuffers move like spaceships, but leave debris behind.  Such objects cannot
+Xbe found by default because the debris is not periodic, and thus the ship
+Xcreating it will not be found.  By allowing some cells at the back of an
+Xobject to remain unchecked, then the search might find an object which is
+Xactually a puffer.  There is no guarantee about this result, however, and
+Xcommonly the unchecked area will destroy the ship completely.  To maximize
+Xthe chances of finding a puffer, you can set ON cells adjacent to the
+Xunchecked area to create something in that area, and otherwise surround
+Xthe unchecked area with several layers of OFF cells to protect the rest of
+Xthe ship from its influence. Finally, in a later generation, you can set
+Xthe cells that were ON to be OFF, to guarantee that the object found will
+Xseparate into two parts.  You might also have to scatter some OFF cells on
+Xthe edges of the the unchecked area to prevent long rows of ON cells there
+Xfrom affecting the search result.
+X
+XAnother use of unchecked cells is to enable searching from a fragment of
+Xan object.  For example, when looking for a tagalong to a large ship,
+Xyou don't have to have the complete ship involved in the search.  Instead,
+Xyou only initialize the search area with the small area where you want the
+Xtagalong to grow from.  When doing this, make sure you specify enough cells
+Xof the ship to prevent wrong results.  For example, with a period 3 ship it
+Xis probably a good idea to provide a 4 cell thick area of known cells around
+Xthe location to attach the tagalong to.
+X
+XAnother use of unchecked cells occurs when an object splits into two pieces.
+XYou can temporarily ignore one half of the object by setting it to be
+Xunchecked, and concentrate the search on the other half, which can then be
+Xmuch more practical.  Then after finding that half, you can go back and
+Xsearch for the first half.  Once again, it is good to buffer the unknown
+Xarea with layers of known ON or OFF cells to prevent unanticipated reactions
+Xbetween the areas.
+X
+XUnchecked cells are not set on the command line, but are set either when
+Xreading in an initial object, or else manually.
+X
+XBy default the search program looks for objects using the standard Life rule
+Xof 3 live neighbors to be born, and 2 or 3 live neighbors to stay alive.
+XYou can change the Life rule to look for objects in other universes by using
+Xthe -R command line option.  It accepts two sets of digits separated by a
+Xslash or comma character.  The first set of digits is the number of live
+Xneighbors for birth.  The second set of digits is the number of live neighbors
+Xfor staying alive.  For example, -R3/23 specifies the default Life rule.
+XYou can also label these numbers using the 'B' and 'S' letters, as in -RB3/S23.
+XAn alternative method of specifying the rules is to use Wolfram format, which
+Xuses a hex number.  In the number, every pair of bits from the rightmost bit
+Xspecifies birth and life for a certain number of neighbors, with zero neighbors
+Xbeing the rightmost two bits.  As an example, specifying -R8c8 is the same as
+Xspecifying -R3/135.
+X
+XThe search program is always in one of two modes.  It is either in command
+Xmode, or in search mode.  When first started, it is in command mode.
+XCommand mode is indicated by the presence of a "> " prompt.  When in
+Xcommand mode, you can enter commands to the program, one per line.
+XTo leave command mode and begin searching, you simply enter a blank line.
+XYou can get back to command mode again by generating the SIGINT signal.
+XWhen this is done, the program will stop searching at a convenient place,
+Xdisplay the lastest status of the search, and read commands again.  Do not
+Xforget to later type the blank line to continue searching again!
+X
+XWhen first started, you may wish to specify the state of some cells to
+Xguide the search.  You can specify that any cell in any generation should
+Xbe either ON or OFF.  Cells that you do not specify remain unknown.  As an
+Xexample, if you were looking for a period 3 oscillator, you might want to
+Xspecify the middle cell as being ON in generation 0, and OFF in generation 1.
+XThis would force period 3 behavior.  Note that when you specify cells, the
+Xstate specified is permanent.  The program will not reverse your settings,
+Xand therefore can not find any objects which do not match your settings.
+XAlso note that settings unfortunately cannot be corrected, so if you set
+Xthe wrong cell by mistake, you must leave the program and start again.
+X
+XTo specify a cell, you use the 's' command when in command mode.  This command
+Xtakes 2 or 3 arguments.  The first two arguments are the row and column
+Xnumbers of the cell to set.  The third number is either 1 for setting the
+Xcell ON, or 0 for setting the cell OFF.  If the third number is omitted,
+Xthen ON is assumed.  The cell is always set in the current generation, which
+Xis the one last displayed.  If necessary, you use the 'n' or 'p' commands
+Xto change the current generation to the desired one before using the 's'
+Xcommand.  For example, if the currently displayed generation is generation 0,
+Xentering "s 5 6" would set the cell at row 5 column 6 of generation 0 to ON,
+Xwhereas "s 2 7 0" would set the cell at row 2 column 7 to OFF.  As a shortcut,
+Xyou can omit the 's' letter, so that the command "5 6" would set the cell at
+Xrow 5 column 6 ON.  If you are using any of the options for symmetry, you
+Xdon't have to enter the symmetric cells since the program does that for you.
+X
+XIf you want to specify unchecked cells, then you can use the 'x' command.
+XThis command takes either one pair of numbers for a single cell, or else
+Xtwo pairs of numbers for selection the corners of a rectangular area to
+Xbe unchecked.  Setting cells as ON or OFF later will override this setting.
+X
+XYou can use the -i or -ia options to input the initial settings for either
+Xgeneration 0 or the last generation instead of typing in their coordinates
+Xmanually as above.  The setting is normally for generation 0, but if the
+X-p option was also used, then the setting is for the last generation.  The
+Xspecified file contains a picture of the cells, with 'O' or '*' indicating
+XON, '.' indicating OFF, '?' indicating unknown, and 'X' indicating unchecked.
+XIf you use -i, then only the ON and unchecked cells are set, making the OFF
+Xcells stay unknown.  If you use -ia, then both ON and OFF cells are set.
+XYou can still specify additional cells after the ones in the file have been
+Xread.
+X
+XThe 'c' command is used to set all currently unknown cells in a rectangular
+Xarea of the current generation to the OFF state.  If no arguments are
+Xspecified, then (after confirmation) all unknown cells are set to the OFF
+Xstate.  This is useful when searching for parents of an object that you
+Xhave entered, and you know exactly what the object in the last generation
+Xlooks like.  Alternatively, the 'c' command can accept four numeric arguments,
+Xwhich are the beginning row and column numbers, and ending row and column
+Xnumbers of a rectangular area to be cleared.  All unknown cells in that
+Xspecified area are set to the OFF state.  No confirmation is required in
+Xthis case.
+X
+XJust before entering command mode, or occasionally if automatic viewing is
+Xenabled, the program will display the current status of the search.
+XCells marked as 'O' are ON, cells marked as '.' are OFF, and cells marked
+Xas '?' are currently unknown.  The generation number and the number of ON
+Xcells are also given, along with some of the command line options that were
+Xused to start the program.  If the -o option is used to save results, then
+Xfollowing the file name in the status line will optionally be a number in
+Xsquare brackets, as in "-o file [2]".  If this appears, than this is the
+Xnumber of successful results which have been saved in the file.  If this
+Xdoes not appear, then the search has not yet succeeded.  This count does
+Xnot include partial results saved in the file.
+X
+XIf you don't like to keep hitting interrupt in order to see the progress of
+Xa search, you can tell the program to automatically display the object every
+Xso often.  This is done either with the -v command line option, or the 'v'
+Xcommand.  The numeric argument is how many thousand search iterations to
+Xperform between displays.  As an example, the command line option -v1
+Xdisplays about every 5 seconds for a 20MH 386.
+X
+XNormally if the prog finds something, it will display the object and wait for
+Xcommands.  At this point you can write out the object if desired.  Typing 'N'
+Xwill continue looking for further objects which work.  If you specified the
+X-a command line option, then the 'N' command will be needed immediately
+Xafter starting a search with no initial settings, since the state of all
+XOFF cells obviously satisfies all conditions.
+X
+XHowever, if you specify the -o option on the command line, the program will
+XNOT stop when it finds an object.  Instead, it will append the found object
+Xto the specified file name, and automatically keep looking for further
+Xobjects which work.  The objects stored in the output file are separated
+Xwith blank lines.  When no more objects have been found, the program will
+Xprint a final status message and exit.
+X
+XYou can also specify a numeric argument to the -o option, which also dumps
+Xpartial results to the file.  What this means is that every time the search
+Xsuccessfully progresses to any multiple of the indicated number of columns,
+Xthen the current object is written to the file.  If the search then fails,
+Xand the number of successful columns falls again (very common), then when a
+Xnew pattern is found which again becomes successful enough, then that pattern
+Xwill then be saved too.  Doing this records near misses during the search,
+Xwhich you can later examine and use as input for further searches with less
+Xconstraints.  As an example, using "-o8 file" saves partial results every
+X8 successful columns.  When you examine the file, you can distinguish the
+Xsuccesses from failures because the failures will have question marks in
+Xthe object.
+X
+XWhen stopped, the 'b' command can be used to back up the search.  Backing up
+Xmeans that the most recent choice of a cell is reversed.  Doing this will
+Xavoid searching through a whole set of possibilities (thus possibly missing
+Xsomething).  Backing up is useful when you definitely want to skip searching
+Xon a path which you know is useless.  The 'b' command takes an argument,
+Xwhich is the number of levels to be backed up.  Because this command is
+Xirreversible, it always requires a numeric argument.
+X
+XThe following is a summary of all the commands available.  The 's' command
+Xsets cells and has already been described above.  The 'n' command displays
+Xthe next generation of the current object, and will wrap around from the last
+Xgeneration back to generation 0.  The 'p' command displays the previous
+Xgeneration, also wrapping around.  The 'w' command writes out a picture of
+Xthe current generation out to the specified file.  The 'd' command dumps
+Xthe state of the search out to the specified file (see below).  The 'N'
+Xcommand will continue searching for the next object after an object has
+Xbeen found.  The 'v' option specifies the frequency of automatic viewing.
+XThe 'c' command turns some unknown cells in the current generation OFF.
+XThe 'b' option backs up the search.  The 'x' command sets cells as being
+Xunchecked.  Finally, the 'q' command quits the program (confirmation is
+Xusually required).
+X
+XSince it can take a very long time to find something (days or even weeks!),
+Xthe current state of a search can be dumped to a file and read again later.
+XYou can explicitly dump the status to a file by using the 'd' command.
+XAfter this has been done, you can use 'q' to quit the program.  Then later,
+Xyou can use the -l command line option to continue searching.
+X
+XMore useful and safer, however, is the autodump feature of the program.
+XUsing the -d command line option causes a dump status file to be automatically
+Xwritten after every so many search iterations.  Thus every so often the
+Xspecified file will contain the latest status of the search.  Then if your
+Xmachine crashes, you will not have lost days of work.  The -d option takes a
+Xnumeric operand, which is how many thousand searches to perform between dumps.
+XThe option also takes a filename as an argument, and if it isn't given,
+Xdefaults to "lifesrc.dmp".  As an example, the option "-d100 foo" results
+Xin automatically dumping status about every 10 minutes to the file "foo".
+X
+XTo load the dumped state that has been saved to a file, use the -l or -ln
+Xcommand line options.  Since the status file contains all information about
+Xthe search configuration, you do not need to specify the number of rows,
+Xcolumns, generations, translations, symmetries, or initial settings again.
+XHowever, if you wish autodumps, an output file, or automatic viewing, then
+Xyou have to specify those options again.
+X
+XAfter the state has been loaded, generation 0 is displayed and either the
+Xprogram enters command mode if -l was used, or else the search immediately
+Xcontinues where it left off if -ln was used.  The -ln option is provided so
+Xthat continuing the search program within shell scripts is easy.
+X
+XThere are two versions of the program, called lifesrc and lifesrcdumb.
+XThey perform the same functions, but the user interfaces are slightly
+Xdifferent.  Lifesrc uses the curses display routines to display the
+Xobjects prettily, whereas lifesrcdumb assumes nothing fancy and just
+Xprints objects simply.
+X
+XAs you can see, finding something requires skill, luck, and patience.
+XSince you are limiting the search by specifying a rectangle, symmetry,
+Xmaximum cells, and initial cells, you probably have to keep varying
+Xthese parameters in order to come across something.
+X
+XExample searches are the following:
+X
+X	lifesrc -r5 -c5 -g2 -a			stable and period 2 oscillators
+X	lifesrc -r10 -c10 -g3 -sr -sc -v1	period 3 oscillator
+X	lifesrc -r4 -c4 -g4 -tr1 -tc1		glider
+X	lifesrc -r5 -c7 -g4 -tc2		usual small spaceship
+X	lifesrc -r5 -c16 -g3 -tr1 -v1		period 3 spaceship
+X	lifesrc -r5 -c5 -g2 -p -a		parents of glider (needs input)
+X
+XEnjoy searching!
+X
+X-dbell-
+END_OF_FILE
+if test 22924 -ne `wc -c <'README'`; then
+    echo shar: \"'README'\" unpacked with wrong size!
+fi
+# end of 'README'
+fi
+if test -f 'ORIGIN' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'ORIGIN'\"
+else
+echo shar: Extracting \"'ORIGIN'\" \(22903 characters\)
+sed "s/^X//" >'ORIGIN' <<'END_OF_FILE'
+X>> Commentary by dbell
+X>> This is the original article included with the xlife 2.0 sources in
+X>> which Dean Hickerson described how his life search program works.
+X>> Note: His mail address is no longer valid (and he doesn't have one).
+X>> Also, the 25 bit period 3 spaceship referred to below is the following:
+X>> .............**
+X>> .**...*...*....*
+X>> *......**..****
+X>> .***.**.*.**
+X>> .....*.**
+X>>
+XReturn-path: <HUL@PSUVM.PSU.EDU>
+XX-Andrew-Authenticated-as: 0;andrew.cmu.edu;Network-Mail
+XReceived: from po3.andrew.cmu.edu via trymail
+X          ID </afs/andrew.cmu.edu/usr14/jb7m/Mailbox/0Zft7HK00UkT8HJU8F>;
+X          Sat, 13 Jan 90 15:38:45 -0500 (EST)
+XMessage-ID: <Added.AZft7Em00UkTQHJU5q@andrew.cmu.edu>
+XReceived: from PSUVM.PSU.EDU by po3.andrew.cmu.edu (5.54/3.15) id <AA04945> for jb7m+; Sat, 13 Jan 90 15:38:10 EST
+XReceived: from PSUVM.BITNET by PSUVM.PSU.EDU (IBM VM SMTP R1.2.1MX) with BSMTP id 0991; Sat, 13 Jan 90 15:38:55 EST
+XReceived: by PSUVM (Mailer R2.03B) id 3407; Sat, 13 Jan 90 15:38:54 EST
+XDate:    Sat, 13 Jan 90 15:38 EST
+XFrom: "Dean Hickerson" <HUL@PSUVM.PSU.EDU>
+XSubject: Search program
+XTo: jb7m+@andrew.cmu.edu
+X
+X>  A number of time you have said that the patterns you were sending had been
+X>  found by a search program. I was wondering if you would mind sending me a
+X>  copy of it too look at.
+X
+XThe program is written in 6502 assembly language and Applesoft BASIC and
+Xruns on an Apple IIe.  Unless you have a compatible machine, the program
+Xitself probably wouldn't help you much.  But here's a fairly detailed
+Xdescription of how it works.  I encourage you (or anyone else) to write a
+Xsimilar program for a faster machine; I'm sure there are things waiting to
+Xbe found that my Apple is slow to find.
+X
+XIf you really want to see the program itself, let me know and I'll try to
+Xfind a way to send it.  (It's not easy, because of incompatible operating
+Xsystems and file structures.)
+X========================================================================
+XGeneral description of the Life search program  (9/6/89)
+X
+X     This is a general description of the program and some discussion of
+Xits behaviour.  A much more detailed description follows.
+X
+X     I tell the program the desired congruence period T of an object, a
+Xrectangle in which generations 0 to T must fit, and an isometry relating
+Xgen. 0 to gen. T.  The program creates a 3D array in which each cell is
+Xeither on, off, or unknown; initially everything's unknown except for any
+Xinitial conditions which I specify.  It then picks an unknown cell, chooses
+Xa value for it, and examines the consequences of its choice, working both
+Xforward and backward.  If it runs out of consequences, it picks another
+Xunknown cell and continues.  If it finds a contradiction, it backs up to
+Xits most recent choice, reverses it, marks it as a conclusion rather than a
+Xchoice, and continues. Eventually it either runs out of unknown cells and
+Xreports that it's found something, or tries to back up past its first
+Xchoice and reports that the object doesn't exist.  (Or it would if I let it
+Xrun forever; more often I stop it after a while.)  I can have it display
+Xthe array at any time; sometimes I can figure out something interesting
+Xfrom its partial results.  E.g. I built the 25 bit c/3 spaceship from parts
+Xit had found in previous searches; the program found it about an hour
+Xlater.
+X
+X   One problem I sometimes have is that the program finds things with
+Xperiods smaller than I want, like 1.  So I usually specify the value of
+Xsome particular cell in enough phases to force it to have the desired
+Xperiod.  (Of course I may miss something interesting that way.)  Another
+Xproblem is that after the program finds something which is smaller than the
+Xspecified rectangle, it then finds the same thing with various stable
+Xobjects around the unoccupied edges.  So I back it up 'by hand' far enough
+Xto get to something new.
+X
+X   I haven't really settled on the best order in which to select unknown
+Xcells.  I usually work in a rectangle which is wide but not very tall and
+Xproceed up the columns from left to right, either just in gen. 0 or doing
+Xall phases for each position before moving to the next.  I've tried some
+Xsearches starting at the center of a square and spiralling
+Xoutward, but the program tends to bog down when it's far from the center: a
+Xbad choice for a cell may not be detected until the spiral comes back
+Xaround to it, so it will try many possibilities for the intervening cells
+Xof the spiral before it changes the bad cell.  Probably I should use a
+Xself-adjusting search order; when a problem is detected, the program should
+Xmove nearby cells closer to the front of the search list.  My first
+Ximplementation of this actually made the program slower, since cells which
+Xgot moved to the front of the list stayed near there even when they were no
+Xlonger a problem.  I have an idea for a better way to do it, but I haven't
+Xhad time to implement it yet.
+X
+X   Another thing I'm still experimenting with is how to decide whether to
+Xturn an unknown cell on or off.  If I'm going to let the search run to
+Xcompletion it doesn't matter; both choices will be tried eventually.  But
+Xfor incomplete searches some heuristics might help.  Usually I choose 'off'
+Xfirst, in the hope that an object of small population will be found.
+XAnother good choice is to make a location have the same value at time t as
+Xat other, already assigned, times; this tends to lead to billiard tables.
+X
+X   The program is most effective when the period is small; the forward and
+Xbackward conclusions tend to wrap around the ends of time and meet, leading
+Xto more conclusions or contradictions.  For large periods, that doesn't
+Xhappen much, so the program doesn't detect its bad choices soon enough to
+Xaccomplish much.  The p5 fumarole and one other p5 are the only things
+XI've found so far with a congruence period greater than 4.
+X----------------------------------------------------------------------
+X
+XDetailed description of the Life search program  (9/24/89)
+X
+X     The program consists of two parts, an assembly language part which
+Xdoes the searching and a BASIC program which handles initialization,
+Xinterpreting commands from the user, and display.  I'll talk mostly about
+Xthe assembly language portion.
+X
+X     Three constants describe the size of the space being searched:
+X
+X          TP = time period, length of time until pattern is to reappear;
+X          XM = width of rectangle to be searched;
+X          YM = height of rectangle to be searched.
+X
+XThe set of pairs (X,Y) with 0<=X<XM and 0<=Y<YM will be called "the
+Xrectangle".
+X
+X     There are 12 constants which describe how generation 0 is related to
+Xgeneration TP:  A, B, C, D, E, F, A', B', C', D', E', F'.  The cell with
+Xcoordinates (X, Y) in generation 0 is mapped to the cell with coordinates
+X(AX+BY+C, DX+EY+F) in generation TP.  The cell with coordinates (X, Y) in
+Xgeneration TP is mapped to the cell (A'X+B'Y+C', D'X+E'Y+F') in generation
+X0.  The values of A thru F are specified by the user; the others are given
+Xby:
+X    A' =  E/Z,   B' = -B/Z,   C' = (BF-CE)/Z,
+X    D' = -D/Z,   E' =  A/Z,   F' = (CD-AF)/Z,
+Xwhere   Z = AE-BD = 1 or -1.  The mappings are supposed to be isometries,
+Xnot general invertible linear maps, so there are severe restrictions on A,
+XB, D, and E which I won't bother to write down.  (There is also a boolean
+Xvariable, USEMAP, which is normally true.  If it is false, then the
+Xmappings are ignored, so the program can be used to search for predecessors
+Xof whatever the user puts in generation TP.)
+X
+X     The current information about generations 0 to TP is kept in a 3
+Xdimensional array CELL, with dimensions 0 to TP, 0 to XM-1, and 0 to YM-1.
+XEach entry can have one of 3 values, 0=off, 1=on, or UNK=unknown.  (I use a
+Xwhole byte for each entry, with UNK=$10.  (Here and later, a dollar sign
+Xindicates that a number is in base 16.)  This makes the computation of the
+Xneighborhood easy: just add the values of the 8 neighbors; the high nybble
+Xis the number of unknown neighbors, and the low nybble is the number which
+Xare on.) Initially the edges (all elements with X=0 or XM-1 or Y=0 or YM-1)
+Xare turned off, as are the cells in generation 0 which map outside the
+Xrectangle in generation TP and vice versa; everything else is initially
+Xunknown.  After this initialization, some user-specified cells may be
+Xturned on or off, by calling PROCEED (described later).
+X
+X     In addition to CELL, one other large array is used, the setting list.
+XThis is a list of quintuples (T, X, Y, VALUE, FREE) where 0<=T=TP, 0<=X<XM,
+X0<=Y<YM, VALUE=0 or 1, and FREE=true or false.  Whenever an element of CELL
+Xis changed from UNK to 0 or 1, an entry is added to the list.  FREE is true
+Xif the change is a free choice, false if it's forced by some previous
+Xchoice.  There are 3 pointers into the list:
+X          STNG   points to the beginning;
+X          NWSTNG points to the end; new entries are put here;
+X          NXSTNG points to the next setting whose consequences are to
+X                 be examined.
+X
+X     There are also two tables which are used to describe the Life
+Xtransition rules.  Conceptually, an index into either table consists of a
+Xcell value (0, 1, or UNK) and 3 numbers which add up to 8, telling how many
+Xneighbors are 0, 1, and UNK; there are 135 (=3*45) possible indices.  In
+Xpractice, I use a one byte 'neighborhood descriptor' to encode this, so
+Xeach table is 256 bytes long, but only partially used.  To compute the
+Xneighborhood descriptor of a cell, add up the 8 neighbors.  If the AND of
+Xthe sum and $88 is zero, then the neighborhood descriptor is twice the sum
+Xplus the cell.  If the AND is nonzero, the descriptor is the sum plus twice
+Xthe cell plus $11.
+X
+X     The first table is called TRANSIT and tells what the cell should be in
+Xthe next generation.  E.g. neighborhood descriptor $25 means that the
+Xcell is 1, 5 of its neighbors are 0, 2 are 1, and 1 is unknown,
+XTRANSIT[$25] = 1.  Of course, most entries in TRANSIT are UNK, 73 to be
+Xexact.  (And 57 are 0 and 5 are 1.)
+X
+X     The second table is called IMPLIC and contains information about
+Ximplications in the other direction.  If we know the neighborhood
+Xdescriptor and the value of the cell in the next generation, we may be able
+Xto conclude that some unknown cells in this generation must be 0 or 1.
+XSuch conclusions exist only if the corresponding entry is UNK, so there are
+Xonly 73 entries in IMPLIC.   There are 8 possible implications, each is
+Xgiven by one bit in the IMPLIC entry:
+X
+X     Bit       Meaning
+X     $80       If new cell is 0 then current cell should be 0.
+X     $40       If new cell is 0 then current cell should be 1.
+X     $20       If new cell is 1 then current cell should be 0.
+X     $10       If new cell is 1 then current cell should be 1.
+X     $08       If new cell is 0 then all unknown neighbors should be 0.
+X     $04       If new cell is 0 then all unknown neighbors should be 1.
+X     $02       If new cell is 1 then all unknown neighbors should be 0.
+X     $01       If new cell is 1 then all unknown neighbors should be 1.
+X
+X(In Life, bits $40 and $20 are never set, but they may occur for other
+Xtransition rules.)  For example, bit $80 is set iff the current cell is
+Xunknown, exactly 2 of its neighbors are 1, and at most 1 of its neighbors
+Xis unknown, i.e. for neighborhood descriptors $14 and $34.
+X
+X     The two tables were created by a BASIC program and are now loaded from
+Xdisk as part of the initialization.
+X
+X     The basic operation of the program is as follows: Suppose that CELL is
+Xfully consistent; i.e. every cell is consistent with its 9 parents and no
+Xcurrently unknown cells have their values forced.  (That is, forced
+Xdirectly, either by their parents or their children.)  In this situation,
+XNXSTNG = NWSTNG.
+X
+XStep 0:  ('Pick an unknown cell')  If there are no unknown cells left,
+Xreport that an object has been found, let the user display it, save it on
+Xdisk, print it, or whatever; then go to step 2.  Otherwise, pick an unknown
+Xcell and a value for it.  Change it in CELL and add an entry to the setting
+Xlist with FREE=true, updating NWSTNG.  Go to step 1.
+X
+XStep 1:  ('Examine consequences')  If NXSTNG = NWSTNG, then CELL is fully
+Xconsistent; go to step 0.  Otherwise, get the values of T, X, Y, and VALUE
+Xpointed to by NXSTNG and increment NXSTNG.  The fact that CELL[T,X,Y] =
+XVALUE may directly force some currently unknown cells to be 0 or 1; for
+Xeach of these, set its value in CELL and add an entry to the setting list
+Xwith FREE=false, incrementing NWSTNG.  Then go to step 1.  We may also
+Xdetect a contradiction at this point; in that case go to step 2.  (The
+Xforcing in this step is of 4 types:  If T=0 or TP, the mapped cell in
+Xgeneration TP or 0 is forced.  Some of the parents of (T,X,Y) may be
+Xforced.  Some of the children of (T,X,Y) may be forced.  And some cells may
+Xbe forced by additional constraints such as symmetry.)
+X
+XStep 2:  ('Back up'.  At this point, either a contradiction has been
+Xdetected or we've found an object and wish to look for more.)  If NWSTNG =
+XSTNG, report that no more objects of the desired type exist and quit.
+XOtherwise, decrement NWSTNG and get the values of T, X, Y, VALUE, and FREE
+Xpointed to by it.  If FREE = false, set CELL[T,X,Y] to UNK and go to step
+X2.  If FREE = true, then either we've found that this free choice led to a
+Xcontradiction or we've already found all objects in which the choice was
+Xvalid.  So change CELL[T,X,Y] to 1-VALUE, change FREE to false, set NXSTNG
+Xto NWSTNG, increment NWSTNG, and go to step 1.
+X
+X     As described here, part of step 0 involves returning control to the
+XBASIC part of the program.  But on my system it's not convenient to have a
+Xmachine language routine call a BASIC routine, so I've rearranged things
+Xslightly.
+X
+X     I'll now describe the machine language routines. Unless otherwise
+Xindicated, the parameters T, X, Y, VALUE, and FREE are assumed to
+Xsatisfy  0<=T<=TP,  0<=X<XM,  0<=Y<YM,  VALUE = 0, 1, or UNK,  FREE = true
+Xor false.
+X
+X     Many of these routines sometimes detect an error; they report this to
+Xthe calling routine by setting the carry bit and storing a value in the
+Xvariable ERRCODE to tell which error occurred.  (Calling these 'errors' is
+Xmisleading, since they can occur during the normal course of events and
+Xsome are even desirable.  But 'exceptional conditions' is too long, so I'll
+Xcontinue to call them errors.)
+X
+XLOOKUP(T,X,Y):  Return the address and value of CELL[T,X,Y]. (This routine
+Xgets called more often than any other, so should be fast.  I actually
+Ximplemented it as an assembly language macro rather than as a subroutine.
+XThe duplicated code made the program a bit larger, but also made it about
+X10% faster.  I also have faster versions for the special cases in which the
+Xcell being looked up is adjacent to the one previously looked up. This
+Xspeeds up the neighborhood calculation in GETNBHD.)
+X
+XMAP(X,Y):  Return the coordinates of the cell in generation TP
+Xcorresponding to the cell (0,X,Y).  Report an 'out of bounds' error if the
+Xmapped coordinates are not in the rectangle.
+X
+XINVMAP(X,Y):  Return the coordinates of the cell in generation 0
+Xcorresponding to the cell (TP,X,Y). Report an 'out of bounds' error if the
+Xmapped coordinates are not in the rectangle.
+X
+XNWSET(T,X,Y,VALUE,FREE):  Store a quintuple at NWSTNG and increment NWSTNG.
+X
+XSETCELL(T,X,Y,VALUE,FREE):  (Should not be called with VALUE = UNK.)  Look
+Xup CELL[T,X,Y].  If it equals VALUE, do nothing.  If it equals 1-VALUE,
+Xreport an 'inconsistency' error.  If it is unknown, set it to VALUE and
+Xcall NWSET to add the quintuple to the setting list.
+X
+XGETNBHD(T,X,Y):  (Should not be called with T=0.)  Return the neighborhood
+Xdescriptor for (T-1,X,Y); i.e. describing the parents of (T,X,Y).  Note: If
+X(X,Y) is on the boundary of the rectangle, then GETNBHD assumes that the
+Xneighbors which are outside are 0.  There are some situations in which it
+Xwould be better to assume they are UNK.
+X
+XCONSISFY(T,X,Y):  (Should not be called with T=0.  X and Y may be out of
+Xbounds, in which case the routine does nothing.)  Make (T,X,Y) fully
+Xconsistent with its parents.  Specifically:  Compute the neighborhood
+Xdescriptor of (T-1,X,Y), and look it up in TRANSIT and IMPLIC.  If the
+Xentry in TRANSIT is 0 or 1 and the value of CELL[T,X,Y] is 1 or 0,
+Xrespectively, report an 'inconsistency' error.  Otherwise call SETCELL
+X(with FREE=false) for any of (T,X,Y) or its parents which are currently
+Xunknown but are forced to be 0 or 1.
+X
+XCONSIS10(T,X,Y):  Call CONSISFY for (T,X,Y) (provided that T>0) and for
+Xeach of its 9 children (provided that T<TP).  Report any 'inconsistency'
+Xerror found by CONSISFY.
+X
+XAPPLYMAP(T,X,Y,VALUE):  (Should not be called with VALUE = UNK.)  If USEMAP
+X= false, do nothing.  Otherwise, if T = 0 or TP, call MAP or INVMAP.  If
+Xthe mapped cell is out of bounds, do nothing.  Otherwise, call SETCELL for
+Xthe mapped cell and VALUE, with FREE=false.  Report any 'inconsistency'
+Xerror found by SETCELL.
+X
+XSYMM(T,X,Y,VALUE):  (Should not be called with VALUE = UNK.) This routine
+Xdeals with symmetry, billiard tablicity, and other restrictions desired by
+Xthe user.  Separate versions of it exist for different situations.  Each
+Xone looks at T, X, Y, and VALUE, decides if any other cells are forced, and
+Xcalls SETCELL for them, reporting any 'inconsistency' errors.  (Suppose for
+Xexample that we want a pattern to have 90 degree rotational symmetry.  Then
+XSYMM could compute the coordinates of the cell obtained by rotating (X,Y)
+X90 degrees about the center of symmetry and call SETCELL for it.  It is not
+Xnecessary to do the same for the 180 and 270 degree
+Xrotations; the higher levels of the program will take care of that.)
+X
+XEXAMNEXT:  If NXSTNG = NWSTNG, report a 'full consistency achieved' error.
+XOtherwise, get the values of T, X, Y, and VALUE pointed to by NXSTNG, and
+Xincrement NXSTNG. Call APPLYMAP, SYMM, and CONSIS10, reporting any errors
+Xfound by them.  (If one of the routines gives an error, it's not necessary
+Xto call the others.)
+X
+XPROCEED(T,X,Y,VALUE,FREE):  Call SETCELL, reporting an 'inconsistency'
+Xerror if it finds one.  Otherwise, call EXAMNEXT repeatedly.  Eventually,
+Xit will report either an inconsistency or full consistency.  In the first
+Xcase, report it.  In the second case, return without reporting an error.
+XThis routine is called whenever we either make a free choice for a cell or
+Xhave backed up to a free choice and now want to try the other value there;
+Xit finds all the (direct or indirect) conclusions (or a contradiction) from
+Xthe choice.  It can also be called from the BASIC program to initialize
+Xcertain cells.  (Note: After BASIC has done such initialization, it can set
+XNXSTNG and NWSTNG equal to STNG in order to save space; since we don't want
+Xto back up over the initialized cells, we don't need to remember them in
+Xthe setting list.)
+X
+XBACKUP:  Undo all settings from NWSTNG back to (and including) the most
+Xrecent free choice, changing their values in CELL back to UNK.  If we back
+Xup all the way to STNG, report an 'object does not exist' error. Otherwise,
+Xmake NWSTNG and NXSTNG point to the free choice and return the values of T,
+XX, Y, and VALUE from it.  (This corresponds to repeated application of Step
+X2 in the program outline above.)
+X
+XGO(T,X,Y,VALUE,FREE):  [I ran out of good descriptive subroutine names.]
+XCall PROCEED(T,X,Y,VALUE,FREE).  If it returns without an error, then full
+Xconsistency has been achieved; return without an error.  Otherwise call
+XBACKUP, reporting an 'object does not exist' error if BACKUP finds one.
+XOtherwise, call PROCEED(T,X,Y,1-VALUE,false).  Continue calling PROCEED and
+XBACKUP alternately until either full consistency is achieved or an 'object
+Xdoes not exist' error occurs. (This corresponds to repeated application of
+XSteps 1 and 2 above.)
+X
+XGETUNK:  Select an unknown cell.  If none exist, report a no 'more unknown
+Xcells' error.  (This means that an object has been found.)  Otherwise,
+Xreturn the values of T, X, and Y.  I won't describe this routine in detail
+Xbecause I haven't determined the best way for it to make its choice.  We'd
+Xlike to choose cells which are most likely to reveal any previous bad
+Xchoices.  Choosing cells which are near recently chosen or forced cells is
+Xa good idea, but there's a danger that we'll get stuck in one region and
+Xnot notice that something chosen long ago was bad.  Currently, I use a list
+Xof all cells set up by the BASIC program and just choose the first unknown
+Xone on the list.  But even assuming that we're going to do it that way,
+Xit's not clear how the list should be arranged.  Usually I proceed up the
+Xcolumns from left to right or down slope -1 diagonals from left to right.
+X
+XCHOOSE(T,X,Y):  Return a value to be assigned to the currently unknown cell
+X(T,X,Y), either 0 or 1.  Again, I don't know the best way to do this.  For
+Xa complete search, it doesn't matter; both choices will eventually be
+Xtried.  For a partial search, it does.  I usually choose 0 first, hoping
+Xthat a small object will be found.  Sometimes I choose 1 to prevent the
+Xempty object from being found.  Sometimes I look for an already chosen
+Xvalue of CELL[T',X,Y], for T' not equal to T, and give CELL[T,X,Y] the same
+Xvalue, hoping that a billiard table will be found.  I can specify which of
+Xthese methods will be used initially, and can change it in the middle of a
+Xsearch.
+X
+XMAIN:   This is the top level machine language routine which is called from
+Xthe BASIC program.  It searches until it either finds an object of the
+Xdesired type, decides that there aren't any more, or is interrupted by the
+Xuser.  Specifically, it does this:
+X
+X     Step 0: Call GETUNK.  If it finds an unknown cell (T,X,Y), go to
+X             step 1.  Otherwise, we've already found an object and want
+X             to look for another one.  So call BACKUP.  If it gives an
+X             'object does not exist' error, report it. Otherwise,
+X             change VALUE to 1-VALUE, set FREE = false, and go to
+X             step 2.
+X
+X     Step 1: Call CHOOSE to select a VALUE for the unknown cell, set
+X             FREE = true, and go to step 2.
+X
+X     Step 2: Call GO(T,X,Y,VALUE,FREE).  If it gives an 'object does not
+X             exist' error, report it.  Otherwise, check to see if the
+X             user has typed a key.  If so, return.  (The user can then
+X             display the current contents of CELL to observe the
+X             progress of the search, and make some changes if desired.
+X             Calling MAIN again will continue the search.) If no key
+X             has been typed, go to step 3.
+X
+X     Step 3: Call GETUNK.  If it finds an unknown cell (T,X,Y), go to
+X             step 1.  Otherwise, report that an object has been found.
+X
+X     In addition to MAIN, the user can also call PROCEED and BACKUP; these
+Xare sometimes useful for guiding a search in a promising direction.
+X===========================================================================
+XEND OF FILE
+END_OF_FILE
+if test 22903 -ne `wc -c <'ORIGIN'`; then
+    echo shar: \"'ORIGIN'\" unpacked with wrong size!
+fi
+# end of 'ORIGIN'
+fi
+if test -f 'Makefile' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'Makefile'\"
+else
+echo shar: Extracting \"'Makefile'\" \(235 characters\)
+sed "s/^X//" >'Makefile' <<'END_OF_FILE'
+XCFLAGS = -O
+X
+Xall:	lifesrcdumb lifesrc
+X
+Xlifesrcdumb:	search.o interact.o dumbtty.o
+X	$(CC) -o lifesrcdumb search.o interact.o dumbtty.o
+X
+Xlifesrc:	search.o interact.o cursestty.o
+X	$(CC) -o lifesrc search.o interact.o cursestty.o -lcurses
+END_OF_FILE
+if test 235 -ne `wc -c <'Makefile'`; then
+    echo shar: \"'Makefile'\" unpacked with wrong size!
+fi
+# end of 'Makefile'
+fi
+if test -f 'lifesrc.h' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'lifesrc.h'\"
+else
+echo shar: Extracting \"'lifesrc.h'\" \(8097 characters\)
+sed "s/^X//" >'lifesrc.h' <<'END_OF_FILE'
+X/*
+X * Life search program include file.
+X * Author: David I. Bell.
+X */
+X
+X#include <stdio.h>
+X
+X
+X/*
+X * Use prototypes if available.
+X */
+X#ifdef	__STDC__
+X#define	PROTO(a)	a
+X#else
+X#define	PROTO(a)	()
+X#endif
+X
+X
+X/*
+X * Maximum dimensions of the search
+X */
+X#define	ROWMAX		49	/* maximum rows for search rectangle */
+X#define	COLMAX		79	/* maximum columns for search rectangle */
+X#define	GENMAX		10	/* maximum number of generations */
+X#define	TRANSMAX	4	/* largest translation value allowed */
+X
+X
+X/*
+X * Build options
+X */
+X#ifndef DEBUGFLAG
+X#define	DEBUGFLAG	0	/* nonzero for debugging features */
+X#endif
+X
+X
+X/*
+X * Other definitions
+X */
+X#define	ALLOCSIZE	100		/* chunk size for cell allocation */
+X#define	VIEWMULT	1000		/* viewing frequency multiplier */
+X#define	DUMPMULT	1000		/* dumping frequency multiplier */
+X#define	DUMPFILE	"lifesrc.dmp"	/* default dump file name */
+X#define	DUMPVERSION	4		/* version of dump file */
+X#define	LINESIZE	132		/* size of input lines */
+X
+X#define	MAXCELLS	((COLMAX + 2) * (ROWMAX + 2) * GENMAX)
+X#define	AUXCELLS	(TRANSMAX * (COLMAX + ROWMAX + 4) * 2)
+X
+X
+X/*
+X * Debugging macros
+X */
+X#if DEBUGFLAG
+X#define	DPRINTF0(fmt)			if (debug) printf(fmt)
+X#define	DPRINTF1(fmt,a1)		if (debug) printf(fmt,a1)
+X#define	DPRINTF2(fmt,a1,a2)		if (debug) printf(fmt,a1,a2)
+X#define	DPRINTF3(fmt,a1,a2,a3)		if (debug) printf(fmt,a1,a2,a3)
+X#define	DPRINTF4(fmt,a1,a2,a3,a4)	if (debug) printf(fmt,a1,a2,a3,a4)
+X#define	DPRINTF5(fmt,a1,a2,a3,a4,a5)	if (debug) printf(fmt,a1,a2,a3,a4,a5)
+X#else
+X#define	DPRINTF0(fmt)
+X#define	DPRINTF1(fmt,a1)
+X#define	DPRINTF2(fmt,a1,a2)
+X#define	DPRINTF3(fmt,a1,a2,a3)
+X#define	DPRINTF4(fmt,a1,a2,a3,a4)
+X#define	DPRINTF5(fmt,a1,a2,a3,a4,a5)
+X#endif
+X
+X
+X#define	isdigit(ch)	(((ch) >= '0') && ((ch) <= '9'))
+X#define	isblank(ch)	(((ch) == ' ') || ((ch) == '\t'))
+X
+X
+Xtypedef	unsigned char	BOOL;
+Xtypedef	unsigned char	STATE;
+Xtypedef	unsigned int	STATUS;
+X
+X
+X#define	FALSE		((BOOL) 0)
+X#define	TRUE		((BOOL) 1)
+X
+X
+X/*
+X * Status returned by routines
+X */
+X#define	OK		((STATUS) 0)
+X#define	ERROR		((STATUS) 1)
+X#define	CONSISTENT	((STATUS) 2)
+X#define	NOTEXIST	((STATUS) 3)
+X#define	FOUND		((STATUS) 4)
+X
+X
+X/*
+X * States of a cell
+X */
+X#define	OFF	((STATE) 0x00)		/* cell is known off */
+X#define	ON	((STATE) 0x01)		/* cell is known on */
+X#define	UNK	((STATE) 0x10)		/* cell is unknown */
+X#define	NSTATES	3			/* number of states */
+X
+X
+Xtypedef	struct cell CELL;
+Xstruct cell {
+X	STATE	state;		/* current state */
+X	BOOL	free;		/* TRUE if this cell still has free choice */
+X	BOOL	choose;		/* TRUE if can choose this cell if unknown */
+X	short	gen;		/* generation number of this cell */
+X	short	row;		/* row of this cell */
+X	short	col;		/* column of this cell */
+X	short	near;		/* count of cells this cell is near */
+X	CELL	*search;	/* cell next to be searched for setting */
+X	CELL	*past;		/* cell in the past at this location */
+X	CELL	*future;	/* cell in the future at this location */
+X	CELL	*cul;		/* cell to up and left */
+X	CELL	*cu;		/* cell to up */
+X	CELL	*cur;		/* cell to up and right */
+X	CELL	*cl;		/* cell to left */
+X	CELL	*cr;		/* cell to right */
+X	CELL	*cdl;		/* cell to down and left */
+X	CELL	*cd;		/* cell to down */
+X	CELL	*cdr;		/* cell to down and right */
+X	CELL	*csym;		/* cell in symmetric position */
+X	int	*rowcounter;	/* pointer to row cell counter */
+X	int	*colcounter;	/* pointer to col cell counter */
+X	int	*colsumposcounter;	/* pointer to position sum counter */
+X};
+X
+X#define	NULL_CELL	((CELL *) 0)
+X
+X
+X/*
+X * Data about the cells.
+X */
+Xextern	CELL	*celltable[MAXCELLS];	/* table of usual cells */
+Xextern	CELL	*auxtable[AUXCELLS];	/* table of auxillary cells */
+Xextern	CELL	*settable[MAXCELLS];	/* table of cells whose value is set */
+Xextern	CELL	**newset;	/* where to add new cells into setting table */
+Xextern	CELL	**nextset;	/* next cell in setting table to examine */
+Xextern	CELL	**baseset;	/* base of changeable part of setting table */
+Xextern	CELL	*searchlist;	/* current list of cells to search */
+Xextern	CELL	*fullsearchlist;	/* complete list of cells to search */
+Xextern	CELL	*newcells;	/* cells ready for allocation */
+Xextern	CELL	*deadcell;	/* boundary cell value */
+Xextern	int	rowcount[ROWMAX];	/* count of cells in each row of gen 0 */
+Xextern	int	newcellcount;	/* number of cells ready for allocation */
+Xextern	int	auxcellcount;	/* number of cells in auxillary table */
+X
+X
+X/*
+X * Current parameter values for the program.
+X */
+Xextern	BOOL	quiet;		/* don't output */
+Xextern	BOOL	debug;		/* enable debugging output (if compiled so) */
+Xextern	BOOL	nowait;		/* don't wait for commands after loading */
+Xextern	BOOL	setall;		/* set all cells from initial file */
+Xextern	BOOL	pointsym;	/* enable symmetry with central point */
+Xextern	BOOL	fwdsym;		/* enable forward diagonal symmetry */
+Xextern	BOOL	bwdsym;		/* enable backward diagonal symmetry */
+Xextern	BOOL	parent;		/* only look for parents */
+Xextern	BOOL	allobjects;	/* look for all objects including subperiods */
+Xextern	BOOL	quitok;		/* ok to quit without confirming */
+Xextern	BOOL	inited;		/* initialization has been done */
+Xextern	BOOL	flipquads;	/* flip quadrants from last to first gen */
+Xextern	BOOL	follow;		/* follow average position of previous column */
+Xextern	BOOL	islife;		/* whether the rules are for standard Life */
+Xextern	STATE	bornrules[9];	/* rules for whether a cell is to be born */
+Xextern	STATE	liverules[9];	/* rules for whether a live cell stays alive */
+Xextern	char	rulestring[20];	/* rule string for printouts */
+Xextern	STATUS	curstatus;	/* current status for display */
+Xextern	int	curgen;		/* current generation for display */
+Xextern	int	rowmax;		/* maximum number of rows */
+Xextern	int	colmax;		/* maximum number of columns */
+Xextern	int	genmax;		/* maximum number of generations */
+Xextern	int	rowtrans;	/* translation of rows */
+Xextern	int	coltrans;	/* translation of columns */
+Xextern	int	userow;		/* row that must have at least one ON cell */
+Xextern	int	usecol;		/* column that must have at least one ON cell */
+Xextern	int	maxcount;	/* maximum number of cells in generation 0 */
+Xextern	int	nearcols;	/* maximum distance to be near columns */
+Xextern	int	colcells;	/* maximum cells in a column */
+Xextern	int	colwidth;	/* maximum width of each column */
+Xextern	int	outputcols;	/* number of columns to solve for output */
+Xextern	int	outputlastcols;	/* last number of columns output */
+Xextern	int	cellcount;	/* number of live cells in generation 0 */
+Xextern	int	rowsym;		/* enable row symmetry starting at column */
+Xextern	int	colsym;		/* enable column symmetry starting at row */
+Xextern	int	fliprows;	/* flip rows at column number from last to first generation */
+Xextern	int	flipcols;	/* flip columns at row number from last to first generation */
+Xextern	long	dumpfreq;	/* how often to perform dumps */
+Xextern	long	dumpcount;	/* counter for dumps */
+Xextern	long	viewfreq;	/* how often to view results */
+Xextern	long	viewcount;	/* counter for viewing */
+Xextern	long	foundcount;	/* number of objects found */
+Xextern	char	*dumpfile;	/* dump file name */
+Xextern	char	*initfile;	/* file containing initial cells */
+Xextern	char	*loadfile;	/* file to load state from */
+Xextern	char	*outputfile;	/* file to output results to */
+X
+X
+X/*
+X * Global procedures
+X */
+Xextern	void	getcommands PROTO((void));
+Xextern	void	initcells PROTO((void));
+Xextern	void	printgen PROTO((int));
+Xextern	void	dumpstate PROTO((char *));
+Xextern	STATUS	search PROTO((void));
+Xextern	STATUS	proceed PROTO((CELL *, STATE, BOOL));
+Xextern	STATUS	go PROTO((CELL *, STATE, BOOL));
+Xextern	CELL	*findcell PROTO((int, int, int));
+Xextern	void	adjustnear PROTO((CELL *, int));
+Xextern	CELL	*backup PROTO((void));
+Xextern	BOOL	subperiods PROTO((void));
+Xextern	void	writegen PROTO((char *, BOOL));
+X
+Xextern	int	ttyopen PROTO((void));
+Xextern	int	ttycheck PROTO((void));
+Xextern	int	ttyread PROTO((char *, char *, int));
+Xextern	void	ttyprintf PROTO((char *, ...));
+Xextern	void	ttystatus PROTO((char *, ...));
+Xextern	void	ttywrite PROTO((char *, int));
+Xextern	void	ttyhome PROTO((void));
+Xextern	void	ttyeeop PROTO((void));
+Xextern	void	ttyflush PROTO((void));
+Xextern	void	ttyclose PROTO((void));
+X
+Xextern	char	*malloc PROTO((int));
+Xextern	long	atol PROTO((char *));
+X
+X/* END CODE */
+END_OF_FILE
+if test 8097 -ne `wc -c <'lifesrc.h'`; then
+    echo shar: \"'lifesrc.h'\" unpacked with wrong size!
+fi
+# end of 'lifesrc.h'
+fi
+if test -f 'cursestty.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'cursestty.c'\"
+else
+echo shar: Extracting \"'cursestty.c'\" \(2427 characters\)
+sed "s/^X//" >'cursestty.c' <<'END_OF_FILE'
+X/*
+X * Smart terminal output routine.
+X * Uses curses to display the object.
+X */
+X#include <stdarg.h>
+X#include <signal.h>
+X#include <curses.h>
+X
+X#undef	FALSE
+X#undef	TRUE
+X#undef	OK
+X
+X#include "lifesrc.h"
+X
+X
+X#define	STATUSLINE	22
+X#define	INPUTLINE	23
+X
+X
+Xstatic	int	inputready;
+X
+Xstatic void	gotinput PROTO((void));
+X
+X
+X/*
+X * Open the terminal and enable for detecting terminal input.
+X */
+Xint
+Xttyopen()
+X{
+X	initscr();
+X	cbreak();
+X	noecho();
+X	signal(SIGINT, gotinput);
+X	return 0;
+X}
+X
+X
+Xstatic void
+Xgotinput()
+X{
+X	signal(SIGINT, gotinput);
+X	inputready = 1;
+X}
+X
+X
+X/*
+X * Close the terminal.
+X */
+Xvoid
+Xttyclose()
+X{
+X	refresh();
+X	endwin();
+X}
+X
+X
+X/*
+X * Test to see if a keyboard character is ready.
+X * Returns nonzero if so (and clears the ready flag).
+X */
+Xint
+Xttycheck()
+X{
+X	int	result;
+X
+X	result = inputready;
+X	inputready = 0;
+X	return result;
+X}
+X
+X
+X/*
+X * Print a formatted string to the terminal.
+X * The string length is limited to 256 characters.
+X */
+Xvoid
+Xttyprintf(fmt)
+X	char	*fmt;
+X{
+X	va_list ap;
+X	static char	buf[256];
+X
+X	va_start(ap, fmt);
+X	vsprintf(buf, fmt, ap);
+X	va_end(ap);
+X	addstr(buf);
+X}
+X
+X
+X/*
+X * Print a status line, similar to printf.
+X * The string length is limited to 256 characters.
+X */
+Xvoid
+Xttystatus(fmt)
+X	char	*fmt;
+X{
+X	va_list ap;
+X	static char	buf[256];
+X
+X	va_start(ap, fmt);
+X	vsprintf(buf, fmt, ap);
+X	va_end(ap);
+X
+X	move(STATUSLINE, 0);
+X	addstr(buf);
+X	clrtobot();
+X	move(0, 0);
+X	refresh();
+X}
+X
+X
+Xvoid
+Xttywrite(cp, len)
+X	char	*cp;
+X	int	len;
+X{
+X	while (len-- > 0) {
+X		addch(*cp);
+X		cp++;
+X	}
+X}
+X
+X
+Xvoid
+Xttyhome()
+X{
+X	move(0, 0);
+X}
+X
+X
+Xvoid
+Xttyeeop()
+X{
+X	clrtobot();
+X}
+X
+X
+Xvoid
+Xttyflush()
+X{
+X	refresh();
+X}
+X
+X
+X/*
+X * Return a NULL terminated input line (without the final newline).
+X * The specified string is printed as a prompt.
+X * Returns nonzero (and an empty buffer) on EOF or error.
+X */
+Xint
+Xttyread(prompt, buf, buflen)
+X	char	*prompt;
+X	char	*buf;
+X	int	buflen;
+X{
+X	int	c;
+X	char	*cp;
+X
+X	move(INPUTLINE, 0);
+X	addstr(prompt);
+X	clrtoeol();
+X
+X	cp = buf;
+X	for (;;)
+X	{
+X		refresh();
+X		c = fgetc(stdin);
+X		switch (c)
+X		{
+X		case EOF:
+X			buf[0] = '\0';
+X			move(INPUTLINE, 0);
+X			clrtoeol();
+X			move(0, 0);
+X			refresh();
+X			return -1;
+X
+X		default:
+X			*cp++ = c;
+X			addch(c);
+X			if (cp < buf + buflen - 1)
+X				break;
+X			/* fall through... */
+X
+X		case '\n':
+X		case '\r':
+X			*cp = 0;
+X			move(INPUTLINE, 0);
+X			clrtoeol();
+X			move(0, 0);
+X			refresh();
+X			return 0;
+X
+X		case '\b':
+X			if (cp == buf)
+X				break;
+X			--cp;
+X			addch('\b');
+X			clrtoeol();
+X			break;
+X		}
+X	}
+X}
+X
+X/* END CODE */
+END_OF_FILE
+if test 2427 -ne `wc -c <'cursestty.c'`; then
+    echo shar: \"'cursestty.c'\" unpacked with wrong size!
+fi
+# end of 'cursestty.c'
+fi
+if test -f 'dumbtty.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'dumbtty.c'\"
+else
+echo shar: Extracting \"'dumbtty.c'\" \(2031 characters\)
+sed "s/^X//" >'dumbtty.c' <<'END_OF_FILE'
+X/*
+X * Dumb terminal output routine.
+X * Does no cursor addressing stuff.
+X */
+X
+X#include <signal.h>
+X#include <stdarg.h>
+X#include "lifesrc.h"
+X
+Xstatic	int	inputready;		/* nonzero if input now ready */
+X
+Xstatic	void	gotinput PROTO((void));
+X
+X
+X/*
+X * Open the terminal and enable for detecting terminal input.
+X */
+Xint
+Xttyopen()
+X{
+X	signal(SIGINT, gotinput);
+X	return 0;
+X}
+X
+X
+Xstatic void
+Xgotinput()
+X{
+X	signal(SIGINT, gotinput);
+X	inputready = 1;
+X}
+X
+X
+X/*
+X * Close the terminal.
+X */
+Xvoid
+Xttyclose()
+X{
+X}
+X
+X
+X/*
+X * Test to see if a keyboard character is ready.
+X * Returns nonzero if so (and clears the ready flag).
+X */
+Xint
+Xttycheck()
+X{
+X	int	result;
+X
+X	result = inputready;
+X	inputready = 0;
+X	return result;
+X}
+X
+X
+X/*
+X * Print a formatted string to the terminal.
+X * The string length is limited to 256 characters.
+X */
+Xvoid
+Xttyprintf(fmt)
+X	char	*fmt;
+X{
+X	va_list ap;
+X	static char	buf[256];
+X
+X	va_start(ap, fmt);
+X	vsprintf(buf, fmt, ap);
+X	va_end(ap);
+X	ttywrite(buf, strlen(buf));
+X}
+X
+X
+X/*
+X * Print a status message, like printf.
+X * The string length is limited to 256 characters.
+X */
+Xvoid
+Xttystatus(fmt)
+X	char	*fmt;
+X{
+X	va_list ap;
+X	static char	buf[256];
+X
+X	va_start(ap, fmt);
+X	vsprintf(buf, fmt, ap);
+X	va_end(ap);
+X	ttywrite(buf, strlen(buf));
+X}
+X
+X
+X/*
+X * Write the specified number of characters to the terminal.
+X */
+Xvoid
+Xttywrite(buf, count)
+X	char	*buf;			/* buffer to write */
+X	int	count;			/* number of characters */
+X{
+X	int	ch;
+X
+X	while (count-- > 0) {
+X		ch = *buf++;
+X		putchar(ch);
+X	}
+X}
+X
+X
+Xvoid
+Xttyhome()
+X{
+X}
+X
+X
+Xvoid
+Xttyeeop()
+X{
+X}
+X
+X
+Xvoid
+Xttyflush()
+X{
+X	fflush(stdout);
+X}
+X
+X
+X/*
+X * Return a NULL terminated input line (without the final newline).
+X * The specified string is printed as a prompt.
+X * Returns nonzero (and an empty buffer) on EOF or error.
+X */
+Xint
+Xttyread(prompt, buf, buflen)
+X	char	*prompt;
+X	char	*buf;
+X	int	buflen;
+X{
+X	int	len;
+X
+X	fputs(prompt, stdout);
+X	fflush(stdout);
+X
+X	if (fgets(buf, buflen, stdin) == NULL) {
+X		buf[0] = '\0';
+X		return -1;
+X	}
+X	len = strlen(buf) - 1;
+X	if ((len >= 0) && (buf[len] == '\n'))
+X		buf[len] = '\0';
+X	return 0;
+X}
+X
+X/* END CODE */
+END_OF_FILE
+if test 2031 -ne `wc -c <'dumbtty.c'`; then
+    echo shar: \"'dumbtty.c'\" unpacked with wrong size!
+fi
+# end of 'dumbtty.c'
+fi
+if test -f 'interact.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'interact.c'\"
+else
+echo shar: Extracting \"'interact.c'\" \(28028 characters\)
+sed "s/^X//" >'interact.c' <<'END_OF_FILE'
+X/*
+X * Life search program - user interactions module.
+X * Author: David I. Bell.
+X */
+X
+X#include "lifesrc.h"
+X
+X#define	VERSION	"2.0"
+X
+X
+X/*
+X * Local procedures
+X */
+Xstatic	void	usage PROTO((void));
+Xstatic	void	getsetting PROTO((char *));
+Xstatic	void	getbackup PROTO((char *));
+Xstatic	void	getclear PROTO((char *));
+Xstatic	void	getexclude PROTO((char *));
+Xstatic	STATUS	loadstate PROTO((char *));
+Xstatic	STATUS	readfile PROTO((char *));
+Xstatic	BOOL	confirm PROTO((char *));
+Xstatic	BOOL	setrules PROTO((char *));
+Xstatic	long	getnum PROTO((char **, int));
+Xstatic	char	*getstr PROTO((char *, char *));
+X
+Xextern	int	atoi PROTO((char *));
+Xextern	char	*strchr PROTO((char *, int));
+X
+X
+Xint
+Xmain(argc, argv)
+X	int	argc;
+X	char	**argv;
+X{
+X	char	*str;
+X
+X	if (--argc <= 0) {
+X		usage();
+X		exit(1);
+X	}
+X	argv++;
+X
+X	if (!setrules("3/23")) {
+X		fprintf(stderr, "Cannot set Life rules!\n");
+X		exit(1);
+X	}
+X
+X	while (argc-- > 0) {
+X		str = *argv++;
+X		if (*str++ != '-') {
+X			usage();
+X			exit(1);
+X		}
+X		switch (*str++) {
+X			case 'q':
+X				quiet = TRUE;		/* don't output */
+X				break;
+X
+X			case 'r':			/* rows */
+X				rowmax = atoi(str);
+X				break;
+X
+X			case 'c':			/* columns */
+X				colmax = atoi(str);
+X				break;
+X
+X			case 'g':			/* generations */
+X				genmax = atoi(str);
+X				break;
+X
+X			case 't':			/* translation */
+X				switch (*str++) {
+X					case 'r':
+X						rowtrans = atoi(str);
+X						break;
+X					case 'c':
+X						coltrans = atoi(str);
+X						break;
+X					default:
+X						fprintf(stderr, "Bad translate\n");
+X						exit(1);
+X				}
+X				break;
+X
+X			case 'f':			/* flip cells */
+X				switch (*str++) {
+X					case 'r':
+X						fliprows = 1;
+X						if (*str)
+X							fliprows = atoi(str);
+X							break;
+X						break;
+X					case 'c':
+X						flipcols = 1;
+X						if (*str)
+X							flipcols = atoi(str);
+X						break;
+X					case 'q':
+X						flipquads = TRUE;
+X						break;
+X					case '\0':
+X						follow = TRUE;
+X						break;
+X					default:
+X						fprintf(stderr, "Bad flip\n");
+X						exit(1);
+X				}
+X				break;
+X
+X			case 's':			/* symmetry */
+X				switch (*str++) {
+X					case 'r':
+X						rowsym = 1;
+X						if (*str)
+X							rowsym = atoi(str);
+X						break;
+X					case 'c':
+X						colsym = 1;
+X						if (*str)
+X							colsym = atoi(str);
+X						break;
+X					case 'p':
+X						pointsym = TRUE;
+X						break;
+X					case 'f':
+X						fwdsym = TRUE;
+X						break;
+X					case 'b':
+X						bwdsym = TRUE;
+X						break;
+X					default:
+X						fprintf(stderr, "Bad symmetry\n");
+X						exit(1);
+X				}
+X				break;
+X
+X			case 'n':			/* near cells */
+X				switch (*str++) {
+X					case 'c':
+X						nearcols = atoi(str);
+X						break;
+X					default:
+X						fprintf(stderr, "Bad near\n");
+X						exit(1);
+X				}
+X				break;
+X
+X			case 'w':			/* max width */
+X				switch (*str++) {
+X					case 'c':
+X						colwidth = atoi(str);
+X						break;
+X					default:
+X						fprintf(stderr, "Bad width\n");
+X						exit(1);
+X				}
+X				break;
+X
+X			case 'u':			/* use row or column */
+X				switch (*str++) {
+X					case 'r':
+X						userow = atoi(str);
+X						break;
+X					case 'c':
+X						usecol = atoi(str);
+X						break;
+X					default:
+X						fprintf(stderr, "Bad use\n");
+X						exit(1);
+X				}
+X				break;
+X
+X			case 'd':			/* dump frequency */
+X				dumpfreq = atol(str) * DUMPMULT;
+X				dumpfile = DUMPFILE;
+X				if ((argc > 0) && (**argv != '-')) {
+X					argc--;
+X					dumpfile = *argv++;
+X				}
+X				break;
+X
+X			case 'v':			/* view frequency */
+X				viewfreq = atol(str) * VIEWMULT;
+X				break;
+X
+X			case 'l':			/* load file */
+X				if (*str == 'n')
+X					nowait = TRUE;
+X				if ((argc <= 0) || (**argv == '-')) {
+X					fprintf(stderr, "Missing load file name\n");
+X					exit(1);
+X				}
+X				loadfile = *argv++;
+X				argc--;
+X				break;
+X
+X			case 'i':			/* initial file */
+X				if (*str == 'a')
+X					setall = TRUE;
+X				if ((argc <= 0) || (**argv == '-')) {
+X					fprintf(stderr, "Missing initial file name\n");
+X					exit(1);
+X				}
+X				initfile = *argv++;
+X				argc--;
+X				break;
+X
+X			case 'o':			/* output file */
+X				outputcols = atol(str);
+X				if ((argc <= 0) || (**argv == '-')) {
+X					fprintf(stderr, "Missing output file name\n");
+X					exit(1);
+X				}
+X				outputfile = *argv++;
+X				argc--;
+X				break;
+X
+X			case 'm':			/* max cell count */
+X				switch (*str++) {
+X					case 'c':
+X						colcells = atoi(str);
+X						break;
+X					case 't':
+X						maxcount = atoi(str);
+X						break;
+X					default:
+X						fprintf(stderr, "Bad maximum\n");
+X						exit(1);
+X				}
+X				break;
+X
+X			case 'p':			/* find parents only */
+X				parent = TRUE;
+X				break;
+X
+X			case 'a':
+X				allobjects = TRUE;	/* find all objects */
+X				break;
+X
+X			case 'D':			/* debugging output */
+X				debug = TRUE;
+X				break;
+X
+X			case 'R':			/* set rules */
+X				if (!setrules(str)) {
+X					fprintf(stderr, "Bad rule string\n");
+X					exit(1);
+X				}
+X				break;
+X
+X			default:
+X				fprintf(stderr, "Unknown option -%c\n",
+X					str[-1]);
+X				exit(1);
+X		}
+X	}
+X
+X	if (parent && (rowtrans || coltrans || flipquads ||
+X		fliprows || flipcols))
+X	{
+X		fprintf(stderr, "Cannot specify translations or flips with -p\n");
+X		exit(1);
+X	}
+X
+X	if ((pointsym != 0) + (rowsym || colsym) + (fwdsym || bwdsym) > 1) {
+X		fprintf(stderr, "Conflicting symmetries specified\n");
+X		exit(1);
+X	}
+X
+X	if ((fwdsym || bwdsym || flipquads) && (rowmax != colmax)) {
+X		fprintf(stderr, "Rows must equal cols with -sf, -sb, or -fq\n");
+X		exit(1);
+X	}
+X
+X	if ((rowtrans || coltrans) + (flipquads != 0) > 1)
+X	{
+X		fprintf(stderr, "Conflicting translation or flipping specified\n");
+X		exit(1);
+X	}
+X
+X	if ((rowtrans && fliprows) || (coltrans && flipcols)) {
+X		fprintf(stderr, "Conflicting translation or flipping specified\n");
+X		exit(1);
+X	}
+X
+X	if ((userow < 0) || (userow > rowmax)) {
+X		fprintf(stderr, "Bad row for -ur\n");
+X		exit(1);
+X	}
+X
+X	if ((usecol < 0) || (usecol > colmax)) {
+X		fprintf(stderr, "Bad column for -uc\n");
+X		exit(1);
+X	}
+X
+X	if (ttyopen()) {
+X		fprintf(stderr, "Cannot initialize terminal\n");
+X		exit(1);
+X	}
+X
+X	/*
+X	 * Check for loading state from file or reading initial
+X	 * object from file.
+X	 */
+X	if (loadfile) {
+X		if (loadstate(loadfile) != OK) {
+X			ttyclose();
+X			exit(1);
+X		}
+X	} else {
+X		initcells();
+X		if (initfile) {
+X			if (readfile(initfile) != OK) {
+X				ttyclose();
+X				exit(1);
+X			}
+X			baseset = nextset;
+X		}
+X	}
+X
+X	/*
+X	 * If we are looking for parents, then set the current generation
+X	 * to the last one so that it can be input easily.  Then get the
+X	 * commands to initialize the cells, unless we were told to not wait.
+X	 */
+X	if (parent)
+X		curgen = genmax - 1;
+X
+X	if (nowait && !quiet)
+X		printgen(0);
+X	else
+X		getcommands();
+X	inited = TRUE;
+X
+X	/*
+X	 * Initial commands are complete, now look for the object.
+X	 */
+X	while (TRUE) {
+X		if (curstatus == OK)
+X			curstatus = search();
+X
+X		if ((curstatus == FOUND) && userow && (rowcount[userow] == 0)) {
+X			curstatus = OK;
+X			continue;
+X		}
+X
+X		if ((curstatus == FOUND) && !allobjects && subperiods()) {
+X			curstatus = OK;
+X			continue;
+X		}
+X
+X		if (dumpfreq) {
+X			dumpcount = 0;
+X			dumpstate(dumpfile);
+X		}
+X
+X		quitok = (curstatus == NOTEXIST);
+X
+X		curgen = 0;
+X
+X		if (outputfile == NULL) {
+X			getcommands();
+X			continue;
+X		}
+X
+X		/*
+X		 * Here if results are going to a file.
+X		 */
+X		if (curstatus == FOUND) {
+X			curstatus = OK;
+X			if (!quiet) {
+X				printgen(0);
+X				ttystatus("Object %ld found.\n", ++foundcount);
+X			}
+X			writegen(outputfile, TRUE);
+X			continue;
+X		}
+X
+X		if (foundcount == 0) {
+X			ttyclose();
+X			fprintf(stderr, "No objects found\n");
+X			exit(1);
+X		}
+X
+X		ttyclose();
+X		if (!quiet)
+X			printf("Search completed, file \"%s\" contains %ld object%s\n",
+X				outputfile, foundcount, (foundcount == 1) ? "" : "s");
+X		exit(0);
+X	}
+X}
+X
+X
+X/*
+X * Get one or more user commands.
+X * Commands are ended by a blank line.
+X */
+Xvoid
+Xgetcommands()
+X{
+X	char	*cp;
+X	char	*cmd;
+X	char	buf[LINESIZE];
+X
+X	dumpcount = 0;
+X	viewcount = 0;
+X	printgen(curgen);
+X
+X	while (TRUE) {
+X		ttyread("> ", buf, LINESIZE);
+X		cp = buf;
+X		while (isblank(*cp))
+X			cp++;
+X		cmd = cp;
+X		if (*cp)
+X			cp++;
+X		while (isblank(*cp))
+X			cp++;
+X
+X		switch (*cmd) {
+X			case 'p':		/* print previous generation */
+X				printgen((curgen + genmax - 1) % genmax);
+X				break;
+X
+X			case 'n':		/* print next generation */
+X				printgen((curgen + 1) % genmax);
+X				break;
+X
+X			case 's':		/* add a cell setting */
+X				getsetting(cp);
+X				break;
+X
+X			case 'b':		/* backup the search */
+X				getbackup(cp);
+X				break;
+X
+X			case 'c':		/* clear area */
+X				getclear(cp);
+X				break;
+X
+X			case 'v':		/* set view frequency */
+X				viewfreq = atol(cp) * VIEWMULT;
+X				printgen(curgen);
+X				break;
+X
+X			case 'w':		/* write generation to file */
+X				writegen(cp, FALSE);
+X				break;
+X
+X			case 'd':		/* dump state to file */
+X				dumpstate(cp);
+X				break;
+X
+X			case 'N':		/* find next object */
+X				if (curstatus == FOUND)
+X					curstatus = OK;
+X				return;
+X
+X			case 'q':		/* quit program */
+X			case 'Q':
+X				if (quitok || confirm("Really quit? ")) {
+X					ttyclose();
+X					exit(0);
+X				}
+X				break;
+X
+X			case 'x':		/* exclude cells from search */
+X				getexclude(cp);
+X				break;
+X
+X			case '\n':		/* return from commands */
+X			case '\0':
+X				return;
+X
+X			default:
+X				if (isdigit(*cmd)) {
+X					getsetting(cmd);
+X					break;
+X				}
+X				ttystatus("Unknown command\n");
+X				break;
+X		}
+X	}
+X}
+X
+X
+X/*
+X * Get a cell to be set in the current generation.
+X * The state of the cell is defaulted to ON.
+X * Warning: Use of this routine invalidates backing up over
+X * the setting, so that the setting is permanent.
+X */
+Xstatic void
+Xgetsetting(cp)
+X	char	*cp;
+X{
+X	int	row;
+X	int	col;
+X	STATE	state;
+X
+X	cp = getstr(cp, "Cell to set (row col [state]): ");
+X	if (*cp == '\0')
+X		return;
+X
+X	row = getnum(&cp, -1);
+X	if (*cp == ',')
+X		cp++;
+X	col = getnum(&cp, -1);
+X	if (*cp == ',')
+X		cp++;
+X	state = getnum(&cp, 1);
+X
+X	while (isblank(*cp))
+X		cp++;
+X	if (*cp != '\0') {
+X		ttystatus("Bad input line format\n");
+X		return;
+X	}
+X
+X	if ((row <= 0) || (row > rowmax) || (col <= 0) || (col > colmax) ||
+X		((state != 0) && (state != 1)))
+X	{
+X		ttystatus("Illegal cell value\n");
+X		return;
+X	}
+X
+X	if (proceed(findcell(row, col, curgen), state, FALSE) != OK) {
+X		ttystatus("Inconsistent state for cell\n");
+X		return;
+X	}
+X
+X	baseset = nextset;
+X	printgen(curgen);
+X}
+X
+X
+X/*
+X * Backup the search to the nth latest free choice.
+X * Notice: This skips examinination of some of the possibilities, thus
+X * maybe missing a solution.  Therefore this should only be used when it
+X * is obvious that the current search state is useless.
+X */
+Xstatic void
+Xgetbackup(cp)
+X	char	*cp;
+X{
+X	CELL	*cell;
+X	STATE	state;
+X	int	count;
+X	int	blankstoo;
+X
+X	blankstoo = TRUE;
+X#if 0
+X	blankstoo = FALSE;		/* this doesn't work */
+X	if (*cp == 'b') {
+X		blankstoo = TRUE;
+X		cp++;
+X	}
+X#endif
+X	count = getnum(&cp, 0);
+X	if ((count <= 0) || *cp) {
+X		ttystatus("Must back up at least one cell\n");
+X		return;
+X	}
+X
+X	while (count > 0) {
+X		cell = backup();
+X		if (cell == NULL_CELL) {
+X			printgen(curgen);
+X			ttystatus("Backed up over all possibilities\n");
+X			return;
+X		}
+X		state = 1 - cell->state;
+X		if (blankstoo || (state == ON))
+X			count--;
+X		cell->state = UNK;
+X		if (go(cell, state, FALSE) != OK) {
+X			printgen(curgen);
+X			ttystatus("Backed up over all possibilities\n");
+X			return;
+X		}
+X	}
+X	printgen(curgen);
+X}
+X
+X
+X/*
+X * Clear all remaining unknown cells in the current generation,
+X * or else just the specified rectangular area.  If clearing the whole
+X * area, then confirmation is required.
+X */
+Xstatic void
+Xgetclear(cp)
+X	char	*cp;
+X{
+X	int	begrow;
+X	int	begcol;
+X	int	endrow;
+X	int	endcol;
+X	int	row;
+X	int	col;
+X	CELL	*cell;
+X
+X	while (isblank(*cp))
+X		cp++;
+X	if (*cp) {
+X		begrow = getnum(&cp, -1);
+X		begcol = getnum(&cp, -1);
+X		endrow = getnum(&cp, -1);
+X		endcol = getnum(&cp, -1);
+X	} else {
+X		if (!confirm("Clear all unknown cells ?"))
+X			return;
+X		begrow = 1;
+X		begcol = 1;
+X		endrow = rowmax;
+X		endcol = colmax;
+X	}
+X
+X	if ((begrow < 1) || (begrow > endrow) || (endrow > rowmax) ||
+X		(begcol < 1) || (begcol > endcol) || (endcol > colmax))
+X	{
+X		ttystatus("Illegal clear coordinates");
+X		return;
+X	}
+X
+X	for (row = begrow; row <= endrow; row++) {
+X		for (col = begcol; col <= endcol; col++) {
+X			cell = findcell(row, col, curgen);
+X			if (cell->state != UNK)
+X				continue;
+X
+X			if (proceed(cell, OFF, FALSE) != OK)
+X			{
+X				ttystatus("Inconsistent state for cell\n");
+X				return;
+X			}
+X		}
+X	}
+X
+X	baseset = nextset;
+X	printgen(curgen);
+X}
+X
+X
+X/*
+X * Exclude cells in a rectangular area from searching.
+X * This simply means that such cells will not be selected for setting.
+X */
+Xstatic void
+Xgetexclude(cp)
+X	char	*cp;
+X{
+X	int	begrow;
+X	int	begcol;
+X	int	endrow;
+X	int	endcol;
+X	int	row;
+X	int	col;
+X
+X	while (isblank(*cp))
+X		cp++;
+X	if (*cp == '\0') {
+X		ttystatus("Coordinates needed for exclusion");
+X		return;
+X	}
+X
+X	begrow = getnum(&cp, -1);
+X	begcol = getnum(&cp, -1);
+X	endrow = begrow;
+X	endcol = begcol;
+X
+X	while (isblank(*cp))
+X		cp++;
+X	if (*cp) {
+X		endrow = getnum(&cp, -1);
+X		endcol = getnum(&cp, -1);
+X	}
+X
+X	if ((begrow < 1) || (begrow > endrow) || (endrow > rowmax) ||
+X		(begcol < 1) || (begcol > endcol) || (endcol > colmax))
+X	{
+X		ttystatus("Illegal exclusion coordinates");
+X		return;
+X	}
+X
+X	for (row = begrow; row <= endrow; row++)
+X		for (col = begcol; col <= endcol; col++)
+X			findcell(row, col, curgen)->choose = FALSE;
+X
+X	printgen(curgen);
+X}
+X
+X
+X/*
+X * Print out the current status of the specified generation.
+X * This also sets the current generation.
+X */
+Xvoid
+Xprintgen(gen)
+X	int	gen;
+X{
+X	int	row;
+X	int	col;
+X	int	count;
+X	CELL	*cell;
+X	char	*msg;
+X
+X	curgen = gen;
+X
+X	switch (curstatus) {
+X		case NOTEXIST:	msg = "No such object"; break;
+X		case FOUND:	msg = "Found object"; break;
+X		default:	msg = ""; break;
+X	}
+X
+X	count = 0;
+X	for (row = 1; row <= rowmax; row++) {
+X		for (col = 1; col <= colmax; col++) {
+X			count += (findcell(row, col, gen)->state == ON);
+X		}
+X	}
+X
+X	ttyhome();
+X	ttyeeop();
+X
+X	if (islife) {
+X		ttyprintf("%s (gen %d, cells %d) -g%d",
+X			msg, gen, count, genmax);
+X	} else {
+X		ttyprintf("%s (rule %s, gen %d, cells %d) -g%d",
+X			msg, rulestring, gen, count, genmax);
+X	}
+X
+X	if (rowtrans)
+X		ttyprintf(" -tr%d", rowtrans);
+X	if (coltrans)
+X		ttyprintf(" -tc%d", coltrans);
+X	if (fliprows == 1)
+X		ttyprintf(" -fr");
+X	if (fliprows > 1)
+X		ttyprintf(" -fr%d", fliprows);
+X	if (flipcols == 1)
+X		ttyprintf(" -fc");
+X	if (flipcols > 1)
+X		ttyprintf(" -fc%d", flipcols);
+X	if (flipquads)
+X		ttyprintf(" -fq");
+X	if (rowsym == 1)
+X		ttyprintf(" -sr");
+X	if (rowsym > 1)
+X		ttyprintf(" -sr%d", rowsym);
+X	if (colsym == 1)
+X		ttyprintf(" -sc");
+X	if (colsym > 1)
+X		ttyprintf(" -sc%d", colsym);
+X	if (pointsym)
+X		ttyprintf(" -sp");
+X	if (fwdsym)
+X		ttyprintf(" -sf");
+X	if (bwdsym)
+X		ttyprintf(" -sb");
+X	if (follow)
+X		ttyprintf(" -f");
+X	if (parent)
+X		ttyprintf(" -p");
+X	if (allobjects)
+X		ttyprintf(" -a");
+X	if (userow)
+X		ttyprintf(" -ur%d", userow);
+X	if (usecol)
+X		ttyprintf(" -uc%d", usecol);
+X	if (nearcols)
+X		ttyprintf(" -nc%d", nearcols);
+X	if (maxcount)
+X		ttyprintf(" -mt%d", maxcount);
+X	if (colcells)
+X		ttyprintf(" -mc%d", colcells);
+X	if (colwidth)
+X		ttyprintf(" -wc%d", colwidth);
+X	if (viewfreq)
+X		ttyprintf(" -v%ld", viewfreq / VIEWMULT);
+X	if (dumpfreq)
+X		ttyprintf(" -d%ld %s", dumpfreq / DUMPMULT, dumpfile);
+X	if (outputfile) {
+X		if (outputcols)
+X			ttyprintf(" -o%d %s", outputcols, outputfile);
+X		else
+X			ttyprintf(" -o %s", outputfile);
+X		if (foundcount)
+X			ttyprintf(" [%d]", foundcount);
+X	}
+X	ttyprintf("\n");
+X
+X	for (row = 1; row <= rowmax; row++) {
+X		for (col = 1; col <= colmax; col++) {
+X			cell = findcell(row, col, gen);
+X			switch (cell->state) {
+X				case OFF:	msg = ". "; break;
+X				case ON:	msg = "O "; break;
+X				case UNK:	msg =
+X						(cell->choose ? "? " : "X ");
+X						break;
+X			}
+X
+X			/*
+X			 * If wide output, print only one character,
+X			 * else print both characters.
+X			 */
+X			ttywrite(msg, (colmax < 40) + 1);
+X		}
+X		ttywrite("\n", 1);
+X	}
+X
+X	ttyhome();
+X	ttyflush();
+X}
+X
+X
+X/*
+X * Write the current generation to the specified file.
+X * Empty rows and columns are not written.
+X * If no file is specified, it is asked for.
+X * Filename of "." means write to stdout.
+X */
+Xvoid
+Xwritegen(file, append)
+X	char	*file;		/* file name (or NULL) */
+X	BOOL	append;		/* TRUE to append instead of create */
+X{
+X	FILE	*fp;
+X	CELL	*cell;
+X	int	row;
+X	int	col;
+X	int	ch;
+X	int	minrow, maxrow, mincol, maxcol;
+X
+X	file = getstr(file, "Write object to file: ");
+X	if (*file == '\0')
+X		return;
+X
+X	fp = stdout;
+X	if (strcmp(file, "."))
+X		fp = fopen(file, append ? "a" : "w");
+X
+X	if (fp == NULL) {
+X		ttystatus("Cannot create \"%s\"\n", file);
+X		return;
+X	}
+X
+X	/*
+X	 * First find the minimum bounds on the object.
+X	 */
+X	minrow = rowmax;
+X	mincol = colmax;
+X	maxrow = 1;
+X	maxcol = 1;
+X
+X	for (row = 1; row <= rowmax; row++) {
+X		for (col = 1; col <= colmax; col++) {
+X			cell = findcell(row, col, curgen);
+X			if (cell->state == OFF)
+X				continue;
+X			if (row < minrow)
+X				minrow = row;
+X			if (row > maxrow)
+X				maxrow = row;
+X			if (col < mincol)
+X				mincol = col;
+X			if (col > maxcol)
+X				maxcol = col;
+X		}
+X	}
+X
+X	if (minrow > maxrow) {
+X		minrow = 1;
+X		maxrow = 1;
+X		mincol = 1;
+X		maxcol = 1;
+X	}
+X
+X	if (fp == stdout)
+X		fprintf(fp, "#\n");
+X
+X	/*
+X	 * Now write out the bounded area.
+X	 */
+X	for (row = minrow; row <= maxrow; row++) {
+X		for (col = mincol; col <= maxcol; col++) {
+X			cell = findcell(row, col, curgen);
+X			switch (cell->state) {
+X				case OFF:	ch = '.'; break;
+X				case ON:	ch = '*'; break;
+X				case UNK:	ch =
+X						(cell->choose ? '?' : 'X');
+X						break;
+X				default:
+X					ttystatus("Bad cell state");
+X					fclose(fp);
+X					return;
+X			}
+X			fputc(ch, fp);
+X		}
+X		fputc('\n', fp);
+X	}
+X
+X	if (append)
+X		fprintf(fp, "\n");
+X
+X	if ((fp != stdout) && fclose(fp)) {
+X		ttystatus("Error writing \"%s\"\n", file);
+X		return;
+X	}
+X
+X	if (fp != stdout)
+X		ttystatus("\"%s\" written\n", file);
+X	quitok = TRUE;
+X}
+X
+X
+X/*
+X * Dump the current state of the search in the specified file.
+X * If no file is specified, it is asked for.
+X */
+Xvoid
+Xdumpstate(file)
+X	char	*file;
+X{
+X	FILE	*fp;
+X	CELL	**set;
+X	CELL	*cell;
+X
+X	file = getstr(file, "Dump state to file: ");
+X	if (*file == '\0')
+X		return;
+X
+X	fp = fopen(file, "w");
+X	if (fp == NULL) {
+X		ttystatus("Cannot create \"%s\"\n", file);
+X		return;
+X	}
+X
+X	fprintf(fp, "V %d\n", DUMPVERSION);
+X	if (!islife)
+X		fprintf(fp, "R %s\n", rulestring);
+X	fprintf(fp, "I %d %d %d %d %d %d %d %d %d %d",
+X		rowmax, colmax, genmax, rowtrans, coltrans, rowsym, colsym,
+X		pointsym, fwdsym, bwdsym);
+X	fprintf(fp, " %d %d %d %d %d %d %d %d %d %d",
+X		parent, allobjects, nearcols, maxcount, cellcount,
+X		curstatus, fliprows, flipcols, flipquads, colcells);
+X	fprintf(fp, " %d %d %d %d\n",
+X		userow, usecol, colwidth, follow);
+X
+X	set = settable;
+X	while (set != nextset) {
+X		cell = *set++;
+X		fprintf(fp, "S %d %d %d %d %d %d\n", cell->row, cell->col,
+X			cell->gen, cell->state, cell->free, cell->choose);
+X	}
+X
+X	fprintf(fp, "T %d %d\n", baseset - settable, nextset - settable);
+X	fprintf(fp, "E\n");
+X
+X	if (fclose(fp)) {
+X		ttystatus("Error writing \"%s\"\n", file);
+X		return;
+X	}
+X
+X	ttystatus("State dumped to \"%s\"\n", file);
+X	quitok = TRUE;
+X}
+X
+X
+X/*
+X * Load a previously dumped state from a file.
+X * Warning: Almost no checks are made for validity of the state.
+X * Returns OK on success, ERROR on failure.
+X */
+Xstatic STATUS
+Xloadstate(file)
+X	char	*file;
+X{
+X	FILE	*fp;
+X	char	*cp;
+X	int	row;
+X	int	col;
+X	int	gen;
+X	STATE	state;
+X	BOOL	free;
+X	BOOL	choose;
+X	CELL	*cell;
+X	char	buf[LINESIZE];
+X
+X	file = getstr(file, "Load state from file: ");
+X	if (*file == '\0')
+X		return OK;
+X
+X	fp = fopen(file, "r");
+X	if (fp == NULL) {
+X		ttystatus("Cannot open state file \"%s\"\n", file);
+X		return ERROR;
+X	}
+X
+X	buf[0] = '\0';
+X	fgets(buf, LINESIZE, fp);
+X	if (buf[0] != 'V') {
+X		ttystatus("Missing version line in file \"%s\"\n", file);
+X		fclose(fp);
+X		return ERROR;
+X	}
+X
+X	cp = &buf[1];
+X	if (getnum(&cp, 0) != DUMPVERSION) {
+X		ttystatus("Unknown version in state file \"%s\"\n", file);
+X		fclose(fp);
+X		return ERROR;
+X	}
+X
+X	fgets(buf, LINESIZE, fp);
+X
+X	/*
+X	 * Set the life rules if they were specified.
+X	 * This line is optional.
+X	 */
+X	if (buf[0] == 'R') {
+X		cp = &buf[strlen(buf) - 1];
+X		if (*cp == '\n')
+X			*cp = '\0';
+X		cp = &buf[1];
+X		while (isblank(*cp))
+X			cp++;
+X		if (setrules(cp)) {
+X			ttystatus("Bad Life rules in state file\n");
+X			fclose(fp);
+X			return ERROR;
+X		}
+X		fgets(buf, LINESIZE, fp);
+X	}
+X
+X	if (buf[0] != 'I') {
+X		ttystatus("Missing init line in state file\n");
+X		fclose(fp);
+X		return ERROR;
+X	}
+X	cp = &buf[1];
+X	rowmax = getnum(&cp, 0);
+X	colmax = getnum(&cp, 0);
+X	genmax = getnum(&cp, 0);
+X	rowtrans = getnum(&cp, 0);
+X	coltrans = getnum(&cp, 0);
+X	rowsym = getnum(&cp, 0);
+X	colsym = getnum(&cp, 0);
+X	pointsym = getnum(&cp, 0);
+X	fwdsym = getnum(&cp, 0);
+X	bwdsym = getnum(&cp, 0);
+X	parent = getnum(&cp, 0);
+X	allobjects = getnum(&cp, 0);
+X	nearcols = getnum(&cp, 0);
+X	maxcount = getnum(&cp, 0);
+X	cellcount = getnum(&cp, 0);
+X	curstatus = getnum(&cp, 0);
+X	fliprows = getnum(&cp, 0);
+X	flipcols = getnum(&cp, 0);
+X	flipquads = getnum(&cp, 0);
+X	colcells = getnum(&cp, 0);
+X	userow = getnum(&cp, 0);
+X	usecol = getnum(&cp, 0);
+X	colwidth = getnum(&cp, 0);
+X	follow = getnum(&cp, 0);
+X
+X	initcells();
+X
+X	newset = settable;
+X	for (;;) {
+X		buf[0] = '\0';
+X		fgets(buf, LINESIZE, fp);
+X		if (buf[0] != 'S')
+X			break;
+X
+X		cp = &buf[1];
+X		row = getnum(&cp, 0);
+X		col = getnum(&cp, 0);
+X		gen = getnum(&cp, 0);
+X		state = getnum(&cp, 0);
+X		free = getnum(&cp, 0);
+X		choose = getnum(&cp, 0);
+X
+X		cell = findcell(row, col, gen);
+X		cell->state = state;
+X		cell->free = free;
+X		cell->choose = choose;
+X		*newset++ = cell;
+X
+X		if ((state == ON) && (gen == 0)) {
+X			if (nearcols)
+X				adjustnear(cell, 1);
+X
+X			(*cell->rowcounter)++;
+X			(*cell->colcounter)++;
+X			cellcount++;
+X		}
+X	}
+X
+X	if (buf[0] != 'T') {
+X		ttystatus("Missing table line in state file\n");
+X		fclose(fp);
+X		return ERROR;
+X	}
+X	cp = &buf[1];
+X	baseset = &settable[getnum(&cp, 0)];
+X	nextset = &settable[getnum(&cp, 0)];
+X
+X	fgets(buf, LINESIZE, fp);
+X	if (buf[0] != 'E') {
+X		ttystatus("Missing end of file line in state file\n");
+X		fclose(fp);
+X		return ERROR;
+X	}
+X
+X	if (fclose(fp)) {
+X		ttystatus("Error reading \"%s\"\n", file);
+X		return ERROR;
+X	}
+X
+X	ttystatus("State loaded from \"%s\"\n", file);
+X	quitok = TRUE;
+X	return OK;
+X}
+X
+X
+X/*
+X * Read a file containing initial settings for either gen 0 or the last gen.
+X * If setall is TRUE, both the ON and the OFF cells will be set.
+X * Returns OK on success, ERROR on error.
+X */
+Xstatic STATUS
+Xreadfile(file)
+X	char	*file;
+X{
+X	FILE	*fp;
+X	char	*cp;
+X	char	ch;
+X	int	row;
+X	int	col;
+X	int	gen;
+X	STATE	state;
+X	char	buf[LINESIZE];
+X
+X	file = getstr(file, "Read initial object from file: ");
+X	if (*file == '\0')
+X		return OK;
+X
+X	fp = fopen(file, "r");
+X	if (fp == NULL) {
+X		ttystatus("Cannot open \"%s\"\n", file);
+X		return ERROR;
+X	}
+X
+X	gen = (parent ? (genmax - 1) : 0);
+X	row = 0;
+X	while (fgets(buf, LINESIZE, fp)) {
+X		row++;
+X		cp = buf;
+X		col = 0;
+X		while (*cp && (*cp != '\n')) {
+X			col++;
+X			ch = *cp++;
+X			switch (ch) {
+X				case '?':
+X					continue;
+X				case 'x':
+X				case 'X':
+X					findcell(row, col, gen)->choose = FALSE;
+X					continue;
+X				case '.':
+X				case ' ':
+X					if (!setall)
+X						continue;
+X					state = OFF;
+X					break;
+X				case 'O':
+X				case 'o':
+X				case '*':
+X					state = ON;
+X					break;
+X				default:
+X					ttystatus("Bad file format in line %d\n",
+X						row);
+X					fclose(fp);
+X					return ERROR;
+X			}
+X
+X			if (proceed(findcell(row, col, gen), state, FALSE)
+X				!= OK)
+X			{
+X				ttystatus("Inconsistent state for cell %d %d\n",
+X					row, col);
+X				fclose(fp);
+X				return ERROR;
+X			}
+X		}
+X	}
+X
+X	if (fclose(fp)) {
+X		ttystatus("Error reading \"%s\"\n", file);
+X		return ERROR;
+X	}
+X	return OK;
+X}
+X
+X
+X/*
+X * Check a string for being NULL, and if so, ask the user to specify a
+X * value for it.  Returned string may be static and thus is overwritten
+X * for each call.  Leading spaces in the string are skipped over.
+X */
+Xstatic char *
+Xgetstr(str, prompt)
+X	char	*str;		/* string to check for NULLness */
+X	char	*prompt;	/* message to prompt with */
+X{
+X	static char	buf[LINESIZE];
+X
+X	if ((str == NULL) || (*str == '\0')) {
+X		ttyread(prompt, buf, LINESIZE);
+X		str = buf;
+X	}
+X	while (isblank(*str))
+X		str++;
+X	return str;
+X}
+X
+X
+X/*
+X * Confirm an action by prompting with the specified string and reading
+X * an answer.  Entering 'y' or 'Y' indicates TRUE, everything else FALSE.
+X */
+Xstatic BOOL
+Xconfirm(prompt)
+X	char	*prompt;
+X{
+X	char	ch;
+X
+X	ch = *getstr(NULL, prompt);
+X	if ((ch == 'y') || (ch == 'Y'))
+X		return TRUE;
+X	return FALSE;
+X}
+X
+X
+X/*
+X * Read a number from a string, eating any leading or trailing blanks.
+X * Returns the value, and indirectly updates the string pointer.
+X * Returns specified default if no number was found.
+X */
+Xstatic long
+Xgetnum(cpp, defnum)
+X	char	**cpp;
+X	int	defnum;
+X{
+X	char	*cp;
+X	long	num;
+X
+X	cp = *cpp;
+X	while (isblank(*cp))
+X		cp++;
+X	if (!isdigit(*cp)) {
+X		*cpp = cp;
+X		return defnum;
+X	}
+X	num = 0;
+X	while (isdigit(*cp))
+X		num = num * 10 + (*cp++ - '0');
+X	while (isblank(*cp))
+X		cp++;
+X	*cpp = cp;
+X	return num;
+X}
+X
+X
+X/*
+X * Parse a string and set the Life rules from it.
+X * Returns TRUE on success, or FALSE on an error.
+X * The rules can be "mmm,nnn",  "mmm/nnn", "Bmmm,Snnn", "Bmmm/Snnn",
+X * or a hex number in the Wolfram encoding.
+X */
+Xstatic BOOL
+Xsetrules(cp)
+X	char	*cp;
+X{
+X	int		i;
+X	unsigned int	bits;
+X
+X	for (i = 0; i < 9; i++) {
+X		bornrules[i] = OFF;
+X		liverules[i] = OFF;
+X	}
+X
+X	if (*cp == '\0')
+X		return FALSE;
+X
+X	/*
+X	 * See if the string contains a comma or a slash.
+X	 * If not, then assume Wolfram's hex format.
+X	 */
+X	if ((strchr(cp, ',') == NULL) && (strchr(cp, '/') == NULL)) {
+X		bits = 0;
+X		for (; *cp; cp++) {
+X			bits <<= 4;
+X			if ((*cp >= '0') && (*cp <= '9'))
+X				bits += *cp - '0';
+X			else if ((*cp >= 'a') && (*cp <= 'f'))
+X				bits += *cp - 'a' + 10;
+X			else if ((*cp >= 'A') && (*cp <= 'F'))
+X				bits += *cp - 'A' + 10;
+X			else
+X				return FALSE;
+X		}
+X
+X		if (i & ~0x3ff)
+X			return FALSE;
+X
+X		for (i = 0; i < 9; i++) {
+X			if (bits & 0x01)
+X				bornrules[i] = ON;
+X			if (bits & 0x02)
+X				liverules[i] = ON;
+X			bits >>= 2;
+X		}
+X	} else {
+X		/*
+X		 * It is in normal born/survive format.
+X		 */
+X		if ((*cp == 'b') || (*cp == 'B'))
+X			cp++;
+X
+X		while ((*cp >= '0') && (*cp <= '8'))
+X			bornrules[*cp++ - '0'] = ON;
+X
+X		if ((*cp != ',') && (*cp != '/'))
+X			return FALSE;
+X
+X		cp++;
+X
+X		if ((*cp == 's') || (*cp == 'S'))
+X			cp++;
+X
+X		while ((*cp >= '0') && (*cp <= '8'))
+X			liverules[*cp++ - '0'] = ON;
+X
+X		if (*cp)
+X			return FALSE;
+X	}
+X
+X	/*
+X	 * Construct the rule string for printouts and see if this
+X	 * is the normal Life rule.
+X	 */
+X	cp = rulestring;
+X
+X	*cp++ = 'B';
+X
+X	for (i = 0; i < 9; i++)
+X		if (bornrules[i] == ON)
+X			*cp++ = '0' + i;
+X
+X	*cp++ = '/';
+X	*cp++ = 'S';
+X
+X	for (i = 0; i < 9; i++)
+X		if (liverules[i] == ON)
+X			*cp++ = '0' + i;
+X
+X	*cp = '\0';
+X
+X	islife = (strcmp(rulestring, "B3/S23") == 0);
+X
+X	return TRUE;
+X}
+X
+X
+X/*
+X * Print usage text.
+X */
+Xstatic void
+Xusage()
+X{
+X	char	**cpp;
+X	static char *text[] = {
+X	"",
+X	"lifesrc -r# -c# -g# [other options]",
+X	"lifesrc -l[n] file -v# -o# file -d# file",
+X	"",
+X	"   -r   Number of rows",
+X	"   -c   Number of columns",
+X	"   -g   Number of generations",
+X	"   -tr  Translate rows between last and first generation",
+X	"   -tc  Translate columns between last and first generation",
+X	"   -fr  Flip rows between last and first generation",
+X	"   -fc  Flip columns between last and first generation",
+X	"   -fq  Flip quadrants between last and first generation",
+X	"   -sr  Enforce symmetry on rows",
+X	"   -sc  Enforce symmetry on columns",
+X	"   -sp  Enforce symmetry around central point",
+X	"   -sf  Enforce symmetry on forward diagonal",
+X	"   -sb  Enforce symmetry on backward diagonal",
+X	"   -nc  Near N cells of live cells in previous columns for generation 0",
+X	"   -wc  Maximum width of live cells in each column for generation 0",
+X	"   -mt  Maximum total live cells for generation 0",
+X	"   -mc  Maximum live cells in any column for generation 0",
+X	"   -ur  Force using at least one ON cell in the given row for generation 0",
+X	"   -uc  Force using at least one ON cell in the given column for generation 0",
+X	"   -p   Only look for parents of last generation",
+X	"   -a   Find all objects (even those with subperiods)",
+X	"   -v   View object every N thousand searches",
+X	"   -d   Dump status to file every N thousand searches",
+X	"   -l   Load status from file",
+X	"   -ln  Load status without entering command mode",
+X	"   -i   Read initial object from file setting only ON cells",
+X	"   -ia  Read initial object setting both ON and OFF cells",
+X	"   -o   Output objects to file (appending) every N columns",
+X	"   -R   Use Life rules specified by born,live values",
+X	NULL
+X	};
+X
+X	printf("Program to search for life oscillators or spaceships (version %s)\n", VERSION);
+X
+X	for (cpp = text; *cpp; cpp++)
+X		fprintf(stderr, "%s\n", *cpp);
+X}
+X
+X/* END CODE */
+END_OF_FILE
+if test 28028 -ne `wc -c <'interact.c'`; then
+    echo shar: \"'interact.c'\" unpacked with wrong size!
+fi
+# end of 'interact.c'
+fi
+if test -f 'search.c' -a "${1}" != "-c" ; then 
+  echo shar: Will not clobber existing file \"'search.c'\"
+else
+echo shar: Extracting \"'search.c'\" \(34777 characters\)
+sed "s/^X//" >'search.c' <<'END_OF_FILE'
+X/*
+X * Life search program - actual search routines.
+X * Author: David I. Bell.
+X * Based on the algorithms by Dean Hickerson that were
+X * included with the "xlife 2.0" distribution.  Thanks!
+X * Changes for arbitrary Life rules by Nathan S. Thompson.
+X */
+X
+X#include "lifesrc.h"
+X
+X
+X/*
+X * IMPLIC flag values.
+X */
+Xtypedef	unsigned char	FLAGS;
+X#define	N0IC0	((FLAGS) 0x01)	/* new cell 0 ==> current cell 0 */
+X#define	N0IC1	((FLAGS) 0x02)	/* new cell 0 ==> current cell 1 */
+X#define	N1IC0	((FLAGS) 0x04)	/* new cell 1 ==> current cell 0 */
+X#define	N1IC1	((FLAGS) 0x08)	/* new cell 1 ==> current cell 1 */
+X#define	N0ICUN0	((FLAGS) 0x10)	/* new cell 0 ==> current unknown neighbors 0 */
+X#define	N0ICUN1	((FLAGS) 0x20)	/* new cell 0 ==> current unknown neighbors 1 */
+X#define	N1ICUN0	((FLAGS) 0x40)	/* new cell 1 ==> current unknown neighbors 0 */
+X#define	N1ICUN1	((FLAGS) 0x80)	/* new cell 1 ==> current unknown neighbors 1 */
+X
+X
+X/*
+X * Table of transitions.
+X * Given the state of a cell and its neighbors in one generation,
+X * this table determines the state of the cell in the next generation.
+X * The table is indexed by the descriptor value of a cell.
+X */
+Xstatic	STATE	transit[256];
+X
+X
+X/*
+X * Table of implications.
+X * Given the state of a cell and its neighbors in one generation,
+X * this table determines deductions about the cell and its neighbors
+X * in the previous generation.
+X * The table is indexed by the descriptor value of a cell.
+X */
+Xstatic	FLAGS	implic[256];
+X
+X
+X/*
+X * Data about the cells.
+X */
+XCELL	*celltable[MAXCELLS];	/* table of usual cells */
+XCELL	*auxtable[AUXCELLS];	/* table of auxillary cells */
+XCELL	*settable[MAXCELLS];	/* table of cells whose value is set */
+XCELL	**newset;		/* where to add new cells into setting table */
+XCELL	**nextset;		/* next cell in setting table to examine */
+XCELL	**baseset;		/* base of changeable part of setting table */
+XCELL	*searchlist;		/* current list of cells to search */
+XCELL	*fullsearchlist;	/* complete list of cells to search */
+XCELL	*newcells;		/* cells ready for allocation */
+XCELL	*deadcell;		/* boundary cell value */
+Xint	rowcount[ROWMAX];	/* count of cells in each row of gen 0 */
+Xint	colcount[COLMAX];	/* count of cells in each column of gen 0 */
+Xint	colsumpos[COLMAX];	/* sum of positions in each column of gen 0 */
+Xint	dummycount;		/* dummy cell counter for ignored cells */
+Xint	newcellcount;		/* number of cells ready for allocation */
+Xint	auxcellcount;		/* number of cells in auxillary table */
+X
+X
+X/*
+X * Current parameter values for the program.
+X */
+XBOOL	quiet;			/* don't output */
+XBOOL	debug;			/* enable debugging output (if compiled so) */
+XBOOL	nowait;			/* don't wait for commands after loading */
+XBOOL	setall;			/* set all cells from initial file */
+XBOOL	pointsym;		/* enable symmetry with central point */
+XBOOL	fwdsym;			/* enable forward diagonal symmetry */
+XBOOL	bwdsym;			/* enable backward diagonal symmetry */
+XBOOL	parent;			/* only look for parents */
+XBOOL	allobjects;		/* look for all objects including subperiods */
+XBOOL	quitok;			/* ok to quit without confirming */
+XBOOL	inited;			/* initialization has been done */
+XBOOL	flipquads;		/* flip quadrants from last to first gen */
+XBOOL	follow;			/* follow average position of previous column */
+XBOOL	islife;			/* whether the rules are for standard Life */
+XSTATE	bornrules[9];		/* rules for whether a cell is to be born */
+XSTATE	liverules[9];		/* rules for whether a live cell stays alive */ 
+Xchar	rulestring[20];		/* rule string for printouts */
+XSTATUS	curstatus;		/* current status for display */
+Xint	curgen;			/* current generation for display */
+Xint	rowmax;			/* maximum number of rows */
+Xint	colmax;			/* maximum number of columns */
+Xint	genmax;			/* maximum number of generations */
+Xint	rowtrans;		/* translation of rows */
+Xint	coltrans;		/* translation of columns */
+Xint	userow;			/* row that must have at least one ON cell */
+Xint	usecol;			/* column that must have at least one ON cell */
+Xint	maxcount;		/* maximum number of cells in generation 0 */
+Xint	nearcols;		/* maximum distance to be near columns */
+Xint	colcells;		/* maximum cells in a column */
+Xint	colwidth;		/* maximum width of each column */
+Xint	outputcols;		/* number of columns to solve for output */
+Xint	outputlastcols;		/* last number of columns output */
+Xint	cellcount;		/* number of live cells in generation 0 */
+Xint	rowsym;			/* enable row symmetry starting at column */
+Xint	colsym;			/* enable column symmetry starting at row */
+Xint	fliprows;		/* flip rows at column number from last to first generation */
+Xint	flipcols;		/* flip columns at row number from last to first generation */
+Xlong	dumpfreq;		/* how often to perform dumps */
+Xlong	dumpcount;		/* counter for dumps */
+Xlong	viewfreq;		/* how often to view results */
+Xlong	viewcount;		/* counter for viewing */
+Xlong	foundcount;		/* number of objects found */
+Xchar	*dumpfile;		/* dump file name */
+Xchar	*initfile;		/* file containing initial cells */
+Xchar	*loadfile;		/* file to load state from */
+Xchar	*outputfile;		/* file to output results to */
+X
+X
+Xstatic	STATE	states[NSTATES] = {OFF, ON, UNK};
+X
+X
+X
+X/*
+X * Local procedures
+X */
+Xstatic	void	inittransit PROTO((void));
+Xstatic	void	initimplic PROTO((void));
+Xstatic	void	linkcell PROTO((CELL *));
+Xstatic	STATE	transition PROTO((STATE, int, int));
+Xstatic	STATE	choose PROTO((CELL *));
+Xstatic	FLAGS	implication PROTO((STATE, int, int));
+Xstatic	CELL	*symcell PROTO((CELL *));
+Xstatic	CELL	*mapcell PROTO((CELL *));
+Xstatic	CELL	*allocatecell PROTO((void));
+Xstatic	CELL	*getnormalunknown PROTO((void));
+Xstatic	CELL	*getaverageunknown PROTO((void));
+Xstatic	STATUS	setcell PROTO((CELL *, STATE, BOOL));
+Xstatic	STATUS	consistify PROTO((CELL *));
+Xstatic	STATUS	consistify10 PROTO((CELL *));
+Xstatic	STATUS	examinenext PROTO((void));
+Xstatic	BOOL	checkwidth PROTO((CELL *));
+Xstatic	int	getdesc PROTO((CELL *));
+Xstatic	int	sumtodesc PROTO((STATE, int));
+X
+Xstatic	CELL *	(*getunknown) PROTO((void));
+X
+Xstatic	STATE next_state PROTO((STATE, int));
+X
+X
+X/*
+X * Initialize the table of cells.
+X * Each cell in the active area is set to unknown state.
+X * Boundary cells are set to zero state.
+X */
+Xvoid
+Xinitcells()
+X{
+X	int	row, col, gen;
+X	int	i;
+X	BOOL	edge;
+X	CELL	*cell;
+X	CELL	*cell2;
+X
+X	if ((rowmax <= 0) || (rowmax > ROWMAX) ||
+X		(colmax <= 0) || (colmax > COLMAX) ||
+X		(genmax <= 0) || (genmax > GENMAX) ||
+X		(rowtrans < -TRANSMAX) || (rowtrans > TRANSMAX) ||
+X		(coltrans < -TRANSMAX) || (coltrans > TRANSMAX))
+X	{
+X		ttyclose();
+X		fprintf(stderr, "ROW, COL, GEN, or TRANS out of range\n");
+X		exit(1);
+X	}
+X
+X	/*
+X	 * The first allocation of a cell MUST be deadcell.
+X	 * Then allocate the cells in the cell table.
+X	 */
+X	deadcell = allocatecell();
+X	for (i = 0; i < MAXCELLS; i++)
+X		celltable[i] = allocatecell();
+X
+X	/*
+X	 * Link the cells together.
+X	 */
+X	for (col = 0; col <= colmax+1; col++) {
+X		for (row = 0; row <= rowmax+1; row++) {
+X			for (gen = 0; gen < genmax; gen++) {
+X				edge = ((row == 0) || (col == 0) ||
+X					(row > rowmax) || (col > colmax));
+X
+X				cell = findcell(row, col, gen);
+X				cell->gen = gen;
+X				cell->row = row;
+X				cell->col = col;
+X				cell->choose = TRUE;
+X				cell->rowcounter = &dummycount;
+X				cell->colcounter = &dummycount;
+X				cell->colsumposcounter = &dummycount;
+X
+X				/*
+X				 * If this is not an edge cell, then its state
+X				 * is unknown and it needs linking to its
+X				 * neighbors.
+X				 */
+X				if (!edge) {
+X					linkcell(cell);
+X					cell->state = UNK;
+X					cell->free = TRUE;
+X				}
+X
+X				/*
+X				 * Map time forwards and backwards,
+X				 * wrapping around at the ends.
+X				 */
+X				cell->past = findcell(row, col,
+X					(gen+genmax-1) % genmax);
+X				cell->future = findcell(row, col,
+X					(gen+1) % genmax);
+X
+X				/*
+X				 * If this is not an edge cell, then
+X				 * set up symmetry for it.
+X				 */
+X				if ((rowsym || colsym || pointsym ||
+X					fwdsym || bwdsym) && !edge)
+X						cell->csym = symcell(cell);
+X
+X			}
+X		}
+X	}
+X
+X	/*
+X	 * If there is a non-standard mapping between the last generation
+X	 * and the first generation, then change the future and past pointers
+X	 * to implement it.  This is for translations and flips.
+X	 */
+X	if (rowtrans || coltrans || fliprows || flipcols || flipquads) {
+X		for (row = 0; row <= rowmax+1; row++) {
+X			for (col = 0; col <= colmax+1; col++) {
+X				cell = findcell(row, col, genmax - 1);
+X				cell2 = mapcell(cell);
+X				cell->future = cell2;
+X				cell2->past = cell;
+X
+X				cell = findcell(row, col, 0);
+X				cell2 = mapcell(cell);
+X				cell->past = cell2;
+X				cell2->future = cell;
+X			}
+X		}
+X	}
+X
+X	/*
+X	 * Initialize the row and column counter addresses for generation 0.
+X	 */
+X	for (row = 1; row <= rowmax; row++) {
+X		for (col = 1; col <= colmax; col++) {
+X			cell = findcell(row, col, 0);
+X			cell->rowcounter = &rowcount[row];
+X			cell->colcounter = &colcount[col];
+X			cell->colsumposcounter = &colsumpos[col];
+X		}
+X	}
+X
+X	/*
+X	 * Build the search table list.
+X	 * This list is built backwards from the intended search order.
+X	 * Do searches from the middle row outwards, and from the left
+X	 * to the right columns.  However, since we try OFF cells first,
+X	 * reverse the row order again to try to make thin objects.
+X	 */
+X	searchlist = NULL;
+X	for (gen = genmax - 1; gen >= 0; gen--) {
+X		for (col = colmax; col > 0; col--) {
+X			for (row = (rowmax + 1) / 2; row > 0; row--) {
+X				cell = findcell(row, col, gen);
+X				cell->search = searchlist;
+X				searchlist = cell;
+X				if ((rowsym && (col >= rowsym)) ||
+X					(row * 2 == rowmax + 1))
+X						continue;
+X				cell = findcell(rowmax + 1 - row, col, gen);
+X				cell->search = searchlist;
+X				searchlist = cell;
+X			}
+X		}
+X	}
+X	fullsearchlist = searchlist;
+X
+X	if (follow)
+X		getunknown = getaverageunknown;
+X	else
+X		getunknown = getnormalunknown;
+X
+X	newset = settable;
+X	nextset = settable;
+X	baseset = settable;
+X
+X	curgen = 0;
+X	curstatus = OK;
+X	inittransit();
+X	initimplic();
+X}
+X
+X
+X/*
+X * Set the state of a cell to the specified state.
+X * The state is either ON or OFF.
+X * Returns ERROR if the setting is inconsistent.
+X * If the cell is newly set, then it is added to the set table.
+X */
+Xstatic STATUS
+Xsetcell(cell, state, free)
+X	CELL	*cell;
+X	STATE	state;
+X	BOOL	free;
+X{
+X	if (cell->state == state) {
+X		DPRINTF4("setcell %d %d %d to state %s already set\n",
+X			cell->row, cell->col, cell->gen,
+X			(state == ON) ? "on" : "off");
+X		return OK;
+X	}
+X
+X	if (cell->state != UNK) {
+X		DPRINTF4("setcell %d %d %d to state %s inconsistent\n",
+X			cell->row, cell->col, cell->gen,
+X			(state == ON) ? "on" : "off");
+X		return ERROR;
+X	}
+X
+X	if (usecol && (cell->gen == 0) && (cell->col > usecol) &&
+X		(colcount[usecol] == 0) && inited)
+X			return ERROR;
+X
+X	if ((state == ON) && (cell->gen == 0)) {
+X		if (maxcount && (cellcount >= maxcount)) {
+X			DPRINTF2("setcell %d %d 0 on exceeds maxcount\n",
+X				cell->row, cell->col);
+X			return ERROR;
+X		}
+X
+X		if (nearcols && (cell->near <= 0) && (cell->col > 1)
+X			&& inited)
+X				return ERROR;
+X
+X		if (colcells && (colcount[cell->col] >= colcells)
+X			&& inited)
+X				return ERROR;
+X
+X		if (colwidth && inited && checkwidth(cell))
+X			return ERROR;
+X
+X		if (nearcols)
+X			adjustnear(cell, 1);
+X
+X		(*cell->rowcounter)++;
+X		(*cell->colcounter)++;
+X		(*cell->colsumposcounter) += cell->row;
+X		cellcount++;
+X	}
+X
+X	DPRINTF5("setcell %d %d %d to %s, %s successful\n",
+X		cell->row, cell->col, cell->gen,
+X		(free ? "free" : "forced"), ((state == ON) ? "on" : "off"));
+X
+X	cell->state = state;
+X	cell->free = free;
+X	*newset++ = cell;
+X
+X	return OK;
+X}
+X
+X
+X/*
+X * Calculate the current descriptor for a cell.
+X */
+Xstatic int
+Xgetdesc(cell)
+X	register CELL	*cell;
+X{
+X	int	sum;
+X
+X	sum = cell->cul->state + cell->cu->state + cell->cur->state;
+X	sum += cell->cdl->state + cell->cd->state + cell->cdr->state;
+X	sum += cell->cl->state + cell->cr->state;
+X
+X	return ((sum & 0x88) ? (sum + cell->state * 2 + 0x11) :
+X		(sum * 2 + cell->state));
+X}
+X
+X
+X/*
+X * Return the descriptor value for a cell and the sum of its neighbors.
+X */
+Xstatic int
+Xsumtodesc(state, sum)
+X	STATE	state;
+X	int	sum;
+X{
+X	return ((sum & 0x88) ? (sum + state * 2 + 0x11) : (sum * 2 + state));
+X}
+X
+X
+X/*
+X * Consistify a cell.
+X * This means examine this cell in the previous generation, and
+X * make sure that the previous generation can validly produce the
+X * current cell.  Returns ERROR if the cell is inconsistent.
+X */
+Xstatic STATUS
+Xconsistify(cell)
+X	CELL	*cell;
+X{
+X	CELL	*prevcell;
+X	int	desc;
+X	STATE	state;
+X	FLAGS	flags;
+X
+X	/*
+X	 * If we are searching for parents and this is generation 0, then
+X	 * the cell is consistent with respect to the previous generation.
+X	 */
+X	if (parent && (cell->gen == 0))
+X		return OK;
+X
+X	/*
+X	 * First check the transit table entry for the previous
+X	 * generation.  Make sure that this cell matches the ON or
+X	 * OFF state demanded by the transit table.  If the current
+X	 * cell is unknown but the transit table knows the answer,
+X	 * then set the now known state of the cell.
+X	 */
+X	prevcell = cell->past;
+X	desc = getdesc(prevcell);
+X	state = transit[desc];
+X	if (state != cell->state) {
+X		switch (state) {
+X			case ON:
+X				if (cell->state == OFF) {
+X					DPRINTF3("Transit inconsistently forces cell %d %d %d on\n",
+X						cell->row, cell->col,
+X						cell->gen);
+X					return ERROR;
+X				}
+X
+X				if (cell->gen == 0) {
+X					if (maxcount &&
+X						(cellcount >= maxcount))
+X					{
+X						DPRINTF2("Transit forcing cell %d %d 0 exceeds maxcount\n",
+X						cell->row, cell->col);
+X						return ERROR;
+X					}
+X
+X					if (nearcols &&
+X						(cell->near <= 0) &&
+X						(cell->col > 1) && inited)
+X							return ERROR;
+X
+X					if (colcells && inited &&
+X						(colcount[cell->col] >=
+X							colcells))
+X								return ERROR;
+X
+X					if (usecol && (cell->col > usecol) &&
+X						(colcount[usecol] == 0) &&
+X						inited)
+X							return ERROR;
+X
+X					if (colwidth && inited &&
+X						checkwidth(cell))
+X							return ERROR;
+X
+X					if (nearcols)
+X						adjustnear(cell, 1);
+X
+X					(*cell->rowcounter)++;
+X					(*cell->colcounter)++;
+X					(*cell->colsumposcounter) += cell->row;
+X					cellcount++;
+X				}
+X
+X				DPRINTF3("Transit forces cell %d %d %d on\n",
+X					cell->row, cell->col, cell->gen);
+X				cell->state = ON;
+X				cell->free = FALSE;
+X				*newset++ = cell;
+X				break;
+X
+X			case OFF:
+X				if (usecol && (cell->gen == 0) &&
+X					(cell->col > usecol) && inited &&
+X					(colcount[usecol] == 0))
+X						return ERROR;
+X
+X				if (cell->state == ON) {
+X					DPRINTF3("Transit inconsistently forces cell %d %d %d off\n",
+X						cell->row, cell->col,
+X						cell->gen);
+X					return ERROR;
+X				}
+X				DPRINTF3("Transit forces cell %d %d %d off\n",
+X					cell->row, cell->col, cell->gen);
+X				cell->state = OFF;
+X				cell->free = FALSE;
+X				*newset++ = cell;
+X				break;
+X		}
+X	}
+X
+X	/*
+X	 * Now look up the previous generation in the implic table.
+X	 * If this cell implies anything about the cell or its neighbors
+X	 * in the previous generation, then handle that.
+X	 */
+X	flags = implic[desc];
+X	if ((flags == 0) || (cell->state == UNK))
+X		return OK;
+X
+X	DPRINTF1("Implication flags %x\n", flags);
+X
+X	if ((flags & N0IC0) && (cell->state == OFF) &&
+X		(setcell(prevcell, OFF, FALSE) != OK))
+X			return ERROR;
+X
+X	if ((flags & N1IC1) && (cell->state == ON) &&
+X		(setcell(prevcell, ON, FALSE) != OK))
+X			return ERROR;
+X
+X	state = UNK;
+X	if (((flags & N0ICUN0) && (cell->state == OFF))
+X		|| ((flags & N1ICUN0) && (cell->state == ON)))
+X			state = OFF;
+X
+X	if (((flags & N0ICUN1) && (cell->state == OFF))
+X		|| ((flags & N1ICUN1) && (cell->state == ON)))
+X			state = ON;
+X
+X	if (state == UNK) {
+X		DPRINTF0("Implications successful\n");
+X		return OK;
+X	}
+X
+X	/*
+X	 * For each unknown neighbor, set its state as indicated.
+X	 * Return an error if any neighbor is inconsistent.
+X	 */
+X	DPRINTF4("Forcing unknown neighbors of cell %d %d %d %s\n",
+X		prevcell->row, prevcell->col, prevcell->gen,
+X		((state == ON) ? "on" : "off"));
+X
+X	if ((prevcell->cul->state == UNK) &&
+X		(setcell(prevcell->cul, state, FALSE) != OK))
+X			return ERROR;
+X
+X	if ((prevcell->cu->state == UNK) &&
+X		(setcell(prevcell->cu, state, FALSE) != OK))
+X			return ERROR;
+X
+X	if ((prevcell->cur->state == UNK) &&
+X		(setcell(prevcell->cur, state, FALSE) != OK))
+X			return ERROR;
+X
+X	if ((prevcell->cl->state == UNK) &&
+X		(setcell(prevcell->cl, state, FALSE) != OK))
+X			return ERROR;
+X
+X	if ((prevcell->cr->state == UNK) &&
+X		(setcell(prevcell->cr, state, FALSE) != OK))
+X			return ERROR;
+X
+X	if ((prevcell->cdl->state == UNK) &&
+X		(setcell(prevcell->cdl, state, FALSE) != OK))
+X			return ERROR;
+X
+X	if ((prevcell->cd->state == UNK) &&
+X		(setcell(prevcell->cd, state, FALSE) != OK))
+X			return ERROR;
+X
+X	if ((prevcell->cdr->state == UNK) &&
+X		(setcell(prevcell->cdr, state, FALSE) != OK))
+X			return ERROR;
+X
+X	DPRINTF0("Implications successful\n");
+X
+X	return OK;
+X}
+X
+X
+X/*
+X * See if a cell and its neighbors are consistent with the cell and its
+X * neighbors in the next generation.
+X */
+Xstatic STATUS
+Xconsistify10(cell)
+X	CELL	*cell;
+X{
+X	if (consistify(cell) != OK)
+X		return ERROR;
+X
+X	cell = cell->future;
+X	if (consistify(cell) != OK)
+X		return ERROR;
+X	if (consistify(cell->cul) != OK)
+X		return ERROR;
+X	if (consistify(cell->cu) != OK)
+X		return ERROR;
+X	if (consistify(cell->cur) != OK)
+X		return ERROR;
+X	if (consistify(cell->cl) != OK)
+X		return ERROR;
+X	if (consistify(cell->cr) != OK)
+X		return ERROR;
+X	if (consistify(cell->cdl) != OK)
+X		return ERROR;
+X	if (consistify(cell->cd) != OK)
+X		return ERROR;
+X	if (consistify(cell->cdr) != OK)
+X		return ERROR;
+X	return OK;
+X}
+X
+X
+X/*
+X * Examine the next choice of cell settings.
+X */
+Xstatic STATUS
+Xexaminenext()
+X{
+X	CELL	*cell;
+X
+X	/*
+X	 * If there are no more cells to examine, then what we have
+X	 * is consistent.
+X	 */
+X	if (nextset == newset)
+X		return CONSISTENT;
+X
+X	/*
+X	 * Get the next cell to examine, and check it out for symmetry
+X	 * and for consistency with its previous and next generations.
+X	 */
+X	cell = *nextset++;
+X
+X	DPRINTF4("Examining saved cell %d %d %d (%s) for consistency\n",
+X		cell->row, cell->col, cell->gen,
+X		(cell->free ? "free" : "forced"));
+X
+X	if ((rowsym || colsym || pointsym || fwdsym || bwdsym) && cell->csym
+X		&& (setcell(cell->csym, cell->state, FALSE) != OK))
+X			return ERROR;
+X
+X	return consistify10(cell);
+X}
+X
+X
+X/*
+X * Set a cell to the specified value and determine all consequences we
+X * can from the choice.  Consequences are a contradiction or a consistency.
+X */
+XSTATUS
+Xproceed(cell, state, free)
+X	CELL	*cell;
+X	STATE	state;
+X	BOOL	free;
+X{
+X	int	status;
+X
+X	if (setcell(cell, state, free) != OK)
+X		return ERROR;
+X
+X	for (;;) {
+X		status = examinenext();
+X		if (status == ERROR)
+X			return ERROR;
+X		if (status == CONSISTENT)
+X			return OK;
+X	}
+X}
+X
+X
+X/*
+X * Back up the list of set cells to undo choices.
+X * Returns the cell which is to be tried for the other possibility.
+X * Returns NULL_CELL on an "object cannot exist" error.
+X */
+XCELL *
+Xbackup()
+X{
+X	CELL	*cell;
+X
+X	searchlist = fullsearchlist;
+X
+X	while (newset != baseset) {
+X		cell = *--newset;
+X
+X		DPRINTF5("backing up cell %d %d %d, was %s, %s\n",
+X			cell->row, cell->col, cell->gen,
+X			((cell->state == ON) ? "on" : "off"),
+X			(cell->free ? "free": "forced"));
+X
+X		if ((cell->state == ON) && (cell->gen == 0)) {
+X			(*cell->rowcounter)--;
+X			(*cell->colcounter)--;
+X			(*cell->colsumposcounter) -= cell->row;
+X			cellcount--;
+X			adjustnear(cell, -1);
+X		}
+X
+X		if (!cell->free) {
+X			cell->state = UNK;
+X			cell->free = TRUE;
+X			if (cell->col <= outputlastcols)
+X				outputlastcols = cell->col - 1;
+X			continue;
+X		}
+X		nextset = newset;
+X		return cell;
+X	}
+X	nextset = baseset;
+X	return NULL_CELL;
+X}
+X
+X
+X/*
+X * Do checking based on setting the specified cell.
+X * Returns ERROR if an inconsistency was found.
+X */
+XSTATUS
+Xgo(cell, state, free)
+X	CELL	*cell;
+X	STATE	state;
+X	BOOL	free;
+X{
+X	STATUS	status;
+X
+X	quitok = FALSE;
+X	for (;;) {
+X		status = proceed(cell, state, free);
+X		if (status == OK)
+X			return OK;
+X
+X		cell = backup();
+X		if (cell == NULL_CELL)
+X			return ERROR;
+X
+X		free = FALSE;
+X		state = 1 - cell->state;
+X		cell->state = UNK;
+X	}
+X}
+X
+X
+X/*
+X * Find another unknown cell in a normal search.
+X * Returns NULL_CELL if there are no more unknown cells.
+X */
+Xstatic CELL *
+Xgetnormalunknown()
+X{
+X	register CELL 	*cell;
+X
+X	for (cell = searchlist; cell; cell = cell->search) {
+X		if (!cell->choose)
+X			continue;
+X
+X		if (cell->state == UNK) {
+X			searchlist = cell;
+X			/*
+X			 * If the number of columns found has increased
+X			 * enough, then write out the partial result.
+X			 */
+X			if (outputcols &&
+X				(cell->col - outputlastcols) > outputcols)
+X			{
+X				outputlastcols = cell->col - 1;
+X				writegen(outputfile, TRUE);
+X			}
+X			return cell;
+X		}
+X	}
+X	return NULL_CELL;
+X}
+X
+X
+X/*
+X * Find another unknown cell when averaging is done.
+X * Returns NULL_CELL if there are no more unknown cells.
+X */
+Xstatic CELL *
+Xgetaverageunknown()
+X{
+X	register CELL 	*cell;
+X	CELL		*bestcell;
+X	int		bestdist;
+X	int		curdist;
+X	int		wantrow;
+X	int		curcol;
+X	int		testcol;
+X
+X	bestcell = NULL_CELL;
+X	bestdist = -1;
+X
+X	cell = searchlist;
+X	while (cell) {
+X		searchlist = cell;
+X		curcol = cell->col;
+X
+X		testcol = curcol - 1;
+X		while ((testcol > 0) && (colcount[testcol] <= 0))
+X			testcol--;
+X
+X		if (testcol > 0)
+X			wantrow = colsumpos[testcol] / colcount[testcol];
+X		else
+X			wantrow = (rowmax + 1) / 2;
+X
+X		for (; cell && (cell->col == curcol); cell = cell->search) {
+X			if (!cell->choose)
+X				continue;
+X
+X			if (cell->state == UNK) {
+X				curdist = cell->row - wantrow;
+X				if (curdist < 0)
+X					curdist = -curdist;
+X				if (curdist > bestdist) {
+X					bestcell = cell;
+X					bestdist = curdist;
+X				}
+X			}
+X		}
+X
+X		if (bestcell) {
+X			/*
+X			 * If the number of columns found has increased
+X			 * enough, then write out the partial result.
+X			 */
+X			if (outputcols &&
+X				(curcol - outputlastcols) > outputcols)
+X			{
+X				outputlastcols = curcol - 1;
+X				writegen(outputfile, TRUE);
+X			}
+X			return bestcell;
+X		}
+X	}
+X	return NULL_CELL;
+X}
+X
+X
+X/*
+X * Choose a state for an unknown cell, either OFF or ON.
+X * For billiard table stuff, this can be changed to choose the same state
+X * as the majority of other generations.
+X */
+Xstatic STATE
+Xchoose(cell)
+X	CELL	*cell;
+X{
+X	return	OFF;
+X}
+X
+X
+X/*
+X * The top level search routine.
+X * Returns if an object is found, or is impossible.
+X */
+XSTATUS
+Xsearch()
+X{
+X	CELL	*cell;
+X	BOOL	free;
+X	STATE	state;
+X
+X	cell = (*getunknown)();
+X	if (cell == NULL_CELL) {
+X		cell = backup();
+X		if (cell == NULL_CELL)
+X			return ERROR;
+X		free = FALSE;
+X		state = 1 - cell->state;
+X		cell->state = UNK;
+X	} else {
+X		state = choose(cell);
+X		free = TRUE;
+X	}
+X
+X	for (;;) {
+X		if (go(cell, state, free) != OK)
+X			return NOTEXIST;
+X
+X		if (dumpfreq && (++dumpcount >= dumpfreq)) {
+X			dumpcount = 0;
+X			dumpstate(dumpfile);
+X		}
+X
+X		if (viewfreq && (++viewcount >= viewfreq)) {
+X			viewcount = 0;
+X			printgen(curgen);
+X		}
+X
+X		if (ttycheck())
+X			getcommands();
+X
+X		cell = (*getunknown)();
+X		if (cell == NULL_CELL)
+X			return FOUND;
+X
+X		state = choose(cell);
+X		free = TRUE;
+X	}
+X}
+X
+X
+X/*
+X * Increment or decrement the near count in all the cells affected by
+X * this cell.  This is done for all cells in the next columns which are
+X * within the distance specified the nearcols value.  In this way, a
+X * quick test can be made to see if a cell is within range of another one.
+X */
+Xvoid
+Xadjustnear(cell, inc)
+X	CELL	*cell;
+X	int	inc;
+X{
+X	register CELL	*curcell;
+X	register int	count;
+X	int	colcount;
+X
+X	for (colcount = nearcols; colcount > 0; colcount--) {
+X		cell = cell->cr;
+X		curcell = cell;
+X		for (count = nearcols; count-- >= 0; curcell = curcell->cu)
+X			curcell->near += inc;
+X		curcell = cell->cd;
+X		for (count = nearcols; count-- > 0; curcell = curcell->cd)
+X			curcell->near += inc;
+X	}
+X}
+X
+X
+X/*
+X * Check to see if setting the specified cell ON would make the width of
+X * the column exceed the allowed value.  For symmetric objects, the width
+X * is only measured from the center to an edge.  Returns TRUE if the cell
+X * would exceed the value.
+X */
+Xstatic BOOL
+Xcheckwidth(cell)
+X	CELL	*cell;
+X{
+X	int	left;
+X	int	width;
+X	int	minrow;
+X	int	maxrow;
+X	int	srcminrow;
+X	int	srcmaxrow;
+X	CELL	*ucp;
+X	CELL	*dcp;
+X	BOOL	full;
+X
+X	if (!colwidth || !inited || cell->gen)
+X		return FALSE;
+X
+X	left = *cell->colcounter;
+X	if (left <= 0)
+X		return FALSE;
+X
+X	ucp = cell;
+X	dcp = cell;
+X	width = colwidth;
+X	minrow = cell->row;
+X	maxrow = cell->row;
+X	srcminrow = 1;
+X	srcmaxrow = rowmax;
+X	full = TRUE;
+X	if ((rowsym && (cell->col >= rowsym)) ||
+X		(fliprows && (cell->col >= fliprows)))
+X	{
+X		full = FALSE;
+X		srcmaxrow = (rowmax + 1) / 2;
+X		if (cell->row > srcmaxrow) {
+X			srcminrow = (rowmax / 2) + 1;
+X			srcmaxrow = rowmax;
+X		}
+X	}
+X
+X	while (left > 0) {
+X		if (full && (--width <= 0))
+X			return TRUE;
+X		ucp = ucp->cu;
+X		dcp = dcp->cd;
+X		if (ucp->state == ON) {
+X			if (ucp->row >= srcminrow)
+X				minrow = ucp->row;
+X			left--;
+X		}
+X		if (dcp->state == ON) {
+X			if (dcp->row <= srcmaxrow)
+X				maxrow = dcp->row;
+X			left--;
+X		}
+X	}
+X
+X	if (maxrow - minrow >= colwidth)
+X		return TRUE;
+X
+X	return FALSE;
+X}
+X
+X
+X/*
+X * Check to see if any other generation is identical to generation 0.
+X * This is used to detect and weed out all objects with subperiods.
+X * (For example, stable objects or period 2 objects when using -g4.)
+X * Returns TRUE if there is an identical generation.
+X */
+XBOOL
+Xsubperiods()
+X{
+X	int	row;
+X	int	col;
+X	int	gen;
+X	CELL	*cellg0;
+X	CELL	*cellgn;
+X
+X	for (gen = 1; gen < genmax; gen++) {
+X		if (genmax % gen)
+X			continue;
+X		for (row = 1; row <= rowmax; row++) {
+X			for (col = 1; col <= colmax; col++) {
+X				cellg0 = findcell(row, col, 0);
+X				cellgn = findcell(row, col, gen);
+X				if (cellg0->state != cellgn->state)
+X					goto nextgen;
+X			}
+X		}
+X		return TRUE;
+Xnextgen:;
+X	}
+X	return FALSE;
+X}
+X
+X
+X/*
+X * Return the mapping of a cell from the last generation back to the first
+X * generation, or vice versa.  This implements all flipping and translating
+X * of cells between these two generations.  This routine should only be
+X * called for cells belonging to those two generations.
+X */
+Xstatic CELL *
+Xmapcell(cell)
+X	CELL	*cell;
+X{
+X	int	row;
+X	int	col;
+X	int	tmp;
+X	BOOL	forward;
+X
+X	row = cell->row;
+X	col = cell->col;
+X	forward = (cell->gen != 0);
+X
+X	if (fliprows && (col >= fliprows))
+X		row = rowmax + 1 - row;
+X	if (flipcols && (row >= flipcols))
+X		col = colmax + 1 - col;
+X	if (flipquads) {		/* NEED TO GO BACKWARDS */
+X		tmp = col;
+X		col = row;
+X		row = colmax + 1 - tmp;
+X	}
+X	if (forward) {
+X		row += rowtrans;
+X		col += coltrans;
+X	} else {
+X		row -= rowtrans;
+X		col -= coltrans;
+X	}
+X	if (forward)
+X		return findcell(row, col, 0);
+X	else
+X		return findcell(row, col, genmax - 1);
+X}
+X
+X
+X/*
+X * Return a cell which is symmetric to the given cell.
+X * It is not necessary to know all symmetric cells to a single cell,
+X * as long as all symmetric cells are chained in a loop.  Thus a single
+X * pointer is good enough even for the case of both row and column symmetry.
+X * Returns NULL_CELL if there is no symmetry.
+X */
+Xstatic CELL *
+Xsymcell(cell)
+X	CELL	*cell;
+X{
+X	int	row;
+X	int	col;
+X	int	nrow;
+X	int	ncol;
+X
+X	if (!rowsym && !colsym && !pointsym && !fwdsym && !bwdsym)
+X		return NULL_CELL;
+X
+X	row = cell->row;
+X	col = cell->col;
+X	nrow = rowmax + 1 - row;
+X	ncol = colmax + 1 - col;
+X
+X	/*
+X	 * If this is point symmetry, then this is easy.
+X	 */
+X	if (pointsym)
+X		return findcell(nrow, ncol, cell->gen);
+X
+X	/*
+X	 * If there is symmetry on only one axis, then this is easy.
+X	 */
+X	if (!colsym) {
+X		if (col < rowsym)
+X			return NULL_CELL;
+X		return findcell(nrow, col, cell->gen);
+X	}
+X
+X	if (!rowsym) {
+X		if (row < colsym)
+X			return NULL_CELL;
+X		return findcell(row, ncol, cell->gen);
+X	}
+X
+X	/*
+X	 * Here is there is both row and column symmetry.
+X	 * First see if the cell is in the middle row or middle column,
+X	 * and if so, then this is easy.
+X	 */
+X	if ((nrow == row) || (ncol == col))
+X		return findcell(nrow, ncol, cell->gen);
+X
+X	/*
+X	 * The cell is really in one of the four quadrants, and therefore
+X	 * has four cells making up the symmetry.  Link this cell to the
+X	 * symmetrical cell in the next quadrant clockwise.
+X	 */
+X	if ((row < nrow) == (col < ncol))
+X		return findcell(row, ncol, cell->gen);
+X	else
+X		return findcell(nrow, col, cell->gen);
+X}
+X
+X
+X/*
+X * Link a cell to its eight neighbors in the same generation, and also
+X * link those neighbors back to this cell.
+X */
+Xstatic void
+Xlinkcell(cell)
+X	CELL	*cell;
+X{
+X	int	row;
+X	int	col;
+X	int	gen;
+X	CELL	*paircell;
+X
+X	row = cell->row;
+X	col = cell->col;
+X	gen = cell->gen;
+X
+X	paircell = findcell(row - 1, col - 1, gen);
+X	cell->cul = paircell;
+X	paircell->cdr = cell;
+X
+X	paircell = findcell(row - 1, col, gen);
+X	cell->cu = paircell;
+X	paircell->cd = cell;
+X
+X	paircell = findcell(row - 1, col + 1, gen);
+X	cell->cur = paircell;
+X	paircell->cdl = cell;
+X
+X	paircell = findcell(row, col - 1, gen);
+X	cell->cl = paircell;
+X	paircell->cr = cell;
+X
+X	paircell = findcell(row, col + 1, gen);
+X	cell->cr = paircell;
+X	paircell->cl = cell;
+X
+X	paircell = findcell(row + 1, col - 1, gen);
+X	cell->cdl = paircell;
+X	paircell->cur = cell;
+X
+X	paircell = findcell(row + 1, col, gen);
+X	cell->cd = paircell;
+X	paircell->cu = cell;
+X
+X	paircell = findcell(row + 1, col + 1, gen);
+X	cell->cdr = paircell;
+X	paircell->cul = cell;
+X}
+X
+X
+X/*
+X * Find a cell given its coordinates.
+X * Most coordinates range from 0 to colmax+1, 0 to rowmax+1, and 0 to genmax-1.
+X * Cells within this range are quickly found by indexing into celltable.
+X * Cells outside of this range are handled by searching an auxillary table,
+X * and are dynamically created as necessary.
+X */
+XCELL *
+Xfindcell(row, col, gen)
+X	int	row;
+X	int	col;
+X	int	gen;
+X{
+X	register CELL	*cell;
+X	int		i;
+X
+X	/*
+X	 * If the cell is a normal cell, then we know where it is.
+X	 */
+X	if ((row >= 0) && (row <= rowmax + 1) &&
+X		(col >= 0) && (col <= colmax + 1) &&
+X		(gen >= 0) && (gen < genmax))
+X	{
+X		return celltable[(col * (rowmax + 2) + row) * genmax + gen];
+X	}
+X
+X	/*
+X	 * See if the cell is already allocated in the auxillary table.
+X	 */
+X	for (i = 0; i < auxcellcount; i++) {
+X		cell = auxtable[i];
+X		if ((cell->row == row) && (cell->col == col) &&
+X			(cell->gen == gen))
+X				return cell;
+X	}
+X
+X	/*
+X	 * Need to allocate the cell and add it to the auxillary table.
+X	 */
+X	cell = allocatecell();
+X	cell->row = row;
+X	cell->col = col;
+X	cell->gen = gen;
+X	cell->rowcounter = &dummycount;
+X	cell->colcounter = &dummycount;
+X	cell->colsumposcounter = &dummycount;
+X
+X	auxtable[auxcellcount++] = cell;
+X
+X	return cell;
+X}
+X
+X
+X/*
+X * Allocate a new cell.
+X * The cell is initialized as if it was a boundary cell.
+X * Warning: The first allocation MUST be of the deadcell.
+X */
+Xstatic CELL *
+Xallocatecell()
+X{
+X	CELL	*cell;
+X
+X	/*
+X	 * Allocate a new chunk of cells if there are none left.
+X	 */
+X	if (newcellcount <= 0) {
+X		newcells = (CELL *) malloc(sizeof(CELL) * ALLOCSIZE);
+X		if (newcells == NULL) {
+X			ttyclose();
+X			fprintf(stderr, "Cannot allocate cell structure\n");
+X			exit(1);
+X		}
+X		newcellcount = ALLOCSIZE;
+X	}
+X	newcellcount--;
+X	cell = newcells++;
+X
+X	/*
+X	 * If this is the first allocation, then make deadcell be this cell.
+X	 */
+X	if (deadcell == NULL)
+X		deadcell = cell;
+X
+X	/*
+X	 * Fill in the cell as if it was a boundary cell.
+X	 */
+X	cell->state = OFF;
+X	cell->free = FALSE;
+X	cell->choose = TRUE;
+X	cell->gen = -1;
+X	cell->row = -1;
+X	cell->col = -1;
+X	cell->past = deadcell;
+X	cell->future = deadcell;
+X	cell->cul = deadcell;
+X	cell->cu = deadcell;
+X	cell->cur = deadcell;
+X	cell->cl = deadcell;
+X	cell->cr = deadcell;
+X	cell->cdl = deadcell;
+X	cell->cd = deadcell;
+X	cell->cdr = deadcell;
+X	cell->csym = deadcell;
+X
+X	return cell;
+X}
+X
+X
+X/*
+X * Initialize the implication table.
+X */
+Xstatic void
+Xinitimplic()
+X{
+X	STATE	state;
+X	int	OFFcount;
+X	int	ONcount;
+X	int	sum;
+X	int	desc;
+X	int	i;
+X
+X	for (i = 0; i < NSTATES; i++) {
+X		state = states[i];
+X		for (OFFcount = 8; OFFcount >= 0; OFFcount--) {
+X			for (ONcount = 0; ONcount + OFFcount <= 8; ONcount++) {
+X				sum = ONcount + (8 - ONcount - OFFcount) * UNK;
+X				desc = sumtodesc(state, sum);
+X				implic[desc] =
+X					implication(state, OFFcount, ONcount);
+X			}
+X		}
+X	}
+X}
+X
+X
+X/*
+X * Initialize the transition table.
+X */
+Xstatic void
+Xinittransit()
+X{
+X	int	state;
+X	int	OFFcount;
+X	int	ONcount;
+X	int	sum;
+X	int	desc;
+X	int	i;
+X
+X	for (i = 0; i < NSTATES; i++) {
+X		state = states[i];
+X		for (OFFcount = 8; OFFcount >= 0; OFFcount--) {
+X			for (ONcount = 0; ONcount + OFFcount <= 8; ONcount++) {
+X				sum = ONcount + (8 - ONcount - OFFcount) * UNK;
+X				desc = sumtodesc(state, sum);
+X				transit[desc] =
+X					transition(state, OFFcount, ONcount);
+X			}
+X		}
+X	}
+X}
+X
+X
+X/*
+X * Return the next state if all neighbors are known.
+X */
+Xstatic STATE
+Xnext_state(state, ONcount)
+X	STATE	state;
+X	int	ONcount;
+X{
+X	switch (state) {
+X		case ON:
+X			return liverules[ONcount];
+X
+X		case OFF:
+X			return bornrules[ONcount];
+X
+X		case UNK:
+X			if (bornrules[ONcount] == liverules[ONcount])
+X				return bornrules[ONcount];
+X
+X			/* fall into default case */
+X
+X		default:
+X			return UNK;
+X	}
+X}
+X
+X
+X/*
+X * Determine the transition of a cell depending on its known neighbor counts.
+X * The unknown neighbor count is implicit since there are eight neighbors.
+X */
+Xstatic STATE
+Xtransition(state, OFFcount, ONcount)
+X	STATE	state;
+X	int	OFFcount;
+X	int	ONcount;
+X{
+X	BOOL	on_always;
+X	BOOL	off_always;
+X	int	UNKcount;
+X 	int	i;
+X
+X 	on_always = TRUE;
+X	off_always = TRUE;
+X	UNKcount = 8 - OFFcount - ONcount;
+X 
+X	for (i = 0; i <= UNKcount; i++) {
+X		switch (next_state(state, ONcount + i)) {
+X			case ON:
+X				off_always = FALSE;
+X				break;
+X
+X			case OFF:
+X				on_always = FALSE;
+X				break;
+X
+X			default:
+X				return UNK;
+X		}
+X	}
+X
+X	if (on_always)
+X		return ON;
+X
+X	if (off_always)
+X		return OFF;
+X
+X	return UNK;
+X}
+X
+X
+X/*
+X * Determine the implications of a cell depending on its known neighbor counts.
+X * The unknown neighbor count is implicit since there are eight neighbors.
+X */
+Xstatic FLAGS
+Ximplication(state, OFFcount, ONcount)
+X	STATE	state;
+X	int	OFFcount;
+X	int	ONcount;
+X{
+X	FLAGS	flags;
+X	STATE	next;
+X	int	UNKcount;
+X	int	i;
+X
+X	UNKcount = 8 - OFFcount - ONcount;
+X	flags = 0;
+X	
+X	if (state == UNK) {
+X		flags |= (N0IC0 | N0IC1 | N1IC0 | N1IC1);   /* set them all and */
+X		for (i = 0; i <= UNKcount; i++) {	/* look for contradictions */
+X			next = next_state(OFF, ONcount + i);
+X			if (next == ON)
+X				flags &= ~N1IC1;
+X			else if (next == OFF)
+X				flags &= ~N0IC1;
+X			next = next_state(ON, ONcount + i);
+X			if (next == ON)
+X				flags &= ~N1IC0;
+X			else if (next == OFF)
+X				flags &= ~N0IC0;
+X		}
+X	}
+X	
+X	if (UNKcount) {
+X		flags |= (N0ICUN0 | N0ICUN1 | N1ICUN0 | N1ICUN1);
+X		if ((state == OFF) || (state == UNK)) {
+X			next = next_state(OFF, ONcount);    /* try unknowns zero */
+X			if (next == ON)
+X				flags &= ~N1ICUN1;
+X			else if (next == OFF)
+X				flags &= ~N0ICUN1;
+X			next = next_state(OFF, ONcount + UNKcount);   /* try all ones */
+X			if (next == ON)
+X				flags &= ~N1ICUN0;
+X			else if (next == OFF)
+X				flags &= ~N0ICUN0;
+X		}
+X		if ((state == ON) || (state == UNK)) {
+X			next = next_state(ON, ONcount);    /* try unknowns zero */
+X			if (next == ON)
+X				flags &= ~N1ICUN1;
+X			else if (next == OFF)
+X				flags &= ~N0ICUN1;
+X			next = next_state(ON, ONcount + UNKcount);   /* try all ones */
+X			if (next == ON)
+X				flags &= ~N1ICUN0;
+X			else if (next == OFF)
+X				flags &= ~N0ICUN0;
+X		}
+X		for (i = 1; i <= UNKcount - 1; i++) {
+X			if ((state == OFF) || (state == UNK)) {
+X				next = next_state(OFF, ONcount + i);
+X				if (next == ON)
+X					flags &= ~(N1ICUN0 | N1ICUN1);
+X				else if (next == OFF)
+X					flags &= ~(N0ICUN0 | N0ICUN1);
+X			}
+X			if ((state == ON) || (state == UNK)) {
+X				next = next_state(ON, ONcount + i);
+X				if (next == ON)
+X					flags &= ~(N1ICUN0 | N1ICUN1);
+X				else if (next == OFF)
+X					flags &= ~(N0ICUN0 | N0ICUN1);
+X			}
+X		}
+X	}
+X  
+X	return flags;
+X}
+X
+X/* END CODE */
+END_OF_FILE
+if test 34777 -ne `wc -c <'search.c'`; then
+    echo shar: \"'search.c'\" unpacked with wrong size!
+fi
+# end of 'search.c'
+fi
+echo shar: End of shell archive.
+exit 0
+
+

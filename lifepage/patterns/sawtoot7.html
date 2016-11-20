@@ -1,0 +1,32 @@
+<TITLE>sawtoot7.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=sawtoot7>
+</applet>
+<H1>Comments for <A HREF="sawtoot7.lif">sawtoot7.lif</A></H1>
+<PRE>
+Sawtooth with external timing
+A p8 blinker puffer (found by Bob Wainwright) moves west.  A glider
+bounces between a fixed reflector (in gens  480*2^n-701  (n>=1))
+and a southeastward Cordership (in gens  720*2^n-661  (n>=1)).
+Each bounce from the fixed reflector releases a salvo (formed in
+gens  480*2^n-310  (n>=1)) consisting of a MWSS and 2 LWSSs aimed
+toward the line of blinkers.  The salvo hits the nearest blinker
+in gen  2400*2^n-880n-3115  (n>=1), causing the blinker line to
+decay at 2c/3.  (Another salvo, present in the initial pattern,
+hits in gen 5.)  When the decay catches up to the puffer, a new
+line of blinkers starts to form (in gen 3840*2^n-880n-3760  (n>=0)).
+
+When the salvo hits the blinker line, the population is large,
+about  180*2^n  in gens around  2400*2^n.  (Specifically, in gen
+2400*2^n-880n-3115  there are  60*2^n-29  blinkers.)  When the
+decay catches up with the puffer, the population is bounded, about
+1400 in gens around  3840*2^n-880n.
+(This header was written by Dean Hickerson, 4/4/93)
+David I. Bell, dbell@pdact.pd.necisa.oz.au, 27/10/92
+</PRE>
+Xref:
+<A HREF="corder.html">corder</A>
+<A HREF="sawtooth.html">sawtooth</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

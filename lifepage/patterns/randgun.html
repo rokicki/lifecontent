@@ -1,0 +1,16 @@
+<TITLE>randgun.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=randgun>
+</applet>
+<H1>Comments for <A HREF="randgun.lif">randgun.lif</A></H1>
+<PRE>
+Pseudorandom number generator with p46 logic
+A glider stream is emitted representing a pseudorandom binary
+sequence satisfying the recursion  a[n] = a[n-1] XOR a[n-12].
+(By spreading out the pattern, the 12 can be changed.)  The
+sequence has period 3255, so the gun has period 46*3255 = 149730.
+Built by Bill Gosper, October 1989 or earlier
+(Header by Dean Hickerson, 4/11/93)
+</PRE>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

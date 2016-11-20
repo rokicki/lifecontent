@@ -1,0 +1,31 @@
+<TITLE>sawtoot2.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=sawtoot2>
+</applet>
+<H1>Comments for <A HREF="sawtoot2.lif">sawtoot2.lif</A></H1>
+<PRE>
+Parabolic sawtooth
+Population is unbounded but does not tend to infinity; its graph as
+a function of time is a sawtooth with a parabolic envelope.
+The pattern works by repeating the following operation for each n>=0.
+A 4-glider salvo is sent southeast toward a block A, arriving in
+generation  20 n^2 + 144 n + a[n mod 3],  where  a[0]=a[2]=131  and
+a[1]=91.  Block A is pushed 1 unit southeast and another block, B, is
+created upstream from A.  Then, every 108 generations, 2 gliders hit B,
+pulling it 3 units northwest.  Eventually B gets deleted by a glider, at
+generation  20 n^2 + 180 n + b[n mod 3],  where  b[0]=193,  b[1]=223,
+and  b[2]=227.  Then another 4-glider salvo is sent toward A.
+The population is minimal around the time B is deleted.  (The minimum
+appears to be 1208 in generations  180 n^2 + 540 n + 210  and
+180 n^2 + 660n + 450.)  The population is maximal around the time B is
+created:  there are about n/30 2-glider salvos on their way toward B
+around generation  t = 20 n^2 + 144 n, so the population is about
+n/3 ~ sqrt(t/180)  at this time.
+Dean Hickerson, dean@ucdmath.ucdavis.edu  6/26/91
+</PRE>
+Xref:
+<A HREF="max.html">max</A>
+<A HREF="sawtooth.html">sawtooth</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

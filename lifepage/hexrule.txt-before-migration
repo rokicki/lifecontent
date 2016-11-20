@@ -1,0 +1,1138 @@
+Subject: Experiments with a somewhat "Life-like" hexagonal CA (long)
+
+By Paul Callahan (3 Dec 97)
+
+Introduction
+------------
+
+Occasionally the question comes up of whether there is a 2-state CA that
+runs on a hexagonal grid and works something like Conway's Game of Life.
+I've never seen any detailed discussion of a particular rule, though
+I had heard rumors that there is one with gliders.  I decided to look for
+such a rule, partly to satisfy my own curiosity and partly to 
+test the generality of some software tools I've been working on.
+(After working on this for a while, I found out that some rules had
+been found by Robert Andreen with some similar properties).
+
+After settling on one rule, which I'll describe below, I was able to 
+duplicate many of the properties associated with Life, including the 
+ones needed to embed digital logic.  A number of growth-rate results and 
+oscillator-construction methods should also transfer to this rule.
+In fact, I was surprised at the variety of interesting patterns and
+reactions, some of which actually lead to simpler constructions than
+in Life.  The rule is tamer than Life in that small patterns
+usually stabilize very fast.
+
+I'm fairly certain that there is no totalistic rule on a hex grid that supports
+the variety of interesting reactions found in Life, because if there were
+it would be better known. In any case, I checked briefly and
+found nothing promising. In particular B3/S23 (birth on three live neighbors,
+survival on 2 or 3, like Life) settles down very fast and doesn't seem 
+likely to have spaceships.  Birth on 2 neighbors is useful, because an 
+axis-parallel front of 3 neighbors cannot occur in a hex grid.  However, 
+always having birth on 2 neighbors seems likely to cause uncontrolled growth. 
+
+The Rule
+--------
+
+With that in mind, I started playing around with rules based on 
+different-shaped neighborhoods, but insisting on symmetry.  Taking symmetries 
+into account, there are three ways each of getting 2, 3, and 4 neighbors, 
+for a total of 13 different neighborhoods.  I tried a lot of variations, but 
+the one I settled on only distinguishes between different ways of getting two 
+neighbors.  For these, one can use the organic chemists' naming convention  
+for benzene-ring disubstitutions: ortho, meta, and para.  Rich Schroeppel and 
+Achim Flammenkamp suggested this, and it may be a useful mnemonic for some 
+people.  It has the disadvantage that there is no standard extension to 
+subsets of 3 or 4 neighbors.  Fortunately, we don't need this for the rule 
+used here.  So let's call these neighborhoods 2o, 2m, and 2p 
+as follows:
+
+       O O            O .            O .
+ 2o:  . x .     2m:  . x O     2p:  . x .
+       . .            . .            . O
+
+Extending the birth/survival convention used above, the rule is B2o/S2m34.
+
+That is, we always have survival but not birth on 3 or 4 neighbors.  On
+two neighbors we have birth but not survival if the neighbors are adjacent (2o),
+and survival but not birth if there is one empty neighbor cell in between (2m).
+If they are opposite each other (2p), there is no birth or survival (which 
+is also the case for 0, 1, 5, or 6 neighbors).
+
+I settled on these rules in order to get a glider. It uses the only really 
+small mechanism I'm aware of.  I consider it crucial that gliders show
+up spontaneously from random starting states.
+
+
+       . . O .
+      . . . O
+     O . . O
+    . . . O
+   . . . O
+   
+The spark on the left appears every other generation.  This is a period-4 
+glider with two distinct shapes, much like the glider in Life.
+
+(Robert Andreen, and probably others as well, have looked at rules that
+support this glider.)
+
+Variations
+----------
+
+You can vary the rule for 2p.  If you have birth but not survival, the 
+same glider works (other factors made this variation less interesting
+to me).  If you have birth and survival on 2p and death on 4 (this
+can be relaxed somewhat) you get two distinct sparky gliders
+that propagate at the same speed but higher periods (6 and 8).  
+
+The following discussion, however, will be limited to B2o/S2m34.
+This rule is interesting because it doesn't seem to grow explosively
+but it does have a number of natural high-period oscillators.  It also has
+a fairly common (i.e. observable in nature) infinite-growth pattern.   
+
+Initial finds
+-------------
+
+Patterns usually settle down much faster than in Life.  The kinds of 
+things that remain are either little and isolated, or clumped into honey-comb
+patterns.  The latter are very stable, and seem to act as anchors
+for oscillators (mostly low-period blinkers on the fringes, but
+interesting high-period sparkers as well). There are a number of 
+reactions--similar to the "kickback" in Life--in which two gliders collide 
+to produce a new glider on a different path.  Unlike Life, one glider
+can also destroy another without being affected.
+
+The first thing I really liked about this rule was the following period-48 
+spaceship (it flips after 24 moves and moves down one position).
+
+       O . O . . . .
+      . O O . . . .
+     . O O O . O .
+    . . O O . . O 
+   . . . O . . . 
+
+It's fairly easy to observe by trying random starting states, though
+not nearly as common as the glider.  It's very sparky, and I subsequently
+found a number of glider reflections as well as a glider duplication
+reaction.  I'll explain these in a later section.
+
+Infinite growth is an easier question to answer here than in Life,
+because there is a stalk that leaves a trail of double honey-combs behind it.
+It shows up often enough to notice--maybe as often as the replicator in 
+HighLife--but not so much as to dominate the dynamics of random patterns. 
+This one is propagating down.
+
+               O . O O . . . . . . . 
+              . O O . O . . . . . . 
+             O O . O O . . . . . . 
+            . . O O . O . . . . . 
+           . . O . O O . . . . . 
+          . . . O O . O . . . . 
+         . . . O . O O . . . . 
+        . . . O O O . O . . . 
+       . . . . . . O O . . . 
+      . . . . . . O . O . . 
+     . . . . . . O O O . . 
+    . . . . . . . . O O O 
+
+This structure (and others like it) are extremely stable.  I can think
+of some intuitive reasons for why this is so, but I haven't considered
+the issue carefully.  The practical implication is that unlike analogous
+Life patterns, there is no clear way to "ignite" the trail left
+behind by this pattern.  So far, I have not found any kind of damage
+that propagates far along these stalks.
+
+Note: gliders cannot propagate down (270 degrees) but are limited
+to 0, 60, 120, 180, 240 degrees.  Clearly, this affects the kinds of 
+constructions we can build out of spaceship/glider interactions.
+
+Some natural oscillators and a period-15 spaceship
+--------------------------------------------------
+
+There were a lot of oscillators that appeared in random testing, so I ran
+a program to test 10x10 (rhombic) random starting states for new ones.  I'll 
+summarize all the periods later.  One very useful early find has period 42.  
+This is its smallest state.
+   
+         . O O . . . 
+        . O . O . . 
+       O O O O . . 
+      O . . . O . 
+     . O O O O O 
+    . . . O . . 
+   . . . O . . 
+ 
+This can reflect gliders by 180 degrees and 120 degrees.  Two can be combined 
+to make a 60-degree reflector.  Loops of recirculating glider
+streams can be built out of these.
+
+High-period oscillators in this rule have a different feel from
+Life oscillators.  One of the weirdest ones is period 66 and seems
+to extend and retract a tentacle (which is big and temporarily looks
+like a permanent, stable part of the oscillator).
+
+Compact form:
+
+                             . . O O . 
+                            O O O . O . 
+                           O . O . O . 
+                          . O O . O O . 
+                         . O . O O . O . O . 
+                        . . . . . O O . O O O . 
+                       . . . . . . . O O . 
+         
+40 steps later with "tentacle" extended to the left.
+         
+                    . . . . O . 
+                   . . O . . O . O O . 
+                  O O O . . . O O . O . 
+                 . . O . . . . O . O . 
+                . . O . . . . O . O O . 
+               . . . O O . O O O O . O . O . 
+              . . . . . O O . O . O O . O O O . 
+             . . . . . . . . . . . . O O . 
+            . . . . . . . . . . . . . O . 
+
+There are many other natural oscillators, which I'll list later on.  One
+especially nice one is this period-42:
+
+            . . O O .
+           . O O O .
+          . . . O .
+         O O O O .
+        O O .
+
+Unlike the period-42 oscillator shown earlier, this one rotates 60 degrees
+every 7 steps.  So far, its spark does not seem as versatile as that
+of the earlier one, but there is probably a use for it.
+
+Finally, there is another spaceship that comes up in random searching, though
+it is much less common than the period-48.  It's symmetric and moves in
+glider directions one position every 15 steps:
+
+              . O . O . . . . . 
+             . . O O O . . . . 
+            O O O . O . . . . 
+           . . O . O . . . . 
+          . . . O O . . . . 
+         . . . . . . . . . 
+        . . . . O O . . . 
+       . . . . O . O . . 
+      . . . O O O . O . 
+     . . . . . . O O O 
+    . . . . . . O . O 
+
+The one shown above moves to the left.
+    
+Larger constructions: A Glider Gun
+----------------------------------
+    
+Three of the period-42 oscillators can be combined to make a glider gun.  
+I found this by first pairing up oscillators and testing the results.  This
+didn't yield a glider gun, but it yielded a pair with a larger
+spark, to which I added the third:  
+
+                          . . . . . . . . . . . . O O . 
+                         . . . . . . . . . . . . O . 
+                        . . . . . . . . . . . . O . . . . O O . 
+                       . . O . . . . . . . . . O . . . . . O O . O . 
+                      . O O . O . . . . . . . . . . O . . O . O O . 
+                     O O . O O O . . . . . . . . . . . . . O O . O O . 
+                    . . O . O . O . . . . . . . . . . . . . O . O . 
+                   . . O O . O O O O . . . O O . . . . . . O . O O . 
+                  . . O . O O . O . . . . . O O O . . . . O O O . O . 
+                 . . . . . . . . . . . . . O . O . . . . . . O . 
+                . . . . . . . . . . . . O O O O . 
+               . . . . . . . . . . . . O . . . O . 
+              . . . . . . . . . . . . . O O O O O . 
+             . . . . . . . . . . . . . . . O . 
+            . . . . . . . . . . . . . . . O . 
+
+It seems likely that almost all of the complex constructions that work
+in Life can be realized under these rules, the main difference being the
+relatively rarity of sustained explosions (certainly nothing on the
+order of the R-pentomino of Life, let alone the less common Methusalehs
+such as rabbits or the acorn).  In fact, a very common result of a glider 
+colliding with anything is to kill the glider without damaging the object 
+it hits.  For example, this very common 3-cell period-2 oscillator
+
+     . O
+    O O .
+
+acts as an eater much of the time.  A honey-comb wall (as produced
+by the stalk) can also eat gliders.
+
+Representation of Patterns
+--------------------------
+
+So far, pictures have sufficed to give an idea of this rule, but
+I hope at least a few people will try to run these patterns on their
+own CA programs.  The format for electronic distribution is unfortunately
+less standardized than Life or other 2-state CAs on a cartesian grid.
+The obvious way to emulate a hexagonal grid is to use the Moore neighborhood 
+omitting two opposite diagonal corners, which is what I did.  But
+we have to agree on which corners.  I chose the northeast and southwest 
+corners for removal.  So the embedding is given by the following 
+transformation:
+
+     ABC                   A B C
+     DEF          ->      D E F
+     GHI                 G H I
+
+The cell E has cells A, B, D, F, H, and I, but not C or G, as its neighbors.
+Following this convention, all the patterns I will post here can be run
+on a sufficiently general Moore-neighborhood CA simulator.  In fact, the  
+patterns above can all be converted back to a rectangular grid just by
+deleting the white space.  The actual spacing in the cartesian grid is given
+by the dots. I will adhere to this convention for all pictures.  For
+larger patterns, I will use run-length encoding as described in David Bell's
+recent posting.  These patterns encode cells on a cartesian grid with the
+neighborhood defined above.  At the risk of annoying people who are against
+posting code, but at least guaranteeing that anyone with a copy of this
+article can decode the patterns, here is a short perl program to convert
+these patterns to a list of cell coordinates:
+
+#!/usr/local/bin/perl
+$x=0; $y=0;
+
+findpat:
+while(<>) {
+    last findpat if (/x *= *[0-9]+ *, *y *= *[0-9]+/);
+}
+
+main:
+while(<>) {
+
+    while ( /([0-9]*)([bo\$])(.*)/ ) {
+
+        if ($1 eq "") { $count = 1; }
+        else { $count = $1; }
+
+        if ($2 eq "b") { $x+=$count; }
+        elsif ($2 eq "\$") { $x=0; $y+=$count; }
+        else {
+           for ($i=0; $i<$count; $i++) {
+              print $x++, " ", $y, "\n";
+           }
+        }
+
+        $_ = $3;
+    }
+
+    last main if (/\!/);
+
+}
+ 
+Again, we have to agree on conventions.  The cells are listed by
+horizontal (x), then vertical (y) coordinate.  Vertical increases from 
+top to bottom.  For example, the cells A, C, and I above would be listed
+as "0 0", "2 0", and "0 2", respectively.
+
+Glider Reflections
+------------------
+
+There are many ways of reflecting gliders both from stationary oscillators
+and moving spaceships.  I won't try to list the 180-degree reflections
+exhaustively, since there are so many.  I will include some of them in
+the larger patterns.  So far, I have found one way of turning a glider
+60 degrees and four ways of turning one 120 degrees.  I haven't tried all
+the high-period oscillators, so there may be others as well.  It's
+especially interesting that the period-48 spaceship can reflect gliders, 
+because gliders move fast enough that they can circulate around a flotilla
+of moving objects in this way.  Here are the three non-180-degree spaceship 
+reflections: 
+
+Glider is reflected 60 degrees, traveling up:
+
+        . . . . . . . . . . . . . . O .
+       . . . . . . . . . . . . . . O .
+      . . . . . . . . . . . . . . O . . O .
+     O O O O . . . . . . . . . . O .
+    O . . O . . . . . . . . . . . O .
+   . O O O .
+  . O O .
+
+
+Glider is reflected 120 degrees, traveling to the right: 
+
+                 . . O .
+                O .
+               . O .
+              . . O .
+             . . . O O .
+            .
+           .
+          . O O .
+         . . O .
+        . . . O .
+       . . . O . O .
+      . . . . O . O .
+     . . O O O . O .
+    . O O O O . O O .
+   . . . . O . O .
+  . . . . O .
+
+Glider is reflected 120 degrees, traveling up:
+
+                 . . . . . . . . O .
+                . . . . . . O .
+               . . . . . . . O .
+              . . . . . . . . O .
+             . . . . . . . . . O O .
+            .
+           .
+          .
+         O O .
+        . O .
+       . . O .
+      . . O .
+     . . O .
+    . O O O O O .
+   . . . . O .
+  . . . . O .
+
+
+In the above three examples, the spaceship is traveling down.  Thus, 
+the two distinct 120-degree reflections are not interchangeable.
+
+Here are two more 120 degree reflections with stationary oscillators.
+In both cases, the reflected glider travels to the right. 
+
+Period-20:
+
+                      . . O .
+                     O .
+                    . O .
+                   . . O .
+                  . . . O O .
+                 .
+                .
+               .
+              .
+             . . . . O O O .
+            . . . . . . O O .
+           . . . . . . O . O .
+          . . . . . . . O O .
+         . . . . . . . O . O .
+        . . . . . . . . O O .
+       . . . . . . . . O .
+      . . . . . . . . . O .
+     . . . . . . . . . O .
+    . . . . . . . O O O O .
+   . . . . . . . . . O . O .
+  . . . . . . . . . . O .
+
+Period-42:
+
+                   . . O .
+                  O .
+                 . O .
+                . . O .
+               . . . O O .
+              .
+             .
+            .
+           . . . . O .
+          . . . . . O O .
+         . . . . O O O O .
+        . . . . . . O O O .
+       . . . . . . O . O .
+      . . . . . . . O O O O .
+     . . . . . . . O . . . O .
+    . . . . . . . O O O O O .
+   . . . . . . . . . . O .
+  . . . . . . . . . . . O .
+
+
+Finally, these can be used to send gliders in a loop.  First, here's one
+based on period-42 reflectors:
+
+x = 89, y = 89
+29bo$30b2o$5bo22b3ob3o$4bobo23bobo2bo$5b4o21bob4o7bobo$4b2o3bo20b3obob
+o5bob2obo$6b4o23b2o8b2ob2o$5b2obobo22bo9bobobo$7b5o32b3obo$10bo30bo3bo
+b2o$38b4o3b3o$47bo$2b2o5bo19bo$2bob2o4bo19bo$b2obo5bo17bo2bo$2ob3o4bo
+21bo$2bobobo3bo21bo$2b2ob2o$2bob2obo$5bo8$12b4o$16bo41bo11bo$61bo9bobo
+$14bo46bo7b5o$61bo8bo3bo$60b2o9b4o$70b2obobo$72b3obo$75b2o$75bo2$72bo$
+73bo$4b2o68bo$2b3ob3o66b2o$4bobobo72bo$3b2ob4o70b2obo$5b2obo71bob2o$5b
+ob2o70b4ob2o$7bo72bobobo$12b2o66b3ob3o$14bo68b2o$15bo$16bo2$13bo$12b2o
+$12bob3o$13bobob2o$14b4o9b2o$14bo3bo8bo$15b5o7bo46bo$15bobo9bo$18bo11b
+o41bo$73b4o8$83bo$81bob2obo$82b2ob2o$56bo21bo3bobobo$56bo21bo4b3ob2o$
+57bo2bo17bo5bob2o$58bo19bo4b2obo$59bo19bo5b2o$41bo$41b3o3b4o$40b2obo3b
+o30bo$40bob3o32b5o$41bobobo9bo22bobob2o$41b2ob2o8b2o23b4o$41bob2obo5bo
+bob3o20bo3b2o$43bobo7b4obo21b4o$53bo2bobo23bobo$54b3ob3o22bo$57b2o$59b
+o!
+
+Here's one that was considerably harder to set up, but shows that a
+glider can be sent in a loop around a moving spaceship flotilla:
+
+x = 270, y = 51
+17bo$17bobobo$17bo3b2o$20b2o$20bo$3bobo14b2o$3b4o13bob2o$4bo2bo12bo2bo
+$5bobo15bo$5b4o$5bo2$o$obobo13bo$o3b2o12b3o$3b2o13bo2bo$3bo13b3ob2o$3b
+2o15b2o$3bob2o14b2o$3bo2bo$6bo74bo$81bo$81bo2bo$81bo$82bo5$31b3o7b3o$
+30b2o2bo5b3o2b2o219bo$31bo11bo222bobo$31b3o10bob2o220bo$31bobo10bo220b
+2o$34bo232bobo$268b2o$268b2o$268bo5$12bo3$16b4o$15b2o$15b5o2$20bo$20bo
+bo!
+
+I found only two reflections by the period-15 spaceship, and both
+are 180-degrees.  These are not as useful as they would be if the
+glider was traveling in the same direction as the spaceship.  Maybe
+someone else can think of a use:
+
+
+            . O .
+           O . O O O O .
+          . O O . O O O . . . . O .
+         . . O . . . O . . O .
+        . . O . . . O O . . O .
+       . . . . . . . . . . . O .
+      . . . O . . . O O . . . O O .
+     . . . . O . . . O .
+    . . . . O O . O O O .
+   . . . . O . O O O O .
+  . . . . . . O .
+
+
+            . . O .
+           . . O O O .
+          O O O . O O .
+         . . O . . O O .
+        . . . O . O O . . . . . O .
+       . . . . . . . . . . O .
+      . . . . O . O O . . . O .
+     . . . . O . . O O . . . O .
+    . . . O O O . O O . . . . O O .
+   . . . . . . O O O .
+  . . . . . . . O .
+
+
+Glider duplication
+------------------
+
+While doing collision enumerations to find reflections, I stumbled across
+a very surprising reaction between a glider and a spaceship:
+
+               O .
+              . . . O .
+             . . . O .
+            . . . O .
+           . . O O .
+          .
+         .
+        . O O .
+       . O O .
+      . O . O .
+     O O . . O .
+    . O O O O O O .
+   . . . O . O .
+  . . . . O .
+
+What happens here is that the glider interferes with the spaceship without
+destroying either of them.  The result is a large spark that is very 
+similar to an escaping glider, but has an extra cell that soon causes it
+to vanish.  I've seen nothing similar in Life, where it's very hard to get any 
+effect out of a glider without destroying it in the process.  In fact, there
+are several ways of placing a second spaceship so that the spark becomes
+an escaping glider, resulting in a glider duplication that leaves one
+glider undisturbed.  With this, we can convert the moving glider loop
+into a rake, albeit a large one with a slow growth constant:  
+
+x = 270, y = 51
+17bo$17bobobo$17bo3b2o$20b2o$20bo$3bobo14b2o$3b4o13bob2o$4bo2bo12bo2bo
+$5bobo15bo$5b4o$5bo$50bo3bo$o50b2o2bo$obobo13bo33bobobo$o3b2o12b3o30b
+3o2b2o$3b2o13bo2bo32b3o$3bo13b3ob2o$3b2o15b2o$3bob2o14b2o$3bo2bo$6bo
+74bo$81bo$81bo2bo$81bo$60bo21bo$60bo5bo$62bo2bo$63b3o$63b2o$31b3o7b3o
+19b3o$30b2o2bo5b3o2b2o16bo2bo199bo$31bo11bo21bob2o197bobo$31b3o10bob2o
+20bo199bo$31bobo10bo220b2o$34bo232bobo$268b2o$268b2o$268bo5$12bo3$16b
+4o$15b2o$15b5o2$20bo$20bobo!
+
+Glider duplications also exist for some stationary oscillators.  It's
+likely that they are quite common and would be an important part of
+the toolkit for anyone building designing large patterns in this rule.
+
+Period-42:
+
+              . . . . . . . . . . . . O . O .
+             . . . . O . . . . . . . . O O . O .
+            . . . . . . . . . . . O O O . O O .
+           . . . . . . . . O . . . O . O . O .
+          . . . . . O O O O . . . O O O O . O .
+         . . . . . . . . . . . . . . O . O O O .
+        . . . . . . . . . . . . . . . . . O .
+       O O . O O O .
+      O . O O O O O O .
+     . O . O . O O .
+    O O O . O O . O .
+   . . . O O .
+  . . . . O .
+
+Period-20:
+
+                   . . O . . . . . . . O .
+                  . . . . . O . . O O O O .
+                 . . . . . O . . . O O . O O O .
+                . . . . . O . . . . . O O . O .
+               . O . . O O . . . . . . . O O .
+              O . O . . . . . . . . . . . . O O .
+             . . . O . . . . . . . . . . . . . O O O .
+            . O . O . . . . . . . . . . . . . . O .
+           . . O . O . . . . . . . . . . . . . O O O .
+          . . . O O . . . . . . . . . . . . . O .
+         . . . O . O .
+        . . . . O O .
+       . . . . . . O .
+      . . . . . . O .
+     . . . . . . . O . O .
+    . . . . . . O O O O .
+   . . . . . . . . . O .
+  . . . . . . . . . . O .
+
+
+Here's a period-210 gun built by inserting a p42 glider duplication into
+a period-210 glider relay consisting of two 180-degree reflectors:
+
+x = 69, y = 26
+49bo$50bo$48b5o$49bo3bo$50b4o$50bobobo$51bob3o$50b2obo$52bo10b2o$2bo
+50b2o6b3ob3o$b2o45b4o2bo2bo4bobobo$2b2o44bo9bo4b3obo$3ob2o50bo2bo3bo2b
+3o$bob4o53bobo2b2o$2bobobo53bob4o$2b2ob3o58bo$2bob2o$56bo$54bobo$53b4o
+$54bobobo$55b6o$54b2o3bo$56b4o$56bobo$58bo!
+
+The period-20 duplication can be used to make a compact high-period gun by
+sending a period-42 stream through it.  The duplication only occurs once
+every 420 steps, and in other cases, the glider either passes through or
+gets destroyed without hurting the period-20 oscillators.  Shown below is a
+period-840 gun that illustrates two other reactions as well, namely the
+3-cell glider eater, used here to get rid of gliders that pass through,
+and a period-8 oscillator that thins period-4n streams down to period-8n  
+streams:
+
+                                     . . . . O .
+                                    . . . O . O .
+                                   . . . . O O O O .
+                                  . . . . . O .
+                                 . . . . . O .
+                                . . . . . . O .
+                               . . . . O O O .
+                              . . . . . O . O .
+                             . . . . . O O O . . . . . O O .
+                            O O . . . . . O O . . . . O .
+                           . O . . . . . . O . . . . . . . . . . . . . . O .
+                          . O O . . . . . . . . . . . . . . . . . . O O O .
+                         . . O . . . . . . . . . . . . . . . . . . . . O .
+                        . . . . . . . . . . . . . . . . . . . . . . . O O .
+                       . . . . . . . . . . . . . . . . . . . . . . O O . O .
+                      . . O . . . . . . . . . . . . . . . . . . O O .
+                     . . O . . . . . . . . . . . . . . . . . O O . O .
+                    . . O . . O . . . . . . . . . . . . . . O . O O O .
+                   . . O . . . . . . . . . . . . . . . . . . O O .
+                  . . . O . . . . . . . . O O . . . . . . . . O .
+                 . . . . . . . . . . . . . . O .
+                . . . . . . . . . . . . . . . O .
+               . . . . . . . . . . . . . . . . O .
+              . . . . . . . . . . O O . . O .
+             . . . . . . . . . O O O .
+            . . . . . . . . O O . O . . . . . . . . . . . O . . . O O .
+           . . . . . . . . O . O O O . . . . . . . . . . . O O O O . O .
+          . . . . . . . . . O . O . . . . . . . . . . . O O O . O . O .
+         . . . . . . . . . O O . O O . . . O O O . . . . . . O O . O O .
+        . . . . . . . . . O . O O . . . . . . O O O . . . . . . O O . O .
+       . . . . . . . . . . . O . . . . . . . O . O . . . . . . . O .
+      . . . . . . . . . . . . . . . . . . . . O O O O O .
+     . . . . . . . . . . . . . . . . . . . O O . . . O .
+    . . . . . . . . . . . . . . . . . . . . . O O O O O .
+   . . . . . . . . . . . . . . . . . . . . . O . O .
+  . . . . . . . . . . . . . . . . . . . . . . . . O .
+
+The glider to the left is the one that escapes.  It is just below the 
+period-8 filter.  The one headed 60 degrees above horizontal passes
+through the duplication device, triggering the duplication.
+
+Spaceship factories
+-------------------
+
+Spaceships are a lot more interesting when they can be produced on demand.
+Just as in Life, there are ways to synthesize these from gliders.
+Here's a three-glider synthesis of the period-48 spaceship:
+
+         . . . . . . . . . . . . . . . . . . O .
+        . . . . . . . . . . . . . . . . . . . O .
+       . . . . . . . . . . . . . . . . . . . O . O .
+      O O . . . . . . . . . . O O O O . . . . O . O .
+     . . O . . . . . . . . . O . . . . . . . . O .
+    . . . O .
+   . . . . O . . . . . . . . . . . O .
+  . . O .
+
+There is also a two-glider collision that can be sparked in various
+ways to produce this spaceship.  This results in a more compact
+spaceship factory:
+
+x = 36, y = 93
+10bo$11bo$11b4o$11bobo$14bo$14bo$15b3o$8bo6bobo$2bo5bo7b3o$3o6bo15bo$
+2bo21b3o$b3o21bob3o$4b2o12bo7bobo$6b2o9bo7b3ob2o$5b2ob2obo14bob2o$7b2o
+b2o14b3obo$7bobo2b2o14bo$9b3o$11bo2$30bo$17bo13b2o$5bo9bo13b3ob2o$4b5o
+7bo6b4o2bobobo$5bobobo7bo5bo6b2ob3o$6b4o8b2o10bob2o$6bo3bo16bo$6b5o13b
+2o$9bobo12bobo$10bo14b4o$25bo3bo$25b5o$28bo$29bo6$15b4o$19bo2$17bo22$b
+o$obo3bo$b4ob2o$2bo2b2ob3o$2bo4b2obo$9b3o13b2o$11b2o11b2ob3o$22b3obobo
+$23bo2b2ob2o$17bo5b4ob2o$8b2o7bo6b5o$8bo8bo2bo5bo$17bo$18bo$25b2o$26bo
+bo$17b3o5bo3b2obo$16b2o13b2o$11bo3b2o3bo3bo4b3ob2o$11bo2b2ob3o4b2o2b2o
+bobo$10b5ob2o8bo3b2ob2o$13bo11bob2obob2obo$14bo8b3obo5bo$24bobobo$25b
+4o$25bo3bo$26b5o$28bo$29bo!
+
+I haven't looked for a synthesis of the period-15 spaceship.  Since it
+is symmetric, the most likely approach would be to try to synthesize
+half of it and fit the two halves together.
+
+One use of these spaceship factories would be a "standing breeder" 
+like the one built in Life by Dean Hickerson.  That is, it should be 
+possible to generate a set of spaceship streams through which a glider stream
+can be sent on a zig-zag path.  If this path intersects a stream of
+glider duplication flotillas, then each such reaction point would
+be a source of linear growth, resulting in quadratic growth overall.
+The standing breeder could also be used to realize other growth rates, 
+since it converts any f(n)-growth stream of gliders into an O(n f(n)) breeder. 
+I haven't built such a pattern--so far, anyway.  There is a simpler way to 
+get quadratic growth, which I'll explain in the next section.  
+
+Quadratic Growth: The Stalk Breeder
+-----------------------------------
+
+The stalk is common enough that it seemed likely that there was a 
+simple way to synthesize it.  As with the period-48 spaceship, there
+are several.  Here's one using 3 gliders:
+
+                    O .
+                   . . . O .
+                  . . . O .
+                 . . . O .
+                . . O O .
+               .
+              .
+             .
+            .
+           .
+          . . . . . O .
+         . . . . O . O .
+        . . . . . O . O .
+       . . . . . . . O .
+      . . . . . . . . O . . . . O .
+     . . . . . . . . . . . . . O .
+    . . . . . . . . . . . . . O . . O .
+   . . . . . . . . . . . . . O .
+  . . . . . . . . . . . . . . O .
+
+Since the stalk is a linear growth pattern, a reasonable way to get
+quadratic growth would be to reproduce this collision again and again
+using a moving pattern.  I've already presented a rake that should work
+for this purpose.  The problem is not quite this simple, because one must
+make sure that the rake does not collide with the growing stalks, something 
+that would almost certainly happen with any three-rake construction to 
+reproduce the above synthesis.  A different stalk synthesis turns out to be
+more useful for building a breeder:
+
+             . . . . . . . . . . O .
+            . . . . . . . . . . O .
+           . . O . . . . . . . . O . . O .
+          . . . O O . . . . . . . O .
+         . . . . . . . . . . . . . O .
+        .
+       .
+      O O .
+     . . O .
+    . . . O .
+   . . . . O .
+  . . O .
+
+This combines two gliders with the 3-cell period-2 oscillator that 
+we've seen already as an eater.  The synthesis is dirtier than the 
+first, but eventually results in a stalk. The glider duplication 
+reaction can be modified to produce the 3-cell eater instead of a glider, 
+giving us a puffer for these objects.  The glider entering from the right 
+is not coming in a direction that we can produce with the rake given earlier, 
+so we need to add two extra spaceships as reflectors.
+
+That's all there is to this pattern, though it takes up a lot of space:
+
+x = 413, y = 328
+396b2o$397bo$398bo$398bobo$399bobo$397b3obo$396b4ob2o$399bobo$15bo383b
+o2$15b2o$17bo$17bo2bo$16bobobo$16b3obo$16bobobo$16bobo$19bo6$391bo$
+392b2o$394bo$393bobo$394bo31$2o$o$o$bobo$b5o$3bo$4bo22$273bo2$274b2o$
+274bo$274bobo$274bobo$275b3o$276bobo$276bo23$131bo$131bobo$133bo$132b
+2o$132bo42$214bo$214bo$206bo8bo2bo$207b2o7bo$217bo3$204b2o$206bo$207bo
+$208bo$206bo4$373bo2$373b2o$375bo$374bobo$375bobo$375b3o$375bobo$378bo
+11$372b3o$373bob2o12bo$372b2o2bo$373b4o12b2o$376bo14bo$377bo12bobo$
+391bobo$391b3o$391bobo$230b4o160bo$231bo2bo$232b3o$219b2o13b2o$221bo$
+222bo$220bobo$219b5o$222bo$222bo4$365b2o$366bo$367bo19b2o$367bo20bo$
+367bo20bo$366b5o16bobo$369bo17bobo$369bo18bob3o$262bo125b2ob4o$390bobo
+$240bo21b2o129bo$264bo$241b2o20bobo112bo$241bo22bobo110bobo$239bo2bo
+21b3o112bo$240bobobo19bobo109b2o2bo$241bob3o21bo109b3o$242bobobo131bob
+2o11bo$245bobo118bo11bo13b4o$245bo120bobo24bob2o$367bo25b4o$269bo97bo
+2b2o25bo$269bo99b3o$266bo2bo98b2obo$267bo104bo$266b4o$268bobo$253b4o
+12bobo2bo$253bo2bo18bo$254b3o19bo2bo97b2o$254b2o23bo98bo$278b4o97bo$
+278bobo98bo$278bobo98bo$217bobo158b5o$218b2o161bo$216bob3o160bo$203b2o
+11bo2b2o58bo$204b2o14bo$204bobo72b2o$204bo2b2o72bo$203b6o71bobo$205bob
+o73bobo$207bo73b3o$281bobo$284bo$408b2o$410bo$411bo$409bobo$408b5o$
+411bo$411bo2$266bo$267b2o$269bo$269bo$247b3o19bo$248bob2o15b3o$228b2o
+17b2o2bo15bobo$230bo17b4o18bo$231bo19bo$229bobo20bo$228b5o$231bo$231bo
+$248b2o$249bo$248bobo$247bo2bo2bo$240bo7bo2b4o$240bobo6bo2bo2bo$239bo
+2bo10bo10b2o$239bo14bo10bo$239b4o5bo16bobo$240bo2bo7bo11bo2bo2bo$240bo
+10bo11b4o2bo$251bo11bo2bo2bo$250b2o14bo$266bo7$264b3o$265bob2o$264b2o
+2bo$265b4o$268bo$269bo9$250bo$251b2o$251b3o$250bo$251bo2bo$251b6o$254b
+o$255bo!
+
+There is probably a much smaller quadratic growth pattern.  A more
+compact puffer would be a big step in this direction. 
+
+Other guns
+----------
+
+The period-20 oscillator actually yields a compact period-20 gun.  Two 
+combined produce a spark that is almost a glider: all that is
+needed to fix it is the 3-cell eater:
+
+               . . . . . . . . O O .
+              . . . . . . . . O .
+             .
+            . . . . . O O O O O O .
+           . . . . . O .
+          . . O . . . . . O .
+         . O O O O O .
+        . . O . O O . . . . . . . . O .
+       . . . O O . . . . . . . . O O O . . . . O .
+      . . O O . . . . . . . . . O O . O O . . O .
+     O O O . . . . . . . . . . . . O O . O O O O .
+    . . O . . . . . . . . . . . . . . O . . O . O .
+   . O O O . . . . . . . . . . . . . . . . . O .
+  . . . . O .
+
+If we use a period-25 spark instead of the 3-cell eater, we can increase
+the period to 100.  Combining this with the period-8 filter, we get
+a small period-200 gun:
+
+                                 . . . . . O .
+                                . . . . . . O O O .
+                               . . . . . . . O .
+                              . . . . . . . O O O .
+                             . . . O . . O O .
+                            . . O O . O O .
+                           O . O . O O .
+                          . O O O . O O .
+                         . . . . O O . O . . . . . . . . . . . O .
+                        . . . . . . O O O O . . . . . . . O O O .
+                       . . . . . . . . O . . . . . . . . . . O .
+                      . . . . . . . . . O . . . . . . . . . O O .
+                     . . . . . . . . . . . . . . . . . . O O . O .
+                    . . . . . . . . . . . . . . . . . O O .
+                   . . . . . . . . . . . . . . . . O O . O O .
+                  . . . . . O . . . . . . . . O O O . O O .
+                 . . . . . . O . . . . . . . . . O O O . O .
+                . . . . . . O . O . . . . . . . O . . O .
+               . . . . . . . O . O .
+              . . . . . . . . O . . . . . O O .
+             . . . . . . . O . . . . . O O O .
+            . . . . . . . . . . . . . O O O .
+           . . . . . . . . O . . . . . O . O .
+          . . . . . . . . O O . . . . . O O .
+         . . . . . . . . O . O . . . . O . O .
+        . . . . . . . . . . . . . . . O O O .
+       . . . . . . . . . . . . . . . . . . O .
+      . . . . . . . . . . . . . . . . . . O .
+     . . . . . . . . . . . . . . . . . . . O . O .
+    . . . . . . . . . . . . . . . . . . O O O O .
+   . . . . . . . . . . . . . . . . . . . . . O .
+  . . . . . . . . . . . . . . . . . . . . . . O .
+
+There is a period-43 oscillation that shows up occasionally, though it
+is not nearly as common as period-42 or period-20.  Technically, it's part of
+a period-86 oscillator, because the patterns that realize this period have
+some period-2 cells.  These can also be used to build a glider gun, which
+is interesting since it produces an odd-period (in fact prime-period)
+glider stream as output:
+
+                             . . . . . . . . . . . O O .
+                            O O . . . . . . . . . . . O . O .
+                           . . O . O . . . . . . . . O O O .
+                          . . O O O . . . . . . . . O . O .
+                         . . O . O . . . . . . . . . O O O O .
+                        . . . O O O . . . . . . . . O . . O .
+                       . . O O . . O . . . . . . . O O O O O .
+                      . . . . O O O . . . . . . . . O O .
+                     . . . . O O . O . . . . . . . . O .
+                    . . . . O . O O .
+                   . . O . . O . O .
+                  . O O O . . O O .
+                 O . . . . . O .
+                .
+               .
+              .
+             .
+            .
+           .
+          .
+         .
+        . . . . . . . . . . . . . . . . . . O . . O .
+       . . . . . . . . . . . . . . . . . . . O O O .
+      . . . . . . . . . . . . . . . . . . . . O . O O O .
+     . . . . . . . . . . . . . . . . . . . . O . O . O . O .
+    . . . . . . . . . . . . . . . . . . . . O O O O O O O .
+   . . . . . . . . . . . . . . . . . . . . . O . . O .
+  . . . . . . . . . . . . . . . . . . . . . . . . . O .
+
+Finally, we can build high-period guns using glider/glider interactions.
+What's interesting here is that we can generate the stream "A and not B"
+without affecting the stream "B" because (unlike Life) there are lot 
+of ways for a glider to delete another without being destroyed.
+To illustrate this, here's a gun I built before I found the
+glider duplication reaction:
+
+x = 86, y = 49
+o$o10bo$bo9bobo$9b5o$10bo3bo$11b4o$11bobobo$11b5o6bo$13bo7b2obo$20b2ob
+2o$18bo3bobo$19bo2b2obo$18b3obob2o$20b2ob2o$24bo2$7bo$7bo18bo$8bo2bo
+15b2o$9bo17b2o$10bo16bob2o$26b4obo$29bobo$29bob3o$29b3o$31bo$15bo9b2o$
+15b2obo6bo$13b3ob4o4bo$15bobobo5bo20bo31b2o$14b2ob3o8bo16bobo31b2obo$
+16b2obo26bobo30bob2o$16b2o2b2o26bo31b2ob2o$20b2o27bo31bobo$22bo58bob2o
+$81b3obo$23bo14b2o43bo$23b3o12bo$22b2obo13bob2o$22bob5o10b3obo$23bobo
+2bo4bo5bobobo$23b2obo2bo4b2o4b2ob2o$23bob3o4b3obo5b2obo$26bo4b2obobo5b
+obo$33b4o$33bo3bo$33b5o$36bobo$36bo!
+
+It works by sending a stream through a glider relay, which leaves
+a hole in the stream wherever it interacts with the glider in the relay.
+A second gun inverts this stream, resulting in a high period stream.  The
+gun as such is made obsolete by direct glider duplication, but there are 
+undoubtedly many uses for the one-sided glider deletion reaction.  
+Among other things, it could be useful for building the sort of 
+pseudorandom gun that has been realized in Life by Dean Hickerson 
+and others.
+
+Miscellaneous oscillators
+-------------------------
+
+Many different oscillators turned up in a random survey of 10x10 (rhombic)
+starting states on an otherwise empty infinite grid.  Most of these consisted 
+of an oscillating part stabilized by an anchor organized into honey-combs.  
+Like the period-43 mentioned in the preceding section, these often have 
+a low-period fringe that multiplies the total oscillation by 2, 3, or 5, 
+without affecting the interesting part, which I call the principal oscillation.
+
+I'm going to list oscillators here by principal oscillation.  Sometimes it
+may be possible to eliminate the discrepancy between overall period and
+principal oscillation, but I haven't tried to.  It is also likely that 
+many of the stabilizing anchors below can be reduced in size.  This is not 
+an exhaustive list of known oscillators, and I've left out common low-period 
+patterns that are easy to generate.  Oscillators that have appeared 
+already in this article will not be repeated.
+
+Period 7:
+
+             . . . O .
+            . . O O .
+           . O O . O O . O .
+          . . . O . O O O .
+         O . O O . O . . O O .
+        . O O . O . . . O .
+       O O . O O O O . . O .
+      . . O O . . . O . O .
+     . . O . O . O O . . O .
+    . . O O O . O O . O O O .
+   . . . . . O O . O O .
+  . . . . . . . O O .
+
+
+
+               O .
+              O .
+             . O O .
+            . . O O O .
+           . O O . . O O . O .
+          . O . . . . O O O .
+         . . O . . . . . O .
+        . . . . . . . . . O .
+       . . . . . . . . O O .
+      . . . . . . . . O .
+     . . . . . . . . . O . O .
+    . . . . . . . . O O O O .
+   . . . . . . . . . . . O .
+  . . . . . . . . . . . . O .
+
+Period 9:
+
+
+              . . O O .
+             O O O . O .
+            . O . O O .
+           . O O O . O .
+          . . . . O O .
+         . . . . O .
+        . . . O O O .
+       . . . O . . O .
+      . . O O O . O .
+     . . O . O . . O .
+    . . . O O . O O .
+   . . . . . O O .
+  . . . . . . O .
+
+Period 11:
+
+           . . O .
+          . O O .
+         . . O O . O .
+        O O O . O . O .
+       . . O . O . . O O .
+      . . O O O O O O . O O O .
+     . . O . . . O O . . O .
+    . . . . . . . . O O O .
+   . . . . . . . . . . O .
+  . . . . . . . . . . . O .
+
+
+        O O . O .
+       O . . O O .
+      . . O O . O .
+     O O O . O O .
+    . O . O O . O .
+   . . O O . O O .
+  . . . . O O .
+
+Period 14:
+
+
+        . O O O .
+       O O . O .
+      O . . . O O .
+     O O . O O .
+    . . O O . O O .
+   . . O . O O .
+  . . . . O .
+
+
+Period 17:
+              . . O .
+             . . O .
+            O O O O O O .
+           . . O . O O .
+          . . . O O .
+         .
+        . . . O O . . O .
+       . . O O . O O .
+      . . O . . O . O .
+     . . . O O . O O .
+    . . . . . O O . O O .
+   . . . . . . . O O .
+  . . . . . . . O .
+
+
+Period 18:
+
+         . O . O .
+        . . O O O .
+       . O O . O .
+      O O . O O . O O O . O .
+     O . O O . O . O . O O O O .
+    . O O . O O O O O . O O .
+   . . . O O . O . O O O . O .
+  . . . O . O . . . . O .
+
+
+Period 19:
+
+          . O . . . O .
+         O O . . O O O . O .
+        O . O O . O . O O O .
+       . O O . O O O O O . O .
+      . O . O O . . O . O O .
+     . . . O . O . O O O . O O .
+    . . . . . . . O O . O O O .
+   . . . . . . . . O O O . . O .
+  . . . . . . . . . . O .
+
+
+Period 22:
+
+            . O .
+           . . O .
+          O O O O O .
+         . . O . O .
+        . . O O O O O .
+       . . . O . O . O O .
+      . . . . . . O O O O .
+     . . . . . . O O .
+    .
+   . . . . . . . . . . O .
+  . . . . . . . . . . . O O .
+
+Period 26:
+
+               . O .
+              . O . O .
+             O O O O O .
+            . O . O . O O .
+           . O . . O O . O .
+          . . . O O . . O .
+         . . . . . O O O O O .
+        . . . . . . . O . O .
+       . . . . . O O O O O O .
+      . . O O . O . O . O . O .
+     . . . . O . O O . O .
+    . . . . . . . . O O O .
+   . . . . . . . . O . . O .
+  . . . . . . . . . . . O .
+
+Period 29:
+
+             . . . O .
+            . . . O O .
+           . . O O . O O .
+          O O O . . . . O O O .
+         . O . O . . . O . O .
+        . . O O O O . . O O O .
+       O O O O . . O O O .
+      O O . . O O O O .
+     . O O O . O . O .
+    . . O . . O .
+   .
+  . . . . . . O .
+
+Period 46:
+
+          . . . O .
+         . . . O O O .
+        . O O O . O .
+       O . O . O O O O O .
+      . O O O O O . . O .
+     . . O . O . O . . O .
+    . O O O O O O .
+   . . . . O .
+  . . . . O .
+
+
+General Comments and Conclusion
+-------------------------------
+
+After working with this rule for several weeks, I was surprised at the 
+variety of interesting objects and reactions that existed in it.  It's 
+a fairly simple rule, though admittedly more complicated than Conway's Life. 
+However, like Life, it is far simpler than the phenomena it supports.  
+I think it's interesting, among other things, for demonstrating that 
+there is a 2-state hexagonal CA with at least some Life-like properties. 
+I had been skeptical of this, since I had never seen a discussion of one.
+
+There are some properties missing from this rule that make Life interesting.
+Unlike Life, patterns die down very rapidly unless they stabilize into 
+honey-comb structures.  The result of a collision between gliders and 
+stable objects is similarly tame, with the most common results being an 
+eater reaction or mutual annihilation.  On the other hand, this can actually
+be beneficial for designing patterns to realize some logical function
+or growth rate.
+
+Unlike Life, this rule does not seem to support finite still-life patterns.
+The honeycomb structure is stable and can present an arbitrarily long
+stable boundary, but corners always result in cell-producing neighborhoods
+that usually result in low-period oscillations.  The stability of the 
+honey-comb lattice is also very unlike Life, in which a small
+change to a dense lattice almost always propagates very fast, destroying 
+it.  It may be worth doing some systematic tests on random mutations of
+a lattice background.
+
+--
+Paul Callahan   Life Web Page: http://www.cs.jhu.edu/~callahan/lifepage.html 
+email: ppc997@aber.ac.uk

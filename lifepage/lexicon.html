@@ -1,0 +1,5177 @@
+<HTML>
+<HEAD>
+<META NAME="description" CONTENT="A lexicon of terms used in Conway's Game of Life">
+<META NAME="Author" CONTENT="Stephen Silver <sasilver@hotmail.com>">
+<META NAME="Description" CONTENT="A lexicon of terms used in Conway's Game of Life">
+<TITLE>Life Lexicon</TITLE>
+</HEAD>
+<H1><FONT COLOR=#006000>Life Lexicon</FONT></H1>
+(HTML format, Release 6, 1998 June 16)
+<H3><FONT COLOR=#005000>INTRODUCTION</FONT></H3>
+This is a lexicon of terms relating to John Horton Conway's Game of Life.  It
+is also available in ASCII.<P>This lexicon was compiled by Stephen Silver -
+see below for additional credits.  I can be contacted at
+<A HREF="mailto:sas@cafenet.co.uk">sas@cafenet.co.uk</A>
+or
+<A HREF="mailto:sasilver@hotmail.com">sasilver@hotmail.com</A>.
+<H3><FONT COLOR=#005000>CREDITS</FONT></H3>
+The largest single source for this lexicon was a
+<A HREF="http://www.mindspring.com/~alanh/lifep.zip">glossary compiled by
+Alan Hensel</A>
+&quot;with indispensable help from John Conway, Dean
+Hickerson, David Bell, Bill Gosper, Bob Wainwright, Noam Elkies,
+Nathan Thompson, Harold McIntosh, and Dan Hoey&quot;.<P>
+Other sources include volume 2 of &quot;Winning Ways&quot; (by Elwyn
+Berlekamp, John Conway and Richard Guy), various articles by Martin
+Gardner, &quot;The Recursive Universe&quot; by William Poundstone,
+<A HREF="http://members.aol.com/life1ine/life/page1.htm">issue 1 of LifeLine</A>
+(edited by Robert Wainwright),
+&quot;
+<A HREF="http://www.canb.auug.org.au/~dbell/">Spaceships in Conway's Life</A>&quot;
+by David Bell,
+&quot;<A HREF="http://www.cs.jhu.edu/~callahan/patterns/bhept/bhept.html">My Experience with B-heptominos in Oscillators</A>&quot;
+by Dave Buckingham,
+pattern collections by
+<A HREF="http://www.mindspring.com/~alanh/lifep.zip">Alan Hensel</A>
+and
+<A HREF="ftp://sunsite.unc.edu/pub/Linux/games/amusements/life/dblifelib-2.tgz">David Bell</A>
+(and especially Dean Hickerson's file stamp.l in the latter collection),
+and the web sites of
+<A HREF="http://home.sprynet.com/interserv/mniemiec/lifepage.htm">Mark Niemiec</A>,
+<A HREF="http://www.cs.jhu.edu/~callahan/lifepage.html">Paul Callahan</A>,
+<A HREF="http://www.uni-bielefeld.de/~achim/gol.html">Achim Flammenkamp</A>
+and
+<A HREF="http://www.halcyon.com/hkoenig/LifeInfo/LifeInfo.html">Heinrich Koenig</A>.<P>
+Dean Hickerson, David Bell and especially Alan Hensel provided some
+useful comments on earlier releases of this lexicon.<P>
+The format, errors, use of British English and anything else you
+might want to complain about are by Stephen Silver.
+<H3><FONT COLOR=#005000>COPYING</FONT></H3>
+This lexicon may be freely copied and/or modified as long as due
+credit is given.  This includes not just credit to those who have
+contributed in some way to the present version (see above), but also
+credit to those who have made any modifications.
+<H3><FONT COLOR=#005000>LEXICOGRAPHIC ORDER</FONT></H3>
+I have adopted the following convention: all characters (including
+spaces) other than letters and digits are ignored for the purposes of
+ordering the entries in this lexicon.  (Many terms are used by some
+people as a single word - with or without a hyphen - and by others as
+two words.  My convention means that I do not have to list these in two
+separate places.  Indeed, I list them only once, choosing whichever
+form seems most common.)<P>
+Digits lexicographically
+precede letters.  Any term that contains no alphanumeric characters
+at all will be found at the very beginning of the lexicon.
+<H3><FONT COLOR=#005000>FORMAT</FONT></H3>
+(Note that the format of the ASCII version is rather different, and
+is described there.)<P>
+The main thing to note about the format of the HTML version is that
+all keywords are preceded by a colon.  For example, entering <B>:foo</B> in
+the dialogue box of your browser's Find command will take you straight
+to the definition of the first word beginning with &quot;foo&quot; (or at least
+it would if there were any).  This is the recommended way of finding a
+particular definition when there is no link to click on.<P>
+The diagrams in this lexicon are in a very standard format.  You
+should be able to simply copy a pattern, paste it into a new file and
+run it in your favourite Life program.  This works at least with
+<A HREF="http://www.mindspring.com/~alanh/life16.zip">Alan Hensel's
+DOS program</A>.
+(Actually, it didn't work too well when I tried it with
+Microsoft Internet Explorer.  This doesn't allow the last cell of the
+diagram to be copied without copying the whole of the rest of the file.
+I kid thee not.  This happens with version 3.0a.1563.  Of course, they
+might have got it right at the 1564th attempt.)
+I have restricted myself to diagrams of size 64x64 or less.<P>
+Most definitions that have a diagram have also some data in brackets
+after the keyword.  Oscillators are maked as p<I>n</I> (where <I>n</I> is a number),
+meaning that the period is <I>n</I> (p1 indicates a still life).  Wicks are
+marked in the same way but with the word &quot;wick&quot; added.  For spaceships
+the speed (as a fraction of c, the speed of light), the direction and
+the period are given.  Fuses are marked with speed and period and have
+the word &quot;fuse&quot; added.  Wicks and fuses are infinite in extent and so
+have necessarily been truncated, with the ends stabilized wherever
+practical.
+<H3><FONT COLOR=#005000>SCOPE</FONT></H3>
+This lexicon covers only Conway's Life, and provides no information
+about other cellular automata.  David Bell has written articles on two
+other interesting cellular automata: HighLife (which is similar to
+Life, but has a tiny replicator) and Day & Night (which is very
+different, but exhibits many of the same phenomena).  These articles
+can be found on
+<A HREF="http://www.canb.auug.org.au/~dbell">his web-site</A>.
+<H3><FONT COLOR=#005000>ERRORS AND OMISSIONS</FONT></H3>
+Inevitably there will be errors, although I have done my best to
+avoid them.  Errors of an historical nature are particularly likely.
+I have some hope that all the patterns given are correct, since I have
+tested them all myself (except for the Garden of Eden).<P>
+If you spot any errors, then please tell me.<P>
+There are certainly numerous omissions, especially in my failure to
+assign a discoverer to many interesting patterns.  Dates of discovery
+are omitted even more frequently.  Any information would be welcome.
+<H3><FONT COLOR=#005000>NAMES</FONT></H3>
+When deciding whether to use full or abbreviated forms of forenames
+I have tried, wherever possible, to follow the usage of the person
+concerned.
+<HR>
+<P>:<B>][</B> = <A HREF="#v7">table on table</A>
+<P>:<B>101</B> (p5)
+<PRE>
+	....OO......OO....
+	...O.O......O.O...
+	...O..........O...
+	OO.O..........O.OO
+	OO.O.O..OO..O.O.OO
+	...O.O.O..O.O.O...
+	...O.O.O..O.O.O...
+	OO.O.O..OO..O.O.OO
+	OO.O..........O.OO
+	...O..........O...
+	...O.O......O.O...
+	....OO......OO....
+</PRE>
+<P>:<B>1-2-3-4</B><A NAME="wx"></A> (p4)
+<PRE>
+	.....O.....
+	....O.O....
+	...O.O.O...
+	...O...O...
+	OO.O.O.O.OO
+	O.O.....O.O
+	...OOOOO...
+	...........
+	.....O.....
+	....O.O....
+	.....O.....
+</PRE>
+<P>:<B>14-ner</B> = <A HREF="#d1">fourteener</A>
+<P>:<B>2 eaters</B> = <A HREF="#sq">two eaters</A>
+<P>:<B>4-8-12 diamond</B>  The following <A HREF="#px">pure glider generator</A>.
+<PRE>
+	....OOOO....
+	............
+	..OOOOOOOO..
+	............
+	OOOOOOOOOOOO
+	............
+	..OOOOOOOO..
+	............
+	....OOOO....
+</PRE>
+<P>:<B>Achim's p144</B><A NAME="l6"></A> (p144)  This was found in an infinite form by Achim
+Flammenkamp in 1994.  The stabilizing blocks in the finite form
+shown here were found by David Bell.  See the gun shown under
+<A HREF="#z8">factory</A> for a use of this oscillator.
+<PRE>
+	OO........................OO
+	OO........................OO
+	..................OO........
+	.................O..O.......
+	..................OO........
+	..............O.............
+	.............O.O............
+	............O...O...........
+	............O..O............
+	............................
+	............O..O............
+	...........O...O............
+	............O.O.............
+	.............O..............
+	........OO..................
+	.......O..O.................
+	........OO..................
+	OO........................OO
+	OO........................OO
+</PRE>
+<P>:<B>Achim's p16</B> (p16)  Found by Achim Flammenkamp.
+<PRE>
+	.......OO....
+	.......O.O...
+	..O....O.OO..
+	.OO.....O....
+	O..O.........
+	OOO..........
+	.............
+	..........OOO
+	.........O..O
+	....O.....OO.
+	..OO.O....O..
+	...O.O.......
+	....OO.......
+</PRE>
+<P>:<B>Achim's p4</B> = <A HREF="#ch">cloverleaf</A>
+<P>:<B>Achim's p5</B> = <A HREF="#av">pseudo-barberpole</A>
+<P>:<B>acorn</B><A NAME="lq"></A> (stabilizes at time 5206)  A <A HREF="#w2">methuselah</A> found by Charles
+Corderman.
+<PRE>
+	.O.....
+	...O...
+	OO..OOO
+</PRE>
+<P>:<B>A for All</B> (p6)
+<PRE>
+	....OO....
+	...O..O...
+	...OOOO...
+	.O.O..O.O.
+	O........O
+	O........O
+	.O.O..O.O.
+	...OOOO...
+	...O..O...
+	....OO....
+</PRE>
+<P>:<B>agar</B><A NAME="af"></A>  Any periodic tiling of the plane that results in an infinite
+still life or oscillator.  The simplest agar is the one extended
+by the known <A HREF="#ux">spacefiller</A>s.  The following diagram shows another
+simple stable agar.  (Some cells have been removed from the outer
+edge of this diagram in order to make the finite form stable.)
+<PRE>
+	.OO....OO....OO....OO....OO....OO.
+	O..O..O..O..O..O..O..O..O..O..O..O
+	O..O..O..O..O..O..O..O..O..O..O..O
+	.OO.OO.OO.OO.OO.OO.OO.OO.OO.OO.OO.
+	...O..O..O..O..O..O..O..O..O..O...
+	...O..O..O..O..O..O..O..O..O..O...
+	.OO.OO.OO.OO.OO.OO.OO.OO.OO.OO.OO.
+	O..O..O..O..O..O..O..O..O..O..O..O
+	O..O..O..O..O..O..O..O..O..O..O..O
+	.OO.OO.OO.OO.OO.OO.OO.OO.OO.OO.OO.
+	...O..O..O..O..O..O..O..O..O..O...
+	...O..O..O..O..O..O..O..O..O..O...
+	....OO....OO....OO....OO....OO....
+</PRE>
+<P>:<B>aircraft carrier</B><A NAME="jd"></A> (p1)
+<PRE>
+	OO..
+	O..O
+	..OO
+</PRE>
+<P>:<B>airforce</B><A NAME="al"></A> (p7)  Found by Dave Buckingham.
+<PRE>
+	.......O......
+	......O.O.....
+	.......O......
+	..............
+	.....OOOOO....
+	....O.....O.OO
+	...O.OO...O.OO
+	...O.O..O.O...
+	OO.O...OO.O...
+	OO.O.....O....
+	....OOOOO.....
+	..............
+	......O.......
+	.....O.O......
+	......O.......
+</PRE>
+<P>:<B>AK47 reaction</B>  The following reaction (found by Rich Schroeppel) in
+which a honey farm predecessor, catalysed by an eater and a block,
+reappears at another location 47 generations later, having produced
+a glider and a traffic light.  This is the basis of a neat (but
+<A HREF="#ti">pseudo</A>) p94 glider gun found by Paul Callahan.
+<PRE>
+	.....O....
+	....O.O...
+	...O...O..
+	...O...O..
+	...O...O..
+	....O.O...
+	.....O....
+	..........
+	..OO......
+	...O......
+	OOO.....OO
+	O.......OO
+</PRE>
+<P>:<B>Al Jolson</B><A NAME="ki"></A> (p15)  Two <A HREF="#k1">block</A>s <A HREF="#wo">hassle</A>d by two <A HREF="#ah">pentadecathlon</A>s.
+A p9 version using <A HREF="#ol">snacker</A>s instead of pentadecathlons is also
+possible.
+<PRE>
+	.OO......OO..
+	O..O....O..O.
+	O..O....O..O.
+	O..O....O..O.
+	.OO......OO..
+	.............
+	.............
+	.......O.....
+	.....O..O.OO.
+	......OO..OO.
+	.............
+	.............
+	......OOOO...
+	.....OOOOOO..
+	....OOOOOOOO.
+	...OO......OO
+	....OOOOOOOO.
+	.....OOOOOO..
+	......OOOO...
+</PRE>
+<P>:<B>antlers</B> = <A HREF="#ik">moose antlers</A>
+<P>:<B>ants</B><A NAME="sw"></A> (p5 wick)  The standard form is shown below.  It is also
+possible for any ant to be displaced by one cell relative to
+either or both of its neighbouring cells.  Dean Hickerson found
+<A HREF="#l8">fencepost</A>s for both ends of this wick in 1992.
+<PRE>
+	OO...OO...OO...OO...OO...OO...OO...OO...OO..
+	..OO...OO...OO...OO...OO...OO...OO...OO...OO
+	..OO...OO...OO...OO...OO...OO...OO...OO...OO
+	OO...OO...OO...OO...OO...OO...OO...OO...OO..
+</PRE>
+<P>:<B>anvil</B>  The following <A HREF="#qc">induction coil</A>.
+<PRE>
+	.OOOO.
+	O....O
+	.OOO.O
+	...O.OO
+</PRE>
+<P>:<B>arm</B>  A long extension hanging off from the main body of a <A HREF="#f4">spaceship</A>
+or <A HREF="#z6">puffer</A> at right angles to the direction of travel.  A lot of
+known spaceships, particularly c/3 ones, have multiple arms.  This
+is an artefact of the search methods used to find such spaceships,
+rather than an indication of what a &quot;typical&quot; spaceship might look
+like.
+<P>:<B>ash</B>  The (stable or oscillating) debris left by a random reaction.
+<P>:<B>aVerage</B> (p5)  Found by Dave Buckingham.
+<PRE>
+	...OO........
+	....OOO......
+	..O....O.....
+	.O.OOOO.O....
+	.O.O....O..O.
+	OO.OOO..O.O.O
+	.O.O....O..O.
+	.O.OOOO.O....
+	..O....O.....
+	....OOO......
+	...OO........
+</PRE>
+<P>:<B>B</B> = <A HREF="#k0">B-heptomino</A>
+<P>:<B>babbling brook</B><A NAME="es"></A>  Any <A HREF="#wu">oscillator</A> whose <A HREF="#e5">rotor</A> consists of a string
+of cells each of which is adjacent to exactly two other rotor cells,
+except for the endpoints which are adjacent to only one other rotor
+cell.  Compare <A HREF="#x5">muttering moat</A>.  Examples include the <A HREF="#az">beacon</A> and
+the <A HREF="#is">light bulb</A>.  The following is a less trivial p4 example.
+<PRE>
+	....OO.....
+	...O.O.....
+	...O.......
+	OO.OO......
+	OO.O.O...OO
+	...O.O....O
+	...O..OOOO.
+	..OO.......
+	......OO...
+	......OO...
+</PRE>
+<P>:<B>backrake</B><A NAME="mc"></A>  Another term for a backward <A HREF="#e8">rake</A>.
+<P>:<B>baker</B><A NAME="bi"></A> (c p4 fuse)  A <A HREF="#ai">fuse</A> by Keith McClelland.
+<PRE>
+	..............OO
+	.............O.O
+	............O...
+	...........O....
+	..........O.....
+	.........O......
+	........O.......
+	.......O........
+	......O.........
+	.....O..........
+	....O...........
+	...O............
+	OOO.............
+	.O..............
+</PRE>
+<P>:<B>baker's dozen</B><A NAME="qw"></A> (p12)  A <A HREF="#a4">loaf</A> <A HREF="#wo">hassle</A>d by two <A HREF="#k1">block</A>s and two
+<A HREF="#ku">caterer</A>s.
+<PRE>
+	OO.........OO..........
+	OOOO.O.....OO..........
+	O.O..OOO...............
+	...........O...........
+	....OO....O.O..........
+	....O.....O..O....O....
+	...........OO....OO....
+	.......................
+	...............OOO..O.O
+	..........OO.....O.OOOO
+	..........OO.........OO
+</PRE>
+<P>:<B>bakery</B><A NAME="yb"></A> (p1)  A common formation of two bi-loaves.
+<PRE>
+	....OO....
+	...O..O...
+	...O.O....
+	.OO.O...O.
+	O..O...O.O
+	O.O...O..O
+	.O...O.OO.
+	....O.O...
+	...O..O...
+	....OO....
+</PRE>
+<P>:<B>barberpole</B><A NAME="jz"></A>  Any p2 oscillator in the infinite series <A HREF="#sh">bipole</A>,
+<A HREF="#r0">tripole</A>, <A HREF="#rm">quadpole</A>, <A HREF="#xq">pentapole</A>, <A HREF="#kt">hexapole</A>, <A HREF="#gh">heptapole</A> ...
+(It wasn't my idea to suddenly change from Latin to Greek.)
+The term is also used to describe other extensible sections of
+oscillators or spaceships, especially those (usually of period 2)
+in which all generations look alike except for a translation and/or
+rotation/reflection.
+<P>:<B>barberpole intersection</B> = <A HREF="#uf">quad</A>
+<P>:<B>barber's pole</B> = <A HREF="#jz">barberpole</A>
+<P>:<B>barge</B> (p1)
+<PRE>
+	.O..
+	O.O.
+	.O.O
+	..O.
+</PRE>
+<P>:<B>beacon</B><A NAME="az"></A> (p2)  The third most common <A HREF="#wu">oscillator</A>.
+<PRE>
+	OO..
+	O...
+	...O
+	..OO
+</PRE>
+<P>:<B>beacon maker</B><A NAME="g4"></A>  (c p8 fuse)
+<PRE>
+	..............OO
+	.............O.O
+	............O...
+	...........O....
+	..........O.....
+	.........O......
+	........O.......
+	.......O........
+	......O.........
+	.....O..........
+	....O...........
+	...O............
+	OOO.............
+	..O.............
+	..O.............
+</PRE>
+<P>:<B>beehive</B><A NAME="p5"></A> (p1)  The second most common <A HREF="#nu">still life</A>.
+<PRE>
+	.OO.
+	O..O
+	.OO.
+</PRE>
+<P>:<B>beehive and dock</B><A NAME="cg"></A> (p1)
+<PRE>
+	...OO.
+	..O..O
+	...OO.
+	......
+	.OOOO.
+	O....O
+	OO..OO
+</PRE>
+<P>:<B>beehive on big table</B> = <A HREF="#cg">beehive and dock</A>
+<P>:<B>beehive pusher</B> = <A HREF="#ao">hive-nudger</A>
+<P>:<B>beehive with tail</B> (p1)
+<PRE>
+	.OO...
+	O..O..
+	.OO.O.
+	....O.
+	....OO
+</PRE>
+<P>:<B>belly spark</B><A NAME="rg"></A>  The spark of a <A HREF="#ll">MWSS</A> or <A HREF="#lg">HWSS</A> other than the
+<A HREF="#r9">tail spark</A>.
+<P>:<B>B-heptomino</B><A NAME="k0"></A> (stabilizes at time 148)  This is a very common
+pattern.  It often arises with the cell at top left shifted one
+space to the left, which does not affect the subsequent evolution.
+B-heptominoes have acquired particular importance of late due to
+Dave Buckingham's work on <A HREF="#c6">B track</A>s - see in particular
+<A HREF="#yq">My Experience with B-heptominos in Oscillators</A>.
+<PRE>
+	O.OO
+	OOO.
+	.O..
+</PRE>
+<P>:<B>B-heptomino shuttle</B> = <A HREF="#my">twin bees shuttle</A>
+<P>:<B>bi-block</B><A NAME="bz"></A> (p1)  This is the smallest <A HREF="#ag">pseudo still life</A>.
+<PRE>
+	OO.OO
+	OO.OO
+</PRE>
+<P>:<B>bi-boat</B> = <A HREF="#hl">boat-tie</A>
+<P>:<B>biclock</B>  The following <A HREF="#px">pure glider generator</A>.
+<PRE>
+	..O....
+	OO.....
+	..OO...
+	.O...O.
+	...OO..
+	.....OO
+	....O..
+</PRE>
+<P>:<B>big beacon</B> = <A HREF="#f8">figure-8</A>
+<P>:<B>big fish</B> = <A HREF="#lg">HWSS</A>
+<P>:<B>big S</B><A NAME="b0"></A> (p1)
+<PRE>
+	....OO.
+	...O..O
+	...O.OO
+	OO.O...
+	O..O...
+	.OO....
+</PRE>
+<P>:<B>billiard table configuration</B><A NAME="o5"></A>  Any <A HREF="#wu">oscillator</A> in which the <A HREF="#e5">rotor</A>
+is enclosed within the <A HREF="#c9">stator</A>.  Examples include <A HREF="#al">airforce</A>,
+<A HREF="#h5">cauldron</A>, <A HREF="#yr">clock II</A>, <A HREF="#ny">Hertz oscillator</A>, <A HREF="#ow">negentropy</A>,
+<A HREF="#cf">pinwheel</A>, <A HREF="#o7">pressure cooker</A> and <A HREF="#wj">scrubber</A>.
+<P>:<B>bi-loaf</B><A NAME="dx"></A>  This term has been used in at least three different senses.
+<PRE>
+      bi-loaf - a half bakery (p1):
+	.O.....
+	O.O....
+	O..O...
+	.OO.O..
+	...O.O.
+	...O..O
+	....OO.
+      bi-loaf - a less common still-life (p1):
+	..O....
+	.O.O...
+	O..O...
+	.OO.OO.
+	...O..O
+	...O.O.
+	....O..
+      biloaf - a <A HREF="#px">pure glider generator</A>:
+	..O.
+	.O.O
+	O..O
+	.OO.
+	O..O
+	O.O.
+	.O..
+</PRE>
+<P>:<B>bipole</B><A NAME="sh"></A> (p2)  The <A HREF="#jz">barberpole</A> of length 2.
+<PRE>
+	OO...
+	O.O..
+	.....
+	..O.O
+	...OO
+</PRE>
+<P>:<B>bi-pond</B><A NAME="np"></A> (p1)
+<PRE>
+	.OO....
+	O..O...
+	O..O...
+	.OO.OO.
+	...O..O
+	...O..O
+	....OO.
+</PRE>
+<P>:<B>bi-ship</B> = <A HREF="#z3">ship-tie</A>
+<P>:<B>blinker</B><A NAME="dw"></A> (p2)  The smallest and most common <A HREF="#wu">oscillator</A>.
+<PRE>
+	OOO
+</PRE>
+<P>:<B>blinker ship</B><A NAME="zd"></A>  A <A HREF="#t6">growing spaceship</A> in which the wick consists of
+a line of <A HREF="#dw">blinker</A>s.  An example based on the <A HREF="#j0">Schick engine</A> is
+shown below.  Here the front part is p12 and moves at c/2, while
+the back part is p26 and moves at 6c/13.  Every 156 generations
+13 blinkers are created and 12 are destroyed, so the wick becomes
+one blinker longer.
+<PRE>
+	...........O..O...............
+	..........O...................
+	..........O...O...............
+	..OO......OOOO................
+	.OOOO.........................
+	OO.OO.........................
+	.OO.....OO.OOO................
+	.......O.....OO.......O....OOO
+	......OO.......O......O....O.O
+	.......O.....OO.......O....OOO
+	.OO.....OO.OOO................
+	OO.OO.........................
+	.OOOO.........................
+	..OO......OOOO................
+	..........O...O...............
+	..........O...................
+	...........O..O...............
+</PRE>
+<P>:<B>biting off more than they can chew</B> = <A HREF="#mq">eater-bound pond</A>
+<P>:<B>block</B><A NAME="k1"></A> (p1)  The most common <A HREF="#nu">still life</A>.
+<PRE>
+	OO
+	OO
+</PRE>
+<P>:<B>blockade</B><A NAME="f5"></A> (p1)  A common formation of four blocks.  The final form
+of <A HREF="#iw">lumps of muck</A>.
+<PRE>
+	OO.....................
+	OO.....................
+	.......................
+	.......................
+	.OO.................OO.
+	.OO.................OO.
+	.......................
+	.......................
+	.....................OO
+	.....................OO
+</PRE>
+<P>:<B>block and dock</B><A NAME="ke"></A> (p1)
+<PRE>
+	...OO.
+	...OO.
+	......
+	.OOOO.
+	O....O
+	OO..OO
+</PRE>
+<P>:<B>block and glider</B><A NAME="aq"></A> (stabilizes at time 106)
+<PRE>
+	OO..
+	O.O.
+	..OO
+</PRE>
+<P>:<B>blocker</B> (p8)  Found by Robert Wainwright.  This oscillator has the
+property of being able to double the period of any glider or LWSS
+stream of period 8<I>n</I>+4.
+<PRE>
+	......O.O.
+	.....O....
+	OO..O....O
+	OO.O..O.OO
+	....OO....
+</PRE>
+<P>:<B>block on big table</B> = <A HREF="#ke">block and dock</A>
+<P>:<B>block on table</B> (p1)
+<PRE>
+	..OO
+	..OO
+	....
+	OOOO
+	O..O
+</PRE>
+<P>:<B>blonk</B><A NAME="eq"></A>  A <A HREF="#k1">block</A> or a <A HREF="#dw">blinker</A>.  This term is mainly used in the
+context of <A HREF="#ld">sparse Life</A> and was coined by Rich Schroeppel in
+September 1992.
+<P>:<B>boat</B><A NAME="ci"></A> (p1)  The only 5-pixel <A HREF="#nu">still life</A>.
+<PRE>
+	OO.
+	O.O
+	.O.
+</PRE>
+<P>:<B>boat-bit</B>  A binary digit represented by the presence of a
+<A HREF="#ci">boat</A> next to a <A HREF="#v2">snake</A> (or other suitable object, such as
+an <A HREF="#jd">aircraft carrier</A>).  The bit can be toggled by a <A HREF="#bf">glider</A>
+travelling along a certain path.  Its value cannot be read directly,
+but a correctly timed glider on a crossing path can detect whether
+the transition was from 1 to 0 (in which case the crossing glider
+is deleted) or from 0 to 1 (in which case it passes unharmed).
+Three gliders therefore suffice for a non-destructive read.
+The mechanisms involved are shown in the diagram below.  Here
+the bit is shown in state 0.  It is about to be set to 1 and then
+switched back to 0 again.  The first crossing glider will survive,
+but the second will be destroyed.
+<PRE>
+	......O..................
+	.......O.................
+	.....OOO.................
+	.........................
+	.........................
+	.........................
+	.........................
+	.........................
+	.........................
+	.........................
+	................O........
+	..............O.O........
+	..........OO...OO........
+	...........OO............
+	..........O..........O.OO
+	.....................OO.O
+	.........................
+	.........................
+	.........................
+	.........................
+	.........................
+	.O.......................
+	.OO......................
+	O.O......................
+</PRE>
+<P>:<B>boat maker</B><A NAME="ks"></A> (c p4 fuse)
+<PRE>
+	................OO
+	...............O.O
+	..............O...
+	.............O....
+	............O.....
+	...........O......
+	..........O.......
+	.........O........
+	........O.........
+	.......O..........
+	......O...........
+	.....O............
+	OOOOO.............
+	....O.............
+	....O.............
+	....O.............
+	....O.............
+</PRE>
+<P>:<B>boat on boat</B> = <A HREF="#hl">boat-tie</A>
+<P>:<B>boat-ship-tie</B> = <A HREF="#yu">ship on boat</A>
+<P>:<B>boatstretcher</B><A NAME="qz"></A>  Any <A HREF="#h4">wickstretcher</A> that stretches a boat.  The first
+one was found by Hartmut Holzwart in 1993.  The following example
+is by Noam Elkies and uses Tim Coe's <A HREF="#s6">swan</A>.  Note that in any
+boatstretcher the point of the boat can be removed to get a
+tubstretcher.
+<PRE>
+	............OO..........
+	OOO.........O.O.........
+	O..OOO......O.........O.
+	.O.O................OO.O
+	......O....OO..O...OO..O
+	....O......OO..O.OO..O..
+	......O.OO.O...OOOOO....
+	...............OO.......
+	.......O..OOOOOO........
+	........OOOOOOO.........
+	..........OOO...........
+	........................
+	.............O..........
+	............O.O.........
+	.............OO.........
+</PRE>
+<P>:<B>boat-tie</B><A NAME="hl"></A> (p1)  The name is a pun on &quot;bow tie&quot;.
+<PRE>
+	.O....
+	O.O...
+	.OO...
+	...OO.
+	...O.O
+	....O.
+</PRE>
+<P>:<B>bookend</B><A NAME="xs"></A>  The following <A HREF="#qc">induction coil</A>.  It is generation 1 of
+<A HREF="#lv">century</A>.
+<PRE>
+	..OO
+	O..O
+	OOO.
+</PRE>
+<P>:<B>bookends</B><A NAME="t1"></A> (p1)
+<PRE>
+	OO...OO
+	O.O.O.O
+	..O.O..
+	.OO.OO.
+</PRE>
+<P>:<B>boss</B> (p4)
+<PRE>
+	.....O.....
+	....O.O....
+	....O.O....
+	...OO.OO...
+	..O.....O..
+	.O.O.O.O.O.
+	.O.O...O.O.
+	OO.O...O.OO
+	O..O.O.O..O
+	..O.....O..
+	...OO.OO...
+	....O.O....
+	....O.O....
+	.....O.....
+</PRE>
+<P>:<B>bow tie</B> = <A HREF="#hl">boat-tie</A>
+<P>:<B>brain</B><A NAME="ax"></A> (c/3 orthogonally, p3)  Found by David Bell.
+<PRE>
+	.OOO.........OOO.
+	O.O.OO.....OO.O.O
+	O.O.O.......O.O.O
+	.O.OO.OO.OO.OO.O.
+	.....O.O.O.O.....
+	...O.O.O.O.O.O...
+	..OO.O.O.O.O.OO..
+	..OOO..O.O..OOO..
+	..OO..O...O..OO..
+	.O....OO.OO....O.
+	.O.............O.
+</PRE>
+<P>:<B>breeder</B><A NAME="xb"></A>  Any pattern whose <A HREF="#yv">population</A> grows at a quadratic rate,
+although it is usual to exclude <A HREF="#ux">spacefiller</A>s.  It is easy to see
+that this is the fastest possible growth rate.
+The term is also sometimes used to mean specifically the breeder
+created by Bill Gosper's group at MIT, which was the first known
+pattern exhibiting superlinear growth.
+There are four basic types of breeder, known as MMM, MMS, MSM and
+SMM (where S=stationary and M=moving).  Typically an MMM breeder is
+a <A HREF="#e8">rake</A> <A HREF="#z6">puffer</A>, an MMS is a puffer producing puffers which produce
+stationary objects (<A HREF="#nu">still life</A>s and/or <A HREF="#wu">oscillator</A>s), an MSM
+breeder is a gun puffer and an SMM breeder is a rake <A HREF="#gv">gun</A>.  There
+are, however, less obvious variants of these types.
+The original breeder was of type MSM (a p64 puffer puffing p30
+glider guns).
+The known breeder with the smallest initial population is <A HREF="#tm">Jaws</A>.
+<P>:<B>broth</B> = <A HREF="#gu">soup</A>
+<P>:<B>BTC</B> = <A HREF="#o5">billiard table configuration</A>
+<P>:<B>B track</B><A NAME="c6"></A>  A <A HREF="#lc">track</A> for <A HREF="#k0">B-heptomino</A>es.  The term is more-or-less
+synonymous with <A HREF="#ad">Herschel track</A>, since a B-heptomino becomes a
+Herschel plus a block in twenty generations.
+<P>:<B>buckaroo</B><A NAME="fh"></A>  A <A HREF="#dg">queen bee shuttle</A> stabilized at one end by an eater
+in such a way that it can turn a glider, as shown below.
+<PRE>
+	..O.....................
+	O.O.....................
+	.OO.....................
+	...........O............
+	.........O.O............
+	........O.O.............
+	.......O..O...........OO
+	........O.O...........OO
+	...OO....O.O............
+	..O.O......O............
+	..O.....................
+	.OO.....................
+</PRE>
+<P>:<B>bun</B>  The following <A HREF="#qc">induction coil</A>.  By itself this is a common
+<A HREF="#yj">predecessor</A> of the <A HREF="#ov">honey farm</A>.  See also <A HREF="#pu">cis-mirrored R-bee</A>.
+<PRE>
+	.OO.
+	O..O
+	.OOO
+</PRE>
+<P>:<B>bunnies</B><A NAME="ef"></A> (stabilizes at time 17332)  This is a one-generation
+predecessor of <A HREF="#um">rabbits</A> and was found by Robert Wainwright.
+<PRE>
+	O.....O.
+	..O...O.
+	..O..O.O
+	.O.O....
+</PRE>
+<P>:<B>burloaf</B> = <A HREF="#a4">loaf</A>
+<P>:<B>burloaferimeter</B> (p7)  Found by Dave Buckingham.
+<PRE>
+	.....O.....
+	....O.O....
+	...O.O.O...
+	...O.O.O...
+	OO.O...O.OO
+	OO.O....O.O
+	....OOOO...
+	...........
+	....OO.....
+	....OO.....
+</PRE>
+<P>:<B>bushing</B><A NAME="ro"></A>  That part of the <A HREF="#c9">stator</A> of an <A HREF="#wu">oscillator</A> which is
+adjacent to the <A HREF="#e5">rotor</A>.  Compare <A HREF="#c2">casing</A>.
+<P>:<B>butterfly</B> (p1)  The following fairly common formation of two
+beehives.
+<PRE>
+	.O............
+	O.O...........
+	O.O...........
+	.O............
+	..............
+	..............
+	..............
+	..............
+	..............
+	..............
+	..............
+	...........OO.
+	..........O..O
+	...........OO.
+</PRE>
+<P>:<B>c</B> = <A HREF="#lw">speed of light</A>
+<P>:<B>CA</B> = <A HREF="#g6">cellular automaton</A>
+<P>:<B>caber tosser</B>  A gun of increasing period created by bouncing
+a glider (or some other type of spaceship) off of a receding
+spaceship.
+<P>:<B>Cambridge pulsar CP 48-56-72</B> = <A HREF="#xe">pulsar</A>  (The numbers refer to the
+populations of the three phases.)
+<P>:<B>candelabra</B><A NAME="rc"></A> (p3)  By Charles Trawick.  This is really three copies
+of a smaller oscillator.  See also the note under <A HREF="#vo">cap</A>.
+<PRE>
+	....OO....OO.OO....OO.OO....OO....
+	.O..O......O.O......O.O......O..O.
+	O.O.O......O.O..OO..O.O.O..O.O.O.O
+	.O..O.OOOO.O.O.OOOO.O.O.O..O.O..O.
+	....O.O..O.O.O.O..O.O.O.O..O.O....
+	.....O....O...O....O...O....O.....
+</PRE>
+<P>:<B>canoe</B><A NAME="b2"></A> (p1)
+<PRE>
+	...OO
+	....O
+	...O.
+	O.O..
+	OO...
+</PRE>
+<P>:<B>cap</B><A NAME="vo"></A>  The following <A HREF="#qc">induction coil</A>.  It can also be easily be
+stabilized to form a p3 oscillator - see <A HREF="#rc">candelabra</A> for a slight
+variation on this.
+<PRE>
+	.OO.
+	O..O
+	OOOO
+</PRE>
+<P>:<B>carrier</B> = <A HREF="#jd">aircraft carrier</A>
+<P>:<B>casing</B><A NAME="c2"></A>  That part of the <A HREF="#c9">stator</A> of an <A HREF="#wu">oscillator</A> which is not
+adjacent to the <A HREF="#e5">rotor</A>.  Compare <A HREF="#ro">bushing</A>.
+<P>:<B>catalyst</B>  An object that participates in a reaction but emerges from
+it unharmed.  The term is mostly applied to <A HREF="#nu">still life</A>s, but can
+also be used of <A HREF="#wu">oscillator</A>s, <A HREF="#f4">spaceship</A>s, etc.  The still lifes
+and oscillators which form a <A HREF="#l7">conduit</A> are examples of catalysts.
+<P>:<B>caterer</B><A NAME="ku"></A> (p3)  Found by Dean Hickerson.  Compare with <A HREF="#fi">jam</A>.
+<PRE>
+	..O.....
+	O...OOOO
+	O...O...
+	O.......
+	...O....
+	.OO.....
+</PRE>
+<P>:<B>Catherine wheel</B> = <A HREF="#cf">pinwheel</A>
+<P>:<B>cauldron</B><A NAME="h5"></A> (p8)  Found by Don Woods and Robert Wainwright.  Compare
+with the <A HREF="#ny">Hertz oscillator</A>.
+<PRE>
+	.....O.....
+	....O.O....
+	.....O.....
+	...........
+	...OOOOO...
+	O.O.....O.O
+	OO.O...O.OO
+	...O...O...
+	...O...O...
+	....OOO....
+	...........
+	....OO.O...
+	....O.OO...
+</PRE>
+<P>:<B>cavity</B> (p2)
+<PRE>
+	OO......
+	.O......
+	.O.OO...
+	..O..O..
+	.....O..
+	....O...
+	.....OOO
+	.......O
+</PRE>
+<P>:<B>cell</B><A NAME="vu"></A>  The fundamental unit of space.  The term is often used to mean
+a live cell - the sense is usually clear from the context.
+<P>:<B>cellular automaton</B><A NAME="g6"></A>  A certain class of mathematical objects of which
+<A HREF="#pl">Life</A> is an example.  A cellular automaton consists of a number of
+things.  First there is a positive integer <I>n</I> which is the dimension
+of the cellular automaton.  Then there is a finite set of states <I>S</I>,
+with at least two members.  A state for the whole cellular automaton
+is obtained by assigning an element of <I>S</I> to each point of the
+<I>n</I>-dimensional lattice <B>Z</B><SUP><SMALL><I>n</I></SMALL></SUP>
+(where <B>Z</B> is the set of all integers).
+The points of <B>Z</B><SUP><SMALL><I>n</I></SMALL></SUP>
+are usually called cells.  The cellular automaton
+also has the concept of a neighbourhood.  The neighbourhood <I>N</I> of the
+origin is some finite (nonempty) subset of <B>Z</B><SUP><SMALL><I>n</I></SMALL></SUP>.  The neighbourhood
+of any other cell is obtained in the obvious way by translating that
+of the origin.  Finally there is a transition rule, which is a
+function from <I>S</I><SUP><SMALL><I>N</I></SMALL></SUP> to <I>S</I>
+(that is to say, for each possible state of
+the neighbourhood the transition rule specifies some cell state).
+The state of the cellular automaton evolves in discrete time, with
+the state of each cell at time <I>t</I>+1 being determined by the state
+of its neighbourhood at time <I>t</I>, in accordance with the transition
+rule.<P>
+There are some variations on the above definition.
+It is common to require that there be a quiescent state, that is,
+a state such that if the whole universe is in that state at generation 0
+then it will remain so in generation 1.
+(In Life the OFF state is quiescent, but the ON state is not.)  Other
+variations allow spaces other than <B>Z</B><SUP><SMALL><I>n</I></SMALL></SUP>, neighbourhoods that vary
+over space and/or time, probabilistic or other non-deterministic
+transistion rules, etc., etc.<P>
+It is common for the neighbourhood of a cell to be the 3x...x3
+(hyper)cube centered on that cell.  (This includes those cases
+where the neighbourhood might more naturally be thought of as a
+subset of this cube.)   This is known as the Moore neighbourhood.
+<P>:<B>centinal</B><A NAME="rf"></A> (p100)  Found by Bill Gosper.  This combines the mechanisms
+of the p46 and p54 shuttles (see <A HREF="#my">twin bees shuttle</A> and
+<A HREF="#w6">p54 shuttle</A>).
+<PRE>
+	OO................................................OO
+	.O................................................O.
+	.O.O.....................OO.....................O.O.
+	..OO........O............OO............OO.......OO..
+	...........OO..........................O.O..........
+	..........OO.............................O..........
+	...........OO..OO......................OOO..........
+	....................................................
+	....................................................
+	....................................................
+	...........OO..OO......................OOO..........
+	..........OO.............................O..........
+	...........OO..........................O.O..........
+	..OO........O............OO............OO.......OO..
+	.O.O.....................OO.....................O.O.
+	.O................................................O.
+	OO................................................OO
+</PRE>
+<P>:<B>century</B><A NAME="lv"></A> (stabilizes at time 103)  This is a common pattern which
+evolves into three blocks and a blinker.  In June 1996 Dave
+Buckingham built a neat p246 glider gun using a century as the
+engine.  See also <A HREF="#xs">bookend</A>.
+<PRE>
+	..OO
+	OOO.
+	.O..
+</PRE>
+<P>:<B>chemist</B> (p5)
+<PRE>
+	.......O.......
+	.......OOO.....
+	..........O....
+	.....OOO..O..OO
+	....O.O.O.O.O.O
+	....O...O.O.O..
+	.OO.O.....O.OO.
+	..O.O.O...O....
+	O.O.O.O.O.O....
+	OO..O..OOO.....
+	....O..........
+	.....OOO.......
+	.......O.......
+</PRE>
+<P>:<B>C-heptomino</B>  Name given by Conway to the following <A HREF="#gx">heptomino</A>.
+<PRE>
+	.OOO
+	OOO.
+	.O..
+</PRE>
+<P>:<B>Cheshire cat</B><A NAME="ab"></A>  A block <A HREF="#yj">predecessor</A> by C. R. Tompkins that
+unaccountably appeared both in Scientific American and in
+<A HREF="#v3">Winning Ways</A>.  See also <A HREF="#rb">grin</A>.
+<PRE>
+	.O..O.
+	.OOOO.
+	O....O
+	O.OO.O
+	O....O
+	.OOOO.
+</PRE>
+<P>:<B>cigar</B> = <A HREF="#o6">mango</A>
+<P>:<B>cis-beacon on anvil</B> (p2)
+<PRE>
+	...OO.
+	....O.
+	.O....
+	.OO...
+	......
+	.OOOO.
+	O....O
+	.OOO.O
+	...O.OO
+</PRE>
+<P>:<B>cis-beacon on table</B> (p2)
+<PRE>
+	..OO
+	...O
+	O...
+	OO..
+	....
+	OOOO
+	O..O
+</PRE>
+<P>:<B>cis-boat with tail</B><A NAME="ds"></A> (p1)
+<PRE>
+	.O...
+	O.O..
+	OO.O.
+	...O.
+	...OO
+</PRE>
+<P>:<B>cis fuse with two tails</B><A NAME="eh"></A> (p1)
+<PRE>
+	...O..
+	.OOO..
+	O...OO
+	.O..O.
+	..O.O.
+	...O..
+</PRE>
+<P>:<B>cis-mirrored R-bee</B><A NAME="pu"></A> (p1)
+<PRE>
+	.OO.OO.
+	O.O.O.O
+	O.O.O.O
+	.O...O.
+</PRE>
+<P>:<B>cis snake</B> = <A HREF="#b2">canoe</A>
+<P>:<B>clock</B><A NAME="jx"></A> (p2)  Found by Simon Norton.
+<PRE>
+	..O.
+	O.O.
+	.O.O
+	.O..
+</PRE>
+<P>:<B>clock II</B><A NAME="yr"></A> (p4)  Compare with <A HREF="#cf">pinwheel</A>.
+<PRE>
+	......OO....
+	......OO....
+	............
+	....OOOO....
+	OO.O....O...
+	OO.O..O.O...
+	...O..O.O.OO
+	...O.O..O.OO
+	....OOOO....
+	............
+	....OO......
+	....OO......
+</PRE>
+<P>:<B>cloverleaf</B><A NAME="ch"></A> (p4)  Found by Achim Flammenkamp.  The <A HREF="#e5">rotor</A> here is
+two copies of the rotor of the <A HREF="#wx">1-2-3-4</A>, so the cloverleaf is
+sometimes called the &quot;dual 1-2-3-4&quot;.  See also <A HREF="#l4">sombreros</A>.
+<PRE>
+	..OO...OO..
+	.O..O.O..O.
+	.O.OO.OO.O.
+	OO.......OO
+	..O.O.O.O..
+	OO.......OO
+	.O.OO.OO.O.
+	.O..O.O..O.
+	..OO...OO..
+</PRE>
+<P>:<B>cluster</B><A NAME="lo"></A>  Any pattern in which each live cell is connected to every
+other live cell by a path that does not pass through two consecutive
+dead cells.  This sense is due to Nick Gotts, but obviously the term
+has also been used more vaguely.
+<P>:<B>Coe ship</B> (c/2 ortogonally, p16)  A <A HREF="#pm">puffer engine</A> discovered by Tim
+Coe in October 1995.
+<PRE>
+	....OOOOOO
+	..OO.....O
+	OO.O.....O
+	....O...O.
+	......O...
+	......OO..
+	.....OOOO.
+	.....OO.OO
+	.......OO.
+</PRE>
+<P>:<B>Coe's p8</B> (p8)  Found by Tim Coe in 1997.
+<PRE>
+	OO..........
+	OO..OO......
+	.....OO.....
+	....O..O....
+	.......O..OO
+	.....O.O..OO
+</PRE>
+<P>:<B>conduit</B><A NAME="l7"></A>  Any arrangement of <A HREF="#nu">still life</A>s and/or <A HREF="#wu">oscillator</A>s which
+move an active object to another location, perhaps also transforming
+it into a different active object at the same time, but without
+leaving any permanent debris (except perhaps gliders, or other
+spaceships) and without any of the still lifes or oscillators being
+permanently damaged.  Probably the most important conduit is the
+following remarkable one (Dave Buckingham, July 1996) in which a
+<A HREF="#k0">B-heptomino</A> is transformed into a <A HREF="#ra">Herschel</A> in 59 generations.
+<PRE>
+	.........OO.O
+	O.OO......OOO
+	OO.O.......O.
+	.............
+	.........OO..
+	.........OO..
+</PRE>
+<P>:<B>confused eaters</B> (p4)  Found by Dave Buckingham.
+<PRE>
+	O..........
+	OOO........
+	...O.......
+	..O........
+	..O..O.....
+	.....O.....
+	...O.O.....
+	...OO..OO..
+	.......O.O.
+	.........O.
+	.........OO
+</PRE>
+<P>:<B>Corder engine</B> = <A HREF="#x1">switch engine</A>
+<P>:<B>Cordership</B><A NAME="x4"></A>  Any <A HREF="#f4">spaceship</A> based on <A HREF="#x1">switch engine</A>s.  These
+necessarily move at a speed of c/12 diagonally with a period of 96
+(or, conceivably, a multiple thereof), and the first was found by
+Dean Hickerson in April 1991.  Corderships are by far the slowest
+spaceships yet constructed, although arbitrarily slow spaceships
+are known to exist (see <A HREF="#wt">universal constructor/destructor</A>).
+Hickerson's original Cordership used 13 switch engines.  He later
+reduced this to 10, and, in August 1993, to 7.  Even this last,
+however, is too large to show here.
+<P>:<B>cover</B>  The following <A HREF="#qc">induction coil</A>.  See <A HREF="#wj">scrubber</A> for an example
+of its use.
+<PRE>
+	....O
+	..OOO
+	.O...
+	.O...
+	OO...
+</PRE>
+<P>:<B>covered table</B> = <A HREF="#vo">cap</A>
+<P>:<B>cow</B><A NAME="n6"></A> (c p8 fuse)
+<PRE>
+	OO.......OO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO.....
+	OO....O.OOO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO...OO
+	....OO.O.................................................O.O
+	....OO...OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO..
+	....OO.O..................................................O.
+	OO....O.OOO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO.
+	OO.......OO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO..OO.....
+</PRE>
+<P>:<B>CP pulsar</B> = <A HREF="#xe">pulsar</A>
+<P>:<B>cross</B> (p3)  Found by Robert Wainwright.  This is the smallest of
+an infinite family of p3 oscillators.
+<PRE>
+	..OOOO..
+	..O..O..
+	OOO..OOO
+	O......O
+	O......O
+	OOO..OOO
+	..O..O..
+	..OOOO..
+</PRE>
+<P>:<B>crown</B> (p12)  This is composed of two <A HREF="#ku">caterer</A>s, a <A HREF="#v5">HW emulator</A> and
+a <A HREF="#gg">T-tetromino</A>.  There is some freedom in the placement of the
+caterers, and they can also be replaced by <A HREF="#fi">jam</A>s.
+<PRE>
+	.......OO....OO....OO....
+	......O..O.O....O.O..O...
+	......OOO..........OOO...
+	.........OO......OO......
+	........O..OOOOOO..O.....
+	........OO........OO.....
+	.........................
+	.....O...................
+	OOOO...O...........O.....
+	...O...O....O....O...OOOO
+	.......O...OOO...O...O...
+	....O............O.......
+	.....OO.............O....
+	..................OO.....
+</PRE>
+<P>:<B>crucible</B> = <A HREF="#h5">cauldron</A>
+<P>:<B>cuphook</B><A NAME="fr"></A> (p3)  Found by Rich Schroeppel, late 1970 or early 1971.
+<PRE>
+	....OO...
+	OO.O.O...
+	OO.O.....
+	...O.....
+	...O..O..
+	....OO.O.
+	.......O.
+	.......OO
+</PRE>
+<P>:<B>curl</B> = <A HREF="#zj">loop</A>
+<P>:<B>dart</B><A NAME="mx"></A> (c/3 ortogonally, p3)  Found by David Bell.
+<PRE>
+	.......O.......
+	......O.O......
+	.....O...O.....
+	......OOO......
+	...............
+	....OO...OO....
+	..O...O.O...O..
+	.OO...O.O...OO.
+	O.....O.O.....O
+	.O.OO.O.O.OO.O.
+</PRE>
+<P>:<B>dead spark coil</B><A NAME="st"></A> (p1)
+<PRE>
+	OO...OO
+	O.O.O.O
+	..O.O..
+	O.O.O.O
+	OO...OO
+</PRE>
+<P>:<B>D-heptomino</B> = <A HREF="#ra">Herschel</A>
+<P>:<B>diamond</B> = <A HREF="#t7">tub</A>
+<P>:<B>diamond ring</B> (p3)
+<PRE>
+	......O......
+	.....O.O.....
+	....O.O.O....
+	....O...O....
+	..OO..O..OO..
+	.O....O....O.
+	O.O.OO.OO.O.O
+	.O....O....O.
+	..OO..O..OO..
+	....O...O....
+	....O.O.O....
+	.....O.O.....
+	......O......
+</PRE>
+<P>:<B>diehard</B>  Any pattern that vanishes, but only after a long time.
+The following example (found by myself in April 1998) vanishes in
+130 generations, which is probably the limit for patterns of 7 or
+fewer cells.  Note that there is no limit for higher numbers of
+cells - e.g., for 8 cells we could have a glider heading towards
+an arbitrarily distant blinker.
+<PRE>
+	......O.
+	OO......
+	.O...OOO
+</PRE>
+<P>:<B>dinner table</B> (p12)  Found by Robert Wainwright.
+<PRE>
+	.O...........
+	.OOO.......OO
+	....O......O.
+	...OO....O.O.
+	.........OO..
+	.............
+	.....OOO.....
+	.....OOO.....
+	..OO.........
+	.O.O....OO...
+	.O......O....
+	OO.......OOO.
+	...........O.
+</PRE>
+<P>:<B>dock</B><A NAME="gt"></A>  The following <A HREF="#qc">induction coil</A>.
+<PRE>
+	.OOOO.
+	O....O
+	OO..OO
+</PRE>
+<P>:<B>domino</B><A NAME="e0"></A>  The 2-cell <A HREF="#kw">polyomino</A>.  A number of objects, such as the
+<A HREF="#lg">HWSS</A> and <A HREF="#ah">pentadecathlon</A>, produce domino <A HREF="#kv">spark</A>s.
+<P>:<B>double block reaction</B><A NAME="zc"></A>  A certain reaction that can be used to
+stabilize the <A HREF="#my">twin bees shuttle</A> (qv).  This was discovered by
+David Bell in October 1996.  The same reaction sometimes works in
+other situations, as shown in the following diagram where a pair
+of blocks eats an <A HREF="#t2">R-pentomino</A> and a <A HREF="#lk">LWSS</A>.
+<PRE>
+	.OOOO.....OO....
+	O...O......OO.OO
+	....O......O..OO
+	O..O............
+	................
+	.............OO.
+	.............OO.
+</PRE>
+<P>:<B>double head</B> = <A HREF="#e1">paperclip</A>
+<P>:<B>double wing</B> = <A HREF="#ik">moose antlers</A>
+<P>:<B>dove</B>  The following <A HREF="#qc">induction coil</A>.
+<PRE>
+	.OO..
+	O..O.
+	.O..O
+	..OOO
+</PRE>
+<P>:<B>down boat with tail</B> = <A HREF="#ds">cis-boat with tail</A>
+<P>:<B>drain trap</B> = <A HREF="#e1">paperclip</A>
+<P>:<B>dual 1-2-3-4</B> = <A HREF="#ch">cloverleaf</A>
+<P>:<B>eater</B><A NAME="yz"></A>  Any still life that has the ability to repair itself
+after suffering certain types of damage.  The term is also
+used specifically to refer to the <A HREF="#fv">fishhook</A>.
+<P>:<B>eater2</B><A NAME="cu"></A> (p1)  This <A HREF="#nu">still life</A> has essentially the same eating
+action as the ordinary eater (see <A HREF="#fv">fishhook</A>).  There are two basic
+reasons why it is occasionally useful: because of its symmetry it
+acts like an eater in two directions, and also it takes longer to
+recover from each bite.  This second property means that, among
+other things, it can eat a <A HREF="#bf">glider</A> in a position that would destroy
+a fishhook.  This novel glider-eating action is occasionally of use
+in itself, and combined with the symmetry means that an eater2 can
+eat gliders along four different paths.
+<PRE>
+	...O.OO
+	.OOO.OO
+	O......
+	.OOO.OO
+	...O.O.
+	...O.O.
+	....O..
+</PRE>
+<P>:<B>eater3</B><A NAME="vj"></A> (p1)  This large symmetric <A HREF="#yz">eater</A> has a very different
+eating action from the <A HREF="#fv">fishhook</A> and <A HREF="#cu">eater2</A>.  The <A HREF="#a4">loaf</A> can
+take bites out things, being flipped over in the process.  The
+rest of the eater merely flips it back again.
+<PRE>
+	.........OO.
+	....OO..O..O
+	.O..O....O.O
+	O.O.O.....O.
+	.O..O.OO....
+	....O..O....
+	.....O....O.
+	......OOOOO.
+	............
+	........O...
+	.......O.O..
+	........O...
+</PRE>
+<P>:<B>eater/block frob</B> (p4)  Found by Dave Buckingham.
+<PRE>
+	.OO.......
+	..O.......
+	..O.O.....
+	...O.O....
+	.....OO.OO
+	........OO
+	..OO......
+	...O......
+	OOO.......
+	O.........
+</PRE>
+<P>:<B>eater-bound pond</B><A NAME="mq"></A> (p3)
+<PRE>
+	O...........
+	OOO.........
+	...O........
+	..OO........
+	...OO.......
+	....OO......
+	...O..O.....
+	...O..OO....
+	....OO.OOO..
+	........O.O.
+	..........O.
+	..........OO
+</PRE>
+<P>:<B>eater-bound Z-hexomino</B> = <A HREF="#dy">pentoad</A>
+<P>:<B>eater eating eater</B> = <A HREF="#sq">two eaters</A>
+<P>:<B>eaters +</B> = <A HREF="#pp">French kiss</A>
+<P>:<B>ecologist</B><A NAME="aj"></A> (c/2 orthogonally, p20)  This consists of the classic
+<A HREF="#wm">puffer train</A> with a LWSS added to suppress the debris.  See also
+<A HREF="#ys">space rake</A>.
+<PRE>
+	OOOO.....OO........
+	O...O...OO.OO......
+	O........OOOO......
+	.O..O.....OO.......
+	...................
+	.....O.........OO..
+	...OOO........OOOOO
+	..O...O.....O....OO
+	..O....OOOOO.....OO
+	..OO.O.OOOO....OO..
+	....O...OO.OOO.....
+	.....O.O...........
+	...................
+	...................
+	OOOO...............
+	O...O..............
+	O..................
+	.O..O..............
+</PRE>
+<P>:<B>edge spark</B>  A <A HREF="#kv">spark</A> at the side of a <A HREF="#f4">spaceship</A> that can be
+used to perturb things as the spaceship passes by.
+<P>:<B>egg</B> = <A HREF="#gl">non-spark</A>
+<P>:<B>E-heptomino</B>  Name given by Conway to the following <A HREF="#gx">heptomino</A>.
+<PRE>
+	.OOO
+	OO..
+	.OO.
+</PRE>
+<P>:<B>elevener</B><A NAME="hm"></A> (p1)
+<PRE>
+	OO....
+	O.O...
+	..O...
+	..OOO.
+	.....O
+	....OO
+</PRE>
+<P>:<B>Elkies' p5</B> (p5)  Found by Noam Elkies in 1997.
+<PRE>
+	.O.......
+	O..OOO...
+	..O......
+	...O.O..O
+	..OO.OOOO
+	....O....
+	....O.O..
+	.....OO..
+</PRE>
+<P>:<B>emu</B><A NAME="wi"></A>  Dave Buckingham's term for a <A HREF="#ba">Herschel loop</A> that does not
+emit <A HREF="#bf">glider</A>s (and so is &quot;flightless&quot;).  Until recently all
+Herschel loops of period less than 62 were emus, because with
+lower periods any gliders produced tend to hit the following
+Herschel and so must be deleted.  Progress has recently been
+made by Dieter Leithner (see <A HREF="#kn">Quetzalcoatlus</A>).
+<P>:<B>emulator</B><A NAME="df"></A>  Any one of three p4 oscillators that produce <A HREF="#kv">spark</A>s
+similar to those produced by <A HREF="#lk">LWSS</A>, <A HREF="#ll">MWSS</A> and <A HREF="#lg">HWSS</A>.  See
+<A HREF="#v9">LW emulator</A>, <A HREF="#v8">MW emulator</A> and <A HREF="#v5">HW emulator</A>.  Larger emulators
+are also possible, but they require stabilizing objects to suppress
+their <A HREF="#gl">non-spark</A>s and so are of little use.  The emulators were
+discovered by Robert Wainwright in 1980.
+<P>:<B>Eureka</B><A NAME="rn"></A> (p30)   A <A HREF="#k7">shuttle</A> found by Dave Buckingham and Robert
+Wainwright.  See <A HREF="#fu">pre-pulsar</A>.
+<PRE>
+	.O..............O.
+	O.O....O.......O.O
+	.O...OO.OO......O.
+	.......O..........
+	..................
+	..................
+	..................
+	.......O..........
+	.O...OO.OO......O.
+	O.O....O.......O.O
+	.O..............O.
+</PRE>
+<P>:<B>exposure</B> = <A HREF="#mk">underpopulation</A>
+<P>:<B>extremely impressive</B> (p6)  Found by Dave Buckingham.
+<PRE>
+	....OO......
+	...O.OOO....
+	...O....O...
+	OO.O...OO...
+	OO.O.....OO.
+	....OOOOO..O
+	..........OO
+	......O.....
+	.....O.O....
+	......O.....
+</PRE>
+<P>:<B>evolutionary factor</B>  For an unstable pattern, the time to
+stabilization divided by the initial <A HREF="#yv">population</A>.  For example,
+the <A HREF="#t2">R-pentomino</A> has an evolutionary factor of 220.6, while
+<A HREF="#ef">bunnies</A> has an evolutionary factor of 1925.777...  The term
+is no longer in use.
+<P>:<B>factory</B><A NAME="z8"></A>  Another word for <A HREF="#gv">gun</A>, but not used in the case of glider
+guns.  The term is also used for a pattern that repeatedly
+manufactures objects other than spaceships or rakes.  In this case
+the new objects do not move out of the way, and therefore must be
+used up in some way before the next one is made.  The following
+shows an example of a p144 gun which consists of a p144 block
+factory whose output is converted into gliders by a p72 oscillator.
+(This gun was found by Bill Gosper in 1994.  The p72 oscillator
+is by Robert Wainwright, 1990, and the block factory is
+<A HREF="#l6">Achim's p144</A> minus one of its stabilizing blocks.)
+<PRE>
+	.......................OO........................OO
+	.......................OO........................OO
+	.........................................OO........
+	........................................O..O.......
+	.........................................OO........
+	...................................................
+	....................................OOO............
+	....................................O.O............
+	.........OO.........................OOO............
+	.........OO.........................OO.............
+	........O..O.......................OOO.............
+	........O..O.OO....................O.O.............
+	........O....OO....................OOO.............
+	..........OO.OO....................................
+	...............................OO..................
+	.....................OO.......O..O.................
+	.....................OO........OO..................
+	.................................................OO
+	.................................................OO
+	...................................................
+	....OO..................O..........................
+	OO....OOOO..........OO..OO.OOO.....................
+	OO..OO.OOO..........OO....OOOO.....................
+	....O...................OO.........................
+</PRE>
+<P>:<B>familiar fours</B>  Common patterns of four identical objects.  The
+five commonest are <A HREF="#mo">traffic light</A> (4 blinkers), <A HREF="#ov">honey farm</A>
+(4 beehives), <A HREF="#f5">blockade</A> (4 blocks), <A HREF="#v6">fleet</A> (4 ships, although
+really 2 ship-ties) and <A HREF="#yb">bakery</A> (4 loaves, although really 2
+bi-loaves).
+<P>:<B>father</B> = <A HREF="#yc">parent</A>
+<P>:<B>featherweight spaceship</B> = <A HREF="#bf">glider</A>
+<P>:<B>fencepost</B><A NAME="l8"></A>  Any pattern that stabilizes one end of a wick.
+<P>:<B>F-heptomino</B>  Name given by Conway to the following <A HREF="#gx">heptomino</A>.
+<PRE>
+	OO..
+	.O..
+	.O..
+	.OOO
+</PRE>
+<P>:<B>figure-8</B><A NAME="f8"></A> (p8)  Found by Simon Norton.
+<PRE>
+	OOO...
+	OOO...
+	OOO...
+	...OOO
+	...OOO
+	...OOO
+</PRE>
+<P>:<B>fish</B>  A generic term for <A HREF="#lk">LWSS</A>, <A HREF="#ll">MWSS</A> and <A HREF="#lg">HWSS</A>, or, more
+generally, for any <A HREF="#f4">spaceship</A>.
+<P>:<B>fishhook</B><A NAME="fv"></A> (p1)  Usually simply called an <A HREF="#yz">eater</A>.  It was found by
+Clement Lessner and William Webb.  Its ability to eat various
+objects was discovered by Bill Gosper in 1971.
+<PRE>
+	OO..
+	O.O.
+	..O.
+	..OO
+</PRE>
+<P>:<B>fleet</B><A NAME="v6"></A> (p1)  A common formation of two ship-ties.
+<PRE>
+	....OO....
+	....O.O...
+	.....OO...
+	.......OO.
+	OO.....O.O
+	O.O.....OO
+	.OO.......
+	...OO.....
+	...O.O....
+	....OO....
+</PRE>
+<P>:<B>flip-flop</B><A NAME="bh"></A>  Any p2 <A HREF="#wu">oscillator</A>.  However, the term is also used
+in two more specific (and non-equivalent) senses: (a) any p2
+oscillator whose two phases are mirror images of one another,
+and (b) any p2 oscillator in which all <A HREF="#e5">rotor</A> cells die from
+<A HREF="#mk">underpopulation</A>.  In the latter sense it contrasts with <A HREF="#cz">on-off</A>.
+The term has also been used even more specifically for the 12-cell
+flip-flop shown under <A HREF="#wd">phoenix</A>.
+<P>:<B>flipper</B><A NAME="ay"></A>  Any oscillator or spaceship that forms its mirror image
+halfway through its period.
+<P>:<B>flotilla</B><A NAME="us"></A>  A <A HREF="#f4">spaceship</A> composed of a number of smaller interacting
+spaceships.  Often one or more of these is not a true spaceship and
+could not survive without the support of the others.  The following
+example shows an <A HREF="#ln">OWSS</A> escorted by two <A HREF="#lg">HWSS</A>.
+<PRE>
+	....OOOO.......
+	...OOOOOO......
+	..OO.OOOO......
+	...OO..........
+	...............
+	...........OO..
+	.O............O
+	O..............
+	O.............O
+	OOOOOOOOOOOOOO.
+	...............
+	...............
+	....OOOO.......
+	...OOOOOO......
+	..OO.OOOO......
+	...OO..........
+</PRE>
+<P>:<B>fly</B><A NAME="u1"></A>  A certain c/3 <A HREF="#kd">tagalong</A> found by David Bell, shown here
+attached to the back of a small spaceship (also by Bell).
+<PRE>
+	..O...............................
+	.O.O..............................
+	.O.O......................O.O...O.
+	.O.......................OO.O.O..O
+	...........OOO........O.........O.
+	OO.........OO..O.OO...O..OOOO.....
+	.O.O.........OOOO..O.O..OO....OO..
+	.OO........O..O...OOO.....OOO.....
+	..O.......O....O..OO..OO..O..O....
+	...O..O...O....O..OOO.O.O....OO...
+	.......O.OO....O..OOOO.....O......
+	....OO...OO....O..OOOO.....O......
+	....O.O...O....O..OOO.O.O....OO...
+	...OO.....O....O..OO..OO..O..O....
+	....O.O....O..O...OOO.....OOO.....
+	.....O.......OOOO..O.O..OO....OO..
+	...........OO..O.OO...O..OOOO.....
+	...........OOO........O.........O.
+	.........................OO.O.O..O
+	..........................O.O...O.
+</PRE>
+<P>:<B>flying machine</B> = <A HREF="#j0">Schick engine</A>
+<P>:<B>fore and back</B><A NAME="p1"></A> (p2)  Compare <A HREF="#sv">snake pit</A>.
+<PRE>
+	OO.OO..
+	OO.O.O.
+	......O
+	OOO.OOO
+	O......
+	.O.O.OO
+	..OO.OO
+</PRE>
+<P>:<B>fountain</B><A NAME="db"></A> (p4)  Found by Dean Hickerson.
+<PRE>
+	.........O.........
+	...................
+	...OO.O.....O.OO...
+	...O.....O.....O...
+	....OO.OO.OO.OO....
+	...................
+	......OO...OO......
+	OO...............OO
+	O..O...O.O.O...O..O
+	.OOO.OOOOOOOOO.OOO.
+	....O....O....O....
+	...OO.........OO...
+	...O...........O...
+	.....O.......O.....
+	....OO.......OO....
+</PRE>
+<P>:<B>fourteener</B><A NAME="d1"></A> (p1)
+<PRE>
+	....OO.
+	OO..O.O
+	O.....O
+	.OOOOO.
+	...O...
+</PRE>
+<P>:<B>French kiss</B><A NAME="pp"></A> (p3)  Found by Robert Wainwright.
+<PRE>
+	O.........
+	OOO.......
+	...O......
+	..O..OO...
+	..O....O..
+	...OO..O..
+	......O...
+	.......OOO
+	.........O
+</PRE>
+<P>:<B>fumarole</B><A NAME="m9"></A> (p5)  Found by Dean Hickerson.
+<PRE>
+	...OO...
+	.O....O.
+	.O....O.
+	.O....O.
+	..O..O..
+	O.O..O.O
+	OO....OO
+</PRE>
+<P>:<B>fuse</B><A NAME="ai"></A>  A wick burning at one end.  For examples, see <A HREF="#bi">baker</A>,
+<A HREF="#g4">beacon maker</A>, <A HREF="#zd">blinker ship</A>, <A HREF="#ks">boat maker</A>, <A HREF="#n6">cow</A>, <A HREF="#qq">harvester</A>,
+<A HREF="#el">lightspeed wire</A>, <A HREF="#sy">pi ship</A>, <A HREF="#q9">reverse fuse</A>, <A HREF="#sl">superstring</A> and
+<A HREF="#iq">washerwoman</A>.  Useful fuses are usually clean, i.e. they leave
+behind no debris.
+<P>:<B>galaxy</B> = <A HREF="#ko">Kok's galaxy</A>
+<P>:<B>Game of Life</B><A NAME="tc"></A> = <A HREF="#pl">Life</A>
+<P>:<B>Garden of Eden</B><A NAME="wc"></A>  A pattern that has no parent, and so can only occur
+in generation 0.  (This term was first used in connection with
+cellular automata by John W. Tukey, long before Life was invented.)
+It was known from the start that there are Gardens of Eden in Life,
+because of a theorem by Edward Moore that guarantees their existence
+in a wide class of cellular automata.  Explicit examples have since
+been constructed, the first by Roger Banks, et al. at MIT in 1971.
+The following is an example with only 143 on cells.
+<PRE>
+	OO.O.O.O.OO.O.
+	O.OOO.OOO.OO.O
+	OOOO.OOO.OO.O.
+	OOO.O.O.O.OOOO
+	.OOO.O.OOO.OO.
+	OOOOOOO.OOOO.O
+	.O.O.OOOOOOOO.
+	O.OOO.OO.O.O.O
+	OOOOOO.OOOOOO.
+	O.OO.OOOOO.O.O
+	OOO.OOOOOOOOO.
+	.OOO.O.O.O.OOO
+	OOO.O.O.O.OO.O
+	O.OOOOOOOOOOOO
+</PRE>
+<P>:<B>generation</B><A NAME="sx"></A>  The fundamental unit of time.  The starting pattern is
+generation 0.
+<P>:<B>glasses</B> (p2)  Compare <A HREF="#wj">scrubber</A> and <A HREF="#jy">spark coil</A>.
+<PRE>
+	....O........O....
+	..OOO........OOO..
+	.O..............O.
+	.O..OOO....OOO..O.
+	OO.O...O..O...O.OO
+	...O...OOOO...O...
+	...O...O..O...O...
+	....OOO....OOO....
+	..................
+	....OO.O..O.OO....
+	....O.OO..OO.O....
+</PRE>
+<P>:<B>glider</B><A NAME="bf"></A> (c/4 diagonally, p4)  The smallest, most common and first
+discovered <A HREF="#f4">spaceship</A>.  This was found by Conway's group in 1970
+while attempting to track the evolution of the <A HREF="#t2">R-pentomino</A>.
+The name is due in part to the fact that it is <A HREF="#x6">glide symmetric</A>.
+<PRE>
+	OOO
+	O..
+	.O.
+</PRE>
+<P>:<B>glider construction</B> = <A HREF="#vr">glider synthesis</A>
+<P>:<B>gliderless</B><A NAME="i7"></A>  A <A HREF="#gv">gun</A> is said to be gliderless if it does not use
+<A HREF="#bf">glider</A>s.  The purist definition would insist that a glider does
+not appear anywhere, even incidentally.  For a long time the only
+known way to construct <A HREF="#lk">LWSS</A>, <A HREF="#ll">MWSS</A> and <A HREF="#lg">HWSS</A> guns involved
+gliders, and it was not until April 1996 that Dieter Leithner
+constructed the first gliderless gun (a p46 LWSS gun).  The
+following picture shows Dieter Leithner's p44 MWSS gun which
+he discovered in April 1997 (except that I have mutilated the
+<A HREF="#cu">eater2</A> to reduce the area).  This is the smallest known
+gliderless gun, and also the smallest known MWSS gun.  (Note
+that a glider shape appears in this gun for three consecutive
+generations, but always as part of a larger <A HREF="#lo">cluster</A>, so even
+a purist would regard this gun as gliderless.)
+<PRE>
+	.........OO....OO....OO...........................
+	........O..O.O....O.O..O..........................
+	........OOO..........OOO..........................
+	...........OO......OO.............................
+	..........O..OOOOOO..O............................
+	..........OO........OO............................
+	.................................O................
+	...............................OOO................
+	..............................O........OOO........
+	..............................OO.......O..O.......
+	.........................O.............O..........
+	........................O..............O...O......
+	.........................OO............O..........
+	........................O.O.............O.O.......
+	..................................................
+	.......................O.O.....OOO..............OO
+	........................O.....O..O...............O
+	OO............OOO.......O......OO...........OO.O..
+	OO...........O...O..........................OO.OO.
+	.............OO.OO................................
+	.................................OO.........OO.OO.
+	..............................OO.............O.O..
+	.............................................O.O..
+	..............................................O...
+	.............OO.OO.............O.O................
+	OO...........O...O.............OO.................
+	OO............OOO.................................
+	...........................OO.....................
+	...........................O.O....................
+	.............................O....................
+	.............................OO...................
+	..................................................
+	..................................................
+	..................................................
+	..................................................
+	..................................................
+	..................................................
+	..................................................
+	..........OO........OO............................
+	..........O..OOOOOO..O............................
+	...........OO......OO.............................
+	........OOO..........OOO..........................
+	........O..O.O....O.O..O..........................
+	.........OO....OO....OO...........................
+</PRE>
+<P>:<B>gliders by the dozen</B> (stabilizes at time 184)  In early references
+this is usually shown in a larger form whose generation 1 is
+generation 8 of the form shown here.
+<PRE>
+	OO..O
+	O...O
+	O..OO
+</PRE>
+<P>:<B>glider synthesis</B><A NAME="vr"></A>  Construction of an object by means of <A HREF="#bf">glider</A>
+collisions.  There is an integer <I>n</I> such that every object
+which has a glider synthesis has an <I>n</I>-glider synthesis (see
+<A HREF="#wt">universal constructor/destructor</A>), but any such <I>n</I> is surely
+very large.  Glider syntheses for all <A HREF="#nu">still life</A>s and known
+<A HREF="#wu">oscillator</A>s with at most 14 cells were found by Dave Buckingham.<P>
+Perhaps most interesting are glider syntheses of <A HREF="#f4">spaceship</A>s,
+because these can be used to create <A HREF="#gv">gun</A>s firing these spaceships.
+Many of the c/2 spaceships that are based on <A HREF="#u3">standard spaceship</A>s
+have been synthesized, mostly by Mark Niemiec.  In June 1998 Stephen
+Silver found syntheses for some of the <A HREF="#x4">Cordership</A>s.  All other
+spaceships (except the glider itself, of course) have so far eluded
+synthesis.  Many of them are <A HREF="#iv">space dust</A>.<P>
+The following diagram shows a 3-glider synthesis of the
+<A HREF="#ah">pentadecathlon</A>.  This was found fairly recently by Heinrich Koenig
+and came as a surprise, as it was widely assumed that anything using
+just three gliders would already be known.
+<PRE>
+	......O...
+	......O.O.
+	......OO..
+	..........
+	OOO.......
+	..O.......
+	.O.....OO.
+	........OO
+	.......O..
+</PRE>
+<P>:<B>glider train</B>  A certain <A HREF="#z6">puffer</A> that produces two rows of <A HREF="#k1">block</A>s
+and two backward <A HREF="#bf">glider</A> waves.  Ten of these were used to make the
+first <A HREF="#xb">breeder</A>.
+<P>:<B>glide symmetric</B><A NAME="x6"></A>  Undergoing simultaneous reflection and translation.
+A glide symmetric <A HREF="#f4">spaceship</A> is commonly called a <A HREF="#ay">flipper</A>.
+<P>:<B>GoE</B> = <A HREF="#wc">Garden of Eden</A>
+<P>:<B>GoL</B> = <A HREF="#tc">Game of Life</A>
+<P>:<B>Gosper glider gun</B><A NAME="w8"></A>  The first known <A HREF="#gv">gun</A>, and indeed the first known
+finite pattern with unbounded growth, found by Bill Gosper in
+November 1970.  A glider synthesis for this gun is shown under
+<A HREF="#vr">glider synthesis</A>.  Gosper has since found other guns, see
+<A HREF="#zg">new gun</A> and the p144 gun shown under <A HREF="#z8">factory</A>.
+<PRE>
+	........................O...........
+	......................O.O...........
+	............OO......OO............OO
+	...........O...O....OO............OO
+	OO........O.....O...OO..............
+	OO........O...O.OO....O.O...........
+	..........O.....O.......O...........
+	...........O...O....................
+	............OO......................
+</PRE>
+<P>:<B>gourmet</B><A NAME="a9"></A> (p32)  Found by Dave Buckingham and Robert Wainwright.
+Compare with <A HREF="#jp">pi portraitor</A> and <A HREF="#g9">popover</A>.
+<PRE>
+	..........OO........
+	..........O.........
+	..O.OO.OO.O.....OO..
+	..OO.O.O.O......O...
+	........O........O..
+	................OO..
+	....................
+	................OO..
+	O.........OOO..O.O..
+	OOO.......O.O...O...
+	...O......O.O....OOO
+	..O.O..............O
+	..OO................
+	....................
+	..OO................
+	..O........O........
+	...O......O.O.O.OO..
+	..OO.....O.OO.OO.O..
+	.........O..........
+	........OO..........
+</PRE>
+<P>:<B>grammar</B>  A set of rules for connecting components together to make
+an object such as a spaceship, oscillator or still life.
+<P>:<B>grandfather</B> = <A HREF="#gp">grandparent</A>
+<P>:<B>grandparent</B><A NAME="gp"></A>  A pattern is said to be a grandparent of the pattern it
+gives rise to after two generations.  See also <A HREF="#yc">parent</A>.
+<P>:<B>grapser</B> = <A HREF="#jy">spark coil</A>
+<P>:<B>Gray counter</B><A NAME="bc"></A> (p4)  If you look at this in the right way you will see
+that it cycles through the Gray codes from 0 to 3.  Compare with
+<A HREF="#s4">R2D2</A>.
+<PRE>
+	....O....
+	...O.O...
+	....O....
+	.........
+	..OOOOO..
+	.O.....O.
+	O.O...O.O
+	.O.....O.
+	..OOOOO..
+	.........
+	....O....
+	...O.O...
+	....O....
+</PRE>
+<P>:<B>great on-off</B><A NAME="ma"></A> (p2)
+<PRE>
+	..OO....
+	.O..O...
+	.O.O....
+	OO.O..O.
+	....OO.O
+	.......O
+	....OOO.
+	....O...
+</PRE>
+<P>:<B>grey counter</B> = <A HREF="#bc">Gray counter</A>  (This form is erroneous, as Gray is
+surname, not a colour.)
+<P>:<B>grin</B><A NAME="rb"></A>  The following common <A HREF="#yc">parent</A> of the <A HREF="#k1">block</A>.  The name is not
+really used in practice - it relates to the infamous <A HREF="#ab">Cheshire cat</A>.
+See also <A HREF="#vw">pre-block</A>.
+<PRE>
+	O..O
+	.OO.
+</PRE>
+<P>:<B>growing spaceship</B><A NAME="t6"></A>  An object that moves like a spaceship, except
+that its front part moves faster than its back part and a wick
+extends between the two.  Put another way, a growing spaceship is
+a puffer whose output is burning cleanly at a slower rate than
+the puffer is producing it.  Examples include <A HREF="#zd">blinker ship</A>s and
+<A HREF="#sy">pi ship</A>s.
+<P>:<B>gull</B> = <A HREF="#hm">elevener</A>
+<P>:<B>gun</B><A NAME="gv"></A>  Any stationary pattern that emits <A HREF="#f4">spaceship</A>s (or <A HREF="#e8">rake</A>s)
+forever.  See also <A HREF="#z8">factory</A>.
+<P>:<B>gunstar</B><A NAME="xo"></A>  Any of a series of glider guns of period 144+72<I>n</I> (for all
+non-negative integers <I>n</I>) constructed by Dave Buckingham in 1990
+based on his <A HREF="#mm">transparent block reaction</A> and Robert Wainwright's
+p72 oscillator (shown under <A HREF="#z8">factory</A>).
+<P>:<B>half bakery</B>  See <A HREF="#dx">bi-loaf</A>.
+<P>:<B>half fleet</B> = <A HREF="#z3">ship-tie</A>
+<P>:<B>hammer</B>  To hammer a <A HREF="#lk">LWSS</A>, <A HREF="#ll">MWSS</A> or <A HREF="#lg">HWSS</A> is to smash things into
+the rear end of it in order to transform it into a different type
+of <A HREF="#f4">spaceship</A>.  A hammer is the object used to do the hammering.
+In the following example by Dieter Leithner a LWSS is hammered by
+two more LWSS to make it into a MWSS.
+<PRE>
+	O..O................
+	....O...OO..........
+	O...O..OOO.....OOOO.
+	.OOOO..OO.O....O...O
+	........OOO....O....
+	.........O......O..O
+</PRE>
+<P>:<B>harvester</B><A NAME="qq"></A> (c p4 fuse)  Found by David Poyner, this was the first
+published example of a <A HREF="#ai">fuse</A>.  The name refers to the fact the it
+produces debris in the form of <A HREF="#k1">block</A>s which contain the same
+number of cells as the fuse has burnt up.
+<PRE>
+	................OO
+	...............O.O
+	..............O...
+	.............O....
+	............O.....
+	...........O......
+	..........O.......
+	.........O........
+	........O.........
+	.......O..........
+	......O...........
+	.....O............
+	OOOOO.............
+	OOOO..............
+	O.OO..............
+</PRE>
+<P>:<B>HashLife</B>  A Life algorithm that works by storing patterns in a hash
+table, and using this to jump forward a number of generations at a
+time.  This is very fast, but requires a large amount of memory.
+<P>:<B>hassle</B><A NAME="wo"></A>  See <A HREF="#ua">hassler</A>.
+<P>:<B>hassler</B><A NAME="ua"></A>  An <A HREF="#wu">oscillator</A> that works by hassling (repeatedly moving or
+changing) some object.  For some examples, see <A HREF="#k5">toadsucker</A>,
+<A HREF="#mz">traffic circle</A> and <A HREF="#qw">baker's dozen</A>.
+<P>:<B>hat</B> (p1)  Found by Charles Corderman.
+<PRE>
+	..O..
+	.O.O.
+	.O.O.
+	OO.OO
+</PRE>
+<P>:<B>havoc</B> = <A HREF="#o6">mango</A>  (This name derives from a diagram in <A HREF="#v3">Winning Ways</A>
+which shows a glider about to hit a mango.  The diagram is labelled
+&quot;Glider causes havoc!&quot;.)
+<P>:<B>heavyweight emulator</B> = <A HREF="#v5">HW emulator</A>
+<P>:<B>heavyweight spaceship</B> = <A HREF="#lg">HWSS</A>
+<P>:<B>heavyweight volcano</B><A NAME="t5"></A> = <A HREF="#t9">HW volcano</A>
+<P>:<B>hebdarole</B> (p7)  Found by Noam Elkies, November 1997.  Compare
+<A HREF="#m9">fumarole</A>.  The smaller version shown below was found by Alan
+Hensel (with a few extra pixels shaved off by myself).  The top
+tens rows can be stabilized by their mirror image (giving an
+<A HREF="#fn">inductor</A>) and this was the original form found by Elkies.
+<PRE>
+	...........OO...........
+	....OO...O....O...OO....
+	.O..O..O.O....O.O..O..O.
+	O.O.O.OO.O....O.OO.O.O.O
+	.O..O..O.O.OO.O.O..O..O.
+	....OO....O..O....OO....
+	...........OO...........
+	.......O..O..O..O.......
+	......O.OO....OO.O......
+	.......O........O.......
+	........................
+	...OO..............OO...
+	...O..OOOO....OOOO..O...
+	....O.O.O.O..O.O.O.O....
+	...OO.O...OOOO...O.OO...
+	.......OO......OO.......
+	.........OO..OO.........
+	.........O..O.O.........
+	..........OO............
+</PRE>
+<P>:<B>Heisenburp device</B>  A pattern which can detect the passage of a
+glider without affecting the glider's path or timing.  The first
+such device was constructed by David Bell in December 1992.
+<P>:<B>heptaplet</B>  Any 7-cell <A HREF="#k8">polyplet</A>.
+<P>:<B>heptapole</B><A NAME="gh"></A> (p2)  The <A HREF="#jz">barberpole</A> of length 7.
+<PRE>
+	OO........
+	O.O.......
+	..........
+	..O.O.....
+	..........
+	....O.O...
+	..........
+	......O.O.
+	.........O
+	........OO
+</PRE>
+<P>:<B>heptomino</B><A NAME="gx"></A>  Any 7-cell <A HREF="#kw">polyomino</A>.  There are 108 such objects.
+Those with names in common use are the <A HREF="#k0">B-heptomino</A>, the
+<A HREF="#ra">Herschel</A> and the <A HREF="#hg">pi-heptomino</A>.
+<P>:<B>Herschel</B><A NAME="ra"></A> (stabilizes at time 128)  The following pattern which
+occurs at generation 20 of the <A HREF="#k0">B-heptomino</A>.
+<PRE>
+	O..
+	OOO
+	O.O
+	..O
+</PRE>
+<P>:<B>Herschel conduit</B><A NAME="zs"></A>  A <A HREF="#l7">conduit</A> that moves a <A HREF="#ra">Herschel</A> from one place
+to another.
+<P>:<B>Herschel loop</B><A NAME="ba"></A>  A cyclic <A HREF="#ad">Herschel track</A>.
+<P>:<B>Herschel track</B><A NAME="ad"></A>  A <A HREF="#lc">track</A> for <A HREF="#ra">Herschel</A>s.  See also <A HREF="#c6">B track</A>.
+<P>:<B>Hertz oscillator</B><A NAME="ny"></A> (p8)  Compare <A HREF="#ow">negentropy</A>, and also <A HREF="#h5">cauldron</A>.
+Found by Conway's group.
+<PRE>
+	...OO.O....
+	...O.OO....
+	...........
+	....OOO....
+	...O.O.O.OO
+	...O...O.OO
+	OO.O...O...
+	OO.O...O...
+	....OOO....
+	...........
+	....OO.O...
+	....O.OO...
+</PRE>
+<P>:<B>hexadecimal</B> = <A HREF="#cg">beehive and dock</A>
+<P>:<B>hexaplet</B>  Any 6-cell <A HREF="#k8">polyplet</A>.
+<P>:<B>hexapole</B><A NAME="kt"></A> (p2)  The <A HREF="#jz">barberpole</A> of length 6.
+<PRE>
+	OO.......
+	O.O......
+	.........
+	..O.O....
+	.........
+	....O.O..
+	.........
+	......O.O
+	.......OO
+</PRE>
+<P>:<B>hexomino</B><A NAME="hk"></A>  Any 6-cell <A HREF="#kw">polyomino</A>.  There are 35 such objects.
+For some examples see <A HREF="#lv">century</A>, <A HREF="#os">stairstep hexomino</A>, <A HREF="#fe">table</A>,
+<A HREF="#dn">toad</A> and <A HREF="#la">Z-hexomino</A>.
+<P>:<B>H-heptomino</B>  Name given by Conway to the following <A HREF="#gx">heptomino</A>.
+<PRE>
+	OO..
+	.O..
+	.OOO
+	..O.
+</PRE>
+<P>:<B>hive</B> = <A HREF="#p5">beehive</A>
+<P>:<B>hive-nudger</B><A NAME="ao"></A> (c/2 orthogonally, p4)  A <A HREF="#f4">spaceship</A> found by Hartmut
+Holzwart in 1992.  It consists of a <A HREF="#yn">pre-beehive</A> escorted by four
+<A HREF="#lk">LWSS</A>.  In fact any LWSS can be replaced by a <A HREF="#ll">MWSS</A> or a <A HREF="#lg">HWSS</A>,
+so that there are 45 different single-hive hive-nudgers.
+<PRE>
+	OOOO.....O..O
+	O...O...O....
+	O.......O...O
+	.O..O...OOOO.
+	.............
+	.....OO......
+	.....OO......
+	.....OO......
+	.............
+	.O..O...OOOO.
+	O.......O...O
+	O...O...O....
+	OOOO.....O..O
+</PRE>
+<P>:<B>honeycomb</B><A NAME="ly"></A> (p1)
+<PRE>
+	..OO..
+	.O..O.
+	O.OO.O
+	.O..O.
+	..OO..
+</PRE>
+<P>:<B>honey farm</B><A NAME="ov"></A> (p1)  A common formation of four beehives.
+<PRE>
+	......O......
+	.....O.O.....
+	.....O.O.....
+	......O......
+	.............
+	.OO.......OO.
+	O..O.....O..O
+	.OO.......OO.
+	.............
+	......O......
+	.....O.O.....
+	.....O.O.....
+	......O......
+</PRE>
+<P>:<B>hook</B>  Another term for a <A HREF="#xs">bookend</A>.  It is also used for other
+hook-shaped things, such as occur in the <A HREF="#fv">fishhook</A> and the
+<A HREF="#gf">hook with tail</A>, for example.
+<P>:<B>hook with tail</B><A NAME="gf"></A> (p1)
+<PRE>
+	O.O..
+	OO.O.
+	...O.
+	...OO
+</PRE>
+<P>:<B>house</B>  The following <A HREF="#qc">induction coil</A>.  It is generation 3 of the
+<A HREF="#hg">pi-heptomino</A>.  See <A HREF="#jy">spark coil</A> and <A HREF="#st">dead spark coil</A>.
+<PRE>
+	.OOO.
+	O...O
+	OO.OO
+</PRE>
+<P>:<B>hustler</B> (p3)
+<PRE>
+	.....OO....
+	.....OO....
+	...........
+	...OOOO....
+	O.O....O...
+	OO.O...O...
+	...O...O.OO
+	...O....O.O
+	....OOOO...
+	...........
+	....OO.....
+	....OO.....
+</PRE>
+<P>:<B>hustler II</B> (p4)
+<PRE>
+	....O...........
+	....OOO.........
+	.......O........
+	......O..OO.....
+	O.OO.O.OO..O....
+	OO.O.O.....O....
+	.....O....O.....
+	....O.....O.O.OO
+	....O..OO.O.OO.O
+	.....OO..O......
+	........O.......
+	.........OOO....
+	...........O....
+</PRE>
+<P>:<B>HW emulator</B><A NAME="v5"></A> (p4)  See also <A HREF="#df">emulator</A>.
+<PRE>
+	.......OO.......
+	..OO.O....O.OO..
+	..O..........O..
+	...OO......OO...
+	OOO..OOOOOO..OOO
+	O..O........O..O
+	.OO..........OO.
+</PRE>
+<P>:<B>HWSS</B><A NAME="lg"></A> (c/2 orthogonally, p4)  The fourth most common <A HREF="#f4">spaceship</A>.
+Found by Conway, 1970.
+<PRE>
+	...OO..
+	.O....O
+	O......
+	O.....O
+	OOOOOO.
+</PRE>
+<P>:<B>HWSS emulator</B> = <A HREF="#v5">HW emulator</A>
+<P>:<B>HW volcano</B><A NAME="t9"></A> (p5)  A p5 <A HREF="#e0">domino</A> <A HREF="#w7">sparker</A>.  There are at least
+two known forms for this, one of which is shown below.
+<PRE>
+	.........O..........................
+	........O.O.........................
+	......OOO.O.........................
+	.....O....OO.O......................
+	.....O.OO...OO......OO..............
+	....OO.O.OO.........O.O.............
+	.........O.OOOOO......O..O.OO.......
+	..O.OO.OO.O.....O....OO.O.OO.O......
+	.....OO.....OOOO........O....O......
+	O...O.O..O...O.O....OO.O.OOOO.OO....
+	O...O.O..OO.O.OO.OO....O.O....O.O...
+	.....OO...OOO.OO.O.OOO.O..OOO...O...
+	..O.OO.OO.OO.............O.O..O.O.OO
+	...........O......O.O.O.O..OO.O.O.O.
+	....OO.O.O.OO......OO.O.O.O...O.O.O.
+	.....O.OO.O..O.......O.OO..OOOO.OO..
+	.....O....O.O........O...OO.........
+	....OO....OO........OO...O..O.......
+	...........................OO.......
+</PRE>
+<P>:<B>I-heptomino</B>  Name given by Conway to the following <A HREF="#gx">heptomino</A>.
+<PRE>
+	OO..
+	.O..
+	.OO.
+	..OO
+</PRE>
+<P>:<B>induction coil</B><A NAME="qc"></A>  Any object used to stabilize an edge (or edges)
+without touching.  The tubs used in the <A HREF="#bc">Gray counter</A> are examples,
+as are the blocks and snakes used in the <A HREF="#ny">Hertz oscillator</A> and the
+heptomino at the bottom of the <A HREF="#qg">mathematician</A>.
+<P>:<B>inductor</B><A NAME="fn"></A>  Any oscillator with a row of dead cells down the middle
+and whose two halves are mirror images of one another, both halves
+being required for the oscillator to work.  Examples are the
+<A HREF="#xe">pulsar</A> and the <A HREF="#b4">tumbler</A>.  If still lifes are considered as p1
+oscillators then there are numerous simple examples such as
+<A HREF="#v7">table on table</A>, <A HREF="#st">dead spark coil</A> and <A HREF="#pu">cis-mirrored R-bee</A>.
+Some spaceships, such as the <A HREF="#ax">brain</A>, the <A HREF="#ym">snail</A> and the <A HREF="#jb">spider</A>
+use the same principle.
+<P>:<B>infinite growth</B><A NAME="cy"></A>  Growth of a finite pattern such that the
+<A HREF="#yv">population</A> tends to infinity, or at least is unbounded.
+The first known pattern with infinite growth was the
+<A HREF="#w8">Gosper glider gun</A>.  An interesting question is: What is the
+minimum population of a pattern that exhibits infinite growth?
+In 1971 Charles Corderman found that a <A HREF="#x1">switch engine</A> could be
+stabilized by a <A HREF="#vw">pre-block</A> in a number of different ways, giving
+11-cell patterns with infinite growth.  This record stood for more
+than quarter of a century until Paul Callahan found, in November
+1997, two 10-cell patterns with infinite growth.  The following
+month he found the one shown below, which is much neater, being
+a single <A HREF="#lo">cluster</A>.  This produces a stabilized switch engine of
+the block-laying type.
+<PRE>
+	......O.
+	....O.OO
+	....O.O.
+	....O...
+	..O.....
+	O.O.....
+</PRE>
+Nick Gotts and Paul Callahan have also shown that there is no
+infinite growth pattern with fewer than 10 cells, so that the
+question has now been answered.<P>
+Also of interest is the following pattern (again found by
+Callahan), which is the only 5x5 pattern with infinite growth.
+This too emits a block-laying switch engine.
+<PRE>
+	OOO.O
+	O....
+	...OO
+	.OO.O
+	O.O.O
+</PRE>
+Following a conjecture of Nick Gotts, Stephen Silver produced, in
+May 1998, a pattern of width 1 which exhibits infinite growth.  Again
+the pattern relies on switch engines.  (This pattern is far too big
+to show here, being 1x5447.  At a guess I would say this could be
+reduced a hundredfold if someone were to apply enough computing power
+to an exhaustive search.)<P>
+Although the simplest infinite growth patterns grow at a rate that
+is (asymptotically) linear, many other types of growth rate are
+possible, quadratic growth (see <A HREF="#xb">breeder</A>) being the fastest.  Dean
+Hickerson has found many patterns with unusual growth rates (such as
+<A HREF="#ss">sawtooth</A>s).
+<P>:<B>integral</B> = <A HREF="#dv">integral sign</A>
+<P>:<B>integral sign</B><A NAME="dv"></A> (p1)
+<PRE>
+	...OO
+	..O.O
+	..O..
+	O.O..
+	OO...
+</PRE>
+<P>:<B>intentionless</B> = <A HREF="#hm">elevener</A>
+<P>:<B>interchange</B> (p2)  A common formation of six blinkers.
+<PRE>
+	..OOO....OOO..
+	..............
+	O............O
+	O............O
+	O............O
+	..............
+	..OOO....OOO..
+</PRE>
+<P>:<B>island</B><A NAME="lt"></A>  The unconnected <A HREF="#k8">polyplet</A>s of which a <A HREF="#h3">stable</A> pattern
+consists are sometimes called islands.  So, for example, a <A HREF="#ci">boat</A>
+has only one island, while a <A HREF="#bz">bi-block</A> has two, a <A HREF="#ov">honey farm</A>
+has four and the standard form of the <A HREF="#vj">eater3</A> has five.
+<P>:<B>jack</B> (p4)
+<PRE>
+	...O.....O...
+	...OO...OO...
+	O..OO...OO..O
+	OOO..O.O..OOO
+	.....O.O.....
+	OOO..O.O..OOO
+	O..OO...OO..O
+	...OO...OO...
+	...O.....O...
+</PRE>
+<P>:<B>jam</B><A NAME="fi"></A> (p3)  Found by Dean Hickerson.  Compare with <A HREF="#d8">mold</A>.  In fact
+this is really very like <A HREF="#ku">caterer</A>.
+<PRE>
+	...OO.
+	..O..O
+	O..O.O
+	O...O.
+	O.....
+	...O..
+	.OO...
+</PRE>
+<P>:<B>Jaws</B><A NAME="tm"></A>  A <A HREF="#xb">breeder</A> constructed by Nick Gotts in February 1997.  Jaws
+has the smallest <A HREF="#yv">population</A> of any known pattern with superlinear
+growth.  This was 150 cells in the original version, reduced by
+Gotts to 130 in November 1997 using some switch engine predecessors
+found by Paul Callahan.
+Jaws consists of eight pairs of <A HREF="#x1">switch engine</A>s which produce
+a block-laying switch engine (plus masses of junk) every 10752
+generations.  It is therefore an MMS breeder, although not of the
+simple puffer puffer variety.
+<P>:<B>JC</B> = <A HREF="#st">dead spark coil</A>
+<P>:<B>JHC</B> = <A HREF="#b5">monogram</A>  (Note that these are the initials of Life's
+creator.)
+<P>:<B>J-heptomino</B> = <A HREF="#ra">Herschel</A>
+<P>:<B>Jolson</B> = <A HREF="#ki">Al Jolson</A>
+<P>:<B>keys</B> (p3)
+<PRE>
+	....O..O....
+	.O..O..O..O.
+	O.OOO..OOO.O
+	.O........O.
+</PRE>
+<P>:<B>kickback reaction</B><A NAME="nt"></A>  The following collision of two gliders whose
+product is a single glider travelling in the opposite direction
+to one of the original gliders.  This is important in the proof
+of the existence of a <A HREF="#wt">universal constructor/destructor</A>, and in
+Bill Gosper's <A HREF="#zi">total aperiodic</A>, as well as a number of other
+constructions.
+<PRE>
+	.....O..
+	......OO
+	.OO..OO.
+	O.O.....
+	..O.....
+</PRE>
+<P>:<B>knightship</B>  Any spaceship that moves two cells vertically for
+every one cell that it moves horizontally (or vice versa).
+Such spaceships do exist (see <A HREF="#wt">universal constructor/destructor</A>),
+but no concrete example is known.
+<P>:<B>Kok's galaxy</B><A NAME="ko"></A> (p8)  Found by Jan Kok in 1971.
+<PRE>
+	OOOOOO.OO
+	OOOOOO.OO
+	.......OO
+	OO.....OO
+	OO.....OO
+	OO.....OO
+	OO.......
+	OO.OOOOOO
+	OO.OOOOOO
+</PRE>
+<P>:<B>lake</B><A NAME="e2"></A>  Any still life consisting of a simple closed curve made from
+diagonally connected <A HREF="#e0">domino</A>es.  The smallest example is the
+<A HREF="#fm">pond</A>, and the next smallest is this (to which the term is
+sometimes restricted):
+<PRE>
+	....OO....
+	...O..O...
+	...O..O...
+	.OO....OO.
+	O........O
+	O........O
+	.OO....OO.
+	...O..O...
+	...O..O...
+	....OO....
+</PRE>
+<P>:<B>large S</B> = <A HREF="#b0">big S</A>
+<P>:<B>Life</B><A NAME="pl"></A>  A 2-dimensional 2-state <A HREF="#g6">cellular automaton</A> discovered by
+John Conway in 1970.  The states are referred to as ON and OFF (or
+live and dead).  The transistion rule is as follows: a cell that is
+ON will remain ON in the next generation if and only if exactly two
+or three of the eight adjacent cells are also ON, and a cell that
+is OFF will turn ON if and only if exactly three of the eight
+adjacent cells are ON.
+<P>:<B>LifeLine</B><A NAME="j8"></A>  A newletter edited by Robert Wainwright from 1971 to 1973.
+During this period it was the main forum for discussions about Life.
+The newletter was nominally quarterly, but the actual dates of its
+eleven issues were as follows:
+<PRE>
+	Mar, Jun, Sep, Dec 1971
+	Sep, Oct, Nov, Dec 1972
+	Mar, Jun, Sep 1973
+</PRE>
+<P>:<B>Lifenthusiast</B>  A Life enthusiast.  Term coined by Robert Wainwright.
+<P>:<B>lifesrc</B>  David Bell's Life search program, for finding new
+<A HREF="#f4">spaceship</A>s and <A HREF="#wu">oscillator</A>s.  This is a C implementation of an
+algorithm developed by Dean Hickerson in 6502 assembler.  Most of
+the spaceships and many of the oscillators shown in this lexicon
+were found with lifesrc or by Hickerson's original program.
+<P>:<B>light bulb</B><A NAME="is"></A> (p2)
+<PRE>
+	.OO.O..
+	.O.OO..
+	.......
+	..OOO..
+	.O...O.
+	.O...O.
+	..O.O..
+	O.O.O.O
+	OO...OO
+</PRE>
+<P>:<B>lightspeed wire</B><A NAME="el"></A>  Any wick that can burn non-destructively at the
+speed of light.  These are potentially useful for various things,
+but so far no-one has found the necessary mechanisms.  The
+following example shows an example of a lightspeed wire, with a
+small defect that travels along it at the speed of light.
+<PRE>
+	..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..
+	..OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO..
+	...........................................................
+	..OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO..
+	.O......O................................................O.
+	O.OOOOO....OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.O
+	.O.....O.................................................O.
+	..OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO..
+	...........................................................
+	..OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO..
+	..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..O..
+</PRE>
+<P>:<B>lightweight emulator</B> = <A HREF="#v9">LW emulator</A>
+<P>:<B>lightweight spaceship</B> = <A HREF="#lk">LWSS</A>
+<P>:<B>lightweight volcano</B><A NAME="kf"></A> = <A HREF="#g5">toaster</A>
+<P>:<B>line puffer</B>  A <A HREF="#z6">puffer</A> which produces its output by means of an
+orthogonal line of cells at right angles to the direction of travel.
+The first example (actually a <A HREF="#f4">spaceship</A>) was found by Alan Hensel
+in March 1994, based on a spaceship found earlier that month by
+Hartmut Holzwart.  Hensel found a way to make extensible line
+puffers, but in October 1995 Tim Coe discovered that these were
+often unstable, although typically lasting millions of generations.
+By May 1996, however, Coe had found a way to fix the instability.
+The resulting puffers appear to be completely stable and to exhibit
+an exponential increase in period as a function of width, although
+neither of these things have been proved.
+<P>:<B>loaf</B><A NAME="a4"></A> (p1)
+<PRE>
+	.OO.
+	O..O
+	.O.O
+	..O.
+</PRE>
+<P>:<B>loaf on loaf</B> = <A HREF="#dx">bi-loaf</A>
+<P>:<B>loaf p3</B> = <A HREF="#fi">jam</A>
+<P>:<B>loaf pendel</B> = <A HREF="#d8">mold</A>
+<P>:<B>LoM</B> = <A HREF="#iw">lumps of muck</A>
+<P>:<B>lonely bee</B> = <A HREF="#u7">worker bee</A>
+<P>:<B>long barge</B><A NAME="as"></A> (p1)
+<PRE>
+	.O...
+	O.O..
+	.O.O.
+	..O.O
+	...O.
+</PRE>
+<P>:<B>long boat</B> (p1)
+<PRE>
+	.O..
+	O.O.
+	.O.O
+	..OO
+</PRE>
+<P>:<B>long bookend</B><A NAME="g8"></A>  The following <A HREF="#qc">induction coil</A>.
+<PRE>
+	...OO
+	O...O
+	OOOO.
+</PRE>
+<P>:<B>long canoe</B><A NAME="bp"></A> (p1)
+<PRE>
+	....OO
+	.....O
+	....O.
+	...O..
+	O.O...
+	OO....
+</PRE>
+<P>:<B>long hat</B> = <A HREF="#zj">loop</A>
+<P>:<B>long hook</B> = <A HREF="#g8">long bookend</A>
+<P>:<B>long house</B> = <A HREF="#gt">dock</A>
+<P>:<B>long integral</B> (p1)
+<PRE>
+	..OO
+	.O.O
+	.O..
+	..O.
+	O.O.
+	OO..
+</PRE>
+<P>:<B>long long barge</B> = <A HREF="#ee">very long barge</A>
+<P>:<B>long long boat</B> = <A HREF="#f7">very long boat</A>
+<P>:<B>long long ship</B> = <A HREF="#x8">very long ship</A>
+<P>:<B>long long canoe</B> = <A HREF="#nx">very long canoe</A>
+<P>:<B>long long snake</B> = <A HREF="#ae">very long snake</A>
+<P>:<B>long ship</B> (p1)
+<PRE>
+	OO..
+	O.O.
+	.O.O
+	..OO
+</PRE>
+<P>:<B>long sinking ship</B> = <A HREF="#bp">long canoe</A> (p1)
+<P>:<B>long snake</B><A NAME="a1"></A> (p1)
+<PRE>
+	OO...
+	O.O.O
+	...OO
+</PRE>
+<P>:<B>loop</B><A NAME="zj"></A> (p1)
+<PRE>
+	..OO.
+	.O..O
+	.O.O.
+	OO.OO
+</PRE>
+<P>:<B>low-denisty Life</B> = <A HREF="#ld">sparse Life</A>
+<P>:<B>lumps of muck</B><A NAME="iw"></A>  The common evolutionary sequence that ends in the
+<A HREF="#f5">blockade</A>.  The name is sometimes used of the blockade itself, and
+can in general be used of any stage of the <A HREF="#os">stairstep hexomino</A>.
+<P>:<B>LW emulator</B><A NAME="v9"></A> (p4)  The smallest <A HREF="#df">emulator</A>.
+<PRE>
+	..OO.O..O.OO..
+	..O........O..
+	...OO....OO...
+	OOO..OOOO..OOO
+	O..O......O..O
+	.OO........OO.
+</PRE>
+<P>:<B>LWSS</B><A NAME="lk"></A> (c/2 orthogonally, p4)  The smallest orthogonally moving
+<A HREF="#f4">spaceship</A>, and the second most common (after the <A HREF="#bf">glider</A>).
+Found by Conway, 1970.
+<PRE>
+	.O..O
+	O....
+	O...O
+	OOOO
+</PRE>
+<P>:<B>LWSS emulator</B> = <A HREF="#v9">LW emulator</A>
+<P>:<B>LW volcano</B> = <A HREF="#g5">toaster</A>
+<P>:<B>mango</B><A NAME="o6"></A> (p1)
+<PRE>
+	.OO..
+	O..O.
+	.O..O
+	..OO.
+</PRE>
+<P>:<B>mathematician</B><A NAME="qg"></A> (p5)  Found by Dave Buckingham.
+<PRE>
+	....O....
+	...O.O...
+	...O.O...
+	..OO.OO..
+	O.......O
+	OOO...OOO
+	.........
+	OOOOOOOOO
+	O.......O
+	...OOOO..
+	...O..OO.
+</PRE>
+<P>:<B>mazing</B> (p4)
+<PRE>
+	...OO..
+	.O.O...
+	O.....O
+	.O...OO
+	.......
+	...O.O.
+	....O..
+</PRE>
+<P>:<B>medium fish</B> = <A HREF="#ll">MWSS</A>
+<P>:<B>methuselah</B><A NAME="w2"></A>  Any small pattern that stabilizes only after a long
+time.  Term coined by Conway.  Examples include the <A HREF="#t2">R-pentomino</A>,
+<A HREF="#lq">acorn</A> and <A HREF="#ef">bunnies</A>.
+<P>:<B>middleweight emulator</B> = <A HREF="#v8">MW emulator</A>
+<P>:<B>middleweight spaceship</B> = <A HREF="#ll">MWSS</A>
+<P>:<B>middleweight volcano</B><A NAME="cs"></A> = <A HREF="#tb">MW volcano</A>
+<P>:<B>M.I.P. value</B>  The maximum <A HREF="#yv">population</A> divided by the initial
+population for an unstable pattern.  For example, the
+<A HREF="#t2">R-pentomino</A> has an M.I.P. value of 63.8, since its maximum
+population is 319.  The term is no longer in use.
+<P>:<B>MIT oscillator</B> = <A HREF="#fr">cuphook</A>
+<P>:<B>MMM breeder</B>  See <A HREF="#xb">breeder</A>.
+<P>:<B>MMS breeder</B>  See <A HREF="#xb">breeder</A>.
+<P>:<B>mold</B><A NAME="d8"></A> (p4)  Found by Achim Flammenkamp in 1988 and independently by
+Dean Hickerson in 1990.  Compare with <A HREF="#fi">jam</A>.
+<PRE>
+	...OO.
+	..O..O
+	O..O.O
+	....O.
+	O.OO..
+	.O....
+</PRE>
+<P>:<B>monogram</B><A NAME="b5"></A> (p4)  Found by Dean Hickerson.
+<PRE>
+	OO...OO
+	.O.O.O.
+	.OO.OO.
+	.O.O.O.
+	OO...OO
+</PRE>
+<P>:<B>moose antlers</B><A NAME="ik"></A> (p1)
+<PRE>
+	OO.....OO
+	O.......O
+	.OOO.OOO.
+	...O.O...
+	....O....
+</PRE>
+<P>:<B>mould</B> = <A HREF="#d8">mold</A>
+<P>:<B>MSM breeder</B>  See <A HREF="#xb">breeder</A>.
+<P>:<B>multum in parvo</B> (stabilizes at time 3933)  A <A HREF="#w2">methuselah</A> found by
+Charles Corderman, but not as long-lasting as his <A HREF="#lq">acorn</A>.
+<PRE>
+	...OOO
+	..O..O
+	.O....
+	O.....
+</PRE>
+<P>:<B>muttering moat</B><A NAME="x5"></A>  Any <A HREF="#wu">oscillator</A> whose <A HREF="#e5">rotor</A> consists of a closed
+chain of cells each of which is adjacent to exactly two other rotor
+cells.  Compare <A HREF="#es">babbling brook</A>.  Examples include the <A HREF="#dw">blinker</A>,
+the <A HREF="#jx">clock</A>, the <A HREF="#fr">cuphook</A>, the <A HREF="#bc">Gray counter</A> and the <A HREF="#wj">scrubber</A>.
+The following diagram shows a p2 example with a much larger rotor.
+<PRE>
+	....O.O....
+	..O..O..O..
+	...O.O.O...
+	.OOO.O.OOO.
+	.....O.....
+	OOOOO.OOOOO
+	.....O.....
+	.OOO.O.OOO.
+	...O.O.O...
+	..O..O..O..
+	....O.O....
+</PRE>
+<P>:<B>MW emulator</B><A NAME="v8"></A> (p4)  See also <A HREF="#df">emulator</A>.
+<PRE>
+	.......O.......
+	..OO.O...O.OO..
+	..O.........O..
+	...OO.....OO...
+	OOO..OOOOO..OOO
+	O..O.......O..O
+	.OO.........OO.
+</PRE>
+<P>:<B>MWSS</B><A NAME="ll"></A> (c/2 orthogonally, p4)  The third most common <A HREF="#f4">spaceship</A>.
+Found by Conway, 1970.
+<PRE>
+	...O..
+	.O...O
+	O.....
+	O....O
+	OOOOO.
+</PRE>
+<P>:<B>MWSS emulator</B> = <A HREF="#v8">MW emulator</A>
+<P>:<B>MWSS out of the blue</B>  The following reaction, found by Peter Rott
+in November 1997, in which a <A HREF="#lk">LWSS</A> passing by a p46 <A HREF="#wu">oscillator</A>
+creates a <A HREF="#ll">MWSS</A> travelling in the opposite direction.  Together
+with some reactions found by Dieter Leithner, and a LWSS-turning
+reaction found earlier by Paul Callahan, this can be used to prove
+that there exist <A HREF="#i7">gliderless</A> guns for LWSS, MWSS and <A HREF="#lg">HWSS</A> for
+all periods that are multiples of 46.
+<PRE>
+	O..O.................................
+	....O................................
+	O...O................................
+	.OOOO................................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	...................OO..............OO
+	..................OO...............OO
+	...................OOOOO.............
+	..OO................OOOO.............
+	..OO.....O...........................
+	........OOO.........OOOO.............
+	.......O.O.O.......OOOOO.............
+	........O..O......OO...............OO
+	........OOO........OO..............OO
+	.........O...........................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	..O.......O..........................
+	.....................................
+	OOO.......OOO........................
+	.OO.OO.OO.OO.........................
+	..OOO...OOO..........................
+	...O.....O...........................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	.....................................
+	..OO.....OO..........................
+	..OO.....OO..........................
+</PRE>
+<P>:<B>MW volcano</B><A NAME="tb"></A> (p5)  Found by Dean Hickerson.
+<PRE>
+	......O......
+	....O...O....
+	.............
+	...O.....O...
+	.OOO.OOO.OOO.
+	O...OO.OO...O
+	O.OOO.O.OOOO.
+	.O...........
+	...O.O.O.OO.O
+	..OO.OOO.O.OO
+	...O.O..O....
+	...O..OO.....
+	..OO.........
+</PRE>
+<P>:<B>My Experience with B-heptominos in Oscillators</B><A NAME="yq"></A>  An article by
+Dave Buckingham (October 1996) that described his discovery of
+<A HREF="#zs">Herschel conduit</A>s, including sufficient (indeed ample) <A HREF="#h3">stable</A>
+conduits to enable, for the first time, the construction of period n
+oscillators - and true period <I>n</I> guns - for every sufficiently large
+integer <I>n</I> (61, later reduced to 59, for oscillators, and 62 for
+guns).
+<P>:<B>natural</B><A NAME="ct"></A>  Occurring often in random patterns.  There is no precise
+measure of naturalness, since the most useful definition of &quot;random&quot;
+in this context is open to debate.  Nonetheless, it is clear that
+objects such as <A HREF="#k1">block</A>s, <A HREF="#dw">blinker</A>s, <A HREF="#p5">beehive</A>s and <A HREF="#bf">glider</A>s are
+very natural, while <A HREF="#cu">eater2</A>s, <A HREF="#mx">dart</A>s, <A HREF="#gv">gun</A>s, etc., are not.
+<P>:<B>negentropy</B><A NAME="ow"></A> (p2)  Compare <A HREF="#ny">Hertz oscillator</A>.
+<PRE>
+	...OO.O....
+	...O.OO....
+	...........
+	....OOO....
+	...O.O.O.OO
+	...OO..O.OO
+	OO.O...O...
+	OO.O...O...
+	....OOO....
+	...........
+	....OO.O...
+	....O.OO...
+</PRE>
+<P>:<B>neighbour</B><A NAME="ed"></A>  Any of the eight cells adjacent to a given cell.  A cell
+is therefore not considered to be a neighbour of itself, although
+the neighbourhood used in Life does in fact include this cell (see
+<A HREF="#g6">cellular automaton</A>).
+<P>:<B>new gun</B><A NAME="zg"></A>  An old name for the second known basic gun (found, like the
+first, by Bill Gosper), shown below.  A number of other ways of
+constructing a gun from two <A HREF="#my">twin bees shuttle</A>s have since been
+found.
+<PRE>
+	.........................OO.....OO
+	.........................OO.....OO
+	..................................
+	..................................
+	..................................
+	..................................
+	..................................
+	..................................
+	..................................
+	..................................
+	..................................
+	..................................
+	..................................
+	...........................OO.OO..
+	..........................O.....O.
+	..................................
+	.........................O.......O
+	.........................O..O.O..O
+	.........................OOO...OOO
+	..................................
+	..................................
+	..................................
+	..................................
+	.................O................
+	OO...............OO...............
+	OO................OO..............
+	.............OO..OO...............
+	..................................
+	..................................
+	..................................
+	.............OO..OO...............
+	OO................OO.......OO.....
+	OO...............OO........OO.....
+	.................O................
+</PRE>
+<P>:<B>Noah's ark</B><A NAME="du"></A>  The following diagonal <A HREF="#z6">puffer</A> consisting of two
+<A HREF="#x1">switch engine</A>s.  The name comes from the variety of objects it
+leaves behind: blocks, blinkers, beehives, loaves, gliders, ships
+boats, long boats, beacons and block on tables.
+<PRE>
+	..........O.O..
+	.........O.....
+	..........O..O.
+	............OOO
+	...............
+	...............
+	...............
+	...............
+	...............
+	.O.............
+	O.O............
+	...............
+	O..O...........
+	..OO...........
+	...O...........
+</PRE>
+<P>:<B>n-omino</B>  Any <A HREF="#kw">polyomino</A> with exactly <I>n</I> cells.
+<P>:<B>non-spark</B><A NAME="gl"></A>  Something that looks like a spark, but isn't.  An <A HREF="#ln">OWSS</A>
+produces one of these instead of a <A HREF="#rg">belly spark</A>, and is destroyed
+by it.
+<P>:<B>non-standard spaceship</B>  Any <A HREF="#f4">spaceship</A> other than a <A HREF="#bf">glider</A>, <A HREF="#lk">LWSS</A>,
+<A HREF="#ll">MWSS</A> or <A HREF="#lg">HWSS</A>.
+<P>:<B>octagon II</B> (p5)  The first known p5 <A HREF="#wu">oscillator</A>, discovered (late
+1970 or early 1971) independently by Sol Goodman and Arthur Taber.
+The name is due to the latter.
+<PRE>
+	...OO...
+	..O..O..
+	.O....O.
+	O......O
+	O......O
+	.O....O.
+	..O..O..
+	...OO...
+</PRE>
+<P>:<B>omniperiodic</B><A NAME="tt"></A>  A <A HREF="#g6">cellular automaton</A> is said to be
+omniperiodic if it has <A HREF="#wu">oscillator</A>s of all <A HREF="#ek">period</A>s.
+It is not known if Life is omniperiodic, although this
+seems likely.  Dave Buckingham's work on Herschel conduits
+(see <A HREF="#yq">My Experience with B-heptominos in Oscillators</A>)
+reduced the number of unresolved cases to a finite number.
+At the time of writing the only periods for which no oscillator
+is known are 19, 23, 27, 31, 37, 38, 41, 43, 49 and 53.
+(However, for periods 33, 34, 39 and 51 the known examples are
+very unsatisfactory, consisting merely of the juxtaposition of
+lower period oscillators without any interaction between the
+<A HREF="#e5">rotor</A>s.)
+<P>:<B>on-off</B><A NAME="cz"></A>  Any p2 <A HREF="#wu">oscillator</A> in which all <A HREF="#e5">rotor</A> cells die from
+<A HREF="#wq">overpopulation</A>.  The simplest example is a <A HREF="#az">beacon</A>.  Compare
+<A HREF="#bh">flip-flop</A>.
+<P>:<B>O-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	OOOOO
+</PRE>
+<P>:<B>Orion</B><A NAME="at"></A> (c/4 diagonally, p4)  The smallest known diagonal spaceship
+other than the <A HREF="#bf">glider</A>.  Found by Hartmut Holzwart, July 1993.
+<PRE>
+	...OO.........
+	...O.O........
+	...O..........
+	OO.O..........
+	O....O........
+	O.OO......OOO.
+	.....OOO....OO
+	......OOO.O.O.
+	.............O
+	......O.O.....
+	.....OO.O.....
+	......O.......
+	....OO.O......
+	.......O......
+	.....OO.......
+</PRE>
+<P>:<B>orphan</B> = <A HREF="#wc">Garden of Eden</A>
+<P>:<B>oscillator</B><A NAME="wu"></A>  Any pattern that is a <A HREF="#yj">predecessor</A> of itself.  The
+term is usually restricted to finite patterns.  It is usual also
+to exclude <A HREF="#nu">still life</A>s.  See also <A HREF="#tt">omniperiodic</A>.
+<P>:<B>overcrowding</B> = <A HREF="#wq">overpopulation</A>
+<P>:<B>overpopulation</B><A NAME="wq"></A>  Death of cell caused by it having more than three
+<A HREF="#ed">neighbour</A>s.
+<P>:<B>overweight spaceship</B> = <A HREF="#ln">OWSS</A>
+<P>:<B>OWSS</B><A NAME="ln"></A>  A would-be <A HREF="#f4">spaceship</A> similar to <A HREF="#lk">LWSS</A>, <A HREF="#ll">MWSS</A> and <A HREF="#lg">HWSS</A> but
+longer.  On its own an OWSS is unstable, but it can be escorted by
+true spaceships to form a <A HREF="#us">flotilla</A>.
+<P>:<B>Ox</B>  A 1976 novel by Piers Anthony which involves Life.
+<P>:<B>p</B> = <A HREF="#ek">period</A>
+<P>:<B>p30 shuttle</B> = <A HREF="#dg">queen bee shuttle</A>
+<P>:<B>p46 shuttle</B> = <A HREF="#my">twin bees shuttle</A>
+<P>:<B>p54 shuttle</B><A NAME="w6"></A>  (p54)  A surprising variant of the <A HREF="#my">twin bees shuttle</A>
+found by Dave Buckingham in 1973.  See also <A HREF="#rf">centinal</A>.
+<PRE>
+	OO.........................OO
+	.O.........................O.
+	.O.O.......O.............O.O.
+	..OO.....O..O.....O......OO..
+	............O.....OO.........
+	........O..........OO........
+	........O...OO....OO.........
+	.........OOOOO...............
+	.............................
+	.........OOOOO...............
+	........O...OO....OO.........
+	........O..........OO........
+	............O.....OO.........
+	..OO.....O..O.....O......OO..
+	.O.O.......O.............O.O.
+	.O.........................O.
+	OO.........................OO
+</PRE>
+<P>:<B>pair of bookends</B> = <A HREF="#t1">bookends</A>
+<P>:<B>pair of tables</B> = <A HREF="#v7">table on table</A>
+<P>:<B>paperclip</B><A NAME="e1"></A> (p1)
+<PRE>
+	..OO.
+	.O..O
+	.O.OO
+	OO.O.
+	O..O.
+	.OO..
+</PRE>
+<P>:<B>parent</B><A NAME="yc"></A>  A pattern is said to be a parent of the pattern it gives
+rise to after one generation.  Some patterns have infinitely many
+parents, but other have none at all (see <A HREF="#wc">Garden of Eden</A>).
+<P>:<B>PD</B> = <A HREF="#ah">pentadecathlon</A>
+<P>:<B>pedestle</B> (p5)
+<PRE>
+	.....O.....
+	....O.O....
+	.O..OO.....
+	.OOO.......
+	.....OOO...
+	...OO...O..
+	..O....O..O
+	.O.O.O.O.OO
+	.O.O...O.O.
+	OO.O.O.O.O.
+	O..O....O..
+	..O...OO...
+	...OOO.....
+	.......OOO.
+	.....OO..O.
+	....O.O....
+	.....O.....
+</PRE>
+<P>:<B>penny lane</B> (p4)
+<PRE>
+	...OO.....OO...
+	...O.......O...
+	OO.O.......O.OO
+	OO.O.OOOOO.O.OO
+	....O..O..O....
+	.....OOOOO.....
+	...............
+	.......O.......
+	......O.O......
+	.......O.......
+</PRE>
+<P>:<B>pentadecathlon</B><A NAME="ah"></A> (p15)  Found by Conway while tracking the history of
+short rows of cells - 10 cells giving this object, which is the most
+<A HREF="#ct">natural</A> <A HREF="#wu">oscillator</A> of period greater than 3.
+<PRE>
+	..O....O..
+	OO.OOOO.OO
+	..O....O..
+</PRE>
+<P>:<B>pentant</B> (p5)  Found by Robert Wainwright.
+<PRE>
+	OO........
+	.O........
+	.O.O......
+	..OO....OO
+	.........O
+	.....OOOO.
+	.....O....
+	..O...OOO.
+	..OOOO..O.
+	.....O....
+	....O.....
+	....OO....
+</PRE>
+<P>:<B>pentaplet</B>  Any 5-cell <A HREF="#k8">polyplet</A>.
+<P>:<B>pentapole</B><A NAME="xq"></A> (p2)  The <A HREF="#jz">barberpole</A> of length 5.
+<PRE>
+	OO......
+	O.O.....
+	........
+	..O.O...
+	........
+	....O.O.
+	.......O
+	......OO
+</PRE>
+<P>:<B>pentoad</B><A NAME="dy"></A> (p5)  Found by Bill Gosper.  This is extensible: if an
+eater is moved back four spaces then another <A HREF="#la">Z-hexomino</A> can
+can be inserted.
+<PRE>
+	...........OO
+	...........O.
+	.........O.O.
+	.........OO..
+	.....OO......
+	......O......
+	......O......
+	......OO.....
+	..OO.........
+	.O.O.........
+	.O...........
+	OO...........
+</PRE>
+<P>:<B>pentomino</B><A NAME="m7"></A>  Any 5-cell <A HREF="#kw">polyomino</A>.  There are 12 such patterns,
+and Conway assigned them all letters in the range O to Z, loosely
+based on their shapes.  Only in the case of the <A HREF="#t2">R-pentomino</A>
+has Conway's label remained in common use, but all of them can
+nonetheless be found in this lexicon.
+<P>:<B>period</B><A NAME="ek"></A>  The smallest number of generations it takes for an
+<A HREF="#wu">oscillator</A> or <A HREF="#f4">spaceship</A> to reappear in its original form.  The
+term can also be used for a <A HREF="#z6">puffer</A>, <A HREF="#qb">wick</A>, <A HREF="#ai">fuse</A>, stream of
+<A HREF="#f4">spaceship</A>s, <A HREF="#z8">factory</A> or <A HREF="#gv">gun</A>.  In the last case there is a
+distinction between <A HREF="#ho">true</A> period and <A HREF="#ti">pseudo</A> period.
+<P>:<B>phi</B>  The following common <A HREF="#kv">spark</A>.  The name comes from the shape in
+the generation after the one shown here.
+<PRE>
+	.OOO.
+	O...O
+	O...O
+	.OOO.
+</PRE>
+<P>:<B>phoenix</B><A NAME="wd"></A>  Any pattern all of whose cells die in every generation,
+but which never dies as a whole.  In fact it can be proved that
+a <A HREF="#f4">spaceship</A> cannot be a phoenix, so the term applies mainly to
+<A HREF="#wu">oscillator</A>s, of which the following is the smallest (and is
+sometimes simply called &quot;the phoenix&quot;).
+<PRE>
+	....O...
+	..O.O...
+	......O.
+	OO......
+	......OO
+	.O......
+	...O.O..
+	...O....
+</PRE>
+<P>:<B>pi</B> = <A HREF="#hg">pi-heptomino</A>
+<P>:<B>pi-heptomino</B><A NAME="hg"></A> (stabilizes at time 173)  A common pattern.  The name is
+also applied to later generations of this object - in a <A HREF="#sy">pi ship</A>,
+for example, the pi-heptomino itself never arises.
+<PRE>
+	OOO
+	O.O
+	O.O
+</PRE>
+<P>:<B>pincers</B> = <A HREF="#ma">great on-off</A>
+<P>:<B>pinwheel</B><A NAME="cf"></A> (p4)  Found by Simon Norton.  Compare <A HREF="#yr">clock II</A>.
+<PRE>
+	......OO....
+	......OO....
+	............
+	....OOOO....
+	OO.O....O...
+	OO.O..O.O...
+	...O...OO.OO
+	...O.O..O.OO
+	....OOOO....
+	............
+	....OO......
+	....OO......
+</PRE>
+<P>:<B>pi portraitor</B><A NAME="jp"></A> (p32)  Found by Robert Wainwright.  Compare with
+<A HREF="#a9">gourmet</A> and <A HREF="#g9">popover</A>.
+<PRE>
+	...........OO...........
+	......OO.O....O.OO......
+	......O..........O......
+	.......OO......OO.......
+	....OOO..OOOOOO..OOO....
+	....O..O........O..O....
+	.OO.O.O..........O.O.OO.
+	.O.O.O............O.O.O.
+	...O................O...
+	.O..O..............O..O.
+	....O.......OOO....O....
+	O...O.......O.O....O...O
+	O...O.......O.O....O...O
+	....O..............O....
+	.O..O..............O..O.
+	...O................O...
+	.O.O.O............O.O.O.
+	.OO.O.O..........O.O.OO.
+	....O..O........O..O....
+	....OOO..OOOOOO..OOO....
+	.......OO......OO.......
+	......O..........O......
+	......OO.O....O.OO......
+	...........OO...........
+</PRE>
+<P>:<B>pipsquirt</B> = <A HREF="#er">pipsquirter</A>
+<P>:<B>pipsquirter</B><A NAME="er"></A>  An <A HREF="#wu">oscillator</A> that produces a <A HREF="#e0">domino</A> <A HREF="#kv">spark</A> that
+is orientated parallel to the direction from which it is produced
+(in contrast to domino sparkers like the <A HREF="#ah">pentadecathlon</A> and
+<A HREF="#lg">HWSS</A>, which produce domino sparks perpendicular to the direction
+of production).  The following is a small p6 example found by Noam
+Elkies in November 1997.
+<PRE>
+	.....O.........
+	.....O.........
+	...............
+	...O...O.......
+	.OOO.O.OOO.....
+	O...OO....O....
+	O.OO..OO.O.O...
+	.O..OO..OO.O...
+	..OO..OO.O.O.OO
+	....O..O.O.O.OO
+	....OOOO.OO....
+	........O......
+	......O.O......
+	......OO.......
+</PRE>
+<P>:<B>pi ship</B><A NAME="sy"></A>  A <A HREF="#t6">growing spaceship</A> in which the back part consists of
+a <A HREF="#hg">pi-heptomino</A> travelling at a speed of 3c/10.  The first example
+was constructed by David Bell.  All known pi ships are too large to
+show here, but the following diagram shows how the pi fuse works.
+<PRE>
+	............O............
+	...........O.O...........
+	OO........OO.OO........OO
+	OO.....................OO
+</PRE>
+<P>:<B>piston</B> = <A HREF="#k7">shuttle</A>
+<P>:<B>pixel</B> = <A HREF="#vu">cell</A>
+<P>:<B>plet</B> = <A HREF="#k8">polyplet</A>
+<P>:<B>polyomino</B><A NAME="kw"></A>  A finite collection of orthogonally connected cells.  The
+mathematical study of polyominoes was initiated by Solomon Golomb
+in 1953.  Conway's early investigations of Life and other cellular
+automata involved tracking the histories of small polyominoes, this
+being a reasonable way to ascertain the typical behaviour of
+different cellular automata using the limited computing power then
+available.  Polyominoes have no special significance in Life, but
+their extensive study during the early years lead to a number of
+important discoveries and has influenced the terminology of Life.
+(Note on spelling:  As with &quot;dominoes&quot; the plural may also be spelt
+without an e.  In this lexicon I have followed Golomb in using the
+longer form.)
+<P>:<B>polyplet</B><A NAME="k8"></A>  A finite collection of orthogonally or diagonally connected
+cells.  This king-wise connectivity is a more natural concept in
+Life than the orthogonal connectivity of the <A HREF="#kw">polyomino</A>.
+<P>:<B>pond</B><A NAME="fm"></A> (p1)
+<PRE>
+	.OO.
+	O..O
+	O..O
+	.OO.
+</PRE>
+<P>:<B>pond on pond</B> (p1)  This term is often used to mean <A HREF="#np">bi-pond</A>, but may
+also be used of the following <A HREF="#ag">pseudo still life</A>.
+<PRE>
+	.OO...OO.
+	O..O.O..O
+	O..O.O..O
+	.OO...OO.
+</PRE>
+<P>:<B>popover</B><A NAME="g9"></A> (p32)  Found by Robert Wainwright.  Compare with <A HREF="#a9">gourmet</A>
+and <A HREF="#jp">pi portraitor</A>.
+<PRE>
+	.....................O..........
+	.....................O..........
+	.....................OOO........
+	.............OO.......OO........
+	.............OO..OOO..OO........
+	...................OOO..........
+	...................OOO..........
+	..............OO................
+	..OOO........O..O...............
+	..OOO........O.O................
+	OOO..OO...O...O....OOO..........
+	.....OO...O.....................
+	....OOO...O.....................
+	....O.................OO...OO...
+	....O...........OOO..O..O..OO...
+	........O.......O.O...O.O.......
+	.......O.O......O.O....O........
+	...OO..O..O................O....
+	...OO...OO.................O....
+	.....................O...OOO....
+	.....................O...OO.....
+	..........OOO........O...OO..OOO
+	.................OO........OOO..
+	................O..O.......OOO..
+	................O.O.............
+	..........OOO....O..............
+	..........OOO...................
+	........OO..OOO..OO.............
+	........OO.......OO.............
+	........OOO.....................
+	..........O.....................
+	..........O.....................
+</PRE>
+<P>:<B>population</B><A NAME="yv"></A>  The number of ON cells.
+<P>:<B>P-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	OO
+	OO
+	O.
+</PRE>
+<P>:<B>pre-beehive</B><A NAME="yn"></A>  The following common <A HREF="#yc">parent</A> of the <A HREF="#p5">beehive</A>.
+<PRE>
+	OOO
+	OOO
+</PRE>
+<P>:<B>pre-block</B><A NAME="vw"></A>  The following common <A HREF="#yc">parent</A> of the <A HREF="#k1">block</A>.  Another
+such pattern is the <A HREF="#rb">grin</A>.
+<PRE>
+	O.
+	OO
+</PRE>
+<P>:<B>precursor</B> = <A HREF="#yj">predecessor</A>
+<P>:<B>predecessor</B><A NAME="yj"></A>  Any pattern that evolves into a given pattern after
+one or more generations.
+<P>:<B>pre-pulsar</B><A NAME="fu"></A>  A common <A HREF="#yj">predecessor</A> of the <A HREF="#xe">pulsar</A>, such as that
+shown below.  This duplicates itself in 15 generations.  (It fails,
+however, to be a <A HREF="#uz">replicator</A> because of the way the two copies
+then interact.)  A pair of <A HREF="#t7">tub</A>s can be placed to eat half the
+pre-pulsar as it replicates; this gives the p30 oscillator <A HREF="#rn">Eureka</A>
+where the pre-pulsar's replication becomes a movement back and forth.
+(See <A HREF="#fd">twirling T-tetsons II</A> for a variation on this idea.)  By
+other means the replication of the pre-pulsar can be made to occur
+in just 14 generations as half of it is eaten; this allows the
+construction of p28 and p29 oscillators, and is in fact the only
+known method for creating a p29 oscillator.  The pre-pulsar is also
+a vital component of the only known p47 oscillator.  In late 1997
+Noam Elkies found that a pre-pulsar can also act as a <A HREF="#kd">tagalong</A>
+pulled by a pair of Tim Coe's large p5 c/5 <A HREF="#f4">spaceship</A>s, thereby
+giving a p15 c/5 spaceship.  In May 1998 David Bell took this idea
+further using <A HREF="#jb">spider</A>s.
+<PRE>
+	OOO...OOO
+	O.O...O.O
+	OOO...OOO
+</PRE>
+<P>:<B>pressure cooker</B><A NAME="o7"></A> (p3)
+<PRE>
+	.....O.....
+	....O.O....
+	....O.O....
+	...OO.OO...
+	O.O.....O.O
+	OO.O.O.O.OO
+	...O...O...
+	...O...O...
+	....OOO....
+	...........
+	...O.OO....
+	...OO.O....
+</PRE>
+<P>:<B>pseudo</B><A NAME="ti"></A>  Opposite of <A HREF="#ho">true</A>.  A <A HREF="#gv">gun</A> emitting a period <I>n</I> stream of
+spaceships (or rakes) is said to be a pseudo period <I>n</I> gun if its
+mechanism oscillates with a period different from <I>n</I>.  This period
+will necessarily be a multiple of <I>n</I>.  Pseudo period <I>n</I> glider guns
+are known to exist for all periods greater than 13.  (Gliders cannot
+travel in a stream of period 13 or less, so this result is the best
+possible.)
+<P>:<B>pseudo-barberpole</B><A NAME="av"></A> (p5)  Found by Achim Flammenkamp.
+<PRE>
+	..........OO
+	...........O
+	.........O..
+	.......O.O..
+	............
+	.....O.O....
+	............
+	...O.O......
+	............
+	..OO........
+	O...........
+	OO..........
+</PRE>
+<P>:<B>pseudo still life</B><A NAME="ag"></A>  The strict definition of <A HREF="#nu">still life</A> rules out
+such stable patterns as the <A HREF="#bz">bi-block</A>.  In such patterns there are
+dead cells which have more than 3 neigbours in total, but fewer than
+3 in any component still life.  These patterns are called pseudo
+still lifes.  Mark Niemiec has enumerated the pseudo still lifes
+up to 24 bits, and his figures are shown below.
+<PRE>
+	 8        1
+	 9        1
+	10        7
+	11       16
+	12       55
+	13      110
+	14      279
+	15      620
+	16     1645
+	17     4067
+	18    10843
+	19    27250
+	20    70637
+	21   179011
+	22   462086
+	23  1184882
+	24  3068984
+</PRE>
+<P>:<B>puffer</B><A NAME="z6"></A>  An object that moves like a <A HREF="#f4">spaceship</A>, except that it
+leaves debris behind.  The first known puffers were found by Bill
+Gosper and travelled at c/2 orthogonally.  Not long afterwards c/12
+diagonal puffers were found (see <A HREF="#x1">switch engine</A>).  Discounting
+<A HREF="#h4">wickstretcher</A>s (which are not puffers in the conventional sense),
+no new speed or direction was attained after this until David Bell
+found the first c/3 orthogonal puffer in April 1996.  Since then
+c/5 orthogonal puffers have also been found, the first by Tim Coe
+in 1997.
+<P>:<B>puffer engine</B><A NAME="pm"></A>  A pattern which can be used as the main component of
+a <A HREF="#z6">puffer</A>.  The pattern may itself be a puffer (e.g. the classic
+<A HREF="#wm">puffer train</A>), it may be a spaceship (e.g. the <A HREF="#j0">Schick engine</A>),
+or it may even be unstable (e.g. the <A HREF="#x1">switch engine</A>).
+<P>:<B>puffer train</B><A NAME="wm"></A>  The full name for a <A HREF="#z6">puffer</A>, coined by Conway before
+any examples were known.  The term was also applied specifically
+to the classic puffer train found by Bill Gosper and shown below.
+This is very dirty, and the tail does not stabilize until generation
+5533.  It consists of a <A HREF="#k0">B-heptomino</A> (shown here one generation
+before the standard form) escorted by two <A HREF="#lk">LWSS</A>.
+<PRE>
+	.O........O....O..
+	O.....O..O....O...
+	O......OOO....O...
+	O..O..........O..O
+	OOO...........OOO.
+</PRE>
+<P>:<B>pulsar</B><A NAME="xe"></A> (p3)  Despite its size, this is the fourth most common
+<A HREF="#wu">oscillator</A> (and by far the most common of period greater than 2)
+and was found very early on by Conway.  See also <A HREF="#fu">pre-pulsar</A> and
+<A HREF="#dr">pulsar quadrant</A>.
+<PRE>
+	..OOO...OOO..
+	.............
+	O....O.O....O
+	O....O.O....O
+	O....O.O....O
+	..OOO...OOO..
+	.............
+	..OOO...OOO..
+	O....O.O....O
+	O....O.O....O
+	O....O.O....O
+	.............
+	..OOO...OOO..
+</PRE>
+<P>:<B>pulsar CP 48-56-72</B> = <A HREF="#xe">pulsar</A>  (The numbers refer to the populations
+of the three phases.)
+<P>:<B>pulsar quadrant</B><A NAME="dr"></A> (p3)  This consists of a quarter of the outer part of
+a <A HREF="#xe">pulsar</A> stabilized by a <A HREF="#eh">cis fuse with two tails</A>.  This is
+reminiscent of <A HREF="#d8">mold</A> and <A HREF="#fi">jam</A>.  See also <A HREF="#dz">two pulsar quadrants</A>.
+<PRE>
+	.....O..
+	...OOO..
+	..O...OO
+	O..O..O.
+	O...O.O.
+	O....O..
+	........
+	..OOO...
+</PRE>
+<P>:<B>pure glider generator</B><A NAME="px"></A>  A pattern that evolves into one or more
+<A HREF="#bf">glider</A>s, and nothing else.  There was some interest in these
+early on, but they are no longer considered important.
+<P>:<B>pushalong</B><A NAME="ws"></A>  Any <A HREF="#kd">tagalong</A> at the front of a spaceship.  The following
+is a large example (found by David Bell) attached to the front of a
+<A HREF="#mx">dart</A>.
+<PRE>
+	.........O...O..........................................
+	........OO..O.O...........O........O...OO....O.OO.....O.
+	......O.O.....O..........O.O......O.O..OOO.O.O.......O.O
+	......OOO.OO.OOO.O.......O........O..O....OOO...O...OO..
+	......O.O..OO..OO.O.....O..O......O.OOOOOO.O...........O
+	..........OOO.......O...OO.O.OO............O.......O...O
+	..O.OO.O...O....OOO..OO......O..O.OOO...OO.OO...O..O....
+	.O.OO.OOOOOO.....OOO..OOOO....OO..OOO....O.OO..O.O..OOOO
+	OO.OO................OOO.O.......OOO......OOO.O..O......
+	.O.OO.OOOOOO.....OOO..OOOO....OO..OOO....O.OO..O.O..OOOO
+	..O.OO.O...O....OOO..OO......O..O.OOO...OO.OO...O..O....
+	..........OOO.......O...OO.O.OO............O.......O...O
+	......O.O..OO..OO.O.....O..O......O.OOOOOO.O...........O
+	......OOO.OO.OOO.O.......O........O..O....OOO...O...OO..
+	......O.O.....O..........O.O......O.O..OOO.O.O.......O.O
+	........OO..O.O...........O........O...OO....O.OO.....O.
+	.........O...O..........................................
+</PRE>
+<P>:<B>pyrotechnecium</B><A NAME="pa"></A> (p8)
+<PRE>
+	.......O........
+	.....OOOOO......
+	....O.....O.....
+	.O..O.O.OO.O....
+	O.O.O.O....O..O.
+	.O..O....O.O.O.O
+	....O.OO.O.O..O.
+	.....O.....O....
+	......OOOOO.....
+	........O.......
+</PRE>
+<P>:<B>pyrotechneczum</B>  A common, but mistaken, spelling of <A HREF="#pa">pyrotechnecium</A>.
+<P>:<B>python</B> = <A HREF="#a1">long snake</A>
+<P>:<B>Q-gun</B> = <A HREF="#kn">Quetzalcoatlus</A>
+<P>:<B>Q-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	OOOO
+	...O
+</PRE>
+<P>:<B>quad</B><A NAME="uf"></A> (p2)
+<PRE>
+	OO..OO
+	O..O.O
+	.O....
+	....O.
+	O.O..O
+	OO..OO
+</PRE>
+<P>:<B>quadpole</B><A NAME="rm"></A> (p2)  The <A HREF="#jz">barberpole</A> of length 4.
+<PRE>
+	OO.....
+	O.O....
+	.......
+	..O.O..
+	.......
+	....O.O
+	.....OO
+</PRE>
+<P>:<B>quapole</B> = <A HREF="#rm">quadpole</A>
+<P>:<B>queen bee shuttle</B><A NAME="dg"></A> (p30)  Found by Bill Gosper.  There are a number
+of ways to stabilize the ends.  Two methods are shown here; for a
+third see <A HREF="#fh">buckaroo</A>.  The queen bee shuttle is the basis of the
+<A HREF="#w8">Gosper glider gun</A>.
+<PRE>
+	.........O............
+	.......O.O............
+	......O.O.............
+	OO...O..O.............
+	OO....O.O.............
+	.......O.O........OO..
+	.........O........O.O.
+	....................O.
+	....................OO
+</PRE>
+<P>:<B>Quetzal</B> = <A HREF="#kn">Quetzalcoatlus</A>
+<P>:<B>Quetzalcoatlus</B><A NAME="kn"></A>  Dieter Leithner's name for the <A HREF="#ho">true</A> p54 glider gun
+he found in January 1998.  (Quetzalcoatlus is the name of a giant
+flying dinosaur.  Leithner's gun is a large <A HREF="#ba">Herschel loop</A> which,
+despite its low period, is not an <A HREF="#wi">emu</A>.)  Shortly afterwards
+Leithner built a p56 Quetzal using a mechanism found by Noam Elkies
+for this purpose.
+<P>:<B>R</B> = <A HREF="#t2">R-pentomino</A>
+<P>:<B>R2D2</B><A NAME="s4"></A> (p8)  This was found, in the form shown below, by Peter Raynham
+in the early 1970's.  The name derives from a form with a larger
+and less symmetric <A HREF="#c9">stator</A> discovered by Noam Elkies in August
+1994.  Compare with <A HREF="#bc">Gray counter</A>.
+<PRE>
+	....OO....
+	....OO....
+	..........
+	..OOOOOO..
+	.O......O.
+	O.O...OO.O
+	.O......O.
+	..OOOOOO..
+	..........
+	....OO....
+	....OO....
+</PRE>
+<P>:<B>r5</B> = <A HREF="#t2">R-pentomino</A>
+<P>:<B>rabbits</B><A NAME="um"></A> (stabilizes at time 17331)  A <A HREF="#w2">methuselah</A> found by Andrew
+Trevorrow in 1986.
+<PRE>
+	O...OOO
+	OOO..O.
+	.O.....
+</PRE>
+<P>:<B>rake</B><A NAME="e8"></A>  Any <A HREF="#z6">puffer</A> whose debris consists of <A HREF="#f4">spaceship</A>s.  For
+examples see <A HREF="#ys">space rake</A> and <A HREF="#zi">total aperiodic</A>.
+<P>:<B>$rats</B> (p6)  Found by Dave Buckingham.
+<PRE>
+	.....OO.....
+	......O.....
+	....O.......
+	OO.O.OOOO...
+	OO.O.....O.O
+	...O..OOO.OO
+	...O....O...
+	....OOO.O...
+	.......O....
+	......O.....
+	......OO....
+</PRE>
+<P>:<B>reflector</B>  See <A HREF="#w1">stable reflector</A>.
+<P>:<B>relay</B><A NAME="yo"></A>  Any <A HREF="#wu">oscillator</A> in which <A HREF="#f4">spaceship</A>s (typically <A HREF="#bf">glider</A>s)
+travel in a loop.  The simplest example is the p60 one shown below
+using two <A HREF="#ah">pentadecathlon</A>s.  Pulling the pentadecathlons further
+apart allows any period of the form 60+120<I>n</I> to be achieved, and
+this is probably the simplest proof of the existence of oscillators
+of arbitrarily large period.
+<PRE>
+	...........................O....O..
+	................OO.......OO.OOOO.OO
+	.................OO........O....O..
+	................O..................
+	..O....O...........................
+	OO.OOOO.OO.........................
+	..O....O...........................
+</PRE>
+<P>:<B>rephaser</B>  The following method of shifting the phase and path of a
+pair of gliders.
+<PRE>
+	..O..O..
+	O.O..O.O
+	.OO..OO.
+	........
+	........
+	...OO...
+	...OO...
+</PRE>
+<P>:<B>replicator</B><A NAME="uz"></A>  A finite pattern which repeatedly creates
+copies of itself.  Such objects are known to exist (see
+<A HREF="#wt">universal constructor/destructor</A>), but no concrete example
+is known.
+<P>:<B>reverse fuse</B><A NAME="q9"></A>  A <A HREF="#ai">fuse</A> that produces some initial debris, but then
+burns cleanly.  The following is a simple example.
+<PRE>
+	.............OO
+	............O.O
+	...........O...
+	..........O....
+	.........O.....
+	........O......
+	.......O.......
+	......O........
+	.....O.........
+	....O..........
+	...O...........
+	..O............
+	OO.............
+	O..............
+</PRE>
+<P>:<B>revolver</B> (p2)
+<PRE>
+	O............O
+	OOO....O...OOO
+	...O.O.O..O...
+	..O......O.O..
+	..O.O......O..
+	...O..O.O.O...
+	OOO...O....OOO
+	O............O
+</PRE>
+<P>:<B>rle</B>  Run-length encoded.  Run-length encoding is a simple (but not
+very efficient) method of file compression.  In Life the term refers
+to a specific ASCII encoding used for Life patterns (and patterns
+for other similar cellular automata).  This encoding was introduced
+by Dave Buckingham and is now the usual means of exchanging Life
+patterns (especially large ones) by e-mail.
+<P>:<B>roteightor</B> (p8)  Found by Robert Wainwright.
+<PRE>
+	.O............
+	.OOO........OO
+	....O.......O.
+	...OO.....O.O.
+	..........OO..
+	..............
+	.....OOO......
+	.....O..O.....
+	.....O........
+	..OO..O...O...
+	.O.O......O...
+	.O.......O....
+	OO........OOO.
+	............O.
+</PRE>
+<P>:<B>rotor</B><A NAME="e5"></A>  The cells of an <A HREF="#wu">oscillator</A> that change state.  Compare
+<A HREF="#c9">stator</A>.  It is easy to see that any rotor cell must be adjacent
+to another rotor cell.
+<P>:<B>R-pentomino</B><A NAME="t2"></A>  This is by far the most active <A HREF="#kw">polyomino</A> with less
+than six cells: all the others reach some simple stable form
+(<A HREF="#k1">block</A>, <A HREF="#dw">blinker</A>, <A HREF="#p5">beehive</A>, <A HREF="#mo">traffic light</A> or nothing at all)
+in at most 10 generations, but the R-pentomino does not stabilize
+until generation 1103, by which time it has a <A HREF="#yv">population</A> of 116.
+<PRE>
+	.OO
+	OO.
+	.O.
+</PRE>
+<P>:<B>S</B> = <A HREF="#b0">big S</A>
+<P>:<B>sailboat</B> (p16)  Found by Robert Wainwright.
+<PRE>
+	........O...........O........
+	.......O.O.........O.O.......
+	........O...........O........
+	.............................
+	......OOOOO.......OOOOO......
+	.....O....O.......O....O.....
+	....O..O.............O..O....
+	.O..O.OO.............OO.O..O.
+	O.O.O.....O.......O.....O.O.O
+	.O..O....O.O.....O.O....O..O.
+	....OO..O..O.....O..O..OO....
+	.........OO.......OO.........
+	.............OO..............
+	.............O.O.............
+	........O..O..O..............
+	.......O.....................
+	.....OO..........OOO.........
+	..O......OO.O....OOO.........
+	.....O...O..O....OOO.........
+	.....OOO.O...O......OOO......
+	..O...........O.....OOO......
+	...O...O.OOO........OOO......
+	....O..O...O.................
+	....O.OO......O..............
+	..........OO.................
+	.........O...................
+	.....O..O....................
+</PRE>
+<P>:<B>sawtooth</B><A NAME="ss"></A>  Any finite pattern whose <A HREF="#yv">population</A> growth is unbounded,
+but does not tend to infinity.  (In other words, the population
+reaches new heights infinitely often, but also infinitely often
+drops below some fixed value.)  The first such pattern was
+constructed by Dean Hickerson in April 1991.
+<P>:<B>Schick engine</B><A NAME="j0"></A>  (c/2 orthogonally, p12)  This <A HREF="#f4">spaceship</A>, found by
+Paul Schick in 1972, produces a large <A HREF="#kv">spark</A> (the 15 live cells
+at the rear in the phase shown below) which can be perturbed by
+other c/2 spaceships to form a variety of <A HREF="#z6">puffer</A>s.  The diagram
+below shows the smallest form of the Schick engine, using two
+<A HREF="#lk">LWSS</A>.  It is also possible to use two <A HREF="#ll">MWSS</A> or two <A HREF="#lg">HWSS</A>, or
+even a LWSS and a HWSS.
+<PRE>
+	OOOO..............
+	O...O.........O...
+	O...........OO....
+	.O..O..OO.....OOO.
+	......OOO......OOO
+	.O..O..OO.....OOO.
+	O...........OO....
+	O...O.........O...
+	OOOO..............
+</PRE>
+<P>:<B>Schick ship</B> = <A HREF="#j0">Schick engine</A>
+<P>:<B>scorpion</B> (p1)
+<PRE>
+	...O...
+	.OOO...
+	O...OO.
+	O.O.O.O
+	.OO.O.O
+	.....O.
+</PRE>
+<P>:<B>scrubber</B><A NAME="wj"></A> (p2)
+<PRE>
+	....O......
+	..OOO......
+	.O.........
+	.O..OOO....
+	OO.O...O...
+	...O...O...
+	...O...O.OO
+	....OOO..O.
+	.........O.
+	......OOO..
+	......O....
+</PRE>
+<P>:<B>SE</B> = <A HREF="#x1">switch engine</A>
+<P>:<B>SGR</B> = <A HREF="#kx">stable glider reflector</A>
+<P>:<B>shillelagh</B> (p1)
+<PRE>
+	OO...
+	O..OO
+	.OO.O
+</PRE>
+<P>:<B>ship</B> (p1)  The term is also used as a synonym of <A HREF="#f4">spaceship</A>.
+<PRE>
+	OO.
+	O.O
+	.OO
+</PRE>
+<P>:<B>ship on boat</B><A NAME="yu"></A> (p1)
+<PRE>
+	OO....
+	O.O...
+	.OO...
+	...OO.
+	...O.O
+	....O.
+</PRE>
+<P>:<B>ship on ship</B> = <A HREF="#z3">ship-tie</A>
+<P>:<B>ship-tie</B><A NAME="z3"></A> (p1)  The name is by analogy with <A HREF="#hl">boat-tie</A>.
+<PRE>
+	OO....
+	O.O...
+	.OO...
+	...OO.
+	...O.O
+	....OO
+</PRE>
+<P>:<B>shuttle</B><A NAME="k7"></A>  Any <A HREF="#wu">oscillator</A> which consists of an active region moving
+back and forth between stabilizing objects.  The most well-known
+examples are the <A HREF="#dg">queen bee shuttle</A> (which has often been called
+simply &quot;the shuttle&quot;) and the <A HREF="#my">twin bees shuttle</A>.  See also
+<A HREF="#w6">p54 shuttle</A> and <A HREF="#rn">Eureka</A>.  Another example is the p72 <A HREF="#t2">R-pentomino</A>
+shuttle that forms part of the pattern given under <A HREF="#z8">factory</A>.
+<P>:<B>side</B>  Half a <A HREF="#r8">sidewalk</A>.  In itself this is unstable and requires an
+<A HREF="#qc">induction coil</A>.
+<PRE>
+	OO...
+	O.OOO
+	....O
+</PRE>
+<P>:<B>sidecar</B><A NAME="g3"></A>  A small <A HREF="#kd">tagalong</A> for a <A HREF="#lg">HWSS</A> that was found by Hartmut
+Holzwart in 1992.  The resulting <A HREF="#f4">spaceship</A> (shown below) has a
+phase with only 24 cells, making it in this respect the smallest
+known spaceship other than the <A HREF="#u3">standard spaceship</A>s and some trivial
+two-spaceship <A HREF="#us">flotilla</A>s derived from them.  Note also that a HWSS
+can support two sidecars at once.
+<PRE>
+	.O......
+	O.....O.
+	O.....O.
+	OOOOO.O.
+	........
+	....OO..
+	..O....O
+	.O......
+	.O.....O
+	.OOOOOO.
+</PRE>
+<P>:<B>side-tracking</B>  See <A HREF="#wt">universal constructor/destructor</A>.
+<P>:<B>sidewalk</B><A NAME="r8"></A> (p1)
+<PRE>
+	.OO.OO
+	..O.O.
+	.O..O.
+	.O.O..
+	OO.OO.
+</PRE>
+<P>:<B>siesta</B><A NAME="j9"></A> (p5)  Compare <A HREF="#l4">sombreros</A>.
+<PRE>
+	...........OO...
+	...OO.....O.O...
+	...O.O....O.....
+	.....O...OO.O...
+	...O.OO.....OOO.
+	.OOO.....O.O...O
+	O...O.O.....OOO.
+	.OOO.....OO.O...
+	...O.OO...O.....
+	.....O....O.O...
+	...O.O.....OO...
+	...OO...........
+</PRE>
+<P>:<B>sinking ship</B> = <A HREF="#b2">canoe</A>
+<P>:<B>skewed quad</B> (p2)
+<PRE>
+	.OO....
+	.O...OO
+	..O.O.O
+	.......
+	O.O.O..
+	OO...O.
+	....OO.
+</PRE>
+<P>:<B>sliding block memory</B><A NAME="oy"></A>  A memory register whose value is stored as the
+position of a <A HREF="#k1">block</A>.  The block can be moved by means of <A HREF="#bf">glider</A>
+collisions.  In Conway's original formulation (as part of his proof
+of the existence of a <A HREF="#z7">universal computer</A> in Life) 2 gliders were
+used to pull the block inwards by three diagonal spaces, and 30
+gliders were used to push it out by the same amount.  Dean Hickerson
+later greatly improved on this, finding a way to pull a block
+inwards by one diagonal space using 2 gliders, and push it out using
+3 gliders.  In order for the memory to be of any use there also has
+to be a way of reading the value held.  It suffices to be able to
+check if the value is zero (as Conway did), or to be able to detect
+the transition from one to zero (as Hickerson did).
+<P>:<B>small fish</B> = <A HREF="#lk">LWSS</A>
+<P>:<B>small lake</B> (p1)  See also <A HREF="#e2">lake</A>.
+<PRE>
+	....O....
+	...O.O...
+	...O.O...
+	.OO...OO.
+	O.......O
+	.OO...OO.
+	...O.O...
+	...O.O...
+	....O....
+</PRE>
+<P>:<B>smiley</B> (p8)  Found by Achim Flammenkamp.
+<PRE>
+	OO.O.OO
+	...O...
+	O.....O
+	.OOOOO.
+	.......
+	.......
+	OOO.OOO
+</PRE>
+<P>:<B>SMM breeder</B>  See <A HREF="#xb">breeder</A>.
+<P>:<B>snacker</B><A NAME="ol"></A> (p9)  Found by Mark Niemiec.  This is a <A HREF="#ah">pentadecathlon</A> with
+stabilizers which force it into a lower period.  The stabilizers
+make the <A HREF="#e0">domino</A> spark largely inaccessible, but the snacker is
+extensible, as shown in the lower diagram, and so a more accessible
+p9 domino spark can be obtained.  In April 1998 Dean Hickerson found
+an alternative stabilizer that is less obtrusive than the original
+one, and this is also shown in the second diagram.
+<PRE>
+	OO................OO
+	.O................O.
+	.O.O............O.O.
+	..OO............OO..
+	.......O....O.......
+	.....OO.OOOO.OO.....
+	.......O....O.......
+	..OO............OO..
+	.O.O............O.O.
+	.O................O.
+	OO................OO
+      2-engine snacker, showing Dean Hickerson's alternative
+      stabilization, and the method for extending to any length:
+	OO................................
+	.O................................
+	.O.O.........................OO...
+	..OO.......................O..O...
+	.......O....O..............OOO....
+	.....OO.OOOO.OO...O....O......OOO.
+	.......O....O...OO.OOOO.OO...O...O
+	..OO..............O....O......OOO.
+	.O.O.......................OOO....
+	.O.........................O..O...
+	OO...........................OO...
+</PRE>
+<P>:<B>snake</B><A NAME="v2"></A> (p1)
+<PRE>
+	OO.O
+	O.OO
+</PRE>
+<P>:<B>snake pit</B><A NAME="sv"></A>  This term has been used for two different oscillators.
+<PRE>
+      snake pit (p2)  This is essentially <A HREF="#p1">fore and back</A>.
+	O.OO.OO
+	OO.O.O.
+	......O
+	OOO.OOO
+	O......
+	.O.O.OO
+	OO.OO.O
+      snake pit (p3)
+	.....OO....
+	....O..O...
+	....O.OO...
+	.OO.O......
+	O.O.O.OOOO.
+	O.........O
+	.OOOO.O.O.O
+	......O.OO.
+	...OO.O....
+	...O..O....
+	....OO.....
+</PRE>
+<P>:<B>snail</B><A NAME="ym"></A> (c/5 orthogonally, p5)  The first known c/5 spaceship,
+discovered by Tim Coe in January 1996.
+<PRE>
+	.O....................................
+	.O....................................
+	O.....................................
+	.OOO.................OOO...OOO........
+	.OO.O.........O...O.O......OOO........
+	..O...........OO.O.......O....OOOO....
+	......O......O...O.O...OO.O.....OO....
+	...O..O.OOO...OO.........O........OO.O
+	...OO.O.....O.....O.................O.
+	.........O.OOOOOOO....................
+	......................................
+	.........O.OOOOOOO....................
+	...OO.O.....O.....O.................O.
+	...O..O.OOO...OO.........O........OO.O
+	......O......O...O.O...OO.O.....OO....
+	..O...........OO.O.......O....OOOO....
+	.OO.O.........O...O.O......OOO........
+	.OOO.................OOO...OOO........
+	O.....................................
+	.O....................................
+	.O....................................
+</PRE>
+<P>:<B>sombreros</B><A NAME="l4"></A> (p6)  If the two halves are moved three spaces closer to
+one another then the period drops to 4, and the result is just a
+less compact form of a <A HREF="#ch">cloverleaf</A>.  Compare also <A HREF="#j9">siesta</A>.
+<PRE>
+	...OO........OO...
+	...O.O......O.O...
+	.....O......O.....
+	...O.OO....OO.O...
+	.OOO..........OOO.
+	O...O.O....O.O...O
+	.OOO..........OOO.
+	...O.OO....OO.O...
+	.....O......O.....
+	...O.O......O.O...
+	...OO........OO...
+</PRE>
+<P>:<B>soup</B><A NAME="gu"></A>  A random initial pattern, often assumed to cover the whole
+Life universe.
+<P>:<B>space dust</B><A NAME="iv"></A>  A part of a <A HREF="#f4">spaceship</A> or <A HREF="#wu">oscillator</A> which looks like
+a random mix of ON and OFF cells.  It is usually very difficult to
+find a <A HREF="#vr">glider synthesis</A> for an object that consists wholly or
+partly of space dust.
+<P>:<B>spacefiller</B><A NAME="ux"></A>  Any pattern that grows at a quadratic rate by filling
+space with an <A HREF="#af">agar</A>.  The first example was found in September 1993
+by Hartmut Holzwart, following a suggestion by Alan Hensel.  The
+diagram below shows a smaller spacefiller found by Tim Coe.
+<PRE>
+	..................O........
+	.................OOO.......
+	............OOO....OO......
+	...........O..OOO..O.OO....
+	..........O...O.O..O.O.....
+	..........O....O.O.O.O.OO..
+	............O....O.O...OO..
+	OOOO.....O.O....O...O.OOO..
+	O...OO.O.OOO.OO.........OO.
+	O.....OO.....O.............
+	.O..OO.O..O..O.OO..........
+	.......O.O.O.O.O.O.....OOOO
+	.O..OO.O..O..O..OO.O.OO...O
+	O.....OO...O.O.O...OO.....O
+	O...OO.O.OO..O..O..O.OO..O.
+	OOOO.....O.O.O.O.O.O.......
+	..........OO.O..O..O.OO..O.
+	.............O.....OO.....O
+	.OO.........OO.OOO.O.OO...O
+	..OOO.O...O....O.O.....OOOO
+	..OO...O.O....O............
+	..OO.O.O.O.O....O..........
+	.....O.O..O.O...O..........
+	....OO.O..OOO..O...........
+	......OO....OOO............
+	.......OOO.................
+	........O..................
+</PRE>
+<P>:<B>space rake</B><A NAME="ys"></A>  The following p20 forward glider <A HREF="#e8">rake</A>, which was the
+first known rake.  It consists of an <A HREF="#aj">ecologist</A> with a LWSS
+added to turn the dying debris into gliders.
+<PRE>
+	...........OO.....OOOO
+	.........OO.OO...O...O
+	.........OOOO........O
+	..........OO.....O..O.
+	......................
+	........O.............
+	.......OO........OO...
+	......O.........O..O..
+	.......OOOOO....O..O..
+	........OOOO...OO.OO..
+	...........O....OO....
+	......................
+	......................
+	......................
+	..................OOOO
+	O..O.............O...O
+	....O................O
+	O...O............O..O.
+	.OOOO.................
+</PRE>
+<P>:<B>spaceship</B><A NAME="f4"></A>  Any finite pattern that reappears (without additions or
+losses) after a number of generations and displaced by a non-zero
+amount.  By far the most <A HREF="#ct">natural</A> spaceships are the <A HREF="#bf">glider</A>,
+<A HREF="#lk">LWSS</A>, <A HREF="#ll">MWSS</A> and <A HREF="#lg">HWSS</A> - no other spaceship has ever been seen
+to arise from random starting patterns.  For further examples
+see <A HREF="#ax">brain</A>, <A HREF="#mx">dart</A>, <A HREF="#aj">ecologist</A>, <A HREF="#us">flotilla</A>, <A HREF="#u1">fly</A>, <A HREF="#at">Orion</A>,
+<A HREF="#ws">pushalong</A>, <A HREF="#g3">sidecar</A>, <A HREF="#ym">snail</A>, <A HREF="#aw">sparky</A>, <A HREF="#s6">swan</A> and <A HREF="#cj">turtle</A>.
+It is known that there exist spaceships travelling in
+all (rational) directions and at arbitrarily slow speeds (see
+<A HREF="#wt">universal constructor/destructor</A>).  Before 1989, however,
+the only known examples travelled at c/4 diagonally (gliders)
+or c/2 orthogonally (everything else).  In 1989 Dean Hickerson
+started to use automated searches to look for new spaceships.
+This work, continued by David Bell, Hartmut Holzwart and Tim Coe,
+has produced a great variety of new spaceships, including orthogonal
+spaceships of speeds 2c/5, c/3, c/4 and c/5.  By different
+means Hickerson also discovered c/12 diagonal spaceships
+(see <A HREF="#x4">Cordership</A>).
+<P>:<B>Spaceships in Conway's Life</B>  A series of articles posted by David
+Bell in August-October 1992 that described many of the new
+spaceships found by himself, Dean Hickerson and Hartmut Holzwart.
+Bell produced an addendum covering more recent developments in
+1996.
+<P>:<B>spark</B><A NAME="kv"></A>  A pattern that dies.  The term is typically used to describe
+a collection of cells periodically thrown off by an <A HREF="#wu">oscillator</A> or
+<A HREF="#f4">spaceship</A>, but other dying patterns, particulary those consisting
+or only one or two cells (such as produced by certain glider
+collisions, for example), are also described as sparks.  For
+examples of small sparks see <A HREF="#ya">unix</A> and <A HREF="#lg">HWSS</A>.  For an example
+of a much larger spark see <A HREF="#j0">Schick engine</A>.
+<P>:<B>spark coil</B><A NAME="jy"></A> (p2)
+<PRE>
+	OO....OO
+	O.O..O.O
+	..O..O..
+	O.O..O.O
+	OO....OO
+</PRE>
+<P>:<B>sparker</B><A NAME="w7"></A>  An <A HREF="#wu">oscillator</A> or <A HREF="#f4">spaceship</A> that produces <A HREF="#kv">spark</A>s.
+These can be used to perturb other patterns without being themselves
+affected.
+<P>:<B>sparky</B><A NAME="aw"></A>  A certain c/4 <A HREF="#kd">tagalong</A>, shown here attached to the back
+of a spaceship.
+<PRE>
+	..........O....................
+	..........O...............OO...
+	......OO.O.OOO..........OO...O.
+	O.OO.OO.OO..O.O...OO.OOOO......
+	O...OO..O.OO..OOO..O.OO..OO...O
+	O.OO....OOO.O.OOO......OO..O...
+	........OO.O...............O..O
+	O.OO....OOO.O.OOO......OO..O...
+	O...OO..O.OO..OOO..O.OO..OO...O
+	O.OO.OO.OO..O.O...OO.OOOO......
+	......OO.O.OOO..........OO...O.
+	..........O...............OO...
+	..........O....................
+</PRE>
+<P>:<B>sparse Life</B><A NAME="ld"></A>  This refers to the study of the evolution of a
+Life universe which starts off as a random <A HREF="#gu">soup</A> of extremely
+low density.  Such a universe is dominated at an early stage
+by <A HREF="#k1">block</A>s and <A HREF="#dw">blinker</A>s (often referred to collectively
+as <A HREF="#eq">blonk</A>s) in a ratio of about 2:1.  Much later it will be
+dominated by simple <A HREF="#cy">infinite growth</A> patterns (presumably mostly
+<A HREF="#x1">switch engine</A>s.  The long term fate of a sparse Life universe is
+less certain.  It may possibly become dominated by self-reproducing
+patterns (see <A HREF="#wt">universal constructor/destructor</A>), but it is not at
+all clear that there is any mechanism for these to dealt with the
+all junk produced by switch engines.
+<P>:<B>speed of light</B><A NAME="lw"></A>  A speed of one cell per generation, the greatest
+speed at which any effect can propagate.
+<P>:<B>S-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	..OO
+	OOO.
+</PRE>
+<P>:<B>spider</B><A NAME="jb"></A> (c/5 orthogonally, p5)  This is the smallest known c/5
+<A HREF="#f4">spaceship</A>.  It was found by David Bell in April 1997.  Its
+side <A HREF="#kv">spark</A>s have proved very useful in constructing c/5
+<A HREF="#z6">puffer</A>s, including <A HREF="#e8">rake</A>s.
+<PRE>
+	......O...OOO.....OOO...O......
+	...OO.OOOOO.OO...OO.OOOOO.OO...
+	.O.OO.O.....O.O.O.O.....O.OO.O.
+	O...O.O...OOOOO.OOOOO...O.O...O
+	....OOO.....OO...OO.....OOO....
+	.O..O.OOO.............OOO.O..O.
+	...O.......................O...
+</PRE>
+<P>:<B>spiral</B> (p1)
+<PRE>
+	OO....O
+	.O..OOO
+	.O.O...
+	..O.O..
+	...O.O.
+	OOO..O.
+	O....OO
+</PRE>
+<P>:<B>squirter</B> = <A HREF="#er">pipsquirter</A>
+<P>:<B>S-spiral</B> = <A HREF="#b0">big S</A>
+<P>:<B>stable</B><A NAME="h3"></A>  A pattern is said to be stable if it is a <A HREF="#yc">parent</A> of itself.
+See <A HREF="#nu">still life</A>.
+<P>:<B>stable glider reflector</B><A NAME="kx"></A>  A <A HREF="#w1">stable reflector</A> that reflects <A HREF="#bf">glider</A>s.
+<P>:<B>stable reflector</B><A NAME="w1"></A>  Any <A HREF="#h3">stable</A> pattern that can reflect <A HREF="#bf">glider</A>s (or
+perhaps some other type of <A HREF="#f4">spaceship</A>) without suffering permanent
+damage.  Oscillating reflectors were known from early on (see <A HREF="#yo">relay</A>
+and <A HREF="#fh">buckaroo</A> for two examples), but it was not until October 1996
+that the first example of a stable reflector was found, by Paul
+Callahan.  All known stable reflectors take a long time to recover
+from a hit.  Callahan's original reflector is not ready for another
+glider until 894 generations after the last one.  In November 1996
+Dean Hickerson found a variant in which this figure is reduced to
+747.  Dave Buckingham reduced this 672 in May 1997 using a somewhat
+different method, and in October 1997 Stephen Silver reduced it to
+623 by a method closer to the original.
+Dieter Leithner has offered a $100 prize for the first person to
+construct a stable glider reflector (either 90 or 180 degrees) that
+fits in a 50x50 square.  The best attempt so far is still too large
+to show in this lexicon.
+<P>:<B>stairstep hexomino</B><A NAME="os"></A>  (stabilizes at time 63)  The following
+predecessor of the <A HREF="#f5">blockade</A>.
+<PRE>
+	..OO
+	.OO.
+	OO..
+</PRE>
+<P>:<B>standard spaceship</B><A NAME="u3"></A>  A <A HREF="#bf">glider</A>, <A HREF="#lk">LWSS</A>, <A HREF="#ll">MWSS</A> or <A HREF="#lg">HWSS</A>.
+<P>:<B>star</B> (p3)
+<PRE>
+	.....O.....
+	....OOO....
+	..OOO.OOO..
+	..O.....O..
+	.OO.....OO.
+	OO.......OO
+	.OO.....OO.
+	..O.....O..
+	..OOO.OOO..
+	....OOO....
+	.....O.....
+</PRE>
+<P>:<B>stator</B><A NAME="c9"></A>  The cells of an <A HREF="#wu">oscillator</A> that are always on.  Compare
+<A HREF="#e5">rotor</A>.  (The stator is sometimes taken to include also some of
+those cells which are always off.)  The stator is divided into the
+<A HREF="#ro">bushing</A> and the <A HREF="#c2">casing</A>.
+<P>:<B>step</B>  Another term for a <A HREF="#sx">generation</A>.  This term is mainly used
+in describing <A HREF="#l7">conduit</A>s.  For example, a 64-step conduit is one
+through which the active object takes 64 generations to pass.
+<P>:<B>still life</B><A NAME="nu"></A>  Any <A HREF="#h3">stable</A> pattern.  For the purposes of enumerating
+still lifes this definition is, however, unsatisfactory because,
+for example, any pair of blocks would count as a still life, and
+there would therefore be an infinite number of 8-bit still lifes.
+For this reason a stricter definition is often used, counting a
+stable pattern as a single still life only if its <A HREF="#lt">island</A>s cannot
+be divided into two nonempty sets both of which are stable in their
+own right.  Compare <A HREF="#ag">pseudo still life</A>.  Still lifes have been
+enumerated by Conway (4-7 bits), Robert Wainwright (8-10 bits),
+Dave Buckingham (11-13 bits), Peter Raynham (14 bits) and Mark
+Niemiec (15-24 bits).  The resulting figures are shown below.
+<PRE>
+	 4        2
+	 5        1
+	 6        5
+	 7        4
+	 8        9
+	 9       10
+	10       25
+	11       46
+	12      121
+	13      240
+	14      619
+	15     1353
+	16     3286
+	17     7773
+	18    19044
+	19    45759
+	20   112243
+	21   273188
+	22   672172
+	23  1646147
+	24  4051711
+</PRE>
+<P>:<B>stretcher</B>  Any pattern that grows by stretching a <A HREF="#qb">wick</A> or <A HREF="#af">agar</A>.
+See <A HREF="#qz">boatstretcher</A> and <A HREF="#ux">spacefiller</A>.
+<P>:<B>super beehive</B> = <A HREF="#ly">honeycomb</A>
+<P>:<B>superfountain</B> (p4)  This <A HREF="#w7">sparker</A> was found by Noam Elkies in
+February 1998.  The resulting <A HREF="#kv">spark</A> is more isolated than in
+Dean Hickerson's <A HREF="#db">fountain</A>.
+<PRE>
+	...............OO......OO......OO..OO..OO.....
+	.........OO.....O......O.....O..O..O..O..O....
+	....O....O.O.OOO....OO.O.....OO.....OOO.O.O...
+	...O.O.....O.O.....O..O........OOOOO....O..O..
+	....O.....O..O....O.O......OOOO..O...OO..O.O..
+	....O.......OOOO..O.OO....O....OOOOO...O.O..OO
+	....OOO...O.....O.O..O....OO..O...O..OO.O.O.O.
+	........OO..O.OO.O.OO....OO..O....O......OO.O.
+	....O...O......O.O...OO.OO...OOOO....OO.O..O..
+	...O.....O.O.....O...O.O.OOOOO.O......O.OOO...
+	....O...OOO.....O....O..........OOO..O........
+	....OOO.OO..OO..O..OOOO..O.O.OO.O.O..O.OO.....
+	O...O.........O...OO.OO.O..O......O..O..O.....
+	....OOO.OO..OO..O..O...OOO......OO....OO......
+	....O...OOO.....O...O...O.....................
+	...O.....O.O.....O.....O...O..................
+	....O...O......O.O..OOO...OO..................
+	........OO..O.OO.O.O...OO.....................
+	....OOO...O.....O..O.O...OOO..................
+	....O.......OOOO...O.OOOO..O..................
+	....O.....O..O......O.....O...................
+	...O.O.....O.O.......OOOOO....................
+	....O....O.O.OOO.......O......................
+	.........OO.....O.............................
+	...............OO.............................
+</PRE>
+<P>:<B>superstring</B><A NAME="sl"></A>  An orthogonal row of cells, in principle infinite,
+stabilized on one side so that it moves at the <A HREF="#lw">speed of light</A>,
+usually leaving debris behind.  The row can often be made finite
+by providing two tracks between which the superstring runs.  This
+gives a <A HREF="#ai">fuse</A> which can be made as wide as desired.  The following
+example is by Tony Smithurst.
+<PRE>
+	.OO..........................................................
+	O..O...O...O...O...O...O...O...O...O...O...O...O...O...O...O.
+	....O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O
+	O..O...O...O...O...O...O...O...O...O...O...O...O...O...O...O.
+	.OOO.........................................................
+	..OO.........................................................
+	..OO.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	..OO.........................................................
+	..OO.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	..OO.........................................................
+	..OO.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	..OO.........................................................
+	..OO.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	..OO.........................................................
+	..OO.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	...O.........................................................
+	..OO.........................................................
+	..OO.........................................................
+	.OOO.........................................................
+	O..O...O...O...O...O...O...O...O...O...O...O...O...O...O...O.
+	....O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O
+	O..O...O...O...O...O...O...O...O...O...O...O...O...O...O...O.
+	.OO..........................................................
+</PRE>
+<P>:<B>swan</B><A NAME="s6"></A> (c/4 diagonally, p4)  A diagonal spaceship producing some
+useful sparks (see <A HREF="#qz">boatstretcher</A> for one simple use).  Found
+by Tim Coe in February 1996.
+<PRE>
+	.O..........OO..........
+	OOOOO......OO...........
+	O..OO........O.......OO.
+	..OO.O.....OO......OOO.O
+	...........OO...O.OO....
+	.....O.O......OO........
+	..........OOO.O....O....
+	.......OOO...O....O.....
+	........O.......O.......
+	........O......O........
+	........................
+	...........O............
+</PRE>
+<P>:<B>switch engine</B><A NAME="x1"></A>  The following pattern, which in itself is unstable,
+but which can be used to make c/12 diagonal <A HREF="#z6">puffer</A>s and
+<A HREF="#f4">spaceship</A>s.  The switch engine was discovered by Charles Corderman
+in 1971.  Stabilized switch engines are the most <A HREF="#ct">natural</A> puffers
+in Life, being the only ones ever seen to occur from random starting
+patterns.  There are two basic types, a p288 block-laying type (the
+more common of the two) and p384 glider-producing type.  Patterns
+giving rise to the former type can be seen under <A HREF="#cy">infinite growth</A>,
+and one giving rise to the latter type is shown under <A HREF="#r7">time bomb</A>.
+See also <A HREF="#du">Noah's ark</A> and <A HREF="#x4">Cordership</A>.
+<PRE>
+	.O.O..
+	O.....
+	.O..O.
+	...OOO
+</PRE>
+<P>:<B>synthesis</B> = <A HREF="#vr">glider synthesis</A>
+<P>:<B>T</B> = <A HREF="#gg">T-tetromino</A>
+<P>:<B>table</B><A NAME="fe"></A>  The following <A HREF="#qc">induction coil</A>.
+<PRE>
+	OOOO
+	O..O
+</PRE>
+<P>:<B>table on table</B><A NAME="v7"></A> (p1)
+<PRE>
+	O..O
+	OOOO
+	....
+	OOOO
+	O..O
+</PRE>
+<P>:<B>tagalong</B><A NAME="kd"></A>  An object which is not a <A HREF="#f4">spaceship</A> in its own right, but
+which can be attached to one or more spaceships to form a larger
+spaceship.  For examples see <A HREF="#u1">fly</A>, <A HREF="#ws">pushalong</A>, <A HREF="#g3">sidecar</A> and
+<A HREF="#aw">sparky</A>.  See also <A HREF="#j0">Schick engine</A>, which consists of a tagalong
+attached to two LWSS (or similar).
+<P>:<B>tail spark</B><A NAME="r9"></A>  A <A HREF="#kv">spark</A> at the back of a spaceship.  For example, the
+1-bit spark at the back of a <A HREF="#lk">LWSS</A>, <A HREF="#ll">MWSS</A> or <A HREF="#lg">HWSS</A> in their less
+dense phases.
+<P>:<B>teardrop</B> (p1)  The following fairly common formation of two beehives.
+<PRE>
+	.O.......
+	O.O......
+	O.O......
+	.O.......
+	.........
+	.........
+	......OO.
+	.....O..O
+	......OO.
+</PRE>
+<P>:<B>technician</B><A NAME="ot"></A> (p5)  Found by Dave Buckingham.
+<PRE>
+	.....O.....
+	....O.O....
+	....OO.....
+	..OO.......
+	.O...OOO...
+	O..OO...O.O
+	.OO....O.OO
+	...O.O.O...
+	...O...O...
+	....OOO....
+	......O.O..
+	.......OO..
+</PRE>
+<P>:<B>technician finished product</B> = <A HREF="#ot">technician</A>
+<P>:<B>ternary reaction</B>  Any reaction between three objects.  In particular,
+a reaction in which two gliders from one stream and one glider from
+a crossing stream of the same period annihilate each other.  This
+can be used to combine two glider guns of the same period to produce
+a new glider gun with double the period.
+<P>:<B>test tube baby</B><A NAME="h2"></A> (p2)
+<PRE>
+	OO....OO
+	O.O..O.O
+	..O..O..
+	..O..O..
+	...OO...
+</PRE>
+<P>:<B>tetraplet</B>  Any 4-cell <A HREF="#k8">polyplet</A>.
+<P>:<B>tetromino</B>  Any 4-cell <A HREF="#kw">polyomino</A>.  There are five such objects,
+shown below.  The first is the <A HREF="#k1">block</A>, the second is the
+<A HREF="#gg">T-tetromino</A> and the remaining three rapidly evolve into
+<A HREF="#p5">beehive</A>s.
+<PRE>
+	OO......OOO......OOOO......OOO......OO.
+	OO.......O...................O.......OO
+</PRE>
+<P>:<B>The Recursive Universe</B><A NAME="lb"></A>  A popular science book by William
+Poundstone (1986) dealing with the nature of the universe,
+illuminated by parallels with the game of Life.  This book
+brought to a wider audience many of the results that first
+appeared in <A HREF="#j8">LifeLine</A>.  It also outlines the proof of the
+existence of a <A HREF="#wt">universal constructor/destructor</A> in Life
+first given in <A HREF="#v3">Winning Ways</A>.
+<P>:<B>thunderbird</B> (stabilizes at time 243)
+<PRE>
+	OOO
+	...
+	.O.
+	.O.
+	.O.
+</PRE>
+<P>:<B>tick</B> = <A HREF="#sx">generation</A>
+<P>:<B>time bomb</B><A NAME="r7"></A>  The following pattern by Doug Petrie, which is really
+just a stabilized glider-producing <A HREF="#x1">switch engine</A> in disguise.
+See <A HREF="#cy">infinite growth</A> for some better examples of a similar nature.
+<PRE>
+	.O...........OO
+	O.O....O......O
+	.......O....O..
+	..O..O...O..O..
+	..OO......O....
+	...O...........
+</PRE>
+<P>:<B>TL</B> = <A HREF="#mo">traffic light</A>
+<P>:<B>T-nosed p4</B> (p4)  Found by Robert Wainwright.
+<PRE>
+	.....O.....
+	.....O.....
+	....OOO....
+	...........
+	...........
+	...........
+	...OOOOO...
+	..O.OOO.O..
+	..O.O.O.O..
+	.OO.O.O.OO.
+	O..OO.OO..O
+	OO.......OO
+</PRE>
+<P>:<B>toad</B><A NAME="dn"></A> (p2)  Found by Simon Norton, this is the second most common
+<A HREF="#wu">oscillator</A>.
+<PRE>
+	.OOO
+	OOO.
+</PRE>
+<P>:<B>toadsucker</B><A NAME="k5"></A>  A <A HREF="#ua">hassler</A> that hassles a <A HREF="#dn">toad</A>, particularly in the
+manner of shown in the following example.  Two <A HREF="#e0">domino</A> <A HREF="#w7">sparker</A>s,
+here <A HREF="#ah">pentadecathlon</A>s, apply their <A HREF="#kv">spark</A>s to the toad in order
+to move it.  The remarkable thing is that the sparks when applied
+again move the toad back to where it came from.  The period of the
+toadsucker is two or four times that of the domino sparker, depending
+on whether the period of the domino sparker is even or odd.  In the
+example below the period is therefore 60.
+<PRE>
+	.O................
+	.O..............O.
+	O.O.............O.
+	.O.............O.O
+	.O......O.......O.
+	.O......OO......O.
+	.O......OO......O.
+	O.O......O......O.
+	.O.............O.O
+	.O..............O.
+	................O.
+</PRE>
+<P>:<B>toaster</B><A NAME="g5"></A> (p5)  Found by Dean Hickerson.
+<PRE>
+	....O......OO..
+	...O.O.OO..O...
+	...O.O.O.O.O...
+	..OO.O...O.OO..
+	O...OO.O.OO...O
+	...O.......O...
+	...O.......O...
+	O...OO.O.OO...O
+	..OO.O...O.OO..
+	...O.O.O.O.O...
+	...O.O.OO..O...
+	....O......OO..
+</PRE>
+<P>:<B>total aperiodic</B><A NAME="zi"></A>  Any finite pattern such that every cell in the
+Life plane is eventually aperiodic.  The first example was found
+by Bill Gosper in November 1997.  A few days later he found the
+following much smaller example consisting of three copies of a
+p12 <A HREF="#mc">backrake</A> by Dave Buckingham.
+<PRE>
+	...............O........................................
+	.OO...........O.........................................
+	.OOO..........O.........................................
+	.OOO..........O..O......................................
+	O.OO..........OOO.......................................
+	OOO.....................................................
+	.O......................................................
+	........................................................
+	........................................................
+	........................................................
+	........................................................
+	........................................................
+	........................................................
+	...OO...................................................
+	...OOO..................................................
+	..O.OO..................................................
+	..OOO...................................................
+	...O............OO......................................
+	...............OOO......................................
+	...............OOO......................................
+	...............OO.O.....................................
+	...O....OO.O....OOO.....................................
+	..O.....O..O.....O......................................
+	..O......OOO............................................
+	..O..O..................................................
+	..OOO...................................................
+	........................................................
+	........................................................
+	........................................................
+	........................................................
+	........................................................
+	........................................................
+	........................................................
+	........................................................
+	..........OO.............O..............................
+	.........OOO............O...............................
+	.........OO.O...........O...............................
+	..........OOO...........O.......OOO.....................
+	...........O............O..O...OOOOO....................
+	........................OOO....OOO.OO.......OO........O.
+	..................................OO.......OOOO........O
+	...........................................OO.OO...O...O
+	.............................................OO.....OOOO
+	........................................................
+	........................................................
+	........................................................
+	.......................O..........................OO....
+	......................O..........................OO.OO..
+	......................O...........................O..O..
+	......................O..O........................O..O..
+	.........O............OOO..........................OO...
+	..........O......................O......................
+	..........O.......................O.....................
+	..........O...................O...O.....................
+	.......O..O....................OOOO...............OO....
+	........OOO....O.OO...OO.......................OOO.OO...
+	...............OOO...OOO.......................OOOOO....
+	................O....OO.O.......................OOO.....
+	......................OOO...............................
+	.......................O................................
+</PRE>
+<P>:<B>T-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	OOO
+	.O.
+	.O.
+</PRE>
+<P>:<B>track</B><A NAME="lc"></A>  A path made out of <A HREF="#l7">conduit</A>s, often ending where it begins
+so that the active object is cycled forever, forming an <A HREF="#wu">oscillator</A>
+or a <A HREF="#gv">gun</A>.
+<P>:<B>traffic circle</B><A NAME="mz"></A> (p100)
+<PRE>
+	.....................OO....OO...................
+	.....................O.O..O.O...................
+	.......................O..O.....................
+	......................OO..OO....................
+	.....................OOO..OOO...................
+	.......................O..O.....................
+	...............................O................
+	..............................O.OO..............
+	..................................O.............
+	..........................O...O..O.O............
+	..........................O.....O..O............
+	..........................O......OO.............
+	.........OO.....................................
+	........O..O..........OOO...OOO.................
+	.......O.O.O....................................
+	......OOO.O...............O.....................
+	......OOO.................O.....................
+	..........................O.....................
+	............OOO.................................
+	OO..O................OOO........................
+	O..OO.....O.....O...............................
+	.OOOOO....O.....O..O.....O.................O..OO
+	..........O.....O..O.....O.................OO..O
+	...................O.....O.......OOO......OOOOO.
+	.OOOOO......OOO.................................
+	O..OO................OOO.......O.....O..........
+	OO..O..........................O.....O....OOOOO.
+	...............................O.....O.....OO..O
+	...........................................O..OO
+	.................................OOO............
+	.......................................OO.......
+	......................................OOO.......
+	.....................................O.OO.......
+	....................................O.O.........
+	....................OOO.............O..O........
+	.....................................OO.........
+	.............OO....O..O.........................
+	............O..O................................
+	............O.O.O...............................
+	.............O..O...............................
+	.................O..............................
+	..............O.O...............................
+	.....................O..O.......................
+	...................OOO..OOO.....................
+	....................OO..OO......................
+	.....................O..O.......................
+	...................O.O..O.O.....................
+	...................OO....OO.....................
+</PRE>
+<P>:<B>traffic jam</B>  Any <A HREF="#mo">traffic light</A> <A HREF="#ua">hassler</A>, such as <A HREF="#mz">traffic circle</A>.
+The term is also applied to the following reaction, used in many
+traffic light hasslers, in which two traffic lights interact in such
+a way as to reappear after 25 generations with an extra 6 spaces
+between them.
+<PRE>
+	..OOO...........
+	...........OOO..
+	O.....O.........
+	O.....O..O.....O
+	O.....O..O.....O
+	.........O.....O
+	..OOO...........
+	...........OOO..
+</PRE>
+<P>:<B>traffic light</B><A NAME="mo"></A> (p2)  A common formation of four blinkers.
+<PRE>
+	..OOO..
+	.......
+	O.....O
+	O.....O
+	O.....O
+	.......
+	..OOO..
+</PRE>
+<P>:<B>trans-beacon on table</B> (p2)
+<PRE>
+	....OO
+	.....O
+	..O...
+	..OO..
+	......
+	OOOO..
+	O..O..
+</PRE>
+<P>:<B>trans-boat with tail</B><A NAME="ak"></A> (p1)
+<PRE>
+	OO...
+	O.O..
+	.O.O.
+	...O.
+	...OO
+</PRE>
+<P>:<B>trans-loaf with tail</B> (p1)
+<PRE>
+	.O....
+	O.O...
+	O..O..
+	.OO.O.
+	....O.
+	....OO
+</PRE>
+<P>:<B>transparent block reaction</B><A NAME="mm"></A>  A certain reaction between a block and
+a <A HREF="#ra">Herschel</A> <A HREF="#yj">predecessor</A> in which the block reappears in its
+original place some time later.  This reaction, found by Dave
+Buckingham in 1988, in effect completely transforms the
+Herschel without affecting the block.  It has been used in some
+<A HREF="#zs">Herschel conduit</A>s, and in the <A HREF="#xo">gunstar</A>s.  Because the reaction
+involves a Herschel predecessor rather than an actual Herschel,
+the following diagram shows instead a <A HREF="#k0">B-heptomino</A> (which evolves
+into a block and a Herschel).
+<PRE>
+	O.............
+	OO..........OO
+	.OO.........OO
+	OO............
+</PRE>
+<P>:<B>transparent debris effect</B> = <A HREF="#mm">transparent block reaction</A>
+<P>:<B>trice tongs</B> (p3)  Found by Robert Wainwright.
+<PRE>
+	OO.....
+	OO..O..
+	..OO.O.
+	..O..O.
+	.O...OO
+	..OOO..
+	....O..
+</PRE>
+<P>:<B>triomino</B><A NAME="h8"></A>  Either of the two 3-cell <A HREF="#kw">polyomino</A>es.  The term is
+rarely used in Life, since the two objects in question are simply
+the <A HREF="#dw">blinker</A> and the <A HREF="#vw">pre-block</A>.
+<P>:<B>triplet</B>  Any 3-cell <A HREF="#k8">polyplet</A>.  There are 5 such objects, shown
+below.  The first two are the two <A HREF="#h8">triomino</A>es, and the other three
+vanish in two generations.
+<PRE>
+	O..................O.......O.......O..
+	OO......OOO......OO.......O.O.......O.
+	.....................................O
+</PRE>
+<P>:<B>tripole</B><A NAME="r0"></A> (p2)  The <A HREF="#jz">barberpole</A> of length 3.
+<PRE>
+	OO....
+	O.O...
+	......
+	..O.O.
+	.....O
+	....OO
+</PRE>
+<P>:<B>true</B><A NAME="ho"></A>  Opposite of <A HREF="#ti">pseudo</A>.  A <A HREF="#gv">gun</A> emitting a period <I>n</I> stream
+of spaceships (or rakes) is said to be a true period <I>n</I> gun if
+its mechanism oscillates with period <I>n</I>.  True period <I>n</I> guns
+are known to exist for all periods greater than 61 (see
+<A HREF="#yq">My Experience with B-heptominos in Oscillators</A>), but only
+a few smaller periods have been achieved, namely 24, 30, 44,
+46, 48, 50, 54, 56 and 60.  (Credits for these small period
+guns are: p30, p46 and p60 by Bill Gosper in 1970-1971, p44 by
+Dave Buckingham in 1992, p50 by Dean Hickerson in 1996, p24 and p48
+by Noam Elkies in 1997 and p54 and p56 by Dieter Leithner in 1998.)
+<P>:<B>T-tetromino</B><A NAME="gg"></A>  The following predecessor of a <A HREF="#mo">traffic light</A>.
+<PRE>
+	OOO
+	.O.
+</PRE>
+<P>:<B>tub</B><A NAME="t7"></A> (p1)
+<PRE>
+	.O.
+	O.O
+	.O.
+</PRE>
+<P>:<B>tubstretcher</B>  See <A HREF="#qz">boatstretcher</A>.
+<P>:<B>tub test tube baby</B> (p2)  See <A HREF="#h2">test tube baby</A>.
+<PRE>
+	.O......O.
+	O.O....O.O
+	.O.O..O.O.
+	...O..O...
+	...O..O...
+	....OO....
+</PRE>
+<P>:<B>tub with tail</B> (p1)
+<PRE>
+	.O...
+	O.O..
+	.O.O.
+	...O.
+	...OO
+</PRE>
+<P>:<B>tubber</B> (p3)
+<PRE>
+	....O.O......
+	....OO.O.....
+	.......OOO...
+	....OO....O..
+	OO.O..OO..O..
+	.O.O....O.OO.
+	O...O...O...O
+	.OO.O....O.O.
+	..O..OO..O.OO
+	..O....OO....
+	...OOO.......
+	.....O.OO....
+	......O.O....
+</PRE>
+<P>:<B>tugalong</B> = <A HREF="#kd">tagalong</A>
+<P>:<B>tumbler</B><A NAME="b4"></A> (p14)  The smallest known p14 <A HREF="#wu">oscillator</A>.  Found by
+George Collins.
+<PRE>
+	.O.....O.
+	O.O...O.O
+	O..O.O..O
+	..O...O..
+	..OO.OO..
+</PRE>
+<P>:<B>turtle</B><A NAME="cj"></A> (c/3 orthogonally, p3)  Found by Dean Hickerson.
+<PRE>
+	.OOO.......O
+	.OO..O.OO.OO
+	...OOO....O.
+	.O..O.O...O.
+	O....O....O.
+	O....O....O.
+	.O..O.O...O.
+	...OOO....O.
+	.OO..O.OO.OO
+	.OOO.......O
+</PRE>
+<P>:<B>twin peaks</B> = <A HREF="#vq">twinhat</A>
+<P>:<B>twin bees shuttle</B><A NAME="my"></A> (p46)  Found by Bill Gosper, this is used in all
+known <A HREF="#ho">true</A> p46 <A HREF="#gv">gun</A>s.  See <A HREF="#zg">new gun</A> for an example.  There are
+various ways to stabilize the ends, two of which are shown in the
+diagram.  On the left is David Bell's <A HREF="#zc">double block reaction</A> (which
+results in a shorter, but wider, shuttle than usual), and on the
+right is the stabilization by a single block.  This latter method
+produces a very large <A HREF="#kv">spark</A> which is useful in a number of ways.
+Adding a symmetrically placed block below this one suppresses the
+spark.  See also <A HREF="#w6">p54 shuttle</A>.
+<PRE>
+	.OO........................
+	.OO........................
+	...........................
+	...............O...........
+	OO.............OO........OO
+	OO..............OO.......OO
+	...........OO..OO..........
+	...........................
+	...........................
+	...........................
+	...........OO..OO..........
+	OO..............OO.........
+	OO.............OO..........
+	...............O...........
+	...........................
+	.OO........................
+	.OO........................
+</PRE>
+<P>:<B>twinhat</B><A NAME="vq"></A> (p1)
+<PRE>
+	..O...O..
+	.O.O.O.O.
+	.O.O.O.O.
+	OO.O.O.OO
+	....O....
+</PRE>
+<P>:<B>twirling T-tetsons II</B><A NAME="fd"></A> (p60)  Found by Robert Wainwright.  This is
+a <A HREF="#fu">pre-pulsar</A> <A HREF="#wo">hassle</A>d by <A HREF="#dn">toad</A>s.
+<PRE>
+	.......OO...OO..........
+	......O.......O.........
+	.........O.O............
+	.......OO...OO..........
+	........................
+	........................
+	........................
+	.....................OOO
+	....................OOO.
+	.............O..........
+	OOO.........OOO.........
+	.OOO....................
+	....................OOO.
+	.....................OOO
+	........................
+	.OOO....................
+	OOO.........OOO.........
+	.............O..........
+	........................
+	........................
+	..........OO...OO.......
+	............O.O.........
+	.........O.......O......
+	..........OO...OO.......
+</PRE>
+<P>:<B>two eaters</B><A NAME="sq"></A> (p3)
+<PRE>
+	OO.......
+	.O.......
+	.O.O.....
+	..OO.....
+	.....OO..
+	.....O.O.
+	.......O.
+	.......OO
+</PRE>
+<P>:<B>two pulsar quadrants</B><A NAME="dz"></A> (p3)  Compare <A HREF="#dr">pulsar quadrant</A>.
+<PRE>
+	....O....
+	....O....
+	...OO....
+	..O......
+	O..O..OOO
+	O...O.O..
+	O....O...
+	.........
+	..OOO....
+</PRE>
+<P>:<B>underpopulation</B><A NAME="mk"></A>  Death of cell caused by it having fewer than two
+<A HREF="#ed">neighbour</A>s.
+<P>:<B>unit Life cell</B>  A rectangular pattern, of size greater than 1x1,
+that can simulate Life in the following sense.  The pattern by
+itself represents a dead Life cell, and some other pattern
+represents a live Life cell.  When the plane is tiled by these
+two patterns (which then represent the state of a whole Life
+universe) they evolve, after a fixed amount of time, into another
+tiling of the plane by the same two patterns which correctly
+represents the Life generation following the one they initially
+represented.  It is usual to use capital letters for the simulated
+things, so, for example, for the first known unit Life cell
+(constructed by David Bell in January 1996), one Generation is
+5760 generations, and one Cell is 500x500 cells.
+<P>:<B>universal computer</B><A NAME="z7"></A>  A computer that can compute anything that is
+computable.  (The concept of computability can be defined in terms
+of Turing machines, or by Church's lambda calculus, or by a number
+of other methods, all of which can be shown to lead to equivalent
+definitions.)  The relevance of this to Life is that both Bill
+Gosper and John Conway proved early on that it is possible to
+construct a universal computer in the Life universe.  (The
+construction has never been carried out, because, even with the
+improvements that have since been devised, it would be enormous.)
+Conway's proof is outlined in <A HREF="#v3">Winning Ways</A>, and also in
+<A HREF="#lb">The Recursive Universe</A>.  See also <A HREF="#oy">sliding block memory</A> and
+<A HREF="#wt">universal constructor/destructor</A>.
+<P>:<B>universal constructor/destructor</B><A NAME="wt"></A>  A pattern that is capable of
+constructing any pattern that has a <A HREF="#vr">glider synthesis</A>, and of
+deleting any pattern that can be deleted by gliders.  An outline
+of Conway's proof that such a pattern exists can be found in
+<A HREF="#v3">Winning Ways</A>, and also in <A HREF="#lb">The Recursive Universe</A>.  The key
+mechanism for the production of gliders with any given path
+and timing is known as side-tracking, and is based on the
+<A HREF="#nt">kickback reaction</A>.  A universal constructor/destructor is
+most useful when attached to a <A HREF="#z7">universal computer</A>, which can
+be programmed to control the constructor to produce the desired
+pattern of gliders.  In what follows we will assume that a
+universal constructor/destructor always includes this computer.
+The existence of a universal constructor/destructor, itself both
+constructible and deletable by gliders, has a number of theoretical
+consequences.
+Firstly, if such a constructor has an <I>n</I>-glider synthesis
+(including 2 gliders used to form the block which encodes the
+program for the universal computer) then any pattern with a glider
+synthesis must also have an <I>n</I>-glider synthesis, for we could arrange
+for the program to specify that the constructor make this pattern
+and delete itself.
+Alternatively, the constructor could be programmed to make copies
+of itself.  This is a <A HREF="#uz">replicator</A>.
+The constructor could even be programmed to make just one copy of
+itself translated by a certain amount and then delete itself.  This
+would be a (very large and very slow) <A HREF="#f4">spaceship</A>.  Any translation
+is possible (except that it must not be too small), so that the
+spaceship could travel in any direction.  It could also travel
+slower than any given speed, since we could program it to perform
+some time-wasting task (such as repeatedly constructing and deleting
+a block) before copying itself.  Of course, we could also choose for
+it to leave some debris behind, thus making a <A HREF="#z6">puffer</A>.
+It is also possible to show that the existence of a universal
+constructor implies the existence of a <A HREF="#w1">stable reflector</A>.
+This proof is not so easy, however, and is no longer of much
+significance now that explicit examples of stable reflectors have
+been constructed.
+<P>:<B>unix</B><A NAME="ya"></A> (p6)  Two <A HREF="#k1">block</A>s trying to eat a <A HREF="#as">long barge</A>.  This is a
+useful <A HREF="#w7">sparker</A>, found by Dave Buckingham.
+<PRE>
+	.OO.....
+	.OO.....
+	........
+	.O......
+	O.O.....
+	O..O..OO
+	....O.OO
+	..OO....
+</PRE>
+<P>:<B>up boat with tail</B> = <A HREF="#ak">trans-boat with tail</A>
+<P>:<B>U-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	O.O
+	OOO
+</PRE>
+<P>:<B>very long barge</B><A NAME="ee"></A> (p1)
+<PRE>
+	.O....
+	O.O...
+	.O.O..
+	..O.O.
+	...O.O
+	....O.
+</PRE>
+<P>:<B>very long boat</B><A NAME="f7"></A> (p1)
+<PRE>
+	.O...
+	O.O..
+	.O.O.
+	..O.O
+	...OO
+</PRE>
+<P>:<B>very long canoe</B><A NAME="nx"></A> (p1)
+<PRE>
+	.....OO
+	......O
+	.....O.
+	....O..
+	...O...
+	O.O....
+	OO.....
+</PRE>
+<P>:<B>very long house</B>  The following <A HREF="#qc">induction coil</A>.
+<PRE>
+	.OOOOO.
+	O..O..O
+	OO...OO
+</PRE>
+<P>:<B>very long ship</B><A NAME="x8"></A> (p1)
+<PRE>
+	OO...
+	O.O..
+	.O.O.
+	..O.O
+	...OO
+</PRE>
+<P>:<B>very long snake</B><A NAME="ae"></A> (p1)
+<PRE>
+	OO....
+	O.O...
+	...O.O
+	....OO
+</PRE>
+<P>:<B>volcano</B>  Any of a number of p5 oscillators which produce sparks.
+See <A HREF="#kf">lightweight volcano</A>, <A HREF="#cs">middleweight volcano</A> and
+<A HREF="#t5">heavyweight volcano</A>.
+<P>:<B>V-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	O..
+	O..
+	OOO
+</PRE>
+<P>:<B>washerwoman</B><A NAME="iq"></A> (2c/3 p18 fuse)  A fuse by Earl Abbe.
+<PRE>
+	O.......................................................
+	OO....O.....O.....O.....O.....O.....O.....O.....O.....O.
+	OOO..O.O...O.O...O.O...O.O...O.O...O.O...O.O...O.O...O.O
+	OO....O.....O.....O.....O.....O.....O.....O.....O.....O.
+	O.......................................................
+</PRE>
+<P>:<B>washing machine</B> (p2)
+<PRE>
+	.OO.OO.
+	O.OO..O
+	OO....O
+	.O...O.
+	O....OO
+	O..OO.O
+	.OO.OO.
+</PRE>
+<P>:<B>weld</B>  To join two or more <A HREF="#nu">still life</A>s or <A HREF="#wu">oscillator</A>s together.
+This is often done in order to fit the objects into a smaller space
+than would otherwise be possible.  The simplest useful example is
+probably the <A HREF="#dv">integral sign</A>, which can be considered as a pair of
+welded <A HREF="#fv">fishhook</A>s.
+<P>:<B>Wheels, Life, and other Mathematical Amusements</B>  One of Martin
+Gardner's books (1983) that collects together material from his
+column in Scientific American.  The last three chapters of this
+book contain all the Life stuff.
+<P>:<B>wick</B><A NAME="qb"></A>  A stable or oscillating linearly repeating pattern that can be
+made to burn at one end.  See <A HREF="#ai">fuse</A>.
+<P>:<B>wickstretcher</B><A NAME="h4"></A>  A <A HREF="#f4">spaceship</A>-like object which stretches a <A HREF="#qb">wick</A>
+that is fixed at the other end.  The wick here is assumed to be in
+some sense connected, otherwise most puffers would qualify as
+wickstretchers.  The first example of a wickstretcher was found in
+October 1992 (front end by Hartmut Holzwart and back end by Dean
+Hickerson) and stretches <A HREF="#sw">ants</A> at a speed of c/4.  This is shown
+below with an improved back end (also by Hickerson).  For another
+example see <A HREF="#qz">boatstretcher</A>.
+<PRE>
+	.................OO..............................
+	.............OO....O.............................
+	............OOO.O................................
+	O.OO..OO...O...OOOO.O.O....OO.......OO...........
+	O....OO..O........O.OOO....O....OO.O..O.OO.O.....
+	O.OO....OO.OO....O...........O...O.O.OO.O.OO.....
+	......O.......O.............OO.....O..O.O...OO...
+	.....O.........O.O....OOO...O....O..O.O.OOO...O..
+	.....O.........O.O....OOO.OO.O..OO.O.O...O..OO.O.
+	......O.......O.............OO.O...OO....OO....O.
+	O.OO....OO.OO....O..........O........OO.O.O.OO.OO
+	O....OO..O........O.OOO........O...O...OO.O..O.O.
+	O.OO..OO...O...OOOO.O.O.......O.O...OO....O..O.O.
+	............OOO.O..............O.....O.OOO....O..
+	.............OO....O.................O.O.........
+	.................OO...................O..........
+</PRE>
+<P>:<B>wicktrailer</B>  Any extensible <A HREF="#kd">tagalong</A>.
+<P>:<B>wing</B>  The following <A HREF="#qc">induction coil</A>.  This is generation 2 of
+<A HREF="#aq">block and glider</A>.
+<PRE>
+	.OO.
+	O..O
+	.O.O
+	..OO
+</PRE>
+<P>:<B>Winning Ways</B><A NAME="v3"></A>  A two-volume book (1982) by Elwyn Berlekamp, John
+Conway and Richard Guy on mathematical games.  The last chapter
+of the second volume concerns Life, and outlines a proof of the
+existence of a <A HREF="#wt">universal constructor/destructor</A>.
+<P>:<B>worker bee</B><A NAME="u7"></A> (p9)  Found by Dave Buckingham.
+<PRE>
+	OO............OO
+	.O............O.
+	.O.O........O.O.
+	..OO........OO..
+	................
+	.....OOOOOO.....
+	................
+	..OO........OO..
+	.O.O........O.O.
+	.O............O.
+	OO............OO
+</PRE>
+<P>:<B>W-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	O..
+	OO.
+	.OO
+</PRE>
+<P>:<B>Xlife</B>  A popular freeware Life program that runs under the X Window
+System.  The original code was written by Jon Bennett.
+<P>:<B>X-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	.O.
+	OOO
+	.O.
+</PRE>
+<P>:<B>Y-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	..O.
+	OOOO
+</PRE>
+<P>:<B>Z-hexomino</B><A NAME="la"></A>  The following <A HREF="#hk">hexomino</A>.  See <A HREF="#dy">pentoad</A>.
+<PRE>
+	OO.
+	.O.
+	.O.
+	.OO
+</PRE>
+<P>:<B>Z-pentomino</B>  Conway's name for the following <A HREF="#m7">pentomino</A>.
+<PRE>
+	OO.
+	.O.
+	.OO
+</PRE>
+</HTML>

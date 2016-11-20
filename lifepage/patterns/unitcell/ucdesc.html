@@ -1,0 +1,72 @@
+<TITLE>David Bell's Unit Life Cell</TITLE>
+<H1>The Unit Life Cell</H1>
+The unit Life cell is a much discussed but until recently
+hypothetical pattern.
+In his 
+<A HREF="../../picgloss/picgloss.html">glossary</A>, 
+Alan Hensel
+defines it as 
+"a pattern with two states, which is determined by
+its previous state and the previous state of its neighbors, using
+exactly the rules used to compute it; that is, it simulates its
+own universe."
+<P>
+It has been known for a long time that Life is
+a universal computer, thus proving that Life can simulate itself in 
+some sense.  Also, enough logic gates and memory units have 
+been constructed over the years to suggest that one
+ought to be able to build a unit Life cell explicitly.
+<P>
+Well, to make a long story short, David Bell has gone ahead and done it.
+You can view this pattern in Java if your browser supports it, but if you
+really want to see the pattern in action, you are better off downloading it
+and watching it in one of the fast Life programs
+available on the main Life page.
+<P>
+This leaves open the question of whether a smaller, faster
+unit cell exists.  It would be especially interesting if a
+unit Life cell could be found that was not composed of
+glider logic, but somehow worked more directly from
+the Life rules. 
+Such a unit cell might be much smaller than the one below, but
+it is unclear how one would go about searching for it.
+<HR>
+<EM>From: "David I. Bell" <dbell@auug.org.au></EM><BR>
+<EM>Subject: Corrected Unit Life Cell</EM><BR>
+<EM>Date: Thu, 18 Jan 1996 21:10:17 +1100</EM><BR>
+<P>
+Here is the corrected Unit Life Cell for your enjoyment.  
+...
+I am pretty sure that this new Unit Life Cell actually works.  I spent one
+whole day calculating the results of a 3 by 4 rectangle of Cells which
+runs a Glider for 2 Generations.  That test tried out most of the possible
+logic, including 3 neighbors creating a new cell, 3 neighbors keeping an
+old cell alive, 2 neighbors keeping a cell alive, 1 neighbor killing off a
+cell, and 4 neighbors killing off a cell.
+<EM>[The red box highlights the
+"pair of long boats" referred to below. -PBC]</EM>
+<P>
+<A HREF="unitcell.html"><IMG SRC="unitcell.gif"></A>
+<P>
+Here are some approximate generation numbers for important events which
+occur during the 5760 generations which make up one Generation.  Some of
+these events only occur if the Cell is LIVE.
+<PRE>
+0:	Current state glider starts from pair of long boats
+400:	Current state glider arrives at fanout device
+600:	Output gliders escape from the fanout device
+900:	Missing LWSS turned into boat to hold Cell's current state
+1800:	First glider arrives at the glider detector to be turned into a block
+4000:	Last glider arrives at the glider detector to be turned into a block
+	and the high period glider guns fire
+4700:	Stream of 10 gliders starts sweep through glider detector to count
+	the number of blocks in the detector
+5200:	Gliders from stream react in the Life Logic circuit to calculate
+	the new current state glider
+5700:	New current state glider arrives back at the pair of long boats
+</PRE>
+BCNU,
+-dbell-
+<HR>
+<A HREF="../../lifepage.html#newresults"><IMG SRC="../../larrw.gif"></A>
+Back to Paul's Page of Conway's Life Miscellany

@@ -1,0 +1,25 @@
+<TITLE>max.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=max>
+</applet>
+<H1>Comments for <A HREF="max.lif">max.lif</A></H1>
+<PRE>
+MAX, the smallest known example of a "spacefiller"
+This is the fastest-growing known pattern in Conway's Game of Life
+(possibly the fastest possible). It fills space to a density of 1/2,
+conjectured to be the maximum density, and does it at a speed of c/2
+in each of the 4 directions, which has been proven to be the maximum
+possible speed.
+Population growth is [(t+19)^2+463]/4 for t divisible by 4;
+.                    [(t+19)^2+487]/4 for t even, not div. by 4;
+.                    [(t+18)^2+639]/4 for t odd.
+Original construction, top/bottom stretchers by Hartmut Holzwart;
+Size optimization, left/right stretchers by David Bell;
+Original idea, middle part, l/r stretcher connection by Al Hensel.
+This spacefiller by David Bell, September 1993.
+</PRE>
+Xref:
+<A HREF="stretch.html">stretch</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

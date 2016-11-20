@@ -1,0 +1,25 @@
+<TITLE>irrat5.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=irrat5>
+</applet>
+<H1>Comments for <A HREF="irrat5.lif">irrat5.lif</A></H1>
+<PRE>
+Irrational 5
+Population growth is linear with an irrational multiplier.
+Each middleweight spaceship produced by the puffers either hits a
+boat or is deleted by a glider.  Denoting the first possibility by
+1 and the second by 0, we obtain a sequence beginning 101011011010...
+If we prepend 101, we obtain the Fibonacci string sequence, defined
+by starting with 1 and then repeatedly replacing each 0 by 1 and each
+1 by 10:  1 -> 10 -> 101 -> 10110 -> 10110101 -> ...  (See Knuth's
+"The art of computer programming, vol. 1", exercise 1.2.8.36 for
+another definition.)  The density of 1's in this sequence is
+(sqrt(5)-1)/2,  which implies that the population in gen t is
+asymptotic to  (8 - 31 sqrt(5)/10) t.  More specifically, the
+population in gen  20 F[n] - 92  (n>=6)  is 98 F[n] - 124 F[n-1] + 560,
+where  F[n]  is the n'th Fibonacci number.  (F[0]=0,  F[1]=1,  and
+F[n] = F[n-1] + F[n-2]  for  n>=2.)
+Dean Hickerson, dean@ucdmath.ucdavis.edu  5/12/91
+</PRE>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

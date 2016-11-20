@@ -1,0 +1,23 @@
+<TITLE>pushgun.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=pushgun>
+</applet>
+<H1>Comments for <A HREF="pushgun.lif">pushgun.lif</A></H1>
+<PRE>
+Sqrtgun 10.1
+Population in generation t is asymptotic to  sqrt(5t/8).
+A 3 glider salvo pushes a block 10 units southeast and sends back
+2 gliders, which cause another salvo to be fired and a glider to
+be sent southwest.  The round trip time, and hence the gap between
+southwestward gliders, increases by an average of 80 generations each
+time.  More specifically, let  a[0]=a[2]=199  and  a[1]=-1.  Then, for
+n>=0, a glider is sent southwest (by reflection from a buckaroo) in
+generation  40 n^2 + 1120 n + a[n mod 3]  (at which time the population
+is  5n + 1115)  and escapes about 270 generations later.  
+Dean Hickerson, dean@ucdmath.ucdavis.edu  2/14/91
+</PRE>
+Xref:
+<A HREF="round.html">round</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>

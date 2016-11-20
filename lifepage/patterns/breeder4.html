@@ -1,0 +1,34 @@
+<TITLE>breeder4.lif</TITLE>
+<applet code="LifeApp" width=500 height=300>
+<param name=pattern value=breeder4>
+</applet>
+<H1>Comments for <A HREF="breeder4.lif">breeder4.lif</A></H1>
+<PRE>
+Pufferless breeder (Standing breeder)
+A shotgun sends an 8 spaceship salvo eastward every 360 gens.
+Call the spaceships, from top to bottom, A, B, C, D, D', C', B',
+and A'.  D and D' are MWSSs; the others are HWSSs.  (The shotgun's
+output is approximately glide symmetric.)  Every 360 gens, two
+guns and a kickback reaction are used to create a northeastward
+glider in front of A and B.  A and B redirect the glider
+southeastward.  Then C' and D' duplicate it, producing 2 SEward
+gliders and a block.  The second glider escapes, the block is
+deleted by D, and the first glider is turned NEward by A' and B'.
+It is duplicated by C and D, again producing an escaping glider, a
+block that gets deleted by the next D', and another NEward glider.
+The latter interacts with the next A and B in the same way as the
+original glider did, 596 gens later and 118 units farther east.
+
+Thus, in gen t, there are approximately  t/360  gliders zigzagging
+east, each producing 2 more gliders every 596 gens.  So the
+population is growing by about  5 * 2/596 * t/360  =  t/21456
+cells per generation, and the total population is about  t^2/42912.
+The gliders occupy a nonconvex quadrilateral with vertices at
+(approximately)  (0,0),  (t/4,t/4),  (59t/298,0),  and  (t/4,-t/4).
+Dean Hickerson, dean@ucdmath.ucdavis.edu  10/12/92
+</PRE>
+Xref:
+<A HREF="breeder.html">breeder</A>
+<BR>
+<HR><A HREF="contents.html">Table of Contents</A>,
+<A HREF="javalife.html">About the Applet</A>
