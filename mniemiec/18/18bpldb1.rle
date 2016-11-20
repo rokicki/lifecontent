@@ -1,0 +1,30 @@
+#N 18bpldb1.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:03:15 2015
+x = 198, y = 145, rule = B3/S23
+108bo$109boo$108boo$134bo$134bobo$134boo$113bobo$114boo$114bo$117bo20b
+o$118boo18bobo$117boo19boo7$153bxx18boo18bxx$153bxbx17bobo17bxbx$$155b
+xbx17bobo17bxbx$156bxx18boo18bxx$$116bo37b4x16b4o16b4x$117bo4bo30bx3bx
+15bo3bo15bx3bx$115b3o3bo31bxx14bo3boo17bxbx$121b3o21bo24bo22bxx$114b3o
+27boo22b3o$114bo29bobo$115bo54b3o$170bo$171bo10$15bo$14bo$14b3o$28bo$
+15bo3boo6bo$15boobbobo5b3o$14bobobbo13bxx18boo18bxx18boo18bxx18boo18b
+xx18boo18bxx$33bxbx17bobo17bxbx17bobo17bxbx17bobo17bxbx17bobo17bxbx$$
+35bxbx17bobo17bxbx17bobo17bxbx17bobo17bxbx17bobo17bxbx$36bxx18boo18bxx
+18boo18bxx18boo18bxx18boo18bxx$$40byy18boo33bo20bxx18boo16b4x16b4o16b
+4x$40byy18boo33boo18bxbx10bo6bobo16bxbbx16bobbo15bx3bx$94bobo19bx9bobo
+7bo18bxx18boo16bxx$58boo67boo$57bobo70boo42bo$59bo71boo41boobboo$130bo
+42boboboo$179bo13$72bo$70bobo$71boo6$171bo$169bobo$170boo$$151bobo26bo
+$152boo4bobo7bo9boo$152bo6boo5bobo10boo$159bo7boo16bo$87bo36bo47bo10b
+oo$86bo38bo47bo10boo$86b3o34b3o45b3o$127bo$87bo38bo$obo83boo38b3o35bob
+o$boo83bobo70b3o3boo$bo159bo3bo$8bo97bxx14bo3boo32bo32bxx$7bo98bxx12bo
+bo3boo17bxx19boo7boo16bxbx$7b3o111boo22bx21boo6bo$26bxx18boo18bxx18boo
+18bxx10boo6boo19bx18bo10bo17bxbx$10bo15bxx18boo18bxx18boo18bxx9bobo6b
+oo18bxx28boo18bxx$9boo108bo$9bobo12b4x16b4o16b4x16b4o16b4x16b4o16b4x
+26b4o16b4x$23bx3bx15bo3bo15bx3bx15bo3bo15bx3bx15bo3bo15bx3bx25bo3bo15b
+x3bx$23bxx14bo3boo17bxbx17bobo17bxbx17bobo17bxbx27bobo17bxbx$40bo22bxx
+18boo18bxx18boo18bxx28boo18bxx$38b3o$$40b3o$4b3o33bo$6bo34bo$5bo9$179b
+o$180bo$178b3o3bo$174bo7boo$61bo113boo6boo$59boo113boo$56bo3boo$54boo
+7boo$55boo6bobo$63bo132bxx$183bo12bxx$76bx15bobo21bx19bo19bx19bo5bo$
+11bobo44b3o13b3x16boo19b3x17b3o17b3x17b3o5b3o9b4x$12boo19bx19bo4bo14bx
+19bo19bx19bo19bx19bo19bx3bx$12bo19bxbx17bobo4bo12bxbx38bxx14bo3boo17bx
+bx17bobo17bxbx$33bxx18boo18bxx15b3o37bo22bxx18boo10bobo5bxx$12b3o77bo
+35b3o54boo$12bo78bo94bo$13bo116b3o$130bo$131bo51b3o$183bo$184bo!

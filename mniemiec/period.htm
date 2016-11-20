@@ -1,0 +1,3091 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Oscillators by Period</title>
+<meta name="description"
+content="Conway's Game of Life: Oscillator lists and glider syntheses by period" />
+<meta name="keywords"
+content="conway game life oscillator object list glider synthesis by period" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Oscillators by Period</h1>
+
+<p align="center">
+	<b><a class="j" href="#osc-intro">Introduction</a></b> |
+	<b><a class="j" href="#osc-known">Known periods</a></b><br />
+	<b>Period:</b>
+	  <a class="j" href="#p1">1</a> |
+	  <a class="j" href="#p2">2</a> |
+	  <a class="j" href="#p3">3</a> |
+	  <a class="j" href="#p4">4</a> |
+	  <a class="j" href="#p5">5</a> |
+	  <a class="j" href="#p6">6</a> |
+	  <a class="j" href="#p7">7</a> |
+	  <a class="j" href="#p8">8</a> |
+	  <a class="j" href="#p9">9</a> |
+	  <a class="j" href="#p10">10</a> |
+	  <a class="j" href="#p11">11</a> |
+	  <a class="j" href="#p12">12</a> |
+	  <a class="j" href="#p13">13</a> |
+	  <a class="j" href="#p14">14</a> |
+	  <a class="j" href="#p15">15</a> |
+	  <a class="j" href="#p16">16</a> |
+	  <a class="j" href="#p17">17</a> |
+	  <a class="j" href="#p18">18</a> |
+	  <a class="j" href="#p20">20</a> |
+	  <a class="j" href="#p21">21</a> |
+	  <a class="j" href="#p22">22</a> |
+	  <a class="j" href="#p24">24</a> |
+	  <a class="j" href="#p25">25</a> |
+	  <a class="j" href="#p26">26</a> |
+	  <a class="j" href="#p27">27</a> |
+	  <a class="j" href="#p28">28</a> |
+	  <a class="j" href="#p29">29</a> |
+	  <a class="j" href="#p30">30</a> |
+	  <a class="j" href="#p31">31</a> |
+	  <a class="j" href="#p32">32</a> |
+	  <a class="j" href="#p33">33</a> |
+	  <a class="j" href="#p34">34</a> |
+	  <a class="j" href="#p35">35</a> |
+	  <a class="j" href="#p36">36</a> |
+	  <a class="j" href="#p37">37</a> |
+	  <a class="j" href="#p39">39</a> |
+	  <a class="j" href="#p40">40</a> |
+	  <a class="j" href="#p42">42</a> |
+	  <a class="j" href="#p44">44</a> |
+	  <a class="j" href="#p45">45</a> |
+	  <a class="j" href="#p46">46</a> |
+	  <a class="j" href="#p47">47</a> |
+	  <a class="j" href="#p50">50</a> |
+	  <a class="j" href="#p51">51</a> |
+	  <a class="j" href="#p52">52</a> |
+	  <a class="j" href="#p54">54</a> |
+	  <a class="j" href="#p55">55</a> |
+	  <a class="j" href="#p56">56</a> |
+	  <a class="j" href="#p60">60</a> |
+	  <a class="j" href="#p63">63</a> |
+	  <a class="j" href="#p64">64</a> |
+	  <a class="j" href="#p70">70</a> |
+	  <a class="j" href="#p72">72</a> |
+	  <a class="j" href="#p75">75</a> |
+	  <a class="j" href="#p88">88</a> |
+	  <a class="j" href="#p90">90</a> |
+	  <a class="j" href="#p100">100</a> |
+	  <a class="j" href="#p120">120</a> |
+	  <a class="j" href="#p138">138</a> |
+	  <a class="j" href="#p144">144</a> |
+	  <a class="j" href="#p156">156</a> |
+	  <a class="j" href="#p177">177</a> |
+	  <a class="j" href="#p256">256</a> |
+	  <a class="j" href="#p276">276</a> |
+	  <a class="j" href="#p300">300</a> |
+	  <a class="j" href="#p312">312</a>
+</p>
+
+<hr /><hr />
+<a name="osc-intro"></a>
+<h2>Introduction</h2>
+<p>In Life, naturally-occurring oscillators exist of many periods, and almost
+all additional periods are obtainable using highly artificial mechanisms. The
+oscillators shown are ones that have known glider syntheses. (Also, some of
+these oscillators, and their corresponding syntheses, are infinitely
+extensible.)</p>
+
+<p>The oscillators here could be classified into three broad categories:</p>
+<p><ul>
+    <li>Most of the oscillators have rotors of the given period.</li>
+    <li>Some of the oscillators consist of sparkers with two rotors of periods
+	<i>x</i> and <i>y</i>, whose sparks interact to create an additional
+	trivial spark whose period is GCD(<i>x</i>,<i>y</i>).</li>
+    <li>Some of the oscillators have two rotors of periods <i>x</i> and <i>y</i>
+	that do not interact with each other. These are called trivial
+	oscillators, and are said to have a <i>pseudo-period</i> of
+	GCD(<i>x</i>,<i>y</i>), as no rotor cells actually have that period. Many
+	pseudo-oscillators with composite periods also work this way. The only
+	known period 34 oscillators are also of this form.</li>
+</ul></p>
+
+<p>The last two methods are useful for creating oscillators with periods that
+are otherwise unavailable. Unfortunately, it is impossible to use these to
+obtain prime periods (like 17), prime powers (like 16, 27, 49, 64 and 81),
+and products of prime powers (e.g. there are no synthesized oscillators of
+periods 48 and 80, as these both require a period 16 component, and the only
+synthesized period-16 oscillator can neither spark, be sparked by, nor form
+objects or pseudo-objects with oscillators of other periods.)</p>
+
+<p>In 1996, Buckingham revealed a suite of track components that use eaters and
+other still-lifes or sparking oscillators to move a Herschel heptomino (the 20th
+generation of <a class="p" href="0/6bh.rle">B heptomino</a>, after it has left behind a
+block). By combining several of these, in much the same way as one assembles toy
+train tracks, one can produce looping conduits that take arbitrarily long
+to cycle a single Herschel. By placing multiple Herschels in such a conduit,
+one can obtain oscillators of arbitrarily small fractions of such large
+periods. (These were improvements over his earlier track components that used
+spark-producing oscillators as still-lifes as stabilizers; unfortunately,
+those could only produce oscillators whose periods are multiples of those of
+the spark-producers.)</p>
+
+<p>Oscillators of all periods 58 and above can be obtained in this way.
+Since Herschels naturally release gliders, this also yields glider guns of
+all periods 62 and above. (The Herschels collide with each other if closer
+than 58 generations apart, and they collide with the escaping gliders if
+closer than 62 generations apart.) Dietrich Leithner has constructed
+specific Herschel-based oscillators of periods 56 and 57 by adding in one of
+Buckingham's earlier spark-stabilized sections (as those periods are divisible
+by 4 and 3 respectively, allowing use of sparkers of those periods).</p>
+
+<p>This is basically a variation of the method described by
+<a class="i" href="lifecred.htm#conway">Conway</a> in the 1970s to construct
+oscillators of arbitrary period using stable glider-reflectors.
+(Until recently, most known stable glider-reflectors were derived from the
+above, turning a glider into a Herschel, shuttling the Herschel, and then
+turning the Herschel back into a glider.)</p>
+
+<p>In April 2013, <a class="i" href="lifecred.htm#playle">Mike Playle</a> found
+a small 90-degree stable reflector that allows construction of glider-loop
+oscillators of all periods 43 and above.</p>
+
+<p>At present, Life contains known oscillators of all periods except 19 and
+38. (There are also no known non-trivial period 34 oscillators; all known ones
+consist of independent period 2 and period 17 components).</p>
+
+<p>Furthermore, since the Herschels, eaters, and other small
+still-lifes can easily be synthesized, syntheses exist for almost all
+oscillator periods.</p>
+
+<p>Unlike synthesis of still-lifes, synthesis of oscillators is usually much
+more difficult. It more closely resembles sculpting liquids, chemical
+synthesis of unstable compounds, or performing open heart surgery on a patient
+whose heart is still beating. Most of the oscillators with known syntheses
+are either small, composed of many small and simple interacting pieces, or
+create seemingly random messes that eventually spontaneously erupt into the
+object or component desired. Many large pulsators and hassled oscillators
+were discovered out of searches of random broths, and their syntheses
+frequently consist of building a few pieces that are similar to pieces seen in
+the broths that created the desired components (i.e. "art imitating life").</p>
+
+<p>Of course, for any period where <a class="i" href="gun.htm">guns</a> exist,
+oscillators must also necessarily exist, since any gun can be turned into an
+oscillator by adding eaters to eat any escaping gliders.</p>
+
+<hr />
+<a name="osc-known"></a>
+<h2>Known oscillator periods</h2>
+<p>This is a table of known oscillator periods up to 100. Status is shown in
+color:</p>
+<p><ul>
+    <li>Periods for which oscillators exist, and syntheses exist, are shown
+	shown in white.</li>
+    <li>Periods for which oscillators exist, and syntheses presumably exist,
+	but which have not been specifically instantiated, are shown in
+	<span class="c">teal</span>.</li>
+    <li>Periods for which oscillators exist, but syntheses exist only for
+	trivial examples (i.e. ones with composite periods where no cells
+	actually oscillate with the full period), are shown in
+	<span class="g">green</span>.</li>
+    <li>Periods for which oscillators exist, but no syntheses are yet known, are
+	shown in <span class="y">yellow</span>.</li>
+    <li>Periods for which only trivial oscillators exist, and syntheses exist,
+	are shown in <span class="b">blue</span>. (Period 34 the only period of
+	this kind).</li>
+    <li>Periods for which there are no known oscillators are shown in
+	<span class="r">red</span>. (Only periods 19 and 38 are unknown).</li>
+</ul></p>
+
+<p>As Herschel conduits exist for all periods 56 and higher, and all their
+components can be synthesized from gliders, syntheses presumably exist for all
+oscillator periods 56 and higher. Due to their large sizes, however, no such
+oscillators are shown.</p>
+
+<p>The <a class="p" href="lg/49snref.rle">Snark reflector</a> allows glider loops
+of all periods 43 and higher. The Snark can be synthesized, and if such loops
+can be synthesized, this would mean syntheses would also exist for all
+oscillator periods 43 through 55. However, no attempt has yet been made to
+synthesize full glider loops containing multiple Snarks, so this has not yet
+been demonstrated.</p>
+
+    <table width="404">
+    <colgroup><col width="41" /><col span="8" width="40" /><col width="41" />
+	</colgroup>
+    <tr>
+	<td class="s">&nbsp;</td>
+	<td><a class="i" href="p1.htm">1</a></td>
+	<td><a class="i" href="p2.htm">2</a></td>
+	<td><a class="i" href="p3.htm">3</a></td>
+	<td><a class="i" href="p4.htm">4</a></td>
+	<td><a class="i" href="p5.htm">5</a></td>
+	<td><a class="j" href="#p6">6</a></td>
+	<td><a class="j" href="#p7">7</a></td>
+	<td><a class="i" href="p8.htm">8</a></td>
+	<td><a class="j" href="#p9">9</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p10.htm">10</a></td>
+	<td><a class="j" href="#p11">11</a></td>
+	<td><a class="i" href="p12.htm">12</a></td>
+	<td><a class="j" href="#p13">13</a></td>
+	<td><a class="i" href="p14.htm">14</a></td>
+	<td><a class="i" href="p15.htm">15</a></td>
+	<td><a class="j" href="#p16">16</a></td>
+	<td><a class="j" href="#p17">17</a></td>
+	<td><a class="j" href="#p18">18</a></td>
+	<td class="r">19</td>
+    </tr>
+
+    <tr>
+	<td><a class="j" href="#p20">20</a></td>
+	<td class="g"><a class="j" href="#p21">21</a></td>
+	<td><a class="j" href="#p22">22</a></td>
+	<td class="y">23</td>
+	<td><a class="i" href="p24.htm">24</a></td>
+	<td><a class="j" href="#p25">28</a></td>
+	<td class="g"><a class="j" href="#p26">26</a></td>
+	<td><a class="j" href="#p27">27</a></td>
+	<td><a class="j" href="#p28">28</a></td>
+	<td><a class="j" href="#p29">29</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p30.htm">30</a></td>
+	<td><a class="j" href="#p31">31</a></td>
+	<td><a class="j" href="#p32">32</a></td>
+	<td><a class="j" href="#p33">33</a></td>
+	<td class="b"><a class="j" href="#p34">34</a></td>
+	<td><a class="j" href="#p35">35</a></td>
+	<td><a class="i" href="p36.htm">36</a></td>
+	<td><a class="j" href="#p37">37</a></td>
+	<td class="r">38</td>
+	<td class="g"><a class="j" href="#p39">39</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="j" href="#p40">40</a></td>
+	<td class="y">41</td>
+	<td class="g"><a class="j" href="#p42">42</a></td>
+	<td class="y">43</td>
+	<td><a class="j" href="#p44">44</a></td>
+	<td><a class="j" href="#p45">45</a></td>
+	<td><a class="j" href="#p46">46</a></td>
+	<td><a class="j" href="#p47">47</a></td>
+	<td class="y">48</td>
+	<td class="y">49</td>
+    </tr>
+
+    <tr>
+	<td><a class="j" href="#p50">50</a></td>
+	<td><a class="j" href="#p51">51</a></td>
+	<td><a class="j" href="#p52">52</a></td>
+	<td class="y">53</td>
+	<td><a class="j" href="#p54">54</a></td>
+	<td class="g"><a class="j" href="#p55">55</a></td>
+	<td><a class="j" href="#p56">56</a></td>
+	<td class="c">57</td>
+	<td class="c">58</td>
+	<td class="c">59</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p60.htm">60</a></td>
+	<td class="c">61</td>
+	<td class="c">62</td>
+	<td class="g"><a class="j" href="#p63">63</a></td>
+	<td><a class="j" href="#p64">64</a></td>
+	<td class="c">65</td>
+	<td class="c">66</td>
+	<td class="c">67</td>
+	<td class="c">68</td>
+	<td class="c">69</td>
+    </tr>
+
+    <tr>
+	<td><a class="j" href="#p70">70</a></td>
+	<td class="c">71</td>
+	<td><a class="j" href="#p72">72</a></td>
+	<td class="c">73</td>
+	<td class="c">74</td>
+	<td><a class="j" href="#p75">75</a></td>
+	<td class="c">76</td>
+	<td class="c">77</td>
+	<td class="c">78</td>
+	<td class="c">79</td>
+    </tr>
+
+    <tr>
+	<td class="c">80</td>
+	<td class="c">81</td>
+	<td class="c">82</td>
+	<td class="c">83</td>
+	<td class="c">84</td>
+	<td class="c">85</td>
+	<td class="c">86</td>
+	<td class="c">87</td>
+	<td><a class="j" href="#p88">88</a></td>
+	<td class="c">89</td>
+    </tr>
+
+    <tr>
+	<td><a class="j" href="#p90">90</a></td>
+	<td class="c">91</td>
+	<td class="c">92</td>
+	<td class="c">93</td>
+	<td class="c">94</td>
+	<td class="c">95</td>
+	<td class="c">96</td>
+	<td class="c">97</td>
+	<td class="c">98</td>
+	<td class="c">99</td>
+    </tr>
+
+    <tr>
+	<td><a class="j" href="#p100">100</a></td>
+	<td colspan="9" class="c">101 and higher</td>
+    </tr>
+</table>
+
+<hr />
+<hr />
+<a name="p1"></a>
+<h2>Period-1 oscillators</h2>
+<p>Period-1 oscillators are called still-lifes, and are generally considered
+separate from oscillators of higher periods. Due to the the large number of
+still-lifes, these are shown on a
+<a class="i" href="p1.htm">separate page</a>.</p>
+
+<hr />
+<a name="p2"></a>
+<h2>Period-2 oscillators</h2>
+<p>Due to the the large number of oscillators, these are shown on a
+<a class="i" href="p2.htm">separate page</a>.</p>
+
+<hr />
+<a name="p3"></a>
+<h2>Period-3 oscillators</h2>
+<p>Due to the the large number of oscillators, these are shown on a
+<a class="i" href="p3.htm">separate page</a>.</p>
+
+<hr />
+<a name="p4"></a>
+<h2>Period-4 oscillators</h2>
+<p>Due to the the large number of oscillators, these are shown on a
+<a class="i" href="p4.htm">separate page</a>.</p>
+
+<hr />
+<a name="p5"></a>
+<h2>Period-5 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p5.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p5.rle"><img src="map/p5.png"
+ alt="period 5 oscillators" width="622" height="421" usemap="#p5" /></a><br />
+    <table width="626">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="73" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="16/16oc.rle">
+	    Octagon II [6]</a></td>
+	<td class="y"><a class="p" href="17/17svsn.rle">
+	    Silver's P5 on snake [19]</a></td>
+	<td><a class="p" href="17/17svac.rle">
+	    Silver's P5 on snake [14]</a></td>
+	<td><a class="p" href="18/18fm.rle">
+	    Fumarole [7]</a></td>
+	<td class="y"><a class="p" href="18/18svls.rle">
+	    Silver's P5 on python [23]</a></td>
+	<td class="y"><a class="p" href="18/18svet1.rle">
+	    Silver's P5 on eater [24]</a></td>
+	<td><a class="p" href="18/18svet2.rle">
+	    Silver's P5 above eater [12]</a></td>
+	<td><a class="p" href="19/19fmtb.rle">
+	    Fumarole w/ tub [12]</a></td>
+	<td><a class="p" href="19/19svvs.rle">
+	    Silver's P5 on very long snake [16]</a></td>
+	<td><a class="p" href="19/19svcs.rle">
+	    Silver's P5 on canoe [16]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="19/19svsl1.rle">
+	    Silver's P5 above shil- lelagh [23]</a></td>
+	<td><a class="p" href="19/19svsl2.rle">
+	    Silver's P5 behind shil- lelagh [17]</a></td>
+	<td class="y"><a class="p" href="19/19svht1.rle">
+	    Silver's P5 on hook w/ tail [31]</a></td>
+	<td><a class="p" href="19/19svht2.rle">
+	    Silver's P5 above hook w/ tail [15]</a></td>
+	<td><a class="p" href="19/19svtt.rle">
+	    Silver's P5 above tub w/ tail [14]</a></td>
+	<td><a class="p" href="20/20fmub.rle">
+	    Fumarole w/ up boat [10]</a></td>
+	<td><a class="p" href="20/20fmtt.rle">
+	    Fumar- ole w/ two tubs [16]</a></td>
+	<td class="y"><a class="p" href="20/20svin.rle">
+	    Silver's P5 on integral [27]</a></td>
+	<td class="y"><a class="p" href="20/20svll.rle">
+	    Silver's P5 above long shil- lelagh [27]</a></td>
+	<td class="g"><a class="p" href="20/20svlc.rle">
+	    Silver's P5 on long canoe [20]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20svlht1.rle">
+	    Silver's P5 on long hook w/ tail [23]</a></td>
+	<td class="g"><a class="p" href="20/20svxs.rle">
+	    Silver's P5 above extra long snake [20]</a></td>
+	<td class="y"><a class="p" href="20/20ne.rle">
+	    Elkies's P5 [24]</a></td>
+	<td class="y"><a class="p" href="20/20svtlt1.rle">
+	    Silver's P5 above tub w/ long tail [26]</a></td>
+	<td><a class="p" href="20/20svha.rle">
+	    Silver's P5 on hat [18]</a></td>
+	<td class="y"><a class="p" href="20/20svtlt2.rle">
+	    Silver's P5 behind tub w/ long tail [22]</a></td>
+	<td><a class="p" href="20/20svdbt.rle">
+	    Silver's P5 above down boat w/ tail [14]</a></td>
+	<td><a class="p" href="20/20svubt.rle">
+	    Silver's P5 above up boat w/ tail [15]</a></td>
+	<td><a class="p" href="20/20svlht2.rle">
+	    Silver's P5 above long hook w/ tail [16]</a></td>
+	<td><a class="p" href="20/20et2z.rle">
+	    Pentoad between two eaters [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21fmtub.rle">
+	    Fumarole w/ tub and up boat [14]</a></td>
+	<td class="y"><a class="p" href="21/21svcsl.rle">
+	    Silver's P5 before cis shillelagh [22]</a></td>
+	<td class="y"><a class="p" href="21/21svcht1.rle">
+	    Silver's P5 on cis hook w/ tail [30]</a></td>
+	<td class="y"><a class="p" href="21/21svihk2.rle">
+	    Silver's P5 above integral w/ hook [30]</a></td>
+	<td class="y"><a class="p" href="21/21svitb.rle">
+	    Silver's P5 above integral w/ tub [30]</a></td>
+	<td class="y"><a class="p" href="21/21svss.rle">
+	    Silver's P5 on snake siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="21/21svsa.rle">
+	    Silver's P5 on snake siamese carrier [24]</a></td>
+	<td class="y"><a class="p" href="21/21svtvt.rle">
+	    Silver's P5 above tub w/ very long tail [30]</a></td>
+	<td class="y"><a class="p" href="21/21svas.rle">
+	    Silver's P5 on carrier siamese snake [22]</a></td>
+	<td><a class="p" href="21/21svaa.rle">
+	    Silver's P5 on carrier siamese carrier [19]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21svvht1.rle">
+	    Silver's P5 on very long hook w/ tail [27]</a></td>
+	<td><a class="p" href="21/21svvl.rle">
+	    Silver's P5 above very long shillelagh [20]</a></td>
+	<td><a class="p" href="21/21svys.rle">
+	    Silver's P5 on extra extra long snake [20]</a></td>
+	<td><a class="p" href="21/21fmug.rle">
+	    Fumarole w/ up barge [14]</a></td>
+	<td><a class="p" href="21/21fmft.rle">
+	    Fumarole w/ fuse w/ tail [16]</a></td>
+	<td class="y"><a class="p" href="21/21svblt1.rle">
+	    Silver's P5 above boat w/ long tail [28]</a></td>
+	<td><a class="p" href="21/21svvc.rle">
+	    Silver's P5 on very long canoe [20]</a></td>
+	<td class="y"><a class="p" href="21/21netb.rle">
+	    Elkies's P5 w/ tub [28]</a></td>
+	<td class="g"><a class="p" href="21/21svlha1.rle">
+	    Silver's P5 on up long hat [21]</a></td>
+	<td class="y"><a class="p" href="21/21svbta1.rle">
+	    Silver's P5 on block on table [22]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21svlha2.rle">
+	    Silver's P5 on down long hat [40]</a></td>
+	<td class="y"><a class="p" href="21/21svblt2.rle">
+	    Silver's P5 behind boat w/ long tail [24]</a></td>
+	<td class="y"><a class="p" href="21/21svbta2.rle">
+	    Silver's P5 above block on table [31]</a></td>
+	<td class="y"><a class="p" href="21/21svihk1.rle">
+	    Silver's P5 on integral w/ hook [37]</a></td>
+	<td><a class="p" href="21/21hxsn.rle">
+	    Hooks on snake [17]</a></td>
+	<td><a class="p" href="21/21hxac.rle">
+	    Hooks on carrier [14]</a></td>
+	<td class="y"><a class="p" href="21/21svcht2.rle">
+	    Silver's P5 above cis hook w/ tail [43]</a></td>
+	<td><a class="p" href="21/21svhvt.rle">
+	    Silver's P5 on beehive w/ tail [14]</a></td>
+	<td><a class="p" href="21/21svdgt.rle">
+	    Silver's P5 on down barge w/ tail [17]</a></td>
+	<td><a class="p" href="21/21svclt.rle">
+	    Silver's P5 above claw w/ tail [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21svftt.rle">
+	    Silver's P5 on fuse w/ two tails [18]</a></td>
+	<td><a class="p" href="21/21svugt.rle">
+	    Silver's P5 on up barge w/ tail [16]</a></td>
+	<td><a class="p" href="21/21svvht2.rle">
+	    Silver's P5 above very long hook w/ tail [18]</a></td>
+	<td class="r"><a class="p" href="22/22neclpb.rle">
+	    Elkies's P5 w/ claw and pre-block [x]</a></td>
+	<td class="r"><a class="p" href="22/22svcslt.rle">
+	    Silver's P5 before cis shil- lelagh w/ tub [x]</a></td>
+	<td class="y"><a class="p" href="22/22nebt.rle">
+	    Elkies's P5 w/ boat [30]</a></td>
+	<td class="g"><a class="p" href="22/22hxet1.rle">
+	    Hooks on eater [22]</a></td>
+	<td><a class="p" href="22/22hxls.rle">
+	    Hooks on python [17]</a></td>
+	<td class="y"><a class="p" href="22/22svlch2.rle">
+	    Silver's P5 above long cis hook w/ tail [53]</a></td>
+	<td><a class="p" href="22/22hxet2.rle">
+	    Hooks above eater [15]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="23/23necltp.rle">
+	    Elkies's P5 w/ claw w/ tub and pre-block [x]</a></td>
+	<td><a class="p" href="23/23etzbeb.rle">Pentoad 1h2;
+	    Pentoad between eater and bookend and block [19]</a></td>
+	<td class="y"><a class="p" href="24/24nelfbk.rle">
+	    Block on Elkies's P5 w/ loaf [28]</a></td>
+	<td class="r"><a class="p" href="24/24neclbp.rle">
+	    Elkies's P5 w/ claw w/ boat and pre-block [x]</a></td>
+	<td class="r"><a class="p" href="24/24nelecl.rle">
+	    Elkies's P5 w/ long bookend and claw and pre-block [x]</a></td>
+	<td class="r"><a class="p" href="24/24nesn.rle">
+	    Elkies's P5 siamese snake [x]</a></td>
+	<td class="y"><a class="p" href="15/15ap.rle">
+	    Pseudo- barber- pole; Flammen- kamp's P5 [28]</a></td>
+	<td rowspan="2" class="y"><a class="p" href="20/20apbt.rle">
+	    Pseudo- barber- pole tie boat [36]</a></td>
+	<td rowspan="2" class="y"><a class="p" href="21/21apta1.rle">
+	    Up table on pseudo barber pole [31]</a></td>
+	<td rowspan="2" class="y"><a class="p" href="21/21apta3.rle">
+	    Up table below pseudo barber pole [31]</a></td>
+    </tr>
+
+    <tr>
+	<td rowspan="2" class="y"><a class="p" href="21/21apta4.rle">
+	    Down table below pseudo barber pole [33]</a></td>
+	<td rowspan="2" class="y"><a class="p" href="21/21apta2.rle">
+	    Down table on pseudo barber pole [33]</a></td>
+	<td rowspan="2" class="y"><a class="p" href="21/21apsn1.rle">
+	    Pseudo barber pole tie up snake [41]</a></td>
+	<td rowspan="2" class="y"><a class="p" href="21/21apsn2.rle">
+	    Pseudo barber pole tie down snake [41]</a></td>
+	<td rowspan="3" class="y"><a class="p" href="21/21apsh.rle">
+	    Pseudo barber pole tie ship [38]</a></td>
+	<td rowspan="3" class="y"><a class="p" href="21/21apac1.rle">
+	    Pseudo barber pole tie up carrier [40]</a></td>
+	<td rowspan="3" class="y"><a class="p" href="21/21apac2.rle">
+	    Pseudo barber pole tie down carrier [40]</a></td>
+    </tr>
+
+    <tr>
+	<td rowspan="2"><a class="p" href="lg/26et2z2.rle">
+	    Two pentoads between two eaters [17]</a></td>
+	<td rowspan="2" colspan="2"><a class="p" href="lg/34et2z2p.rle">
+	    Two pentoads between two eaters and a pond [19]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/28hxsn2.rle">
+	    Hooks on two snakes [22]</a></td>
+	<td><a class="p" href="lg/34heart.rle">
+	    Heart [15]</a></td>
+	<td><a class="p" href="lg/40p5-1.rle">
+	    40-bit P5 oscillator [27]</a></td>
+	<td><a class="p" href="lg/64harbor.rle">
+	    Harbor [34]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="602,0,621,19" href="zip/p5.zip" />
+	<area coords="602,401,621,420" href="stamp/p5.rle" />
+	<area coords="0,0,69,45" href="16/16oc.rle" />
+	<area coords="70,0,129,45" href="17/17svsn.rle" />
+	<area coords="130,0,189,45" href="17/17svac.rle" />
+	<area coords="190,0,249,45" href="18/18fm.rle" />
+	<area coords="250,0,309,45" href="18/18svls.rle" />
+	<area coords="310,0,369,45" href="18/18svet1.rle" />
+	<area coords="370,0,429,45" href="18/18svet2.rle" />
+	<area coords="430,0,489,45" href="19/19fmtb.rle" />
+	<area coords="490,0,549,45" href="19/19svvs.rle" />
+	<area coords="550,0,621,45" href="19/19svcs.rle" />
+	<area coords="0,46,69,81" href="19/19svsl1.rle" />
+	<area coords="70,46,129,81" href="19/19svsl2.rle" />
+	<area coords="130,46,189,81" href="19/19svht1.rle" />
+	<area coords="190,46,249,81" href="19/19svht2.rle" />
+	<area coords="250,46,309,81" href="19/19svtt.rle" />
+	<area coords="310,46,369,81" href="20/20fmub.rle" />
+	<area coords="370,46,429,81" href="20/20fmtt.rle" />
+	<area coords="430,46,489,81" href="20/20svin.rle" />
+	<area coords="490,46,549,81" href="20/20svll.rle" />
+	<area coords="550,46,621,81" href="20/20svlc.rle" />
+	<area coords="0,82,69,117" href="20/20svlht1.rle" />
+	<area coords="70,82,129,117" href="20/20svxs.rle" />
+	<area coords="130,82,189,117" href="20/20ne.rle" />
+	<area coords="190,82,249,117" href="20/20svtlt1.rle" />
+	<area coords="250,82,309,117" href="20/20svha.rle" />
+	<area coords="310,82,369,117" href="20/20svtlt2.rle" />
+	<area coords="370,82,429,117" href="20/20svdbt.rle" />
+	<area coords="430,82,489,117" href="20/20svubt.rle" />
+	<area coords="490,82,549,117" href="20/20svlht2.rle" />
+	<area coords="550,82,621,117" href="20/20et2z.rle" />
+	<area coords="0,118,69,153" href="21/21fmtub.rle" />
+	<area coords="70,118,129,153" href="21/21svcsl.rle" />
+	<area coords="130,118,189,153" href="21/21svcht1.rle" />
+	<area coords="190,118,249,153" href="21/21svihk2.rle" />
+	<area coords="250,118,309,153" href="21/21svitb.rle" />
+	<area coords="310,118,369,153" href="21/21svss.rle" />
+	<area coords="370,118,429,153" href="21/21svsa.rle" />
+	<area coords="430,118,489,153" href="21/21svtvt.rle" />
+	<area coords="490,118,549,153" href="21/21svas.rle" />
+	<area coords="550,118,621,153" href="21/21svaa.rle" />
+	<area coords="0,154,69,189" href="21/21svvht1.rle" />
+	<area coords="70,154,129,189" href="21/21svvl.rle" />
+	<area coords="130,154,189,189" href="21/21svys.rle" />
+	<area coords="190,154,249,189" href="21/21fmug.rle" />
+	<area coords="250,154,309,189" href="21/21fmft.rle" />
+	<area coords="310,154,369,189" href="21/21svblt1.rle" />
+	<area coords="370,154,429,189" href="21/21svvc.rle" />
+	<area coords="430,154,489,189" href="21/21netb.rle" />
+	<area coords="490,154,549,189" href="21/21svlha1.rle" />
+	<area coords="550,154,621,189" href="21/21svbta1.rle" />
+	<area coords="0,190,69,225" href="21/21svlha2.rle" />
+	<area coords="70,190,129,225" href="21/21svblt2.rle" />
+	<area coords="130,190,189,225" href="21/21svbta2.rle" />
+	<area coords="190,190,249,225" href="21/21svihk1.rle" />
+	<area coords="250,190,309,225" href="21/21hxsn.rle" />
+	<area coords="310,190,369,225" href="21/21hxac.rle" />
+	<area coords="370,190,429,225" href="21/21svcht2.rle" />
+	<area coords="430,190,489,225" href="21/21svhvt.rle" />
+	<area coords="490,190,549,225" href="21/21svdgt.rle" />
+	<area coords="550,190,621,225" href="21/21svclt.rle" />
+	<area coords="0,226,69,261" href="21/21svftt.rle" />
+	<area coords="70,226,129,261" href="21/21svugt.rle" />
+	<area coords="130,226,189,261" href="21/21svvht2.rle" />
+	<area coords="190,226,249,261" href="22/22neclpb.rle" />
+	<area coords="250,226,309,261" href="22/22svcslt.rle" />
+	<area coords="310,226,369,261" href="22/22nebt.rle" />
+	<area coords="370,226,429,261" href="22/22hxet1.rle" />
+	<area coords="430,226,489,261" href="22/22hxls.rle" />
+	<area coords="490,226,549,261" href="22/22svlch2.rle" />
+	<area coords="550,226,621,261" href="22/22hxet2.rle" />
+	<area coords="0,262,69,300" href="23/23necltp.rle" />
+	<area coords="70,262,129,300" href="23/23etzbeb.rle" />
+	<area coords="130,262,189,300" href="24/24nelfbk.rle" />
+	<area coords="190,262,249,300" href="24/24neclbp.rle" />
+	<area coords="250,262,309,300" href="24/24nelecl.rle" />
+	<area coords="310,262,369,300" href="24/24nesn.rle" />
+	<area coords="370,262,429,300" href="15/15ap.rle" />
+	<area coords="430,262,489,342" href="20/20apbt.rle" />
+	<area coords="490,262,549,342" href="21/21apta1.rle" />
+	<area coords="550,262,621,342" href="21/21apta3.rle" />
+	<area coords="0,301,69,351" href="21/21apta4.rle" />
+	<area coords="70,301,129,351" href="21/21apta2.rle" />
+	<area coords="130,301,189,351" href="21/21apsn1.rle" />
+	<area coords="190,301,249,351" href="21/21apsn2.rle" />
+	<area coords="250,301,309,387" href="21/21apsh.rle" />
+	<area coords="310,301,369,387" href="21/21apac1.rle" />
+	<area coords="370,301,429,387" href="21/21apac2.rle" />
+	<area coords="430,343,489,420" href="lg/26et2z2.rle" />
+	<area coords="490,343,621,420" href="lg/34et2z2p.rle" />
+	<area coords="0,352,69,420" href="lg/28hxsn2.rle" />
+	<area coords="70,352,129,420" href="lg/34heart.rle" />
+	<area coords="130,352,189,420" href="lg/40p5-1.rle" />
+	<area coords="190,352,249,420" href="lg/64harbor.rle" />
+</map>
+
+<p>The pseudo-barber-pole superficially resembles the whole series of
+<a class="i" href="p2.htm">period 2 barber-pole oscillators</a>, but
+strangely enough, has a period of 5 instead. It forms the basis for a large
+number of larger <a class="i" href="p5.htm">period 5 oscillators</a>
+(and many with periods that are multiples of 5, such as
+<a class="i" href="p10.htm">period 10</a>).</p>
+
+<p>Octagon II has eight <a class="i" href="lifeterm.htm#spark">fingers</a>
+that can sometimes be used to hassle other oscillators like the
+<a class="j" href="#p50">period 50</a>
+<a class="p" href="lg/92p50tj.rle">Traffic Jam</a>.</p>
+
+<p>The Fumarole is the smallest oscillator that produces a period 5
+<a class="i" href="lifeterm.htm#spark">domino spark</a>.</p>
+
+<hr />
+<a name="p6"></a>
+<h2>Period-6 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p6.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p6.rle"><img src="map/p6.png"
+ alt="period 6 oscillators"
+ width="621" height="461" usemap="#p6" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col width="40" /><col width="20" />
+	<col width="60" /><col width="20" /><col width="40" />
+	<col span="2" width="60" /><col span="3" width="20" /><col width="40" />
+	<col span="2" width="20" /><col width="40" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="16/16ux.rle">
+	    Unix [6]</a></td>
+	<td colspan="2"><a class="p" href="18/18cfbc1.rle">
+	    Up beacon on up candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfbc3.rle">
+	    Up beacon on down candel- frobra [13]</a></td>
+	<td colspan="2"><a class="p" href="18/18cfbc4.rle">
+	    Down beacon on down candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfbc2.rle">
+	    Down beacon on up candel- frobra [13]</a></td>
+	<td><a class="p" href="20/20cfbp1.rle">
+	    Up bipole on up candel- frobra [16]</a></td>
+	<td colspan="3"><a class="p" href="20/20cfbp3.rle">
+	    Up bipole on down candel- frobra [16]</a></td>
+	<td colspan="2"><a class="p" href="20/20cfbp4.rle">
+	    Down bipole on down candel- frobra [16]</a></td>
+	<td colspan="2"><a class="p" href="20/20cupbc2.rle">
+	    Down beacon on cuphook w/ pre- block [17]</a></td>
+	<td><a class="p" href="20/20cupbc1.rle">
+	    Up beacon on cuphook w/ pre- block [18]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20cutbc3.rle">
+	    Up beacon on down cuphook w/ tail [9]</a></td>
+	<td colspan="2"><a class="p" href="20/20cutbc1.rle">
+	    Up beacon on up cuphook w/ tail [14]</a></td>
+	<td><a class="p" href="20/20cutbc2.rle">
+	    Down beacon on up cuphook w/ tail [12]</a></td>
+	<td colspan="2" class="y"><a class="p" href="20/20blonkr.rle">
+	    Blonker [25]</a></td>
+	<td><a class="p" href="20/20cfbp2.rle">
+	    Down bipole on up candel- frobra [17]</a></td>
+	<td><a class="p" href="20/20cutbc4.rle">
+	    Down beacon on down cuphook w/ tail [13]</a></td>
+	<td colspan="3"><a class="p" href="21/21cftp1.rle">
+	    Up tripole on up candel- frobra [19]</a></td>
+	<td colspan="2"><a class="p" href="21/21cftp3.rle">
+	    Up tripole on down candel- frobra [19]</a></td>
+	<td colspan="2"><a class="p" href="21/21cftp4.rle">
+	    Down tripole on down candel- frobra [19]</a></td>
+	<td class="g"><a class="p" href="21/21cptbc1.rle">
+	    Up beacon on cuphook w/ pre- block w/ tub [21]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21cptbc2.rle">
+	    Down beacon on cuphook w/ pre- block w/ tub [20]</a></td>
+	<td colspan="2"><a class="p" href="21/21tcubc3.rle">
+	    Up beacon on down cuphook w/ tub and tail [12]</a></td>
+	<td><a class="p" href="21/21tcubc1.rle">
+	    Up beacon on up cuphook w/ tub and tail [17]</a></td>
+	<td colspan="2"><a class="p" href="21/21tcubc2.rle">
+	    Down beacon on up cuphook w/ tub and tail [15]</a></td>
+	<td><a class="p" href="21/21tcubc4.rle">
+	    Down beacon on down cuphook w/ tub and tail [16]</a></td>
+	<td><a class="p" href="21/21elebc1.rle">
+	    Up beacon on up long bookend eating eater [12]</a></td>
+	<td colspan="3"><a class="p" href="21/21ttbet.rle">
+	    Eater eating test tube baby [12]</a></td>
+	<td colspan="2"><a class="p" href="21/21elebc4.rle">
+	    Down beacon on down long bookend eating eater [12]</a></td>
+	<td colspan="2"><a class="p" href="21/21elebc3.rle">
+	    Up beacon on down long bookend eating eater [12]</a></td>
+	<td><a class="p" href="21/21cftp2.rle">
+	    Down tripole on up candel- frobra [17]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21elebc2.rle">
+	    Down beacon on up long bookend eating eater [12]</a></td>
+	<td colspan="2" class="r"><a class="p" href="23/23p6bkhd.rle">
+	    P6 w/ block and head [x]</a></td>
+	<td class="y"><a class="p" href="23/23p6nb.rle">
+	    Nicolay Belu- chenko's P6 between two eaters [24]</a></td>
+	<td colspan="2"><a class="p" href="24/24bk4bl4.rle">
+	    Four blinkers around four blocks [12]</a></td>
+	<td class="r"><a class="p" href="24/24p6bktb.rle">
+	    P6 w/ block and tub [x+5]</a></td>
+	<td colspan="2" class="r"><a class="p" href="25/25p6bkbt.rle">
+	    P6 w/ block and boat [x+7]</a></td>
+	<td colspan="3" class="y"><a class="p" href="25/25kysbp1.rle">
+	    Short key and skewed pole tie bipole [55]</a></td>
+	<td colspan="3" class="y"><a class="p" href="25/25kysbp2.rle">
+	    Bent key and skewed pole tie bipole [49]</a></td>
+	<td><a class="p" href="lg/28a4all.rle">
+	    A for All [14]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="y"><a class="p" href="lg/28p6js.rle">
+	    Jason Summers's P6 [40]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/28p6uu.rle">
+	    Sesqui- unix [12]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/31p6mm.rle">
+	    Merzenich's unix on eater [13]</a></td>
+	<td><a class="p" href="lg/31p6ei.rle">
+	    Extremely impressive [30-35]</a></td>
+	<td colspan="2"><a class="p" href="lg/32p6uu1.rle">
+	    Two cis unices [11]</a></td>
+	<td colspan="3" class="y"><a class="p" href="lg/32p6rats.rle">
+	    $rats [101-124]</a></td>
+	<td colspan="3" class="y"><a class="p" href="lg/32p6-1.rle">
+	    32-bit P6 #1 [72]</a></td>
+	<td><a class="p" href="lg/32p6uu2.rle">
+	    Two trans unices [11]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/32uxux2.rle">
+	    Two touching trans- unices [14]</a></td>
+	<td colspan="3"><a class="p" href="lg/32uxux1.rle">
+	    Two touching cis- unices [14]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/33p6-1.rle">
+	    33-bit eater- hassled P6 [50-72]</a></td>
+	<td colspan="3"><a class="p" href="lg/34td4ly.rle">
+	    Lonely bee hassled by four toads [19]</a></td>
+	<td colspan="4"><a class="p" href="lg/37ux2sh.rle">
+	    Ship hassled by two unices [17]</a></td>
+	<td colspan="2"><a class="p" href="lg/44p6uuu1.rle">
+	    Three cis cis unices [23]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/44p6uuu2.rle">
+	    Three cis trans unices [16]</a></td>
+	<td colspan="3"><a class="p" href="lg/44p6uuu3.rle">
+	    Three trans trans unices [17]</a></td>
+	<td colspan="2"><a class="p" href="lg/45p6nb.rle">
+	    Beluchenko's two unices and block on corner table [24]</a></td>
+	<td colspan="3" class="y"><a class="p" href="lg/46p6mm.rle">
+	    Merzenich's unix on dual eater-2 [49]</a></td>
+	<td colspan="4"><a class="p" href="lg/52p6mm.rle">
+	    Merzenich's 4 clocks hassling 2 siamese unices [42]</a></td>
+	<td colspan="2"><a class="p" href="lg/56p6uuuu.rle">
+	    Unicycle; Four cis unices [28]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,441,19,460" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p6.zip" />
+	<area coords="601,441,620,460" href="stamp/p6.rle" />
+	<area coords="0,0,69,57" href="16/16ux.rle" />
+	<area coords="70,0,129,57" href="18/18cfbc1.rle" />
+	<area coords="130,0,189,57" href="18/18cfbc3.rle" />
+	<area coords="190,0,249,57" href="18/18cfbc4.rle" />
+	<area coords="250,0,309,57" href="18/18cfbc2.rle" />
+	<area coords="310,0,369,57" href="20/20cfbp1.rle" />
+	<area coords="370,0,429,57" href="20/20cfbp3.rle" />
+	<area coords="430,0,489,57" href="20/20cfbp4.rle" />
+	<area coords="490,0,549,57" href="20/20cupbc2.rle" />
+	<area coords="550,0,620,57" href="20/20cupbc1.rle" />
+	<area coords="0,58,69,105" href="20/20cutbc3.rle" />
+	<area coords="70,58,129,105" href="20/20cutbc1.rle" />
+	<area coords="130,58,189,105" href="20/20cutbc2.rle" />
+	<area coords="190,58,249,105" href="20/20blonkr.rle" />
+	<area coords="250,58,309,105" href="20/20cfbp2.rle" />
+	<area coords="310,58,369,105" href="20/20cutbc4.rle" />
+	<area coords="370,58,429,105" href="21/21cftp1.rle" />
+	<area coords="430,58,489,105" href="21/21cftp3.rle" />
+	<area coords="490,58,549,105" href="21/21cftp4.rle" />
+	<area coords="550,58,620,105" href="21/21cptbc1.rle" />
+	<area coords="0,106,69,157" href="21/21cptbc2.rle" />
+	<area coords="70,106,129,157" href="21/21tcubc3.rle" />
+	<area coords="130,106,189,157" href="21/21tcubc1.rle" />
+	<area coords="190,106,249,157" href="21/21tcubc2.rle" />
+	<area coords="250,106,309,157" href="21/21tcubc4.rle" />
+	<area coords="310,106,369,157" href="21/21elebc1.rle" />
+	<area coords="370,106,429,157" href="21/21ttbet.rle" />
+	<area coords="430,106,489,157" href="21/21elebc4.rle" />
+	<area coords="490,106,549,157" href="21/21elebc3.rle" />
+	<area coords="550,106,620,157" href="21/21cftp2.rle" />
+	<area coords="0,158,69,229" href="21/21elebc2.rle" />
+	<area coords="70,158,129,229" href="23/23p6bkhd.rle" />
+	<area coords="130,158,189,229" href="23/23p6nb.rle" />
+	<area coords="190,158,249,229" href="24/24bk4bl4.rle" />
+	<area coords="250,158,309,229" href="24/24p6bktb.rle" />
+	<area coords="310,158,389,229" href="25/25p6bkbt.rle" />
+	<area coords="390,158,469,229" href="25/25kysbp1.rle" />
+	<area coords="470,158,549,229" href="25/25kysbp2.rle" />
+	<area coords="550,158,620,229" href="lg/28a4all.rle" />
+	<area coords="0,230,109,289" href="lg/28p6js.rle" />
+	<area coords="110,230,189,289" href="lg/28p6uu.rle" />
+	<area coords="190,230,249,289" href="lg/31p6mm.rle" />
+	<area coords="250,230,309,289" href="lg/31p6ei.rle" />
+	<area coords="310,230,389,289" href="lg/32p6uu1.rle" />
+	<area coords="390,230,469,289" href="lg/32p6rats.rle" />
+	<area coords="470,230,549,289" href="lg/32p6-1.rle" />
+	<area coords="550,230,620,289" href="lg/32p6uu2.rle" />
+	<area coords="0,290,109,369" href="lg/32uxux2.rle" />
+	<area coords="110,290,209,369" href="lg/32uxux1.rle" />
+	<area coords="210,290,309,369" href="lg/33p6-1.rle" />
+	<area coords="310,290,409,369" href="lg/34td4ly.rle" />
+	<area coords="410,290,509,369" href="lg/37ux2sh.rle" />
+	<area coords="510,290,620,369" href="lg/44p6uuu1.rle" />
+	<area coords="0,370,109,460" href="lg/44p6uuu2.rle" />
+	<area coords="110,370,209,460" href="lg/44p6uuu3.rle" />
+	<area coords="210,370,309,460" href="lg/45p6nb.rle" />
+	<area coords="310,370,409,460" href="lg/46p6mm.rle" />
+	<area coords="410,370,509,460" href="lg/52p6mm.rle" />
+	<area coords="510,370,620,460" href="lg/56p6uuuu.rle" />
+</map>
+
+<p>All of these with a beacon, bipole, tripole or test tube baby have a
+pseudo-period of 6, a composite of 2 and 3.</p>
+
+<p>The Unix is the smallest oscillator that produces a period 6
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+<p>Extremely impressive is an unusual oscillator. It appears at first glance
+to be a billiard table, but isn't really, as one of the sides temporarily
+falls apart, but then re-forms later.</p>
+
+<hr />
+<a name="p7"></a>
+<h2>5 Period-7 oscillators</h2>
+<p><a class="p" href="stamp/p7.rle"><img src="map/p7.png"
+ alt="period 7 oscillators" width="421" height="81" usemap="#p7" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/28p7-1.rle">
+	    28-bit P7 #1 [57]</a></td>
+	<td><a class="p" href="lg/28bm.rle">
+	    Burloaf- erimiter [27]</a></td>
+	<td><a class="p" href="lg/28p7js.rle">
+	    Jason Summers's P7 [22]</a></td>
+	<td><a class="p" href="lg/29bm2.rle">
+	    Cheaper (but larger) Burloaf- erimiter [24]</a></td>
+	<td class="y"><a class="p" href="lg/29p7-1.rle">
+	    29-bit P7 #1 [59]</a></td>
+    </tr>
+</table></p>
+
+<map name="p7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p7.zip" />
+	<area coords="401,61,420,80" href="stamp/p7.rle" />
+	<area coords="0,0,89,80" href="lg/28p7-1.rle" />
+	<area coords="90,0,169,80" href="lg/28bm.rle" />
+	<area coords="170,0,249,80" href="lg/28p7js.rle" />
+	<area coords="250,0,329,80" href="lg/29bm2.rle" />
+	<area coords="330,0,420,80" href="lg/29p7-1.rle" />
+</map>
+
+<p>The 29-bit P7s (and its related 28-bit minimal form) can have their period
+increased by 1 with a
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>,
+allowing them to be used in oscillators with periods 7<i>n</i>+1.
+There are <a class="i" href="p8.htm#p8-lg">period-8</a> and
+<a class="i" href="p15.htm#p15-lg">period-15</a> examples.</p>
+
+<hr />
+<a name="p8"></a>
+<h2>Period-8 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p8.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p8.rle"><img src="map/p8.png"
+ alt="period 8 oscillators"
+ width="621" height="461" usemap="#p8" /></a><br />
+    <table width="625">
+    <colgroup><col width="87" /><col width="24" /><col width="52" />
+	<col width="60" /><col width="16" /><col width="76" /><col width="16" />
+	<col width="60" /><col span="2" width="20" /><col width="36" />
+	<col width="56" /><col width="20" /><col width="80" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12fg.rle">
+	    Figure-8; Big beacon [4]</a></td>
+	<td colspan="2"><a class="p" href="15/15br.rle">
+	    Blocker [6]</a></td>
+	<td colspan="2"><a class="p" href="17/17tc.rle">
+	    Coe's P8; Tim Coe's P8 [8]</a></td>
+	<td class="y"><a class="p" href="17/17sm.rle">
+	    Smiley [28]</a></td>
+	<td colspan="2"><a class="p" href="18/18p8af.rle">
+	    Flammen- kamp's P8 [13]</a></td>
+	<td colspan="3"><a class="p" href="21/21brta2.rle">
+	    Down table on blocker [9]</a></td>
+	<td colspan="2"><a class="p" href="21/21brta1.rle">
+	    Up table on blocker [11]</a></td>
+	<td><a class="p" href="23/23brct2.rle">
+	    Down blocker on cap [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23brle4.rle">
+	    Down blocker on down long bookend [11]</a></td>
+	<td colspan="2"><a class="p" href="23/23brle3.rle">
+	    Up blocker on down long bookend [11]</a></td>
+	<td colspan="2"><a class="p" href="23/23brct1.rle">
+	    Up blocker on cap [11]</a></td>
+	<td><a class="p" href="23/23brle2.rle">
+	    Down blocker on up long bookend [11]</a></td>
+	<td colspan="2"><a class="p" href="23/23tcta1.rle">
+	    Up Coe's P8 on table [13]</a></td>
+	<td colspan="3"><a class="p" href="23/23brle1.rle">
+	    Up blocker on up long bookend [13]</a></td>
+	<td colspan="2"><a class="p" href="23/23tcta2.rle">
+	    Down Coe's P8 on table [13]</a></td>
+	<td><a class="p" href="24/24brleh4.rle">
+	    Down blocker on up long bookend w/ hook [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24brleh3.rle">
+	    Up blocker on up long bookend w/ hook [14]</a></td>
+	<td colspan="2"><a class="p" href="24/24brlet3.rle">
+	    Up blocker on up long bookend w/ tub [14]</a></td>
+	<td colspan="2"><a class="p" href="24/24brlet4.rle">
+	    Down blocker on up long bookend w/ tub [14]</a></td>
+	<td><a class="p" href="24/24brleh2.rle">
+	    Down blocker on up long bookend w/ hook [14]</a></td>
+	<td colspan="2"><a class="p" href="24/24fgmd3.rle">
+	    Up figure-8 and trans mold sharing sparks [13]</a></td>
+	<td colspan="3"><a class="p" href="24/24brlet2.rle">
+	    Down blocker on up long bookend w/ tub [14]</a></td>
+	<td colspan="2"><a class="p" href="24/24brleh1.rle">
+	    Up blocker on up long bookend w/ hook [16]</a></td>
+	<td><a class="p" href="24/24fgmd1.rle">
+	    Up figure-8 and cis mold sharing sparks [13]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24brlet1.rle">
+	    Up blocker on up long bookend w/ tub [16]</a></td>
+	<td colspan="2"><a class="p" href="24/24fgmd4.rle">
+	    Down figure-8 and trans mold sharing sparks [9]</a></td>
+	<td colspan="2"><a class="p" href="24/24fgmd2.rle">
+	    Down figure-8 and cis mold sharing sparks [9]</a></td>
+	<td><a class="p" href="25/25brllh4.rle">
+	    Down blocker on down long bookend w/ long hook [15]</a></td>
+	<td colspan="2"><a class="p" href="25/25brdk2.rle">
+	    Down blocker on dock [12]</a></td>
+	<td colspan="3"><a class="p" href="25/25brldb3.rle">
+	    Up blocker on down long bookend w/ down boat [13]</a></td>
+	<td colspan="2"><a class="p" href="25/25brldb4.rle">
+	    Down blocker on down long bookend w/ down boat [13]</a></td>
+	<td><a class="p" href="25/25brtag4.rle">
+	    Down blocker on down table w/ gull [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="25/25brlub4.rle">
+	    Down blocker on down long bookend w/ up boat [14]</a></td>
+	<td colspan="2"><a class="p" href="25/25brtag3.rle">
+	    Up blocker on down table w/ gull [13]</a></td>
+	<td colspan="2"><a class="p" href="25/25brlub3.rle">
+	    Up blocker on down long bookend w/ up boat [14]</a></td>
+	<td><a class="p" href="25/25brllh2.rle">
+	    Down blocker on up long bookend w/ long hook [15]</a></td>
+	<td colspan="2"><a class="p" href="25/25brllh3.rle">
+	    Up blocker on down long bookend w/ long hook [15]</a></td>
+	<td colspan="3"><a class="p" href="25/25brdk1.rle">
+	    Up blocker on dock [12]</a></td>
+	<td colspan="2"><a class="p" href="25/25brldb2.rle">
+	    Down blocker on up long bookend w/ down boat [13]</a></td>
+	<td><a class="p" href="25/25brtag2.rle">
+	    Down blocker on up table w/ gull [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="25/25brlub2.rle">
+	    Down blocker on up long bookend w/ up boat [14]</a></td>
+	<td colspan="2"><a class="p" href="25/25brllh1.rle">
+	    Up blocker on up long bookend w/ long hook [17]</a></td>
+	<td colspan="2"><a class="p" href="25/25brldb1.rle">
+	    Up blocker on up long bookend w/ down boat [15]</a></td>
+	<td><a class="p" href="25/25brtag1.rle">
+	    Up blocker on up table w/ gull [13]</a></td>
+	<td colspan="2"><a class="p" href="25/25brlub1.rle">
+	    Up blocker on up long bookend w/ up boat [16]</a></td>
+	<td colspan="3"><a class="p" href="lg/28p8-1.rle">
+	    28-bit P8 #1 [25]</a></td>
+	<td colspan="2"><a class="p" href="lg/28gy.rle">
+	    Kok's Galaxy [12]</a></td>
+	<td><a class="p" href="lg/30fgmz1.rle">
+	    Figure-8 and up mazing sharing sparks [9]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/30fgmz2.rle">
+	    Figure-8 and down mazing sharing sparks [12]</a></td>
+	<td colspan="2"><a class="p" href="lg/30brbr1.rle">
+	    Two trans blockers [16]</a></td>
+	<td colspan="3"><a class="p" href="lg/30brbr2.rle">
+	    Two cis blockers [16]</a></td>
+	<td colspan="2"><a class="p" href="lg/32p8cd.rle">
+	    Cauldron, Crucible [26-63]</a></td>
+	<td colspan="3"><a class="p" href="lg/34fg2td2.rle">
+	    Toad sucked by two figure-8s #2 [17]</a></td>
+	<td colspan="2"><a class="p" href="lg/34fg2td6.rle">
+	    Toad flipped by two figure-8s #2 [14]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/34fg2td7.rle">
+	    Toad flipped by two figure-8s #3 [17]</a></td>
+	<td colspan="2"><a class="p" href="lg/34fg2td4.rle">
+	    Toad sucked by two figure-8s #4 [14]</a></td>
+	<td colspan="3"><a class="p" href="lg/34fg2td3.rle">
+	    Toad sucked by two figure-8s #3 [17]</a></td>
+	<td colspan="3"><a class="p" href="lg/34fg2td1.rle">
+	    Toad sucked by two figure-8s #1 [12]</a></td>
+	<td colspan="3"><a class="p" href="lg/34fg2td5.rle">
+	    Toad flipped by two figure-8s #1 [11]</a></td>
+	<td><a class="p" href="lg/36p8-1.rle">
+	    36-bit P8 oscillator [27]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/37p8hz.rle">
+	    Hertz oscillator [11-14]</a></td>
+	<td colspan="2"><a class="p" href="lg/34fg2tl.rle">
+	    Tumbling T-tetson;
+	    Traffic light hassled by two figure-8s [10]</a></td>
+	<td colspan="3"><a class="p" href="lg/40et4hf.rle">
+	    Honeyfarm hassled by four eaters [14]</a></td>
+	<td colspan="3" class="y"><a class="p" href="lg/44brp7.rle">
+	    Blocker rephasing P7 [69]</a></td>
+	<td colspan="3"><a class="p" href="lg/60p8hz2.rle">
+	    Dual Hertz oscillator [20-24]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,441,19,460" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p8.zip" />
+	<area coords="601,441,620,460" href="stamp/p8.rle" />
+	<area coords="0,0,85,49" href="12/12fg.rle" />
+	<area coords="86,0,161,49" href="15/15br.rle" />
+	<area coords="162,0,237,49" href="17/17tc.rle" />
+	<area coords="238,0,313,49" href="17/17sm.rle" />
+	<area coords="314,0,389,49" href="18/18p8af.rle" />
+	<area coords="390,0,465,49" href="21/21brta2.rle" />
+	<area coords="466,0,541,49" href="21/21brta1.rle" />
+	<area coords="542,0,620,49" href="23/23brct2.rle" />
+	<area coords="0,50,85,89" href="23/23brle4.rle" />
+	<area coords="86,50,161,89" href="23/23brle3.rle" />
+	<area coords="162,50,237,89" href="23/23brct1.rle" />
+	<area coords="238,50,313,89" href="23/23brle2.rle" />
+	<area coords="314,50,389,89" href="23/23tcta1.rle" />
+	<area coords="390,50,465,89" href="23/23brle1.rle" />
+	<area coords="466,50,541,89" href="23/23tcta2.rle" />
+	<area coords="542,50,620,89" href="24/24brleh4.rle" />
+	<area coords="0,90,85,129" href="24/24brleh3.rle" />
+	<area coords="86,90,161,129" href="24/24brlet3.rle" />
+	<area coords="162,90,237,129" href="24/24brlet4.rle" />
+	<area coords="238,90,313,129" href="24/24brleh2.rle" />
+	<area coords="314,90,389,129" href="24/24fgmd3.rle" />
+	<area coords="390,90,465,129" href="24/24brlet2.rle" />
+	<area coords="466,90,541,129" href="24/24brleh1.rle" />
+	<area coords="542,90,620,129" href="24/24fgmd1.rle" />
+	<area coords="0,130,85,181" href="24/24brlet1.rle" />
+	<area coords="86,130,161,181" href="24/24fgmd4.rle" />
+	<area coords="162,130,237,181" href="24/24fgmd2.rle" />
+	<area coords="238,130,313,181" href="25/25brllh4.rle" />
+	<area coords="314,130,389,181" href="25/25brdk2.rle" />
+	<area coords="390,130,465,181" href="25/25brldb3.rle" />
+	<area coords="466,130,541,181" href="25/25brldb4.rle" />
+	<area coords="542,130,620,181" href="25/25brtag4.rle" />
+	<area coords="0,182,85,221" href="25/25brlub4.rle" />
+	<area coords="86,182,161,221" href="25/25brtag3.rle" />
+	<area coords="162,182,237,221" href="25/25brlub3.rle" />
+	<area coords="238,182,313,221" href="25/25brllh2.rle" />
+	<area coords="314,182,389,221" href="25/25brllh3.rle" />
+	<area coords="390,182,465,221" href="25/25brdk1.rle" />
+	<area coords="466,182,541,221" href="25/25brldb2.rle" />
+	<area coords="542,182,620,221" href="25/25brtag2.rle" />
+	<area coords="0,222,85,269" href="25/25brlub2.rle" />
+	<area coords="86,222,161,269" href="25/25brllh1.rle" />
+	<area coords="162,222,237,269" href="25/25brldb1.rle" />
+	<area coords="238,222,313,269" href="25/25brtag1.rle" />
+	<area coords="314,222,389,269" href="25/25brlub1.rle" />
+	<area coords="390,222,465,269" href="lg/28p8-1.rle" />
+	<area coords="466,222,541,269" href="lg/28gy.rle" />
+	<area coords="542,222,620,269" href="lg/30fgmz1.rle" />
+	<area coords="0,270,109,321" href="lg/30fgmz2.rle" />
+	<area coords="110,270,221,321" href="lg/30brbr2.rle" />
+	<area coords="222,270,329,321" href="lg/30brbr1.rle" />
+	<area coords="330,270,409,321" href="lg/32p8cd.rle" />
+	<area coords="410,270,521,321" href="lg/34fg2td2.rle" />
+	<area coords="522,270,620,321" href="lg/34fg2td6.rle" />
+	<area coords="0,322,109,381" href="lg/34fg2td7.rle" />
+	<area coords="110,322,221,381" href="lg/34fg2td4.rle" />
+	<area coords="222,322,329,381" href="lg/34fg2td3.rle" />
+	<area coords="330,322,429,381" href="lg/34fg2td1.rle" />
+	<area coords="430,322,541,381" href="lg/34fg2td5.rle" />
+	<area coords="542,322,620,381" href="lg/36p8-1.rle" />
+	<area coords="0,382,109,460" href="lg/37p8hz.rle" />
+	<area coords="110,382,221,460" href="lg/34fg2tl.rle" />
+	<area coords="222,382,329,460" href="lg/40et4hf.rle" />
+	<area coords="330,382,429,460" href="lg/44brp7.rle" />
+	<area coords="430,382,551,460" href="lg/60p8hz2.rle" />
+	<area coords="552,382,620,460" nohref="nohref" />
+</map>
+
+<p>Figure-8 is the smallest oscillator that produces a period 8 (delayed)
+<a class="i" href="lifeterm.htm#spark">domino spark</a>.</p>
+
+<p>The blocker is the smallest oscillator that produces a period 8
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+<p>Kok's Galaxy is produces a period 8
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+<p>(See notes under <a class="i" href="p2.htm#p2-6">Toad</a>
+for details about toad-flipper and toad-sucker oscillators.)</p>
+
+<hr />
+<a name="p9"></a>
+<h2>8 Period-9 oscillators</h2>
+<p><a class="p" href="stamp/p9.rle"><img src="map/p9.png"
+ alt="period 9 oscillators"
+ width="601" height="161" usemap="#p9" /></a><br />
+    <table width="605">
+    <colgroup><col width="131" /><col width="120" /><col width="160" />
+	<col width="192" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/34lyet4.rle">
+	    Lonely bee; Worker bee [19]</a></td>
+	<td><a class="p" href="lg/40ly2et4.rle">
+	    Double lonely bee [24]</a></td>
+	<td><a class="p" href="lg/46ly3et4.rle">
+	    Triple lonely bee [29]</a><br />
+	    (<i>n</i> lonely bees [19+5<i>n</i>])</td>
+	<td><a class="p" href="lg/64sr3e4b.rle">
+	    Cis triple snacker [25]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="lg/38p9.rle">
+	    38-bit P9 [85]</a></td>
+	<td><a class="p" href="lg/40sret4.rle">
+	    Snacker [17]</a></td>
+	<td><a class="p" href="lg/52sr2et4.rle">
+	    Double snacker [20]</a></td>
+	<td><a class="p" href="lg/64sr3e4a.rle">
+	    Trans triple snacker [23]</a><br />
+	    (<i>n</i> snackers [14+3<i>n</i>])</td>
+    </tr>
+</table></p>
+
+<map name="p9">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/p9.zip" />
+	<area coords="581,141,600,160" href="stamp/p9.rle" />
+	<area coords="0,0,129,89" href="lg/34lyet4.rle" />
+	<area coords="130,0,249,89" href="lg/40ly2et4.rle" />
+	<area coords="250,0,409,89" href="lg/46ly3et4.rle" />
+	<area coords="410,0,600,89" href="lg/64sr3e4b.rle" />
+	<area coords="0,90,129,160" href="lg/38p9.rle" />
+	<area coords="130,90,249,160" href="lg/40sret4.rle" />
+	<area coords="250,90,409,160" href="lg/52sr2et4.rle" />
+	<area coords="410,90,600,160" href="lg/64sr3e4a.rle" />
+</map>
+
+<p>The Snacker is just a <a class="p" href="12/12pc.rle">pentadecathlon</a>
+whose period has been hassled from 15 down to 9. It produces a period 9
+<a class="i" href="lifeterm.htm#spark">domino spark</a>. Multiple snackers (for
+example, the cis triple snacker) make the spark slightly more accessible.</p>
+
+<hr />
+<a name="p10"></a>
+<h2>Period-10 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p10.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p10.rle"><img src="map/p10.png"
+ alt="period 10 oscillators"
+ width="601" height="201" usemap="#p10" /></a><br />
+    <table width="605">
+    <colgroup><col width="91" /><col span="2" width="80" />
+	<col span="2" width="40" /><col width="100" /><col width="80" />
+	<col width="92" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="23/23svbct3.rle">
+	    Silver's P5 below up beacon on table [25]</a></td>
+	<td class="y"><a class="p" href="23/23svbct2.rle">
+	    Silver's P5 on down beacon on table [28]</a></td>
+	<td class="y"><a class="p" href="23/23svbct1.rle">
+	    Silver's P5 on up beacon on table [25]</a></td>
+	<td colspan="2" class="y"><a class="p" href="23/23svbct4.rle">
+	    Silver's P5 below down beacon on table [35]</a></td>
+	<td class="y"><a class="p" href="23/23apbp.rle">
+	    Pseudo- barber- pole tie bipole [50]</a></td>
+	<td class="y"><a class="p" href="24/24p10mm.rle">
+	    Merzenich's 24-bit P10 [40]</a></td>
+	<td class="y"><a class="p" href="24/24aptp.rle">
+	    Pseudo- barber- pole tie tripole [52]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="y"><a class="p" href="25/25apqp.rle">
+	    Pseudo- barber- pole tie quadpole [41]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/44p10-1.rle">
+	    44-bit P10 #1 [65]</a></td>
+	<td colspan="2"><a class="p" href="lg/46p10mm.rle">
+	    Merzenich's 4 clocks hassling 2 alternating unices [41]</a></td>
+	<td colspan="2" ><a class="p" href="lg/56pu2b8.rle">
+	    Eight blocks hassling two pulsars [30]</a></td>
+    </tr>
+</table></p>
+
+<map name="p10">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/p10.zip" />
+	<area coords="581,181,600,200" href="stamp/p10.rle" />
+	<area coords="0,0,89,109" href="23/23svbct3.rle" />
+	<area coords="90,0,169,109" href="23/23svbct2.rle" />
+	<area coords="170,0,249,109" href="23/23svbct1.rle" />
+	<area coords="250,0,329,109" href="23/23svbct4.rle" />
+	<area coords="330,0,429,109" href="23/23apbp.rle" />
+	<area coords="430,0,509,109" href="24/24p10mm.rle" />
+	<area coords="510,0,600,109" href="24/24aptp.rle" />
+	<area coords="0,110,169,200" href="25/25apqp.rle" />
+	<area coords="170,110,289,200" href="lg/44p10-1.rle" />
+	<area coords="290,110,429,200" href="lg/46p10mm.rle" />
+	<area coords="430,110,589,200" href="lg/56pu2b8.rle" />
+	<area coords="590,110,600,200" nohref="nohref" />
+</map>
+
+<p>The ones involving pseudo-barber-poles or Silver's P5 have a pseudo-period of
+10, a composite of 2 and 5.</p>
+
+<hr />
+<a name="p11"></a>
+<h2>2 Period-11 oscillators</h2>
+<p><a class="p" href="stamp/p11.rle"><img src="map/p11.png"
+ alt="P11 oscillators" width="261" height="141" usemap="#p11" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/60p11-1.rle">
+	    60-bit P11 #1 [30]</a></td>
+	<td class="y"><a class="p" href="lg/72p11af.rle">
+	    Flammenkamp's P11 [95]</a></td>
+    </tr>
+</table></p>
+
+<map name="p11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p11.zip" />
+	<area coords="241,121,260,140" href="stamp/p11.rle" />
+	<area coords="0,0,129,140" href="lg/60p11-1.rle" />
+	<area coords="130,0,260,140" href="lg/72p11af.rle" />
+</map>
+
+<hr />
+<a name="p12"></a>
+<h2>Period-12 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p12.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p12.rle"><img src="map/p12.png"
+ alt="period 12 oscillators"
+ width="501" height="181" usemap="#p12" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="2" width="40" />
+	<col span="2" width="80" /><col span="2" width="40" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="24/24mdcf3.rle">
+	    Up mold on down candel- frobra [17]</a></td>
+	<td colspan="2"><a class="p" href="24/24mdcf1.rle">
+	    Up mold on up candel- frobra [18]</a></td>
+	<td><a class="p" href="24/24mdcf4.rle">
+	    Down mold on down candel- frobra [17]</a></td>
+	<td><a class="p" href="24/24mdcf2.rle">
+	    Down mold on up candel- frobra [18]</a></td>
+	<td colspan="2"><a class="p" href="25/25jmmd.rle">
+	    Jam tie mold [17]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/39ca2lf.rle">Baker's dozen;
+	    Loaf hassled by two blocks and two caterers [30]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/44p12-1.rle">
+	    44-bit P12 #1 [142]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/45p12-1.rle">
+	    45-bit P12 #1 [79]</a></td>
+	<td colspan="2"><a class="p" href="lg/64p12cr.rle">
+	    Crown hassled by HWSS emulator and two molds [52]</a></td>
+    </tr>
+</table></p>
+
+<map name="p12">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p12.zip" />
+	<area coords="481,161,500,180" href="stamp/p12.rle" />
+	<area coords="0,0,89,89" href="24/24mdcf3.rle" />
+	<area coords="90,0,169,89" href="24/24mdcf1.rle" />
+	<area coords="170,0,249,89" href="24/24mdcf4.rle" />
+	<area coords="250,0,329,89" href="24/24mdcf4.rle" />
+	<area coords="330,0,409,89" href="25/25jmmd.rle" />
+	<area coords="410,0,500,89" nohref="nohref" />
+	<area coords="0,90,129,180" href="lg/39ca2lf.rle" />
+	<area coords="130,90,249,180" href="lg/44p12-1.rle" />
+	<area coords="250,90,369,180" href="lg/45p12-1.rle" />
+	<area coords="370,90,500,180" href="lg/64p12cr.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 12, a composite of 3 and 4.</p>
+
+<p>Note that caterers and/or molds could be used as hasslers in both the first
+and last oscillators on the bottom row, and either oscillator could also be
+flipped vertically, yielding 10 distinct versions of the Baker's dozen, and 16
+of the Crown.</p>
+
+<hr />
+<a name="p13"></a>
+<h2>3 Period-13 oscillators</h2>
+<p><a class="p" href="stamp/p13.rle"><img src="map/p13.png"
+ alt="period1-3 oscillators"
+ width="381" height="101" usemap="#p13" /></a><br />
+    <table width="385">
+    <colgroup><col width="131" /><col width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/34p13nb.rle">
+	    Beluchenko's 34-bit P13 [55]</a></td>
+	<td class="y"><a class="p" href="lg/65p13-2.rle">
+	    Buckingham's 64-bit P13 w/cheap eater-2 [94]</a></td>
+	<td class="y"><a class="p" href="lg/65p13-1.rle">
+	    Buckingham's 64-bit P13 w/real eater-2 [94]</a></td>
+    </tr>
+</table></p>
+
+<map name="p13">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/p13.zip" />
+	<area coords="361,81,380,100" href="stamp/p13.rle" />
+	<area coords="0,0,89,100" href="lg/34p13nb.rle" />
+	<area coords="90,0,169,100" href="lg/65p13-2.rle" />
+	<area coords="170,0,380,100" href="lg/65p13-1.rle" />
+</map>
+
+
+<hr />
+<a name="p14"></a>
+<h2>Period-14 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p14.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p14-16.rle"><img src="map/p14.png"
+ alt="P14 oscillators" width="181" height="81" usemap="#p14-16" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16tu.rle">
+	    Tumbler [6]</a></td>
+	<td class="y"><a class="p" href="lg/30bmbc1.rle">
+	    Up beacon beside burloaf- erimiter [33]</a></td>
+    </tr>
+</table></p>
+
+<map name="p14-16">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p14.zip" />
+	<area coords="161,61,180,80" href="stamp/p14.rle" />
+	<area coords="0,0,89,80" href="16/16tu.rle" />
+	<area coords="90,0,180,80" href="lg/30bmbc1.rle" />
+</map>
+
+<p>The second one has a pseudo-period of 14, a composite of 2 and 7.</p>
+
+<hr />
+<a name="p15"></a>
+<h2>Period-15 oscillators</h2>
+<p>Due to the the large number of oscillators, these are shown on a
+<a class="i" href="p15.htm">separate page</a>.</p>
+
+<hr />
+<a name="p16"></a>
+<h2>2 Period-16 oscillators</h2>
+<p><a class="p" href="stamp/p16.rle"><img src="map/p16.png"
+ alt="period 16 oscillators"
+ width="201" height="101" usemap="#p16" /></a><br />
+    <table width="205">
+    <colgroup><col width="91" /><col width="112" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/32p16af.rle">
+	    Flammenkamp's period 16 [36]</a></td>
+	<td><a class="p" href="lg/35brmdbb.rle">
+	    Blocker and mold hassling two blocks [17]</a></td>
+    </tr>
+</table></p>
+
+<map name="p16">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p16.zip" />
+	<area coords="181,81,200,100" href="stamp/p16.rle" />
+	<area coords="0,0,89,100" href="lg/32p16af.rle" />
+	<area coords="90,0,200,100" href="lg/35brmdbb.rle" />
+</map>
+
+<hr />
+<a name="p17"></a>
+<h2>1 Period-17 oscillator</h2>
+<p><a class="p" href="stamp/p17.rle"><img src="map/p17.png"
+ alt="P17 oscillator" width="101" height="101" usemap="#p17" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/36et4hf.rle">
+	    Honey thieves [17]</a></td>
+    </tr>
+</table></p>
+
+<map name="p17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p17.zip" />
+	<area coords="81,81,100,100" href="stamp/p17.rle" />
+	<area coords="0,0,100,100" href="lg/36et4hf.rle" />
+</map>
+
+<hr />
+<a name="p18"></a>
+<h2>3 Period-18 oscillators</h2>
+<p><a class="p" href="stamp/p18.rle"><img src="map/p18.png"
+ alt="P18 osc" width="441" height="161" usemap="#p18" /></a><br />
+    <table width="445">
+    <colgroup><col width="151" /><col width="140" /><col width="152" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/43u2bbk.rle">
+	    Two unices hassling block on block [16]</a></td>
+	<td><a class="p" href="lg/52u2r2.rle">
+	    Two unices hassling two R pentominos [21]</a></td>
+	<td><a class="p" href="lg/56et4be4.rle">
+	    Jason Summers's four eaters hassling four bookends [45]</a></td>
+    </tr>
+</table></p>
+
+<map name="p18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/p18.zip" />
+	<area coords="421,141,440,160" href="stamp/p18.rle" />
+	<area coords="0,0,149,160" href="lg/43u2bbk.rle" />
+	<area coords="150,0,289,160" href="lg/52u2r2.rle" />
+	<area coords="290,0,440,160" href="lg/56et4be4.rle" />
+</map>
+
+<hr />
+<a name="p20"></a>
+<h2>1 Period-20 oscillator</h2>
+<p><a class="p" href="stamp/p20.rle"><img src="map/p20.png"
+ alt="P20 osc" width="101" height="81" usemap="#p20" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/30fmmd.rle">
+	    Fumarole and mold sharing sparks [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p20.zip" />
+	<area coords="81,61,100,80" href="stamp/p20.rle" />
+	<area coords="0,0,89,80" href="lg/30fmmd.rle" />
+	<area coords="90,0,100,80" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p21"></a>
+<h2>1 Period-21 oscillator</h2>
+<p><a class="p" href="stamp/p21.rle"><img src="map/p21.png"
+ alt="P21 osc" width="101" height="81" usemap="#p21" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/36bmcf2.rle">
+	    Down candel- frobra beside up burloaf- erimiter [41]</a></td>
+    </tr>
+</table></p>
+
+<map name="p21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p21.zip" />
+	<area coords="81,61,100,80" href="stamp/p21.rle" />
+	<area coords="0,0,89,80" href="lg/36bmcf2.rle" />
+	<area coords="90,0,100,80" nohref="nohref" />
+</map>
+
+<p>This has a pseudo-period of 21, a composite of 3 and 7.</p>
+
+<hr />
+<a name="p22"></a>
+<h2>2 Period-22 oscillators</h2>
+<p><a class="p" href="stamp/p22.rle"><img src="map/p22.png"
+ alt="P22 oscillators" width="261" height="121" usemap="#p22" /></a><br />
+    <table width="265">
+    <colgroup><col width="151" /><col width="112" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/36p22js.rle">
+	    Jason Summers's Two eaters hassling two things [12]</a></td>
+	<td><a class="p" href="lg/46p22-1.rle">
+	    Four eaters hassling two beehives and two blinkers [15]</a></td>
+    </tr>
+</table></p>
+
+<map name="p22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p22.zip" />
+	<area coords="241,101,260,120" href="stamp/p22.rle" />
+	<area coords="0,0,149,120" href="lg/36p22js.rle" />
+	<area coords="150,0,260,120" href="lg/46p22-1.rle" />
+</map>
+
+<hr />
+<a name="p24"></a>
+<h2>Period-24 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p24.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p24.rle"><img src="map/p24.png"
+ alt="period 24 oscillators"
+ width="521" height="181" usemap="#p24" /></a><br />
+    <table width="525">
+    <colgroup><col width="111" /><col span="3" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="24/24fgca1.rle">
+	    Up figure-8 and up caterer sharing sparks [18]</a></td>
+	<td><a class="p" href="24/24fgca3.rle">
+	    Down figure-8 and up caterer sharing sparks [15]</a></td>
+	<td><a class="p" href="24/24fgca2.rle">
+	    Up figure-8 and down caterer sharing sparks [18]</a></td>
+	<td><a class="p" href="24/24fgca4.rle">
+	    Down figure-8 and down caterer sharing sparks [15]</a></td>
+	<td rowspan="2"><a class="p" href="lg/38p24ks.rle">Karel Suhajda's
+	    Four blocks hassling two honeyfarms and a beacon [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="25/25fgjm1.rle">
+	    Up figure-8 and up jam sharing sparks [14]</a></td>
+	<td><a class="p" href="25/25fgjm3.rle">
+	    Down figure-8 and up jam sharing sparks [14]</a></td>
+	<td><a class="p" href="25/25fgjm2.rle">
+	    Up figure-8 and down jam sharing sparks [11]</a></td>
+	<td><a class="p" href="25/25fgjm4.rle">
+	    Down figure-8 and down jam sharing sparks [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="p24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/p24.zip" />
+	<area coords="501,161,520,180" href="stamp/p24.rle" />
+	<area coords="0,0,109,69" href="24/24fgca1.rle" />
+	<area coords="110,0,209,69" href="24/24fgca3.rle" />
+	<area coords="210,0,309,69" href="24/24fgca2.rle" />
+	<area coords="310,0,409,69" href="24/24fgca4.rle" />
+	<area coords="410,0,520,180" href="lg/38p24ks.rle" />
+	<area coords="0,70,109,180" href="25/25fgjm1.rle" />
+	<area coords="110,70,209,180" href="25/25fgjm3.rle" />
+	<area coords="210,70,309,180" href="25/25fgjm2.rle" />
+	<area coords="310,70,409,180" href="25/25fgjm4.rle" />
+</map>
+
+<p>All of these involving figure-8s have a pseudo-period of 24, a composite of 3
+and 8.</p>
+
+<hr />
+<a name="p25"></a>
+<h2>2 period-25 oscillators</h2>
+<p><a class="p" href="stamp/p25.rle"><img src="map/p25.png"
+ alt="P25 oscillators" width="421" height="141" usemap="#p25" /></a><br />
+    <table width="425">
+    <colgroup><col width="211" /><col width="212" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/98p25-1.rle">2 Honeyfarms hassled by
+	    4 fumaroles and 2 blocks [51-57]</a></td>
+	<td><a class="p" href="lg/104p25-1.rle">2 Honeyfarms hassled by
+	    4 fumaroles and 2 eaters [51-57]</a></td>
+    </tr>
+</table></p>
+
+<map name="p25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p25.zip" />
+	<area coords="401,121,420,140" href="stamp/p25.rle" />
+	<area coords="0,0,209,140" href="lg/98p25-1.rle" />
+	<area coords="210,0,420,140" href="lg/104p25-1.rle" />
+</map>
+
+<hr />
+<a name="p26"></a>
+<h2>1 Period-26 oscillator</h2>
+<p><a class="p" href="stamp/p26.rle"><img src="map/p26.png"
+ alt="P26 osc" width="141" height="101" usemap="#p26" /></a><br />
+    <table width="145">
+    <colgroup><col width="143" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/50p26-1.rle">
+	    Up beacon on cis very long beehive on down Beluchenko's P13 [69]</a></td>
+    </tr>
+</table></p>
+
+<map name="p26">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p26.zip" />
+	<area coords="121,81,140,100" href="stamp/p26.rle" />
+	<area coords="0,0,129,100" href="lg/50p26-1.rle" />
+	<area coords="130,0,140,100" nohref="nohref" />
+</map>
+
+<p>This has a pseudo-period of 26, a composite of 2 and 13.</p>
+
+<hr />
+<a name="p27"></a>
+<h2>1 Period-27 oscillator</h2>
+<p><a class="p" href="stamp/p27.rle"><img src="map/p27.png"
+ alt="P27 osc" width="161" height="161" usemap="#p27" /></a><br />
+    <table width="165">
+    <colgroup><col width="163" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/56p27-1.rle">
+	    56-bit P27 #1 [52]</a></td>
+    </tr>
+</table></p>
+
+<map name="p27">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="141,0,160,19" href="zip/p27.zip" />
+	<area coords="141,141,160,160" href="stamp/p27.rle" />
+	<area coords="0,0,160,160" href="lg/56p27-1.rle" />
+</map>
+
+<hr />
+<a name="p28"></a>
+<h2>2 Period-28 oscillators</h2>
+<p><a class="p" href="stamp/p28.rle"><img src="map/p28.png"
+ alt="period 28 oscillators"
+ width="301" height="181" usemap="#p28" /></a><br />
+    <table width="305">
+    <colgroup><col width="131" /><col width="172" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/54p28db.rle">Pulsar hassled by
+	    2 molds, 2 eaters, and 2 blocks [36]</a></td>
+	<td><a class="p" href="lg/88p28mm.rle">
+	    Matthias Merzenich's P28 [72]</a></td>
+    </tr>
+</table></p>
+
+<map name="p28">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="281,0,300,19" href="zip/p28.zip" />
+	<area coords="281,161,300,180" href="stamp/p28.rle" />
+	<area coords="0,0,129,180" href="lg/88p28mm.rle" />
+	<area coords="130,0,300,180" href="lg/54p28db.rle" />
+</map>
+
+<hr />
+<a name="p29"></a>
+<h2>2 Period-29 oscillators</h2>
+<p><a class="p" href="stamp/p29.rle"><img src="map/p29.png"
+ alt="P29 oscillators" width="301" height="121" usemap="#p29" /></a><br />
+    <table width="305">
+    <colgroup><col width="151" /><col width="152" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/56p29-1.rle">
+	    Single P29 pre- pulsar hassler [43]</a></td>
+	<td><a class="p" href="lg/66p29db.rle">
+	    2 pre- pulsars hassled by 4 eaters and 2 tubs [28]</a></td>
+    </tr>
+</table></p>
+
+<map name="p29">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="281,0,300,19" href="zip/p29.zip" />
+	<area coords="281,101,300,120" href="stamp/p29.rle" />
+	<area coords="0,0,149,120" href="lg/56p29-1.rle" />
+	<area coords="150,0,300,120" href="lg/66p29db.rle" />
+</map>
+
+<hr />
+<a name="p30"></a>
+<h2>Period-30 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p30.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p30.rle"><img src="map/p30.png"
+ alt="20-bit period 30 oscillators"
+ width="621" height="477" usemap="#p30" /></a><br />
+    <table width="625">
+    <colgroup><col width="131" /><col span="2" width="60" />
+	<col span="2" width="120" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20bqbbk2.rle">
+	    Queen bee shuttle between trans blocks [6]</a></td>
+	<td colspan="2"><a class="p" href="20/20bqbbk1.rle">
+	    Queen bee shuttle between cis blocks [6]</a></td>
+	<td><a class="p" href="22/22bqbet4.rle">
+	    Queen bee between block and down close eater [6]</a></td>
+	<td><a class="p" href="22/22bqbet3.rle">
+	    Queen bee between block and up close eater [6]</a></td>
+	<td><a class="p" href="23/23bqbet2.rle">
+	    Trans buckaroo; Queen bee between block and down eater [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23bqbet1.rle">
+	    Cis buckaroo; Queen bee between block and up eater [6]</a></td>
+	<td colspan="2"><a class="p" href="24/24bqbin4.rle">
+	    Queen bee between block and down close integral [8]</a></td>
+	<td><a class="p" href="24/24bqbin3.rle">
+	    Queen bee between block and up close integral [8]</a></td>
+	<td><a class="p" href="25/25eqbet1.rle">Princess bee,
+	    Queen bee between cis close eaters [7]</a></td>
+	<td><a class="p" href="25/25bqbih4.rle">
+	    Queen bee between block and down close integral w/ hook [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="25/25bqbit3.rle">
+	    Queen bee between block and up close integral w/ hook [9]</a></td>
+	<td colspan="2"><a class="p" href="25/25bqbin2.rle">
+	    Trans buckaroo w/ integral;
+	    Queen bee between block and down integral [8]</a></td>
+	<td><a class="p" href="25/25bqbin1.rle">Cis buckaroo w/ integral;
+	    Queen bee between block and up integral [8]</a></td>
+	<td><a class="p" href="25/25eqbet2.rle">
+	    Queen bee between trans close eaters [7]</a></td>
+	<td><a class="p" href="25/25bqbit4.rle">
+	    Queen bee between block and down close integral w/ tub [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="25/25bqbit3.rle">
+	    Queen bee between block and up close integral w/ tub [8]</a></td>
+	<td colspan="2"><a class="p" href="lg/28tb4pu1.rle">
+	    Eureka; Four tubs hassling a pulsar [12]</a></td>
+	<td><a class="p" href="lg/28tb4pu2.rle">
+	    Skewed eureka; Four tubs hassling a skewed pulsar [12]</a></td>
+	<td rowspan="3" colspan="2"><a class="p" href="lg/74qb4gl2.rle">
+	    Hectic; Four queen bees shuttling 2 gliders [26]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/39badgun.rle">
+	    Capped bad gun [10]</a></td>
+	<td colspan="2"><a class="p" href="lg/40pc2bb.rle">
+	    Two penta- decathlons hassling two blocks [8]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/48p30-1.rle">
+	    Double eureka [22]</a></td>
+	<td colspan="2"><a class="p" href="lg/48p30-2.rle">
+	    Double skewed eureka [33]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,457,19,476" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p30.zip" />
+	<area coords="601,457,620,476" href="stamp/p30.rle" />
+	<area coords="0,0,129,81" href="20/20bqbbk2.rle" />
+	<area coords="130,0,249,81" href="20/20bqbbk1.rle" />
+	<area coords="250,0,369,81" href="22/22bqbet4.rle" />
+	<area coords="370,0,489,81" href="22/22bqbet3.rle" />
+	<area coords="490,0,620,81" href="23/23bqbet2.rle" />
+	<area coords="0,82,129,153" href="23/23bqbet1.rle" />
+	<area coords="130,82,249,153" href="24/24bqbin4.rle" />
+	<area coords="250,82,369,153" href="24/24bqbin3.rle" />
+	<area coords="370,82,489,153" href="25/25eqbet1.rle" />
+	<area coords="490,82,620,153" href="25/25bqbih4.rle" />
+	<area coords="0,154,129,225" href="25/25bqbih3.rle" />
+	<area coords="130,154,249,225" href="25/25bqbin2.rle" />
+	<area coords="250,154,369,225" href="25/25bqbin1.rle" />
+	<area coords="370,154,489,225" href="25/25eqbet2.rle" />
+	<area coords="490,154,620,225" href="25/25bqbit4.rle" />
+	<area coords="0,226,129,305" href="25/25bqbit3.rle" />
+	<area coords="130,226,249,305" href="lg/28tb4pu1.rle" />
+	<area coords="250,226,369,305" href="lg/28tb4pu2.rle" />
+	<area coords="370,226,620,476" href="lg/74qb4gl2.rle" />
+	<area coords="0,306,189,385" href="lg/39badgun.rle" />
+	<area coords="190,306,369,385" href="lg/40pc2bb.rle" />
+	<area coords="0,386,189,476" href="lg/48p30-1.rle" />
+	<area coords="190,386,369,476" href="lg/48p30-2.rle" />
+</map>
+
+<p>The Queen bee is extremely versatile. It is a shuttle that flips over
+every 15 generations, leaving a <a class="p" href="0/6hv.rle">beehive</a> egg,
+which must be removed; in both cases above, by a
+<a class="p" href="0/4bk.rle">block</a>. The Queen bee forms the basis for the
+first <a class="i" href="gun.htm">glider gun</a> ever discovered,
+as well as many <a class="i" href="osc.htm">oscillators</a>
+with periods of 30<i>n</i>.</p>
+
+<p>It can also <a class="p" href="20/20qbeat.rle">eat gliders</a>
+many different ways:</p>
+<p><ul>
+    <li>Row 1 #1+2: left sides cook glider into block, then into toxic boat;
+	right sides cook glider into toxic block</li>
+    <li>Row 1 #3: cooks glider into boat, then into toxic blinker</li>
+    <li>Row 1 #4: both sides cook glider into toxic loaf</li>
+    <li>Row 1 #5: cooks glider into toxic beehive</li>
+    <li>Row 2 #1+2: cook glider into block, then eat the block</li>
+    <li>Row 2 #3+4: cook glider into something the block then eats</li>
+    <li>Rows 3-6: eat glider directly</li>
+</ul></p>
+
+<p>In addition to being able to being able to eat gliders in all the same
+ways a <a class="p" href="20/20qbeat.rle">queen bee can</a>, plus several
+others, the Buckaroo can also naturally reflect gliders 90 degrees, making it
+useful in constructing glider loops of period 30<i>n</i>.</p>
+
+<p>The "bad gun" is a an arrangement of two
+<a class="p" href="20/20bqbbk1.rle">queen bee shuttles</a> that forms a
+<a class="i" href="gun.htm#gun-gl">glider gun</a> that
+<a class="i" href="gun.htm#gun-bad">doesn't quite work</a>, because the escaping glider
+hits the right shuttle at the last moment; if it were advanced only 2 more
+generations, it would have escaped. This is rescued and turned into a
+<a class="i" href="p30.htm">period 30 oscillator</a> by eating the glider before the
+right shuttle returns.</p>
+
+<hr />
+<a name="p31"></a>
+<h2>2 Period-31 oscillators</h2>
+<p><a class="p" href="stamp/p31.rle"><img src="map/p31.png"
+ alt="period 31 oscillators"
+ width="461" height="321" usemap="#p31" /></a><br />
+    <table width="465">
+    <colgroup><col width="151" /><col width="312" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/48p31mm.rle">
+	    Merzenich's 48-bit period 31 oscillator #1 [66]</a></td>
+	<td><a class="p" href="lg/152p31gl.rle">
+	    Period 31 glider loop [36]</a></td>
+    </tr>
+</table></p>
+
+<map name="p31">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="441,0,460,19" href="zip/p31.zip" />
+	<area coords="441,301,460,320" href="stamp/p31.rle" />
+	<area coords="0,0,149,320" href="lg/48p31mm.rle" />
+	<area coords="150,0,460,320" href="lg/152p31gl.rle" />
+</map>
+
+<p>Merzenich's 48-bit period 31 oscillator generates a
+<a class="i" href="lifeterm.htm#spark">diagonal domino spark</a>,
+allowing it to reflect gliders 90 degrees</p>
+
+<p>The period 31 glider loop uses a special reflector, where a glider hits a
+mangled honeyfarm, producing a honeyfarm predecessor and a rotated glider.
+Unfortunately, this only works if a glider is present each cycle, so it cannot
+be used to produce oscillators whose periods are multiples of 31.</p>
+
+<hr />
+<a name="p32"></a>
+<h2>1 Period-32 oscillator</h2>
+<p><a class="p" href="stamp/p32.rle"><img src="map/p32.png"
+ alt="P32 osc" width="121" height="121" usemap="#p32" /></a><br />
+    <table width="125">
+    <colgroup><col width="123" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/68p32-1.rle">
+	    68-bit period 32 oscillator #1 [37]</a></td>
+    </tr>
+</table></p>
+
+<map name="p32">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="101,0,120,19" href="zip/p32.zip" />
+	<area coords="101,101,120,120" href="stamp/p32.rle" />
+	<area coords="0,0,120,120" href="lg/68p32-1.rle" />
+</map>
+
+<hr />
+<a name="p33"></a>
+<h2>2 Period-33 oscillators</h2>
+<p><a class="p" href="stamp/p33.rle"><img src="map/p33.png"
+ alt="P33 osc" width="501" height="341" usemap="#p33" /></a><br />
+    <table width="505">
+    <colgroup><col width="171" /><col width="332" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/60p33-1.rle">
+	    Two boats and two tubs eating two things [16]</a></td>
+	<td><a class="p" href="lg/236p33-1.rle">
+	    Eight pairs of things stablizing each other [68]</a></td>
+    </tr>
+</table></p>
+
+<map name="p33">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,321,19,340" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p33.zip" />
+	<area coords="481,321,500,340" href="stamp/p33.rle" />
+	<area coords="0,0,169,340" href="lg/60p33-1.rle" />
+	<area coords="170,0,500,340" href="lg/236p33-1.rle" />
+</map>
+
+<hr />
+<a name="p34"></a>
+<h2>1 Period-34 oscillator</h2>
+<p><a class="p" href="stamp/p34.rle"><img src="map/p34.png"
+ alt="P34 oscillator" width="101" height="101" usemap="#p34" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/43ttbe4h.rle">
+	    Honey thieves w/ test tube baby [23]</a></td>
+    </tr>
+</table></p>
+
+<map name="p34">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p34.zip" />
+	<area coords="81,81,100,100" href="stamp/p34.rle" />
+	<area coords="0,0,100,100" href="lg/43ttbe4h.rle" />
+</map>
+
+<p>This has a pseudo-period of 34, a composite of 2 and 17.</p>
+<hr />
+<a name="p35"></a>
+<h2>1 Period-35 oscillator</h2>
+<p><a class="p" href="stamp/p35.rle"><img src="map/p35.png"
+ alt="P35 osc" width="161" height="121" usemap="#p35" /></a><br />
+    <table width="165">
+    <colgroup><col width="163" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/50p35js.rle">
+	    Summers's Four eaters hassling two traffic lights
+	    and four blinkers [24]</a></td>
+    </tr>
+</table></p>
+
+<map name="p35">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="141,0,160,19" href="zip/p35.zip" />
+	<area coords="141,101,160,120" href="stamp/p35.rle" />
+	<area coords="0,0,160,120" href="lg/50p35js.rle" />
+</map>
+
+<hr />
+<a name="p36"></a>
+<h2>Period-36 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p36.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p36.rle"><img src="map/p36.png"
+ alt="period 36 oscillators" width="601" height="121" usemap="#p36" /></a><br />
+    <table width="605">
+    <colgroup><col width="111" /><col span="3" width="100" /><col width="192" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="22/22et2t2.rle">
+	    Elkies's Two eaters hassling two T tetrominos [9]</a></td>
+	<td><a class="p" href="24/24inett2.rle">
+	    Elkies's Integral and eater hassling two T tetrominos [10]</a></td>
+	<td><a class="p" href="25/25ihett2.rle">Elkies's
+	    Integral w/ hook and eater hassling two T tetrominos [11]</a></td>
+	<td><a class="p" href="25/25itett2.rle">Elkies's
+	    Integral w/ tub and eater hassling two T tetrominos [10]</a></td>
+	<td><a class="p" href="lg/54p36js.rle">Jason Summers's Two eaters and
+	    two caterers hassling two B heptominos [34]</a></td>
+    </tr>
+</table></p>
+
+<map name="p36">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/p36.zip" />
+	<area coords="581,101,600,120" href="stamp/p36.rle" />
+	<area coords="0,0,109,120" href="22/22et2t2.rle" />
+	<area coords="110,0,209,120" href="24/24inett2.rle" />
+	<area coords="210,0,309,120" href="25/25ihett2.rle" />
+	<area coords="310,0,409,120" href="25/25itett2.rle" />
+	<area coords="410,0,600,120" href="lg/54p36js.rle" />
+</map>
+
+<hr />
+<a name="p37"></a>
+<h2>2 Period-37 oscillators</h2>
+<p><a class="p" href="stamp/p37.rle"><img src="map/p37.png"
+ alt="P37 osc" width="421" height="221" usemap="#p37" /></a><br />
+    <table width="425">
+    <colgroup><col width="211" /><col width="212" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/124p37-1.rle">
+	    124-bit period 37 oscillator #1 [72]</a></td>
+	<td><a class="p" href="lg/132p37-1.rle">
+	    Beluchenko's 132-bit period 7 oscillator #1 [40]</a></td>
+    </tr>
+</table></p>
+
+<map name="p37">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p37.zip" />
+	<area coords="401,201,420,220" href="stamp/p37.rle" />
+	<area coords="0,0,209,220" href="lg/124p37-1.rle" />
+	<area coords="210,0,420,220" href="lg/132p37-1.rle" />
+</map>
+
+<hr />
+<a name="p39"></a>
+<h2>1 Period-39 oscillator</h2>
+<p><a class="p" href="stamp/p39.rle"><img src="map/p39.png"
+ alt="P39 osc" width="141" height="101" usemap="#p39" /></a><br />
+    <table width="145">
+    <colgroup><col width="143" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/46p39-1.rle">
+	    Down candel- frobra on down Beluchenko's P13 [67]</a></td>
+    </tr>
+</table></p>
+
+<map name="p39">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p39.zip" />
+	<area coords="121,81,140,100" href="stamp/p39.rle" />
+	<area coords="0,0,129,100" href="lg/46p39-1.rle" />
+	<area coords="130,0,140,100" nohref="nohref" />
+</map>
+
+<p>This has a pseudo-period of 39, a composite of 3 and 13.</p>
+
+<hr />
+<a name="p40"></a>
+<h2>2 Period-40 oscillators</h2>
+<p><a class="p" href="stamp/p40.rle"><img src="map/p40.png"
+ alt="P40 oscillators" width="241" height="121" usemap="#p40" /></a><br />
+    <table width="245">
+    <colgroup><col width="111" /><col width="132" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/26p40-1.rle">
+	    26-bit period 40 oscillator #1 [30]</a></td>
+	<td><a class="p" href="lg/69br2fmb.rle">
+	    Two blockers and a fumarole shuttling a B-heptomino [29]</a></td>
+    </tr>
+</table></p>
+
+<map name="p40">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="221,0,240,19" href="zip/p40.zip" />
+	<area coords="221,101,240,120" href="stamp/p40.rle" />
+	<area coords="0,0,89,120" href="lg/26p40-1.rle" />
+	<area coords="90,0,240,120" href="lg/69br2fmb.rle" />
+</map>
+
+<hr />
+<a name="p42"></a>
+<h2>1 Period-42 oscillator</h2>
+<p><a class="p" href="stamp/p42.rle"><img src="map/p42.png"
+ alt="P42 osc" width="101" height="81" usemap="#p42" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/40bmux1.rle">
+	    Up unix on burloaf- erimiter [32]</a></td>
+    </tr>
+</table></p>
+
+<map name="p42">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p42.zip" />
+	<area coords="81,61,100,80" href="stamp/p42.rle" />
+	<area coords="0,0,89,80" href="lg/40bmux1.rle" />
+	<area coords="90,0,100,80" nohref="nohref" />
+</map>
+
+<p>This has a pseudo-period of 42, a composite of 6 and 7.</p>
+<hr />
+<a name="p44"></a>
+<h2>3 Period-44 oscillators</h2>
+<p><a class="p" href="stamp/p44.rle"><img src="map/p44.png"
+ alt="period-44 oscillators"
+ width="581" height="161" usemap="#p44" /></a><br />
+    <table width="585">
+    <colgroup><col width="171" /><col width="200" /><col width="212" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/50p44-1.rle">
+	    Jason Summers's P22 and mold sharing sparks [17]</a></td>
+	<td><a class="p" href="lg/102p44-1.rle">Two pi heptominos
+	    hassled by two HWSS emulators and four blocks [68]</a></td>
+	<td><a class="p" href="lg/112p44-1.rle">Two pi heptominos
+	    hassled by two HWSS emulators and six blocks [72]</a></td>
+    </tr>
+</table></p>
+
+<map name="p44">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p44.zip" />
+	<area coords="561,141,580,160" href="stamp/p44.rle" />
+	<area coords="0,0,169,160" href="lg/50p44-1.rle" />
+	<area coords="170,0,369,160" href="lg/102p44-1.rle" />
+	<area coords="370,0,580,160" href="lg/112p44-1.rle" />
+</map>
+
+<hr />
+<a name="p45"></a>
+<h2>11 Period-45 oscillators</h2>
+<p><a class="p" href="stamp/p45.rle"><img src="map/p45.png"
+ alt="period 45 oscillators"
+ width="541" height="361" usemap="#p45" /></a><br />
+    <table width="545">
+    <colgroup><col width="131" /><col span="2" width="120" /><col width="172" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/52srpc1.rle">
+	    Snacker hassling pentadecathlon #1 [23]</a></td>
+	<td><a class="p" href="lg/52srpc5.rle">
+	    Snacker hassling pentadecathlon #5 [23]</a></td>
+	<td><a class="p" href="lg/52srpc2.rle">
+	    Snacker hassling pentadecathlon #2 [23]</a></td>
+	<td><a class="p" href="lg/52srpc3.rle">
+	    Snacker hassling pentadecathlon #3 [23]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/52srpc10.rle">
+	    Snacker hassling pentadecathlon #10 [21]</a></td>
+	<td><a class="p" href="lg/52srpc9.rle">
+	    Snacker hassling pentadecathlon #9 [21]</a></td>
+	<td><a class="p" href="lg/52srpc8.rle">
+	    Snacker hassling pentadecathlon #8 [21]</a></td>
+	<td rowspan="2" colspan="2">
+	    <a class="p" href="lg/77pc4gl.rle">
+	    Four pentadecathlons shuttling a glider [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/54srpc4.rle">
+	    Snacker hassling pentadecathlon #4 [23]</a></td>
+	<td><a class="p" href="lg/54srpc6.rle">
+	    Snacker hassling pentadecathlon #6 [21]</a></td>
+	<td><a class="p" href="lg/54srpc7.rle">
+	    Snacker hassling pentadecathlon #7 [21]</a></td>
+    </tr>
+</table></p>
+
+<map name="p45">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,341,19,360" href="#bottom" />
+	<area coords="521,0,540,19" href="zip/p45.zip" />
+	<area coords="521,341,540,360" href="stamp/p45.rle" />
+	<area coords="0,0,129,129" href="lg/52srpc1.rle" />
+	<area coords="130,0,249,129" href="lg/52srpc5.rle" />
+	<area coords="250,0,369,129" href="lg/52srpc2.rle" />
+	<area coords="370,0,540,129" href="lg/52srpc3.rle" />
+	<area coords="0,130,129,249" href="lg/52srpc10.rle" />
+	<area coords="130,130,249,249" href="lg/52srpc8.rle" />
+	<area coords="250,130,369,249" href="lg/52srpc9.rle" />
+	<area coords="370,130,540,360" href="lg/77pc4gl.rle" />
+	<area coords="0,250,129,360" href="lg/54srpc4.rle" />
+	<area coords="130,250,249,360" href="lg/54srpc6.rle" />
+	<area coords="250,250,369,360" href="lg/54srpc7.rle" />
+</map>
+
+<hr />
+<a name="p46"></a>
+<h2>1 Period-46 oscillator</h2>
+<p><a class="p" href="stamp/p46.rle"><img src="map/p46.png"
+ alt="P46 osc" width="161" height="81" usemap="#p46" /></a><br />
+    <table width="165">
+    <colgroup><col width="163" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/43p46tw.rle">Twin Bees [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p46">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="141,0,160,19" href="zip/p46.zip" />
+	<area coords="141,61,160,80" href="stamp/p46.rle" />
+	<area coords="0,0,160,80" href="lg/43p46tw.rle" />
+</map>
+
+<p>Twin Bees is one of the simplest natural shuttles found in Life, and one of
+the first to be found. It produces useful plumes of clean debris, which is is
+why it was used in some of the earliest
+<a class="i" href="gun.htm">glider guns</a> found. The toxic unstable eggs at
+the ends can be eaten in many different ways, by blocks, eaters, even hats.
+Interestingly, it is possible to eat the engine prematurely, altering its
+period to <a class="j" href="#p54">54</a>. By controlling the
+eating mechanism, the same shuttle can alternate between the two periods,
+resulting in the <a class="j" href="#p100">period 100</a>
+<a class="p" href="lg/70p100ce.rle">Centinal</a>.</p>
+
+<hr />
+<a name="p47"></a>
+<h2>2 Period-47 oscillators</h2>
+<p><a class="p" href="stamp/p47.rle"><img src="map/p47.png"
+ alt="period 47 oscillators"
+ width="521" height="161" usemap="#p47" /></a><br />
+    <table width="525">
+    <colgroup><col width="171" /><col width="352" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/84p47-1.rle">
+	    P47 pre- pulsar hassler [52]</a></td>
+	<td><a class="p" href="lg/204p47-1.rle">
+	    Beluchenko's P47 hassler [146]</a></td>
+    </tr>
+</table></p>
+
+<map name="p47">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/p47.zip" />
+	<area coords="501,141,520,160" href="stamp/p47.rle" />
+	<area coords="0,0,169,160" href="lg/84p47-1.rle" />
+	<area coords="170,0,520,160" href="lg/204p47-1.rle" />
+</map>
+
+<hr />
+<a name="p50"></a>
+<h2>1 Period-50 oscillator</h2>
+<p><a class="p" href="stamp/p50.rle"><img src="map/p50.png"
+ alt="period 50 oscillator"
+ width="221" height="101" usemap="#p50" /></a><br />
+    <table width="225">
+    <colgroup><col width="223" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/92p50tj.rle">P50 Traffic-jam [34]</a></td>
+    </tr>
+</table></p>
+
+<map name="p50">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="201,0,220,19" href="zip/p50.zip" />
+	<area coords="201,81,220,100" href="stamp/p50.rle" />
+	<area coords="0,0,220,100" href="lg/92p50tj.rle" />
+</map>
+
+<p>This is the simplest of many similar traffic-jam oscillators. The
+<a class="p" href="12/12tl.rle">Traffic light</a> push reaction has a period of
+25, but one traffic light will patiently wait for another to move into position,
+so it is easy to construct traffic jams of periods that are not multiples of
+25, by using appropriate sparkers of other periods. For example, a period 40
+traffic jam sparked by period 8 sparkers, and the period 110 Traffic circle,
+where period 5 sparkers hassle traffic-light predecessors arranged in a large
+square.</p>
+
+<hr />
+<a name="p51"></a>
+<h2>1 Period-51 oscillator</h2>
+<p><a class="p" href="stamp/p51.rle"><img src="map/p51.png"
+ alt="P51 oscillator" width="181" height="181" usemap="#p51" /></a><br />
+    <table width="185">
+    <colgroup><col width="183" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/112p51-1.rle">
+	    112-bit period 51 oscillator #1 [76]</a></td>
+    </tr>
+</table></p>
+
+<map name="p51">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p51.zip" />
+	<area coords="161,161,180,180" href="stamp/p51.rle" />
+	<area coords="0,0,180,180" href="lg/112p51-1.rle" />
+</map>
+
+<hr />
+<a name="p52"></a>
+<h2>2 Period-52 oscillators</h2>
+<p><a class="p" href="stamp/p52.rle"><img src="map/p52.png"
+ alt="P52 oscillators" width="241" height="141" usemap="#p52" /></a><br />
+    <table width="245">
+    <colgroup><col width="111" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/35lmet4.rle">
+	    Four eaters hassling lumps of muck [17]</a></td>
+	<td><a class="p" href="lg/83md4bb4.rle">
+	    Four molds hassling four block pairs [31]</a></td>
+    </tr>
+</table></p>
+
+<map name="p52">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="221,0,240,19" href="zip/p52.zip" />
+	<area coords="221,121,240,140" href="stamp/p52.rle" />
+	<area coords="0,0,109,140" href="lg/35lmet4.rle" />
+	<area coords="110,0,240,140" href="lg/83md4bb4.rle" />
+</map>
+
+<p>The second oscillator has 30 trivial variations. First, there are six
+different versions of the outside. Any of the mold hasslers can be reversed
+to hassle the opposite side of the moving signal: none (as shown), one, two
+(cis), two (trans), three, or four molds can be reversed. Second, there are
+five different versions of the inside. The block pairs are quiescent except
+when passing an unstable signal. Multiple signals can be in the same interior
+as long as they are at least 16 generations apart, so there can be one signal
+(as shown), two signals (separated by 16+36, 20+32, or 24+28 generations),
+or three signals (separated by 16+16+20 generations). The additional signals
+can be injected into the interior from any side by repeating the last
+step of the synthesis.</p>
+
+<hr />
+<a name="p54"></a>
+<h2>2 Period-54 oscillators</h2>
+<p><a class="p" href="stamp/p54.rle"><img src="map/p54.png"
+ alt="period 54 oscillators"
+ width="441" height="121" usemap="#p54" /></a><br />
+    <table width="445">
+    <colgroup><col width="171" /><col width="272" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/48et4tw.rle">
+	    Four eaters hassling twin bees [12]</a></td>
+	<td><a class="p" href="lg/108tw2pc.rle">
+	    Two twin bees, each hassled by four eaters,
+	    hassling pentadecathlon [35]</a></td>
+    </tr>
+</table></p>
+
+<map name="p54">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/p54.zip" />
+	<area coords="421,101,440,120" href="stamp/p54.rle" />
+	<area coords="0,0,169,120" href="lg/48et4tw.rle" />
+	<area coords="170,0,440,120" href="lg/108tw2pc.rle" />
+</map>
+
+<hr />
+<a name="p55"></a>
+<h2>1 Period-55 oscillator</h2>
+<p><a class="p" href="stamp/p55.rle"><img src="map/p55.png"
+ alt="P55" width="181" height="141" usemap="#p55" /></a><br />
+    <table width="185">
+    <colgroup><col width="183" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/75p55-1.rle">
+	    Pseudo- barber- pole tie P11 hassler [64]</a></td>
+    </tr>
+</table></p>
+
+<map name="p55">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p55.zip" />
+	<area coords="161,121,180,140" href="stamp/p55.rle" />
+	<area coords="0,0,180,140" href="lg/75p55-1.rle" />
+</map>
+
+<p>This has a pseudo-period of 55, a composite of 5 and 11.</p>
+
+<hr />
+<a name="p56"></a>
+<h2>1 Period-56 oscillator</h2>
+<p><a class="p" href="stamp/p56.rle"><img src="map/p56.png"
+ alt="P56 oscillators" width="141" height="121" usemap="#p56" /></a><br />
+    <table width="145">
+    <colgroup><col width="143" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/45br2bh.rle">
+	    Two blockers hassling B heptomino [19]</a></td>
+    </tr>
+</table></p>
+
+<map name="p56">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p56.zip" />
+	<area coords="121,101,140,120" href="stamp/p56.rle" />
+	<area coords="0,0,140,120" href="lg/45br2bh.rle" />
+</map>
+
+<hr />
+<a name="p60"></a>
+<h2>Period-60 oscillators</h2>
+<p>Due to the the large number of oscillators, these are detailed on a
+<a class="i" href="p60.htm">separate page</a>.</p>
+<p><a class="p" href="stamp/p60.rle"><img src="map/p60.png"
+ alt="P60 oscillators" width="581" height="221" usemap="#p60" /></a><br />
+    <table width="585">
+    <colgroup><col width="171" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/29pc2gl.rle">
+	    Two pentadecathlons shuttling glider [7]</a></td>
+	<td><a class="p" href="lg/30pc2td1.rle">
+	    Toad flipped by 2 penta- decathlons #1 [10]</a></td>
+	<td><a class="p" href="lg/30pc2td3.rle">
+	    Toad sucked by 2 penta- decathlons #1 [10]</a></td>
+	<td><a class="p" href="lg/30pc2td4.rle">
+	    Toad sucked by 2 penta- decathlons #2 [10]</a></td>
+	<td><a class="p" href="lg/30pc2td2.rle">
+	    Toad flipped by 2 penta- decathlons #2 [10]</a></td>
+	<td><a class="p" href="lg/30pc2td5.rle">
+	    Toad sucked by 2 penta- decathlons #3 [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/56td8pu.rle">
+	    Twirling T-tetsons; 8 toads spinning a pulsar [40]</a></td>
+	<td><a class="p" href="24/24pcmd.rle">
+	    Penta- decathlon and mold sharing sparks [8]</a></td>
+	<td colspan="4" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p60">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p60.zip" />
+	<area coords="561,201,580,220" href="stamp/p60.rle" />
+	<area coords="0,0,169,89" href="lg/29pc2gl.rle" />
+	<area coords="170,0,249,89" href="lg/30pc2td1.rle" />
+	<area coords="250,0,329,89" href="lg/30pc2td3.rle" />
+	<area coords="330,0,409,89" href="lg/30pc2td4.rle" />
+	<area coords="410,0,489,89" href="lg/30pc2td2.rle" />
+	<area coords="490,0,580,89" href="lg/30pc2td5.rle" />
+	<area coords="0,90,169,220" href="lg/56td8pu.rle" />
+	<area coords="170,90,249,220" href="24/24pcmd.rle" />
+	<area coords="250,90,580,220" nohref="nohref" />
+</map>
+
+<p>(See notes under <a class="i" href="p2.htm#p2-6">Toad</a>
+for details about toad-flipper and toad-sucker oscillators.)</p>
+
+<hr />
+<a name="p63"></a>
+<h2>1 Period-63 oscillator</h2>
+<p><a class="p" href="stamp/p63.rle"><img src="map/p63.png"
+ alt="P63" width="141" height="101" usemap="#p63" /></a><br />
+    <table width="145">
+    <colgroup><col width="143" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/65bfsr.rle">
+	    Snacker on burloaferimiter [49]</a></td>
+    </tr>
+</table></p>
+
+<map name="p63">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p63.zip" />
+	<area coords="121,81,140,100" href="stamp/p63.rle" />
+	<area coords="0,0,140,100" href="lg/65bfsr.rle" />
+</map>
+
+<p>This has a pseudo-period of 63, a composite of 7 and 9.</p>
+
+<hr />
+<a name="p64"></a>
+<h2>1 Period-64 oscillator</h2>
+<p><a class="p" href="stamp/p64.rle"><img src="map/p64.png"
+ alt="P64" width="121" height="121" usemap="#p64" /></a><br />
+    <table width="125">
+    <colgroup><col width="123" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/34p64mm.rle">Merzenich's P64; 4 blocks
+	    hassling 2 beehives and 2 R pentominos [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p64">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="101,0,120,19" href="zip/p64.zip" />
+	<area coords="101,101,120,120" href="stamp/p64.rle" />
+	<area coords="0,0,120,120" href="lg/34p64mm.rle" />
+</map>
+
+<hr />
+<a name="p70"></a>
+<h2>1 Period-70 oscillator</h2>
+<p><a class="p" href="stamp/p70.rle"><img src="map/p70.png"
+ alt="P70 oscillator" width="161" height="141" usemap="#p70" /></a><br />
+    <table width="165">
+    <colgroup><col width="163" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/78p70-1.rle">
+	    78-bit P70 #1 [35]</a></td>
+    </tr>
+</table></p>
+
+<map name="p70">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="141,0,160,19" href="zip/p70.zip" />
+	<area coords="141,121,160,140" href="stamp/p70.rle" />
+	<area coords="0,0,160,140" href="lg/78p70-1.rle" />
+</map>
+
+<hr />
+<a name="p72"></a>
+<h2>1 Period-72 oscillator</h2>
+<p><a class="p" href="stamp/p72.rle"><img src="map/p72.png"
+ alt="P72 oscillator" width="161" height="101" usemap="#p72" /></a><br />
+    <table width="165">
+    <colgroup><col width="163" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/47br2rp.rle">
+	    Two blockers hassling R pentomino [19]</a></td>
+    </tr>
+</table></p>
+
+<map name="p72">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="141,0,160,19" href="zip/p72.zip" />
+	<area coords="141,81,160,100" href="stamp/p72.rle" />
+	<area coords="0,0,160,100" href="lg/47br2rp.rle" />
+</map>
+
+<hr />
+<a name="p75"></a>
+<h2>1 Period-75 oscillator</h2>
+<p><a class="p" href="stamp/p75.rle"><img src="map/p75.png"
+ alt="P75 oscillator"
+ width="201" height="141" usemap="#p75" /></a><br />
+    <table width="205">
+    <colgroup><col width="203" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/49pc3gl.rle">
+	    Three pentadecathlons shuttling a glider [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="p75">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p75.zip" />
+	<area coords="181,121,200,140" href="stamp/p75.rle" />
+	<area coords="0,0,200,140" href="lg/49pc3gl.rle" />
+</map>
+
+<hr />
+<a name="p88"></a>
+<h2>1 Period-88 oscillator</h2>
+<p><a class="p" href="stamp/p88.rle"><img src="map/p88.png"
+ alt="P88 oscillators"
+ width="141" height="141" usemap="#p88" /></a><br />
+    <table width="145">
+    <colgroup><col width="143" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/49et6ph.rle">
+	    Pi heptomino hassled by six eaters [16]</a></td>
+    </tr>
+</table></p>
+
+<map name="p88">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p88.zip" />
+	<area coords="121,121,140,140" href="stamp/p88.rle" />
+	<area coords="0,0,140,140" href="lg/49et6ph.rle" />
+</map>
+
+<hr />
+<a name="p90"></a>
+<h2>1 Period-90 oscillator</h2>
+<p><a class="p" href="stamp/p90.rle"><img src="map/p90.png"
+ alt="P90 oscillator" width="201" height="141" usemap="#p90" /></a><br />
+    <table width="205">
+    <colgroup><col width="203" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/66pc4be2.rle">Original diuresis;
+	    4 pentadec- athlons hassling two bookends [20]</a></td>
+    </tr>
+</table></p>
+
+<map name="p90">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p90.zip" />
+	<area coords="181,121,200,140" href="stamp/p90.rle" />
+	<area coords="0,0,200,140" href="lg/66pc4be2.rle" />
+</map>
+
+<hr />
+<a name="p100"></a>
+<h2>1 Period-100 oscillator</h2>
+<p><a class="p" href="stamp/p100.rle"><img src="map/p100.png"
+ alt="period 100 oscillator"
+ width="241" height="121" usemap="#p100" /></a><br />
+    <table width="245">
+    <colgroup><col width="243" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/70p100ce.rle">Centinal [16]</a></td>
+    </tr>
+</table></p>
+
+<map name="p100">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="221,0,240,19" href="zip/p100.zip" />
+	<area coords="221,101,240,120" href="stamp/p100.rle" />
+	<area coords="0,0,240,120" href="lg/70p100ce.rle" />
+</map>
+
+<p>The Centinal alternates between the
+natural <a class="j" href="#p46">period 46</a>
+and hassled <a class="j" href="#p54">period 54</a>
+versions of Twin Bees, by creating a pair of blocks in the middle and then
+destroying them.</p>
+
+<hr />
+<a name="p120"></a>
+<h2>4 period 120 oscillators</h2>
+<p><a class="p" href="stamp/p120.rle"><img src="map/p120.png"
+ alt="large P120 oscillators"
+ width="521" height="221" usemap="#p120" /></a><br />
+    <table width="525">
+    <colgroup><col width="131" /><col width="160" /><col width="232" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/26pcfg1.rle">
+	    Cis Penta- decathlon and figure-8 sharing sparks [8]</a></td>
+	<td rowspan="2"><a class="p" href="lg/64pc4pu.rle">
+	    Four pentadecathlons rotating a pulsar [17]</a></td>
+	<td rowspan="2"><a class="p" href="lg/68q2p2gl.rle">Two queen bees and
+	    two pentadecathlons shuttling a glider [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/26pcfg2.rle">
+	    Trans Penta- decathlon and figure-8 sharing sparks [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="p120">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/p120.zip" />
+	<area coords="501,201,520,220" href="stamp/p120.rle" />
+	<area coords="0,0,129,169" href="lg/26pcfg1.rle" />
+	<area coords="130,0,289,220" href="lg/64pc4pu.rle" />
+	<area coords="290,0,520,220" href="lg/68q2p2gl.rle" />
+	<area coords="0,170,129,220" href="lg/26pcfg2.rle" />
+</map>
+
+<hr />
+<a name="p138"></a>
+<h2>1 Period-138 <a class="i" href="osc.htm">oscillator</a></h2>
+<p><a class="p" href="stamp/p138.rle"><img src="map/p138.png"
+ alt="P138 osc" width="121" height="121" usemap="#p138" /></a><br />
+    <table width="125">
+    <colgroup><col width="123" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/36p138gn.rle">Nivasch's P138 [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p138">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="101,0,120,19" href="zip/p138.zip" />
+	<area coords="101,101,120,120" href="stamp/p138.rle" />
+	<area coords="0,0,120,120" href="lg/36p138gn.rle" />
+</map>
+
+<hr />
+<a name="p144"></a>
+<h2>1 Period-144 oscillator</h2>
+<p><a class="p" href="stamp/p144.rle"><img src="map/p144.png"
+ alt="P144 oscillators" width="161" height="121" usemap="#p144" /></a><br />
+    <table width="165">
+    <colgroup><col width="163" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/42p144af.rle">
+	    Flammenkamp's P144 [15]</a></td>
+    </tr>
+</table></p>
+
+<map name="p144">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="141,0,160,19" href="zip/p144.zip" />
+	<area coords="141,101,160,120" href="stamp/p144.rle" />
+	<area coords="0,0,160,120" href="lg/42p144af.rle" />
+</map>
+
+<hr />
+<a name="p156"></a>
+<h2>1 Period-156 oscillator</h2>
+<p><a class="p" href="stamp/p156.rle"><img src="map/p156.png"
+ alt="P156 oscillators"
+ width="221" height="221" usemap="#p156" /></a><br />
+    <table width="225">
+    <colgroup><col width="223" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/92p156-1.rle">
+	    4 blocks hassling 4 pi heptominos,
+	    with eaters eating gliders [55]</a></td>
+    </tr>
+</table></p>
+
+<map name="p156">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="201,0,220,19" href="zip/p156.zip" />
+	<area coords="201,201,220,220" href="stamp/p156.rle" />
+	<area coords="0,0,220,220" href="lg/92p156-1.rle" />
+</map>
+
+<p>This is actually a period 156 <a class="i" href="gun.htm">glider gun</a>
+that shoots two pairs of gliders along one set of diagonals, then 78 generations
+later, two pairs along the other diagonals. Pairs of eaters eat the gliders,
+turning this into an oscillator. (There are other mechanisms for eating the
+gliders that double the period to <a class="j" href="#p312">312</a>.)</p>
+
+<hr />
+<a name="p177"></a>
+<h2>1 Period-177 oscillator</h2>
+<p><a class="p" href="stamp/p177.rle"><img src="map/p177.png"
+ alt="P177 osc" width="221" height="221" usemap="#p177" /></a><br />
+    <table width="225">
+    <colgroup><col width="223" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/104p177.rle">Period 177 pulsator [24]</a></td>
+    </tr>
+</table></p>
+
+<map name="p177">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="201,0,220,19" href="zip/p177.zip" />
+	<area coords="201,201,220,220" href="stamp/p177.rle" />
+	<area coords="0,0,220,220" href="lg/104p177.rle" />
+</map>
+
+<p>This oscillator can reflect gliders 90 or 180 degrees in several different
+ways.</p>
+
+<p>Because it is so large, a larger, earlier synthesis is included in a
+<a class="p" href="lg/104p177a.rle">separate file</a>.</p>
+
+<hr />
+<a name="p256"></a>
+<h2>1 Period-256 oscillator</h2>
+<p><a class="p" href="stamp/p256.rle"><img src="map/p256.png"
+ alt="P256 oscillator" width="241" height="241" usemap="#p256" /></a><br />
+    <table width="245">
+    <colgroup><col width="243" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/104p256.rle">
+	    Buckingham's 104-bit P256 [41]</a></td>
+    </tr>
+</table></p>
+
+<map name="p256">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,221,19,240" href="#bottom" />
+	<area coords="221,0,240,19" href="zip/p256.zip" />
+	<area coords="221,221,240,240" href="stamp/p256.rle" />
+	<area coords="0,0,240,240" href="lg/104p256.rle" />
+</map>
+
+<p>This is actually a period 256 <a class="i" href="gun.htm">glider gun</a>
+that shoots one glider every 64 generations and rotates 90 degrees, resulting
+in a one glider in all four diagonal directions every 256 generations. Four
+eaters eat the gliders, turning this into an oscillator.</p>
+
+<hr />
+<a name="p276"></a>
+<h2>1 Period-276 oscillator</h2>
+<p><a class="p" href="stamp/p276.rle"><img src="map/p276.png"
+ alt="P276 oscillator" width="381" height="381" usemap="#p276" /></a><br />
+    <table width="385">
+    <colgroup><col width="383" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/184p276.rle">
+	    Four twin bees shuttling traffic-light-and-glider predecessor [35]</a></td>
+    </tr>
+</table></p>
+
+<map name="p276">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/p276.zip" />
+	<area coords="361,361,380,380" href="stamp/p276.rle" />
+	<area coords="0,0,380,380" href="lg/184p276.rle" />
+</map>
+
+<hr />
+<a name="p300"></a>
+<h2>1 Period-300 oscillator</h2>
+<p><a class="p" href="stamp/p300.rle"><img src="map/p300.png"
+ alt="P300 oscillator" width="241" height="141" usemap="#p300" /></a><br />
+    <table width="245">
+    <colgroup><col width="243" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/82cepc.rle">Centinal and penta- decathlon
+	    creating temporary block [22]</a></td>
+    </tr>
+</table></p>
+
+<map name="p300">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="221,0,240,19" href="zip/p300.zip" />
+	<area coords="221,121,240,140" href="stamp/p300.rle" />
+	<area coords="0,0,240,140" href="lg/82cepc.rle" />
+</map>
+
+<hr />
+<a name="p312"></a>
+<h2>3 Period-312 oscillators</h2>
+<p><a class="p" href="stamp/p312.rle"><img src="map/p312.png"
+ alt="period 312 oscillators"
+ width="621" height="221" usemap="#p312" /></a><br />
+    <table width="625">
+    <colgroup><col width="211" /><col width="200" /><col width="212" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/60p312-1.rle">
+	    4 blocks hassling 4 pi heptominos,
+	    with 4 beehives eating gliders [24]</a></td>
+	<td><a class="p" href="lg/60p312-1.rle">
+	    4 blocks hassling 4 pi heptominos,
+	    with 4 loaves eating gliders [24]</a></td>
+	<td><a class="p" href="lg/60p312-1.rle">
+	    4 blocks hassling 4 pi heptominos,
+	    with 4 ponds eating gliders [24]</a></td>
+    </tr>
+</table></p>
+
+<map name="p312">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p312.zip" />
+	<area coords="601,201,620,220" href="stamp/p312.rle" />
+	<area coords="0,0,209,220" href="lg/60p312-1.rle" />
+	<area coords="210,0,409,220" href="lg/64p312-1.rle" />
+	<area coords="410,0,620,220" href="lg/68p312-1.rle" />
+</map>
+
+<p>This is actually a <a class="j" href="#p156">period 156</a>
+<a class="i" href="gun.htm">glider gun</a> that shoots two pairs of gliders
+along one set of diagonals, then 78 generations later, two pairs along the other
+diagonals. Here are three different ways of stabilizing this, each of which
+doubles the period to 312:</p>
+<p><ul>
+    <li>A remarkable reaction where a pair of gliders hit a beehive in the
+	path of one of the gliders, creating a beehive in the path of the
+	other glider. The next pass flips the beehive back.</li>
+    <li>Two gliders hit a loaf using the "boat-bit" mechanism, creating two
+	boats. During the next pass, the gliders remove the boats.</li>
+    <li>As above, except with a pond instead of a loaf.</li>
+</ul></p>
+
+<p>These mechanisms (as well as the true
+<a class="j" href="#p156">period 156</a> one.) can be used together in any
+combinations, and the syntheses are simple combinations of the ones above.
+It is also possible to create other variations that have different symmetry
+classes (e.g. rotational symmetry by flipping two of the beehives, orthogonal
+symmetry with orthogonal glide symmetry by alternating the phase of adjacent
+pairs of boat-bits, diagonal symmetry with diagonal glide symmetry by
+alternating the phase of opposite pairs of boat-bits, etc.)</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	oscillators by period,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

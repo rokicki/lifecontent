@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Mark D. Niemiec's Numbers and Games Calculator</title>
+<meta name="description"
+content="John Horton Conway's Numbers and Games Calculator" />
+<meta name="keywords" content="conway numbers games calculator" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Mark D. Niemiec's Numbers and Games Calculator</h1>
+
+<p align="center">
+	<a class="j" href="#calc-calculator">Calculator</a> |
+	<a class="j" href="#calc-syntax">Syntax</a> |
+	<a class="j" href="#calc-unary">Unary Operations</a> |
+	<a class="j" href="#calc-binary">Binary Operations</a> |
+	<a class="j" href="#calc-vocab">Vocabulary</a> |
+	<a class="j" href="#calc-download">Download</a>
+</p>
+
+<hr /><hr />
+<a name="calc-calculator"></a>
+<h2>Calculator</h2>
+
+<p>I have written a simple desk calculator program that allows one to explore
+a little bit about <a class="i" href="onag.htm">Numbers and Games</a>. It is
+implemented as a Windows-32 console application, but it has no system
+dependencies in it, so it can be easily ported to the platform of one's
+choice.</p>
+
+<p>The program has the following features:</p>
+<p><ul>
+    <li>Enter numeric expressions involving numbers and games,
+	and to display their values.</li>
+    <li>May store results of expressions in user-defined variables.</li>
+    <li>May store some results as user-defined constants, that behave like
+	variables, but are treated as fundamental values for display
+	purposes.</li>
+    <li>May assign most operators to user-defined names.</li>
+</ul></p>
+
+<p>The program has some limitations:</p>
+<p><ul>
+    <li>No facility for saving a workspace. If values need to be preserved, they
+	must be defined in a script that is loaded each time.</li>
+    <li>Extremely primitive memory management (i.e. it keeps allocating memory
+	as needed, until it can't get any more, and then garbage collects.)</li>
+    <li>It does not support infinite sets (i.e. this precludes numbers like
+	<i>&omega;</i>, <i>&epsilon;</i>, 1/3, &pi;, etc.)</li>
+    <li>It supports the 3 basic loopy games (<i>on</i>, <i>off</i>,
+	<i>dud</i>), but no other loopy games. (The result of this is that the
+	operation <i>x</i>:<i>y</i> is not closed, since it can sometimes
+	produce such games, if one of <i>x</i> or <i>y</i> is itself loopy.)</li>
+    <li>It is constrained by the ASCII character set, so many of Conway's
+	colorful notations must use more prosaic forms.</li>
+</ul></p>
+
+<hr />
+<a name="calc-syntax"></a>
+<h2>Syntax</h2>
+<p>The calculator accepts successive lines of input, that it interprets as
+numeric expressions. It evaluates the expressions, then displays the results.
+Each expression may be a number, or a set of multiple numbers.</p>
+
+<p>The calculator accepts expressions with the following syntax:</p>
+<p><i>expr =
+name | '(' [expr] ')' | '{' [expr] '}' | unary expr | expr binary expr</i></p>
+
+<p>Names consist of one or more letters, digits, or any non-blank punctuation
+characters except <i>!&amp;()+,-:;&lt;=&gt;?[]{|}~</i>. Due to conflicts with
+defined operators, the two names . and .. are reserved.</p>
+
+<p>Parentheses force order of evaluation. Braces form sets. Since the calculator
+treats all expressions as sets, the two can be used interchangeably. However,
+the characters themselves are <i>not</i> treated as equivalent;
+e.g. {0} &#8660; (0) &#8660; 0, but {0) is a syntax error.
+Empty sets can be entered via empty parentheses or braces, but there is really
+little need to do so, since the game composition operator | allows either of
+its left or right parameters to be omitted.</p>
+
+<p>Unary operations bind most closely. Binary operations are always evaluated
+left-to-right (except assignments, that are evaluated right-to-left), but
+different operations have different binding precedences, with those with higher
+precedences binding more closely than those with lower ones.</p>
+
+<p>An expression may also have a value that is an operator, rather than a
+number or game. Such an expression is created by specifying any operator alone
+(or between parentheses or braces). The composition operator | may not be used
+this way, because because an expression consisting of | is already interpreted
+as a number formed from two empty sets (i.e. 0). Such expressions may be used
+in three different ways:
+<ul>
+    <li>An operator expression may be assigned; e.g. <i>minus=-</i>.</li>
+    <li>An operator expression is treated as the operator itself;
+	e.g. <i>4(minus=-)3</i> &#8660; <i>4(-)3</i> &#8660; <i>4-3</i>.</li>
+    <li>An operator variable is treated as the operator itself;
+	e.g. <i>4 minus 3</i> &#8660; <i>4-3</i>
+	and <i>minus 3</i> &#8660; <i>-3</i>.</li>
+</ul></p>
+
+<hr />
+<a name="calc-unary"></a>
+<h2>Unary Operations</h2>
+<p>These are the supported unary operations, showing Conway's notation (if any),
+the calculator's notation, the operation name, and a brief description:</p>
+<p><table>
+  <thead>
+    <tr>
+	<th class="h" width="60">Conway</th>
+	<th class="h" width="100">Calculator</th>
+	<th class="h" width="160">Name</th>
+	<th class="h" width="280">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+	<td>+<i>x</i></td>
+	<td>+<i>x</i></td>
+	<td>Self</td>
+	<td>The game itself.</td>
+    </tr>
+
+    <tr>
+	<td>-<i>x</i></td>
+	<td>-<i>x</i></td>
+	<td>Negate</td>
+	<td>Additive inverse.</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i><sup>L</sup></td>
+	<td>&lt;<i>x</i></td>
+	<td>Left Set</td>
+	<td>Given <i>x</i>, return <i>x</i>'s left set.</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i><sup>R</sup></td>
+	<td>&gt;<i>x</i></td>
+	<td>Right Set</td>
+	<td>Given <i>x</i>, return <i>x</i>'s right set.</td>
+    </tr>
+
+    <tr>
+	<td>D(<i>x</i>)</td>
+	<td>&amp;<i>x</i></td>
+	<td>Day Number</td>
+	<td>Given <i>x</i>, return the day it was created.</td>
+    </tr>
+
+    <tr>
+	<td>(none)</td>
+	<td>&gt;&gt;<i>x</i></td>
+	<td>Absolute</td>
+	<td>Positive absolute value.</td>
+    </tr>
+
+    <tr>
+	<td>(none)</td>
+	<td>&lt;&lt;<i>x</i></td>
+	<td>- Absolute</td>
+	<td>Negative absolute value.</td>
+    </tr>
+
+    <tr>
+	<td>(none)</td>
+	<td>::<i>x</i></td>
+	<td>Relative Position</td>
+	<td>This shows a number's position relative to all other defined
+	    numbers. It prints its result and does not actually return any
+	    result.</td>
+    </tr>
+
+    <tr>
+	<td>(none)</td>
+	<td>??</td>
+	<td>Summary</td>
+	<td>This shows all defined names. It prints its result and does not
+	    actually return any result.</td>
+    </tr>
+  </tbody>
+</table></p>
+
+<hr />
+<a name="calc-binary"></a>
+<h2>Binary Operations</h2>
+<p>These are the supported binary operations, showing the operation binding
+precedence group increasing from top to bottom, Conway's notation (if any), the
+calculator's notation, the operation name, and a brief description:</p>
+<p><table>
+  <thead>
+    <tr>
+	<th class="h" width="40">Prec.</th>
+	<th class="h" width="60">Conway</th>
+	<th class="h" width="100">Calculator</th>
+	<th class="h" width="160">Name</th>
+	<th class="h" width="280">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+	<td rowspan="2">=</td>
+	<td><i>x</i>=<i>y</i></td>
+	<td><i>x</i>=<i>y</i></td>
+	<td>Assign Variable</td>
+	<td>Set a user-defined name <i>x</i> to value <i>y</i>. (5)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>=<i>y</i></td>
+	<td><i>x</i>=:<i>y</i></td>
+	<td>Assign Constant</td>
+	<td>Set a user-defined name <i>x</i> to value <i>y</i>,
+	    and use it as a constant for subsequent display. (5)</td>
+    </tr>
+
+    <tr>
+	<td rowspan="15">&lt;</td>
+	<td><i>x</i>&lt;<i>y</i></td>
+	<td><i>x</i>&lt;<i>y</i></td>
+	<td>Less Than</td>
+	<td>Returns 1 if <i>x</i> is less than <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&gt;<i>y</i></td>
+	<td><i>x</i>&gt;<i>y</i></td>
+	<td>Greater Than</td>
+	<td>Returns 1 if <i>x</i> is greater than <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#8814;<i>y</i></td>
+	<td><i>x</i>!&lt;<i>y</i></td>
+	<td>Not Less Than</td>
+	<td>Returns 1 if <i>x</i> is not less than <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#8815;<i>y</i></td>
+	<td><i>x</i>!&gt;<i>y</i></td>
+	<td>Not Greater Than</td>
+	<td>Returns 1 if <i>x</i> is not greater than <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&le;<i>y</i></td>
+	<td><i>x</i>&lt;=<i>y</i></td>
+	<td>Less or Equal</td>
+	<td>Returns 1 if <i>x</i> is less than or equal to <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&ge;<i>y</i></td>
+	<td><i>x</i>&gt;=<i>y</i></td>
+	<td>Greater or Equal</td>
+	<td>Returns 1 if <i>x</i> is greater than or equal to <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#10703;<i>y</i> <i>x</i>&#8817;<i>y</i></td>
+	<td><i>x</i>&lt;?<i>y</i></td>
+	<td>Less or Fuzzy</td>
+	<td>Returns 1 if <i>x</i> is less than or fuzzy to <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#10704;<i>y</i> <i>x</i>&#8816;<i>y</i></td>
+	<td><i>x</i>&gt;?<i>y</i></td>
+	<td>Greater or Fuzzy</td>
+	<td>Returns 1 if <i>x</i> is greater than or fuzzy to <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#8822;<i>y</i></td>
+	<td><i>x</i>&lt;&gt;<i>x</i></td>
+	<td>More or Less</td>
+	<td>Returns 1 if <i>x</i> is greater or less than <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#8824;<i>y</i></td>
+	<td><i>x</i>!&lt;&gt;<i>x</i></td>
+	<td>Not more or Less</td>
+	<td>Returns 1 if <i>x</i> is not greater or less than <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>=<i>y</i></td>
+	<td><i>x</i>==<i>y</i></td>
+	<td>Equals</td>
+	<td>Returns 1 if <i>x</i> is equal to <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&ne;<i>y</i></td>
+	<td><i>x</i>!=<i>y</i></td>
+	<td>Not Equal</td>
+	<td>Returns 1 if <i>x</i> is not equal to <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#8741;<i>y</i></td>
+	<td><i>x</i>?<i>y</i></td>
+	<td>Fuzzy</td>
+	<td>Returns 1 if <i>x</i> is fuzzy to <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#8742;<i>y</i></td>
+	<td><i>x</i>!?<i>y</i></td>
+	<td>Not Fuzzy</td>
+	<td>Returns 1 if <i>x</i> is not fuzzy to <i>y</i>. (1)</td>
+    </tr>
+
+    <tr>
+	<td>(none)</td>
+	<td><i>x</i>::<i>x</i></td>
+	<td>Compare</td>
+	<td>Compare <i>x</i> and <i>y</i>. Return _1 if less than,
+	    0 if equal, 1 if greater than, or * if fuzzy. (1)</td>
+    </tr>
+
+    <tr>
+	<td>| || |||</td>
+	<td><i>x</i>|<i>y</i> <i>x</i>||<i>y</i></td>
+	<td><i>x</i>|<i>y</i> <i>x</i>||<i>y</i></td>
+	<td>Bar</td>
+	<td>Separate left and right sets. (2)</td>
+    </tr>
+
+    <tr>
+	<td>,</td>
+	<td><i>x</i>,<i>y</i></td>
+	<td><i>x</i>,<i>y</i></td>
+	<td>Append</td>
+	<td>Join two sets to form a larger set. (3)</td>
+    </tr>
+
+    <tr>
+	<td rowspan="2">!</td>
+	<td><i>x</i>&#8744;<i>y</i></td>
+	<td><i>x</i>!<i>y</i></td>
+	<td>Tardy Union (Or)</td>
+	<td>Move in some components. (4)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#8711;<i>y</i></td>
+	<td><i>x</i>!!<i>y</i></td>
+	<td>Urgent Union (Ur)</td>
+	<td>Move in some components; stop if any component stops. (4)</td>
+    </tr>
+
+    <tr>
+	<td rowspan="2">&amp;</td>
+	<td><i>x</i>&#8743;<i>y</i></td>
+	<td><i>x</i>&amp;<i>y</i></td>
+	<td>Fast Join (and)</td>
+	<td>Move in all components; stop if any component stops. (4)</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&#8710;<i>y</i></td>
+	<td><i>x</i>&amp;&amp;<i>y</i></td>
+	<td>Slow Join (also)</td>
+	<td>Move in all remaining components. (4)</td>
+    </tr>
+
+    <tr>
+	<td rowspan="2">&gt;&gt;</td>
+	<td>(none)</td>
+	<td><i>x</i>&gt;&gt;<i>y</i></td>
+	<td>Maximum</td>
+	<td>Whichever game is best for Left.</td>
+    </tr>
+
+    <tr>
+	<td>(none)</td>
+	<td><i>x</i>&lt;&lt;<i>y</i></td>
+	<td>Minimum</td>
+	<td>Whichever game is best for Right.</td>
+    </tr>
+
+    <tr>
+	<td rowspan="3">+</td>
+	<td><i>x</i>+<i>y</i></td>
+	<td><i>x</i>+<i>y</i></td>
+	<td>Plus</td>
+	<td>Move in one component.</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>-<i>y</i></td>
+	<td><i>x</i>-<i>y</i></td>
+	<td>Minus</td>
+	<td>Plus negative.</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>:<i>y</i></td>
+	<td><i>x</i>:<i>y</i></td>
+	<td>Ordinal Sum</td>
+	<td>Move in <i>x</i>, then in <i>y</i> when <i>x</i> is exhausted. (4)</td>
+    </tr>
+
+    <tr>
+	<td rowspan="2">.</td>
+	<td><i>x</i>&middot;<i>y</i> <i>x</i>&times;<i>y</i></td>
+	<td><i>x</i>.<i>y</i></td>
+	<td>Times</td>
+	<td>Multiply numbers (and some games).</td>
+    </tr>
+
+    <tr>
+	<td><i>x</i>&middot;<i>y</i> <i>x</i>&times;<i>y</i></td>
+	<td><i>x</i>..<i>y</i></td>
+	<td>Norton Multiply</td>
+	<td>Multiply games.</td>
+    </tr>
+
+    <tr>
+	<td>Unary</td>
+	<td colspan="4">(See previous section.)</td>
+    </tr>
+
+    <tr>
+	<td>Space</td>
+	<td><i>x</i>,<i>y</i></td>
+	<td><i>x</i> <i>y</i></td>
+	<td>Append</td>
+	<td>Join two sets to form a larger set. (3)</td>
+    </tr>
+  </tbody>
+</table></p>
+
+<p>Note 1: Comparison predicates return 1 if the entirety of set <i>x</i>
+compares appropriately against the entirety of set <i>y</i>, 0 otherwise.</p>
+
+<p>Note 2: Any number of vertical bars may be used together, and the result is
+the same; the only difference is that higher number of bars bind at a lower
+precedence; i.e. <i>a||b|c</i> &#8660; <i>a|(b|c)</i>.
+Furthermore, it is permissible for one or both parameters to be empty.</p>
+
+<p>Note 3: If no operation is given between two expressions, e.g.
+<i>x</i> <i>y</i>, a comma is assumed between them;
+this binds much tighter than comma itself does, or indeed
+any other operators, including unaries (e.g. <i>-3,4</i> &#8660; _3 4
+but <i>-3 4</i> &#8660; _3 _4).</p>
+
+<p>Note 4: This operation depends on the form of a game, not just its value.
+Unfortunately, the calculator performs most calculations on games assuming that
+equal games (i.e. ones with the same value) are interchangeable, so expressions
+involving this operation may not produce the desired results if any of the
+parameters are games in non-standard forms.</p>
+
+<p>Note 5: This assigns a value to a user-defined name. The value must be a
+single number, and cannot be an empty set, or a set of two or more numbers.
+It can also be an operator (excluding |). If the name already has a value,
+the previous value is replaced. If the value is omitted, the variable is erased,
+and the previous value is returned.</p>
+
+<hr />
+<a name="calc-vocab"></a>
+<h2>Vocabulary</h2>
+<p>Other than seven basic constants (0, 1, _1, *, on, off, dud), the
+calculator has no pre-defined values. Rather, all values are explicitly defined
+in an externally-supplied script file. For values that occur in ranges, most
+such ranges define all related values for <i>n</i> varying from 0 to 10.</p>
+
+<p>These are the characters used in script-defined constants, showing Conway's
+notation (if any), the calculator's notation, and the description:</p>
+<p><table>
+  <thead>
+    <tr>
+	<th class="h" width="100">Conway</th>
+	<th class="h" width="100">Calculator</th>
+	<th class="h" width="320">Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+	<td><i>n</i></td>
+	<td><i>n</i></td>
+	<td>Positive integers (0-10)</td>
+    </tr>
+
+    <tr>
+	<td>-;<i>n</i></td>
+	<td>_<i>n</i></td>
+	<td>Negative integers (0-10)</td>
+    </tr>
+
+    <tr>
+	<td>1/2&hellip;7/8</td>
+	<td>1/2&hellip;7/8</td>
+	<td>Positive binary fractions below 1</td>
+    </tr>
+
+    <tr>
+	<td>-1/2&hellip;7/8</td>
+	<td>_1/2&hellip;7/8</td>
+	<td>Negative binary fractions below 1</td>
+    </tr>
+
+    <tr>
+	<td>* *<i>n</i></td>
+	<td>* *<i>n</i></td>
+	<td>Nimbers (0-10)</td>
+    </tr>
+
+    <tr>
+	<td>&#8593; &#8657; &#10506; &#10224;</td>
+	<td>^ ^^ etc.</td>
+	<td>Multiples of Up (1-10)</td>
+    </tr>
+
+    <tr>
+	<td>&#8595; &#8659; &#10507; &#10225;</td>
+	<td>v vv etc.</td>
+	<td>Multiples of Down (1-10)</td>
+    </tr>
+
+    <tr>
+	<td>&#8593;* &#8657;* etc.</td>
+	<td>^* ^^* etc.</td>
+	<td>Multiples of Up (1-10) plus Star</td>
+    </tr>
+
+    <tr>
+	<td>&#8595;* &#8659;* etc.</td>
+	<td>v* vv* etc.</td>
+	<td>Multiples of Down (1-10) plus Star</td>
+    </tr>
+
+    <tr>
+	<td>&#10750;<sub><i>x</i></sub></td>
+	<td>T<i>x</i></td>
+	<td>Tiny (0-10,on;)</td>
+    </tr>
+
+    <tr>
+	<td>&#10751;<sub><i>x</i></sub></td>
+	<td>_T<i>x</i></td>
+	<td>Miny (0-10,on)</td>
+    </tr>
+
+    <tr>
+	<td>*/2</td>
+	<td>*/2 *<i>n</i>/2</td>
+	<td>Semi-stars (1-10)</td>
+    </tr>
+
+    <tr>
+	<td>-*/2</td>
+	<td>_*/2 *<i>n</i>/2</td>
+	<td>Negative Semi-stars (1-10)</td>
+    </tr>
+
+    <tr>
+	<td>&#8593;/2 3/2&#8593; etc.</td>
+	<td>^/2 ^3/2 etc.</td>
+	<td>Semi-up, Sesqui-up, etc. (1-11)</td>
+    </tr>
+
+    <tr>
+	<td>&#8595;/2 3/2&#8595; etc.</td>
+	<td>v/2 v3/2 etc.</td>
+	<td>Semi-down, Sesqui-down, etc. (1-11)</td>
+    </tr>
+
+    <tr>
+	<td>&plusmn;<i>x</i></td>
+	<td>\<i>x</i></td>
+	<td>Hot game { <i>x</i> | -<i>x</i> } (0-10)</td>
+    </tr>
+  </tbody>
+</table></p>
+
+<hr /><hr />
+<a name="calc-download"></a>
+<h2>Download</h2>
+<p>Download the program in either of the following forms. It is covered by the
+<a class="x" target="_blank" href="http://www.gnu.org/licenses/">GPL (Gnu Public License),
+version 3</a>. This can be compilable under MinGW under Windows, but should
+easily work with little or no change on most other operating systems:</p>
+<p><ul>
+    <li><a class="p" href="zip/onagwin.zip">A zip file containing a Windows-32
+	console executable, support files, and Gnu C++ source</a> (52K).</li>
+    <li><a class="p" href="zip/onagcalc.zip">A zip file containing Gnu C++
+	source and support files, but without any executable</a> (34K).</li>
+</ul></p>
+
+<hr /><hr />
+<p><a class="i" href="index.htm">Home page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

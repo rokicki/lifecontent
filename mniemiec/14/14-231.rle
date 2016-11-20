@@ -1,0 +1,31 @@
+#N 14-231.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:18 2015
+x = 162, y = 145, rule = B3/S23
+136bo$135bo$131bo3b3o$132boo7bo$131boo6boo$140boo$$90bo$53bo37bo7bobo
+45bobo$51bobo35b3o8boo45boo$52boo3bo42bo47bo10bxx$55boo17bxx10b3o5boo
+17bxbxx3bxx11boboo3boo11bxbxx3bx$56boo16bxbx11bo5bobo8bo7bxxbxbbxbx11b
+oobobbobo11bxxbxbbx$76bx10bo8bo6boo11bxbx17bobo17bxbx$76bxx18boo6boo
+10bxx18boo18bxx4$150boo$150bobo$150bo$97boo$96bobo$98bo10$86bo$84bobo
+bbo$85boobbobo$o88boo$boo90b3o$oo91bo42bo$5bo88bo15bxx18boo4bobo$3boo
+3b3o100bx19bo4boo$4boobbo14bxbxx16boboo16bxbxxbxx13bobooboo13bxbxxb3x
+12boboob3o22bxbxxbxx$9bo13bxxbx16boobobboo12bxxbxbxbx12boobobobo12bxxb
+xbx14boobobo24bxxbxbx$7bo40boo19bx19bo5bo43bo16bxbx$7boo41bo43boo43bob
+o14bxx$6bobo85bobo42boo$136boo$130boo3boo$130bobo4bo$130bo$$123boo$
+124boo$123bo8$89bo$90bo$88b3o7bo$92bo4bo$92bobobb3o42bo$92boo48bobo$
+142boo$138bobo$139boo$100bo38bo7bo$43bobooboo13bxbxxbxx13bobooboo9boo
+12bxbxx16boboo8boo6bxbxx3bxx$43boobobo14bxxbxbx14boobobo10bobo11bxxbx
+16boobo5boobboo5bxxbxbbxbx$46bobo17bxbx17bobo27bxbxx16boboobbobo11bxbx
+$46boo18bxx18boo28bxxbx16boobobbo13bxx$96b3o$96bo$68bxx18boo7bo$48b3o
+17bxx18boo$48bo$49bo$45b3o$47bo48b3o$46bo49bo$97bo$$86boo$87boo$86bo5$
+50bo$48bobo$49boo9boo$59boo$55bobo3bo$56boo$56bo$79bxx18boo18bxx5bobo
+10boo18bxx$80bx11bo7bo19bx6boo11bo19bx$79bx13boo4bo13bx5bx7bo5bo5bo19b
+x$76bxbx13boobbobo13bxbxbxbx13bobobobo15bxbxbx$76bxx18boo15bxxbxx15boo
+boo14b3xbxx$151bx$52bo75bo22bxx$52boo75bo$51bobo73b3o$132boo$131bobobb
+oo$133bobbobo$136bo5$136bo$134boo$135boo$$125bo$49bo36bo39bo$47boo36bo
+38b3o$48boo35b3o$83bo$42bo41bo$35bo4bobo39b3o18bxx28boo$36boo3boo60bxx
+20bo7boo$35boo89bo$32boo15boo18bxx18boo18bxx13b3o12boo18bxx$31bobo16bo
+14bxx3bx14boo3bo14bxx3bx24boo3bo12bxbxx3bx$33bo15bo14bxbxbbx14bobobbo
+14bxbxbbx24bobobbo13bxxbxbbx$44bobobo15bxbxbx15bobobo15bxbxbx12bobo10b
+obobo17bxbx$42b3oboo15bxxbxx15booboo15bxxbxx14boo9booboo18bxx$35boo4bo
+80bo$34bobo4boo$36bo$$129boo$123b3obbobo$125bo4bo$124bo7b3o$132bo$133b
+o!

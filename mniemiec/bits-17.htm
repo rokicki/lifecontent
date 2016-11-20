@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Seventeen-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: seventeen-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 17 seventeen bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Seventeen-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-17">Still-lifes</a> |
+	<a class="j" href="#pp1-17">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-17">P2 oscillators</a> |
+	<a class="j" href="#pp2-17">P2 pseudo-oscillators</a> |
+	<a class="j" href="#p3-17">P3 oscillators</a> |
+	<a class="j" href="#pp3-17">P3 pseudo-oscillators</a> |
+	<a class="j" href="#pp4-17">P4 pseudo-oscillators</a> |
+	<a class="j" href="#p5-17">P5 oscillators</a> |
+	<a class="j" href="#p8-17">P8 oscillators</a> |
+	<a class="j" href="#pp15-17">P15 pseudo-oscillator</a> |
+	<a class="j" href="#cons-17">Constellations</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-17"></a>
+<h2>The 7773 seventeen-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p1-17.htm">separate page</a>,
+with syntheses for 445 of them.</p>
+<hr />
+<a name="pp1-17"></a>
+<h2>The 4067 seventeen-bit
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="pp1-17.htm">separate page</a>.
+Syntheses for 38 of them are shown here.</p>
+<p><a class="p" href="stamp/pp1-17.rle"><img src="map/pp1-17.png"
+ alt="17-bit pseudo-still-lifes"
+ width="621" height="261" usemap="#pp1-17" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="17/17bctbt2.rle">
+	    Block on cap on down boat [5]</a></td>
+	<td><a class="p" href="17/17pdbbt.rle">
+	    Boat on block on pond [5]</a></td>
+	<td><a class="p" href="17/17etbsh6.rle">
+	    Down ship on block above eater [5]</a></td>
+	<td><a class="p" href="17/17sncubk.rle">
+	    Block in snake siamese curl [11]</a></td>
+	<td><a class="p" href="17/17habkbk.rle">
+	    Two blocks on hat [7]</a></td>
+	<td class="y"><a class="p" href="17/17vhasn2.rle">
+	    Down snake on very long hat [43]</a></td>
+	<td class="y"><a class="p" href="17/17vhasn1.rle">
+	    Up snake on very long hat [43]</a></td>
+	<td><a class="p" href="17/17etbsh5.rle">
+	    Up ship on block above eater [5]</a></td>
+	<td><a class="p" href="17/17ilfbk4.rle">
+	    Block on integral w/ down loaf [6]</a></td>
+	<td><a class="p" href="17/17ilfbk6.rle">
+	    Block above integral w/ down loaf [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="17/17ilfbk5.rle">
+	    Block behind integral w/ down loaf [6]</a></td>
+	<td><a class="p" href="17/17btbk3.rle">
+	    Boat on three blocks [5]</a></td>
+	<td><a class="p" href="17/17bsnbn.rle">
+	    Block on snake on bun [6]</a></td>
+	<td class="y"><a class="p" href="17/17cslls1.rle">
+	    Up trans python on cis shil- lelagh [23]</a></td>
+	<td><a class="p" href="17/17acacbt.rle">
+	    Up boat on carrier bridge carrier [5]</a></td>
+	<td><a class="p" href="17/17asbt4.rle">
+	    Down boat below carrier bridge snake [10]</a></td>
+	<td><a class="p" href="17/17tvtlsb.rle">
+	    Up cis long snake before tub w/ very long tail [16]</a></td>
+	<td><a class="p" href="17/17lcibk1.rle">
+	    Up block on cis integral [13]</a></td>
+	<td class="y"><a class="p" href="17/17sesn8.rle">
+	    Down snake behind snake siamese eater [33]</a></td>
+	<td><a class="p" href="17/17etbsn1.rle">
+	    Up snake behind block above eater [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="17/17sesn7.rle">
+	    Up snake behind snake siamese eater [11]</a></td>
+	<td><a class="p" href="17/17vbtbk3.rle">
+	    Block above up very long boat w/ tail [6]</a></td>
+	<td><a class="p" href="17/17vbtbk2.rle">
+	    Block below up very long boat w/ tail [6]</a></td>
+	<td><a class="p" href="17/17csllf1.rle">
+	    Up loaf on cis shil- lelagh [11]</a></td>
+	<td><a class="p" href="17/17btpdb1.rle">
+	    Cis down boat and block on pond [5]</a></td>
+	<td><a class="p" href="17/17btetbt.rle">
+	    Up boat on eater tail bridge boat [5]</a></td>
+	<td class="y"><a class="p" href="17/17etbsn2.rle">
+	    Down snake behind block above eater [19]</a></td>
+	<td><a class="p" href="17/17csllsc.rle">
+	    Down cis python on cis shil- lelagh [15]</a></td>
+	<td class="g"><a class="p" href="17/17cslls2.rle">
+	    Down trans python on cis shil- lelagh [17]</a></td>
+	<td><a class="p" href="17/17gutbt1.rle">
+	    Up boat on gull w/ tub [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="17/17btlfbt.rle">
+	    Two down boats on loaf [4]</a></td>
+	<td><a class="p" href="17/17csllb2.rle">
+	    Down long boat on cis shil- lelagh [11]</a></td>
+	<td><a class="p" href="17/17csletc.rle">
+	    Down eater chin on cis shil- lelagh [13]</a></td>
+	<td><a class="p" href="17/17cslet2.rle">
+	    Down eater mouth on cis shil- lelagh [11]</a></td>
+	<td><a class="p" href="17/17csletl.rle">
+	    Up eater tail on cis shil- lelagh [15]</a></td>
+	<td><a class="p" href="17/17etbts1.rle">
+	    Up boats on and above eater [4]</a></td>
+	<td><a class="p" href="17/17dcgtbt.rle">
+	    Up boat above down mango w/ tail [5]</a></td>
+	<td><a class="p" href="17/17xclbk3.rle">
+	    Block behind extra long cis shil- lelagh [13]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp1-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-17.zip" />
+	<area coords="601,241,620,260" href="stamp/pp1-17.rle" />
+	<area coords="0,0,69,69" href="17/17bctbt2.rle" />
+	<area coords="70,0,129,69" href="17/17pdbbt.rle" />
+	<area coords="130,0,189,69" href="17/17etbsh6.rle" />
+	<area coords="190,0,249,69" href="17/17sncubk.rle" />
+	<area coords="250,0,309,69" href="17/17habkbk.rle" />
+	<area coords="310,0,369,69" href="17/17vhasn2.rle" />
+	<area coords="370,0,429,69" href="17/17vhasn1.rle" />
+	<area coords="430,0,489,69" href="17/17etbsh5.rle" />
+	<area coords="490,0,549,69" href="17/17ilfbk4.rle" />
+	<area coords="550,0,620,69" href="17/17ilfbk6.rle" />
+	<area coords="0,70,69,129" href="17/17ilfbk5.rle" />
+	<area coords="70,70,129,129" href="17/17btbk3.rle" />
+	<area coords="130,70,189,129" href="17/17bsnbn.rle" />
+	<area coords="190,70,249,129" href="17/17cslls1.rle" />
+	<area coords="250,70,309,129" href="17/17acacbt.rle" />
+	<area coords="310,70,369,129" href="17/17asbt4.rle" />
+	<area coords="370,70,429,129" href="17/17tvtlsb.rle" />
+	<area coords="430,70,489,129" href="17/17lcibk1.rle" />
+	<area coords="490,70,549,129" href="17/17sesn8.rle" />
+	<area coords="550,70,620,129" href="17/17etbsn1.rle" />
+	<area coords="0,130,69,189" href="17/17sesn7.rle" />
+	<area coords="70,130,129,189" href="17/17vbtbk3.rle" />
+	<area coords="130,130,189,189" href="17/17vbtbk2.rle" />
+	<area coords="190,130,249,189" href="17/17csllf1.rle" />
+	<area coords="250,130,309,189" href="17/17btpdb1.rle" />
+	<area coords="310,130,369,189" href="17/17btetbt.rle" />
+	<area coords="370,130,429,189" href="17/17etbsn2.rle" />
+	<area coords="430,130,489,189" href="17/17csllsc.rle" />
+	<area coords="490,130,549,189" href="17/17cslls2.rle" />
+	<area coords="550,130,620,189" href="17/17gutbt1.rle" />
+	<area coords="0,190,69,260" href="17/17btlfbt.rle" />
+	<area coords="70,190,129,260" href="17/17csllb2.rle" />
+	<area coords="130,190,189,260" href="17/17csletc.rle" />
+	<area coords="190,190,249,260" href="17/17cslet2.rle" />
+	<area coords="250,190,309,260" href="17/17csletl.rle" />
+	<area coords="310,190,369,260" href="17/17etbts1.rle" />
+	<area coords="370,190,429,260" href="17/17dcgtbt.rle" />
+	<area coords="430,190,489,260" href="17/17xclbk3.rle" />
+	<area coords="490,190,620,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p2-17"></a>
+<h2>The 199 seventeen-bit
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p2-17.htm">separate page</a>.</p>
+
+<hr />
+<a name="pp2-17"></a>
+<h2>The 484 seventeen-bit
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="pp2-17.htm">separate page</a>.</p>
+
+<hr />
+<a name="p3-17"></a>
+<h2>The 8 seventeen-bit
+<a class="i" href="p3.htm">period 3 oscillators</a></h2>
+<p><a class="p" href="stamp/p3-17.rle"><img src="map/p3-17.png"
+ alt="17-bit period 3 oscillators"
+ width="501" height="81" usemap="#p3-17" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="17/17cfbt3.rle">Up boat on down candel- frobra;
+	    Cis- boat and long hook eating tub [11]</a></td>
+	<td><a class="p" href="17/17cfbt4.rle">
+	    Down boat on down candel- frobra [13]</a></td>
+	<td><a class="p" href="17/17cfbt1.rle">
+	    Up boat on up candel- frobra [10]</a></td>
+	<td><a class="p" href="17/17cfbt2.rle">
+	    Down boat on up candel- frobra [8]</a></td>
+	<td class="y"><a class="p" href="17/17kysp1.rle">
+	    Short key and skewed pole [33]</a></td>
+	<td class="y"><a class="p" href="17/17kysp2.rle">
+	    Bent key and skewed pole [28]</a></td>
+	<td><a class="p" href="17/17eihk.rle">
+	    Eater eating integral w/ hook [9]</a></td>
+	<td><a class="p" href="17/17eitb.rle">
+	    Eater eating integral w/ tub [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="p3-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p3-17.zip" />
+	<area coords="481,61,500,80" href="stamp/p3-17.rle" />
+	<area coords="0,0,69,80" href="17/17cfbt3.rle" />
+	<area coords="70,0,129,80" href="17/17cfbt4.rle" />
+	<area coords="130,0,189,80" href="17/17cfbt1.rle" />
+	<area coords="190,0,249,80" href="17/17cfbt2.rle" />
+	<area coords="250,0,309,80" href="17/17kysp1.rle" />
+	<area coords="310,0,369,80" href="17/17kysp2.rle" />
+	<area coords="370,0,429,80" href="17/17eihk.rle" />
+	<area coords="430,0,500,80" href="17/17eitb.rle" />
+</map>
+
+<hr />
+<a name="pp3-17"></a>
+<h2>The 2 seventeen-bit
+<a class="i" href="pp3.htm">period 3 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp3-17.rle"><img src="map/pp3-17.png"
+ alt="17-bit pseudo-P3" width="141" height="61" usemap="#pp3-17" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="17/17jmbk1.rle">
+	    Block on jam [8]</a></td>
+	<td><a class="p" href="17/17jmbk2.rle">
+	    Block beside jam [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp3-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/pp3-17.zip" />
+	<area coords="121,41,140,60" href="stamp/pp3-17.rle" />
+	<area coords="0,0,69,60" href="17/17jmbk1.rle" />
+	<area coords="70,0,129,60" href="17/17jmbk2.rle" />
+	<area coords="130,0,140,60" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp4-17"></a>
+<h2>The 2 seventeen-bit
+<a class="i" href="pp4.htm">period 4 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp4-17.rle"><img src="map/pp4-17.png"
+ alt="17-bit pseudo-P4" width="141" height="61" usemap="#pp4-17" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="17/17mdbt2.rle">
+	    Down boat on mold [8]</a></td>
+	<td><a class="p" href="17/17mdbt1.rle">
+	    Up boat on mold [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp4-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/pp4-17.zip" />
+	<area coords="121,41,140,60" href="stamp/pp4-17.rle" />
+	<area coords="0,0,69,60" href="17/17mdbt2.rle" />
+	<area coords="70,0,140,60" href="17/17mdbt1.rle" />
+</map>
+
+<hr />
+<a name="p5-17"></a>
+<h2>The 2 seventeen-bit
+<a class="i" href="p5.htm">period 5 oscillators</a></h2>
+<p><a class="p" href="stamp/p5-17.rle"><img src="map/p5-17.png"
+ alt="17-bit P5" width="141" height="81" usemap="#p5-17" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="17/17svsn.rle">
+	    Silver's P5 on snake [19]</a></td>
+	<td><a class="p" href="17/17svac.rle">
+	    Silver's P5 on snake [14]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p5-17.zip" />
+	<area coords="121,61,140,80" href="stamp/p5-17.rle" />
+	<area coords="0,0,69,80" href="17/17svsn.rle" />
+	<area coords="70,0,140,80" href="17/17svac.rle" />
+</map>
+
+<hr />
+<a name="p8-17"></a>
+<h2>The 2 seventeen-bit
+<a class="i" href="p8.htm">period 8 oscillators</a></h2>
+<p><a class="p" href="stamp/p8-17.rle"><img src="map/p8-17.png"
+ alt="17-bit P8" width="141" height="61" usemap="#p8-17" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="17/17tc.rle">
+	    Coe's P8; Tim Coe's P8 [8]</a></td>
+	<td class="y"><a class="p" href="17/17sm.rle">
+	    Smiley [28]</a></td>
+    </tr>
+</table></p>
+
+<map name="p8-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p8-17.zip" />
+	<area coords="121,41,140,60" href="stamp/p8-17.rle" />
+	<area coords="0,0,69,60" href="17/17tc.rle" />
+	<area coords="70,0,140,60" href="17/17sm.rle" />
+</map>
+
+<hr />
+<a name="pp15-17"></a>
+<h2>The 1 seventeen-bit
+<a class="i" href="pp15.htm">period 15 pseudo-oscillator</a></h2>
+<p><a class="p" href="stamp/pp15-17.rle"><img src="map/pp15-17.png"
+ alt="17b PP15" width="101" height="81" usemap="#pp15-17" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="17/17pcbt.rle">
+	    Boat on penta- decathlon [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp15-17.zip" />
+	<area coords="81,61,100,80" href="stamp/pp15-17.rle" />
+	<area coords="0,0,100,80" href="17/17pcbt.rle" />
+</map>
+
+<hr />
+<a name="cons-17"></a>
+<h2>2 easily-constructible seventeen-bit
+<a class="i" href="cons.htm">constellations</a></h2>
+<p><a class="p" href="stamp/cons-17.rle"><img src="map/cons-17.png"
+ alt="17b const." width="181" height="81" usemap="#cons-17" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="17/17e5v2.rle">
+	    Less obtrusive eater-5 [12]</a></td>
+	<td><a class="p" href="17/17tlgl.rle">
+	    Traffic light and glider [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/cons-17.zip" />
+	<area coords="161,61,180,80" href="stamp/cons-17.rle" />
+	<area coords="0,0,89,80" href="17/17e5v2.rle" />
+	<area coords="90,0,180,80" href="17/17tlgl.rle" />
+</map>
+
+<p><a class="p" href="12/12e5.rle">Eater-5</a> is an eater that can eat gliders,
+but unlike <a class="p" href="0/7et.rle">Eater-1</a>, that sits right in the
+middle of the glider's path, Eater-5 sits off to the side, making it more useful
+for picking off gliders from one stream that is very close to another, with an
+offset of as few as 9 cells. The <a class="p" href="17/17e5v2.rle">less
+obtrusive Eater-5</a> is slightly larger and more expensive, but can also pick
+off gliders from one stream 8 cells away from another.</p>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	17,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

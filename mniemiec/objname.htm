@@ -1,0 +1,903 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Sorted by Name</title>
+<meta name="description"
+content="Conway's Game of Life: Object lists and syntheses sorted by name" />
+<meta name="keywords"
+content="conway game life object list name glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life Objects Sorted by Name</h1>
+
+<p align="center">
+	<a class="j" href="#symbol">Symbols</a> |
+	<a class="j" href="#a">A</a> |
+	<a class="j" href="#b">B</a> |
+	<a class="j" href="#c">C</a> |
+	<a class="j" href="#d">D</a> |
+	<a class="j" href="#e">E</a> |
+	<a class="j" href="#f">F</a> |
+	<a class="j" href="#g">G</a> |
+	<a class="j" href="#h">H</a> |
+	<a class="j" href="#i">I</a> |
+	<a class="j" href="#j">J</a> |
+	<a class="j" href="#k">K</a> |
+	<a class="j" href="#l">L</a> |
+	<a class="j" href="#m">M</a> |
+	<a class="j" href="#n">N</a> |
+	<a class="j" href="#o">O</a> |
+	<a class="j" href="#p">P</a> |
+	<a class="j" href="#q">Q</a> |
+	<a class="j" href="#r">R</a> |
+	<a class="j" href="#s">S</a> |
+	<a class="j" href="#t">T</a> |
+	<a class="j" href="#u">U</a> |
+	<a class="j" href="#v">V</a> |
+	<a class="j" href="#w">W</a> |
+	<a class="j" href="#x">X</a> |
+	<a class="j" href="#y">Y</a> |
+	<a class="j" href="#z">Z</a>
+</p>
+
+<hr /><hr />
+<p>Due to the large number of objects,
+this list includes only the following:</p>
+<p><ul>
+    <li>All objects up to 11 bits.</li>
+    <li>All objects known to be buildable from five gliders or less.</li>
+    <li>All non-factorable named objects up to 15 bits.</li>
+    <li>All non-factorable objects above 15 bits with constructions shown
+	here.</li>
+    <li>Some larger objects with long-standing traditional names.</li>
+</ul></p>
+
+<p>It typically does not include the extreme proliferation of
+larger objects:</p>
+<p><ul>
+    <li>Unnamed objects referenced only by number, size, and/or period (e.g.
+	<a class="p" href="12/12-121.rle">12.121</a>,
+	<a class="p" href="12/12ff1.rle">12-bit flip-flop #1</a>)
+	These can be found more easily on the
+	<a class="i" href="p1.htm">Still-life</a> page,
+	or other similar pages.</li>
+    <li>Objects that can be factored into several separately-named similar
+	parts (e.g. <a class="p" href="12/12cgbk.rle">block on mango</a>,
+	<a class="p" href="15/15tpsh.rle">tripole tie ship</a>,
+	<a class="p" href="14/14bpta1.rle">up bipole on table</a>).</li>
+    <li>Trivial expansions of smaller objects (e.g.
+	<a class="p" href="19/19fmtb.rle">fumarole w/tub</a>,
+	<a class="p" href="16/16ein.rle">eater eating integral</a>).</li>
+    <li>Objects referred to only by their discoverer's name, unless such
+	unnamed objects otherwise feature prominently (e.g.
+	<a class="p" href="20/20ne.rle">Elkies's P5</a>).</li>
+    <li>Objects from CA rules other than Life. (All such rules on this site
+	occupy a single page, making it much easier to find objects by name
+	on them).</li>
+</ul></p>
+
+<hr /><hr />
+<a name="symbol"></a>
+<h2>Symbols</h2>
+<p>	<a class="p" href="18/18pvtatf.rle">1 Beacon [10]</a>,
+	<a class="p" href="25/25p41234.rle">1-2-3-4 [94]</a>,
+	<a class="p" href="11/11-9.rle">11-bit snake (11.9) [6]</a>,
+	<a class="p" href="11/11-38.rle">11-er (11.38) [4]</a>,
+	<a class="p" href="11/11-33.rle">11-loop (11.33) [4]</a>,
+	<a class="p" href="14/14-39.rle">14-er (14.39) [4]</a>,
+	<a class="p" href="0/9tqtl.rle">3/4 traffic light [3]</a>,
+	<a class="p" href="18/18tqhf.rle">3/4 honeyfarm [3]</a>,
+	<a class="p" href="lg/32p6rats.rle">$rats [100-112]</a>.</p>
+
+<hr />
+<a name="a"></a>
+<h2>A</h2>
+<p>	<a class="p" href="lg/28a4all.rle">A for All [13]</a>,
+	<a class="p" href="0/7ak.rle">Acorn [4]</a>,
+	<a class="p" href="0/6ac.rle">Aircraft carrier [4]</a>,
+	<a class="p" href="17/17ff15.rle">Almosymmetric [x]</a>,
+	<a class="p" href="lg/42p15aj.rle">Al Jolson [13]</a>,
+	<a class="p" href="15/15-243.rle">Antlers (15.243) [4]</a>,
+	<a class="p" href="ss/128apps.rle">APPS [x+4]</a>,
+	<a class="p" href="ss/16na.rle">Ark [8]</a>,
+	<a class="p" href="ss/128apps.rle">
+	Asymmetrical pulsar-pushing spaceship [x+4]</a>.</p>
+
+<hr />
+<a name="b"></a>
+<h2>B</h2>
+<p>	<a class="p" href="0/6bh.rle">B heptomino [2]</a>,
+	<a class="p" href="lg/39ca2lf.rle">Baker's dozen [30]</a>,
+	<a class="p" href="lg/28by.rle">Bakery [3]</a>,
+	<a class="p" href="16/16qd.rle">Barber-pole intersection [16]</a>,
+	<a class="p" href="0/6bg.rle">Barge [3]</a>,
+	<a class="p" href="11/11-24.rle">Barge w/long tail (11.24) [6]</a>,
+	<a class="p" href="0/6bc.rle">Beacon [3]</a>,
+	<a class="p" href="15/15-360.rle">Bee hat (15.360) [4]</a>,
+	<a class="p" href="0/6hv.rle">Beehive [2]</a>,
+	<a class="p" href="14/14-50.rle">Beehive and cap (14.50) [5]</a>,
+	<a class="p" href="16/16-737.rle">Beehive and dock (16.737) [4]</a>,
+	<a class="p" href="12/12-18.rle">Beehive and table (12.18) [4]</a>,
+	<a class="p" href="13/13ethv3.rle">Beehive above eater [4]</a>,
+	<a class="p" href="18/18cfhv2.rle">
+	Beehive and long hook eating tub [12]</a>,
+	<a class="p" href="12/12-104.rle">Beehive at beehive (12.104) [4]</a>,
+	<a class="p" href="13/13-154.rle">Beehive at loaf [5]</a>,
+	<a class="p" href="12/12-112.rle">Beehive bend tail (12.112) [4]</a>,
+	<a class="p" href="12/12hvhv.rle">Beehive on beehive [3]</a>,
+	<a class="p" href="14/14-50.rle">Beehive on cap (14.50) [5]</a>,
+	<a class="p" href="16/16-737.rle">Beehive on dock (16.737) [4]</a>,
+	<a class="p" href="17/17dthv.rle">Beehive on griddle [10]</a>,
+	<a class="p" href="13/13lfhv.rle">Beehive on loaf [4]</a>,
+	<a class="p" href="14/14pdhv.rle">Beehive on pond [4]</a>,
+	<a class="p" href="12/12shhv.rle">Beehive on ship [4]</a>,
+	<a class="p" href="12/12-18.rle">Beehive on table (12.18) [4]</a>,
+	<a class="p" href="12/12-104.rle">Beehive tie beehive (12.104) [4]</a>,
+	<a class="p" href="12/12-112.rle">Beehive w/hooked tail (12.112) [4]</a>,
+	<a class="p" href="12/12-73.rle">Beehive w/nine (12.73) [6]</a>,
+	<a class="p" href="10/10-7.rle">Beehive w/tail (10.7) [4]</a>,
+	<a class="p" href="24/24-e1277.rle">Bellman One catalyst [22]</a>,
+	<a class="p" href="25/25b1gl.rle">Bellman One glider eater [20]</a>,
+	<a class="p" href="lg/31b1tl.rle">Bellman One traffic-light eater [22]</a>,
+	<a class="p" href="16/16kyky3.rle">Bent Keys [21]</a>,
+	<a class="p" href="12/12-104.rle">Bi-beehive (12.104) [4]</a>,
+	<a class="p" href="0/8bkbk.rle">Bi-block [2]</a>,
+	<a class="p" href="17/17-242.rle">Bi-hat (17.242) [5]</a>,
+	<a class="p" href="14/14-520.rle">Bi-loaf (14.520) [4]</a>,
+	<a class="p" href="16/16-1749.rle">Bi-pond (16.1749) [3]</a>,
+	<a class="p" href="12/12fg.rle">Big beacon [4]</a>,
+	<a class="p" href="ss/13hw.rle">Big fish [3]</a>,
+	<a class="p" href="14/14-36.rle">Big S (14.36) [4]</a>,
+	<a class="p" href="0/8bp.rle">Bipole [5]</a>,
+	<a class="p" href="14/14bpsh.rle">bipole on ship [8]</a>,
+	<a class="p" href="13/13bpbt.rle">Bipole tie boat [8]</a>,
+	<a class="p" href="14/14bpsh.rle">Bipole tie ship [8]</a>,
+	<a class="p" href="14/14-225.rle">Bird of prey (14.225) [8]</a>
+	<a class="p" href="22/22et2pd.rle">
+	Biting off more than they can chew [13]</a>,
+	<a class="p" href="0/3bl.rle">Blinker [2]</a>,
+	<a class="p" href="10/10lfbl.rle">Blinker and loaf [2]</a>,
+	<a class="p" href="18/18lftbbb.rle">Blinker and loaf and tub and block [2]</a>,
+	<a class="p" href="15/15ff2.rle">Blinkers bit pole [x]</a>,
+	<a class="p" href="0/4bk.rle">Block [2]</a>,
+	<a class="p" href="11/11etbk3.rle">Block above eater [4]</a>,
+	<a class="p" href="12/12-27.rle">Block and cap (12.27) [4]</a>,
+	<a class="p" href="14/14-89.rle">Block and dock (14.89) [4]</a>,
+	<a class="p" href="10/10-25.rle">Block and table (10.25) [4]</a>,
+	<a class="p" href="ss/12swbk.rle">Block-making switch engine [5]</a>,
+	<a class="p" href="10/10bcbk.rle">Block on beacon [4]</a>,
+	<a class="p" href="10/10hvbk.rle">Block on beehive [3]</a>,
+	<a class="p" href="0/8bkbk.rle">Block on block [2]</a>,
+	<a class="p" href="12/12bkbkbk.rle">Block on block on block [4]</a>,
+	<a class="p" href="15/15lfbbk.rle">Block on block on loaf [4]</a>,
+	<a class="p" href="0/9btbk.rle">Block on boat [3]</a>,
+	<a class="p" href="12/12-27.rle">Block on cap (12.27) [4]</a>,
+	<a class="p" href="11/11etbk1.rle">Block on eater [4]</a>,
+	<a class="p" href="15/15dtbk.rle">Block on griddle [12]</a>,
+	<a class="p" href="11/11lfbk.rle">Block on loaf [3]</a>,
+	<a class="p" href="14/14-89.rle">Block on dock (14.89) [4]</a>,
+	<a class="p" href="16/16cfbk2.rle">Block on down candelfrobra [12]</a>,
+	<a class="p" href="14/14-89.rle">Block on long house (14.89) [4]</a>,
+	<a class="p" href="12/12pdbk.rle">Block on pond [4]</a>,
+	<a class="p" href="10/10shbk.rle">Block on ship [3]</a>,
+	<a class="p" href="10/10-25.rle">Block on table (10.25) [4]</a>,
+	<a class="p" href="16/16cfbk1.rle">Block on up candelfrobra [9]</a>,
+	<a class="p" href="10/10acbk2.rle">Block below carrier [4]</a>,
+	<a class="p" href="11/11lsbk2.rle">Block below python [4]</a>,
+	<a class="p" href="15/15br.rle">Blocker [6]</a>,
+	<a class="p" href="16/16lm.rle">Blockade [2]</a>,
+	<a class="p" href="20/20blonkr.rle">Blonker [25]</a>,
+	<a class="p" href="0/5bt.rle">Boat [2]</a>,
+	<a class="p" href="10/10-24.rle">Boat on boat (10.24) [4]</a>,
+	<a class="p" href="11/11hvbt.rle">Boat on beehive [4]</a>,
+	<a class="p" href="16/16dtbt.rle">Boat on griddle [13]</a>,
+	<a class="p" href="13/13pdbt.rle">Boat on pond [4]</a>,
+	<a class="p" href="23/23scbt.rle">Boat on spark coil [5]</a>,
+	<a class="p" href="10/10-24.rle">Boat tie boat (10.24) [4]</a>,
+	<a class="p" href="12/12-7.rle">Boat tie eater (12.7) [4]</a>,
+	<a class="p" href="11/11-34.rle">Boat w/hooked tail (11.34) [5]</a>,
+	<a class="p" href="10/10-23.rle">Boat w/long tail (10.23) [5]</a>,
+	<a class="p" href="11/11-23.rle">Boat w/very long tail (11.23) [8]</a>,
+	<a class="p" href="0/6be.rle">Bookend [3]</a>,
+	<a class="p" href="19/19bw.rle">Bowed Caterer [x]</a>,
+	<a class="p" href="10/10-24.rle">Bowtie (10.24) [4]</a>,
+	<a class="p" href="17/17-3266.rle">Broken heart (17.3266) [20]</a>,
+	<a class="p" href="10/10-9.rle">Broken snake (10.9) [5]</a>,
+	<a class="p" href="23/23bqbet1.rle">Buckaroo [6]</a>,
+	<a class="p" href="ss/p24djbtb.rle">Buckingham's P24 tub puffer [9]</a>,
+	<a class="p" href="20/20-55063.rle">Buckle (20.55063) [14]</a>
+	<a class="p" href="0/9ra.rle">Bunnies [5]</a>,
+	<a class="p" href="0/7lf.rle">Burloaf [2]</a>,
+	<a class="p" href="lg/28bm.rle">Burloaferimiter [27]</a>
+	(<a class="p" href="lg/29bm2.rle">cheaper but larger version [24]</a>),
+	<a class="p" href="12/12bf.rle">Butterfly [3]</a>,
+	<a class="p" href="13/13ydtsy.rle">Byflops [21]</a>.</p>
+
+<hr />
+<a name="c"></a>
+<h2>C</h2>
+<p>	<a class="p" href="ss/36goose.rle">Canada Goose [x]</a>,
+	<a class="p" href="0/8cs.rle">Canoe (8.2) [4]</a>,
+	<a class="p" href="17/17-2203.rle">Caribou (17.2203) [7]</a>,
+	<a class="p" href="0/6ac.rle">Carrier [4]</a>,
+	<a class="p" href="12/12-107.rle">
+	Carrier bridge carrier (12.107) [4]</a>,
+	<a class="p" href="10/10-10.rle">
+	Carrier siamese carrier (10.10) [6]</a>,
+	<a class="p" href="10/10-9.rle">Carrier siamese snake (10.9) [5]</a>,
+	<a class="p" href="11/11-32.rle">Carrier tie boat (11.32) [5]</a>,
+	<a class="p" href="11/11-46.rle">Carrier w/feather (11.46) [6]</a>,
+	<a class="p" href="12/12ca.rle">Caterer [11]</a>,
+	<a class="i" href="exotic.htm#ss-17o45">Caterpillar</a>,
+	<a class="p" href="lg/32p8cd.rle">Cauldron [34-38]</a>,
+	<a class="p" href="14/14cav.rle">Cavity [8]</a>,
+	<a class="p" href="lg/70p100ce.rle">Centinal [16]</a>,
+	<a class="p" href="0/6be.rle">Century [3]</a>,
+	<a class="p" href="18/18-13721.rle">Century eater (18.13721) [9]</a>,
+	<a class="p" href="lg/27cy.rle">Century eater constellation [9]</a>,
+	<a class="p" href="19/19-11785.rle">Cheap eater-2 [8]</a>,
+	<a class="p" href="0/8cg.rle">Cigar (8.3) [3]</a>,
+	<a class="p" href="19/19bcan1.rle">Cis-beacon and anvil [22]</a>,
+	<a class="p" href="14/14bcct1.rle">Cis-beacon and cap [6]</a>,
+	<a class="p" href="16/16bcdk1.rle">Cis-beacon and dock [7]</a>,
+	<a class="p" href="12/12bcta1.rle">Cis-beacon and table [6]</a>,
+	<a class="p" href="14/14bcle3.rle">Cis-beacon down and long hook [6]</a>,
+	<a class="p" href="14/14bcle1.rle">Cis-beacon up and long hook [6]</a>,
+	<a class="p" href="14/14bbcbk1.rle">
+	Cis block on beacon on block [4]</a>,
+	<a class="p" href="12/12-28.rle">Cis-block on long hook (12.28) [4]</a>,
+	<a class="p" href="16/16cfbk2.rle">
+	Cis-block and long hook eating tub [12]</a>,
+	<a class="p" href="15/15-462.rle">Cis-boat and dock (15.462) [4]</a>,
+	<a class="p" href="17/17cfbt3.rle">Cis-boat and long hook eating tub [13]</a>,
+	<a class="p" href="11/11-37.rle">Cis-boat and table (11.37) [4]</a>,
+	<a class="p" href="0/9-6.rle">Cis-boat w/tail (9.6) [4]</a>,
+	<a class="p" href="20/20-5320.rle">Cis dock on dock (20.5320) [4]</a>,
+	<a class="p" href="14/14-591.rle">Cis-hook and R-bee (14.591) [4]</a>,
+	<a class="p" href="10/10-16.rle">Cis hook w/tail (10.16) [8]</a>,
+	<a class="p" href="18/18-287.rle">Cis house on house (18.287) [4]</a>,
+	<a class="p" href="11/11-5.rle">Cis-loaf w/tail (11.5) [4]</a>,
+	<a class="p" href="14/14-590.rle">Cis-mirrored hook (14.590) [4]</a>,
+	<a class="p" href="14/14-55.rle">Cis-mirrored R-bee (14.55) [4]</a>,
+	<a class="p" href="15/15-8.rle">Cis-R-bee and R-loaf (15.8) [6]</a>,
+	<a class="p" href="14/14-87.rle">Cis-rotated hook (14.87) [4]</a>,
+	<a class="p" href="10/10-20.rle">Cis shillelagh (10.20) [5]</a>,
+	<a class="p" href="0/8cs.rle">Cis snake (8.2) [4]</a>,
+	<a class="p" href="12/12-25.rle">Cis table on table (12.25) [4]</a>,
+	<a class="p" href="14/14-526.rle">
+	Cis very long fuse w/two tails (14.526) [4]</a>,
+	<a class="p" href="12/12-113.rle">Claw w/hooked tail (12.113) [6]</a>,
+	<a class="p" href="11/11-27.rle">Claw w/tub w/tail (11.27) [6]</a>,
+	<a class="p" href="10/10-18.rle">Claw w/tail (10.18) [4]</a>,
+	<a class="p" href="0/6ck.rle">Clock [4]</a>,
+	<a class="p" href="lg/40clover.rle">Cloverleaf [7]</a>,
+	<a class="p" href="ss/28coelw.rle">Coe ship [8]</a>,
+	<a class="p" href="17/17tc.rle">Coe's P8 [8]</a>,
+	<a class="p" href="24/24fb.rle">Complementary blinker [20]</a>,
+	<a class="p" href="20/20ce.rle">Confused eaters [20]</a>,
+	<a class="i" href="cons.htm">Constellations</a>,
+	<a class="p" href="ss/12swbk.rle">
+	Corderman's switch engine (block-making) [5]</a>,
+	<a class="p" href="ss/12swgl.rle">
+	Corderman's switch engine (glider-making) [5]</a>,
+	<a class="p" href="ss/25crab.rle">Crab [x]</a>,
+	<a class="p" href="lg/28cross.rle">Cross [16]</a>,
+	<a class="p" href="lg/64p12cr.rle">Crown [30]</a>,
+	<a class="p" href="lg/32p8cd.rle">Crucible [34-38]</a>,
+	<a class="p" href="18/18cutbk2.rle">Cuphook [7]</a>,
+	<a class="p" href="10/10-4.rle">Curl (10.4) [5]</a>,
+	<a class="p" href="14/14-36.rle">Curl bonded to curl [4]</a>.</p>
+
+<hr />
+<a name="d"></a>
+<h2>D</h2>
+<p>	<a class="p" href="ss/34dart.rle">Dart [x]</a>,
+	<a class="p" href="18/18-287.rle">Dead spark coil (18.287) [4]</a>,
+	<a class="p" href="0/0death.rle">Death [0]</a>,
+	<a class="p" href="16/16dp.rle">Decapole [28]</a>,
+	<a class="p" href="0/4tb.rle">Diamond [3]</a>,
+	<a class="p" href="lg/44p3dr.rle">Diamond ring [28]</a>,
+	<a class="p" href="0/8dh.rle">Die hard [5]</a>,
+	<a class="p" href="0/7dv.rle">Dove [3]</a>,
+	<a class="p" href="10/10-6.rle">Down barge w/tail (10.6) [5]</a>,
+	<a class="p" href="14/14bcct2.rle">Down beacon on cap [8]</a>,
+	<a class="p" href="16/16bcdk2.rle">Down beacon on dock [7]</a>,
+	<a class="p" href="14/14bcle4.rle">
+	Down beacon on down long bookend [6]</a>,
+	<a class="p" href="12/12bcta2.rle">Down beacon on table [6]</a>,
+	<a class="p" href="14/14bcle2.rle">
+	Down beacon on up long bookend [6]</a>,
+	<a class="p" href="12/12-28.rle">Down block on long bookend (12.28) [4]</a>,
+	<a class="p" href="10/10btbt2.rle">Down boat on boat [4]</a>,
+	<a class="p" href="15/15-472.rle">Down boat on dock (15.472) [7]</a>,
+	<a class="p" href="12/12lbbt2.rle">Down boat on long boat [4]</a>,
+	<a class="p" href="13/13lpbt2.rle">Down boat on long ship [4]</a>,
+	<a class="p" href="11/11shbt2.rle">Down boat on ship [4]</a>,
+	<a class="p" href="11/11-36.rle">Down boat on table (11.36) [6]</a>,
+	<a class="p" href="0/9-6.rle">Down boat w/tail (9.6) [4]</a>,
+	<a class="p" href="14/14-87.rle">
+	Down bookend down on bookend (14.87) [4]</a>,
+	<a class="p" href="14/14-589.rle">Down bun on bookend (14.589) [4]</a>,
+	<a class="p" href="14/14-15.rle">Down bun on bun (14.15) [4]</a>,
+	<a class="p" href="15/15-114.rle">Down bun on wing (15.114) [5]</a>,
+	<a class="p" href="14/14-13.rle">Down cis bun on bun (14.13) [4]</a>,
+	<a class="p" href="14/14etet12.rle">Down eater tail below eater [4]</a>,
+	<a class="p" href="13/13-27.rle">Down loaf on table [5]</a>,
+	<a class="p" href="11/11-4.rle">Down loaf w/tail (11.4) [4]</a>,
+	<a class="p" href="11/11-3.rle">Down long boat w/ tail (11.3) [7]</a>,
+	<a class="p" href="12/12-66.rle">Down mango w/tail (12.66) [4]</a>,
+	<a class="p" href="13/13-224.rle">Down snake on bun [4]</a>,
+	<a class="p" href="16/16-1942.rle">
+	Down trans bun on house (16.1942) [4]</a>,
+	<a class="p" href="ss/102dr.rle">Dragon [x]</a>,
+	<a class="p" href="lg/40clover.rle">Dual 1-2-3-4 [7]</a>.</p>
+
+<hr />
+<a name="e"></a>
+<h2>E</h2>
+<p>	<a class="p" href="0/7et.rle">Eater [2]</a>,
+	<a class="p" href="0/7et.rle">Eater-1 [2]</a>,
+	<a class="p" href="19/19-11763.rle">Eater-2 [16])</a>,
+	<a class="p" href="lg/37e3lf.rle">Eater-3 [72])</a>,
+	<a class="p" href="lg/39ve3lf.rle">Eater-3 (variant) [42])</a>,
+	<a class="p" href="12/12e5.rle">Eater-5 [6])</a>,
+	<a class="p" href="20/20eebf.rle">Eater block frob [12]</a>,
+	<a class="p" href="22/22et2pd.rle">Eater-bound pond [13]</a>,
+	<a class="p" href="lg/30et2pd2.rle">Eater-bound ponds [19]</a>,
+	<a class="p" href="14/14eet.rle">Eater eating eater [8]</a>,
+	<a class="p" href="12/12-85.rle">Eater head siamese eater tail (12.85) [5]</a>,
+	<a class="p" href="11/11-29.rle">Eater head siamese snake (11.29) [8]</a>,
+	<a class="p" href="11/11-40.rle">Eater head siamese carrier (11.40) [5]</a>,
+	<a class="p" href="12/12-7.rle">Eater on boat (12.7) [4]</a>,
+	<a class="p" href="14/14cav.rle">Eater plug [8]</a>,
+	<a class="p" href="14/14-176.rle">
+	Eater tail bridge eater tail (14.176) [4]</a>,
+	<a class="p" href="11/11-41.rle">Eater tail siamese snake (11.41) [6]</a>,
+	<a class="p" href="11/11-42.rle">Eater tail siamese carrier (11.42) [5]</a>,
+	<a class="p" href="11/11-44.rle">Eater w/cape (11.44) [5]</a>,
+	<a class="p" href="12/12-85.rle">Eater w/nine (12.85) [5]</a>,
+	<a class="p" href="18/18fk.rle">Eaters plus [23]</a>,
+	<a class="p" href="ss/53eco.rle">Ecologist [12]</a>,
+	<a class="p" href="11/11-33.rle">Eleven-loop (11.33) [4]</a>,
+	<a class="p" href="11/11-38.rle">Elevener (11.38) [4]</a>,
+	<a class="p" href="20/20ne.rle">Elkies's P5 [24]</a>,
+	<a class="p" href="ss/69ent.rle">Enterprise [x]</a>,
+	<a class="p" href="lg/28tb4pu1.rle">Eureka</a>,
+	<a class="p" href="10/10-12.rle">Extra extra long snake (10.12) [6]</a>,
+	<a class="p" href="11/11-1.rle">Extra long boat (11.1) [4]</a>,
+	<a class="p" href="11/11-8.rle">Extra long canoe (11.8) [7]</a>,
+	<a class="p" href="11/11-13.rle">Extra long hook w/tail (11.13) [7]</a>,
+	<a class="p" href="11/11-21.rle">Extra long shillelagh (11.21) [6]</a>,
+	<a class="p" href="0/9-2.rle">Extra long snake (9.2) [6]</a>,
+	<a class="p" href="lg/31p6ei.rle">Extremely impressive [30]</a>.</p>
+
+<hr />
+<a name="f"></a>
+<h2>F</h2>
+<p>	<a class="p" href="ss/5gl.rle">Feather-weight spaceship (FWSS) [2]</a>,
+	<a class="p" href="12/12fg.rle">Figure-8 [4]</a>,
+	<a class="p" href="19/19fs.rle">Fire Spitting [x]</a>,
+	<a class="p" href="0/7et.rle">Fishhook [2]</a>,
+	<a class="p" href="24/24fl.rle">Fleet [3]</a>,
+	<a class="p" href="12/12px.rle">Flip-flop [10]</a>,
+	<a class="i" href="p2.htm">Flip-flops</a>,
+	<a class="i" href="flotilla.htm">Flotillae</a>,
+	<a class="p" href="24/24fb.rle">Fore and back [20]</a>,
+	<a class="p" href="16/16hg.rle">Four boats [10]</a>,
+	<a class="p" href="16/16blocks.rle">Four skewed blocks [2]</a>,
+	<a class="p" href="14/14-39.rle">Fourteener (14.39) [4]</a>,
+	<a class="p" href="12/12fx.rle">Fox [12]</a>,
+	<a class="p" href="18/18fk.rle">French kiss [23]</a>,
+	<a class="p" href="18/18fm.rle">Fumarole [7]</a>,
+	<a class="p" href="11/11-28.rle">
+	Fuse w/tail and long tail (11.28) [7]</a>,
+	<a class="p" href="10/10-14.rle">Fuse w/two tails (10.14) [16]</a>.</p>
+
+<hr />
+<a name="g"></a>
+<h2>G</h2>
+<p>	<a class="p" href="lg/28gy.rle">Galaxy [33]</a>,
+	<a class="i" href="exotic.htm#ss-gemini">Gemini</a>,
+	<a class="p" href="lg/60gs12.rle">Glasses [17]</a>,
+	<a class="p" href="ss/132gpps.rle">
+	Glide-symmetrical pulsar-pushing spaceship [x+6]</a>,
+	<a class="p" href="ss/5gl.rle">Glider [2]</a>,
+	<a class="p" href="0/6wg.rle">Glider and block [3]</a>,
+	<a class="p" href="17/17tlgl.rle">Glider and traffic light [2]</a>,
+	<a class="p" href="ss/12swgl.rle">Glider-making switch engine [5]</a>,
+	<a class="p" href="0/8gd.rle">Gliders by the dozen [3]</a>,
+	<a class="p" href="0/8gd.rle">Glidersomino [3]</a>,
+	<a class="p" href="12/12fx.rle">Gnome [12]</a>,
+	<a class="p" href="ss/36goose.rle">Goose [x]</a>,
+	<a class="p" href="ss/p20rwg2.rle">Gosper's P20 puffer [9]</a>,
+	<a class="p" href="ss/132gpps.rle">GPPS [x+6]</a>,
+	<a class="p" href="lg/26p4gc.rle">Gray counter [30-32]</a>,
+	<a class="p" href="18/18cavtl2.rle">Great on-off [5]</a>,
+	<a class="p" href="10/10-18.rle">Great snake eater (10.18) [4]</a>,
+	<a class="p" href="17/17dthv.rle">Griddle and beehive [10]</a>,
+	<a class="p" href="15/15dtbk.rle">Griddle and block [12]</a>,
+	<a class="p" href="16/16dtbt.rle">Griddle and boat [13]</a>,
+	<a class="p" href="11/11-38.rle">Gull (11.38) [4]</a>,
+	<a class="p" href="12/12-109.rle">Gull w/tub (12.109) [4]</a>,
+	<a class="i" href="gun.htm">Guns</a>.</p>
+
+<hr />
+<a name="h"></a>
+<h2>H</h2>
+<p>	<a class="p" href="14/14-30.rle">Half bakery (14.30) [3]</a>,
+	<a class="p" href="12/12-3.rle">Half fleet (12.3) [4]</a>,
+	<a class="p" href="12/12hhf.rle">Half honeyfarm [3]</a>,
+	<a class="p" href="0/6htl.rle">Half traffic light [3]</a>,
+	<a class="p" href="0/6lm.rle">Handshake [2]</a>,
+	<a class="p" href="lg/64harbor.rle">Harbor [34]</a>,
+	<a class="p" href="0/9-10.rle">Hat (9.10) [3]</a>,
+	<a class="p" href="15/15-360.rle">
+	Hat w/eater head siamese beehive (15.360) [4]</a>,
+	<a class="p" href="lg/34heart.rle">Heart [15]</a>,
+	<a class="p" href="lg/34p4he.rle">Heavy-weight emulator [28]</a>,
+	<a class="p" href="ss/13hw.rle">Heavy-weight spaceship (HWSS) [3]</a>,
+	<a class="p" href="13/13ep.rle">Heptapole [16]</a>,
+	<a class="p" href="0/6h.rle">Herschel [3]</a>,
+	<a class="p" href="0/6h.rle">Herschel parent [3]</a>,
+	<a class="p" href="lg/37p8hz.rle">Hertz oscillator [11-14]</a>,
+	<a class="p" href="12/12hp.rle">Hexapole [12]</a>,
+	<a class="p" href="0/6hv.rle">Hive [2]</a>,
+	<a class="i" href="flotilla.htm#ss-4h">Hive-nudger [15-20]</a>,
+	<a class="p" href="10/10-4.rle">Hook w/hooked tail (10.4) [4]</a>,
+	<a class="p" href="0/8ht.rle">Hook w/tail (8.4) [4]</a>,
+	<a class="p" href="21/21hxsn.rle">Hooks [21]</a>,
+	<a class="p" href="12/12-121.rle">Honeycomb (12.121) [11]</a>,
+	<a class="p" href="24/24hf.rle">Honeyfarm [2]</a>,
+	<a class="p" href="16/16hg.rle">Hourglass [10]</a>,
+	<a class="p" href="16/16-1942.rle">
+	House on down trans bun (16.1942) [4]</a>,
+	<a class="p" href="lg/30p3hu.rle">Hustler [55-83]</a>,
+	<a class="p" href="lg/42p4huii.rle">Hustler II [155]</a>.</p>
+
+<hr />
+<a name="i"></a>
+<h2>I</h2>
+<p>	<a class="p" href="0/9-4.rle">Integral (9.4) [4]</a>,
+	<a class="p" href="0/9-4.rle">Integral sign (9.4) [4]</a>,
+	<a class="p" href="12/12-73.rle">Integral w/beehive (12.73) [6]</a>,
+	<a class="p" href="11/11-12.rle">Integral w/down boat (11.12) [5]</a>,
+	<a class="p" href="10/10-13.rle">Integral w/hook (10.13) [5]</a>,
+	<a class="p" href="11/11-10.rle">Integral w/long hook (11.10) [7]</a>,
+	<a class="p" href="11/11-35.rle">Integral w/tail (11.35) [4]</a>,
+	<a class="p" href="10/10-17.rle">Integral w/tub (10.17) [4]</a>,
+	<a class="p" href="11/11-39.rle">Integral w/tub and hook (11.39) [6]</a>,
+	<a class="p" href="11/11-15.rle">Integral w/two hooks (11.15) [8]</a>,
+	<a class="p" href="11/11-18.rle">Integral w/two tubs (11.18) [6]</a>,
+	<a class="p" href="11/11-11.rle">Integral w/up boat (11.11) [4]</a>,
+	<a class="p" href="11/11-38.rle">Intensionless (11.38) [4]</a>,
+	<a class="p" href="18/18ic.rle">Interchange [2]</a>.</p>
+
+<hr />
+<a name="j"></a>
+<h2>J</h2>
+<p>	<a class="p" href="0/8j.rle">J [3]</a>,
+	<a class="p" href="lg/42jack1.rle">Jack [34]</a>,
+	<a class="p" href="13/13jm.rle">Jam [7]</a>,
+	<a class="p" href="18/18-287.rle">JC (18.287) [4]</a>,
+	<a class="p" href="18/18mg.rle">JHC [15]</a>,
+	<a class="p" href="lg/42p15aj.rle">Jolson [13]</a>.</p>
+
+<hr />
+<a name="k"></a>
+<h2>K</h2>
+<p>	<a class="p" href="0/6be.rle">Kidney [3]</a>,
+	<a class="p" href="lg/32kcf.rle">Killer candelfrobras [12-16]</a>,
+	<a class="p" href="12/12kt.rle">Killer toads [6]</a>,
+	<a class="p" href="16/16kyky1.rle">Keys [6]</a>,
+	<a class="p" href="lg/28gy.rle">Kok's Galaxy [33]</a>.</p>
+
+<hr />
+<a name="l"></a>
+<h2>L</h2>
+<p>	<a class="p" href="14/14-36.rle">Large S (14.36) [4]</a>,
+	<a class="p" href="lg/32laundr.rle">Laundromat [6]</a>,
+	<a class="p" href="23/23lgtsn.rle">Light bulb [30]</a>,
+	<a class="p" href="lg/30p4le.rle">Light-weight emulator [111]</a>,
+	<a class="p" href="ss/9lw.rle">Light-weight spaceship (LWSS) [3]</a>,
+	<a class="p" href="0/7lf.rle">Loaf [2]</a>,
+	<a class="p" href="10/10lfbl.rle">Loaf and blinker [2]</a>,
+	<a class="p" href="18/18lftbbb.rle">Loaf and tub and block and blinker [2]</a>,
+	<a class="p" href="14/14-30.rle">Loaf on loaf (14.30) [3]</a>,
+	<a class="p" href="15/15pdlf.rle">Loaf on pond [4]</a>,
+	<a class="p" href="10/10-3.rle">Loaf siamese barge (10.3) [9]</a>,
+	<a class="p" href="11/11-43.rle">Loaf siamese loaf (11.43) [4]</a>,
+	<a class="p" href="13/13-154.rle">Loaf tie beehive [5]</a>,
+	<a class="p" href="14/14-520.rle">Loaf tie loaf (14.520) [4]</a>,
+	<a class="p" href="ss/20lfr.rle">Loafer [8]</a>,
+	<a class="p" href="16/16lm.rle">LOM [2]</a>,
+	<a class="p" href="lg/34lyet4.rle">Lonely bee [19]</a>,
+	<a class="p" href="0/8lg.rle">Long barge [3]</a>,
+	<a class="p" href="0/7lb.rle">Long boat [3]</a>,
+	<a class="p" href="13/13-10.rle">Long boat on ship [6]</a>,
+	<a class="p" href="13/13-10.rle">Long boat tie ship [6]</a>,
+	<a class="p" href="0/9-3.rle">Long canoe (9.3) [4]</a>,
+	<a class="p" href="11/11-14.rle">Long cis hook w/tail (11.14) [7]</a>,
+	<a class="p" href="11/11-19.rle">Long cis shillelagh (11.19) [6]</a>,
+	<a class="p" href="11/11-17.rle">Long claw w/tail (11.17) [4]</a>,
+	<a class="p" href="11/11-16.rle">Long fuse w/two tails (11.16) [7]</a>,
+	<a class="p" href="10/10-4.rle">Long hat (10.4) [4]</a>,
+	<a class="p" href="11/11-34.rle">Long hat siamese boat (11.34) [5]</a>,
+	<a class="p" href="0/9-8.rle">Long hook w/tail (9.8) [5]</a>,
+	<a class="p" href="10/10-19.rle">Long integral (10.19) [5]</a>,
+	<a class="p" href="11/11-26.rle">Long integral w/tub (11.26) [8]</a>,
+	<a class="p" href="0/9-7.rle">Long shillelagh (9.7) [6]</a>,
+	<a class="p" href="0/8lp.rle">Long ship [4]</a>,
+	<a class="p" href="0/9-3.rle">Long sinking ship (9.3) [4]</a>,
+	<a class="p" href="0/7ls.rle">Long snake [4]</a>,
+	<a class="p" href="19/19-4199.rle">Longhorn (19.4199) [9]</a>,
+	<a class="p" href="10/10-4.rle">Loop (10.4) [4]</a>,
+	<a class="p" href="0/6lm.rle">Lumps of muck [2]</a>.</p>
+
+<hr />
+<a name="m"></a>
+<h2>M</h2>
+<p>	<a class="p" href="18/18cutbk1.rle">M.I.T. Oscillator [8]</a>,
+	<a class="p" href="0/8cg.rle">Mango (8.3) [3]</a>,
+	<a class="p" href="12/12mz.rle">Mazing [5]</a>,
+	<a class="p" href="ss/11mw.rle">Medium fish [3]</a>
+	<a class="i" href="meth.htm">Methuselahs</a>,
+	<a class="p" href="lg/32p4me.rle">Middle-weight emulator [20]</a>,
+	<a class="p" href="ss/11mw.rle">Middle-weight spaceship (MWSS) [3]</a>
+	<a class="p" href="lg/28p3mpc.rle">Mini pressure cooker [27]</a>,
+	<a class="p" href="20/20-5320.rle">Mirrored dock (20.5320) [4]</a>,
+	<a class="p" href="12/12md.rle">Mold [5]</a>,
+	<a class="p" href="18/18mg.rle">Monogram [15]</a>,
+	<a class="p" href="15/15-243.rle">Moose antlers (15.243) [4]</a>,
+	<a class="p" href="0/7mp.rle">Multum in parvo [4]</a>,
+	<a class="p" href="15/15ff5.rle">Muttering moat 1 [x]</a>.</p>
+
+<hr />
+<a name="n"></a>
+<h2>N</h2>
+<p>	<a class="p" href="ss/16na.rle">Noah's ark [8]</a>,
+	<a class="p" href="15/15np.rle">Nonopole [24]</a>.</p>
+
+<hr />
+<a name="o"></a>
+<h2>O</h2>
+<p>	<a class="p" href="16/16kyky2.rle">Odd keys [20]</a>,
+	<a class="p" href="15/15ttbtb.rle">Odd test tube baby [10]</a>,
+	<a class="p" href="16/16oc.rle">Octagon II [8]</a>,
+	<a class="p" href="lg/40oc4bk4.rle">Octagon IV [34]</a>,
+	<a class="p" href="0/7oo.rle">(2 glider) Octomino [2]</a>,
+	<a class="p" href="14/14op.rle">Octopole [20]</a>,
+	<a class="p" href="lg/36ohio.rle"> Ohio [7]</a>,
+	<a class="i" href="p2.htm">On-offs</a>,
+	<a class="p" href="ss/39orion.rle">Orion [x]</a>,
+	<a class="p" href="ss/32orion2.rle">Orion 2 [x]</a>,
+	<a class="p" href="13/13-27.rle">Ortho-loaf and table [5]</a>,
+	<a class="i" href="osc.htm">Oscillators</a>.</p>
+
+<hr />
+<a name="p"></a>
+<h2>P</h2>
+<p>	<a class="p" href="14/14-79.rle">Paperclip (14.79) [3]</a>,
+	<a class="p" href="12/12pc.rle">Pentadecathlon [3]</a>,
+	<a class="p" href="11/11pp.rle">Pentapole [10]</a>,
+	<a class="p" href="20/20et2z.rle">Pentoad [12]</a>,
+	<a class="p" href="23/23etzbeb.rle">Pentoad 1h2 [19]</a>,
+	<a class="p" href="12/12px.rle">Phoenix [10]</a>,
+	<a class="p" href="0/5ph.rle">Pi heptomino [2]</a>,
+	<a class="p" href="18/18cavtl2.rle">Pincers [5]</a>,
+	<a class="p" href="0/8pd.rle">Pond [2]</a>,
+	<a class="p" href="15/15pdet3.rle">Pond above eater [4]</a>,
+	<a class="p" href="16/16pdpd.rle">Pond on pond [4]</a>,
+	<a class="p" href="16/16-1749.rle">Pond tie pond (16.1749) [3]</a>,
+	<a class="p" href="lg/33p3pcsn.rle">Pressure cooker [120]</a>,
+	<a class="p" href="25/25eqbet1.rle">Princess bee [7]</a>,
+	<a class="p" href="15/15ap.rle">Pseudo-barber-pole [28]</a>,
+	<a class="i" href="pp2.htm">Pseudo-flip-flops (Pseudo on-offs)</a>,
+	<a class="i" href="posc.htm">Pseudo-oscillators</a>,
+	<a class="i" href="pp1.htm">Pseudo-still-lifes</a>,
+	<a class="i" href="puff.htm">Puffers</a>,
+	<a class="p" href="lg/48pu.rle">Pulsar [3]</a>,
+	<a class="p" href="18/18pqpq.rle">Pulsar 18-22-20 [17]</a>,
+	<a class="p" href="lg/48pu.rle">Pulsar CP 48-54-72 [3]</a>,
+	<a class="p" href="18/18pq.rle">Pulsar quadrant [12]</a>,
+	<a class="p" href="0/7ls.rle">Python [4]</a>,
+	<a class="p" href="11/11-7.rle">Python siamese carrier (11.7) [8]</a>,
+	<a class="p" href="11/11-6.rle">Python siamese snake (11.6) [7]</a>.</p>
+
+<hr />
+<a name="q"></a>
+<h2>Q</h2>
+<p>	<a class="p" href="16/16qd.rle">Quad [16]</a>,
+	<a class="p" href="lg/28qlf-o.rle">Quad-loaf [6]</a>,
+	<a class="p" href="10/10qp.rle">Quadpole [6]</a>,
+	<a class="p" href="15/15qpbt.rle">Quadpole on boat [7]</a>,
+	<a class="p" href="15/15qpbt.rle">Quadpole tie boat [7]</a>,
+	<a class="p" href="ss/25crab.rle">Quarter [x]</a>,
+	<a class="p" href="lg/144qu.rle">Quasar [32]</a>,
+	<a class="p" href="20/20bqbbk1.rle">Queen bee [6]</a>.</p>
+
+<hr />
+<a name="r"></a>
+<h2>R</h2>
+<p>
+	<a class="p" href="13/13-224.rle">R-bee and snake [4]</a>,
+	<a class="p" href="0/6wg.rle">R-loaf [3]</a>,
+	<a class="p" href="0/7dv.rle">R-mango [3]</a>,
+	<a class="p" href="0/5rp.rle">R pentomino [3]</a>,
+	<a class="p" href="0/9ra.rle">Rabbits [5]</a>,
+	<a class="p" href="lg/32p6rats.rle">$rats [100-112]</a>.</p>
+
+<hr />
+<a name="s"></a>
+<h2>S</h2>
+<p>	<a class="p" href="14/14-36.rle">S (14.36) [4]</a>,
+	<a class="p" href="14/14-36.rle">S-shaped still-life (14.36) [4]</a>,
+	<a class="p" href="10/10-19.rle">S-ten (10.19) [5]</a>,
+	<a class="p" href="ss/39lsl.rle">Schick ship [10]</a>,
+	<a class="p" href="16/16-644.rle">Scorpion (16.644) [4]</a>,
+	<a class="i" href="p2.htm#p2-sc">Scrubber [10-70]</a>,
+	<a class="p" href="ss/170seal.rle">Seal [x]</a>,
+	<a class="p" href="lg/30pd2bc2.rle">Semifore [14]</a>,
+	<a class="p" href="13/13-191.rle">Sesqui-hat [6]</a>,
+	<a class="p" href="0/8cs.rle">Sinking ship (8.2) [4]</a>,
+	<a class="p" href="0/8sl.rle">Shillelagh [4]</a>,
+	<a class="p" href="15/15-356.rle">Shillelagh tie bun (15.356) [4]</a>,
+	<a class="p" href="0/6sh.rle">Ship [3]</a>,
+	<a class="p" href="12/12shhv.rle">Ship on beehive [4]</a>,
+	<a class="p" href="11/11-30.rle">Ship on boat (11.30) [4]</a>,
+	<a class="p" href="12/12-3.rle">Ship on ship (12.3) [4]</a>,
+	<a class="p" href="11/11-30.rle">Ship tie boat (11.30) [4]</a>,
+	<a class="p" href="12/12-3.rle">Ship tie ship (12.3) [4]</a>,
+	<a class="p" href="20/20shb2b2.rle">
+	Ship and two blocks and two blinkers [3]</a>,
+	<a class="p" href="16/16kyky1.rle">Short Keys [6]</a>,
+	<a class="p" href="12/12-113.rle">Snorkel loop (12.113) [6]</a>,
+	<a class="p" href="20/20-21877.rle">Shuriken (20.21877) [10]</a>,
+	<a class="p" href="20/20bqbbk1.rle">Shuttle [6]</a>,
+	<a class="p" href="14/14-507.rle">Sidewalk (14.507) [4]</a>,
+	<a class="p" href="15/15dtbk.rle">Singular flip-flop [12]</a>,
+	<a class="p" href="lg/28tb4pu2.rle">Skewed eureka</a>,
+	<a class="p" href="18/18spsp1.rle">Skewed poles [8]</a>,
+	<a class="p" href="16/16sq.rle">Skewed quad [10]</a>,
+	<a class="p" href="ss/9lw.rle">Small fish [3]</a>,
+	<a class="p" href="24/24sfl.rle">Small fleet [6]</a>,
+	<a class="p" href="24/24shf.rle">Small honeyfarm [6]</a>,
+	<a class="p" href="17/17sm.rle">Smiley [28]</a>,
+	<a class="p" href="lg/40sret4.rle">Snacker [17]</a>,
+	<a class="p" href="ss/128snail.rle">Snail [x]</a>,
+	<a class="p" href="0/6sn.rle">Snake [4]</a>,
+	<a class="p" href="lg/36p3sd.rle">Snake dance [6]</a>,
+	<a class="p" href="0/8ht.rle">Snake eater (8.4) [4]</a>,
+	<a class="p" href="10/10-8.rle">Snake siamese snake (10.8) [6]</a>,
+	<a class="p" href="11/11-31.rle">Snake tie boat (11.31) [6]</a>,
+	<a class="p" href="11/11-45.rle">Snake w/feather (11.45) [6]</a>,
+	<a class="p" href="lg/31snark.rle">Snark [42]</a>,
+	<a class="p" href="lg/49snref.rle">Snark reflector [48]</a>,
+	<a class="p" href="12/12-113.rle">Snorkel-loop (12.113) [6]</a>,
+	<a class="i" href="ss.htm">Spaceships</a>,
+	<a class="p" href="18/18sc.rle">Spark coil [4]</a>,
+	<a class="p" href="23/23scbt.rle">Spark coil tie boat [5]</a>,
+	<a class="p" href="20/20-22049.rle">Spiral (20.22049) [10]</a>,
+	<a class="p" href="ss/128spps.rle">SPPS [x+4]</a>,
+	<a class="p" href="16/16qd.rle">Square quad [16]</a>,
+	<a class="p" href="24/24star.rle">Star [20]</a>,
+	<a class="i" href="p1.htm">Still-lifes</a>,
+	<a class="p" href="20/20p3stil.rle">Stillator [78]</a>,
+	<a class="p" href="12/12-121.rle">Super beehive (12.121) [11]</a>,
+	<a class="p" href="15/15-383.rle">Super mango (15.383) [25]</a>,
+	<a class="p" href="15/15-355.rle">Super pond (15.355) [24]</a>,
+	<a class="p" href="lg/144qu.rle">Super pulsar [32]</a>,
+	<a class="p" href="ss/49swan.rle">Swan [x]</a>,
+	<a class="p" href="ss/12swbk.rle">Switch engine (block-making) [5]</a>,
+	<a class="p" href="ss/12swgl.rle">Switch engine (glider-making) [5]</a>,
+	<a class="p" href="16/16-129.rle">
+	Symmetric scorpion (16.129) [4]</a>,
+	<a class="p" href="ss/128spps.rle">
+	Symmetrical pulsar-pushing spaceship [x+4]</a>.</p>
+
+<hr />
+<a name="t"></a>
+<h2>T</h2>
+<p>	<a class="p" href="12/12-25.rle">Table and table (12.25) [4]</a>,
+	<a class="p" href="10/10-25.rle">Table on block (10.25) [4]</a>,
+	<a class="p" href="12/12-25.rle">Table on table (12.25) [4]</a>,
+	<a class="p" href="12/12te.rle">Teardrop [2]</a>,
+	<a class="p" href="14/14ttb.rle">Test tube baby [6]</a>,
+	<a class="p" href="15/15ttbtb.rle">Test tube baby w/tub [10]</a>,
+	<a class="p" href="0/6tbd.rle">Thunderbird [4]</a>,
+	<a class="p" href="17/17tc.rle">Tim Coe's P8 [8]</a>,
+	<a class="p" href="ss/77tire.rle">Tire tracks [x]</a>,
+	<a class="p" href="0/6td.rle">Toad [3]</a>,
+	<a class="p" href="lg/92p50tj.rle">Traffic jam [34]</a>,
+	<a class="p" href="12/12tl.rle">Traffic light [2]</a>,
+	<a class="p" href="17/17tlgl.rle">Traffic light and glider [2]</a>,
+	<a class="p" href="10/10-5.rle">Trans-barge w/tail (10.5) [4]</a>,
+	<a class="p" href="14/14bcct2.rle">Trans-beacon and cap [8]</a>,
+	<a class="p" href="16/16bcdk2.rle">Trans-beacon and dock [7]</a>,
+	<a class="p" href="12/12bcta2.rle">Trans-beacon and table [6]</a>,
+	<a class="p" href="14/14bcle2.rle">
+	Trans-beacon down and long hook [6]</a>,
+	<a class="p" href="14/14bcle4.rle">Trans-beacon up and long hook [6]</a>,
+	<a class="p" href="12/12-29.rle">Trans-block on long hook (12.29) [5]</a>,
+	<a class="p" href="16/16cfbk1.rle">
+	Trans-block and long hook eating tub [9]</a>,
+	<a class="p" href="15/15-472.rle">Trans-boat and dock (15.472) [7]</a>,
+	<a class="p" href="11/11-36.rle">Trans-boat and table (11.36) [6]</a>,
+	<a class="p" href="11/11-11.rle">Trans-boat w/nine (11.11) [4]</a>,
+	<a class="p" href="0/9-5.rle">Trans-boat w/tail (9.5) [4]</a>,
+	<a class="p" href="14/14-589.rle">Trans-hook and R-bee (14.589) [4]</a>,
+	<a class="p" href="18/18-6707.rle">
+	Trans house on house (18.6707) [4]</a>,
+	<a class="p" href="11/11-4.rle">Trans-loaf w/tail (11.4) [4]</a>,
+	<a class="p" href="14/14-13.rle">Trans-mirrored R-bee (14.13) [4]</a>,
+	<a class="p" href="15/15-114.rle">
+	Trans-R-bee and R-loaf (15.114) [5]</a>,
+	<a class="p" href="14/14-15.rle">Trans-rotated R-bee (14.15) [4]</a>,
+	<a class="p" href="16/16shbts5.rle">Trans up and down boats on ship [4]</a>,
+	<a class="p" href="21/21-o7593.rle">Tri-loaf (21.247593) [11]</a>,
+	<a class="p" href="16/16tg.rle">Trice tongs [14]</a>,
+	<a class="p" href="0/9tp.rle">Tripole [7]</a>,
+	<a class="p" href="0/4tb.rle">Tub [3]</a>,
+	<a class="p" href="18/18lftbbb.rle">
+	Tub and loaf and block and blinker [2]</a>,
+	<a class="p" href="16/16ttbtt.rle">Tub test tube baby [12]</a>,
+	<a class="p" href="11/11-25.rle">Tub w/cis tail (11.25) [8]</a>,
+	<a class="p" href="0/9-9.rle">Tub w/long tail (9.9) [5]</a>,
+	<a class="p" href="10/10-17.rle">Tub w/nine (10.17) [4]</a>,
+	<a class="p" href="0/8tt.rle">Tub w/tail [4]</a>,
+	<a class="p" href="10/10-22.rle">Tub w/very long tail (10.22) [7]</a>,
+	<a class="p" href="11/11-22.rle">Tub w/extra long tail (11.22) [6]</a>,
+	<a class="p" href="16/16tu.rle">Tumbler [6]</a>,
+	<a class="p" href="lg/34fg2tl.rle">Tumbling T-tetson [10]</a>,
+	<a class="p" href="ss/44turt.rle">Turtle [x]</a>,
+	<a class="p" href="lg/43p46tw.rle">Twin bees [8]</a>,
+	<a class="p" href="17/17-242.rle">Twin peaks (17.242) [5]</a>,
+	<a class="p" href="lg/56td8pu.rle">Twirling T-tetsons [40]</a>,
+	<a class="p" href="0/8tt.rle">Twit [4]</a>,
+	<a class="p" href="0/8bkbk14.rle">Two blocks offset (4, 1) [2]</a>,
+	<a class="p" href="16/16bbkbbk.rle">Two blocks on two blocks [4]</a>,
+	<a class="p" href="18/18bbtbbt.rle">Two blocks on two boats [4]</a>,
+	<a class="p" href="lg/32bw2bl4.rle">
+	    Two bowties and two half traffic lights [4]</a>,
+	<a class="p" href="17/17btlfbt.rle">Two down boats on loaf [4]</a>,
+	<a class="p" href="18/18btpdbt.rle">Two down boats on pond [4]</a>,
+	<a class="p" href="14/14eet.rle">Two eaters [8]</a>,
+	<a class="p" href="10/10gm.rle">Two glider mess [2]</a>,
+	<a class="p" href="18/18pqpq.rle">Two pulsar quadrants [17]</a>.</p>
+
+<hr />
+<a name="u"></a>
+<h2>U</h2>
+<p>	<a class="p" href="17/17up.rle">Undecapole [32]</a>,
+	<a class="p" href="lg/56p6uuuu.rle">Unicycle [28]</a>,
+	<a class="p" href="16/16ux.rle">Unix [6]</a>,
+	<a class="p" href="10/10-5.rle">Up barge w/tail (10.5) [4]</a>,
+	<a class="p" href="14/14bcct1.rle">Up beacon on cap [6]</a>,
+	<a class="p" href="16/16bcdk1.rle">Up beacon on dock [7]</a>,
+	<a class="p" href="14/14bcle3.rle">
+	Up beacon on down long bookend [6]</a>,
+	<a class="p" href="12/12bcta1.rle">Up beacon on table [6]</a>,
+	<a class="p" href="19/19bcan1.rle">Up beacon on up anvil [22]</a>,
+	<a class="p" href="14/14bcle1.rle">Up beacon on up long bookend [6]</a>,
+	<a class="p" href="12/12-29.rle">Up block on long bookend (12.29) [5]</a>,
+	<a class="p" href="12/12etbt5.rle">Up boat above eater [3]</a>,
+	<a class="p" href="11/11bcbt1.rle">Up boat on beacon [4]</a>,
+	<a class="p" href="10/10btbt1.rle">Up boat on boat [3]</a>,
+	<a class="p" href="15/15-462.rle">Up boat on dock (15.462) [4]</a>,
+	<a class="p" href="17/17cfbt3.rle">Up boat on down candelfrobra [13]</a>,
+	<a class="p" href="12/12etbt1.rle">Up boat on eater [3]</a>,
+	<a class="p" href="12/12lfbt1.rle">Up boat on loaf [3]</a>,
+	<a class="p" href="11/11-37.rle">Up boat on table (11.37) [4]</a>,
+	<a class="p" href="0/9-5.rle">Up boat w/tail (9.5) [4]</a>,
+	<a class="p" href="14/14-590.rle">Up bookend on bookend (14.590) [4]</a>,
+	<a class="p" href="14/14-591.rle">Up bun on bookend (14.591) [4]</a>,
+	<a class="p" href="14/14-55.rle">Up bun on bun (14.55) [4]</a>,
+	<a class="p" href="15/15-8.rle">Up bun on wing (15.8) [6]</a>,
+	<a class="p" href="14/14-590.rle">
+	Up cis bookend on bookend (14.590) [4]</a>,
+	<a class="p" href="14/14-55.rle">Up cis bun on bun (14.55) [4]</a>,
+	<a class="p" href="18/18-355.rle">Up cis dove on dove (18.355) [4]</a>,
+	<a class="p" href="15/15-601.rle">
+	Up cap above eater (15.601) [4]</a>,
+	<a class="p" href="14/14etet11.rle">Up eater tail above eater [4]</a>,
+	<a class="p" href="14/14etlf1.rle">Up loaf on eater [3]</a>,
+	<a class="p" href="14/14lflf1.rle">Up loaf on loaf [4]</a>,
+	<a class="p" href="11/11-5.rle">Up loaf w/tail (11.5) [4]</a>,
+	<a class="p" href="11/11-2.rle">Up long boat w/ tail (11.2) [5]</a>,
+	<a class="p" href="12/12shsh1.rle">Up ship on ship [3]</a>.</p>
+
+<hr />
+<a name="v"></a>
+<h2>V</h2>
+<p>	<a class="p" href="17/17-1006.rle">Valentine (17.1006) [108]</a>,
+	<a class="p" href="22/22-040aa.rle">Vase (22.16554) [4]</a>,
+	<a class="p" href="10/10-1.rle">Very long barge (10.1) [5]</a>,
+	<a class="p" href="0/9-1.rle">Very long boat (9.1) [3]</a>,
+	<a class="p" href="10/10-11.rle">Very long canoe (10.11) [4]</a>,
+	<a class="p" href="11/11-33.rle">Very long hat (11.33) [4]</a>,
+	<a class="p" href="10/10-15.rle">Very long hook w/tail (10.15) [7]</a>,
+	<a class="p" href="11/11-20.rle">Very long integral (11.20) [9]</a>,
+	<a class="p" href="10/10-21.rle">Very long shillelagh (10.21) [6]</a>,
+	<a class="p" href="10/10-2.rle">Very long ship (10.2) [4]</a>,
+	<a class="p" href="0/8vs.rle">Very long snake (8.1) [4]</a>.</p>
+
+<hr />
+<a name="w"></a>
+<h2>W</h2>
+<p>	<a class="p" href="ss/p8rtwbl.rle">Wainwright's P8 blinker puffer [10]</a>,
+	<a class="p" href="24/24wm.rle">Washing machine [8]</a>,
+	<a class="p" href="ss/36we.rle">Weekender [x]</a>,
+	<a class="p" href="14/14tdtsy.rle">Why not [24]</a>,
+	<a class="p" href="0/6wg.rle">Wing (methuselah) [3]</a>,
+	<a class="p" href="ss/60wing.rle">Wing (spaceship) [63]</a>,
+	<a class="p" href="lg/34lyet4.rle">Worker bee [19]</a>.</p>
+
+<hr />
+<a name="x"></a>
+<h2>X</h2>
+<p>	<a class="p" href="ss/34x66.rle">X66 [x]</a>.</p>
+
+<hr />
+<a name="y"></a>
+<h2>Y</h2>
+
+<hr />
+<a name="z"></a>
+<h2>Z</h2>
+
+<hr /><hr />
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	name,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

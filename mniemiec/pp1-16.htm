@@ -1,0 +1,2030 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Sixteen-Bit Pseudo-Still-Lifes</title>
+<meta name="description"
+content="Conway's Game of Life: sixteen-bit pseudo-still-life lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 16 sixteen bit pseudo still life object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Sixteen-Bit Pseudo-Still-Lifes</h1>
+
+<p align="center">
+	<a class="j" href="#pp1-16-0">First 100</a> |
+	<a class="j" href="#pp1-16-1">Second 100</a> |
+	<a class="j" href="#pp1-16-2">Third 100</a> |
+	<a class="j" href="#pp1-16-3">Fourth 100</a> |
+	<a class="j" href="#pp1-16-4">Fifth 100</a> |
+	<a class="j" href="#pp1-16-5">Sixth 100</a> |
+	<a class="j" href="#pp1-16-6">Seventh 100</a> |
+	<a class="j" href="#pp1-16-7">Eighth 100</a> |
+	<a class="j" href="#pp1-16-8">Ninth 100</a> |
+	<a class="j" href="#pp1-16-9">Tenth 100</a> |
+	<a class="j" href="#pp1-16-a">Eleventh 100</a> |
+	<a class="j" href="#pp1-16-b">Twelfth 100</a> |
+	<a class="j" href="#pp1-16-c">Thirteenth 100</a> |
+	<a class="j" href="#pp1-16-d">Fourteenth 100</a> |
+	<a class="j" href="#pp1-16-e">Fifteenth 100</a> |
+	<a class="j" href="#pp1-16-f">Sixteenth 100</a> |
+	<a class="j" href="#pp1-16-g">Last 45</a>
+</p>
+
+<hr /><hr />
+<a name="pp1-16-0"></a>
+<h2>The 1645 <a class="i" href="bits-16.htm">sixteen-bit</a>
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<h3>The first 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-0.rle"><img src="map/pp1-16-0.png"
+ alt="16-bit pseudo-still-lifes 1-100"
+ width="621" height="421" usemap="#pp1-16-0" /></a></p>
+
+<map name="pp1-16-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-0.rle" />
+	<area coords="0,0,69,49" href="16/16bk4.rle" />
+	<area coords="70,0,129,49" href="16/16snbsn1.rle" />
+	<area coords="130,0,189,49" href="16/16snbsn2.rle" />
+	<area coords="190,0,249,49" href="16/16sssn1.rle" />
+	<area coords="250,0,309,49" href="16/16snsnb6.rle" />
+	<area coords="310,0,369,49" href="16/16sssn2.rle" />
+	<area coords="370,0,429,49" href="16/16snsnb7.rle" />
+	<area coords="430,0,489,49" href="16/16shbsh1.rle" />
+	<area coords="490,0,549,49" href="16/16shshb2.rle" />
+	<area coords="550,0,620,49" href="16/16shbts4.rle" />
+	<area coords="0,50,69,89" href="16/16slsl7.rle" />
+	<area coords="70,50,129,89" href="16/16sssh1.rle" />
+	<area coords="130,50,189,89" href="16/16snbsh1.rle" />
+	<area coords="190,50,249,89" href="16/16slsl11.rle" />
+	<area coords="250,50,309,89" href="16/16assh5.rle" />
+	<area coords="310,50,369,89" href="16/16acbsh1.rle" />
+	<area coords="370,50,429,89" href="16/16slsl10.rle" />
+	<area coords="430,50,489,89" href="16/16vibt3.rle" />
+	<area coords="490,50,549,89" href="16/16snbsh2.rle" />
+	<area coords="550,50,620,89" href="16/16bsnsh1.rle" />
+	<area coords="0,90,69,129" href="16/16sslbk3.rle" />
+	<area coords="70,90,129,129" href="16/16bslbk2.rle" />
+	<area coords="130,90,189,129" href="16/16sslbk2.rle" />
+	<area coords="190,90,249,129" href="16/16snshb5.rle" />
+	<area coords="250,90,309,129" href="16/16snshb7.rle" />
+	<area coords="310,90,369,129" href="16/16assh1.rle" />
+	<area coords="370,90,429,129" href="16/16bacsh1.rle" />
+	<area coords="430,90,489,129" href="16/16aslbk3.rle" />
+	<area coords="490,90,549,129" href="16/16aslbk2.rle" />
+	<area coords="550,90,620,129" href="16/16acshb6.rle" />
+	<area coords="0,130,69,169" href="16/16sssh2.rle" />
+	<area coords="70,130,129,169" href="16/16bsnsh2.rle" />
+	<area coords="130,130,189,169" href="16/16slbbk3.rle" />
+	<area coords="190,130,249,169" href="16/16slbbk2.rle" />
+	<area coords="250,130,309,169" href="16/16acbts1.rle" />
+	<area coords="310,130,369,169" href="16/16snbts2.rle" />
+	<area coords="370,130,429,169" href="16/16ssac1.rle" />
+	<area coords="430,130,489,169" href="16/16acbsn1.rle" />
+	<area coords="490,130,549,169" href="16/16assn5.rle" />
+	<area coords="550,130,620,169" href="16/16lsbbt1.rle" />
+	<area coords="0,170,69,209" href="16/16lssbt1.rle" />
+	<area coords="70,170,129,209" href="16/16acbac1.rle" />
+	<area coords="130,170,189,209" href="16/16asac5.rle" />
+	<area coords="190,170,249,209" href="16/16llls7.rle" />
+	<area coords="250,170,309,209" href="16/16llls3.rle" />
+	<area coords="310,170,369,209" href="16/16assn6.rle" />
+	<area coords="370,170,429,209" href="16/16acbsn2.rle" />
+	<area coords="430,170,489,209" href="16/16acsnbb.rle" />
+	<area coords="490,170,549,209" href="16/16assn1.rle" />
+	<area coords="550,170,620,209" href="16/16assn2.rle" />
+	<area coords="0,210,69,249" href="16/16snacb1.rle" />
+	<area coords="70,210,129,249" href="16/16snacb3.rle" />
+	<area coords="130,210,189,249" href="16/16lssbt3.rle" />
+	<area coords="190,210,249,249" href="16/16blsbt1.rle" />
+	<area coords="250,210,309,249" href="16/16asac1.rle" />
+	<area coords="310,210,369,249" href="16/16acacb7.rle" />
+	<area coords="370,210,429,249" href="16/16ssac2.rle" />
+	<area coords="430,210,489,249" href="16/16acsnbc.rle" />
+	<area coords="490,210,549,249" href="16/16pdpd.rle" />
+	<area coords="550,210,620,249" href="16/16lplp1.rle" />
+	<area coords="0,250,69,289" href="16/16bshta2.rle" />
+	<area coords="70,250,129,289" href="16/16bkctb2.rle" />
+	<area coords="130,250,189,289" href="16/16bacta6.rle" />
+	<area coords="190,250,249,289" href="16/16acbta3.rle" />
+	<area coords="250,250,309,289" href="16/16shbta1.rle" />
+	<area coords="310,250,369,289" href="16/16bkbkct.rle" />
+	<area coords="370,250,429,289" href="16/16bpdbk2.rle" />
+	<area coords="430,250,489,289" href="16/16hvbhv.rle" />
+	<area coords="490,250,549,289" href="16/16bkhvhv.rle" />
+	<area coords="550,250,620,289" href="16/16pdbbk.rle" />
+	<area coords="0,290,69,329" href="16/16bltsh3.rle" />
+	<area coords="70,290,129,329" href="16/16slpd2.rle" />
+	<area coords="130,290,189,329" href="16/16acbsh3.rle" />
+	<area coords="190,290,249,329" href="16/16acshba.rle" />
+	<area coords="250,290,309,329" href="16/16lish3.rle" />
+	<area coords="310,290,369,329" href="16/16bltsh6.rle" />
+	<area coords="370,290,429,329" href="16/16sllp6.rle" />
+	<area coords="430,290,489,329" href="16/16sllp3.rle" />
+	<area coords="490,290,549,329" href="16/16shbsh2.rle" />
+	<area coords="550,290,620,329" href="16/16shbhv.rle" />
+	<area coords="0,330,69,369" href="16/16acbac5.rle" />
+	<area coords="70,330,129,369" href="16/16liac7.rle" />
+	<area coords="130,330,189,369" href="16/16bltacc.rle" />
+	<area coords="190,330,249,369" href="16/16htlp2.rle" />
+	<area coords="250,330,309,369" href="16/16slpd3.rle" />
+	<area coords="310,330,369,369" href="16/16bltac9.rle" />
+	<area coords="370,330,429,369" href="16/16shhvbk.rle" />
+	<area coords="430,330,489,369" href="16/16etcpb1.rle" />
+	<area coords="490,330,549,369" href="16/16etcpb7.rle" />
+	<area coords="550,330,620,369" href="16/16htcpb1.rle" />
+	<area coords="0,370,69,420" href="16/16snsnb5.rle" />
+	<area coords="70,370,129,420" href="16/16bacta1.rle" />
+	<area coords="130,370,189,420" href="16/16bacsh7.rle" />
+	<area coords="190,370,249,420" href="16/16blpbk2.rle" />
+	<area coords="250,370,309,420" href="16/16shshb4.rle" />
+	<area coords="310,370,369,420" href="16/16bshhv2.rle" />
+	<area coords="370,370,429,420" href="16/16acacbk.rle" />
+	<area coords="430,370,489,420" href="16/16eetbk3.rle" />
+	<area coords="490,370,549,420" href="16/16dftsb2.rle" />
+	<area coords="550,370,620,420" href="16/16htcpb3.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-1"></a>
+<h3>The second 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-1.rle"><img src="map/pp1-16-1.png"
+ alt="16-bit pseudo-still-lifes 101-200"
+ width="621" height="421" usemap="#pp1-16-1" /></a></p>
+
+<map name="pp1-16-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-1.rle" />
+	<area coords="0,0,69,49" href="16/16bsnta1.rle" />
+	<area coords="70,0,129,49" href="16/16snbta2.rle" />
+	<area coords="130,0,189,49" href="16/16bsnta2.rle" />
+	<area coords="190,0,249,49" href="16/16acbta1.rle" />
+	<area coords="250,0,309,49" href="16/16lpbbk.rle" />
+	<area coords="310,0,369,49" href="16/16snbta1.rle" />
+	<area coords="370,0,429,49" href="16/16snhvbk.rle" />
+	<area coords="430,0,489,49" href="16/16bksnhv.rle" />
+	<area coords="490,0,549,49" href="16/16sshv.rle" />
+	<area coords="550,0,620,49" href="16/16snbhv.rle" />
+	<area coords="0,50,69,89" href="16/16tltlb2.rle" />
+	<area coords="70,50,129,89" href="16/16tvthv2.rle" />
+	<area coords="130,50,189,89" href="16/16hvbts2.rle" />
+	<area coords="190,50,249,89" href="16/16hvbts1.rle" />
+	<area coords="250,50,309,89" href="16/16xibk2.rle" />
+	<area coords="310,50,369,89" href="16/16lllf3.rle" />
+	<area coords="370,50,429,89" href="16/16lfbbt1.rle" />
+	<area coords="430,50,489,89" href="16/16lfbbt2.rle" />
+	<area coords="490,50,549,89" href="16/16lllf7.rle" />
+	<area coords="550,50,620,89" href="16/16lllf8.rle" />
+	<area coords="0,90,69,129" href="16/16lllf4.rle" />
+	<area coords="70,90,129,129" href="16/16acbts8.rle" />
+	<area coords="130,90,189,129" href="16/16aebt3.rle" />
+	<area coords="190,90,249,129" href="16/16snftb3.rle" />
+	<area coords="250,90,309,129" href="16/16bvtbt3.rle" />
+	<area coords="310,90,369,129" href="16/16vlsh7.rle" />
+	<area coords="370,90,429,129" href="16/16shbts5.rle" />
+	<area coords="430,90,489,129" href="16/16lbbbt1.rle" />
+	<area coords="490,90,549,129" href="16/16etbbt3.rle" />
+	<area coords="550,90,620,129" href="16/16tltet4.rle" />
+	<area coords="0,130,69,169" href="16/16bltac3.rle" />
+	<area coords="70,130,129,169" href="16/16slsl8.rle" />
+	<area coords="130,130,189,169" href="16/16sebt3.rle" />
+	<area coords="190,130,249,169" href="16/16bltsn3.rle" />
+	<area coords="250,130,309,169" href="16/16etbbt1.rle" />
+	<area coords="310,130,369,169" href="16/16esbt1.rle" />
+	<area coords="370,130,429,169" href="16/16slht5.rle" />
+	<area coords="430,130,489,169" href="16/16slht4.rle" />
+	<area coords="490,130,549,169" href="16/16htabk1.rle" />
+	<area coords="550,130,620,169" href="16/16lctbt7.rle" />
+	<area coords="0,170,69,209" href="16/16ssac3.rle" />
+	<area coords="70,170,129,209" href="16/16acbsn3.rle" />
+	<area coords="130,170,189,209" href="16/16etbbt6.rle" />
+	<area coords="190,170,249,209" href="16/16sebt6.rle" />
+	<area coords="250,170,309,209" href="16/16asac11.rle" />
+	<area coords="310,170,369,209" href="16/16acbac3.rle" />
+	<area coords="370,170,429,209" href="16/16acacbb.rle" />
+	<area coords="430,170,489,209" href="16/16asac7.rle" />
+	<area coords="490,170,549,209" href="16/16lsebk4.rle" />
+	<area coords="550,170,620,209" href="16/16aebt7.rle" />
+	<area coords="0,210,69,249" href="16/16lisn3.rle" />
+	<area coords="70,210,129,249" href="16/16acftb1.rle" />
+	<area coords="130,210,189,249" href="16/16aash1.rle" />
+	<area coords="190,210,249,249" href="16/16liac3.rle" />
+	<area coords="250,210,309,249" href="16/16snftb2.rle" />
+	<area coords="310,210,369,249" href="16/16slsl12.rle" />
+	<area coords="370,210,429,249" href="16/16slsl9.rle" />
+	<area coords="430,210,489,249" href="16/16bltsn6.rle" />
+	<area coords="490,210,549,249" href="16/16bltac6.rle" />
+	<area coords="550,210,620,249" href="16/16bvtbt7.rle" />
+	<area coords="0,250,69,289" href="16/16assh6.rle" />
+	<area coords="70,250,129,289" href="16/16acbsh2.rle" />
+	<area coords="130,250,189,289" href="16/16tltet2.rle" />
+	<area coords="190,250,249,289" href="16/16tltet5.rle" />
+	<area coords="250,250,309,289" href="16/16aebt8.rle" />
+	<area coords="310,250,369,289" href="16/16acbhv1.rle" />
+	<area coords="370,250,429,289" href="16/16ashv3.rle" />
+	<area coords="430,250,489,289" href="16/16snftb1.rle" />
+	<area coords="490,250,549,289" href="16/16vlhv2.rle" />
+	<area coords="550,250,620,289" href="16/16bvtbt8.rle" />
+	<area coords="0,290,69,329" href="16/16tvtsh4.rle" />
+	<area coords="70,290,129,329" href="16/16htht1.rle" />
+	<area coords="130,290,189,329" href="16/16aaac5.rle" />
+	<area coords="190,290,249,329" href="16/16vslp1.rle" />
+	<area coords="250,290,309,329" href="16/16vlsh4.rle" />
+	<area coords="310,290,369,329" href="16/16lhtlf2.rle" />
+	<area coords="370,290,429,329" href="16/16lhtlf1.rle" />
+	<area coords="430,290,489,329" href="16/16vlac17.rle" />
+	<area coords="490,290,549,329" href="16/16tvtsh3.rle" />
+	<area coords="550,290,620,329" href="16/16achvb1.rle" />
+	<area coords="0,330,69,369" href="16/16vcltb4.rle" />
+	<area coords="70,330,129,369" href="16/16vlsh3.rle" />
+	<area coords="130,330,189,369" href="16/16vhtac7.rle" />
+	<area coords="190,330,249,369" href="16/16vhtsh1.rle" />
+	<area coords="250,330,309,369" href="16/16acftb5.rle" />
+	<area coords="310,330,369,369" href="16/16vibt4.rle" />
+	<area coords="370,330,429,369" href="16/16llet28.rle" />
+	<area coords="430,330,489,369" href="16/16llet24.rle" />
+	<area coords="490,330,549,369" href="16/16llet17.rle" />
+	<area coords="550,330,620,369" href="16/16llet7.rle" />
+	<area coords="0,370,69,420" href="16/16lllb7.rle" />
+	<area coords="70,370,129,420" href="16/16llet13.rle" />
+	<area coords="130,370,189,420" href="16/16llet3.rle" />
+	<area coords="190,370,249,420" href="16/16lllb3.rle" />
+	<area coords="250,370,309,420" href="16/16betbt3.rle" />
+	<area coords="310,370,369,420" href="16/16bltsn5.rle" />
+	<area coords="370,370,429,420" href="16/16lisn4.rle" />
+	<area coords="430,370,489,420" href="16/16bltsn4.rle" />
+	<area coords="490,370,549,420" href="16/16fltsbk.rle" />
+	<area coords="550,370,620,420" href="16/16htsbk1.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-2"></a>
+<h3>The third 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-2.rle"><img src="map/pp1-16-2.png"
+ alt="16-bit pseudo-still-lifes 201-300"
+ width="621" height="421" usemap="#pp1-16-2" /></a></p>
+
+<map name="pp1-16-2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-2.rle" />
+	<area coords="0,0,69,49" href="16/16acbsn4.rle" />
+	<area coords="70,0,129,49" href="16/16acsnbd.rle" />
+	<area coords="130,0,189,49" href="16/16assh2.rle" />
+	<area coords="190,0,249,49" href="16/16snacb6.rle" />
+	<area coords="250,0,309,49" href="16/16snacb8.rle" />
+	<area coords="310,0,369,49" href="16/16betbt8.rle" />
+	<area coords="370,0,429,49" href="16/16acacbe.rle" />
+	<area coords="430,0,489,49" href="16/16lsebk2.rle" />
+	<area coords="490,0,549,49" href="16/16bacsh2.rle" />
+	<area coords="550,0,620,49" href="16/16lsftb3.rle" />
+	<area coords="0,50,69,89" href="16/16acshb8.rle" />
+	<area coords="70,50,129,89" href="16/16ashv1.rle" />
+	<area coords="130,50,189,89" href="16/16bachv1.rle" />
+	<area coords="190,50,249,89" href="16/16bxtbk4.rle" />
+	<area coords="250,50,309,89" href="16/16bxtbk2.rle" />
+	<area coords="310,50,369,89" href="16/16lsftb1.rle" />
+	<area coords="370,50,429,89" href="16/16vitbk2.rle" />
+	<area coords="430,50,489,89" href="16/16snsnb3.rle" />
+	<area coords="490,50,549,89" href="16/16htbbk1.rle" />
+	<area coords="550,50,620,89" href="16/16ssac4.rle" />
+	<area coords="0,90,69,129" href="16/16acsnbe.rle" />
+	<area coords="70,90,129,129" href="16/16tltls2.rle" />
+	<area coords="130,90,189,129" href="16/16tvtsn4.rle" />
+	<area coords="190,90,249,129" href="16/16tvtsn3.rle" />
+	<area coords="250,90,309,129" href="16/16snbts1.rle" />
+	<area coords="310,90,369,129" href="16/16snbts3.rle" />
+	<area coords="370,90,429,129" href="16/16vlac7.rle" />
+	<area coords="430,90,489,129" href="16/16acbts2.rle" />
+	<area coords="490,90,549,129" href="16/16txtbt3.rle" />
+	<area coords="550,90,620,129" href="16/16vlsn7.rle" />
+	<area coords="0,130,69,169" href="16/16acbac2.rle" />
+	<area coords="70,130,129,169" href="16/16aasn1.rle" />
+	<area coords="130,130,189,169" href="16/16lsabt5.rle" />
+	<area coords="190,130,249,169" href="16/16aaac1.rle" />
+	<area coords="250,130,309,169" href="16/16asac6.rle" />
+	<area coords="310,130,369,169" href="16/16slvs6.rle" />
+	<area coords="370,130,429,169" href="16/16slvs3.rle" />
+	<area coords="430,130,489,169" href="16/16vlsn4.rle" />
+	<area coords="490,130,549,169" href="16/16vlsn3.rle" />
+	<area coords="550,130,620,169" href="16/16llls4.rle" />
+	<area coords="0,170,69,209" href="16/16llls8.rle" />
+	<area coords="70,170,129,209" href="16/16lsbbt2.rle" />
+	<area coords="130,170,189,209" href="16/16lsabt1.rle" />
+	<area coords="190,170,249,209" href="16/16lssbt2.rle" />
+	<area coords="250,170,309,209" href="16/16tvtac4.rle" />
+	<area coords="310,170,369,209" href="16/16htvs2.rle" />
+	<area coords="370,170,429,209" href="16/16vlac4.rle" />
+	<area coords="430,170,489,209" href="16/16lhtls2.rle" />
+	<area coords="490,170,549,209" href="16/16lhtls1.rle" />
+	<area coords="550,170,620,209" href="16/16tvtac3.rle" />
+	<area coords="0,210,69,249" href="16/16vlac3.rle" />
+	<area coords="70,210,129,249" href="16/16vhtac1.rle" />
+	<area coords="130,210,189,249" href="16/16vhtsn1.rle" />
+	<area coords="190,210,249,249" href="16/16aasn2.rle" />
+	<area coords="250,210,309,249" href="16/16vlsn8.rle" />
+	<area coords="310,210,369,249" href="16/16vhtsn2.rle" />
+	<area coords="370,210,429,249" href="16/16asac2.rle" />
+	<area coords="430,210,489,249" href="16/16lssbt4.rle" />
+	<area coords="490,210,549,249" href="16/16acacb9.rle" />
+	<area coords="550,210,620,249" href="16/16bvsbk1.rle" />
+	<area coords="0,250,69,289" href="16/16vssbk2.rle" />
+	<area coords="70,250,129,289" href="16/16blsbt2.rle" />
+	<area coords="130,250,189,289" href="16/16lslsb1.rle" />
+	<area coords="190,250,249,289" href="16/16vssbk1.rle" />
+	<area coords="250,250,309,289" href="16/16vsbbk1.rle" />
+	<area coords="310,250,369,289" href="16/16vsvs1.rle" />
+	<area coords="370,250,429,289" href="16/16bbkbbk.rle" />
+	<area coords="430,250,489,289" href="16/16slsl1.rle" />
+	<area coords="490,250,549,289" href="16/16slsl13.rle" />
+	<area coords="550,250,620,289" href="16/16slsl14.rle" />
+	<area coords="0,290,69,329" href="16/16htht9.rle" />
+	<area coords="70,290,129,329" href="16/16lhash2.rle" />
+	<area coords="130,290,189,329" href="16/16lhahv.rle" />
+	<area coords="190,290,249,329" href="16/16sllp1.rle" />
+	<area coords="250,290,309,329" href="16/16btash2.rle" />
+	<area coords="310,290,369,329" href="16/16btaac4.rle" />
+	<area coords="370,290,429,329" href="16/16lhaac4.rle" />
+	<area coords="430,290,489,329" href="16/16slht8.rle" />
+	<area coords="490,290,549,329" href="16/16lhash1.rle" />
+	<area coords="550,290,620,329" href="16/16snbsn3.rle" />
+	<area coords="0,330,69,369" href="16/16acbsn5.rle" />
+	<area coords="70,330,129,369" href="16/16snsnb8.rle" />
+	<area coords="130,330,189,369" href="16/16htbnt2.rle" />
+	<area coords="190,330,249,369" href="16/16lhahb1.rle" />
+	<area coords="250,330,309,369" href="16/16lfgsh1.rle" />
+	<area coords="310,330,369,369" href="16/16cgcg1.rle" />
+	<area coords="370,330,429,369" href="16/16lfghv.rle" />
+	<area coords="430,330,489,369" href="16/16lflfb2.rle" />
+	<area coords="490,330,549,369" href="16/16lflfb1.rle" />
+	<area coords="550,330,620,369" href="16/16htbnt1.rle" />
+	<area coords="0,370,69,420" href="16/16cgpd.rle" />
+	<area coords="70,370,129,420" href="16/16htht7.rle" />
+	<area coords="130,370,189,420" href="16/16actab6.rle" />
+	<area coords="190,370,249,420" href="16/16lhasn1.rle" />
+	<area coords="250,370,309,420" href="16/16lhaac2.rle" />
+	<area coords="310,370,369,420" href="16/16lhasn2.rle" />
+	<area coords="370,370,429,420" href="16/16slsl6.rle" />
+	<area coords="430,370,489,420" href="16/16slsl3.rle" />
+	<area coords="490,370,549,420" href="16/16hvbta.rle" />
+	<area coords="550,370,620,420" href="16/16slht2.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-3"></a>
+<h3>The fourth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-3.rle"><img src="map/pp1-16-3.png"
+ alt="16-bit pseudo-still-lifes 301-400"
+ width="621" height="421" usemap="#pp1-16-3" /></a></p>
+
+<map name="pp1-16-3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-3.rle" />
+	<area coords="0,0,69,49" href="16/16htlp4.rle" />
+	<area coords="70,0,129,49" href="16/16bkhvta.rle" />
+	<area coords="130,0,189,49" href="16/16tecpb4.rle" />
+	<area coords="190,0,249,49" href="16/16teclb4.rle" />
+	<area coords="250,0,309,49" href="16/16vpsh1.rle" />
+	<area coords="310,0,369,49" href="16/16vpac3.rle" />
+	<area coords="370,0,429,49" href="16/16lppd.rle" />
+	<area coords="430,0,489,49" href="16/16bbkle2.rle" />
+	<area coords="490,0,549,49" href="16/16shbta2.rle" />
+	<area coords="550,0,620,49" href="16/16btasn2.rle" />
+	<area coords="0,50,69,89" href="16/16btaac2.rle" />
+	<area coords="70,50,129,89" href="16/16ubtls9.rle" />
+	<area coords="130,50,189,89" href="16/16sltt2.rle" />
+	<area coords="190,50,249,89" href="16/16vbls3.rle" />
+	<area coords="250,50,309,89" href="16/16cglp2.rle" />
+	<area coords="310,50,369,89" href="16/16htht5.rle" />
+	<area coords="370,50,429,89" href="16/16inls7.rle" />
+	<area coords="430,50,489,89" href="16/16slcs1.rle" />
+	<area coords="490,50,549,89" href="16/16ubtls7.rle" />
+	<area coords="550,50,620,89" href="16/16inls5.rle" />
+	<area coords="0,90,69,129" href="16/16ubtlsc.rle" />
+	<area coords="70,90,129,129" href="16/16slcs7.rle" />
+	<area coords="130,90,189,129" href="16/16lfgac3.rle" />
+	<area coords="190,90,249,129" href="16/16lhaac1.rle" />
+	<area coords="250,90,309,129" href="16/16dbtls8.rle" />
+	<area coords="310,90,369,129" href="16/16lfgsh2.rle" />
+	<area coords="370,90,429,129" href="16/16hvtcb3.rle" />
+	<area coords="430,90,489,129" href="16/16tatabk.rle" />
+	<area coords="490,90,549,129" href="16/16actab5.rle" />
+	<area coords="550,90,620,129" href="16/16btasn1.rle" />
+	<area coords="0,130,69,169" href="16/16tecpb2.rle" />
+	<area coords="70,130,129,169" href="16/16teclb2.rle" />
+	<area coords="130,130,189,169" href="16/16bkleb1.rle" />
+	<area coords="190,130,249,169" href="16/16iltbk1.rle" />
+	<area coords="250,130,309,169" href="16/16lhacb1.rle" />
+	<area coords="310,130,369,169" href="16/16bkleb3.rle" />
+	<area coords="370,130,429,169" href="16/16bshta4.rle" />
+	<area coords="430,130,489,169" href="16/16hvtcb2.rle" />
+	<area coords="490,130,549,169" href="16/16cltcb2.rle" />
+	<area coords="550,130,620,169" href="16/16cltcb3.rle" />
+	<area coords="0,170,69,209" href="16/16bbkle1.rle" />
+	<area coords="70,170,129,209" href="16/16slbbk1.rle" />
+	<area coords="130,170,189,209" href="16/16bcgbk.rle" />
+	<area coords="190,170,249,209" href="16/16lfgsn2.rle" />
+	<area coords="250,170,309,209" href="16/16lfgac1.rle" />
+	<area coords="310,170,369,209" href="16/16lfgsn1.rle" />
+	<area coords="370,170,429,209" href="16/16cgbbk.rle" />
+	<area coords="430,170,489,209" href="16/16vbet3.rle" />
+	<area coords="490,170,549,209" href="16/16vblb1.rle" />
+	<area coords="550,170,620,209" href="16/16ttlp2.rle" />
+	<area coords="0,210,69,249" href="16/16vbet6.rle" />
+	<area coords="70,210,129,249" href="16/16vbet1.rle" />
+	<area coords="130,210,189,249" href="16/16slcg5.rle" />
+	<area coords="190,210,249,249" href="16/16slcg4.rle" />
+	<area coords="250,210,309,249" href="16/16ttcpb2.rle" />
+	<area coords="310,210,369,249" href="16/16btetb2.rle" />
+	<area coords="370,210,429,249" href="16/16etcpb8.rle" />
+	<area coords="430,210,489,249" href="16/16etcpb2.rle" />
+	<area coords="490,210,549,249" href="16/16dbtet8.rle" />
+	<area coords="550,210,620,249" href="16/16dbtlb4.rle" />
+	<area coords="0,250,69,289" href="16/16dbtetb.rle" />
+	<area coords="70,250,129,289" href="16/16dbtet4.rle" />
+	<area coords="130,250,189,289" href="16/16cslach.rle" />
+	<area coords="190,250,249,289" href="16/16chtac9.rle" />
+	<area coords="250,250,309,289" href="16/16cslsh7.rle" />
+	<area coords="310,250,369,289" href="16/16chtsh3.rle" />
+	<area coords="370,250,429,289" href="16/16itlbt1.rle" />
+	<area coords="430,250,489,289" href="16/16ubtet9.rle" />
+	<area coords="490,250,549,289" href="16/16ubtlb3.rle" />
+	<area coords="550,250,620,289" href="16/16ubtetg.rle" />
+	<area coords="0,290,69,329" href="16/16ubtet3.rle" />
+	<area coords="70,290,129,329" href="16/16ihksh3.rle" />
+	<area coords="130,290,189,329" href="16/16ihkac9.rle" />
+	<area coords="190,290,249,329" href="16/16blthv2.rle" />
+	<area coords="250,290,309,329" href="16/16slcg3.rle" />
+	<area coords="310,290,369,329" href="16/16cltsh5.rle" />
+	<area coords="370,290,429,329" href="16/16slht11.rle" />
+	<area coords="430,290,489,329" href="16/16slht10.rle" />
+	<area coords="490,290,549,329" href="16/16ahtbk3.rle" />
+	<area coords="550,290,620,329" href="16/16ubtet7.rle" />
+	<area coords="0,330,69,369" href="16/16ubtlb1.rle" />
+	<area coords="70,330,129,369" href="16/16ubtete.rle" />
+	<area coords="130,330,189,369" href="16/16ubtet1.rle" />
+	<area coords="190,330,249,369" href="16/16cltacb.rle" />
+	<area coords="250,330,309,369" href="16/16htht3.rle" />
+	<area coords="310,330,369,369" href="16/16slvs1.rle" />
+	<area coords="370,330,429,369" href="16/16dbtlf2.rle" />
+	<area coords="430,330,489,369" href="16/16htpd1.rle" />
+	<area coords="490,330,549,369" href="16/16dbtlf1.rle" />
+	<area coords="550,330,620,369" href="16/16ulftb2.rle" />
+	<area coords="0,370,69,420" href="16/16ulftb1.rle" />
+	<area coords="70,370,129,420" href="16/16dlbtb1.rle" />
+	<area coords="130,370,189,420" href="16/16lsbbt3.rle" />
+	<area coords="190,370,249,420" href="16/16inet9.rle" />
+	<area coords="250,370,309,420" href="16/16acbhv2.rle" />
+	<area coords="310,370,369,420" href="16/16tltls4.rle" />
+	<area coords="370,370,429,420" href="16/16cslhv2.rle" />
+	<area coords="430,370,489,420" href="16/16inlb3.rle" />
+	<area coords="490,370,549,420" href="16/16cslp1.rle" />
+	<area coords="550,370,620,420" href="16/16cslsh4.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-4"></a>
+<h3>The fifth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-4.rle"><img src="map/pp1-16-4.png"
+ alt="16-bit pseudo-still-lifes 401-500"
+ width="621" height="421" usemap="#pp1-16-4" /></a></p>
+
+<map name="pp1-16-4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-4.rle" />
+	<area coords="0,0,69,49" href="16/16inet12.rle" />
+	<area coords="70,0,129,49" href="16/16inet7.rle" />
+	<area coords="130,0,189,49" href="16/16achvb2.rle" />
+	<area coords="190,0,249,49" href="16/16bctbk2.rle" />
+	<area coords="250,0,309,49" href="16/16etftb6.rle" />
+	<area coords="310,0,369,49" href="16/16acbta2.rle" />
+	<area coords="370,0,429,49" href="16/16lihv2.rle" />
+	<area coords="430,0,489,49" href="16/16ihksh2.rle" />
+	<area coords="490,0,549,49" href="16/16vpsn1.rle" />
+	<area coords="550,0,620,49" href="16/16vpac1.rle" />
+	<area coords="0,50,69,89" href="16/16sllp5.rle" />
+	<area coords="70,50,129,89" href="16/16sllp4.rle" />
+	<area coords="130,50,189,89" href="16/16inet3.rle" />
+	<area coords="190,50,249,89" href="16/16ubtetc.rle" />
+	<area coords="250,50,309,89" href="16/16inlb1.rle" />
+	<area coords="310,50,369,89" href="16/16ubtlb6.rle" />
+	<area coords="370,50,429,89" href="16/16blthv3.rle" />
+	<area coords="430,50,489,89" href="16/16cslp3.rle" />
+	<area coords="490,50,549,89" href="16/16inet6.rle" />
+	<area coords="550,50,620,89" href="16/16ihkac8.rle" />
+	<area coords="0,90,69,129" href="16/16inet1.rle" />
+	<area coords="70,90,129,129" href="16/16ubteth.rle" />
+	<area coords="130,90,189,129" href="16/16ubtet6.rle" />
+	<area coords="190,90,249,129" href="16/16bltsh5.rle" />
+	<area coords="250,90,309,129" href="16/16lish4.rle" />
+	<area coords="310,90,369,129" href="16/16bltsh4.rle" />
+	<area coords="370,90,429,129" href="16/16acbsh4.rle" />
+	<area coords="430,90,489,129" href="16/16dbtet6.rle" />
+	<area coords="490,90,549,129" href="16/16htcg1.rle" />
+	<area coords="550,90,620,129" href="16/16dbtlb2.rle" />
+	<area coords="0,130,69,169" href="16/16httt3.rle" />
+	<area coords="70,130,129,169" href="16/16dlbtb2.rle" />
+	<area coords="130,130,189,169" href="16/16dbtet2.rle" />
+	<area coords="190,130,249,169" href="16/16cslace.rle" />
+	<area coords="250,130,309,169" href="16/16htcs4.rle" />
+	<area coords="310,130,369,169" href="16/16dbtet9.rle" />
+	<area coords="370,130,429,169" href="16/16htcs8.rle" />
+	<area coords="430,130,489,169" href="16/16slcg6.rle" />
+	<area coords="490,130,549,169" href="16/16lfgac2.rle" />
+	<area coords="550,130,620,169" href="16/16cslsh3.rle" />
+	<area coords="0,170,69,209" href="16/16llls17.rle" />
+	<area coords="70,170,129,209" href="16/16llls13.rle" />
+	<area coords="130,170,189,209" href="16/16tttbk2.rle" />
+	<area coords="190,170,249,209" href="16/16itlhkb.rle" />
+	<area coords="250,170,309,209" href="16/16vpsn2.rle" />
+	<area coords="310,170,369,209" href="16/16lbltb3.rle" />
+	<area coords="370,170,429,209" href="16/16shtbk2.rle" />
+	<area coords="430,170,489,209" href="16/16bacsh8.rle" />
+	<area coords="490,170,549,209" href="16/16blsbt7.rle" />
+	<area coords="550,170,620,209" href="16/16bachv4.rle" />
+	<area coords="0,210,69,249" href="16/16bctbk4.rle" />
+	<area coords="70,210,129,249" href="16/16etftb5.rle" />
+	<area coords="130,210,189,249" href="16/16bacta3.rle" />
+	<area coords="190,210,249,249" href="16/16etftb3.rle" />
+	<area coords="250,210,309,249" href="16/16libtb4.rle" />
+	<area coords="310,210,369,249" href="16/16libtb2.rle" />
+	<area coords="370,210,429,249" href="16/16lbltb2.rle" />
+	<area coords="430,210,489,249" href="16/16snshb1.rle" />
+	<area coords="490,210,549,249" href="16/16acshbc.rle" />
+	<area coords="550,210,620,249" href="16/16ichbk2.rle" />
+	<area coords="0,250,69,289" href="16/16ichbk3.rle" />
+	<area coords="70,250,129,289" href="16/16snshb3.rle" />
+	<area coords="130,250,189,289" href="16/16htbbk2.rle" />
+	<area coords="190,250,249,289" href="16/16chtac3.rle" />
+	<area coords="250,250,309,289" href="16/16sltt4.rle" />
+	<area coords="310,250,369,289" href="16/16attbk2.rle" />
+	<area coords="370,250,429,289" href="16/16vbls1.rle" />
+	<area coords="430,250,489,289" href="16/16gvtbk2.rle" />
+	<area coords="490,250,549,289" href="16/16lllb4.rle" />
+	<area coords="550,250,620,289" href="16/16httt1.rle" />
+	<area coords="0,290,69,329" href="16/16lhtlb2.rle" />
+	<area coords="70,290,129,329" href="16/16tltlf1.rle" />
+	<area coords="130,290,189,329" href="16/16aebt4.rle" />
+	<area coords="190,290,249,329" href="16/16snftb4.rle" />
+	<area coords="250,290,309,329" href="16/16bvtbt4.rle" />
+	<area coords="310,290,369,329" href="16/16shbts6.rle" />
+	<area coords="370,290,429,329" href="16/16vhthv1.rle" />
+	<area coords="430,290,489,329" href="16/16lbbbt2.rle" />
+	<area coords="490,290,549,329" href="16/16tttt1.rle" />
+	<area coords="550,290,620,329" href="16/16cslac7.rle" />
+	<area coords="0,330,69,369" href="16/16vlhv4.rle" />
+	<area coords="70,330,129,369" href="16/16tltlf2.rle" />
+	<area coords="130,330,189,369" href="16/16lllb8.rle" />
+	<area coords="190,330,249,369" href="16/16dbtls4.rle" />
+	<area coords="250,330,309,369" href="16/16sltt5.rle" />
+	<area coords="310,330,369,369" href="16/16gltbt2.rle" />
+	<area coords="370,330,429,369" href="16/16acbts9.rle" />
+	<area coords="430,330,489,369" href="16/16tctbt3.rle" />
+	<area coords="490,330,549,369" href="16/16litbb4.rle" />
+	<area coords="550,330,620,369" href="16/16ilhbt3.rle" />
+	<area coords="0,370,69,420" href="16/16snbtb1.rle" />
+	<area coords="70,370,129,420" href="16/16ftltb4.rle" />
+	<area coords="130,370,189,420" href="16/16ubtls3.rle" />
+	<area coords="190,370,249,420" href="16/16ftvtb3.rle" />
+	<area coords="250,370,309,420" href="16/16llet14.rle" />
+	<area coords="310,370,369,420" href="16/16llet18.rle" />
+	<area coords="370,370,429,420" href="16/16etbbt4.rle" />
+	<area coords="430,370,489,420" href="16/16lhtet8.rle" />
+	<area coords="490,370,549,420" href="16/16ihhbt2.rle" />
+	<area coords="550,370,620,420" href="16/16ihkac3.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-5"></a>
+<h3>The sixth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-5.rle"><img src="map/pp1-16-5.png"
+ alt="16-bit pseudo-still-lifes 501-600"
+ width="621" height="421" usemap="#pp1-16-5" /></a></p>
+
+<map name="pp1-16-5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-5.rle" />
+	<area coords="0,0,69,49" href="16/16ihlhb1.rle" />
+	<area coords="70,0,129,49" href="16/16ftltb2.rle" />
+	<area coords="130,0,189,49" href="16/16sebt4.rle" />
+	<area coords="190,0,249,49" href="16/16cslsn7.rle" />
+	<area coords="250,0,309,49" href="16/16chtsn3.rle" />
+	<area coords="310,0,369,49" href="16/16ihksn3.rle" />
+	<area coords="370,0,429,49" href="16/16ubtls1.rle" />
+	<area coords="430,0,489,49" href="16/16llet4.rle" />
+	<area coords="490,0,549,49" href="16/16llet8.rle" />
+	<area coords="550,0,620,49" href="16/16etbbt2.rle" />
+	<area coords="0,50,69,89" href="16/16cltsn5.rle" />
+	<area coords="70,50,129,89" href="16/16eabt1.rle" />
+	<area coords="130,50,189,89" href="16/16cltac5.rle" />
+	<area coords="190,50,249,89" href="16/16esbt2.rle" />
+	<area coords="250,50,309,89" href="16/16slht3.rle" />
+	<area coords="310,50,369,89" href="16/16lhtet2.rle" />
+	<area coords="370,50,429,89" href="16/16dbtls2.rle" />
+	<area coords="430,50,489,89" href="16/16htvs4.rle" />
+	<area coords="490,50,549,89" href="16/16lctbt8.rle" />
+	<area coords="550,50,620,89" href="16/16lhtet7.rle" />
+	<area coords="0,90,69,129" href="16/16lhtet1.rle" />
+	<area coords="70,90,129,129" href="16/16lhtlb1.rle" />
+	<area coords="130,90,189,129" href="16/16slcs6.rle" />
+	<area coords="190,90,249,129" href="16/16slcs3.rle" />
+	<area coords="250,90,309,129" href="16/16cslsn4.rle" />
+	<area coords="310,90,369,129" href="16/16cslsn3.rle" />
+	<area coords="370,90,429,129" href="16/16inls3.rle" />
+	<area coords="430,90,489,129" href="16/16llet23.rle" />
+	<area coords="490,90,549,129" href="16/16llet27.rle" />
+	<area coords="550,90,620,129" href="16/16etbbt5.rle" />
+	<area coords="0,130,69,169" href="16/16sebt5.rle" />
+	<area coords="70,130,129,169" href="16/16tvtaca.rle" />
+	<area coords="130,130,189,169" href="16/16vlac14.rle" />
+	<area coords="190,130,249,169" href="16/16htcs2.rle" />
+	<area coords="250,130,309,169" href="16/16cslac4.rle" />
+	<area coords="310,130,369,169" href="16/16lhtetd.rle" />
+	<area coords="370,130,429,169" href="16/16lhtete.rle" />
+	<area coords="430,130,489,169" href="16/16tvtac9.rle" />
+	<area coords="490,130,549,169" href="16/16bltac4.rle" />
+	<area coords="550,130,620,169" href="16/16acbac4.rle" />
+	<area coords="0,170,69,209" href="16/16acftb2.rle" />
+	<area coords="70,170,129,209" href="16/16liac4.rle" />
+	<area coords="130,170,189,209" href="16/16aahv1.rle" />
+	<area coords="190,170,249,209" href="16/16slht6.rle" />
+	<area coords="250,170,309,209" href="16/16asac12.rle" />
+	<area coords="310,170,369,209" href="16/16slcs12.rle" />
+	<area coords="370,170,429,209" href="16/16slcs9.rle" />
+	<area coords="430,170,489,209" href="16/16ihksn2.rle" />
+	<area coords="490,170,549,209" href="16/16inls1.rle" />
+	<area coords="550,170,620,209" href="16/16ihkac2.rle" />
+	<area coords="0,210,69,249" href="16/16ilhbt1.rle" />
+	<area coords="70,210,129,249" href="16/16ubtls6.rle" />
+	<area coords="130,210,189,249" href="16/16bltac5.rle" />
+	<area coords="190,210,249,249" href="16/16ilhbt2.rle" />
+	<area coords="250,210,309,249" href="16/16htcs6.rle" />
+	<area coords="310,210,369,249" href="16/16vspd1.rle" />
+	<area coords="370,210,429,249" href="16/16ivhbk1.rle" />
+	<area coords="430,210,489,249" href="16/16vlac13.rle" />
+	<area coords="490,210,549,249" href="16/16aash2.rle" />
+	<area coords="550,210,620,249" href="16/16vlsh8.rle" />
+	<area coords="0,250,69,289" href="16/16vhtsh2.rle" />
+	<area coords="70,250,129,289" href="16/16ttcs2.rle" />
+	<area coords="130,250,189,289" href="16/16ttcs4.rle" />
+	<area coords="190,250,249,289" href="16/16vscg2.rle" />
+	<area coords="250,250,309,289" href="16/16cscs1.rle" />
+	<area coords="310,250,369,289" href="16/16xsls5.rle" />
+	<area coords="370,250,429,289" href="16/16cscs3.rle" />
+	<area coords="430,250,489,289" href="16/16cscs5.rle" />
+	<area coords="490,250,549,289" href="16/16dbtls1.rle" />
+	<area coords="550,250,620,289" href="16/16cslac3.rle" />
+	<area coords="0,290,69,329" href="16/16acftb6.rle" />
+	<area coords="70,290,129,329" href="16/16ftvtb1.rle" />
+	<area coords="130,290,189,329" href="16/16betbt4.rle" />
+	<area coords="190,290,249,329" href="16/16ihlhb2.rle" />
+	<area coords="250,290,309,329" href="16/16ihksn1.rle" />
+	<area coords="310,290,369,329" href="16/16cslsn8.rle" />
+	<area coords="370,290,429,329" href="16/16chtsn4.rle" />
+	<area coords="430,290,489,329" href="16/16cltsn6.rle" />
+	<area coords="490,290,549,329" href="16/16ihksn4.rle" />
+	<area coords="550,290,620,329" href="16/16sttbk.rle" />
+	<area coords="0,330,69,369" href="16/16asac8.rle" />
+	<area coords="70,330,129,369" href="16/16acacbi.rle" />
+	<area coords="130,330,189,369" href="16/16cssbk2.rle" />
+	<area coords="190,330,249,369" href="16/16betbt7.rle" />
+	<area coords="250,330,309,369" href="16/16acsnb5.rle" />
+	<area coords="310,330,369,369" href="16/16acacbf.rle" />
+	<area coords="370,330,429,369" href="16/16bcsbk2.rle" />
+	<area coords="430,330,489,369" href="16/16ivhbk2.rle" />
+	<area coords="490,330,549,369" href="16/16elsbk1.rle" />
+	<area coords="550,330,620,369" href="16/16acsnb4.rle" />
+	<area coords="0,370,69,420" href="16/16ttbbk.rle" />
+	<area coords="70,370,129,420" href="16/16cssbk3.rle" />
+	<area coords="130,370,189,420" href="16/16csbbk2.rle" />
+	<area coords="190,370,249,420" href="16/16csbbk1.rle" />
+	<area coords="250,370,309,420" href="16/16ttvs2.rle" />
+	<area coords="310,370,369,420" href="16/16acbts3.rle" />
+	<area coords="370,370,429,420" href="16/16txtbt4.rle" />
+	<area coords="430,370,489,420" href="16/16xlbt7.rle" />
+	<area coords="490,370,549,420" href="16/16xhtbt1.rle" />
+	<area coords="550,370,620,420" href="16/16vscs1.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-6"></a>
+<h3>The seventh 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-6.rle"><img src="map/pp1-16-6.png"
+ alt="16-bit pseudo-still-lifes 601-700"
+ width="621" height="421" usemap="#pp1-16-6" /></a></p>
+
+<map name="pp1-16-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-6.rle" />
+	<area coords="0,0,69,49" href="16/16vlac8.rle" />
+	<area coords="70,0,129,49" href="16/16vhtac2.rle" />
+	<area coords="130,0,189,49" href="16/16aaac2.rle" />
+	<area coords="190,0,249,49" href="16/16lsabt6.rle" />
+	<area coords="250,0,309,49" href="16/16xlbt3.rle" />
+	<area coords="310,0,369,49" href="16/16slvs5.rle" />
+	<area coords="370,0,429,49" href="16/16slvs4.rle" />
+	<area coords="430,0,489,49" href="16/16xset3.rle" />
+	<area coords="490,0,549,49" href="16/16xslb1.rle" />
+	<area coords="550,0,620,49" href="16/16xlbt4.rle" />
+	<area coords="0,50,69,89" href="16/16xset6.rle" />
+	<area coords="70,50,129,89" href="16/16xset1.rle" />
+	<area coords="130,50,189,89" href="16/16vscs5.rle" />
+	<area coords="190,50,249,89" href="16/16tltls1.rle" />
+	<area coords="250,50,309,89" href="16/16lsabt2.rle" />
+	<area coords="310,50,369,89" href="16/16vsabk1.rle" />
+	<area coords="370,50,429,89" href="16/16vsabk3.rle" />
+	<area coords="430,50,489,89" href="16/16tytbk2.rle" />
+	<area coords="490,50,549,89" href="16/16xsls1.rle" />
+	<area coords="550,50,620,89" href="16/16snsnb2.rle" />
+	<area coords="0,90,69,129" href="16/16acsnba.rle" />
+	<area coords="70,90,129,129" href="16/16bshta1.rle" />
+	<area coords="130,90,189,129" href="16/16llls19.rle" />
+	<area coords="190,90,249,129" href="16/16llls11.rle" />
+	<area coords="250,90,309,129" href="16/16bltsn8.rle" />
+	<area coords="310,90,369,129" href="16/16shshb1.rle" />
+	<area coords="370,90,429,129" href="16/16bkctb1.rle" />
+	<area coords="430,90,489,129" href="16/16acshb9.rle" />
+	<area coords="490,90,549,129" href="16/16ahtbk4.rle" />
+	<area coords="550,90,620,129" href="16/16llls16.rle" />
+	<area coords="0,130,69,169" href="16/16shtab1.rle" />
+	<area coords="70,130,129,169" href="16/16actab3.rle" />
+	<area coords="130,130,189,169" href="16/16bacta2.rle" />
+	<area coords="190,130,249,169" href="16/16bltsn7.rle" />
+	<area coords="250,130,309,169" href="16/16bacta5.rle" />
+	<area coords="310,130,369,169" href="16/16shvbk.rle" />
+	<area coords="370,130,429,169" href="16/16htbnt3.rle" />
+	<area coords="430,130,489,169" href="16/16lhahb2.rle" />
+	<area coords="490,130,549,169" href="16/16lhtlsa.rle" />
+	<area coords="550,130,620,169" href="16/16lhteti.rle" />
+	<area coords="0,170,69,209" href="16/16llet30.rle" />
+	<area coords="70,170,129,209" href="16/16llet22.rle" />
+	<area coords="130,170,189,209" href="16/16chtsh6.rle" />
+	<area coords="190,170,249,209" href="16/16lhtetb.rle" />
+	<area coords="250,170,309,209" href="16/16llet19.rle" />
+	<area coords="310,170,369,209" href="16/16lhtet5.rle" />
+	<area coords="370,170,429,209" href="16/16llet9.rle" />
+	<area coords="430,170,489,209" href="16/16lhtlb5.rle" />
+	<area coords="490,170,549,209" href="16/16lllb9.rle" />
+	<area coords="550,170,620,209" href="16/16etcpb3.rle" />
+	<area coords="0,210,69,249" href="16/16llet11.rle" />
+	<area coords="70,210,129,249" href="16/16cslac1.rle" />
+	<area coords="130,210,189,249" href="16/16etcpb5.rle" />
+	<area coords="190,210,249,249" href="16/16dlbtb5.rle" />
+	<area coords="250,210,309,249" href="16/16llet1.rle" />
+	<area coords="310,210,369,249" href="16/16lllb1.rle" />
+	<area coords="370,210,429,249" href="16/16lhabb1.rle" />
+	<area coords="430,210,489,249" href="16/16lhabb2.rle" />
+	<area coords="490,210,549,249" href="16/16ubtab2.rle" />
+	<area coords="550,210,620,249" href="16/16cslsn1.rle" />
+	<area coords="0,250,69,289" href="16/16actab7.rle" />
+	<area coords="70,250,129,289" href="16/16bltsh1.rle" />
+	<area coords="130,250,189,289" href="16/16bltac7.rle" />
+	<area coords="190,250,249,289" href="16/16slpd1.rle" />
+	<area coords="250,250,309,289" href="16/16slcg2.rle" />
+	<area coords="310,250,369,289" href="16/16iltbk3.rle" />
+	<area coords="370,250,429,289" href="16/16slvs7.rle" />
+	<area coords="430,250,489,289" href="16/16lhaac3.rle" />
+	<area coords="490,250,549,289" href="16/16bkleb5.rle" />
+	<area coords="550,250,620,289" href="16/16lhacb3.rle" />
+	<area coords="0,290,69,329" href="16/16tecpb3.rle" />
+	<area coords="70,290,129,329" href="16/16etcpba.rle" />
+	<area coords="130,290,189,329" href="16/16lish1.rle" />
+	<area coords="190,290,249,329" href="16/16teclb3.rle" />
+	<area coords="250,290,309,329" href="16/16liac5.rle" />
+	<area coords="310,290,369,329" href="16/16etcpb9.rle" />
+	<area coords="370,290,429,329" href="16/16llet25.rle" />
+	<area coords="430,290,489,329" href="16/16llet16.rle" />
+	<area coords="490,290,549,329" href="16/16llet6.rle" />
+	<area coords="550,290,620,329" href="16/16lllb6.rle" />
+	<area coords="0,330,69,369" href="16/16sslbk1.rle" />
+	<area coords="70,330,129,369" href="16/16snshb4.rle" />
+	<area coords="130,330,189,369" href="16/16bacsh5.rle" />
+	<area coords="190,330,249,369" href="16/16aslbk4.rle" />
+	<area coords="250,330,309,369" href="16/16aslbk1.rle" />
+	<area coords="310,330,369,369" href="16/16acshb5.rle" />
+	<area coords="370,330,429,369" href="16/16btash1.rle" />
+	<area coords="430,330,489,369" href="16/16btahv.rle" />
+	<area coords="490,330,549,369" href="16/16acacbc.rle" />
+	<area coords="550,330,620,369" href="16/16lsebk5.rle" />
+	<area coords="0,370,69,420" href="16/16htabk3.rle" />
+	<area coords="70,370,129,420" href="16/16xibk1.rle" />
+	<area coords="130,370,189,420" href="16/16ftvtb4.rle" />
+	<area coords="190,370,249,420" href="16/16attbk3.rle" />
+	<area coords="250,370,309,420" href="16/16gvtbk3.rle" />
+	<area coords="310,370,369,420" href="16/16ihlhb3.rle" />
+	<area coords="370,370,429,420" href="16/16itlhb2.rle" />
+	<area coords="430,370,489,420" href="16/16lllf5.rle" />
+	<area coords="490,370,549,420" href="16/16vcltb1.rle" />
+	<area coords="550,370,620,420" href="16/16lllf6.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-7"></a>
+<h3>The eighth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-7.rle"><img src="map/pp1-16-7.png"
+ alt="16-bit pseudo-still-lifes 701-800"
+ width="621" height="421" usemap="#pp1-16-7" /></a></p>
+
+<map name="pp1-16-7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-7.rle" />
+	<area coords="0,0,69,49" href="16/16vitbk3.rle" />
+	<area coords="70,0,129,49" href="16/16shtab2.rle" />
+	<area coords="130,0,189,49" href="16/16hvtabk.rle" />
+	<area coords="190,0,249,49" href="16/16cslsn2.rle" />
+	<area coords="250,0,309,49" href="16/16snshb6.rle" />
+	<area coords="310,0,369,49" href="16/16bslbk1.rle" />
+	<area coords="370,0,429,49" href="16/16iltbk2.rle" />
+	<area coords="430,0,489,49" href="16/16bkleb2.rle" />
+	<area coords="490,0,549,49" href="16/16bkleb4.rle" />
+	<area coords="550,0,620,49" href="16/16lhacb2.rle" />
+	<area coords="0,50,69,89" href="16/16cltcb4.rle" />
+	<area coords="70,50,129,89" href="16/16tecpb1.rle" />
+	<area coords="130,50,189,89" href="16/16hvtcb1.rle" />
+	<area coords="190,50,249,89" href="16/16cltcb1.rle" />
+	<area coords="250,50,309,89" href="16/16teclb1.rle" />
+	<area coords="310,50,369,89" href="16/16bshta3.rle" />
+	<area coords="370,50,429,89" href="16/16acacb6.rle" />
+	<area coords="430,50,489,89" href="16/16chtac6.rle" />
+	<area coords="490,50,549,89" href="16/16cgcg2.rle" />
+	<area coords="550,50,620,89" href="16/16lhteta.rle" />
+	<area coords="0,90,69,129" href="16/16lhtlb4.rle" />
+	<area coords="70,90,129,129" href="16/16lhtetf.rle" />
+	<area coords="130,90,189,129" href="16/16lhtet4.rle" />
+	<area coords="190,90,249,129" href="16/16acacb5.rle" />
+	<area coords="250,90,309,129" href="16/16hhvbk.rle" />
+	<area coords="310,90,369,129" href="16/16cibk2.rle" />
+	<area coords="370,90,429,129" href="16/16cibk1.rle" />
+	<area coords="430,90,489,129" href="16/16hvtac8.rle" />
+	<area coords="490,90,549,129" href="16/16dgtac4.rle" />
+	<area coords="550,90,620,129" href="16/16ulftb6.rle" />
+	<area coords="0,130,69,169" href="16/16dlbtb4.rle" />
+	<area coords="70,130,129,169" href="16/16hvtsh4.rle" />
+	<area coords="130,130,189,169" href="16/16dgtsh2.rle" />
+	<area coords="190,130,249,169" href="16/16dbtab2.rle" />
+	<area coords="250,130,309,169" href="16/16cslacj.rle" />
+	<area coords="310,130,369,169" href="16/16chtac7.rle" />
+	<area coords="370,130,429,169" href="16/16lhtls5.rle" />
+	<area coords="430,130,489,169" href="16/16llls9.rle" />
+	<area coords="490,130,549,169" href="16/16itlbt3.rle" />
+	<area coords="550,130,620,169" href="16/16cslsh9.rle" />
+	<area coords="0,170,69,209" href="16/16chtsh1.rle" />
+	<area coords="70,170,129,209" href="16/16llls1.rle" />
+	<area coords="130,170,189,209" href="16/16cltsh1.rle" />
+	<area coords="190,170,249,209" href="16/16ulftb4.rle" />
+	<area coords="250,170,309,209" href="16/16hvthv1.rle" />
+	<area coords="310,170,369,209" href="16/16ulftb3.rle" />
+	<area coords="370,170,429,209" href="16/16cltac7.rle" />
+	<area coords="430,170,489,209" href="16/16hvtsh1.rle" />
+	<area coords="490,170,549,209" href="16/16htlsb1.rle" />
+	<area coords="550,170,620,209" href="16/16hvtac5.rle" />
+	<area coords="0,210,69,249" href="16/16acsnb8.rle" />
+	<area coords="70,210,129,249" href="16/16chtsn6.rle" />
+	<area coords="130,210,189,249" href="16/16ihksh5.rle" />
+	<area coords="190,210,249,249" href="16/16bltsn1.rle" />
+	<area coords="250,210,309,249" href="16/16bltac1.rle" />
+	<area coords="310,210,369,249" href="16/16slsl4.rle" />
+	<area coords="370,210,429,249" href="16/16acsnb9.rle" />
+	<area coords="430,210,489,249" href="16/16ihkacb.rle" />
+	<area coords="490,210,549,249" href="16/16htpd2.rle" />
+	<area coords="550,210,620,249" href="16/16htcg3.rle" />
+	<area coords="0,250,69,289" href="16/16htlsb3.rle" />
+	<area coords="70,250,129,289" href="16/16acbta4.rle" />
+	<area coords="130,250,189,289" href="16/16vslp3.rle" />
+	<area coords="190,250,249,289" href="16/16htvs8.rle" />
+	<area coords="250,250,309,289" href="16/16dbtls6.rle" />
+	<area coords="310,250,369,289" href="16/16lfgac4.rle" />
+	<area coords="370,250,429,289" href="16/16hvclb3.rle" />
+	<area coords="430,250,489,289" href="16/16slsl5.rle" />
+	<area coords="490,250,549,289" href="16/16cslhv3.rle" />
+	<area coords="550,250,620,289" href="16/16cslsh6.rle" />
+	<area coords="0,290,69,329" href="16/16lisn1.rle" />
+	<area coords="70,290,129,329" href="16/16cltsh4.rle" />
+	<area coords="130,290,189,329" href="16/16liac1.rle" />
+	<area coords="190,290,249,329" href="16/16cltaca.rle" />
+	<area coords="250,290,309,329" href="16/16vphv.rle" />
+	<area coords="310,290,369,329" href="16/16lplp2.rle" />
+	<area coords="370,290,429,329" href="16/16cslacg.rle" />
+	<area coords="430,290,489,329" href="16/16cglp1.rle" />
+	<area coords="490,290,549,329" href="16/16llls6.rle" />
+	<area coords="550,290,620,329" href="16/16vpsh2.rle" />
+	<area coords="0,330,69,369" href="16/16snacb2.rle" />
+	<area coords="70,330,129,369" href="16/16blsbt3.rle" />
+	<area coords="130,330,189,369" href="16/16acacb8.rle" />
+	<area coords="190,330,249,369" href="16/16btaac1.rle" />
+	<area coords="250,330,309,369" href="16/16vsvs5.rle" />
+	<area coords="310,330,369,369" href="16/16llls5.rle" />
+	<area coords="370,330,429,369" href="16/16ylbk1.rle" />
+	<area coords="430,330,489,369" href="16/16hvtsh2.rle" />
+	<area coords="490,330,549,369" href="16/16cslsh5.rle" />
+	<area coords="550,330,620,369" href="16/16htlsb2.rle" />
+	<area coords="0,370,69,420" href="16/16actab4.rle" />
+	<area coords="70,370,129,420" href="16/16chtsn5.rle" />
+	<area coords="130,370,189,420" href="16/16snacb4.rle" />
+	<area coords="190,370,249,420" href="16/16lisn2.rle" />
+	<area coords="250,370,309,420" href="16/16bltsn2.rle" />
+	<area coords="310,370,369,420" href="16/16snsnb4.rle" />
+	<area coords="370,370,429,420" href="16/16acsnb7.rle" />
+	<area coords="430,370,489,420" href="16/16bacta8.rle" />
+	<area coords="490,370,549,420" href="16/16bacta7.rle" />
+	<area coords="550,370,620,420" href="16/16clclb2.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-8"></a>
+<h3>The ninth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-8.rle"><img src="map/pp1-16-8.png"
+ alt="16-bit pseudo-still-lifes 801-900"
+ width="621" height="421" usemap="#pp1-16-8" /></a></p>
+
+<map name="pp1-16-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-8.rle" />
+	<area coords="0,0,69,49" href="16/16hvclb2.rle" />
+	<area coords="70,0,129,49" href="16/16clclb1.rle" />
+	<area coords="130,0,189,49" href="16/16hvclb1.rle" />
+	<area coords="190,0,249,49" href="16/16xpbk.rle" />
+	<area coords="250,0,309,49" href="16/16shshbk.rle" />
+	<area coords="310,0,369,49" href="16/16snsnb1.rle" />
+	<area coords="370,0,429,49" href="16/16dgtac2.rle" />
+	<area coords="430,0,489,49" href="16/16chtac1.rle" />
+	<area coords="490,0,549,49" href="16/16vblf2.rle" />
+	<area coords="550,0,620,49" href="16/16hvtac4.rle" />
+	<area coords="0,50,69,89" href="16/16ttcg1.rle" />
+	<area coords="70,50,129,89" href="16/16itlbt2.rle" />
+	<area coords="130,50,189,89" href="16/16chthv2.rle" />
+	<area coords="190,50,249,89" href="16/16lhtls4.rle" />
+	<area coords="250,50,309,89" href="16/16cslhv4.rle" />
+	<area coords="310,50,369,89" href="16/16ttpd.rle" />
+	<area coords="370,50,429,89" href="16/16vblf1.rle" />
+	<area coords="430,50,489,89" href="16/16dbtlf4.rle" />
+	<area coords="490,50,549,89" href="16/16dbtlf3.rle" />
+	<area coords="550,50,620,89" href="16/16cslac9.rle" />
+	<area coords="0,90,69,129" href="16/16ugtac4.rle" />
+	<area coords="70,90,129,129" href="16/16dlftb4.rle" />
+	<area coords="130,90,189,129" href="16/16ugtsh2.rle" />
+	<area coords="190,90,249,129" href="16/16itbac8.rle" />
+	<area coords="250,90,309,129" href="16/16itbac5.rle" />
+	<area coords="310,90,369,129" href="16/16idbbt5.rle" />
+	<area coords="370,90,429,129" href="16/16itbsh4.rle" />
+	<area coords="430,90,489,129" href="16/16idbbt3.rle" />
+	<area coords="490,90,549,129" href="16/16xbbt1.rle" />
+	<area coords="550,90,620,129" href="16/16shbtb1.rle" />
+	<area coords="0,130,69,169" href="16/16itbsh1.rle" />
+	<area coords="70,130,129,169" href="16/16fttsh2.rle" />
+	<area coords="130,130,189,169" href="16/16cltac1.rle" />
+	<area coords="190,130,249,169" href="16/16ulbtb3.rle" />
+	<area coords="250,130,309,169" href="16/16hvtsn1.rle" />
+	<area coords="310,130,369,169" href="16/16hvtsn2.rle" />
+	<area coords="370,130,429,169" href="16/16fttac4.rle" />
+	<area coords="430,130,489,169" href="16/16hvtac1.rle" />
+	<area coords="490,130,549,169" href="16/16ubtlf3.rle" />
+	<area coords="550,130,620,169" href="16/16ubtlf4.rle" />
+	<area coords="0,170,69,209" href="16/16ihdbb2.rle" />
+	<area coords="70,170,129,209" href="16/16ihkhv2.rle" />
+	<area coords="130,170,189,209" href="16/16hvtsn4.rle" />
+	<area coords="190,170,249,209" href="16/16dgtsn2.rle" />
+	<area coords="250,170,309,209" href="16/16cslsn9.rle" />
+	<area coords="310,170,369,209" href="16/16chtsn1.rle" />
+	<area coords="370,170,429,209" href="16/16cltsn1.rle" />
+	<area coords="430,170,489,209" href="16/16ulbtb1.rle" />
+	<area coords="490,170,549,209" href="16/16ubtlf1.rle" />
+	<area coords="550,170,620,209" href="16/16ubtlf2.rle" />
+	<area coords="0,210,69,249" href="16/16dlftb1.rle" />
+	<area coords="70,210,129,249" href="16/16clthv3.rle" />
+	<area coords="130,210,189,249" href="16/16dlftb2.rle" />
+	<area coords="190,210,249,249" href="16/16dbtet5.rle" />
+	<area coords="250,210,309,249" href="16/16dbtlb1.rle" />
+	<area coords="310,210,369,249" href="16/16ihksn5.rle" />
+	<area coords="370,210,429,249" href="16/16ihkac5.rle" />
+	<area coords="430,210,489,249" href="16/16slht9.rle" />
+	<area coords="490,210,549,249" href="16/16htcg2.rle" />
+	<area coords="550,210,620,249" href="16/16dbtet1.rle" />
+	<area coords="0,250,69,289" href="16/16bltaca.rle" />
+	<area coords="70,250,129,289" href="16/16acbac6.rle" />
+	<area coords="130,250,189,289" href="16/16slvs12.rle" />
+	<area coords="190,250,249,289" href="16/16slvs9.rle" />
+	<area coords="250,250,309,289" href="16/16llls14.rle" />
+	<area coords="310,250,369,289" href="16/16llls18.rle" />
+	<area coords="370,250,429,289" href="16/16lsbbt4.rle" />
+	<area coords="430,250,489,289" href="16/16htvs6.rle" />
+	<area coords="490,250,549,289" href="16/16lhtls8.rle" />
+	<area coords="550,250,620,289" href="16/16lhtls7.rle" />
+	<area coords="0,290,69,329" href="16/16cspd1.rle" />
+	<area coords="70,290,129,329" href="16/16iubbt3.rle" />
+	<area coords="130,290,189,329" href="16/16gubt1.rle" />
+	<area coords="190,290,249,329" href="16/16inlf3.rle" />
+	<area coords="250,290,309,329" href="16/16inlf4.rle" />
+	<area coords="310,290,369,329" href="16/16ttvs4.rle" />
+	<area coords="370,290,429,329" href="16/16cscg2.rle" />
+	<area coords="430,290,489,329" href="16/16lcls5.rle" />
+	<area coords="490,290,549,329" href="16/16vscs3.rle" />
+	<area coords="550,290,620,329" href="16/16vscs7.rle" />
+	<area coords="0,330,69,369" href="16/16dbteta.rle" />
+	<area coords="70,330,129,369" href="16/16cslacd.rle" />
+	<area coords="130,330,189,369" href="16/16liac8.rle" />
+	<area coords="190,330,249,369" href="16/16slht12.rle" />
+	<area coords="250,330,309,369" href="16/16cslsn6.rle" />
+	<area coords="310,330,369,369" href="16/16cslsn5.rle" />
+	<area coords="370,330,429,369" href="16/16cslac6.rle" />
+	<area coords="430,330,489,369" href="16/16cspd2.rle" />
+	<area coords="490,330,549,369" href="16/16iubbt1.rle" />
+	<area coords="550,330,620,369" href="16/16idbbt1.rle" />
+	<area coords="0,370,69,420" href="16/16gubt3.rle" />
+	<area coords="70,370,129,420" href="16/16cltsn4.rle" />
+	<area coords="130,370,189,420" href="16/16cltac4.rle" />
+	<area coords="190,370,249,420" href="16/16ihkhv1.rle" />
+	<area coords="250,370,309,420" href="16/16idbbt2.rle" />
+	<area coords="310,370,369,420" href="16/16inlf1.rle" />
+	<area coords="370,370,429,420" href="16/16inlf2.rle" />
+	<area coords="430,370,489,420" href="16/16iubbt7.rle" />
+	<area coords="490,370,549,420" href="16/16ubtlf6.rle" />
+	<area coords="550,370,620,420" href="16/16ubtlf5.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-9"></a>
+<h3>The tenth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-9.rle"><img src="map/pp1-16-9.png"
+ alt="16-bit pseudo-still-lifes 901-1000"
+ width="621" height="421" usemap="#pp1-16-9" /></a></p>
+
+<map name="pp1-16-9">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-9.rle" />
+	<area coords="0,0,69,49" href="16/16bltacb.rle" />
+	<area coords="70,0,129,49" href="16/16iubbt5.rle" />
+	<area coords="130,0,189,49" href="16/16ulbtb6.rle" />
+	<area coords="190,0,249,49" href="16/16vpac2.rle" />
+	<area coords="250,0,309,49" href="16/16htlp1.rle" />
+	<area coords="310,0,369,49" href="16/16cscg4.rle" />
+	<area coords="370,0,429,49" href="16/16lcls7.rle" />
+	<area coords="430,0,489,49" href="16/16ihksh1.rle" />
+	<area coords="490,0,549,49" href="16/16cslsh8.rle" />
+	<area coords="550,0,620,49" href="16/16chtsh4.rle" />
+	<area coords="0,50,69,89" href="16/16cltsh6.rle" />
+	<area coords="70,50,129,89" href="16/16ihksh4.rle" />
+	<area coords="130,50,189,89" href="16/16hvtac2.rle" />
+	<area coords="190,50,249,89" href="16/16cslac5.rle" />
+	<area coords="250,50,309,89" href="16/16cltsn3.rle" />
+	<area coords="310,50,369,89" href="16/16hvtsn3.rle" />
+	<area coords="370,50,429,89" href="16/16dgtsn1.rle" />
+	<area coords="430,50,489,89" href="16/16ihubb1.rle" />
+	<area coords="490,50,549,89" href="16/16ihdbb1.rle" />
+	<area coords="550,50,620,89" href="16/16guhbk3.rle" />
+	<area coords="0,90,69,129" href="16/16ihksn6.rle" />
+	<area coords="70,90,129,129" href="16/16cslsna.rle" />
+	<area coords="130,90,189,129" href="16/16chtsn2.rle" />
+	<area coords="190,90,249,129" href="16/16cltsn2.rle" />
+	<area coords="250,90,309,129" href="16/16acsnb3.rle" />
+	<area coords="310,90,369,129" href="16/16acacbm.rle" />
+	<area coords="370,90,429,129" href="16/16bvsbk3.rle" />
+	<area coords="430,90,489,129" href="16/16blsbt8.rle" />
+	<area coords="490,90,549,129" href="16/16guhbk2.rle" />
+	<area coords="550,90,620,129" href="16/16eetbk7.rle" />
+	<area coords="0,130,69,169" href="16/16acshb3.rle" />
+	<area coords="70,130,129,169" href="16/16iclbk4.rle" />
+	<area coords="130,130,189,169" href="16/16iclbk2.rle" />
+	<area coords="190,130,249,169" href="16/16ihvbk2.rle" />
+	<area coords="250,130,309,169" href="16/16idgbk1.rle" />
+	<area coords="310,130,369,169" href="16/16cltbb3.rle" />
+	<area coords="370,130,429,169" href="16/16ihubb2.rle" />
+	<area coords="430,130,489,169" href="16/16acshb1.rle" />
+	<area coords="490,130,549,169" href="16/16acsnb1.rle" />
+	<area coords="550,130,620,169" href="16/16vsbbk2.rle" />
+	<area coords="0,170,69,209" href="16/16itbac3.rle" />
+	<area coords="70,170,129,209" href="16/16itbac1.rle" />
+	<area coords="130,170,189,209" href="16/16itlhb1.rle" />
+	<area coords="190,170,249,209" href="16/16ugtac2.rle" />
+	<area coords="250,170,309,209" href="16/16tltlb1.rle" />
+	<area coords="310,170,369,209" href="16/16gltbt1.rle" />
+	<area coords="370,170,429,209" href="16/16acbtsa.rle" />
+	<area coords="430,170,489,209" href="16/16tctbt4.rle" />
+	<area coords="490,170,549,209" href="16/16litbb3.rle" />
+	<area coords="550,170,620,209" href="16/16ilhbt4.rle" />
+	<area coords="0,210,69,249" href="16/16snbtb2.rle" />
+	<area coords="70,210,129,249" href="16/16ithbt2.rle" />
+	<area coords="130,210,189,249" href="16/16lclbt7.rle" />
+	<area coords="190,210,249,249" href="16/16lchtb3.rle" />
+	<area coords="250,210,309,249" href="16/16acbtb1.rle" />
+	<area coords="310,210,369,249" href="16/16fttac2.rle" />
+	<area coords="370,210,429,249" href="16/16ftltb3.rle" />
+	<area coords="430,210,489,249" href="16/16tltet3.rle" />
+	<area coords="490,210,549,249" href="16/16ihhbt1.rle" />
+	<area coords="550,210,620,249" href="16/16ftltb1.rle" />
+	<area coords="0,250,69,289" href="16/16sltt3.rle" />
+	<area coords="70,250,129,289" href="16/16fttsn2.rle" />
+	<area coords="130,250,189,289" href="16/16ugtsn2.rle" />
+	<area coords="190,250,249,289" href="16/16itbsn3.rle" />
+	<area coords="250,250,309,289" href="16/16itbsn1.rle" />
+	<area coords="310,250,369,289" href="16/16tltet1.rle" />
+	<area coords="370,250,429,289" href="16/16eabt2.rle" />
+	<area coords="430,250,489,289" href="16/16htht2.rle" />
+	<area coords="490,250,549,289" href="16/16vlac18.rle" />
+	<area coords="550,250,620,289" href="16/16vhtac8.rle" />
+	<area coords="0,290,69,329" href="16/16lclbt3.rle" />
+	<area coords="70,290,129,329" href="16/16slcs4.rle" />
+	<area coords="130,290,189,329" href="16/16lcet3.rle" />
+	<area coords="190,290,249,329" href="16/16lclb1.rle" />
+	<area coords="250,290,309,329" href="16/16lclbt4.rle" />
+	<area coords="310,290,369,329" href="16/16lcet6.rle" />
+	<area coords="370,290,429,329" href="16/16lcet1.rle" />
+	<area coords="430,290,489,329" href="16/16vsvs3.rle" />
+	<area coords="490,290,549,329" href="16/16tltet6.rle" />
+	<area coords="550,290,620,329" href="16/16cslac8.rle" />
+	<area coords="0,330,69,369" href="16/16chtac4.rle" />
+	<area coords="70,330,129,369" href="16/16cltac6.rle" />
+	<area coords="130,330,189,369" href="16/16ihkac4.rle" />
+	<area coords="190,330,249,369" href="16/16aaac6.rle" />
+	<area coords="250,330,309,369" href="16/16sltt6.rle" />
+	<area coords="310,330,369,369" href="16/16slcs5.rle" />
+	<area coords="370,330,429,369" href="16/16slcs11.rle" />
+	<area coords="430,330,489,369" href="16/16slcs10.rle" />
+	<area coords="490,330,549,369" href="16/16lcet9.rle" />
+	<area coords="550,330,620,369" href="16/16lclb3.rle" />
+	<area coords="0,370,69,420" href="16/16lcet12.rle" />
+	<area coords="70,370,129,420" href="16/16lcet7.rle" />
+	<area coords="130,370,189,420" href="16/16ihkac1.rle" />
+	<area coords="190,370,249,420" href="16/16vslp2.rle" />
+	<area coords="250,370,309,420" href="16/16vscg1.rle" />
+	<area coords="310,370,369,420" href="16/16ubtls5.rle" />
+	<area coords="370,370,429,420" href="16/16dbtls3.rle" />
+	<area coords="430,370,489,420" href="16/16inls4.rle" />
+	<area coords="490,370,549,420" href="16/16inls2.rle" />
+	<area coords="550,370,620,420" href="16/16ubtls4.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-a"></a>
+<h3>The eleventh 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-a.rle"><img src="map/pp1-16-a.png"
+ alt="16-bit pseudo-still-lifes 1001-1100"
+ width="621" height="421" usemap="#pp1-16-a" /></a></p>
+
+<map name="pp1-16-a">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-a.rle" />
+	<area coords="0,0,69,49" href="16/16ubtls2.rle" />
+	<area coords="70,0,129,49" href="16/16vbls2.rle" />
+	<area coords="130,0,189,49" href="16/16fttsn1.rle" />
+	<area coords="190,0,249,49" href="16/16ugtsn1.rle" />
+	<area coords="250,0,309,49" href="16/16itbsn4.rle" />
+	<area coords="310,0,369,49" href="16/16itbsn2.rle" />
+	<area coords="370,0,429,49" href="16/16csabk2.rle" />
+	<area coords="430,0,489,49" href="16/16tlctb2.rle" />
+	<area coords="490,0,549,49" href="16/16acacb3.rle" />
+	<area coords="550,0,620,49" href="16/16csabk4.rle" />
+	<area coords="0,50,69,89" href="16/16lsbtb1.rle" />
+	<area coords="70,50,129,89" href="16/16xhtbt2.rle" />
+	<area coords="130,50,189,89" href="16/16xlbt8.rle" />
+	<area coords="190,50,249,89" href="16/16lcls1.rle" />
+	<area coords="250,50,309,89" href="16/16yssh1.rle" />
+	<area coords="310,50,369,89" href="16/16lcls3.rle" />
+	<area coords="370,50,429,89" href="16/16ylbk2.rle" />
+	<area coords="430,50,489,89" href="16/16ysac5.rle" />
+	<area coords="490,50,549,89" href="16/16xslf1.rle" />
+	<area coords="550,50,620,89" href="16/16xslf2.rle" />
+	<area coords="0,90,69,129" href="16/16htvs1.rle" />
+	<area coords="70,90,129,129" href="16/16ylbk4.rle" />
+	<area coords="130,90,189,129" href="16/16yhtbk1.rle" />
+	<area coords="190,90,249,129" href="16/16yssn1.rle" />
+	<area coords="250,90,309,129" href="16/16ysac1.rle" />
+	<area coords="310,90,369,129" href="16/16vsvs2.rle" />
+	<area coords="370,90,429,129" href="16/16xsls2.rle" />
+	<area coords="430,90,489,129" href="16/16yssn2.rle" />
+	<area coords="490,90,549,129" href="16/16ucgtb1.rle" />
+	<area coords="550,90,620,129" href="16/16cslhv1.rle" />
+	<area coords="0,130,69,169" href="16/16bpdbk1.rle" />
+	<area coords="70,130,129,169" href="16/16tvtacb.rle" />
+	<area coords="130,130,189,169" href="16/16aebt9.rle" />
+	<area coords="190,130,249,169" href="16/16bvtbt9.rle" />
+	<area coords="250,130,309,169" href="16/16ilhbt7.rle" />
+	<area coords="310,130,369,169" href="16/16vlac11.rle" />
+	<area coords="370,130,429,169" href="16/16tvtsh5.rle" />
+	<area coords="430,130,489,169" href="16/16lclbt1.rle" />
+	<area coords="490,130,549,169" href="16/16vlsh1.rle" />
+	<area coords="550,130,620,169" href="16/16shbts1.rle" />
+	<area coords="0,170,69,209" href="16/16cslsh2.rle" />
+	<area coords="70,170,129,209" href="16/16eetbk4.rle" />
+	<area coords="130,170,189,209" href="16/16lctbt6.rle" />
+	<area coords="190,170,249,209" href="16/16lctbt5.rle" />
+	<area coords="250,170,309,209" href="16/16htcpb4.rle" />
+	<area coords="310,170,369,209" href="16/16vibt1.rle" />
+	<area coords="370,170,429,209" href="16/16vibt6.rle" />
+	<area coords="430,170,489,209" href="16/16vibt5.rle" />
+	<area coords="490,170,549,209" href="16/16eetbk5.rle" />
+	<area coords="550,170,620,209" href="16/16sntab2.rle" />
+	<area coords="0,210,69,249" href="16/16actab1.rle" />
+	<area coords="70,210,129,249" href="16/16assh3.rle" />
+	<area coords="130,210,189,249" href="16/16asac9.rle" />
+	<area coords="190,210,249,249" href="16/16bacsh3.rle" />
+	<area coords="250,210,309,249" href="16/16acacbj.rle" />
+	<area coords="310,210,369,249" href="16/16etftb7.rle" />
+	<area coords="370,210,429,249" href="16/16dftsb1.rle" />
+	<area coords="430,210,489,249" href="16/16htcpb2.rle" />
+	<area coords="490,210,549,249" href="16/16ttcpb1.rle" />
+	<area coords="550,210,620,249" href="16/16eetbk2.rle" />
+	<area coords="0,250,69,289" href="16/16btetb1.rle" />
+	<area coords="70,250,129,289" href="16/16bctbk1.rle" />
+	<area coords="130,250,189,289" href="16/16blpbk1.rle" />
+	<area coords="190,250,249,289" href="16/16shshb3.rle" />
+	<area coords="250,250,309,289" href="16/16bshhv1.rle" />
+	<area coords="310,250,369,289" href="16/16sntab1.rle" />
+	<area coords="370,250,429,289" href="16/16lhtlf6.rle" />
+	<area coords="430,250,489,289" href="16/16aebt10.rle" />
+	<area coords="490,250,549,289" href="16/16bvtbta.rle" />
+	<area coords="550,250,620,289" href="16/16ilhbt8.rle" />
+	<area coords="0,290,69,329" href="16/16lclbt2.rle" />
+	<area coords="70,290,129,329" href="16/16lcttb2.rle" />
+	<area coords="130,290,189,329" href="16/16vitbk4.rle" />
+	<area coords="190,290,249,329" href="16/16chthv3.rle" />
+	<area coords="250,290,309,329" href="16/16ubtab1.rle" />
+	<area coords="310,290,369,329" href="16/16etcpb4.rle" />
+	<area coords="370,290,429,329" href="16/16etcpb6.rle" />
+	<area coords="430,290,489,329" href="16/16dlbtb6.rle" />
+	<area coords="490,290,549,329" href="16/16lllf2.rle" />
+	<area coords="550,290,620,329" href="16/16tvtsh1.rle" />
+	<area coords="0,330,69,369" href="16/16tvthv1.rle" />
+	<area coords="70,330,129,369" href="16/16tvtsh2.rle" />
+	<area coords="130,330,189,369" href="16/16tvtac7.rle" />
+	<area coords="190,330,249,369" href="16/16ttcpb3.rle" />
+	<area coords="250,330,309,369" href="16/16blfbt1.rle" />
+	<area coords="310,330,369,369" href="16/16blfbt2.rle" />
+	<area coords="370,330,429,369" href="16/16vcltb3.rle" />
+	<area coords="430,330,489,369" href="16/16tvthv3.rle" />
+	<area coords="490,330,549,369" href="16/16vlhv1.rle" />
+	<area coords="550,330,620,369" href="16/16xlbt1.rle" />
+	<area coords="0,370,69,420" href="16/16xibk3.rle" />
+	<area coords="70,370,129,420" href="16/16lhtlf5.rle" />
+	<area coords="130,370,189,420" href="16/16lllf1.rle" />
+	<area coords="190,370,249,420" href="16/16lllf9.rle" />
+	<area coords="250,370,309,420" href="16/16lllf10.rle" />
+	<area coords="310,370,369,420" href="16/16vhtaca.rle" />
+	<area coords="370,370,429,420" href="16/16lchtb6.rle" />
+	<area coords="430,370,489,420" href="16/16vhtsh4.rle" />
+	<area coords="490,370,549,420" href="16/16vlac19.rle" />
+	<area coords="550,370,620,420" href="16/16vhtacb.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-b"></a>
+<h3>The twelfth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-b.rle"><img src="map/pp1-16-b.png"
+ alt="16-bit pseudo-still-lifes 1101-1200"
+ width="621" height="421" usemap="#pp1-16-b" /></a></p>
+
+<map name="pp1-16-b">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-b.rle" />
+	<area coords="0,0,69,49" href="16/16tvtac5.rle" />
+	<area coords="70,0,129,49" href="16/16vlsh9.rle" />
+	<area coords="130,0,189,49" href="16/16vhtsh5.rle" />
+	<area coords="190,0,249,49" href="16/16acbts4.rle" />
+	<area coords="250,0,309,49" href="16/16vlac1.rle" />
+	<area coords="310,0,369,49" href="16/16snftb5.rle" />
+	<area coords="370,0,429,49" href="16/16aebt1.rle" />
+	<area coords="430,0,489,49" href="16/16bvtbt1.rle" />
+	<area coords="490,0,549,49" href="16/16shbts2.rle" />
+	<area coords="550,0,620,49" href="16/16lctbt1.rle" />
+	<area coords="0,50,69,89" href="16/16ucgtb2.rle" />
+	<area coords="70,50,129,89" href="16/16ahtbk2.rle" />
+	<area coords="130,50,189,89" href="16/16slsl2.rle" />
+	<area coords="190,50,249,89" href="16/16tvtsn5.rle" />
+	<area coords="250,50,309,89" href="16/16vlsn1.rle" />
+	<area coords="310,50,369,89" href="16/16blthv1.rle" />
+	<area coords="370,50,429,89" href="16/16sebt1.rle" />
+	<area coords="430,50,489,89" href="16/16slcg1.rle" />
+	<area coords="490,50,549,89" href="16/16aash3.rle" />
+	<area coords="550,50,620,89" href="16/16acftb7.rle" />
+	<area coords="0,90,69,129" href="16/16aaac7.rle" />
+	<area coords="70,90,129,129" href="16/16vlhv3.rle" />
+	<area coords="130,90,189,129" href="16/16vlsh6.rle" />
+	<area coords="190,90,249,129" href="16/16llet15.rle" />
+	<area coords="250,90,309,129" href="16/16llet5.rle" />
+	<area coords="310,90,369,129" href="16/16lllb5.rle" />
+	<area coords="370,90,429,129" href="16/16assn3.rle" />
+	<area coords="430,90,489,129" href="16/16esbt4.rle" />
+	<area coords="490,90,549,129" href="16/16asac3.rle" />
+	<area coords="550,90,620,129" href="16/16vlac16.rle" />
+	<area coords="0,130,69,169" href="16/16vclbk1.rle" />
+	<area coords="70,130,129,169" href="16/16llet26.rle" />
+	<area coords="130,130,189,169" href="16/16lsebk3.rle" />
+	<area coords="190,130,249,169" href="16/16cslacc.rle" />
+	<area coords="250,130,309,169" href="16/16cslac2.rle" />
+	<area coords="310,130,369,169" href="16/16bctbk3.rle" />
+	<area coords="370,130,429,169" href="16/16acftb3.rle" />
+	<area coords="430,130,489,169" href="16/16aebt5.rle" />
+	<area coords="490,130,549,169" href="16/16lctbt4.rle" />
+	<area coords="550,130,620,169" href="16/16lihv1.rle" />
+	<area coords="0,170,69,209" href="16/16aebt6.rle" />
+	<area coords="70,170,129,209" href="16/16bvtbt6.rle" />
+	<area coords="130,170,189,209" href="16/16sllp2.rle" />
+	<area coords="190,170,249,209" href="16/16tvtsh6.rle" />
+	<area coords="250,170,309,209" href="16/16vlsh2.rle" />
+	<area coords="310,170,369,209" href="16/16bvtbt5.rle" />
+	<area coords="370,170,429,209" href="16/16chtsh5.rle" />
+	<area coords="430,170,489,209" href="16/16lish2.rle" />
+	<area coords="490,170,549,209" href="16/16bltsh2.rle" />
+	<area coords="550,170,620,209" href="16/16htsbk2.rle" />
+	<area coords="0,210,69,249" href="16/16betbt1.rle" />
+	<area coords="70,210,129,249" href="16/16htabk2.rle" />
+	<area coords="130,210,189,249" href="16/16snacb5.rle" />
+	<area coords="190,210,249,249" href="16/16betbt6.rle" />
+	<area coords="250,210,309,249" href="16/16acacbd.rle" />
+	<area coords="310,210,369,249" href="16/16lsebk1.rle" />
+	<area coords="370,210,429,249" href="16/16bacsh6.rle" />
+	<area coords="430,210,489,249" href="16/16acshb7.rle" />
+	<area coords="490,210,549,249" href="16/16bachv3.rle" />
+	<area coords="550,210,620,249" href="16/16bxtbk5.rle" />
+	<area coords="0,250,69,289" href="16/16bxtbk1.rle" />
+	<area coords="70,250,129,289" href="16/16lsftb2.rle" />
+	<area coords="130,250,189,289" href="16/16vcltb2.rle" />
+	<area coords="190,250,249,289" href="16/16vitbk1.rle" />
+	<area coords="250,250,309,289" href="16/16btaac3.rle" />
+	<area coords="310,250,369,289" href="16/16ivhbk4.rle" />
+	<area coords="370,250,429,289" href="16/16tvtac8.rle" />
+	<area coords="430,250,489,289" href="16/16bxtbk3.rle" />
+	<area coords="490,250,549,289" href="16/16vchtb3.rle" />
+	<area coords="550,250,620,289" href="16/16vfttbk.rle" />
+	<area coords="0,290,69,329" href="16/16lsftb4.rle" />
+	<area coords="70,290,129,329" href="16/16vlsh5.rle" />
+	<area coords="130,290,189,329" href="16/16vibt2.rle" />
+	<area coords="190,290,249,329" href="16/16llls15.rle" />
+	<area coords="250,290,309,329" href="16/16tttbk3.rle" />
+	<area coords="310,290,369,329" href="16/16ucgtb3.rle" />
+	<area coords="370,290,429,329" href="16/16tttbk1.rle" />
+	<area coords="430,290,489,329" href="16/16dlgtbk.rle" />
+	<area coords="490,290,549,329" href="16/16etftb2.rle" />
+	<area coords="550,290,620,329" href="16/16actab2.rle" />
+	<area coords="0,330,69,369" href="16/16bhtbk.rle" />
+	<area coords="70,330,129,369" href="16/16shtbk1.rle" />
+	<area coords="130,330,189,369" href="16/16ahtbk1.rle" />
+	<area coords="190,330,249,369" href="16/16snacb7.rle" />
+	<area coords="250,330,309,369" href="16/16assn4.rle" />
+	<area coords="310,330,369,369" href="16/16tvtsn6.rle" />
+	<area coords="370,330,429,369" href="16/16vlsn2.rle" />
+	<area coords="430,330,489,369" href="16/16assh4.rle" />
+	<area coords="490,330,549,369" href="16/16ashv2.rle" />
+	<area coords="550,330,620,369" href="16/16lssbt5.rle" />
+	<area coords="0,370,69,420" href="16/16bacta4.rle" />
+	<area coords="70,370,129,420" href="16/16ichbk4.rle" />
+	<area coords="130,370,189,420" href="16/16bacsh4.rle" />
+	<area coords="190,370,249,420" href="16/16bachv2.rle" />
+	<area coords="250,370,309,420" href="16/16bctbk5.rle" />
+	<area coords="310,370,369,420" href="16/16ichbk1.rle" />
+	<area coords="370,370,429,420" href="16/16etftb1.rle" />
+	<area coords="430,370,489,420" href="16/16etftb4.rle" />
+	<area coords="490,370,549,420" href="16/16libtb3.rle" />
+	<area coords="550,370,620,420" href="16/16libtb1.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-c"></a>
+<h3>The thirteenth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-c.rle"><img src="map/pp1-16-c.png"
+ alt="16-bit pseudo-still-lifes 1201-1300"
+ width="621" height="421" usemap="#pp1-16-c" /></a></p>
+
+<map name="pp1-16-c">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-c.rle" />
+	<area coords="0,0,69,49" href="16/16lbltb1.rle" />
+	<area coords="70,0,129,49" href="16/16acshbb.rle" />
+	<area coords="130,0,189,49" href="16/16snshb2.rle" />
+	<area coords="190,0,249,49" href="16/16blsbt5.rle" />
+	<area coords="250,0,309,49" href="16/16vhtac4.rle" />
+	<area coords="310,0,369,49" href="16/16vhtac5.rle" />
+	<area coords="370,0,429,49" href="16/16xlbt2.rle" />
+	<area coords="430,0,489,49" href="16/16dlbtb3.rle" />
+	<area coords="490,0,549,49" href="16/16hvthv2.rle" />
+	<area coords="550,0,620,49" href="16/16dgthv.rle" />
+	<area coords="0,50,69,89" href="16/16dbtab1.rle" />
+	<area coords="70,50,129,89" href="16/16itlbt4.rle" />
+	<area coords="130,50,189,89" href="16/16chthv1.rle" />
+	<area coords="190,50,249,89" href="16/16lhtlf3.rle" />
+	<area coords="250,50,309,89" href="16/16tvtsn2.rle" />
+	<area coords="310,50,369,89" href="16/16tvtac1.rle" />
+	<area coords="370,50,429,89" href="16/16tvtsn1.rle" />
+	<area coords="430,50,489,89" href="16/16tvtac2.rle" />
+	<area coords="490,50,549,89" href="16/16ulftb5.rle" />
+	<area coords="550,50,620,89" href="16/16lhtlf4.rle" />
+	<area coords="0,90,69,129" href="16/16vlac9.rle" />
+	<area coords="70,90,129,129" href="16/16cslhv5.rle" />
+	<area coords="130,90,189,129" href="16/16ilhbt5.rle" />
+	<area coords="190,90,249,129" href="16/16acbts6.rle" />
+	<area coords="250,90,309,129" href="16/16tctbt5.rle" />
+	<area coords="310,90,369,129" href="16/16litbb1.rle" />
+	<area coords="370,90,429,129" href="16/16lfttb2.rle" />
+	<area coords="430,90,489,129" href="16/16clthv1.rle" />
+	<area coords="490,90,549,129" href="16/16dcgtb1.rle" />
+	<area coords="550,90,620,129" href="16/16eabt3.rle" />
+	<area coords="0,130,69,169" href="16/16htht8.rle" />
+	<area coords="70,130,129,169" href="16/16vhtsn4.rle" />
+	<area coords="130,130,189,169" href="16/16vlsn9.rle" />
+	<area coords="190,130,249,169" href="16/16vhtsn5.rle" />
+	<area coords="250,130,309,169" href="16/16ihkhv3.rle" />
+	<area coords="310,130,369,169" href="16/16slht1.rle" />
+	<area coords="370,130,429,169" href="16/16htcg4.rle" />
+	<area coords="430,130,489,169" href="16/16aasn3.rle" />
+	<area coords="490,130,549,169" href="16/16eabt6.rle" />
+	<area coords="550,130,620,169" href="16/16aaac3.rle" />
+	<area coords="0,170,69,209" href="16/16vlsn6.rle" />
+	<area coords="70,170,129,209" href="16/16vlsn5.rle" />
+	<area coords="130,170,189,209" href="16/16vlac6.rle" />
+	<area coords="190,170,249,209" href="16/16vspd2.rle" />
+	<area coords="250,170,309,209" href="16/16vscg4.rle" />
+	<area coords="310,170,369,209" href="16/16xsls7.rle" />
+	<area coords="370,170,429,209" href="16/16dbtls5.rle" />
+	<area coords="430,170,489,209" href="16/16ihvbk1.rle" />
+	<area coords="490,170,549,209" href="16/16hvtac6.rle" />
+	<area coords="550,170,620,209" href="16/16tvtacc.rle" />
+	<area coords="0,210,69,249" href="16/16vlac12.rle" />
+	<area coords="70,210,129,249" href="16/16chtac5.rle" />
+	<area coords="130,210,189,249" href="16/16bltac2.rle" />
+	<area coords="190,210,249,249" href="16/16cslacf.rle" />
+	<area coords="250,210,309,249" href="16/16tctbt1.rle" />
+	<area coords="310,210,369,249" href="16/16tctbt2.rle" />
+	<area coords="370,210,429,249" href="16/16liac2.rle" />
+	<area coords="430,210,489,249" href="16/16clthv2.rle" />
+	<area coords="490,210,549,249" href="16/16vpac4.rle" />
+	<area coords="550,210,620,249" href="16/16htlp3.rle" />
+	<area coords="0,250,69,289" href="16/16llls12.rle" />
+	<area coords="70,250,129,289" href="16/16llls20.rle" />
+	<area coords="130,250,189,289" href="16/16lhtlsc.rle" />
+	<area coords="190,250,249,289" href="16/16cltsh3.rle" />
+	<area coords="250,250,309,289" href="16/16hvtsh3.rle" />
+	<area coords="310,250,369,289" href="16/16dgtsh1.rle" />
+	<area coords="370,250,429,289" href="16/16llls10.rle" />
+	<area coords="430,250,489,289" href="16/16lhtls6.rle" />
+	<area coords="490,250,549,289" href="16/16llls2.rle" />
+	<area coords="550,250,620,289" href="16/16ihksh6.rle" />
+	<area coords="0,290,69,329" href="16/16cslsha.rle" />
+	<area coords="70,290,129,329" href="16/16chtsh2.rle" />
+	<area coords="130,290,189,329" href="16/16cltsh2.rle" />
+	<area coords="190,290,249,329" href="16/16acacba.rle" />
+	<area coords="250,290,309,329" href="16/16blsbt4.rle" />
+	<area coords="310,290,369,329" href="16/16lslsb2.rle" />
+	<area coords="370,290,429,329" href="16/16yhtbk2.rle" />
+	<area coords="430,290,489,329" href="16/16vlac5.rle" />
+	<area coords="490,290,549,329" href="16/16cltbb2.rle" />
+	<area coords="550,290,620,329" href="16/16dcgtb2.rle" />
+	<area coords="0,330,69,369" href="16/16eetbk1.rle" />
+	<area coords="70,330,129,369" href="16/16vhtsn3.rle" />
+	<area coords="130,330,189,369" href="16/16aasn4.rle" />
+	<area coords="190,330,249,369" href="16/16vlsn10.rle" />
+	<area coords="250,330,309,369" href="16/16vhtsn6.rle" />
+	<area coords="310,330,369,369" href="16/16asac10.rle" />
+	<area coords="370,330,429,369" href="16/16vssbk3.rle" />
+	<area coords="430,330,489,369" href="16/16lssbt6.rle" />
+	<area coords="490,330,549,369" href="16/16acshb4.rle" />
+	<area coords="550,330,620,369" href="16/16iclbk3.rle" />
+	<area coords="0,370,69,420" href="16/16ihvbk3.rle" />
+	<area coords="70,370,129,420" href="16/16idgbk2.rle" />
+	<area coords="130,370,189,420" href="16/16acacbl.rle" />
+	<area coords="190,370,249,420" href="16/16acsnb2.rle" />
+	<area coords="250,370,309,420" href="16/16bvsbk2.rle" />
+	<area coords="310,370,369,420" href="16/16eetbk6.rle" />
+	<area coords="370,370,429,420" href="16/16guhbk1.rle" />
+	<area coords="430,370,489,420" href="16/16iclbk1.rle" />
+	<area coords="490,370,549,420" href="16/16ihubb3.rle" />
+	<area coords="550,370,620,420" href="16/16cltbb1.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-d"></a>
+<h3>The fourteenth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-d.rle"><img src="map/pp1-16-d.png"
+ alt="16-bit pseudo-still-lifes 1301-1400"
+ width="621" height="421" usemap="#pp1-16-d" /></a></p>
+
+<map name="pp1-16-d">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-d.rle" />
+	<area coords="0,0,69,49" href="16/16acshb2.rle" />
+	<area coords="70,0,129,49" href="16/16blsbt6.rle" />
+	<area coords="130,0,189,49" href="16/16itdbbk.rle" />
+	<area coords="190,0,249,49" href="16/16vblb2.rle" />
+	<area coords="250,0,309,49" href="16/16ttcg2.rle" />
+	<area coords="310,0,369,49" href="16/16ugthv.rle" />
+	<area coords="370,0,429,49" href="16/16idbbt4.rle" />
+	<area coords="430,0,489,49" href="16/16xbbt2.rle" />
+	<area coords="490,0,549,49" href="16/16shbtb2.rle" />
+	<area coords="550,0,620,49" href="16/16itbhv2.rle" />
+	<area coords="0,50,69,89" href="16/16itbhv1.rle" />
+	<area coords="70,50,129,89" href="16/16dlftb3.rle" />
+	<area coords="130,50,189,89" href="16/16idbbt6.rle" />
+	<area coords="190,50,249,89" href="16/16dbtlb3.rle" />
+	<area coords="250,50,309,89" href="16/16clttb2.rle" />
+	<area coords="310,50,369,89" href="16/16acbtb3.rle" />
+	<area coords="370,50,429,89" href="16/16lclbt9.rle" />
+	<area coords="430,50,489,89" href="16/16lchtb1.rle" />
+	<area coords="490,50,549,89" href="16/16ftthv.rle" />
+	<area coords="550,50,620,89" href="16/16ulbtb4.rle" />
+	<area coords="0,90,69,129" href="16/16ubtlb4.rle" />
+	<area coords="70,90,129,129" href="16/16dbtet7.rle" />
+	<area coords="130,90,189,129" href="16/16ubteta.rle" />
+	<area coords="190,90,249,129" href="16/16vbet4.rle" />
+	<area coords="250,90,309,129" href="16/16ulbtb2.rle" />
+	<area coords="310,90,369,129" href="16/16ubtet8.rle" />
+	<area coords="370,90,429,129" href="16/16ubtlb2.rle" />
+	<area coords="430,90,489,129" href="16/16dbtet3.rle" />
+	<area coords="490,90,549,129" href="16/16ubtet4.rle" />
+	<area coords="550,90,620,129" href="16/16ubtet2.rle" />
+	<area coords="0,130,69,169" href="16/16vbet2.rle" />
+	<area coords="70,130,129,169" href="16/16htht4.rle" />
+	<area coords="130,130,189,169" href="16/16cslaci.rle" />
+	<area coords="190,130,249,169" href="16/16chtaca.rle" />
+	<area coords="250,130,309,169" href="16/16cltacc.rle" />
+	<area coords="310,130,369,169" href="16/16ihkaca.rle" />
+	<area coords="370,130,429,169" href="16/16slvs10.rle" />
+	<area coords="430,130,489,169" href="16/16xset9.rle" />
+	<area coords="490,130,549,169" href="16/16xslb3.rle" />
+	<area coords="550,130,620,169" href="16/16xset12.rle" />
+	<area coords="0,170,69,209" href="16/16xset7.rle" />
+	<area coords="70,170,129,209" href="16/16tltls3.rle" />
+	<area coords="130,170,189,209" href="16/16cscg1.rle" />
+	<area coords="190,170,249,209" href="16/16iubbt4.rle" />
+	<area coords="250,170,309,209" href="16/16inet10.rle" />
+	<area coords="310,170,369,209" href="16/16inet8.rle" />
+	<area coords="370,170,429,209" href="16/16inlb4.rle" />
+	<area coords="430,170,489,209" href="16/16gubt2.rle" />
+	<area coords="490,170,549,209" href="16/16dbtetc.rle" />
+	<area coords="550,170,620,209" href="16/16inet11.rle" />
+	<area coords="0,210,69,249" href="16/16ubtetf.rle" />
+	<area coords="70,210,129,249" href="16/16ubtetd.rle" />
+	<area coords="130,210,189,249" href="16/16vbet5.rle" />
+	<area coords="190,210,249,249" href="16/16hvtac3.rle" />
+	<area coords="250,210,309,249" href="16/16dgtac1.rle" />
+	<area coords="310,210,369,249" href="16/16ihkac6.rle" />
+	<area coords="370,210,429,249" href="16/16cslaca.rle" />
+	<area coords="430,210,489,249" href="16/16chtac2.rle" />
+	<area coords="490,210,549,249" href="16/16cltac2.rle" />
+	<area coords="550,210,620,249" href="16/16slvs11.rle" />
+	<area coords="0,250,69,289" href="16/16lclbt5.rle" />
+	<area coords="70,250,129,289" href="16/16lclbt6.rle" />
+	<area coords="130,250,189,289" href="16/16cscg3.rle" />
+	<area coords="190,250,249,289" href="16/16slvs2.rle" />
+	<area coords="250,250,309,289" href="16/16iubbt2.rle" />
+	<area coords="310,250,369,289" href="16/16inet5.rle" />
+	<area coords="370,250,429,289" href="16/16inet4.rle" />
+	<area coords="430,250,489,289" href="16/16inet2.rle" />
+	<area coords="490,250,549,289" href="16/16inlb2.rle" />
+	<area coords="550,250,620,289" href="16/16ihkac7.rle" />
+	<area coords="0,290,69,329" href="16/16gubt4.rle" />
+	<area coords="70,290,129,329" href="16/16cltac3.rle" />
+	<area coords="130,290,189,329" href="16/16iubbt8.rle" />
+	<area coords="190,290,249,329" href="16/16ubteti.rle" />
+	<area coords="250,290,309,329" href="16/16ubtetb.rle" />
+	<area coords="310,290,369,329" href="16/16ubtet5.rle" />
+	<area coords="370,290,429,329" href="16/16ubtlb5.rle" />
+	<area coords="430,290,489,329" href="16/16iubbt6.rle" />
+	<area coords="490,290,549,329" href="16/16ulbtb5.rle" />
+	<area coords="550,290,620,329" href="16/16ttlp1.rle" />
+	<area coords="0,330,69,369" href="16/16cslp4.rle" />
+	<area coords="70,330,129,369" href="16/16cslp2.rle" />
+	<area coords="130,330,189,369" href="16/16fttsh1.rle" />
+	<area coords="190,330,249,369" href="16/16ugtsh1.rle" />
+	<area coords="250,330,309,369" href="16/16lhtls3.rle" />
+	<area coords="310,330,369,369" href="16/16itbsh3.rle" />
+	<area coords="370,330,429,369" href="16/16itbsh2.rle" />
+	<area coords="430,330,489,369" href="16/16iftbk3.rle" />
+	<area coords="490,330,549,369" href="16/16tttbk4.rle" />
+	<area coords="550,330,620,369" href="16/16tttbk5.rle" />
+	<area coords="0,370,69,420" href="16/16ulgtbk.rle" />
+	<area coords="70,370,129,420" href="16/16etbtbk.rle" />
+	<area coords="130,370,189,420" href="16/16acacb2.rle" />
+	<area coords="190,370,249,420" href="16/16iftbk2.rle" />
+	<area coords="250,370,309,420" href="16/16iugbk2.rle" />
+	<area coords="310,370,369,420" href="16/16gutbk2.rle" />
+	<area coords="370,370,429,420" href="16/16acacb1.rle" />
+	<area coords="430,370,489,420" href="16/16iftbk1.rle" />
+	<area coords="490,370,549,420" href="16/16iugbk1.rle" />
+	<area coords="550,370,620,420" href="16/16gutbk1.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-e"></a>
+<h3>The fifteenth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-e.rle"><img src="map/pp1-16-e.png"
+ alt="16-bit pseudo-still-lifes 1401-1500"
+ width="621" height="421" usemap="#pp1-16-e" /></a></p>
+
+<map name="pp1-16-e">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-e.rle" />
+	<area coords="0,0,69,49" href="16/16itubb2.rle" />
+	<area coords="70,0,129,49" href="16/16itubb1.rle" />
+	<area coords="130,0,189,49" href="16/16ithbt1.rle" />
+	<area coords="190,0,249,49" href="16/16lchtb4.rle" />
+	<area coords="250,0,309,49" href="16/16acbtb2.rle" />
+	<area coords="310,0,369,49" href="16/16lclbt8.rle" />
+	<area coords="370,0,429,49" href="16/16httt2.rle" />
+	<area coords="430,0,489,49" href="16/16vcsh1.rle" />
+	<area coords="490,0,549,49" href="16/16xsls3.rle" />
+	<area coords="550,0,620,49" href="16/16vclbk2.rle" />
+	<area coords="0,50,69,89" href="16/16vcac5.rle" />
+	<area coords="70,50,129,89" href="16/16lclf1.rle" />
+	<area coords="130,50,189,89" href="16/16lclf2.rle" />
+	<area coords="190,50,249,89" href="16/16htcs1.rle" />
+	<area coords="250,50,309,89" href="16/16fttac1.rle" />
+	<area coords="310,50,369,89" href="16/16ugtac1.rle" />
+	<area coords="370,50,429,89" href="16/16itbac4.rle" />
+	<area coords="430,50,489,89" href="16/16itbac2.rle" />
+	<area coords="490,50,549,89" href="16/16vcsh3.rle" />
+	<area coords="550,50,620,89" href="16/16vcac7.rle" />
+	<area coords="0,90,69,129" href="16/16lclf3.rle" />
+	<area coords="70,90,129,129" href="16/16lclf4.rle" />
+	<area coords="130,90,189,129" href="16/16htcs5.rle" />
+	<area coords="190,90,249,129" href="16/16htvs3.rle" />
+	<area coords="250,90,309,129" href="16/16vclbk4.rle" />
+	<area coords="310,90,369,129" href="16/16vchtb2.rle" />
+	<area coords="370,90,429,129" href="16/16vcsn1.rle" />
+	<area coords="430,90,489,129" href="16/16vcac1.rle" />
+	<area coords="490,90,549,129" href="16/16vcsn3.rle" />
+	<area coords="550,90,620,129" href="16/16vcac3.rle" />
+	<area coords="0,130,69,169" href="16/16yshv1.rle" />
+	<area coords="70,130,129,169" href="16/16xset5.rle" />
+	<area coords="130,130,189,169" href="16/16xset4.rle" />
+	<area coords="190,130,249,169" href="16/16xset2.rle" />
+	<area coords="250,130,309,169" href="16/16xslb2.rle" />
+	<area coords="310,130,369,169" href="16/16ttvs1.rle" />
+	<area coords="370,130,429,169" href="16/16vscs6.rle" />
+	<area coords="430,130,489,169" href="16/16vscs2.rle" />
+	<area coords="490,130,549,169" href="16/16lcls4.rle" />
+	<area coords="550,130,620,169" href="16/16lcls2.rle" />
+	<area coords="0,170,69,209" href="16/16yssh2.rle" />
+	<area coords="70,170,129,209" href="16/16vcsn4.rle" />
+	<area coords="130,170,189,209" href="16/16vcsn2.rle" />
+	<area coords="190,170,249,209" href="16/16zsbt1.rle" />
+	<area coords="250,170,309,209" href="16/16ysac2.rle" />
+	<area coords="310,170,369,209" href="16/16attbk1.rle" />
+	<area coords="370,170,429,209" href="16/16gvtbk1.rle" />
+	<area coords="430,170,489,209" href="16/16lhtlb6.rle" />
+	<area coords="490,170,549,209" href="16/16lchtb5.rle" />
+	<area coords="550,170,620,209" href="16/16shbts3.rle" />
+	<area coords="0,210,69,249" href="16/16bvtbt2.rle" />
+	<area coords="70,210,129,249" href="16/16lllb2.rle" />
+	<area coords="130,210,189,249" href="16/16aebt2.rle" />
+	<area coords="190,210,249,249" href="16/16snftb6.rle" />
+	<area coords="250,210,309,249" href="16/16vhthv2.rle" />
+	<area coords="310,210,369,249" href="16/16vhthv3.rle" />
+	<area coords="370,210,429,249" href="16/16vlhv5.rle" />
+	<area coords="430,210,489,249" href="16/16lllb10.rle" />
+	<area coords="490,210,549,249" href="16/16xhtbt4.rle" />
+	<area coords="550,210,620,249" href="16/16acbts5.rle" />
+	<area coords="0,250,69,289" href="16/16txtbt5.rle" />
+	<area coords="70,250,129,289" href="16/16ftvtb2.rle" />
+	<area coords="130,250,189,289" href="16/16llet12.rle" />
+	<area coords="190,250,249,289" href="16/16llet20.rle" />
+	<area coords="250,250,309,289" href="16/16lhtetc.rle" />
+	<area coords="310,250,369,289" href="16/16llet10.rle" />
+	<area coords="370,250,429,289" href="16/16lhtet6.rle" />
+	<area coords="430,250,489,289" href="16/16llet2.rle" />
+	<area coords="490,250,549,289" href="16/16slht7.rle" />
+	<area coords="550,250,620,289" href="16/16sebt2.rle" />
+	<area coords="0,290,69,329" href="16/16lctbt2.rle" />
+	<area coords="70,290,129,329" href="16/16bltac8.rle" />
+	<area coords="130,290,189,329" href="16/16chtacb.rle" />
+	<area coords="190,290,249,329" href="16/16tvtac6.rle" />
+	<area coords="250,290,309,329" href="16/16vlac2.rle" />
+	<area coords="310,290,369,329" href="16/16aahv2.rle" />
+	<area coords="370,290,429,329" href="16/16lsabt7.rle" />
+	<area coords="430,290,489,329" href="16/16acftb4.rle" />
+	<area coords="490,290,549,329" href="16/16llet21.rle" />
+	<area coords="550,290,620,329" href="16/16llet29.rle" />
+	<area coords="0,330,69,369" href="16/16lhteth.rle" />
+	<area coords="70,330,129,369" href="16/16liac6.rle" />
+	<area coords="130,330,189,369" href="16/16vlac15.rle" />
+	<area coords="190,330,249,369" href="16/16vhtsh3.rle" />
+	<area coords="250,330,309,369" href="16/16lsabt3.rle" />
+	<area coords="310,330,369,369" href="16/16aash4.rle" />
+	<area coords="370,330,429,369" href="16/16vlsh10.rle" />
+	<area coords="430,330,489,369" href="16/16vhtsh6.rle" />
+	<area coords="490,330,549,369" href="16/16txtbt1.rle" />
+	<area coords="550,330,620,369" href="16/16txtbt2.rle" />
+	<area coords="0,370,69,420" href="16/16acftb8.rle" />
+	<area coords="70,370,129,420" href="16/16lctbt3.rle" />
+	<area coords="130,370,189,420" href="16/16lcttb1.rle" />
+	<area coords="190,370,249,420" href="16/16betbt2.rle" />
+	<area coords="250,370,309,420" href="16/16elsbk3.rle" />
+	<area coords="310,370,369,420" href="16/16asac4.rle" />
+	<area coords="370,370,429,420" href="16/16esbt3.rle" />
+	<area coords="430,370,489,420" href="16/16acacbg.rle" />
+	<area coords="490,370,549,420" href="16/16acsnb6.rle" />
+	<area coords="550,370,620,420" href="16/16elsbk2.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-f"></a>
+<h3>The sixteenth 100 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-f.rle"><img src="map/pp1-16-f.png"
+ alt="16-bit pseudo-still-lifes 1501-1600"
+ width="621" height="421" usemap="#pp1-16-f" /></a></p>
+
+<map name="pp1-16-f">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-16-f.rle" />
+	<area coords="0,0,69,49" href="16/16bcsbk3.rle" />
+	<area coords="70,0,129,49" href="16/16ivhbk3.rle" />
+	<area coords="130,0,189,49" href="16/16acacbh.rle" />
+	<area coords="190,0,249,49" href="16/16bcsbk1.rle" />
+	<area coords="250,0,309,49" href="16/16cssbk1.rle" />
+	<area coords="310,0,369,49" href="16/16betbt5.rle" />
+	<area coords="370,0,429,49" href="16/16txtbt6.rle" />
+	<area coords="430,0,489,49" href="16/16xhtbt3.rle" />
+	<area coords="490,0,549,49" href="16/16acbts7.rle" />
+	<area coords="550,0,620,49" href="16/16tctbt6.rle" />
+	<area coords="0,50,69,89" href="16/16litbb2.rle" />
+	<area coords="70,50,129,89" href="16/16ilhbt6.rle" />
+	<area coords="130,50,189,89" href="16/16lhtlb3.rle" />
+	<area coords="190,50,249,89" href="16/16xlbt9.rle" />
+	<area coords="250,50,309,89" href="16/16xhtbt5.rle" />
+	<area coords="310,50,369,89" href="16/16lfttb1.rle" />
+	<area coords="370,50,429,89" href="16/16eabt4.rle" />
+	<area coords="430,50,489,89" href="16/16lhtet9.rle" />
+	<area coords="490,50,549,89" href="16/16lhtet3.rle" />
+	<area coords="550,50,620,89" href="16/16htht6.rle" />
+	<area coords="0,90,69,129" href="16/16sltt1.rle" />
+	<area coords="70,90,129,129" href="16/16eabt5.rle" />
+	<area coords="130,90,189,129" href="16/16hvtac7.rle" />
+	<area coords="190,90,249,129" href="16/16dgtac3.rle" />
+	<area coords="250,90,309,129" href="16/16ihkacc.rle" />
+	<area coords="310,90,369,129" href="16/16cslack.rle" />
+	<area coords="370,90,429,129" href="16/16chtac8.rle" />
+	<area coords="430,90,489,129" href="16/16cltac8.rle" />
+	<area coords="490,90,549,129" href="16/16xlbt5.rle" />
+	<area coords="550,90,620,129" href="16/16xlbt6.rle" />
+	<area coords="0,130,69,169" href="16/16vscg3.rle" />
+	<area coords="70,130,129,169" href="16/16dbtls7.rle" />
+	<area coords="130,130,189,169" href="16/16slcs2.rle" />
+	<area coords="190,130,249,169" href="16/16ubtlsa.rle" />
+	<area coords="250,130,309,169" href="16/16ubtls8.rle" />
+	<area coords="310,130,369,169" href="16/16vbls4.rle" />
+	<area coords="370,130,429,169" href="16/16inls8.rle" />
+	<area coords="430,130,489,169" href="16/16lhtetg.rle" />
+	<area coords="490,130,549,169" href="16/16vlac20.rle" />
+	<area coords="550,130,620,169" href="16/16vhtac9.rle" />
+	<area coords="0,170,69,209" href="16/16vhtacc.rle" />
+	<area coords="70,170,129,209" href="16/16vhtac3.rle" />
+	<area coords="130,170,189,209" href="16/16aaac4.rle" />
+	<area coords="190,170,249,209" href="16/16vlac10.rle" />
+	<area coords="250,170,309,209" href="16/16vhtac6.rle" />
+	<area coords="310,170,369,209" href="16/16aaac8.rle" />
+	<area coords="370,170,429,209" href="16/16lsabt8.rle" />
+	<area coords="430,170,489,209" href="16/16tlctb1.rle" />
+	<area coords="490,170,549,209" href="16/16slcs8.rle" />
+	<area coords="550,170,620,209" href="16/16slvs8.rle" />
+	<area coords="0,210,69,249" href="16/16inls6.rle" />
+	<area coords="70,210,129,249" href="16/16cltac9.rle" />
+	<area coords="130,210,189,249" href="16/16ubtlsb.rle" />
+	<area coords="190,210,249,249" href="16/16vslp4.rle" />
+	<area coords="250,210,309,249" href="16/16tytbk1.rle" />
+	<area coords="310,210,369,249" href="16/16lhtls9.rle" />
+	<area coords="370,210,429,249" href="16/16lsabt4.rle" />
+	<area coords="430,210,489,249" href="16/16vsabk2.rle" />
+	<area coords="490,210,549,249" href="16/16vsabk4.rle" />
+	<area coords="550,210,620,249" href="16/16tytbk3.rle" />
+	<area coords="0,250,69,289" href="16/16acacb4.rle" />
+	<area coords="70,250,129,289" href="16/16csabk3.rle" />
+	<area coords="130,250,189,289" href="16/16lsbtb2.rle" />
+	<area coords="190,250,249,289" href="16/16tlctb3.rle" />
+	<area coords="250,250,309,289" href="16/16csabk1.rle" />
+	<area coords="310,250,369,289" href="16/16clttb1.rle" />
+	<area coords="370,250,429,289" href="16/16acbtb4.rle" />
+	<area coords="430,250,489,289" href="16/16lchtb2.rle" />
+	<area coords="490,250,549,289" href="16/16lclbta.rle" />
+	<area coords="550,250,620,289" href="16/16httt4.rle" />
+	<area coords="0,290,69,329" href="16/16fttac3.rle" />
+	<area coords="70,290,129,329" href="16/16ugtac3.rle" />
+	<area coords="130,290,189,329" href="16/16itbac7.rle" />
+	<area coords="190,290,249,329" href="16/16itbac6.rle" />
+	<area coords="250,290,309,329" href="16/16yssh3.rle" />
+	<area coords="310,290,369,329" href="16/16ysac7.rle" />
+	<area coords="370,290,429,329" href="16/16xslf3.rle" />
+	<area coords="430,290,489,329" href="16/16xslf4.rle" />
+	<area coords="490,290,549,329" href="16/16htvs5.rle" />
+	<area coords="550,290,620,329" href="16/16htcs3.rle" />
+	<area coords="0,330,69,369" href="16/16vclbk3.rle" />
+	<area coords="70,330,129,369" href="16/16htcs7.rle" />
+	<area coords="130,330,189,369" href="16/16vclbk5.rle" />
+	<area coords="190,330,249,369" href="16/16vchtb1.rle" />
+	<area coords="250,330,309,369" href="16/16tttt2.rle" />
+	<area coords="310,330,369,369" href="16/16yssn3.rle" />
+	<area coords="370,330,429,369" href="16/16ysac3.rle" />
+	<area coords="430,330,489,369" href="16/16vchv1.rle" />
+	<area coords="490,330,549,369" href="16/16lcet4.rle" />
+	<area coords="550,330,620,369" href="16/16lcet2.rle" />
+	<area coords="0,370,69,420" href="16/16lclb2.rle" />
+	<area coords="70,370,129,420" href="16/16ttcs1.rle" />
+	<area coords="130,370,189,420" href="16/16cscs2.rle" />
+	<area coords="190,370,249,420" href="16/16lcet5.rle" />
+	<area coords="250,370,309,420" href="16/16vchv2.rle" />
+	<area coords="310,370,369,420" href="16/16lcet11.rle" />
+	<area coords="370,370,429,420" href="16/16lcet10.rle" />
+	<area coords="430,370,489,420" href="16/16lcet8.rle" />
+	<area coords="490,370,549,420" href="16/16lclb4.rle" />
+	<area coords="550,370,620,420" href="16/16ttcs3.rle" />
+</map>
+
+<hr />
+<a name="pp1-16-g"></a>
+<h3>The last 45 16-bit pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/pp1-16-g.rle"><img src="map/pp1-16-g.png"
+ alt="16-bit pseudo-still-lifes 1601-1645"
+ width="621" height="321" usemap="#pp1-16-g" /></a></p>
+
+<map name="pp1-16-g">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-16.zip" />
+	<area coords="601,301,620,320" href="stamp/pp1-16-g.rle" />
+	<area coords="0,0,69,49" href="16/16xsls6.rle" />
+	<area coords="70,0,129,49" href="16/16cscs6.rle" />
+	<area coords="130,0,189,49" href="16/16cscs4.rle" />
+	<area coords="190,0,249,49" href="16/16vsvs4.rle" />
+	<area coords="250,0,309,49" href="16/16xsls4.rle" />
+	<area coords="310,0,369,49" href="16/16vcsh4.rle" />
+	<area coords="370,0,429,49" href="16/16vcsh2.rle" />
+	<area coords="430,0,489,49" href="16/16yssn4.rle" />
+	<area coords="490,0,549,49" href="16/16xcbt1.rle" />
+	<area coords="550,0,620,49" href="16/16vcac2.rle" />
+	<area coords="0,50,69,89" href="16/16xcbt3.rle" />
+	<area coords="70,50,129,89" href="16/16vcac4.rle" />
+	<area coords="130,50,189,89" href="16/16ysac6.rle" />
+	<area coords="190,50,249,89" href="16/16zsbt2.rle" />
+	<area coords="250,50,309,89" href="16/16lzsbk1.rle" />
+	<area coords="310,50,369,89" href="16/16xhtbt6.rle" />
+	<area coords="370,50,429,89" href="16/16xlbt10.rle" />
+	<area coords="430,50,489,89" href="16/16ylbk3.rle" />
+	<area coords="490,50,549,89" href="16/16htvs7.rle" />
+	<area coords="550,50,620,89" href="16/16ylbk5.rle" />
+	<area coords="0,90,69,129" href="16/16yhtbk3.rle" />
+	<area coords="70,90,129,129" href="16/16yshv2.rle" />
+	<area coords="130,90,189,129" href="16/16xset10.rle" />
+	<area coords="190,90,249,129" href="16/16xset8.rle" />
+	<area coords="250,90,309,129" href="16/16xslb4.rle" />
+	<area coords="310,90,369,129" href="16/16ttvs3.rle" />
+	<area coords="370,90,429,129" href="16/16vscs4.rle" />
+	<area coords="430,90,489,129" href="16/16lcls6.rle" />
+	<area coords="490,90,549,129" href="16/16xset11.rle" />
+	<area coords="550,90,620,129" href="16/16lcls8.rle" />
+	<area coords="0,130,69,169" href="16/16vscs8.rle" />
+	<area coords="70,130,129,169" href="16/16vsvs6.rle" />
+	<area coords="130,130,189,169" href="16/16xsls8.rle" />
+	<area coords="190,130,249,169" href="16/16yssh4.rle" />
+	<area coords="250,130,309,169" href="16/16zsbt3.rle" />
+	<area coords="310,130,369,169" href="16/16vcac6.rle" />
+	<area coords="370,130,429,169" href="16/16ysac4.rle" />
+	<area coords="430,130,489,169" href="16/16vcac8.rle" />
+	<area coords="490,130,549,169" href="16/16xcbt2.rle" />
+	<area coords="550,130,620,169" href="16/16xcbt4.rle" />
+	<area coords="0,170,69,320" href="16/16ycbk2.rle" />
+	<area coords="70,170,129,320" href="16/16ycbk1.rle" />
+	<area coords="130,170,189,320" href="16/16ysac8.rle" />
+	<area coords="190,170,249,320" href="16/16zsbt4.rle" />
+	<area coords="250,170,309,320" href="16/16lzsbk2.rle" />
+	<area coords="310,170,620,320" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-16.htm">16-bit objects</a>:</b>
+	<a class="i" href="p1-16.htm">still-lifes</a>,
+	pseudo-still-lifes,
+	<a class="i" href="bits-16.htm#p2-16">P2 oscillators</a>,
+	<a class="i" href="pp2-16.htm">P2 pseudo-oscillators</a>,
+	<a class="i" href="bits-16.htm#p3-16">P3 oscillators</a>,
+	<a class="i" href="bits-16.htm#pp4-16">P4 pseudo-oscillator</a>,
+	<a class="i" href="bits-16.htm#p5-16">P5 oscillator</a>,
+	<a class="i" href="bits-16.htm#p6-16">P6 oscillator</a>,
+	<a class="i" href="bits-16.htm#p14-16">P14 oscillator</a>,
+	<a class="i" href="bits-16.htm#pp15-16">P15 pseudo-oscillator</a>,
+	<a class="i" href="bits-16.htm#cons-16">constellations</a>.</p>
+
+<p><b>Other <a class="i" href="pp1.htm">pseudo-still-lifes</a>:</b>
+	<a class="i" href="pp1.htm#pp1-8">8-bit</a>,
+	<a class="i" href="pp1.htm#pp1-9">9-bit</a>,
+	<a class="i" href="pp1.htm#pp1-10">10-bit</a>,
+	<a class="i" href="pp1.htm#pp1-11">11-bit</a>,
+	<a class="i" href="pp1.htm#pp1-12">12-bit</a>,
+	<a class="i" href="pp1.htm#pp1-13">13-bit</a>,
+	<a class="i" href="pp1-14.htm">14-bit</a>,
+	<a class="i" href="pp1-15.htm">15-bit</a>,
+	16-bit,
+	<a class="i" href="pp1-17.htm">17-bit</a>,
+	<a class="i" href="pp1-18.htm">18-bit</a>,
+	<a class="i" href="pp1.htm#pp1-19">19-bit</a>,
+	<a class="i" href="pp1.htm#pp1-20">20-bit</a>,
+	<a class="i" href="pp1.htm#pp1-21">21-bit</a>,
+	<a class="i" href="pp1.htm#pp1-22">22-bit</a>,
+	<a class="i" href="pp1.htm#pp1-23">23-bit</a>,
+	<a class="i" href="pp1.htm#pp1-24">24-bit</a>,
+	<a class="i" href="pp1.htm#pp1-lg">25-bit and larger</a>,
+	<a class="i" href="pp1.htm#pp1-bad">not quite still</a>.</p>
+
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>
+

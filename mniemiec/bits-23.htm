@@ -1,0 +1,914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>23-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: 23-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 23 bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>23-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-23">Still-lifes</a> |
+	<a class="j" href="#pp1-23">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-23">P2 oscillators</a> |
+	<a class="j" href="#pp2-23">P2 pseudo-oscillator</a> |
+	<a class="j" href="#p3-23">P3 oscillator</a> |
+	<a class="j" href="#p4-23">P4 oscillators</a> |
+	<a class="j" href="#p5-23">P5 oscillator</a> |
+	<a class="j" href="#pp5-23">P5 pseudo-oscillator</a> |
+	<a class="j" href="#p6-23">P6 oscillator</a> |
+	<a class="j" href="#pp6-23">P6 pseudo-oscillator</a> |
+	<a class="j" href="#p8-23">P8 oscillator</a> |
+	<a class="j" href="#pp8-23">P8 pseudo-oscillator</a> |
+	<a class="j" href="#p10-23">P10 oscillator</a> |
+	<a class="j" href="#pp10-23">P10 pseudo-oscillator</a> |
+	<a class="j" href="#p15-23">P15 oscillators</a> |
+	<a class="j" href="#pp15-23">P15 pseudo-oscillator</a> |
+	<a class="j" href="#p30-23">P30 oscillators</a> |
+	<a class="j" href="#pp30-23">P30 pseudo-oscillator</a> |
+	<a class="j" href="#ss-23">Spaceships</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-23"></a>
+<h2>The 1646147 23-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 23 of these are shown.</p>
+<p><a class="p" href="stamp/p1-23.rle"><img src="map/p1-23.png"
+ alt="23-bit still-lifes" width="501" height="201" usemap="#p1-23" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23-00c8c.rle">23. 3212 [6]</a></td>
+	<td><a class="p" href="23/23-091fc.rle">23. 37372 [13]</a></td>
+	<td><a class="p" href="23/23-11714.rle">23. 71444 [13]</a></td>
+	<td><a class="p" href="23/23-23931.rle">23. 145713 [9]</a></td>
+	<td><a class="p" href="23/23-2503d.rle">23. 151613 [8]</a></td>
+	<td><a class="p" href="23/23-250d2.rle">23. 151762 [14]</a></td>
+	<td class="y"><a class="p" href="23/23-25ba9.rle">
+	    23. 154537 [34]</a></td>
+	<td><a class="p" href="23/23-3a6db.rle">23. 239323 [15]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="23/23-3e1e3.rle">
+	    23. 254435 [67]</a></td>
+	<td><a class="p" href="23/23-70bdd.rle">
+	    23. 461789; Century eater w/ cis house [8]</a></td>
+	<td><a class="p" href="23/23-791dc.rle">23. 496092 [14]</a></td>
+	<td><a class="p" href="23/23-8b8e6.rle">23. 571622 [5]</a></td>
+	<td><a class="p" href="23/23-9d14c.rle">23. 643404 [14]</a></td>
+	<td><a class="p" href="23/23-9d26e.rle">23. 643694 [5]</a></td>
+	<td><a class="p" href="23/23-ccb59.rle">23. 838489 [11]</a></td>
+	<td><a class="p" href="23/23-e3b18.rle">23. 932632 [13]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23-e3f8c.rle">23. 933772 [13]</a></td>
+	<td><a class="p" href="23/23-ec8d2.rle">23. 968914 [10]</a></td>
+	<td><a class="p" href="23/23130c9f.rle">23. 1248415 [13]</a></td>
+	<td><a class="p" href="23/2314ecab.rle">23. 1371307 [14]</a></td>
+	<td><a class="p" href="23/23152167.rle">23. 1384807 [5]</a></td>
+	<td><a class="p" href="23/231655c7.rle">23. 1463751 [13]</a></td>
+	<td><a class="p" href="23/2316b11c.rle">23. 1487132 [11]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p1-23.zip" />
+	<area coords="481,181,500,200" href="stamp/p1-23.rle" />
+	<area coords="0,0,69,69" href="23/23-00c8c.rle" />
+	<area coords="70,0,129,69" href="23/23-091fc.rle" />
+	<area coords="130,0,189,69" href="23/23-11714.rle" />
+	<area coords="190,0,249,69" href="23/23-23931.rle" />
+	<area coords="250,0,309,69" href="23/23-2503d.rle" />
+	<area coords="310,0,369,69" href="23/23-250d2.rle" />
+	<area coords="370,0,429,69" href="23/23-25ba9.rle" />
+	<area coords="430,0,500,69" href="23/23-3a6db.rle" />
+	<area coords="0,70,69,129" href="23/23-3e1e3.rle" />
+	<area coords="70,70,129,129" href="23/23-70bdd.rle" />
+	<area coords="130,70,189,129" href="23/23-791dc.rle" />
+	<area coords="190,70,249,129" href="23/23-8b8e6.rle" />
+	<area coords="250,70,309,129" href="23/23-9d14c.rle" />
+	<area coords="310,70,369,129" href="23/23-9d26e.rle" />
+	<area coords="370,70,429,129" href="23/23-ccb59.rle" />
+	<area coords="430,70,500,129" href="23/23-e3b18.rle" />
+	<area coords="0,130,69,200" href="23/23-e3f8c.rle" />
+	<area coords="70,130,129,200" href="23/23-ec8d2.rle" />
+	<area coords="130,130,189,200" href="23/23130c9f.rle" />
+	<area coords="190,130,249,200" href="23/2314ecab.rle" />
+	<area coords="250,130,309,200" href="23/23152167.rle" />
+	<area coords="310,130,369,200" href="23/231655c7.rle" />
+	<area coords="370,130,429,200" href="23/2316b11c.rle" />
+	<area coords="430,130,500,200" nohref="nohref" />
+</map>
+
+<p>The Century eater is specifically designed to eat a
+<a class="p" href="0/6be.rle">century</a>.</p>
+
+<hr />
+<a name="pp1-23"></a>
+<h2>The 1184882 23-bit
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 11 these are shown.</p>
+<p><a class="p" href="stamp/pp1-23.rle"><img src="map/pp1-23.png"
+ alt="23-bit pseudo-still-lifes"
+ width="501" height="141" usemap="#pp1-23" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23sset4.rle">
+	    Down symmetric scorpion above eater [6]</a></td>
+	<td><a class="p" href="23/23slbnp1.rle">
+	    Pond on shil- lelagh tie bun [6]</a></td>
+	<td><a class="p" href="23/23slbnp2.rle">
+	    Pond below shil- lelagh tie bun [6]</a></td>
+	<td><a class="p" href="23/23sset3.rle">
+	    Up symmetric scorpion above eater [6]</a></td>
+	<td><a class="p" href="23/23ge.rle">
+	    Glider eater [12]</a></td>
+	<td><a class="p" href="23/23bebeha.rle">
+	    Hat on pair of book- ends [13]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23lcicsl.rle">
+	    Down cis shil- lelagh mouth on long cis integral [19]</a></td>
+	<td class="y"><a class="p" href="23/23lcifte.rle">
+	    Up eater tail on long cis integral w/ fuse w/ tail [27]</a></td>
+	<td><a class="p" href="23/23lcicl2.rle">
+	    Down claw w/ tail mouth on long cis integral [17]</a></td>
+	<td><a class="p" href="23/23lcicl7.rle">
+	    Up claw w/ tail tail on long cis integral [15]</a></td>
+	<td><a class="p" href="23/23lcicle.rle">
+	    Down claw w/ tail chin on long cis integral [17]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp1-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp1-23.zip" />
+	<area coords="481,121,500,140" href="stamp/pp1-23.rle" />
+	<area coords="0,0,89,69" href="23/23sset4.rle" />
+	<area coords="90,0,169,69" href="23/23slbnp1.rle" />
+	<area coords="170,0,249,69" href="23/23slbnp2.rle" />
+	<area coords="250,0,329,69" href="23/23sset3.rle" />
+	<area coords="330,0,409,69" href="23/23ge.rle" />
+	<area coords="410,0,500,69" href="23/23bebeha.rle" />
+	<area coords="0,70,89,140" href="23/23lcicsl.rle" />
+	<area coords="90,70,169,140" href="23/23lcifte.rle" />
+	<area coords="170,70,249,140" href="23/23lcicl2.rle" />
+	<area coords="250,70,329,140" href="23/23lcicl7.rle" />
+	<area coords="330,70,409,140" href="23/23lcicle.rle" />
+	<area coords="410,70,500,140" nohref="nohref" />
+</map>
+
+<p>The glider eater works very similarly to
+<a class="p" href="19/19-11763.rle">Eater-2</a>. It is also composed of a block
+on a still-life, and can also eat LWSS, MWSS, and gliders with any spacing,
+from either side. What makes it truly unusual, however, is that the block
+is not always necessary. If a glider hits the still-life alone, it turns into a
+boat, and a second glider on the same path turns the boat into a block.
+Subsequent gliders are absorbed by the block. This means that when
+synthesizing this eater as part of a larger pattern, the block can be
+omitted, reducing the cost from 14 gliders to 12.</p>
+
+<hr />
+<a name="p2-23"></a>
+<h2>6 23-bit
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<p><a class="p" href="stamp/p2-23.rle"><img src="map/p2-23.png"
+ alt="23-bit period 2 oscillators"
+ width="381" height="81" usemap="#p2-23" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="23/23pi.rle">
+	    Piston [46]</a></td>
+	<td><a class="p" href="23/23tbdhs.rle">
+	    Spark coil from tub on D on house [12]</a></td>
+	<td><a class="p" href="23/23pbtdhs.rle">
+	    Spark coil from pre- block on D w/ tub on house [21]</a></td>
+	<td class="y"><a class="p" href="23/23lgtsn.rle">
+	    Light bulb*; Snake on light bulb [30]</a></td>
+	<td><a class="p" href="23/23scbt.rle">
+	    Spark coil tie boat; Boat on spark coil [5]</a></td>
+	<td><a class="p" href="23/23barbt2.rle">
+	    Block and down boat on armpit [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/p2-23.zip" />
+	<area coords="361,61,380,80" href="stamp/p2-23.rle" />
+	<area coords="0,0,89,80" href="23/23pi.rle" />
+	<area coords="90,0,169,80" href="23/23tbdhs.rle" />
+	<area coords="170,0,249,80" href="23/23pbtdhs.rle" />
+	<area coords="250,0,329,80" href="23/23lgtsn.rle" />
+	<area coords="330,0,380,80" href="23/23scbt.rle" />
+</map>
+
+<p>(* <i>Q: How many gliders does it take to screw in a light bulb?<br />
+A: 11-30, depending on the socket.)</i></p>
+
+<hr />
+<a name="pp2-23"></a>
+<h2>2 23-bit
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp2-23.rle"><img src="map/pp2-23.png"
+ alt="23-bit PP2" width="181" height="81" usemap="#pp2-23" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="23/23tpppc2.rle">
+	    Tripole below paper clip [10]</a></td>
+	<td class="y"><a class="p" href="23/23gvh2bc.rle">
+	    Beacon between gull w/ two very long hooks [137]</a></td>
+    </tr>
+</table></p>
+<map name="pp2-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/pp2-23.zip" />
+	<area coords="161,61,180,80" href="stamp/pp2-23.rle" />
+	<area coords="0,0,89,80" href="23/23tpppc2.rle" />
+	<area coords="90,0,180,80" href="23/23gvh2bc.rle" />
+</map>
+
+<hr />
+<a name="p3-23"></a>
+<h2>0 23-bit
+<a class="i" href="p3.htm">period 3 oscillator</a></h2>
+<p><a class="p" href="stamp/p3-23.rle"><img src="map/p3-23.png"
+ alt="23-bit P3" width="101" height="81" usemap="#p3-23" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="23/23nbscgi.rle">
+	    Belu- chenko's P3 w/ super- mango and integral [32]</a></td>
+    </tr>
+</table></p>
+
+<map name="p3-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p3-23.zip" />
+	<area coords="81,61,100,80" href="stamp/p3-23.rle" />
+	<area coords="0,0,100,80" href="23/23nbscgi.rle" />
+</map>
+
+<hr />
+<a name="p4-23"></a>
+<h2>The 239 23-bit
+<a class="i" href="p4.htm">period 4 oscillators</a></h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>229 Expanded molds on 18-bit still-lifes (not shown).</li>
+    <li>4 Expanded confused eaters (shown).</li>
+    <li>4 Expanded eater block frobs (shown).</li>
+    <li>2 Mold on griddle (shown).</li>
+</ul></p>
+
+<p>The ones based on mold on a still-life are too numerous to show, but all are
+are easy to synthesize using standard techniques. The others are shown.</p>
+<p><a class="p" href="stamp/p4-23.rle"><img src="map/p4-23.png"
+ alt="23-bit period-4 oscillators"
+ width="421" height="161" usemap="#p4-23" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23mddt1.rle">
+	    Up mold on griddle [21]</a></td>
+	<td><a class="p" href="23/23mddt2.rle">
+	    Down mold on griddle [21]</a></td>
+	<td><a class="p" href="23/23eihbf.rle">
+	    Eater and block eating integral w/ loaf and hook [15]</a></td>
+	<td><a class="p" href="23/23cebg.rle">
+	    Confused eaters w/ barge [21]</a></td>
+	<td><a class="p" href="23/23eitbf.rle">
+	    Eater and block eating integral w/ loaf and tub [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23ihebf.rle">
+	    Integral w/ hook and block eating loaf w/ tail [18]</a></td>
+	<td><a class="p" href="23/23itebf.rle">
+	    Integral w/ tub and block eating loaf w/ tail [18]</a></td>
+	<td class="g"><a class="p" href="23/23ceintb.rle">
+	    Confused eaters w/ tub and integral [23]</a></td>
+	<td class="y"><a class="p" href="23/23ceih.rle">
+	    Confused eaters w/ integral w/ hook [26]</a></td>
+	<td class="y"><a class="p" href="23/23ceit.rle">
+	    Confused eaters w/ integral w/ tub [26]</a></td>
+    </tr>
+</table></p>
+
+<map name="p4-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p4-23.zip" />
+	<area coords="401,141,420,160" href="stamp/p4-23.rle" />
+	<area coords="0,0,89,69" href="23/23mddt2.rle" />
+	<area coords="90,0,169,69" href="23/23mddt1.rle" />
+	<area coords="170,0,249,69" href="23/23eihbf.rle" />
+	<area coords="250,0,329,69" href="23/23cebg.rle" />
+	<area coords="330,0,420,69" href="23/23eitbf.rle" />
+	<area coords="0,70,89,160" href="23/23ihebf.rle" />
+	<area coords="90,70,169,160" href="23/23itebf.rle" />
+	<area coords="170,70,249,160" href="23/23ceintb.rle" />
+	<area coords="250,70,329,160" href="23/23ceih.rle" />
+	<area coords="330,70,420,160" href="23/23ceit.rle" />
+</map>
+
+<hr />
+<a name="p5-23"></a>
+<h2>The 210 23-bit
+<a class="i" href="p5.htm">period 5 oscillators</a></h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>148 Silver's P5 on 12-bit still-life.</li>
+    <li>12 Table on Silver's P5 on snake or carrier.</li>
+    <li>15 Pseudo-barber-pole tied to an 8-bit still-life.</li>
+    <li>9 Pseudo-barber-pole on long bookend, cap, or cover.</li>
+    <li>10 Expanded fumaroles.</li>
+    <li>5 Expanded Elkies's P5s (one without synthesis shown).</li>
+    <li>3 Expanded pentoads (one shown).</li>
+    <li>6 Hooks on 8-bit still-life.</li>
+    <li>2 Hooks w/ integral on snake or carrier.</li>
+</ul></p>
+
+<p>Synthesis for 1 of these is shown; all others are easy to synthesize using
+standard techniques except one expanded Elkies's P5, also shown below, and a few
+cases of Silver's P5.</p>
+<p><a class="p" href="stamp/p5-23.rle"><img src="map/p5-23.png"
+ alt="23 bit P5" width="181" height="81" usemap="#p5-23" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="23/23necltp.rle">
+	    Elkies's P5 w/ claw w/ tub and pre-block [x]</a></td>
+	<td><a class="p" href="23/23etzbeb.rle">Pentoad 1h2;
+	    Pentoad between eater and bookend and block [19]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p5-23.zip" />
+	<area coords="161,61,180,80" href="stamp/p5-23.rle" />
+	<area coords="0,0,89,80" href="23/23necltp.rle" />
+	<area coords="90,0,180,80" href="23/23etzbeb.rle" />
+</map>
+
+<hr />
+<a name="pp5-23"></a>
+<h2>The 220 23-bit
+<a class="i" href="pp5.htm">period 5 pseudo-oscillators</a></h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>99 Silver's P5 on snake or carrier on 6-bit still-life.</li>
+    <li>30 Silver's P5 on python or eater on boat.</li>
+    <li>31 Silver's P5 on 8-bit still-life on block.</li>
+    <li>55 Pseudo-barber-pole on 8-bit still-life or block and block.</li>
+    <li>3 Boat on fumarole.</li>
+    <li>2 Block on fumarole w/ tub.</li>
+</ul></p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+<hr />
+<a name="p6-23"></a>
+<h2>The 71 23-bit
+<a class="i" href="p6.htm">period 6 oscillators</a></h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>16 Candelfrobra on period 2 oscillator.</li>
+    <li>12 Cuphook on period 2 oscillator.</li>
+    <li>32 Cuphook w/tail on period 2 oscillator.</li>
+    <li>9 Eater eating period 2 oscillator.</li>
+    <li>2 Miscellaneous (see below).</li>
+</ul></p>
+
+<p>All of these except the two below have a pseudo-period of 6, a composite
+of 2 and 3.</p>
+
+<p>Syntheses for 2 of these (1 still unknown) are shown; all the others
+are easy to synthesize using standard techniques.</p>
+<p><a class="p" href="stamp/p6-23.rle"><img src="map/p6-23.png"
+ alt="23-bit P6" width="181" height="101" usemap="#p6-23" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="23/23p6bkhd.rle">
+	    P6 w/ block and head [x]</a></td>
+	<td class="y"><a class="p" href="23/23p6nb.rle">
+	    Nicolay Belu- chenko's P6 between two eaters [24]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p6-23.zip" />
+	<area coords="161,81,180,100" href="stamp/p1-23.rle" />
+	<area coords="0,0,89,100" href="23/23p6bkhd.rle" />
+	<area coords="90,0,180,100" href="23/23p6nb.rle" />
+</map>
+
+<hr />
+<a name="pp6-23"></a>
+<h2>The 74 23-bit
+<a class="i" href="pp6.htm">period 6 pseudo-oscillators</a></h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>14 7-bit still-life on unix.</li>
+    <li>24 Beacon and boat on candelfrobra.</li>
+    <li>8 Period-2 oscillator on eater eating eater (or similar).</li>
+    <li>20 Quadpole or beacon and block on jam.</li>
+    <li>8 Beacon on key on skewed poles.</li>
+</ul></p>
+
+<p>All of these except still-life on unix have a pseudo-period of 6, a composite
+of 2 and 3.</p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+<hr />
+<a name="p8-23"></a>
+<h2>The 8 23-bit
+<a class="i" href="p8.htm">period 8 oscillators</a></h2>
+<p><a class="p" href="stamp/p8-23.rle"><img src="map/p8-23.png"
+ alt="23-bit P8" width="621" height="81" usemap="#p8-23" /></a><br />
+    <table width="625">
+    <colgroup><col width="87" /><col span="6" width="76" /><col width="80" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23brct2.rle">
+	    Down blocker on cap [9]</a></td>
+	<td><a class="p" href="23/23brle4.rle">
+	    Down blocker on down long bookend [11]</a></td>
+	<td><a class="p" href="23/23brle3.rle">
+	    Up blocker on down long bookend [11]</a></td>
+	<td><a class="p" href="23/23brct1.rle">
+	    Up blocker on cap [11]</a></td>
+	<td><a class="p" href="23/23brle2.rle">
+	    Down blocker on up long bookend [11]</a></td>
+	<td><a class="p" href="23/23tcta1.rle">
+	    Up Coe's P8 on table [13]</a></td>
+	<td><a class="p" href="23/23brle1.rle">
+	    Up blocker on up long bookend [13]</a></td>
+	<td><a class="p" href="23/23tcta2.rle">
+	    Down Coe's P8 on table [13]</a></td>
+    </tr>
+</table></p>
+
+<map name="p8-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p8-23.zip" />
+	<area coords="601,61,620,80" href="stamp/p8-23.rle" />
+	<area coords="0,0,85,80" href="23/23brct2.rle" />
+	<area coords="86,0,161,80" href="23/23brle4.rle" />
+	<area coords="162,0,237,80" href="23/23brle3.rle" />
+	<area coords="238,0,313,80" href="23/23brct1.rle" />
+	<area coords="314,0,389,80" href="23/23brle2.rle" />
+	<area coords="390,0,465,80" href="23/23tcta1.rle" />
+	<area coords="466,0,541,80" href="23/23brle1.rle" />
+	<area coords="542,0,620,80" href="23/23tcta2.rle" />
+</map>
+
+<hr />
+<a name="pp8-23"></a>
+<h2>The 44 23-bit
+<a class="i" href="pp8.htm">period 8 pseudo-oscillators</a></h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>31 Eight-bit still-life, bipole, or two blocks on blocker.</li>
+    <li>13 Six-bit still-life or beacon on Coe's P8.</li>
+</ul></p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+<hr />
+<a name="p10-23"></a>
+<h2>The 5 23-bit
+<a class="i" href="p10.htm">period 10 oscillators</a></h2>
+<p><a class="p" href="stamp/p10-23.rle"><img src="map/p10-23.png"
+ alt="23-bit P10 oscillators" width="421" height="101" usemap="#p10-23" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="23/23svbct3.rle">
+	    Silver's P5 below up beacon on table [25]</a></td>
+	<td class="y"><a class="p" href="23/23svbct2.rle">
+	    Silver's P5 on down beacon on table [28]</a></td>
+	<td class="y"><a class="p" href="23/23svbct1.rle">
+	    Silver's P5 on up beacon on table [25]</a></td>
+	<td class="y"><a class="p" href="23/23svbct4.rle">
+	    Silver's P5 below down beacon on table [35]</a></td>
+	<td class="y"><a class="p" href="23/23apbp.rle">
+	    Pseudo- barber- pole tie bipole [50]</a></td>
+    </tr>
+</table></p>
+
+<map name="p10-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p10-23.zip" />
+	<area coords="401,81,420,100" href="stamp/p10-23.rle" />
+	<area coords="0,0,89,100" href="23/23svbct3.rle" />
+	<area coords="90,0,169,100" href="23/23svbct2.rle" />
+	<area coords="170,0,249,100" href="23/23svbct1.rle" />
+	<area coords="250,0,329,100" href="23/23svbct4.rle" />
+	<area coords="330,0,420,100" href="23/23apbp.rle" />
+</map>
+
+<p>These all have a pseudo-period of 10, a composite of 2 and 5.</p>
+
+<hr />
+<a name="pp10-23"></a>
+<h2>The 24 23-bit
+<a class="i" href="pp10.htm">period 10 pseudo-oscillators</a></h2>
+
+<p><a class="p" href="stamp/pp10-23.rle"><img src="map/pp10-23.png"
+ alt="23-bit period-10 pseudo-oscillators"
+ width="501" height="281" usemap="#pp10-23" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="23/23bcsvs3.rle">
+	    Up beacon on Silver's P5 on snake [26]</a></td>
+	<td><a class="p" href="23/23bcsva3.rle">
+	    Up beacon on Silver's P5 on carrier [21]</a></td>
+	<td class="y"><a class="p" href="23/23svsbc2.rle">
+	    Silver's P5 on snake on down beacon [25]</a></td>
+	<td><a class="p" href="23/23svabc4.rle">
+	    Silver's P5 on carrier on down beacon [20]</a></td>
+	<td><a class="p" href="23/23svabc3.rle">
+	    Silver's P5 on carrier on up beacon [20]</a></td>
+	<td class="y"><a class="p" href="23/23svsbc1.rle">
+	    Silver's P5 on snake on up beacon [25]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="23/23svabc5.rle">
+	    Silver's P5 above carrier on up beacon [28]</a></td>
+	<td class="g"><a class="p" href="23/23svabc6.rle">
+	    Silver's P5 above carrier on down beacon [23]</a></td>
+	<td class="y"><a class="p" href="23/23bcsvs4.rle">
+	    Down beacon on Silver's P5 on snake [25]</a></td>
+	<td><a class="p" href="23/23bcsva4.rle">
+	    Down beacon on Silver's P5 on carrier [20]</a></td>
+	<td><a class="p" href="23/23svabc2.rle">
+	    Silver's P5 below carrier on down beacon [22]</a></td>
+	<td class="y"><a class="p" href="23/23svabc1.rle">
+	    Silver's P5 below carrier on up beacon [24]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23bcsva1.rle">
+	    Up beacon above Silver's P5 on carrier [22]</a></td>
+	<td class="y"><a class="p" href="23/23bcsvs1.rle">
+	    Up beacon above Silver's P5 on snake [26]</a></td>
+	<td class="y"><a class="p" href="23/23bcsvs5.rle">
+	    Up beacon below Silver's P5 on snake [27]</a></td>
+	<td><a class="p" href="23/23bcsva5.rle">
+	    Up beacon below Silver's P5 on carrier [21]</a></td>
+	<td class="y"><a class="p" href="23/23bcsvs6.rle">
+	    Down beacon below Silver's P5 on snake [25]</a></td>
+	<td><a class="p" href="23/23bcsva6.rle">
+	    Down beacon below Silver's P5 on carrier [20]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="23/23bcsvs2.rle">
+	    Down beacon above Silver's P5 on snake [25]</a></td>
+	<td><a class="p" href="23/23bcsva2.rle">
+	    Down beacon above Silver's P5 on carrier [20]</a></td>
+	<td class="y"><a class="p" href="23/23apbp5.rle">
+	    Up bipole below pseudo-barber-pole [35]</a></td>
+	<td class="y"><a class="p" href="23/23apbp3.rle">
+	    Up bipole on pseudo-barber-pole [35]</a></td>
+	<td class="y"><a class="p" href="23/23apbp4.rle">
+	    Down bipole on pseudo-barber-pole [35]</a></td>
+	<td class="y"><a class="p" href="23/23apbp6.rle">
+	    Down bipole below pseudo-barber-pole [35]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp10-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,261,19,280" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp10-23.zip" />
+	<area coords="481,261,500,280" href="stamp/pp10-23.rle" />
+	<area coords="0,0,89,69" href="23/23bcsvs3.rle" />
+	<area coords="90,0,169,69" href="23/23bcsva3.rle" />
+	<area coords="170,0,249,69" href="23/23svsbc2.rle" />
+	<area coords="250,0,329,69" href="23/23svabc4.rle" />
+	<area coords="330,0,409,69" href="23/23svabc3.rle" />
+	<area coords="410,0,500,69" href="23/23svsbc1.rle" />
+	<area coords="0,70,89,129" href="23/23svabc5.rle" />
+	<area coords="90,70,169,129" href="23/23svabc6.rle" />
+	<area coords="170,70,249,129" href="23/23bcsvs4.rle" />
+	<area coords="250,70,329,129" href="23/23bcsva4.rle" />
+	<area coords="330,70,409,129" href="23/23svabc2.rle" />
+	<area coords="410,70,500,129" href="23/23svabc1.rle" />
+	<area coords="0,130,89,189" href="23/23bcsva1.rle" />
+	<area coords="90,130,169,189" href="23/23bcsvs1.rle" />
+	<area coords="170,130,249,189" href="23/23bcsvs5.rle" />
+	<area coords="250,130,329,189" href="23/23bcsva5.rle" />
+	<area coords="330,130,409,189" href="23/23bcsvs6.rle" />
+	<area coords="410,130,500,189" href="23/23bcsva6.rle" />
+	<area coords="0,190,89,280" href="23/23bcsvs2.rle" />
+	<area coords="90,190,169,280" href="23/23bcsva2.rle" />
+	<area coords="170,190,249,280" href="23/23apbp5.rle" />
+	<area coords="250,190,329,280" href="23/23apbp3.rle" />
+	<area coords="330,190,409,280" href="23/23apbp4.rle" />
+	<area coords="410,190,500,280" href="23/23apbp6.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 10, a composite of 2 and 5.</p>
+
+<hr />
+<a name="p15-23"></a>
+<h2>The 8 23-bit
+<a class="i" href="p15.htm">period 15 oscillators</a></h2>
+<p><a class="p" href="stamp/p15-23.rle"><img src="map/p15-23.png"
+ alt="23-bit period 15 oscillators"
+ width="341" height="181" usemap="#p15-23" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23pcecp.rle">
+	    Eater w/ cape eating penta- decathlon [9]</a></td>
+	<td><a class="p" href="23/23pcitl.rle">
+	    Integral w/ tail eating penta- decathlon [8]</a></td>
+	<td><a class="p" href="23/23pcilh.rle">
+	    Integral w/ long hook eating penta- decathlon [11]</a></td>
+	<td><a class="p" href="23/23pcilh.rle">
+	    Carrier siamese eater eating penta- decathlon [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23pcilh.rle">
+	    Snake siamese eater eating penta- decathlon [10]</a></td>
+	<td><a class="p" href="23/23pcidb.rle">
+	    Integral w/ down boat eating penta- decathlon [8]</a></td>
+	<td><a class="p" href="23/23pcecp.rle">
+	    Gull eating penta- decathlon [8]</a></td>
+	<td><a class="p" href="23/23pciub.rle">
+	    Integral w/ up boat eating penta- decathlon [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/p15-23.zip" />
+	<area coords="321,161,340,180" href="stamp/p15-23.rle" />
+	<area coords="0,0,89,89" href="23/23pcecp.rle" />
+	<area coords="90,0,169,89" href="23/23pcitl.rle" />
+	<area coords="170,0,249,89" href="23/23pcilh.rle" />
+	<area coords="250,0,340,89" href="23/23pcae.rle" />
+	<area coords="0,90,89,180" href="23/23pcse.rle" />
+	<area coords="90,90,169,180" href="23/23pcidb.rle" />
+	<area coords="170,90,249,180" href="23/23pcgu.rle" />
+	<area coords="250,90,340,180" href="23/23pciub.rle" />
+</map>
+
+<hr />
+<a name="pp15-23"></a>
+<h2>The 151 23-bit
+<a class="i" href="pp15.htm">period 15 pseudo-oscillators</a></h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>107 11-bit still-life on pentadecathlon.</li>
+    <li>22 7-bit still-life and block on pentadecathlon.</li>
+    <li>20 6-bit still-life and boat on pentadecathlon.</li>
+    <li>2 Block on eater eating pentadecathlon.</li>
+</ul></p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+
+<hr />
+<a name="p30-23"></a>
+<h2>The 2 23-bit
+<a class="i" href="p30.htm">period 30 oscillators</a></h2>
+<p><a class="p" href="stamp/p30-23.rle"><img src="map/p30-23.png"
+ alt="23-bit period 30 oscillators"
+ width="261 " height="81" usemap="#p30-23" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="23/23bqbet2.rle">
+	    Trans buckaroo; Queen bee between block and down eater [6]</a></td>
+	<td><a class="p" href="23/23bqbet1.rle">
+	    Cis buckaroo; Queen bee between block and up eater [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p30-23.zip" />
+	<area coords="241,61,260,80" href="stamp/p30-23.rle" />
+	<area coords="0,0,129,80" href="23/23bqbet2.rle" />
+	<area coords="130,0,260,80" href="23/23bqbet1.rle" />
+</map>
+
+<p>In addition to being able to being able to eat gliders in all the same
+ways a <a class="p" href="20/20qbeat.rle">queen bee can</a>, plus several
+others, the Buckaroo can also naturally reflect gliders 90 degrees, making it
+useful in constructing glider loops of period 30<i>n</i>.</p>
+
+<hr />
+<a name="pp30-23"></a>
+<h2>The 7 23-bit
+<a class="i" href="pp30.htm">period 30 pseudo-oscillator</a></h2>
+<p><a class="p" href="stamp/pp30-23.rle"><img src="map/pp30-23.png"
+ alt="23b PP30" width="421" height="181" usemap="#pp30-23" /></a><br />
+    <table width="425">
+    <colgroup><col width="111" /><col span="2" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23pcbcb3.rle">
+	    Up boat on trans beacon on penta- decathlon [7]</a></td>
+	<td><a class="p" href="23/23pcbcb4.rle">
+	    Down boat on trans beacon on penta- decathlon [9]</a></td>
+	<td><a class="p" href="23/23bpcbc2.rle">
+	    Down boat on penta- decathlon on beacon [8]</a></td>
+	<td><a class="p" href="23/23bpcbc1.rle">
+	    Up boat on penta- decathlon on beacon [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23pcbcb1.rle">
+	    Up boat on cis beacon on penta- decathlon [7]</a></td>
+	<td><a class="p" href="23/23pcbcb2.rle">
+	    Down boat on cis beacon on penta- decathlon [10]</a></td>
+	<td><a class="p" href="23/23pcpp.rle">
+	    Pentapole on penta- decathlon [13]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp30-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/pp30-23.zip" />
+	<area coords="401,161,420,180" href="stamp/pp30-23.rle" />
+	<area coords="0,0,109,89" href="23/23pcbcb3.rle" />
+	<area coords="110,0,209,89" href="23/23pcbcb4.rle" />
+	<area coords="210,0,309,89" href="23/23bpcbc2.rle" />
+	<area coords="310,0,420,89" href="23/23bpcbc1.rle" />
+	<area coords="0,90,109,180" href="23/23pcbcb1.rle" />
+	<area coords="110,90,209,180" href="23/23pcbcb2.rle" />
+	<area coords="210,90,309,180" href="23/23pcpp.rle" />
+	<area coords="310,90,420,180" nohref="nohref" />
+</map>
+
+<p>All of these have a pseudo-period of 30, a composite of 2 and 15.</p>
+<hr />
+<a name="ss-23"></a>
+<h2>The 2 23-bit
+<a class="i" href="ss.htm">spaceships</a></h2>
+<p><a class="p" href="stamp/ss-23.rle"><img src="map/ss-23.png"
+ alt="23-bit spaceships" width="141" height="81" usemap="#ss-23" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/23mwlw2.rle">LWSS on MWSS #2 [6]</a></td>
+	<td><a class="p" href="ss/23mwlw3.rle">LWSS on MWSS #3 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/ss-23.zip" />
+	<area coords="121,61,140,80" href="stamp/ss-23.rle" />
+	<area coords="0,0,69,80" href="ss/23mwlw2.rle" />
+	<area coords="70,0,140,80" href="ss/23mwlw3.rle" />
+</map>
+
+<p>All of these have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move two cells up every 4 generations.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	23,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

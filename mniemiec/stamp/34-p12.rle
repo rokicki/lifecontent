@@ -1,0 +1,10 @@
+#N 34-p12.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 01:58:35 2015
+x = 100, y = 35, rule = B34/S34
+3$bbo4b4o6bo4b4o6bo4b4o6bo14b4o6bo20b4o$$5b3o12b4o13boobo9b3o23bo$5boo
+15b4o11boobbo9boo23boo13b3o$5bo29boo4bo10bo23b3o12boo$36bo4boo23bo24bo
+$36bobboo12bo5b3o3boo$37boboo10bobbo4bo4b3o15b3o5bo$51bobbo4bobbo18bo
+bbo4bobbo$51b4o4b3o22bo4bobbo$bboo13boo13boo42b4obb3o4b4o$76bobbo$o13b
+o14bo46bobbo$78bo$$bbo19b4o25b3o23bo$51boo23boo12b3o$5bo45bo23b3o13boo
+$5boo3b3o5b3o71bo$5b3o4bo5boo$9bobbo5bo$10b3o9$bboo43boo23boo$29bo14bo
+24bo!

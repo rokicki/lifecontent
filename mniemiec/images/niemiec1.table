@@ -1,0 +1,84 @@
+#Mark Niemiec's rules
+#This is one of four related rules.
+#These rules can be summarized as follows:
+#Birth on any 3, survival on 2/3/4 orthogonally connected neighbors.
+#Variants 0+1 remove the "blinker rule"
+#(i.e. survival on 2 opposite cells, that allows blinkers to work)
+#Variants 1+3 add a little spice, by allowing survival on 4 neighbors
+#formed by a line-of-3 plus one additional diagonal neighbor.
+#
+#Variant 1 is most interesting:
+#- There are four known (and common) spaceships:
+#       a period 3 c/3 symmetric diagonal spaceship,
+#       a period 6 c/2 asymmetric orthogonal spaceship,
+#       a period 19 (5,6)c/19 clean oblique puffer
+#       a period 18 (mod 9) 2c/9 diagonal glider moving (1,3) each half-period
+#- There are three known simple flip-flops: Life's Beacon and Phoenix, and
+#  one additional 12-bit phoenix.
+#- There is a simple period-8 (mod 4) pulsator that can eat many spaceships and
+#- reflect the diagonal one.
+#- The B-heptomino is a period 280 (mod 70) shuttle;
+#  sparks from two can be used to generate orthogonal and diagonal spaceships.
+#- Sparks from several P19 spaceships can make various dirty puffers.
+#  The P pentomino is a messy P95 self-replicator
+#
+#Variant 0 (the original) is similar to 1 and has a few interesting features:
+#- It loses the replicator and (5,6)c/19 clean oblique puffer, 
+#- It gains a period 28 c/14 symmetric clean orthogonal puffer and a
+#  period 15 (3,4)c/15 clean oblique puffer
+
+n_states:2
+neighborhood:Moore
+symmetries:rotate4reflect
+
+var A={0,1}
+var B={0,1}
+var C={0,1}
+var D={0,1}
+var E={0,1}
+var F={0,1}
+var G={0,1}
+var H={0,1}
+var I={0,1}
+
+#Variants: enable line 1 for variants 1+3, line 2 for variants 2+3:
+1,1,1,0,1,0,0,0,1,1
+#1,1,0,0,0,1,0,0,0,1
+
+#Some survival on 2 (ominos)
+1,1,0,0,0,0,0,0,1,1
+1,1,0,1,0,0,0,0,0,1
+#1,1,0,0,0,1,0,0,0,? (blinker condition - see variants above)
+
+#Some survival on 3 (ominos)
+1,1,1,0,0,0,0,0,1,1
+1,1,0,1,0,0,0,0,1,1
+1,1,0,0,0,1,0,0,1,1
+1,1,0,0,0,0,0,1,1,1
+1,1,0,1,0,1,0,0,0,1
+
+#Some survival on 4 (ominos)
+1,1,1,1,0,0,0,0,1,1
+1,1,1,0,0,1,0,0,1,1
+1,1,0,1,1,0,0,0,1,1
+1,1,0,1,0,1,0,0,1,1
+1,1,0,1,0,0,0,1,1,1
+1,1,0,0,1,1,0,0,1,1
+1,1,0,0,0,1,1,0,1,1
+1,1,0,1,0,1,0,1,0,1
+#1,1,1,0,1,0,0,0,1,? (non-omino condition - see variants above)
+
+#All births on 3
+0,1,1,0,0,0,0,0,1,1
+0,1,0,1,0,0,0,0,1,1
+0,1,0,0,1,0,0,0,1,1
+0,1,0,0,0,1,0,0,1,1
+0,1,0,0,0,0,1,0,1,1
+0,1,0,0,0,0,0,1,1,1
+0,0,1,0,1,0,0,0,1,1
+0,0,1,0,0,1,0,0,1,1
+0,0,0,1,0,1,0,0,1,1
+0,1,0,1,0,1,0,0,0,1
+
+#Everything dies unless otherwise indicated above
+A,B,C,D,E,F,G,H,I,0

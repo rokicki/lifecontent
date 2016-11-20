@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-15 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-15 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 15 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-15 Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p15-12">12</a> |
+	  <a class="j" href="#p15-19">19</a> |
+	  <a class="j" href="#p15-21">21</a> |
+	  <a class="j" href="#p15-22">22</a> |
+	  <a class="j" href="#p15-23">23</a> |
+	  <a class="j" href="#p15-24">24</a> |
+	  <a class="j" href="#p15-25">25</a> |
+	  <a class="j" href="#p15-lg">Larger</a> |
+	  <a class="j" href="#p15-pc">Pentadecathlon pairs</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g3-p15">3</a> |
+	  <a class="j" href="#g6-p15">6</a><br />
+	<b><a class="j" href="#nat-p15">Frequency of occurrence</a></b>
+</p>
+
+<hr />
+<hr />
+<a name="p15-12"></a>
+<h2>The 1 <a class="i" href="bits-12.htm">twelve-bit</a>
+period 15 oscillator</h2>
+<p><a class="p" href="stamp/p15-12.rle"><img src="map/p15-12.png"
+ alt="12b P15" width="81" height="61" usemap="#p15-12" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12pc.rle">Penta- decathlon [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-12">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p15-12.zip" />
+	<area coords="61,41,80,60" href="stamp/p15-12.rle" />
+	<area coords="0,0,80,60" href="12/12pc.rle" />
+</map>
+
+<p>The pentadecathlon consists of two forming
+<a class="p" href="12/12tl.rle">Traffic light</a> predecessors.
+It produces a useful <a class="i" href="lifeterm.htm#spark">domino spark</a>,
+making it useful in hassler oscillators of many periods, including
+<a class="j" href="#p15-lg">15</a>,
+<a class="i" href="p30.htm#p30-lg">30</a>,
+<a class="i" href="period.htm#p45">45</a> and
+<a class="i" href="p60.htm#p60-lg">60</a>.
+Both its end and side sparks can eat gliders and the three simple spaceships in
+many different ways. Its end spark is also useful for reflecting gliders,
+and is used in glider shuttles of many periods, including
+<a class="i" href="period.htm#p45">45</a>,
+<a class="i" href="p60.htm#p60-lg">60</a> and
+<a class="i" href="period.htm#p75">75</a>.</p>
+
+<p>Its phase can also be altered (as described under the notes for
+<a class="i" href="bits-12.htm#cons-12">Traffic light</a>).</p>
+
+<hr />
+<a name="p15-19"></a>
+<h2>The 1 <a class="i" href="bits-19.htm">nineteen-bit</a>
+period 15 oscillator</h2>
+<p><a class="p" href="stamp/p15-19.rle"><img src="map/p15-19.png"
+ alt="19b P15" width="101" height="81" usemap="#p15-19" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="19/19pcet.rle">
+	    Eater eating penta- decathlon [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p15-19.zip" />
+	<area coords="81,61,100,80" href="stamp/p15-19.rle" />
+	<area coords="0,0,100,80" href="19/19pcet.rle" />
+</map>
+
+<hr />
+<a name="p15-21"></a>
+<h2>The 1 <a class="i" href="bits-21.htm">21-bit</a>
+period 15 oscillator</h2>
+<p><a class="p" href="stamp/p15-21.rle"><img src="map/p15-21.png"
+ alt="21b P15" width="101" height="81" usemap="#p15-21" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="21/21pcin.rle">
+	    Integral eating penta- decathlon [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p15-21.zip" />
+	<area coords="81,61,100,80" href="stamp/p15-21.rle" />
+	<area coords="0,0,100,80" href="21/21pcin.rle" />
+</map>
+
+<hr />
+<a name="p15-22"></a>
+<h2>The 2 <a class="i" href="bits-22.htm">22-bit</a>
+period 15 oscillators</h2>
+<p><a class="p" href="stamp/p15-22.rle"><img src="map/p15-22.png"
+ alt="22-bit P15" width="181" height="81" usemap="#p15-22" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="22/22pcihk.rle">
+	    Integral w/ hook eating penta- decathlon [9]</a></td>
+	<td><a class="p" href="22/22pcitb.rle">
+	    Integral w/ tub eating penta- decathlon [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p15-22.zip" />
+	<area coords="161,61,180,80" href="stamp/p15-22.rle" />
+	<area coords="0,0,89,80" href="22/22pcihk.rle" />
+	<area coords="90,0,180,80" href="22/22pcitb.rle" />
+</map>
+
+<hr />
+<a name="p15-23"></a>
+<h2>The 8 <a class="i" href="bits-23.htm">23-bit</a>
+period 15 oscillators</h2>
+<p><a class="p" href="stamp/p15-23.rle"><img src="map/p15-23.png"
+ alt="23-bit period 15 oscillators"
+ width="341" height="181" usemap="#p15-23" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23pcecp.rle">
+	    Eater w/ cape eating penta- decathlon [9]</a></td>
+	<td><a class="p" href="23/23pcitl.rle">
+	    Integral w/ tail eating penta- decathlon [8]</a></td>
+	<td><a class="p" href="23/23pcilh.rle">
+	    Integral w/ long hook eating penta- decathlon [11]</a></td>
+	<td><a class="p" href="23/23pcilh.rle">
+	    Carrier siamese eater eating penta- decathlon [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23pcilh.rle">
+	    Snake siamese eater eating penta- decathlon [10]</a></td>
+	<td><a class="p" href="23/23pcidb.rle">
+	    Integral w/ down boat eating penta- decathlon [8]</a></td>
+	<td><a class="p" href="23/23pcecp.rle">
+	    Gull eating penta- decathlon [8]</a></td>
+	<td><a class="p" href="23/23pciub.rle">
+	    Integral w/ up boat eating penta- decathlon [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/p15-23.zip" />
+	<area coords="321,161,340,180" href="stamp/p15-23.rle" />
+	<area coords="0,0,89,89" href="23/23pcecp.rle" />
+	<area coords="90,0,169,89" href="23/23pcitl.rle" />
+	<area coords="170,0,249,89" href="23/23pcilh.rle" />
+	<area coords="250,0,340,89" href="23/23pcae.rle" />
+	<area coords="0,90,89,180" href="23/23pcse.rle" />
+	<area coords="90,90,169,180" href="23/23pcidb.rle" />
+	<area coords="170,90,249,180" href="23/23pcgu.rle" />
+	<area coords="250,90,340,180" href="23/23pciub.rle" />
+</map>
+
+<hr />
+<a name="p15-24"></a>
+<h2>The 24 <a class="i" href="bits-24.htm">24-bit</a>
+period 15 oscillators</h2>
+<p><a class="p" href="stamp/p15-24.rle"><img src="map/p15-24.png"
+ alt="24-bit period 15 oscillators"
+ width="621" height="341" usemap="#p15-24" /></a><br />
+    <table width="625">
+    <colgroup><col width="111" /><col span="4" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="24/24pcpc1.rle">
+	    Penta- decathlon on penta- decathlon #1 [8]</a></td>
+	<td><a class="p" href="24/24pcleb2.rle">
+	    Block on down long bookend eating penta- decathlon [9]</a></td>
+	<td><a class="p" href="24/24pcilt.rle">
+	    Integral w/ long tail eating penta- decathlon [10]</a></td>
+	<td><a class="p" href="24/24pcleb1.rle">
+	    Block on up long bookend eating penta- decathlon [9]</a></td>
+	<td><a class="p" href="24/24pcich.rle">
+	    Integral w/ cis hook eating penta- decathlon [14]</a></td>
+	<td><a class="p" href="24/24pcivh.rle">
+	    Integral w/ very long hook eating penta- decathlon [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24pcca2.rle">
+	    Penta- decathlon and trans caterer sharing sparks [15]</a></td>
+	<td><a class="p" href="24/24pcca1.rle">
+	    Penta- decathlon and cis caterer sharing sparks [15]</a></td>
+	<td><a class="p" href="24/24pcpc2.rle">
+	    Penta- decathlon on penta- decathlon #2 [8]</a></td>
+	<td><a class="p" href="24/24pcbtet.rle">
+	    Boat tie eater eating penta- decathlon [9]</a></td>
+	<td><a class="p" href="24/24pcee1.rle">
+	    Eater head siamese eater eating penta- decathlon [10]</a></td>
+	<td><a class="p" href="24/24pclse.rle">
+	    Python siamese eater eating penta- decathlon [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24pcpc4.rle">
+	    Penta- decathlon on penta- decathlon #4 [8]</a></td>
+	<td><a class="p" href="24/24pcidg.rle">
+	    Integral w/ down barge eating penta- decathlon [11]</a></td>
+	<td><a class="p" href="24/24pcidg.rle">
+	    Integral w/ beehive eating penta- decathlon [10]</a></td>
+	<td><a class="p" href="24/24pcidg.rle">
+	    Integral w/ claw eating penta- decathlon [10]</a></td>
+	<td><a class="p" href="24/24pceft.rle">
+	    Eater w/ feather eating penta- decathlon [11]</a></td>
+	<td><a class="p" href="24/24pcpc5.rle">
+	    Penta- decathlon on penta- decathlon #5 [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24pcguh.rle">
+	    Gull w/ hook eating penta- decathlon [10]</a></td>
+	<td><a class="p" href="24/24pcee2.rle">
+	    Eater tail siamese eater eating penta- decathlon [11]</a></td>
+	<td><a class="p" href="24/24pcpc6.rle">
+	    Penta- decathlon on penta- decathlon #6 [8]</a></td>
+	<td><a class="p" href="24/24pcguh.rle">
+	    Gull w/ tub eating penta- decathlon [8]</a></td>
+	<td><a class="p" href="24/24pciug.rle">
+	    Integral w/ up barge eating penta- decathlon [9]</a></td>
+	<td><a class="p" href="24/24pciftl.rle">
+	    Integral w/ fuse w/ tail eating penta- decathlon [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,321,19,340" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p15-24.zip" />
+	<area coords="601,321,620,340" href="stamp/p15-24.rle" />
+	<area coords="0,0,89,89" href="24/24pcpc1.rle" />
+	<area coords="90,0,169,89" href="24/24pcleb2.rle" />
+	<area coords="170,0,249,89" href="24/24pcilt.rle" />
+	<area coords="250,0,329,89" href="24/24pcleb1.rle" />
+	<area coords="330,0,409,89" href="24/24pcich.rle" />
+	<area coords="410,0,620,89" href="24/24pcivh.rle" />
+	<area coords="0,90,89,169" href="24/24pcca2.rle" />
+	<area coords="90,90,169,169" href="24/24pcca1.rle" />
+	<area coords="170,90,249,169" href="24/24pcpc2.rle" />
+	<area coords="250,90,329,169" href="24/24pcbtet.rle" />
+	<area coords="330,90,409,169" href="24/24pcee1.rle" />
+	<area coords="410,90,620,169" href="24/24pclse.rle" />
+	<area coords="0,170,89,249" href="24/24pcpc4.rle" />
+	<area coords="90,170,169,249" href="24/24pcidg.rle" />
+	<area coords="170,170,249,249" href="24/24pcihv.rle" />
+	<area coords="250,170,329,249" href="24/24pcicl.rle" />
+	<area coords="330,170,409,249" href="24/24pceft.rle" />
+	<area coords="410,170,620,249" href="24/24pcpc5.rle" />
+	<area coords="0,250,89,340" href="24/24pcguh.rle" />
+	<area coords="90,250,169,340" href="24/24pcee2.rle" />
+	<area coords="170,250,249,340" href="24/24pcpc6.rle" />
+	<area coords="250,250,329,340" href="24/24pcgut.rle" />
+	<area coords="330,250,409,340" href="24/24pciug.rle" />
+	<area coords="410,250,620,340" href="24/24pciftl.rle" />
+</map>
+
+<hr />
+<a name="p15-25"></a>
+<h2>The 3 <a class="i" href="bits-25.htm">25-bit</a>
+period 15 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>37 13-bit still-life eating pentadecathlon (not shown).</li>
+    <li>2 Pentadecathlon and jam sharing sparks (shown below).</li>
+    <li>1 Silver's P5 on on a period 3 oscillator (shown below).</li>
+</ul></p>
+
+<p>Syntheses for 3 of these are shown; all are easy to synthesize
+using standard techniques.</p>
+<p><a class="p" href="stamp/p15-25.rle"><img src="map/p15-25.png"
+ alt="25-bit period 15 oscillators"
+ width="261" height="101" usemap="#p15-25" /></a><br />
+    <table width="265">
+    <colgroup><col width="263" /></colgroup>
+    <tr>
+	<td><a class="p" href="25/25pcjm1.rle">
+	    Penta- decathlon and up jam sharing sparks [11]</a></td>
+	<td><a class="p" href="25/25pcjm2.rle">
+	    Penta- decathlon and down jam sharing sparks [11]</a></td>
+	<td><a class="p" href="25/25sveet.rle">
+	    Silver's P5 on eater eating eater [19]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p15-25.zip" />
+	<area coords="241,81,260,100" href="stamp/p15-25.rle" />
+	<area coords="0,0,89,100" href="25/25pcjm1.rle" />
+	<area coords="90,0,169,100" href="25/25pcjm2.rle" />
+	<area coords="170,0,260,100" href="25/25sveet.rle" />
+</map>
+
+<p>This last one has a pseudo-period of 15, a composite of 3 and 5.</p>
+
+<hr />
+<a name="p15-lg"></a>
+<h2>7 period 15 oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/p15-lg.rle"><img src="map/p15-lg.png"
+ alt="larger period 15 oscillators"
+ width="361" height="261" usemap="#p15-lg" /></a><br />
+    <table width="365">
+    <colgroup><col width="91" /><col span="2" width="40" /><col width="80" />
+	<col width="112" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/28p15ks.rle">
+	    Karel Suhajda's P15 [28]</a></td>
+	<td colspan="2"><a class="p" href="lg/32pc2b2.rle">
+	    Two penta- decathlons hassling two blocks [13]</a></td>
+	<td><a class="p" href="lg/42p15aj.rle">
+	    Al Jolson [13]</a></td>
+	<td><a class="p" href="lg/32pc2lg.rle">
+	    Two penta- decathlons hassling long barge [12]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/40pc2bf.rle">
+	    Two penta- decathlons hassling butterfly [10]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/45pcp7.rle">
+	    Pentadecathlon rephasing P7 [62]</a></td>
+	<td><a class="p" href="lg/64pc4b4.rle">
+	    Four penta- decathlons hassling four blocks [29]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="341,0,360,19" href="zip/p15-lg.zip" />
+	<area coords="341,241,360,260" href="stamp/p15-lg.rle" />
+	<area coords="0,0,89,129" href="lg/28p15ks.rle" />
+	<area coords="90,0,169,129" href="lg/32pc2b2.rle" />
+	<area coords="170,0,249,129" href="lg/42p15aj.rle" />
+	<area coords="250,0,360,129" href="lg/32pc2lg.rle" />
+	<area coords="0,130,129,260" href="lg/40pc2bf.rle" />
+	<area coords="130,130,249,260" href="lg/45pcp7.rle" />
+	<area coords="250,130,360,260" href="lg/64pc4b4.rle" />
+</map>
+
+<p>Karel Suhajda's P15 generates a useful 
+<a class="i" href="lifeterm.htm">finger spark</a>.</p>
+
+<p>NOTE: Because there are so many
+<a class="j" href="#p15-pc">pentadecathlon pairs</a>,
+they are omitted from this list, and shown in the next section.</p>
+
+<hr />
+<a name="p15-pc"></a>
+<h2>The 24 Period-15
+Pentadecathlon Pairs</h2>
+<p><a class="p" href="stamp/p15-pc.rle"><img src="map/p15-pc.png"
+ alt="period 15 pentadecathlon pairs"
+ width="637" height="401" usemap="#p15-pc" /></a><br />
+    <table width="641">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="148" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="24/24pcpc1.rle">
+	    Two penta- decathlons #1 [8]</a></td>
+	<td><a class="p" href="24/24pcpc2.rle">
+	    Two penta- decathlons #2 [8]</a></td>
+	<td><a class="p" href="24/24pcpc3.rle">
+	    Two penta- decathlons #3 [7]</a><b>*</b></td>
+	<td><a class="p" href="24/24pcpc4.rle">
+	    Two penta- decathlons #4 [8]</a></td>
+	<td><a class="p" href="24/24pcpc5.rle">
+	    Two penta- decathlons #5 [8]</a></td>
+	<td><a class="p" href="24/24pcpc6.rle">
+	    Two penta- decathlons #6 [8]</a></td>
+	<td><a class="p" href="lg/28pcpc7.rle">
+	    Two penta- decathlons #7 [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/28pcpc8.rle">
+	    Two penta- decathlons #8 [8]</a></td>
+	<td><a class="p" href="lg/34pcpc9.rle">
+	    Two penta- decathlons #9 [8]</a><b>*</b></td>
+	<td><a class="p" href="lg/30pcpc10.rle">
+	    Two penta- decathlons #10 [8]</a></td>
+	<td><a class="p" href="lg/30pcpc11.rle">
+	    Two penta- decathlons #11 [8]</a><b>*</b></td>
+	<td><a class="p" href="lg/30pcpc12.rle">
+	    Two penta- decathlons #12 [8]</a></td>
+	<td><a class="p" href="lg/30pcpc13.rle">
+	    Two penta- decathlons #13 [8]</a></td>
+	<td><a class="p" href="lg/32pcpc14.rle">
+	    Two penta- decathlons #14 [7]</a></td>
+    </tr>
+
+    <tr>
+	<td rowspan="2"><a class="p" href="lg/28pcpc20.rle">
+	    Two penta- decathlons #20 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/28pcpc21.rle">
+	    Two penta- decathlons #21 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/30pcpc22.rle">
+	    Two penta- decathlons #22 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/30pcpc23.rle">
+	    Two penta- decathlons #23 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/32pcpc24.rle">
+	    Two penta- decathlons #24 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/32pcpc25.rle">
+	    Two penta- decathlons #25 [6]</a></td>
+	<td><a class="p" href="lg/30pcpc16.rle">
+	    Two penta- decathlons #16 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/30pcpc17.rle">
+	    Two penta- decathlons #17 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td rowspan="2"><a class="p" href="lg/32pcpc26.rle">
+	    Two penta- decathlons #26 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/31pcpc27.rle">
+	    Two penta- decathlons #27 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/32pcpc28.rle">
+	    Two penta- decathlons #28 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/32pcpc29.rle">
+	    Two penta- decathlons #29 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/32pcpc30.rle">
+	    Two penta- decathlons #30 [6]</a></td>
+	<td rowspan="2"><a class="p" href="lg/32pcpc15.rle">
+	    Two penta- decathlons #15 [14]</a></td>
+	<td><a class="p" href="lg/32pcpc18.rle">
+	    Two penta- decathlons #18 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/34pcpc19.rle">
+	    Two penta- decathlons #19 [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-pc">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,381,19,400" href="#bottom" />
+	<area coords="617,0,636,19" href="zip/p15-pc.zip" />
+	<area coords="617,381,636,400" href="stamp/p15-pc.rle" />
+	<area coords="0,0,89,93" href="24/24pcpc1.rle" />
+	<area coords="90,0,169,93" href="24/24pcpc2.rle" />
+	<area coords="170,0,249,93" href="24/24pcpc3.rle" />
+	<area coords="250,0,329,93" href="24/24pcpc4.rle" />
+	<area coords="330,0,409,93" href="24/24pcpc5.rle" />
+	<area coords="410,0,489,93" href="24/24pcpc6.rle" />
+	<area coords="490,0,636,93" href="lg/28pcpc7.rle" />
+	<area coords="0,94,89,169" href="lg/28pcpc8.rle" />
+	<area coords="90,94,169,169" href="lg/34pcpc9.rle" />
+	<area coords="170,94,249,169" href="lg/30pcpc10.rle" />
+	<area coords="250,94,329,169" href="lg/30pcpc11.rle" />
+	<area coords="330,94,409,169" href="lg/30pcpc12.rle" />
+	<area coords="410,94,489,169" href="lg/30pcpc13.rle" />
+	<area coords="490,94,636,169" href="lg/32pcpc14.rle" />
+	<area coords="0,170,89,289" href="lg/28pcpc20.rle" />
+	<area coords="90,170,169,289" href="lg/28pcpc21.rle" />
+	<area coords="170,170,249,289" href="lg/30pcpc22.rle" />
+	<area coords="250,170,329,289" href="lg/30pcpc23.rle" />
+	<area coords="330,170,409,289" href="lg/32pcpc24.rle" />
+	<area coords="410,170,489,289" href="lg/32pcpc25.rle" />
+	<area coords="490,170,636,229" href="lg/30pcpc16.rle" />
+	<area coords="410,230,489,289" href="lg/30pcpc17.rle" />
+	<area coords="490,230,636,289" nohref="nohref" />
+	<area coords="0,290,89,400" href="lg/32pcpc26.rle" />
+	<area coords="90,290,169,400" href="lg/31pcpc27.rle" />
+	<area coords="170,290,249,400" href="lg/32pcpc28.rle" />
+	<area coords="250,290,329,400" href="lg/32pcpc29.rle" />
+	<area coords="330,290,409,400" href="lg/32pcpc30.rle" />
+	<area coords="410,290,489,400" href="lg/32pcpc15.rle" />
+	<area coords="490,290,636,349" href="lg/32pcpc18.rle" />
+	<area coords="410,350,489,400" href="lg/34pcpc19.rle" />
+	<area coords="490,350,636,400" nohref="nohref" />
+</map>
+
+<p><b>* NOTE:</b> The three marked <b>*</b> are pseudo-oscillators.</p>
+
+<hr />
+<hr />
+<a name="g3-p15"></a>
+<h2>The 1 period 15 oscillator
+<a class="i" href="glider-3.htm">buildable from 3 gliders</a></h2>
+<p><a class="p" href="stamp/g3-p15.rle"><img src="map/g3-p15.png"
+ alt="3g P15" width="81" height="61" usemap="#g3-p15" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12pc.rle">Penta- decathlon [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-p15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g3-p15.zip" />
+	<area coords="61,41,80,60" href="stamp/g3-p15.rle" />
+	<area coords="0,0,80,60" href="12/12pc.rle" />
+</map>
+
+<p>The pentadecathlon consists of two forming
+<a class="p" href="12/12tl.rle">Traffic light</a> predecessors.
+It produces a useful <a class="i" href="lifeterm.htm#spark">domino spark</a>,
+making it useful in hassler oscillators of many periods, including
+<a class="j" href="#p15-lg">15</a>,
+<a class="i" href="p30.htm#p30-lg">30</a>,
+<a class="i" href="period.htm#p45">45</a> and
+<a class="i" href="p60.htm#p60-lg">60</a>.
+Both its end and side sparks can eat gliders and the three simple spaceships in
+many different ways. Its end spark is also useful for reflecting gliders,
+and is used in glider shuttles of many periods, including
+<a class="i" href="period.htm#p45">45</a>,
+<a class="i" href="p60.htm#p60-lg">60</a> and
+<a class="i" href="period.htm#p75">75</a>.</p>
+
+<p>Its phase can also be altered (as described under the notes for
+<a class="i" href="bits-12.htm#cons-12">Traffic light</a>).</p>
+
+<hr />
+<a name="g6-p15"></a>
+<h2>16 period 15 oscillators
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-p15.rle"><img src="map/g6-p15.png"
+ alt="6-glider period 15 oscillators"
+ width="581" height="421" usemap="#g6-p15" /></a><br />
+    <table width="585">
+    <colgroup><col width="151" /><col span="2" width="140" /><col width="152" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19pcet.rle">
+	    Eater eating penta- decathlon [6]</a></td>
+	<td><a class="p" href="lg/28pcpc21.rle">
+	    Penta- decathlon on penta- decathlon #21 [6]</a></td>
+	<td><a class="p" href="lg/28pcpc20.rle">
+	    Penta- decathlon on penta- decathlon #20 [6]</a></td>
+	<td><a class="p" href="lg/31pcpc27.rle">
+	    Penta- decathlon on penta- decathlon #27 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/30pcpc16.rle">
+	    Penta- decathlon on penta- decathlon #16 [6]</a></td>
+	<td><a class="p" href="lg/30pcpc17.rle">
+	    Penta- decathlon on penta- decathlon #17 [6]</a></td>
+	<td><a class="p" href="lg/30pcpc22.rle">
+	    Penta- decathlon on penta- decathlon #22 [6]</a></td>
+	<td><a class="p" href="lg/30pcpc23.rle">
+	    Penta- decathlon on penta- decathlon #23 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/32pcpc18.rle">
+	    Penta- decathlon on penta- decathlon #18 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc29.rle">
+	    Penta- decathlon on penta- decathlon #29 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc30.rle">
+	    Penta- decathlon on penta- decathlon #30 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc28.rle">
+	    Penta- decathlon on penta- decathlon #28 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/32pcpc26.rle">
+	    Penta- decathlon on penta- decathlon #26 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc24.rle">
+	    Penta- decathlon on penta- decathlon #24 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc25.rle">
+	    Penta- decathlon on penta- decathlon #25 [6]</a></td>
+	<td><a class="p" href="lg/34pcpc19.rle">
+	    Penta- decathlon on penta- decathlon #19 [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/g6-p15.zip" />
+	<area coords="561,401,580,420" href="stamp/g6-p15.rle" />
+	<area coords="0,0,149,109" href="19/19pcet.rle" />
+	<area coords="150,0,289,109" href="lg/28pcpc21.rle" />
+	<area coords="290,0,429,109" href="lg/28pcpc20.rle" />
+	<area coords="430,0,580,109" href="lg/31pcpc27.rle" />
+	<area coords="0,110,149,209" href="lg/30pcpc16.rle" />
+	<area coords="150,110,289,209" href="lg/30pcpc17.rle" />
+	<area coords="290,110,429,209" href="lg/30pcpc22.rle" />
+	<area coords="430,110,580,209" href="lg/30pcpc23.rle" />
+	<area coords="0,210,149,309" href="lg/32pcpc18.rle" />
+	<area coords="150,210,289,309" href="lg/32pcpc29.rle" />
+	<area coords="290,210,429,309" href="lg/32pcpc30.rle" />
+	<area coords="430,210,580,309" href="lg/32pcpc28.rle" />
+	<area coords="0,310,149,420" href="lg/32pcpc26.rle" />
+	<area coords="150,310,289,420" href="lg/32pcpc24.rle" />
+	<area coords="290,310,429,420" href="lg/32pcpc25.rle" />
+	<area coords="430,310,580,420" href="lg/34pcpc19.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="nat-p15"></a>
+<h2>The top 1 <a class="i" href="natural.htm">naturally-occurring</a>
+period 15 oscillator</h2>
+<p><a class="p" href="stamp/nat-p15.rle"><img src="map/nat-p15.png"
+ alt="natural P15" width="101" height="61" usemap="#nat-p15" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12pc.rle">
+	    Penta- decathlon [3] (1631317)</a></td>
+    </tr>
+</table></p>
+
+<map name="nat-p15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/nat-p15.zip" />
+	<area coords="81,41,100,60" href="stamp/nat-p15.rle" />
+	<area coords="0,0,100,60" href="12/12pc.rle" />
+</map>
+
+<p>The pentadecathlon consists of two forming
+<a class="p" href="12/12tl.rle">Traffic light</a> predecessors.
+It produces a useful <a class="i" href="lifeterm.htm#spark">domino spark</a>,
+making it useful in hassler oscillators of many periods, including
+<a class="j" href="#p15-lg">15</a>,
+<a class="i" href="p30.htm#p30-lg">30</a>,
+<a class="i" href="period.htm#p45">45</a> and
+<a class="i" href="p60.htm#p60-lg">60</a>.
+Both its end and side sparks can eat gliders and the three simple spaceships in
+many different ways. Its end spark is also useful for reflecting gliders,
+and is used in glider shuttles of many periods, including
+<a class="i" href="period.htm#p45">45</a>,
+<a class="i" href="p60.htm#p60-lg">60</a> and
+<a class="i" href="period.htm#p75">75</a>.</p>
+
+<p>Its phase can also be altered (as described under the notes for
+<a class="i" href="bits-12.htm#cons-12">Traffic light</a>).</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="pp15.htm">period-15 pseudo-oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	15,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

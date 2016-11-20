@@ -1,0 +1,31 @@
+#N 16-2027.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:01:03 2015
+x = 201, y = 150, rule = B3/S23
+128bo$129bo$127b3o13bobo$143boo$144bo34bo$180bo$178b3o$140bo$139bo41bo
+bo$139b3o39boo$143b3o36bo$143bo$144bo9bx19bo19bx4bx$153bxbxbbxx13bobo
+bboo4b3o6bxbxbbxbx$154bx4bx14bo4bo4bo9bx4bx$155b4x16b4o6bo9b4x$$155bxx
+18boo18bxx$155bxx18boo18bxx4$140boo$140bobo$140bo$128boo$127bobo$129bo
+7$174bo$173bo$173b3o$$170bobo$131bo39boo$17bo3bo110bo38bo$18boobobo70b
+obo3bo29b3o$17boobboo16bx19bo19bx15booboo19bx19bo19bx19bo14bx4bx$38bxb
+x17bobo17bxbx14bo3boo17bxbx12boo3bobo13bxxbbxbx6b3o4boobbobo12bxbxbbxb
+x$23b3o13bx19bo17bxbx37bxbx12bobobbobo14bx4bx9bo4bo4bo14bx4bx$23bo30bo
+23bx17boo20bx15bo3bo16b4x9bo6b4o16b4x$24bo30boo38boo$54boobboo37bo57b
+xx18boo18bxx$57bobo76boo17bxx18boo18bxx$59bo76bobo$136bo$132boo$131bob
+o$133bo9$176bo$177bo$175b3o$179bo$144bobo32bobo$144boo33boo$87bo48bo8b
+o$86bo49bobo$86b3o47boo$84bo100boo$85bo48boo43bo5bobo11bx$83b3o18bxx
+18boo7boo19bxxbbxx14boobbobo4bo8bxxbbxbx$104bxx18boo9bo18bx4bx14bo4bo
+14bx4bx$155b4x16b4o16b4x$45bo$43bobo19bxx18boo18bxx18boo5b3o20bxx18boo
+18bxx$44boo19bxx18boo18bxx18boo5bo22bxx18boo18bxx$41boo90bo$40bobo$42b
+o18$182bo$52bo3bo76bo47bo$53boobobo72boo48b3o$52boobboo16bx19bo19bx17b
+oo20bx19bo19bx$73bxbx17bobo17bxbx37bxbx17bobo3boo12bxbxbbxx$58b3o13bx
+19bo19bxbx14bo3boo17bxbx17bobobbobo12bx4bx$58bo40bo15bx15booboo19bx19b
+o3bo15b4x$59bo37boo31bobo3bo$94boobboo95bxx$94bobo77boo19bxx$94bo78bob
+o$175bo$178boo$178bobo$178bo7$5bo$6boo$5boo$$7bo$6bo$6b3o3$185boo$bbo
+140b3o33bobo3bobo$obo136bo3bo36boo3bo$boo21bx19bo29bx19bo19bx19bo5boo
+bbo9bx19bo5bo13bx$23bxbx17bobo27bxbx17bobo17bxbx17bobo3boo12bxbx17bobo
+17bxbxbbxx$24bx19bo29bx19bo19bx19bo19bx3bx15bo3bo15bx4bx$3boo20b3x17b
+3o10bo16b3x17b3o17b3x17b3o17b4x16b4o16b4x$4boo21bx19bo8boo20bx19bo19bx
+19bo$3bo32bobo18boo16b3x17b3o17b3x17b3o17bxx18boo7boo9bxx$37boo29byy5b
+x12boo5bo19bx19bo5bo13bxx18boo3bobboo10bxx$37bo30byy18boo50boo38boo3bo
+$84b3o53bobo36bobo$39boo9boo34bo$40boo8bobo32bo$39bo10bo$46b3o$48bo$
+47bo$35bo$35boo$34bobo!

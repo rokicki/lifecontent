@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-4 Pseudo-Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-4 pseudo-oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 4 pseudo oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-4 Pseudo-Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#pp4-16">16</a> |
+	  <a class="j" href="#pp4-17">17</a> |
+	  <a class="j" href="#pp4-18">18</a> |
+	  <a class="j" href="#pp4-19">19</a> |
+	  <a class="j" href="#pp4-20">20</a> |
+	  <a class="j" href="#pp4-21">21</a> |
+	  <a class="j" href="#pp4-22">22</a> |
+	  <a class="j" href="#pp4-25">25</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#gu-pp4">unknown</a>
+</p>
+
+<hr />
+<hr />
+<a name="pp4-16"></a>
+<h2>The 1 <a class="i" href="bits-16.htm">sixteen-bit</a>
+period 4 pseudo-oscillator</h2>
+<p><a class="p" href="stamp/pp4-16.rle"><img src="map/pp4-16.png"
+ alt="16b PP4" width="81" height="61" usemap="#pp4-16" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16mdbk.rle">
+	    Block on mold [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp4-16">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/pp4-16.zip" />
+	<area coords="61,41,80,60" href="stamp/pp4-16.rle" />
+	<area coords="0,0,80,60" href="16/16mdbk.rle" />
+</map>
+
+<hr />
+<a name="pp4-17"></a>
+<h2>The 2 <a class="i" href="bits-17.htm">seventeen-bit</a>
+period 4 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp4-17.rle"><img src="map/pp4-17.png"
+ alt="17-bit pseudo-P4" width="141" height="61" usemap="#pp4-17" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="17/17mdbt2.rle">
+	    Down boat on mold [8]</a></td>
+	<td><a class="p" href="17/17mdbt1.rle">
+	    Up boat on mold [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp4-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/pp4-17.zip" />
+	<area coords="121,41,140,60" href="stamp/pp4-17.rle" />
+	<area coords="0,0,69,60" href="17/17mdbt2.rle" />
+	<area coords="70,0,140,60" href="17/17mdbt1.rle" />
+</map>
+
+<hr />
+<a name="pp4-18"></a>
+<h2>The 11 <a class="i" href="bits-18.htm">eighteen-bit</a>
+period 4 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp4-18.rle"><img src="map/pp4-18.png"
+ alt="18-bit period 4 pseudo-oscillators"
+ width="381" height="101" usemap="#pp4-18" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18mdhv.rle">
+	    Beehive on mold [7]</a></td>
+	<td><a class="p" href="18/18mdsh1.rle">
+	    Up ship on mold [9]</a></td>
+	<td><a class="p" href="18/18mdac3.rle">
+	    Up cis carrier on mold [12]</a></td>
+	<td><a class="p" href="18/18mdsh2.rle">
+	    Down ship on mold [9]</a></td>
+	<td><a class="p" href="18/18mdsn1.rle">
+	    Up snake on mold [11]</a></td>
+	<td><a class="p" href="18/18mdsn2.rle">
+	    Down snake on mold [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="18/18mdac1.rle">
+	    Up trans carrier on mold [12]</a></td>
+	<td><a class="p" href="18/18mdbc1.rle">
+	    Up cis beacon on mold [12]</a></td>
+	<td><a class="p" href="18/18mdac2.rle">
+	    Down cis carrier on mold [12]</a></td>
+	<td><a class="p" href="18/18mdac4.rle">
+	    Down trans carrier on mold [12]</a></td>
+	<td><a class="p" href="18/18mdbc2.rle">
+	    Down cis beacon on mold [11]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp4-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/pp4-18.zip" />
+	<area coords="361,81,380,100" href="stamp/pp4-18.rle" />
+	<area coords="0,0,69,49" href="18/18mdhv.rle" />
+	<area coords="70,0,129,49" href="18/18mdsh1.rle" />
+	<area coords="130,0,189,49" href="18/18mdac3.rle" />
+	<area coords="190,0,249,49" href="18/18mdsh2.rle" />
+	<area coords="250,0,309,49" href="18/18mdsn1.rle" />
+	<area coords="310,0,380,49" href="18/18mdsn2.rle" />
+	<area coords="0,50,69,100" href="18/18mdac1.rle" />
+	<area coords="70,50,129,100" href="18/18mdbc1.rle" />
+	<area coords="130,50,189,100" href="18/18mdac2.rle" />
+	<area coords="190,50,249,100" href="18/18mdac4.rle" />
+	<area coords="250,50,309,100" href="18/18mdbc2.rle" />
+	<area coords="310,50,380,100" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp4-19"></a>
+<h2>The 14 <a class="i" href="bits-19.htm">nineteen-bit</a>
+period 4 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp4-19.rle"><img src="map/pp4-19.png"
+ alt="19-bit period 4 pseudo-oscillators"
+ width="441" height="101" usemap="#pp4-19" /></a><br />
+    <table width="445">
+    <colgroup><col width="71" /><col span="5" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19mdls3.rle">
+	    Up cis python on mold [14]</a></td>
+	<td><a class="p" href="19/19mdlf2.rle">
+	    Down loaf on mold [8]</a></td>
+	<td><a class="p" href="19/19mdet3.rle">
+	    Up mold below eater [9]</a></td>
+	<td><a class="p" href="19/19mdlb1.rle">
+	    Up long boat on mold [10]</a></td>
+	<td><a class="p" href="19/19mdet6.rle">
+	    Down mold above eater [12]</a></td>
+	<td><a class="p" href="19/19mdet1.rle">
+	    Up mold on eater [9]</a></td>
+	<td><a class="p" href="19/19mdlf1.rle">
+	    Up loaf on mold [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19mdls1.rle">
+	    Up trans python on mold [15]</a></td>
+	<td><a class="p" href="19/19mdls2.rle">
+	    Down trans python on mold [15]</a></td>
+	<td><a class="p" href="19/19mdlb2.rle">
+	    Down long boat on mold [9]</a></td>
+	<td><a class="p" href="19/19mdet4.rle">
+	    Down mold below eater [9]</a></td>
+	<td><a class="p" href="19/19mdet2.rle">
+	    Down mold on eater [9]</a></td>
+	<td><a class="p" href="19/19mdet5.rle">
+	    Up mold above eater [12]</a></td>
+	<td><a class="p" href="19/19mdls4.rle">
+	    Down cis python on mold [14]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp4-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/pp4-19.zip" />
+	<area coords="421,81,440,100" href="stamp/pp4-19.rle" />
+	<area coords="0,0,69,49" href="19/19mdls3.rle" />
+	<area coords="70,0,129,49" href="19/19mdlf2.rle" />
+	<area coords="130,0,189,49" href="19/19mdet3.rle" />
+	<area coords="190,0,249,49" href="19/19mdlb1.rle" />
+	<area coords="250,0,309,49" href="19/19mdet6.rle" />
+	<area coords="310,0,369,49" href="19/19mdet1.rle" />
+	<area coords="370,0,440,49" href="19/19mdlf1.rle" />
+	<area coords="0,50,69,100" href="19/19mdls1.rle" />
+	<area coords="70,50,129,100" href="19/19mdls2.rle" />
+	<area coords="130,50,189,100" href="19/19mdlb2.rle" />
+	<area coords="190,50,249,100" href="19/19mdet4.rle" />
+	<area coords="250,50,309,100" href="19/19mdet2.rle" />
+	<area coords="310,50,369,100" href="19/19mdet5.rle" />
+	<area coords="370,50,440,100" href="19/19mdls4.rle" />
+</map>
+
+<hr />
+<a name="pp4-20"></a>
+<h2>The 33 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 4 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp4-20.rle"><img src="map/pp4-20.png"
+ alt="20-bit period 4 pseudo-oscillators"
+ width="561" height="261" usemap="#pp4-20" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20mdsl1.rle">
+	    Up shillelagh head on mold [11]</a></td>
+	<td><a class="p" href="20/20mdcg2.rle">
+	    Down mango on mold [9]</a></td>
+	<td><a class="p" href="20/20mdlp1.rle">
+	    Up long ship on mold [9]</a></td>
+	<td><a class="p" href="20/20mdbc4.rle">
+	    Down trans beacon on mold [11]</a></td>
+	<td><a class="p" href="20/20mdpd1.rle">
+	    Pond on mold [8]</a></td>
+	<td><a class="p" href="20/20mdht4.rle">
+	    Down hook w/ tail tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdsl4.rle">
+	    Down shil- lelagh chin on mold [11]</a></td>
+	<td><a class="p" href="20/20mdbbk.rle">
+	    Block on block on mold [8]</a></td>
+	<td><a class="p" href="20/20mdsl6.rle">
+	    Down shil- lelagh tail on mold [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20mdsl3.rle">
+	    Up shil- lelagh chin on mold [11]</a></td>
+	<td><a class="p" href="20/20mdht2.rle">
+	    Down hook w/ tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdtt2.rle">
+	    Down tub w/ tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdcs1.rle">
+	    Up trans canoe on mold [14]</a></td>
+	<td><a class="p" href="20/20mdbp1.rle">
+	    Up trans bipole on mold [16]</a></td>
+	<td><a class="p" href="20/20mdbp3.rle">
+	    Up cis bipole on mold [16]</a></td>
+	<td><a class="p" href="20/20mdcs3.rle">
+	    Up cis canoe on mold [14]</a></td>
+	<td><a class="p" href="20/20mdbp4.rle">
+	    Down cis bipole on mold [16]</a></td>
+	<td><a class="p" href="20/20mdbc3.rle">
+	    Up trans beacon on mold [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20mdbp2.rle">
+	    Up trans bipole on mold [16]</a></td>
+	<td><a class="p" href="20/20mdsl5.rle">
+	    Up shil- lelagh tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdvs1.rle">
+	    Up trans very long snake on mold [14]</a></td>
+	<td><a class="p" href="20/20mdcg1.rle">
+	    Up mango on mold [9]</a></td>
+	<td><a class="p" href="20/20mdlp2.rle">
+	    Down long ship on mold [9]</a></td>
+	<td><a class="p" href="20/20mdvs3.rle">
+	    Up cis very long snake on mold [12</a></td>
+	<td><a class="p" href="20/20mdht1.rle">
+	    Up hook w/ tail head on mold [15]</a></td>
+	<td><a class="p" href="20/20mdvs2.rle">
+	    Down trans very long snake on mold [14]</a></td>
+	<td><a class="p" href="20/20mdsl2.rle">
+	    Down shil- lelagh head on mold [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20mdht3.rle">
+	    Up hook w/ tail tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdtt1.rle">
+	    Up tub w/ tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdcs2.rle">
+	    Down trans canoe on mold [14]</a></td>
+	<td><a class="p" href="20/20mdcs4.rle">
+	    Down trans canoe on mold [13]</a></td>
+	<td><a class="p" href="20/20bmdbk.rle">
+	    Block on mold on block [9]</a></td>
+	<td><a class="p" href="20/20mdvs4.rle">
+	    Down cis very long snake on mold [12]</a></td>
+	<td colspan="3" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp4-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/pp4-20.zip" />
+	<area coords="541,241,560,260" href="stamp/pp4-20.rle" />
+	<area coords="0,0,69,69" href="20/20mdsl1.rle" />
+	<area coords="70,0,129,69" href="20/20mdcg2.rle" />
+	<area coords="130,0,189,69" href="20/20mdlp1.rle" />
+	<area coords="190,0,249,69" href="20/20mdbc4.rle" />
+	<area coords="250,0,309,69" href="20/20mdpd1.rle" />
+	<area coords="310,0,369,69" href="20/20mdht4.rle" />
+	<area coords="370,0,429,69" href="20/20mdsl4.rle" />
+	<area coords="430,0,489,69" href="20/20mdbbk.rle" />
+	<area coords="490,0,560,69" href="20/20mdsl6.rle" />
+	<area coords="0,70,69,129" href="20/20mdsl3.rle" />
+	<area coords="70,70,129,129" href="20/20mdht2.rle" />
+	<area coords="130,70,189,129" href="20/20mdtt2.rle" />
+	<area coords="190,70,249,129" href="20/20mdcs1.rle" />
+	<area coords="250,70,309,129" href="20/20mdbp1.rle" />
+	<area coords="310,70,369,129" href="20/20mdbp3.rle" />
+	<area coords="370,70,429,129" href="20/20mdcs3.rle" />
+	<area coords="430,70,489,129" href="20/20mdbp4.rle" />
+	<area coords="490,70,560,129" href="20/20mdbc3.rle" />
+	<area coords="0,130,69,189" href="20/20mdbp2.rle" />
+	<area coords="70,130,129,189" href="20/20mdsl5.rle" />
+	<area coords="130,130,189,189" href="20/20mdvs1.rle" />
+	<area coords="190,130,249,189" href="20/20mdcg1.rle" />
+	<area coords="250,130,309,189" href="20/20mdlp2.rle" />
+	<area coords="310,130,369,189" href="20/20mdvs3.rle" />
+	<area coords="370,130,429,189" href="20/20mdht1.rle" />
+	<area coords="430,130,489,189" href="20/20mdvs2.rle" />
+	<area coords="490,130,560,189" href="20/20mdsl2.rle" />
+	<area coords="0,190,69,260" href="20/20mdht3.rle" />
+	<area coords="70,190,129,260" href="20/20mdtt1.rle" />
+	<area coords="130,190,189,260" href="20/20mdcs2.rle" />
+	<area coords="190,190,249,260" href="20/20mdcs4.rle" />
+	<area coords="250,190,309,260" href="20/20bmdbk.rle" />
+	<area coords="310,190,369,260" href="20/20mdvs4.rle" />
+	<area coords="370,190,560,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp4-21"></a>
+<h2>The 50 <a class="i" href="bits-21.htm">21-bit</a>
+period 4 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp4-21.rle"><img src="map/pp4-21.png"
+ alt="21-bit period 4 pseudo-oscillators"
+ width="621" height="321" usemap="#pp4-21" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21mdll6.rle">
+	    Down mold behind long shil- lelagh [16]</a></td>
+	<td><a class="p" href="21/21mddbt2.rle">
+	    Down mold on down boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdvb1.rle">
+	    Up very long boat on mold [12]</a></td>
+	<td><a class="p" href="21/21mddbt4.rle">
+	    Down mold above down boat w/ tail [14]</a></td>
+	<td><a class="p" href="21/21mdubt3.rle">
+	    Up mold below up boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdubt1.rle">
+	    Up mold on up boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdin3.rle">
+	    Up mold below integral [12]</a></td>
+	<td><a class="p" href="21/21mdin1.rle">
+	    Up mold on integral [15]</a></td>
+	<td><a class="p" href="21/21mdubt6.rle">
+	    Down mold above up boat w/ tail [15]</a></td>
+	<td><a class="p" href="21/21mdll4.rle">
+	    Down mold below long shil- lelagh [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21mdbbt2.rle">
+	    Down boat on block on mold [10]</a></td>
+	<td><a class="p" href="21/21mdbbt1.rle">
+	    Up boat on block on mold [10]</a></td>
+	<td><a class="p" href="21/21mdlht2.rle">
+	    Down mold on long hook w/ tail [15]</a></td>
+	<td><a class="p" href="21/21mdll7.rle">
+	    Up mold above long shil- lelagh [19]</a></td>
+	<td><a class="p" href="21/21mdll3.rle">
+	    Up mold below long shil- lelagh [15]</a></td>
+	<td><a class="p" href="21/21mdtlt2.rle">
+	    Down mold on tub w/long tail [15]</a></td>
+	<td><a class="p" href="21/21mdll8.rle">
+	    Down mold above long shil- lelagh [19]</a></td>
+	<td><a class="p" href="21/21mdlht1.rle">
+	    Up mold on long hook w/ tail [15]</a></td>
+	<td><a class="p" href="21/21mdxs1.rle">
+	    Up trans extra long snake on mold [18]</a></td>
+	<td><a class="p" href="21/21mdlht5.rle">
+	    Up mold below long hook w/ tail [19]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21mdll1.rle">
+	    Up mold on long shil- lelagh [19]</a></td>
+	<td><a class="p" href="21/21mdll9.rle">
+	    Up mold before long shil- lelagh [15]</a></td>
+	<td><a class="p" href="21/21mdlht4.rle">
+	    Down mold above long hook w/ tail [19]</a></td>
+	<td><a class="p" href="21/21mddbt1.rle">
+	    Up mold on down boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdtlt1.rle">
+	    Up mold on tub w/long tail [15]</a></td>
+	<td><a class="p" href="21/21mdlc1.rle">
+	    Up trans long canoe on mold [18]</a></td>
+	<td><a class="p" href="21/21mdtp1.rle">
+	    Up mold on tripole [18]</a></td>
+	<td><a class="p" href="21/21mdtp3.rle">
+	    Up mold below tripole [18]</a></td>
+	<td><a class="p" href="21/21mdlc3.rle">
+	    Up cis long canoe on mold [18]</a></td>
+	<td><a class="p" href="21/21mdll5.rle">
+	    Up mold behind long shil- lelagh [16]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21mdvb2.rle">
+	    Down very long boat on mold [12]</a></td>
+	<td><a class="p" href="21/21mddbt3.rle">
+	    Up mold above down boat w/ tail [14]</a></td>
+	<td><a class="p" href="21/21mdubt4.rle">
+	    Down mold below up boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdubt2.rle">
+	    Down mold on up boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdxs3.rle">
+	    Up cis extra long snake on mold [12]</a></td>
+	<td><a class="p" href="21/21mdin4.rle">
+	    Down mold below integral [9]</a></td>
+	<td><a class="p" href="21/21mdin2.rle">
+	    Down mold on integral [15]</a></td>
+	<td><a class="p" href="21/21mdubt5.rle">
+	    Up mold above up boat w/ tail [15]</a></td>
+	<td><a class="p" href="21/21mdxs2.rle">
+	    Down trans extra long snake on mold [18]</a></td>
+	<td><a class="p" href="21/21mdlht6.rle">
+	    Down mold below long hook w/ tail [16]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21bmdbt2.rle">
+	    Down boat on mold on block [8]</a></td>
+	<td><a class="p" href="21/21bmdbt1.rle">
+	    Up boat on mold on block [10]</a></td>
+	<td><a class="p" href="21/21mdll2.rle">
+	    Down mold on long shil- lelagh [18]</a></td>
+	<td><a class="p" href="21/21mdll10.rle">
+	    Down mold before long shil- lelagh [14]</a></td>
+	<td><a class="p" href="21/21mdlht3.rle">
+	    Up mold above long hook w/ tail [16]</a></td>
+	<td><a class="p" href="21/21mdlc2.rle">
+	    Down trans long canoe on mold [18]</a></td>
+	<td><a class="p" href="21/21mdtp2.rle">
+	    Down mold on tripole [18]</a></td>
+	<td><a class="p" href="21/21mdtp4.rle">
+	    Down mold below tripole [18]</a></td>
+	<td><a class="p" href="21/21mdlc4.rle">
+	    Down cis long canoe on mold [17]</a></td>
+	<td><a class="p" href="21/21mdxs4.rle">
+	    Down cis extra long snake on mold [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp4-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp4-21.zip" />
+	<area coords="601,301,620,320" href="stamp/pp4-20.rle" />
+	<area coords="0,0,69,69" href="21/21mdll6.rle" />
+	<area coords="70,0,129,69" href="21/21mddbt2.rle" />
+	<area coords="130,0,189,69" href="21/21mdvb1.rle" />
+	<area coords="190,0,249,69" href="21/21mddbt4.rle" />
+	<area coords="250,0,309,69" href="21/21mdubt3.rle" />
+	<area coords="310,0,369,69" href="21/21mdubt1.rle" />
+	<area coords="370,0,429,69" href="21/21mdin3.rle" />
+	<area coords="430,0,489,69" href="21/21mdin1.rle" />
+	<area coords="490,0,549,69" href="21/21mdubt6.rle" />
+	<area coords="550,0,620,69" href="21/21mdll4.rle" />
+	<area coords="0,70,69,129" href="21/21mdbbt2.rle" />
+	<area coords="70,70,129,129" href="21/21mdbbt1.rle" />
+	<area coords="130,70,189,129" href="21/21mdlht2.rle" />
+	<area coords="190,70,249,129" href="21/21mdll7.rle" />
+	<area coords="250,70,309,129" href="21/21mdll3.rle" />
+	<area coords="310,70,369,129" href="21/21mdtlt2.rle" />
+	<area coords="370,70,429,129" href="21/21mdll8.rle" />
+	<area coords="430,70,489,129" href="21/21mdlht1.rle" />
+	<area coords="490,70,549,129" href="21/21mdxs1.rle" />
+	<area coords="550,70,620,129" href="21/21mdlht5.rle" />
+	<area coords="0,130,69,189" href="21/21mdll1.rle" />
+	<area coords="70,130,129,189" href="21/21mdll9.rle" />
+	<area coords="130,130,189,189" href="21/21mdlht4.rle" />
+	<area coords="190,130,249,189" href="21/21mddbt1.rle" />
+	<area coords="250,130,309,189" href="21/21mdtlt1.rle" />
+	<area coords="310,130,369,189" href="21/21mdlc1.rle" />
+	<area coords="370,130,429,189" href="21/21mdtp1.rle" />
+	<area coords="430,130,489,189" href="21/21mdtp3.rle" />
+	<area coords="490,130,549,189" href="21/21mdlc3.rle" />
+	<area coords="550,130,620,189" href="21/21mdll5.rle" />
+	<area coords="0,190,69,249" href="21/21mdvb2.rle" />
+	<area coords="70,190,129,249" href="21/21mddbt3.rle" />
+	<area coords="130,190,189,249" href="21/21mdubt4.rle" />
+	<area coords="190,190,249,249" href="21/21mdubt2.rle" />
+	<area coords="250,190,309,249" href="21/21mdxs3.rle" />
+	<area coords="310,190,369,249" href="21/21mdin4.rle" />
+	<area coords="370,190,429,249" href="21/21mdin2.rle" />
+	<area coords="430,190,489,249" href="21/21mdubt5.rle" />
+	<area coords="490,190,549,249" href="21/21mdxs2.rle" />
+	<area coords="550,190,620,249" href="21/21mdlht6.rle" />
+	<area coords="0,250,69,320" href="21/21bmdbt2.rle" />
+	<area coords="70,250,129,320" href="21/21bmdbt1.rle" />
+	<area coords="130,250,189,320" href="21/21mdll2.rle" />
+	<area coords="190,250,249,320" href="21/21mdll10.rle" />
+	<area coords="250,250,309,320" href="21/21mdlht3.rle" />
+	<area coords="310,250,369,320" href="21/21mdlc2.rle" />
+	<area coords="370,250,429,320" href="21/21mdtp2.rle" />
+	<area coords="430,250,489,320" href="21/21mdtp4.rle" />
+	<area coords="490,250,549,320" href="21/21mdlc4.rle" />
+	<area coords="550,250,620,320" href="21/21mdxs4.rle" />
+</map>
+
+<hr />
+<a name="pp4-22"></a>
+<h2>The 154 <a class="i" href="bits-22.htm">22-bit</a>
+period 4 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>102 Mold on 10-bit still-life.</li>
+    <li>4 Mold on quadpole.</li>
+    <li>33 Mold on block and 6-bit still-life.</li>
+    <li>8 Mold on block and beacon.</li>
+    <li>4 Mold on table on block.</li>
+    <li>3 Mold on two boats.</li>
+</ul></p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+<hr />
+<a name="pp4-25"></a>
+<h2>2 <a class="i" href="bits-25.htm">25-bit</a>
+period 4 pseudo-oscillators</h2>
+<p>All period-4 pseudo-oscillators up to 25 bits are easy to synthesize except
+these two, for which syntheses are also trivial, but that rely on
+<a class="i" href="glider-u.htm#gu-p4">a predecessor</a>
+for which no synthesis yet exists.</p>
+<p><a class="p" href="stamp/pp4-25.rle"><img src="map/pp4-25.png"
+ alt="25-bit pseudo-P4"
+ width="181" height="81" usemap="#pp4-25" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="25/25p4-1b1.rle">
+	    Block on 21-bit P4 #1 [x+2]</a></td>
+	<td class="r"><a class="p" href="25/25p4-1b2.rle">
+	    Block below 21-bit P4 #1 [x+3]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp4-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/pp4-25.zip" />
+	<area coords="161,61,180,80" href="stamp/pp4-20.rle" />
+	<area coords="0,0,89,80" href="25/25p4-1b1.rle" />
+	<area coords="90,0,180,80" href="25/25p4-1b2.rle" />
+</map>
+
+<hr />
+<a name="gu-pp4"></a>
+<h2>The 2 period 4 pseudo-oscillators up to 25 bits
+<a class="i" href="glider-u.htm">without any known syntheses</a></h2>
+<p>These are both easy to synthesize, but are based on
+<a class="i" href="glider-u.htm#gu-p4">one predecessor</a>
+that does not yet have a synthesis.</p>
+<p><a class="p" href="stamp/gu-pp4.rle"><img src="map/gu-pp4.png"
+ alt="unknown P4 pseudo-oscllators"
+ width="181" height="81" usemap="#gu-pp4" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="25/25p4-1b1.rle">
+	    Block on 21-bit P4 #1 [x+2]</a></td>
+	<td class="r"><a class="p" href="25/25p4-1b2.rle">
+	    Block below 21-bit P4 #1 [x+3]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-pp4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/gu-pp4.zip" />
+	<area coords="161,61,180,80" href="stamp/gu-pp4.rle" />
+	<area coords="0,0,89,80" href="25/25p4-1b1.rle" />
+	<area coords="90,0,180,80" href="25/25p4-1b2.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="p4.htm">period-4 oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="posc.htm">pseudo-oscillators</a> by period:</b>
+	<a class="i" href="pp2.htm">2</a>,
+	<a class="i" href="pp3.htm">3</a>,
+	4,
+	<a class="i" href="pp5.htm">5</a>,
+	<a class="i" href="pp6.htm">6</a>,
+	<a class="i" href="pp8.htm">8</a>,
+	<a class="i" href="pp10.htm">10</a>,
+	<a class="i" href="pp12.htm">12</a>,
+	<a class="i" href="pp15.htm">15</a>,
+	<a class="i" href="pp30.htm">30</a>,
+	<a class="i" href="pp60.htm">60</a>,
+	<a class="i" href="pperiod.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

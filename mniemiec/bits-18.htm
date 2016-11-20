@@ -1,0 +1,801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Eighteen-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: eighteen-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 18 eighteen bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Eighteen-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-18">Still-lifes</a> |
+	<a class="j" href="#pp1-18">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-18">P2 oscillators</a> |
+	<a class="j" href="#pp2-18">P2 pseudo-oscillators</a> |
+	<a class="j" href="#p3-18">P3 oscillators</a> |
+	<a class="j" href="#pp3-18">P3 pseudo-oscillators</a> |
+	<a class="j" href="#p4-18">P4 oscillators</a> |
+	<a class="j" href="#pp4-18">P4 pseudo-oscillators</a> |
+	<a class="j" href="#p5-18">P5 oscillator</a> |
+	<a class="j" href="#p6-18">P6 oscillators</a> |
+	<a class="j" href="#p8-18">P8 oscillator</a> |
+	<a class="j" href="#pp8-18">P8 pseudo-oscillators</a> |
+	<a class="j" href="#pp15-18">P15 pseudo-oscillators</a> |
+	<a class="j" href="#pp30-18">P30 pseudo-oscillator</a> |
+	<a class="j" href="#ss-18">Pseudo-spaceship</a> |
+	<a class="j" href="#cons-18">Constellations</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-18"></a>
+<h2>The 19044 eighteen-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p1-18.htm">separate page</a>,
+with syntheses for 130 of them.</p>
+<hr />
+<a name="pp1-18"></a>
+<h2>The 10843 eighteen-bit
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="pp1-18.htm">separate page</a>.</p>
+
+<p>All but seven of these can be synthesized using the same techniques that are
+used for smaller still-lifes and pseudo-still-lifes. These and 55 other
+specific examples are shown here.</p>
+<p><a class="p" href="stamp/pp1-18.rle"><img src="map/pp1-18.png"
+ alt="18-bit pseudo-still-lifes"
+ width="561" height="361" usemap="#pp1-18" /></a></p>
+
+<map name="pp1-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,341,19,360" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/pp1-18.zip" />
+	<area coords="541,341,560,360" href="stamp/pp1-18.rle" />
+	<area coords="0,0,69,57" href="18/18sns1.rle" />
+	<area coords="70,0,129,57" href="18/18bctta.rle" />
+	<area coords="130,0,189,57" href="18/18hvhvhv.rle" />
+	<area coords="190,0,249,57" href="18/18sshhv2.rle" />
+	<area coords="250,0,309,57" href="18/18pdbsh.rle" />
+	<area coords="310,0,369,57" href="18/18ssbkbk.rle" />
+	<area coords="370,0,429,57" href="18/18haha.rle" />
+	<area coords="430,0,489,57" href="18/18ppcbk2.rle" />
+	<area coords="490,0,560,57" href="18/18lhaht5.rle" />
+	<area coords="0,58,69,105" href="18/18inin5.rle" />
+	<area coords="70,58,129,105" href="18/18aapd1.rle" />
+	<area coords="130,58,189,105" href="18/18shbk3.rle" />
+	<area coords="190,58,249,105" href="18/18bbtbbt.rle" />
+	<area coords="250,58,309,105" href="18/18llll9.rle" />
+	<area coords="310,58,369,105" href="18/18llll1.rle" />
+	<area coords="370,58,429,105" href="18/18ppcbk1.rle" />
+	<area coords="430,58,489,105" href="18/18lhtsa.rle" />
+	<area coords="490,58,560,105" href="18/18habtbk.rle" />
+	<area coords="0,106,69,153" href="18/18assn3.rle" />
+	<area coords="70,106,129,153" href="18/18slbksn.rle" />
+	<area coords="130,106,189,153" href="18/18assn4.rle" />
+	<area coords="190,106,249,153" href="18/18bcslb3.rle" />
+	<area coords="250,106,309,153" href="18/18cslht2.rle" />
+	<area coords="310,106,369,153" href="18/18cslslm.rle" />
+	<area coords="370,106,429,153" href="18/18cslcs1.rle" />
+	<area coords="430,106,489,153" href="18/18cslbb1.rle" />
+	<area coords="490,106,560,153" href="18/18hhvhv.rle" />
+	<area coords="0,154,69,201" href="18/18cslvs1.rle" />
+	<area coords="70,154,129,201" href="18/18lhaht6.rle" />
+	<area coords="130,154,189,201" href="18/18cslcg5.rle" />
+	<area coords="190,154,249,201" href="18/18bt2bk2.rle" />
+	<area coords="250,154,309,201" href="18/18sssn2.rle" />
+	<area coords="310,154,369,201" href="18/18assh4.rle" />
+	<area coords="370,154,429,201" href="18/18sssn1.rle" />
+	<area coords="430,154,489,201" href="18/18lcibt2.rle" />
+	<area coords="490,154,560,201" href="18/18sshhv1.rle" />
+	<area coords="0,202,69,249" href="18/18htasn8.rle" />
+	<area coords="70,202,129,249" href="18/18asacc.rle" />
+	<area coords="130,202,189,249" href="18/18asac4.rle" />
+	<area coords="190,202,249,249" href="18/18cslsl2.rle" />
+	<area coords="250,202,309,249" href="18/18cslslc.rle" />
+	<area coords="310,202,369,249" href="18/18cslsll.rle" />
+	<area coords="370,202,429,249" href="18/18hbbk.rle" />
+	<area coords="430,202,489,249" href="18/18lhts5.rle" />
+	<area coords="490,202,560,249" href="18/18cslcg6.rle" />
+	<area coords="0,250,69,297" href="18/18ilfbt9.rle" />
+	<area coords="70,250,129,297" href="18/18gulf1.rle" />
+	<area coords="130,250,189,297" href="18/18cslcg1.rle" />
+	<area coords="190,250,249,297" href="18/18hvlfb1.rle" />
+	<area coords="250,250,309,297" href="18/18btpdbt.rle" />
+	<area coords="310,250,369,297" href="18/18csllp2.rle" />
+	<area coords="370,250,429,297" href="18/18hvetbt.rle" />
+	<area coords="430,250,489,297" href="18/18cslhtb.rle" />
+	<area coords="490,250,560,297" href="18/18cslht1.rle" />
+	<area coords="0,298,69,360" href="18/18bketlf.rle" />
+	<area coords="70,298,129,360" href="18/18cslvsc.rle" />
+	<area coords="130,298,189,360" href="18/18cslvs2.rle" />
+	<area coords="190,298,249,360" href="18/18vbtbt5.rle" />
+	<area coords="250,298,309,360" href="18/18csltt1.rle" />
+	<area coords="310,298,369,360" href="18/18btethv.rle" />
+	<area coords="370,298,429,360" href="18/18cslcs2.rle" />
+	<area coords="430,298,489,360" href="18/18cslcsc.rle" />
+	<area coords="490,298,560,360" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p2-18"></a>
+<h2>The 484 eighteen-bit
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p2-18.htm">separate page</a>.</p>
+
+<hr />
+<a name="pp2-18"></a>
+<h2>The 1519 eighteen-bit
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="pp2-18.htm">separate page</a>.
+All of these can be synthesized using the same techniques that are used for
+smaller pseudo-oscillators and pseudo-still-lifes.
+Syntheses for 14 of them are shown here.</p>
+<p><a class="p" href="stamp/pp2-18.rle"><img src="map/pp2-18.png"
+ alt="18-bit pseudo-P2"
+ width="581" height="141" usemap="#pp2-18" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18tbc2.rle">
+	    Trans trans beacon on beacon on beacon [10]</a></td>
+	<td class="y"><a class="p" href="18/18bpcht6.rle">
+	    Down bipole above cis hook w/ tail [28]</a></td>
+	<td class="y"><a class="p" href="18/18tptp3.rle">
+	    Up cis tripole on tripole [26]</a></td>
+	<td><a class="p" href="18/18tptp5.rle">
+	    Up trans tripole on tripole [16]</a></td>
+	<td><a class="p" href="18/18tpbbt2.rle">
+	    Down boat on block on tripole [10]</a></td>
+	<td><a class="p" href="18/18bcas4.rle">
+	    Down beacon below carrier bridge snake [17]</a></td>
+	<td><a class="p" href="18/18tbc1.rle">
+	    Cis two up beacons on beacon [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="18/18bchvs1.rle">
+	    Cis two beehives on beacon [5]</a></td>
+	<td class="y"><a class="p" href="18/18bpcsl4.rle">
+	    Down bipole on cis shillelagh [25]</a></td>
+	<td class="y"><a class="p" href="18/18bpcht5.rle">
+	    Up bipole above cis hook w/ tail [26]</a></td>
+	<td><a class="p" href="18/18tpin2.rle">
+	    Down tripole on integral [12]</a></td>
+	<td><a class="p" href="18/18tpin4.rle">
+	    Down tripole below integral [11]</a></td>
+	<td class="y"><a class="p" href="18/18tptp4.rle">
+	    Down cis tripole on tripole [26]</a></td>
+	<td class="g"><a class="p" href="18/18tptp6.rle">
+	    Down trans tripole on tripole [18]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp2-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/pp2-18.zip" />
+	<area coords="561,121,580,140" href="stamp/pp2-18.rle" />
+	<area coords="0,0,89,69" href="18/18tbc2.rle" />
+	<area coords="90,0,169,69" href="18/18bpcht6.rle" />
+	<area coords="170,0,249,69" href="18/18tptp3.rle" />
+	<area coords="250,0,329,69" href="18/18tptp5.rle" />
+	<area coords="330,0,409,69" href="18/18tpbbt2.rle" />
+	<area coords="410,0,489,69" href="18/18bcas4.rle" />
+	<area coords="490,0,580,69" href="18/18tbc1.rle" />
+	<area coords="0,70,89,140" href="18/18bchvs1.rle" />
+	<area coords="90,70,169,140" href="18/18bpcsl4.rle" />
+	<area coords="170,70,249,140" href="18/18bpcht5.rle" />
+	<area coords="250,70,329,140" href="18/18tpin2.rle" />
+	<area coords="330,70,409,140" href="18/18tpin4.rle" />
+	<area coords="410,70,489,140" href="18/18tptp4.rle" />
+	<area coords="490,70,580,140" href="18/18tptp6.rle" />
+</map>
+
+<hr />
+<a name="p3-18"></a>
+<h2>The 39 eighteen-bit
+<a class="i" href="p3.htm">period 3 oscillators</a></h2>
+<p><a class="p" href="stamp/p3-18.rle"><img src="map/p3-18.png"
+ alt="18-bit period 3 oscillators"
+ width="621" height="261" usemap="#p3-18" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18cfta1.rle">
+	    Up table on up candel- frobra [12]</a></td>
+	<td><a class="p" href="18/18cfsh3.rle">
+	    Up ship on down candel- frobra [12]</a></td>
+	<td><a class="p" href="18/18cfhv2.rle">Beehive on down candel- frobra;
+	    Beehive and long hook eating tub [12]</a></td>
+	<td><a class="p" href="18/18cfac5.rle">
+	    Up cis carrier on up candel- frobra [14]</a></td>
+	<td><a class="p" href="18/18cfsh1.rle">
+	    Up ship on up candel- frobra [10]</a></td>
+	<td><a class="p" href="18/18cfsh4.rle">
+	    Down ship on down candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfac7.rle">
+	    Up cis carrier on down candel- frobra [16]</a></td>
+	<td><a class="p" href="18/18cfsn4.rle">
+	    Down snake on up candel- frobra [16]</a></td>
+	<td><a class="p" href="18/18cfsn3.rle">
+	    Up snake on down candel- frobra [15]</a></td>
+	<td><a class="p" href="18/18cfac3.rle">
+	    Up trans carrier on down candel- frobra [16]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="18/18cfac1.rle">
+	    Up trans carrier on up candel- frobra [14]</a></td>
+	<td><a class="p" href="18/18cfsn1.rle">
+	    Up snake on up candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfac4.rle">
+	    Down trans carrier on down candel- frobra [16]</a></td>
+	<td><a class="p" href="18/18cfsn2.rle">
+	    Down snake on up candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfta3.rle">
+	    Down table on down candel- frobra [14]</a></td>
+	<td><a class="p" href="18/18cfhv1.rle">
+	    Beehive on up candel- frobra [7]</a></td>
+	<td><a class="p" href="18/18cfac8.rle">
+	    Down cis carrier on down candel- frobra [16]</a></td>
+	<td><a class="p" href="18/18cfsh2.rle">
+	    Down ship on up candel- frobra [10]</a></td>
+	<td><a class="p" href="18/18cfac2.rle">
+	    Down trans carrier on up candel- frobra [14]</a></td>
+	<td><a class="p" href="18/18spsp1.rle">
+	    Cis skewed poles [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="18/18cupbk.rle">
+	    Block on cuphook w/ pre- block [12]</a></td>
+	<td><a class="p" href="18/18cfac9.rle">
+	    Carrier bridge candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfta2.rle">
+	    Down table on up candel- frobra [10]</a></td>
+	<td><a class="p" href="18/18cfac6.rle">
+	    Down cis carrier on up candel- frobra [14]</a></td>
+	<td><a class="p" href="18/18pq.rle">
+	    Pulsar quad- rant [12]</a></td>
+	<td><a class="p" href="18/18cutbk2.rle">
+	    Block on down cuphook w/ tail; Cuphook [7]</a></td>
+	<td><a class="p" href="18/18cutbk1.rle">
+	    Block on up cuphook w/ tail; M.I.T. Oscillator [8]</a></td>
+	<td><a class="p" href="18/18eetcp.rle">
+	    Eater eating eater w/ feather [11]</a></td>
+	<td><a class="p" href="18/18pqpq.rle">
+	    Two pulsar quad- rants; Pulsar 18-22-20 [17]</a></td>
+	<td class="y"><a class="p" href="18/18fk.rle">
+	    French kiss; Eaters plus [23]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="18/18eetac.rle">
+	    Eater eating eater w/ siamese carrier [12]</a></td>
+	<td><a class="p" href="18/18eetsn.rle">
+	    Eater eating eater w/ siamese snake [12]</a></td>
+	<td><a class="p" href="18/18eitl.rle">
+	    Eater eating integral w/ tail [11]</a></td>
+	<td><a class="p" href="18/18eilh.rle">
+	    Eater eating integral w/ long hook [13]</a></td>
+	<td><a class="p" href="18/18eidb.rle">
+	    Eater eating integral w/ down boat [11]</a></td>
+	<td><a class="p" href="18/18egu.rle">
+	    Eater eating gull [10]</a></td>
+	<td><a class="p" href="18/18iin.rle">
+	    Integral eating integral [8]</a></td>
+	<td><a class="p" href="18/18eiub.rle">
+	    Eater eating integral w/ up boat [12]</a></td>
+	<td class="r"><a class="p" href="18/18spsp2.rle">
+	    Trans skewed poles [x]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p3-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p3-18.zip" />
+	<area coords="601,241,620,260" href="stamp/p3-18.rle" />
+	<area coords="0,0,69,69" href="18/18cfta1.rle" />
+	<area coords="70,0,129,69" href="18/18cfsh3.rle" />
+	<area coords="130,0,189,69" href="18/18cfhv2.rle" />
+	<area coords="190,0,249,69" href="18/18cfac5.rle" />
+	<area coords="250,0,309,69" href="18/18cfsh1.rle" />
+	<area coords="310,0,369,69" href="18/18cfsh4.rle" />
+	<area coords="370,0,429,69" href="18/18cfac7.rle" />
+	<area coords="430,0,489,69" href="18/18cfsn4.rle" />
+	<area coords="490,0,549,69" href="18/18cfsn3.rle" />
+	<area coords="550,0,620,69" href="18/18cfac3.rle" />
+	<area coords="0,70,69,129" href="18/18cfac1.rle" />
+	<area coords="70,70,129,129" href="18/18cfsn1.rle" />
+	<area coords="130,70,189,129" href="18/18cfac4.rle" />
+	<area coords="190,70,249,129" href="18/18cfsn2.rle" />
+	<area coords="250,70,309,129" href="18/18cfta3.rle" />
+	<area coords="310,70,369,129" href="18/18cfhv1.rle" />
+	<area coords="370,70,429,129" href="18/18cfac8.rle" />
+	<area coords="430,70,489,129" href="18/18cfsh2.rle" />
+	<area coords="490,70,549,129" href="18/18cfac2.rle" />
+	<area coords="550,70,620,129" href="18/18spsp1.rle" />
+	<area coords="0,130,69,189" href="18/18cupbk.rle" />
+	<area coords="70,130,129,189" href="18/18cfac9.rle" />
+	<area coords="130,130,189,189" href="18/18cfta2.rle" />
+	<area coords="190,130,249,189" href="18/18cfac6.rle" />
+	<area coords="250,130,309,189" href="18/18pq.rle" />
+	<area coords="310,130,369,189" href="18/18cutbk2.rle" />
+	<area coords="370,130,429,189" href="18/18cutbk1.rle" />
+	<area coords="430,130,489,189" href="18/18eetcp.rle" />
+	<area coords="490,130,549,189" href="18/18pqpq.rle" />
+	<area coords="550,130,620,189" href="18/18fk.rle" />
+	<area coords="0,190,69,260" href="18/18eetac.rle" />
+	<area coords="70,190,129,260" href="18/18eetsn.rle" />
+	<area coords="130,190,189,260" href="18/18eitl.rle" />
+	<area coords="190,190,249,260" href="18/18eilh.rle" />
+	<area coords="250,190,309,260" href="18/18eidb.rle" />
+	<area coords="310,190,369,260" href="18/18egu.rle" />
+	<area coords="370,190,429,260" href="18/18iin.rle" />
+	<area coords="430,190,489,260" href="18/18eiub.rle" />
+	<area coords="490,190,549,260" href="18/18spsp2.rle" />
+	<area coords="550,190,620,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp3-18"></a>
+<h2>The 5 eighteen-bit
+<a class="i" href="pp3.htm">period 3 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp3-18.rle"><img src="map/pp3-18.png"
+ alt="18-bit period 3 pseudo-oscillators"
+ width="321" height="81" usemap="#pp3-18" /></a><br />
+    <table width="325">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18jmbt1.rle">
+	    Up boat on jam [8]</a></td>
+	<td><a class="p" href="18/18jmbt2.rle">
+	    Down boat on jam [10]</a></td>
+	<td><a class="p" href="18/18jmbt4.rle">
+	    Down boat beside jam [10]</a></td>
+	<td><a class="p" href="18/18jmbt3.rle">
+	    Up boat beside jam [8]</a></td>
+	<td><a class="p" href="18/18eetbk.rle">
+	    Block on eater eating eater [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp3-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/pp3-18.zip" />
+	<area coords="301,61,320,80" href="stamp/pp3-18.rle" />
+	<area coords="0,0,69,80" href="18/18jmbt1.rle" />
+	<area coords="70,0,129,80" href="18/18jmbt2.rle" />
+	<area coords="130,0,189,80" href="18/18jmbt4.rle" />
+	<area coords="190,0,249,80" href="18/18jmbt3.rle" />
+	<area coords="250,0,320,80" href="18/18eetbk.rle" />
+</map>
+
+<hr />
+<a name="p4-18"></a>
+<h2>The 3 eighteen-bit
+<a class="i" href="p4.htm">period 4 oscillators</a></h2>
+<p><a class="p" href="stamp/p4-18.rle"><img src="map/p4-18.png"
+ alt="18-bit period 4"
+ width="201" height="81" usemap="#p4-18" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="18/18mg.rle">
+	    Mono- gram; Initials; JHC [15]</a></td>
+	<td><a class="p" href="18/18mdta1.rle">
+	    Up mold on table [10]</a></td>
+	<td><a class="p" href="18/18mdta2.rle">
+	    Down mold on table [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="p4-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p4-18.zip" />
+	<area coords="181,61,200,80" href="stamp/p4-18.rle" />
+	<area coords="0,0,69,80" href="18/18mg.rle" />
+	<area coords="70,0,129,80" href="18/18mdta1.rle" />
+	<area coords="130,0,200,80" href="18/18mdta2.rle" />
+</map>
+
+<p>Monogram (whose name is derived from the fact that it resembles the
+letters JHC, the initials of John Horton Conway, the inventor of Life),
+while it has no sparks, can be used as a
+<a class="i" href="lifeterm.htm#spark">sparker</a>
+oscillator in some circumstances, because it can delete
+<a class="p" href="0/3bl.rle">blinkers</a>.</p>
+
+<hr />
+<a name="pp4-18"></a>
+<h2>The 11 eighteen-bit
+<a class="i" href="pp4.htm">period 4 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp4-18.rle"><img src="map/pp4-18.png"
+ alt="18-bit period 4 pseudo-oscillators"
+ width="381" height="101" usemap="#pp4-18" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18mdhv.rle">
+	    Beehive on mold [7]</a></td>
+	<td><a class="p" href="18/18mdsh1.rle">
+	    Up ship on mold [9]</a></td>
+	<td><a class="p" href="18/18mdac3.rle">
+	    Up cis carrier on mold [12]</a></td>
+	<td><a class="p" href="18/18mdsh2.rle">
+	    Down ship on mold [9]</a></td>
+	<td><a class="p" href="18/18mdsn1.rle">
+	    Up snake on mold [11]</a></td>
+	<td><a class="p" href="18/18mdsn2.rle">
+	    Down snake on mold [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="18/18mdac1.rle">
+	    Up trans carrier on mold [12]</a></td>
+	<td><a class="p" href="18/18mdbc1.rle">
+	    Up cis beacon on mold [12]</a></td>
+	<td><a class="p" href="18/18mdac2.rle">
+	    Down cis carrier on mold [12]</a></td>
+	<td><a class="p" href="18/18mdac4.rle">
+	    Down trans carrier on mold [12]</a></td>
+	<td><a class="p" href="18/18mdbc2.rle">
+	    Down cis beacon on mold [11]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp4-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/pp4-18.zip" />
+	<area coords="361,81,380,100" href="stamp/pp4-18.rle" />
+	<area coords="0,0,69,49" href="18/18mdhv.rle" />
+	<area coords="70,0,129,49" href="18/18mdsh1.rle" />
+	<area coords="130,0,189,49" href="18/18mdac3.rle" />
+	<area coords="190,0,249,49" href="18/18mdsh2.rle" />
+	<area coords="250,0,309,49" href="18/18mdsn1.rle" />
+	<area coords="310,0,380,49" href="18/18mdsn2.rle" />
+	<area coords="0,50,69,100" href="18/18mdac1.rle" />
+	<area coords="70,50,129,100" href="18/18mdbc1.rle" />
+	<area coords="130,50,189,100" href="18/18mdac2.rle" />
+	<area coords="190,50,249,100" href="18/18mdac4.rle" />
+	<area coords="250,50,309,100" href="18/18mdbc2.rle" />
+	<area coords="310,50,380,100" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p5-18"></a>
+<h2>The 4 eighteen-bit
+<a class="i" href="p5.htm">period 5 oscillators</a></h2>
+<p><a class="p" href="stamp/p5-18.rle"><img src="map/p5-18.png"
+ alt="18-bit P5" width="261" height="81" usemap="#p5-18" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18fm.rle">
+	    Fumarole [7]</a></td>
+	<td class="y"><a class="p" href="18/18svls.rle">
+	    Silver's P5 on python [23]</a></td>
+	<td class="y"><a class="p" href="18/18svet1.rle">
+	    Silver's P5 on eater [24]</a></td>
+	<td><a class="p" href="18/18svet2.rle">
+	    Silver's P5 above eater [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p5-18.zip" />
+	<area coords="241,61,260,80" href="stamp/p5-18.rle" />
+	<area coords="0,0,69,80" href="18/18fm.rle" />
+	<area coords="70,0,129,80" href="18/18svls.rle" />
+	<area coords="130,0,189,80" href="18/18svet1.rle" />
+	<area coords="190,0,260,80" href="18/18svet2.rle" />
+</map>
+
+<p>The Fumarole is the smallest oscillator that produces a period 5
+<a class="i" href="lifeterm.htm#spark">domino spark</a>.</p>
+
+<hr />
+<a name="p6-18"></a>
+<h2>The 4 eighteen-bit
+<a class="i" href="p6.htm">period 6 oscillators</a></h2>
+<p><a class="p" href="stamp/p6-18.rle"><img src="map/p6-18.png"
+ alt="18-bit period 6 oscillators"
+ width="261" height="81" usemap="#p6-18" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18cfbc1.rle">
+	    Up beacon on up candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfbc3.rle">
+	    Up beacon on down candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfbc4.rle">
+	    Down beacon on down candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfbc2.rle">
+	    Down beacon on up candel- frobra [13]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p6-18.zip" />
+	<area coords="241,61,260,80" href="stamp/p6-18.rle" />
+	<area coords="0,0,69,80" href="18/18cfbc1.rle" />
+	<area coords="70,0,129,80" href="18/18cfbc3.rle" />
+	<area coords="130,0,189,80" href="18/18cfbc4.rle" />
+	<area coords="190,0,260,80" href="18/18cfbc2.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="p8-18"></a>
+<h2>The 1 eighteen-bit
+<a class="i" href="p8.htm">period 8 oscillator</a></h2>
+<p><a class="p" href="stamp/p8-18.rle"><img src="map/p8-18.png"
+ alt="18b P8" width="81" height="81" usemap="#p8-18" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="18/18p8af.rle">
+	    Flammen- kamp's P8 [13]</a></td>
+    </tr>
+</table></p>
+
+<map name="p8-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p8-18.zip" />
+	<area coords="61,61,80,80" href="stamp/p8-18.rle" />
+	<area coords="0,0,80,80" href="18/18p8af.rle" />
+</map>
+
+<hr />
+<a name="pp8-18"></a>
+<h2>The 2 eighteen-bit
+<a class="i" href="pp8.htm">period 8 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp8-18.rle"><img src="map/pp8-18.png"
+ alt="18-bit pseudo-P8" width="181" height="61" usemap="#pp8-18" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="18/18fgtd2.rle">
+	    Down toad on figure-8 [7]</a></td>
+	<td><a class="p" href="18/18fgtd1.rle">
+	    Up toad on figure-8 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/pp8-18.zip" />
+	<area coords="161,41,180,60" href="stamp/pp8-18.rle" />
+	<area coords="0,0,89,60" href="18/18fgtd2.rle" />
+	<area coords="90,0,180,60" href="18/18fgtd1.rle" />
+</map>
+
+<hr />
+<a name="pp15-18"></a>
+<h2>The 5 eighteen-bit
+<a class="i" href="pp15.htm">period 15 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp15-18.rle"><img src="map/pp15-18.png"
+ alt="18-bit period 15 pseudo-oscillators"
+ width="421" height="81" usemap="#pp15-18" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18pchv.rle">
+	    Beehive on penta- decathlon [5]</a></td>
+	<td><a class="p" href="18/18pcsh.rle">
+	    Ship on penta- decathlon [6]</a></td>
+	<td><a class="p" href="18/18pcac2.rle">
+	    Cis carrier on penta- decathlon [8]</a></td>
+	<td><a class="p" href="18/18pcsn.rle">
+	    Snake on penta- decathlon [7]</a></td>
+	<td><a class="p" href="18/18pcac1.rle">
+	    Trans carrier on penta- decathlon [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/pp15-18.zip" />
+	<area coords="401,61,420,80" href="stamp/pp15-18.rle" />
+	<area coords="0,0,89,80" href="18/18pchv.rle" />
+	<area coords="90,0,169,80" href="18/18pcsh.rle" />
+	<area coords="170,0,249,80" href="18/18pcac2.rle" />
+	<area coords="250,0,329,80" href="18/18pcsn.rle" />
+	<area coords="330,0,420,80" href="18/18pcac1.rle" />
+</map>
+
+<hr />
+<a name="pp30-18"></a>
+<h2>The 1 eighteen-bit
+<a class="i" href="pp30.htm">period 30 pseudo-oscillator</a></h2>
+<p><a class="p" href="stamp/pp30-18.rle"><img src="map/pp30-18.png"
+ alt="18b PP30" width="101" height="81" usemap="#pp30-18" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="18/18pcbc.rle">
+	    Beacon on penta- decathlon [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp30-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp30-18.zip" />
+	<area coords="81,61,100,80" href="stamp/pp30-18.rle" />
+	<area coords="0,0,100,80" href="18/18pcbc.rle" />
+</map>
+
+<p>This has a pseudo-period of 30, a composite of 2 and 15.</p>
+<hr />
+<a name="ss-18"></a>
+<h2>The 1 eighteen-bit
+<a class="i" href="ss.htm">pseudo-spaceship</a></h2>
+<p><a class="p" href="stamp/ss-18.rle"><img src="map/ss-18.png"
+ alt="18b PSS" width="81" height="81" usemap="#ss-18" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/18lwlw.rle">LWSS on LWSS [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ss-18.zip" />
+	<area coords="61,61,80,80" href="stamp/ss-18.rle" />
+	<area coords="0,0,80,80" href="ss/18lwlw.rle" />
+</map>
+
+<p>This has a period of 4 and an orthogonal velocity of <i>c</i>/2.
+It moves two cells up every 4 generations.</p>
+
+<hr />
+<a name="cons-18"></a>
+<h2>4 easily-constructible eighteen-bit
+<a class="i" href="cons.htm">constellations</a></h2>
+<p><a class="p" href="stamp/cons-18.rle"><img src="map/cons-18.png"
+ alt="18-bit constellations"
+ width="421" height="141" usemap="#cons-18" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="172" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18tqhf.rle">
+	    3/4 honey- farm [3]</a></td>
+	<td><a class="p" href="18/18ic.rle">
+	    Interchange [2]</a></td>
+	<td><a class="p" href="18/18lftbbb.rle">
+	    Loaf and tub and block and blinker [2]</a></td>
+	<td><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (via Dove) [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/cons-18.zip" />
+	<area coords="401,121,420,140" href="stamp/cons-18.rle" />
+	<area coords="0,0,89,140" href="18/18tqhf.rle" />
+	<area coords="90,0,169,140" href="18/18ic.rle" />
+	<area coords="170,0,249,140" href="18/18lftbbb.rle" />
+	<area coords="250,0,420,140" href="18/18dv.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	18,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

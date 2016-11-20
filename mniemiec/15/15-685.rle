@@ -1,0 +1,31 @@
+#N 15-685.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:44 2015
+x = 166, y = 179, rule = B3/S23
+144bo$145bo$68bo74b3o$69boo$68boo76bobo$146boo$147bo$$164bx$83bxx18boo
+18bxx18boo4b3o11bxbx$80bx3bx15bo3bo15bx3bx15bo3bo4bo10bx3bx$61boo17b4x
+16b4o16b4x16b4o6bo9b4x$62boo10boo$61bo11boo7bxx18boo18bxx18boo18bxx$
+75bo6bx19bo19bx19bo19bx$84bx19bo19bx19bo19bx$83bxx18boo18bxx18boo18bxx
+$$79byy18boo$66boo10bybby16bobbo$65bobo11byy18boo$67bo27b3o$69b3o25bo$
+69bo26bo$60b3o7bo$62bo$61bo7$141bobo$101bo39boo$102bo39bo$100b3o$104bo
+32bo$103bo34boo$103b3o17bxx12boo4boo18bxx$123bxx9boo7boo15bx3bx$57b3o
+bbo70bobo24b4x$59bobo73bo$58bobb3o18bxx18boo18bxx18boo18bxx$82bx19bo
+19bx19bo19bx$84bx19bo19bx19bo19bx$63b3obbo14bxx18boo18bxx18boo18bxx$
+65bobo$64bobb3o15$99bo$98bo$98b3o7bo$59bo3bo44bobo$60bobo45boo$58b3ob
+3o14bxxbxx15booboo20bx19bo19bx$79bxxbxx15booboo8boo9bxbx17bobo17bxbx$
+111boo7bx3bx15bo3bo15bx3bx$113bo6b4x16b4o16b4x$$122bxx18boo18bxx$122b
+xx18boo3bobo12bx$99boo46boo15bx$96bobbobo3boo15bxx18boo4bo14bxx$94bobo
+bbo4boo16bxx18boo$95boo9bo43boo$149boo$141b3o7bo$143bo$142bo$144b3o$
+144bo$145bo11$143bo$141boo$142boo$$141bo$142bo$140b3o4$62bo3bo79bo$63b
+oobobo77bobo$62boobboo16bx19bo19bx21boo16bx$83bxbx12bo4bobo17bxbx37bxb
+x$68b3o13bx14bo4bo19bx39bx$68bo28b3o21b3x20boo15b3x$69bo51bx21boo16bx$
+145bo$94bo$92bobo6boo$93boo7boo$96boo3bo$97boo$96bo17$83b3o$85bo3bo$
+14bo19bx19bo19bx9bobboo5bo19bx29bo19bx$13bobo17bxbx17bobo17bxbx12boo3b
+obo17bxbx27bobo17bxbx$14bo19bx19bo19bx19bo15bx3bx25bo3bo15bx3bx$o10b3o
+17b3x17b3o17b3x17b3o16b4x26b4o16b4x$boo8bo18bx19bo19bx19bo$oo18bobo8b
+3x17b3o17b3x17b3o18bxx28boo18bxx$20boo11bx5byy12bo5boo12bx13bo5bo18bxx
+28boo18bxx$21bo17byy18boo26boo$62b3o21bobo73bxx$7boo9boo42bo99bxx$6bob
+o8boo44bo$8bo10bo122bobo$10b3o129boo$10bo132bo$11bo$23bo118b3o$22boo
+118bo$22bobo118bo7$90bobo$90boo9bo$91bo7boo$100boo$49bo3bo$50bobo$48b
+3ob3o14bxxbxx15booboo20bx$69bxxbxx15booboo19bxbx11boo$110bx3bx11bobo$
+103b3o4b4x14bo$103bo$104bo7bxx$95bo16bxx$85b3o6boo$87bobboobbobo$86bo
+4boo$90bo!

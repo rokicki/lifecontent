@@ -1,0 +1,849 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Exotic Spaceships</title>
+<meta name="description"
+content="Conway's Game of Life: Exotic spaceship lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life exotic spaceship object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Exotic Spaceships</h1>
+
+<p align="center">
+	<b><a class="j" href="#ss-intro">Introduction</a></b><br />
+	<b>Orthogonal spaceships:</b>
+	  <a class="j" href="#ss-o2"><i>c</i>/2</a> |
+	  <a class="j" href="#ss-3o7">3<i>c</i>/7 (almost)</a> |
+	  <a class="j" href="#ss-2o5">2<i>c</i>/5</a> |
+	  <a class="j" href="#ss-17o45">17<i>c</i>/45</a> |
+	  <a class="j" href="#ss-o3"><i>c</i>/3</a> |
+	  <a class="j" href="#ss-2o7">2<i>c</i>/7</a> |
+	  <a class="j" href="#ss-o4"><i>c</i>/4</a> |
+	  <a class="j" href="#ss-o5"><i>c</i>/5</a> |
+	  <a class="j" href="#ss-o6"><i>c</i>/6</a> |
+	  <a class="j" href="#ss-o7"><i>c</i>/7</a><br />
+	<b>Diagonal spaceships:</b>
+	  <a class="j" href="#ss-d4"><i>c</i>/4</a> |
+	  <a class="j" href="#ss-d5"><i>c</i>/5</a> |
+	  <a class="j" href="#ss-d6"><i>c</i>/6</a> |
+	  <a class="j" href="#ss-d7"><i>c</i>/7</a> |
+	  <a class="j" href="#ss-d12"><i>c</i>/12</a><br />
+	<b><a class="j" href="#ss-oblique">Oblique spaceships</a>:</b>
+	  <a class="j" href="#ss-k6">(2,1)<i>c</i>/6 Knight-ship (almost)</a> |
+	  <a class="j" href="#ss-hbk">Half-baked Knight-ships</a> |
+	  <a class="j" href="#ss-gemini">Gemini</a><br />
+</p>
+
+<hr /><hr />
+<a name="ss-intro"></a>
+<h2>Introduction</h2>
+<p>Since the vast majority of <a class="i" href="ss.htm">spaceships</a>,
+<a class="i" href="flotilla.htm">flotillae</a> and
+<a class="i" href="puff.htm">puffer trains</a> with known syntheses move
+orthogonally at a velocity of <i>c</i>/2, and use the same period 4 base
+mechanism, those are shown on separate pages. Most spaceships (and a small
+number of flotillae) on this page move at different velocities.</p>
+
+<p>Syntheses of <a class="i" href="ss.htm">spaceships</a>,
+<a class="i" href="flotilla.htm">spaceship flotillae</a> and
+<a class="i" href="puff.htm">puffer trains</a> are more difficult than those
+of oscillators, because not only are the parts changing as they are being
+formed, they are moving as well. The process is reminiscent of assembling
+racing cars on an assembly line, with the engines running as they are installed,
+or performing surgery on a patient who is in a moving convertible, while the
+surgeon is stationary. As a result, very few have known syntheses. Fortunately,
+the ones based on the standard spaceships are sufficient to create a large
+variety of mechanisms needed to create computational circuitry.</p>
+
+<p>The only spaceships, flotillae, and puffers for which syntheses are currently
+known are the following:</p>
+<p><ul>
+    <li><a class="i" href="ss.htm"><i>c</i>/2 orthogonal</a>:
+	The three <a class="i" href="ss.htm">standard</a> orthogonal
+	spaceships (<a class="p" href="ss/9lw.rle">LWSS</a>,
+	<a class="p" href="ss/11mw.rle">MWSS</a>,
+	<a class="p" href="ss/13hw.rle">HWSS</a>), plus most
+	<a class="i" href="flotilla.htm">flotillae</a> and
+	<a class="i" href="puff.htm">puffers</a> based on these and a few
+	other easily-constructible components (i.e. A, beehive, block,
+	B heptomino, Coe's engine, glider, OWSS engines, Schick engine, sidecar,
+	Wainwright's engine, etc.)</li>
+    <li><a class="j" href="#ss-2o5">2<i>c</i>/5 orthogonal</a>:
+	<a class="p" href="ss/60wing.rle">Wing [63]</a>.</li>
+    <li><a class="j" href="#ss-17o45">17<i>c</i>/45 orthogonal</a>:
+	Caterpillar.</li>
+    <li><a class="j" href="#ss-o7"><i>c</i>/7 orthogonal</a>:
+	<a class="p" href="ss/20lfr.rle">Loafer [8]</a>.</li>
+    <li><a class="j" href="#ss-d4"><i>c</i>/4 diagonal</a>:
+	<a class="p" href="ss/5gl.rle">Glider [2]</a>.</li>
+    <li><a class="j" href="#ss-d12"><i>c</i>/12 diagonal</a>:
+	All spaceships and puffers based on Corderman's switch engine.</li>
+    <li><a class="j" href="#ss-gemini">(5120,1024)<i>c</i>/33699586 oblique, etc.</a>:
+	Gemini, and all its variants.</li>
+</ul></p>
+
+<hr /><hr />
+<a name="ss-o2"></a>
+<h2>Miscellaneous <i>c</i>/2 orthogonal spaceships</h2>
+<p>Most <i>c</i>/2 orthogonal spaceships are use the same basic mechanism (i.e. the
+front advances 1 spaces and flips from side to side every two generations), and
+they are too numerous to show here. This mechanism is exemplified by many
+<a class="i" href="meth.htm">methuselahs</a>, most notably the
+<a class="p" href="0/6bh.rle">B heptomino</a>, and most of the
+<a class="i" href="ss.htm">simple spaceships</a>. This is also used by most of
+the <a class="i" href="flotilla.htm">flotillae</a>.</p>
+
+<p>This is one unusual spaceship that moves orthogonally at a velocity of
+<i>c</i>/2, and does not use the common mechanism.</p>
+<p><a class="p" href="stamp/ss-o2.rle"><img src="map/ss-o2.png"
+ alt="c/2 orthogonal spaceship"
+ width="101" height="101" usemap="#ss-o2" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/47o2.rle">
+	    47-bit <i>c</i>/2 orthogonal spaceship #1 [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-o2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/ss-o2.zip" />
+	<area coords="81,81,100,100" href="stamp/ss-o2.rle" />
+	<area coords="0,0,100,100" href="ss/47o2.rle" />
+</map>
+
+<hr />
+<a name="ss-3o7"></a>
+<h2>Miscellaneous 3<i>c</i>/7 orthogonal spaceships (almost)</h2>
+<p>These two almost-working spaceships, although they do not actually work,
+are so close to working that they strongly suggest that spaceships of this
+velocity are likely to exist in Life.</p>
+<p>The images show the spaceships at generations 0 and 7, with pink cells in
+the respective images indicating living cells that do not properly reform, or
+unwanted births.</p>
+<p><a class="p" href="stamp/ss-3o7.rle"><img src="map/ss-3o7.png"
+ alt="3c/7 almost-spaceships"
+ width="501" height="321" usemap="#ss-3o7" /></a><br />
+    <table width="505">
+    <colgroup><col width="251" /><col width="252" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/229mp3c7.rle">
+	    Mike Playle's 3<i>c</i>/7 almost- spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/406pt3c7.rle">
+	    Paul Tooke's 3<i>c</i>/7 almost- spaceship [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-3o7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/ss-3o7.zip" />
+	<area coords="481,301,500,320" href="stamp/ss-3o7.rle" />
+	<area coords="0,0,249,320" href="ss/229mp3c7.rle" />
+	<area coords="250,0,500,320" href="ss/406pt3c7.rle" />
+</map>
+
+<hr />
+<a name="ss-2o5"></a>
+<h2>Miscellaneous 2<i>c</i>/5 orthogonal spaceships</h2>
+<p>This is a small sampling of spaceships that move orthogonally at a velocity
+of 2<i>c</i>/5.</p>
+<p><a class="p" href="stamp/ss-2o5.rle"><img src="map/ss-2o5.png"
+ alt="2c/5 orthogonal spaceships"
+ width="421" height="241" usemap="#ss-2o5" /></a><br />
+    <table width="425">
+    <colgroup><col width="111" /><col span="2" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/30-2o5pt.rle">
+	    Tooke's 30-bit 2<i>c</i>/5 spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/44-2o5.rle">
+	    44-bit 2<i>c</i>/5 spaceship [x]</a></td>
+	<td class="y"><a class="p" href="ss/60wing.rle">
+	    Wing [63]</a></td>
+	<td class="r"><a class="p" href="ss/70-2o5.rle">
+	    70-bit 2<i>c</i>/5 spaceship [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="r"><a class="p" href="ss/96-2o5.rle">
+	    T tetromino behind two 44-bit 2<i>c</i>/5 spaceships [x]</a></td>
+	<td colspan="2" class="r">
+	    <a class="p" href="ss/101-2o5.rle">Tag-along behind T tetromino behind
+	    two 44-bit 2<i>c</i>/5 spaceships [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-2o5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,221,19,240" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/ss-2o5.zip" />
+	<area coords="401,221,420,240" href="stamp/ss-2o5.rle" />
+	<area coords="0,0,109,129" href="ss/30-2o5pt.rle" />
+	<area coords="110,0,209,129" href="ss/44-2o5.rle" />
+	<area coords="210,0,309,129" href="ss/60wing.rle" />
+	<area coords="310,0,420,129" href="ss/70-2o5.rle" />
+	<area coords="0,130,209,240" href="ss/96-2o5.rle" />
+	<area coords="210,130,420,240" href="ss/101-2o5.rle" />
+</map>
+
+<hr />
+<a name="ss-17o45"></a>
+<h2>Caterpillar: a 17<i>c</i>/45 Orthogonal Spaceship</h2>
+<p>Caterpillar is a huge spaceship, engineered in 2013, assembled by
+<a class="i" href="lifecred.htm#nivasch">Gabriel Nivasch</a>
+from components designed by
+<a class="i" href="lifecred.htm#summers">Jason Summers</a>,
+based on some ideas by <a class="i" href="lifecred.htm#bell">David Bell</a>.</p>
+
+<p>The actual assembly was done by a computer program. With a width of
+4105, a height of over 330721, and a population of 11880063, it is
+much too large to work with by hand. It is currently the largest (in terms of
+population) and most complex Life pattern ever assembled. (Since the full RLE
+file for Caterpillar is huge - 29MB (7MB zipped), it is not included here.)</p>
+
+<p>It moves 102 spaces every 270 generations, and is based on a mechanism where
+a pi heptomino eats through a line of blinkers. This mechanism has long been
+known; unfortunately, there was no known way to lay down a line of blinkers at
+the same rate they were being consumed, without another similar spaceship.</p>
+
+<p>Caterpillar works by pulling itself up by its own bootstraps. Several of
+the pi-crawler mechanisms rub their exhaust plumes together to create gliders,
+which are then cycled around to the front of the ship to create blinker tracks
+for those same pi-crawlers.</p>
+
+<p>The same basic technology that Caterpillar uses can also be used to create
+similar huge spaceships based on other natural Life mechanisms.</p>
+
+<p>
+<a class="i" href="lifecred.htm#greene">Dave Greene</a>,
+<a class="i" href="lifecred.htm#goucher">A.P. Goucher</a> and
+<a class="i" href="lifecred.htm#holzwart">Hartmut Holzwart</a> are currently
+working on engineering a 31<i>c</i>/240 spaceship that should be slightly smaller
+than Caterpillar.</p>
+
+<hr />
+<a name="ss-o3"></a>
+<h2>Miscellaneous <i>c</i>/3 orthogonal spaceships</h2>
+<p>This is a small sampling of spaceships that move orthogonally at a velocity
+of <i>c</i>/3. The first three are from an infinitely-extensible series of
+spaceships found by
+<a class="i" href="lifecred.htm#hickerson">Dean Hickerson</a>.
+The first two are the smallest in this series.</p>
+<p><a class="p" href="stamp/ss-o3.rle"><img src="map/ss-o3.png"
+ alt="c/3 orthogonal spaceships"
+ width="581" height="161" usemap="#ss-o3" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col width="80" /><col width="160" />
+	<col span="2" width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/25o3a.rle">
+	    25-bit <i>c</i>/3 orthogonal spaceship #1 [x]</a></td>
+	<td class="r"><a class="p" href="ss/25o3b.rle">
+	    25-bit <i>c</i>/3 orthogonal spaceship #2 [x]</a></td>
+	<td class="r"><a class="p" href="ss/60o3.rle">
+	    60-bit <i>c</i>/3 orthogonal spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/44turt.rle">
+	    Turtle [x]</a></td>
+	<td class="r"><a class="p" href="ss/34dart.rle">
+	    Dart[x]</a></td>
+	<td class="r"><a class="p" href="ss/117p9.rle">
+	    P9 dart w/ tag-along [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-o3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/ss-o3.zip" />
+	<area coords="561,141,580,160" href="stamp/ss-o3.rle" />
+	<area coords="0,0,89,160" href="ss/25o3a.rle" />
+	<area coords="90,0,169,160" href="ss/25o3b.rle" />
+	<area coords="170,0,329,160" href="ss/60o3.rle" />
+	<area coords="330,0,409,160" href="ss/44turt.rle" />
+	<area coords="410,0,489,160" href="ss/34dart.rle" />
+	<area coords="490,0,580,160" href="ss/117p9.rle" />
+</map>
+
+<hr />
+<a name="ss-2o7"></a>
+<h2>Miscellaneous 2<i>c</i>/7 orthogonal spaceships</h2>
+<p>This is a remarkable spaceship, found by
+<a class="i" href="lifecred.htm#eppstein">David Eppstein</a> on 2000-01-12,
+that moves orthogonally at a velocity of 2<i>c</i>/7.</p>
+<p><a class="p" href="stamp/ss-2o7.rle"><img src="map/ss-2o7.png"
+ alt="2c/7 orthogonal spaceships"
+ width="281" height="141" usemap="#ss-2o7" /></a><br />
+    <table width="285">
+    <colgroup><col width="121" /><col width="162" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/36we.rle">
+	    Weekender [x]</a></td>
+	<td class="r"><a class="p" href="ss/122we2ta.rle">
+	    Tag-along behind 2 weekenders [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-2o7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="261,0,280,19" href="zip/ss-2o7.zip" />
+	<area coords="261,121,280,140" href="stamp/ss-2o7.rle" />
+	<area coords="0,0,109,140" href="ss/36we.rle" />
+	<area coords="110,0,280,140" href="ss/122we2ta.rle" />
+</map>
+
+<hr />
+<a name="ss-o4"></a>
+<h2>Miscellaneous <i>c</i>/4 orthogonal spaceships</h2>
+<p>This is a small sampling of spaceships that move orthogonally at a velocity
+of <i>c</i>/4. The top 3, bottom left 2, and bottom right 3 show samples of
+3 different families of spaceships.</p>
+<p><a class="p" href="stamp/ss-o4.rle"><img src="map/ss-o4.png"
+ alt="c/4 orthogonal spaceships"
+ width="501" height="361" usemap="#ss-o4" /></a><br />
+    <table width="505">
+    <colgroup><col width="131" /><col span="2" width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/51o4.rle">
+	    51-bit <i>c</i>/4 orthogonal spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/53o4.rle">
+	    53-bit <i>c</i>/4 orthogonal spaceship [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="ss/71o4.rle">
+	    71-bit <i>c</i>/4 orthogonal spaceship [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="ss/46o4.rle">
+	    Hickerson's 46-bit <i>c</i>/4 orthogonal spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/78o4.rle">
+	    78-bit <i>c</i>/4 orthogonal spaceship [x]</a></td>
+	<td rowspan="2" class="r"><a class="p" href="ss/158o4.rle">
+	    158-bit <i>c</i>/4 orthogonal spaceship [x]</a></td>
+	<td rowspan="2" class="r"><a class="p" href="ss/162o4.rle">
+	    162-bit <i>c</i>/4 orthogonal spaceship [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="r"><a class="p" href="ss/98o4td.rle">
+	    Two Hickerson's 46-bit <i>c</i>/4 orthogonal spaceships
+	    sucking a toad [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-o4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,341,19,360" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/ss-o4.zip" />
+	<area coords="481,341,500,360" href="stamp/ss-o4.rle" />
+	<area coords="0,0,129,129" href="ss/51o4.rle" />
+	<area coords="130,0,249,129" href="ss/53o4.rle" />
+	<area coords="250,0,369,129" href="ss/71o4.rle" />
+	<area coords="370,0,500,129" nohref="nohref" />
+	<area coords="0,130,129,269" href="ss/46o4.rle" />
+	<area coords="130,130,249,269" href="ss/78o4.rle" />
+	<area coords="250,130,369,360" href="ss/158o4.rle" />
+	<area coords="370,130,500,360" href="ss/162o4.rle" />
+	<area coords="0,270,129,360" href="ss/98o4td.rle" />
+	<area coords="370,270,500,360" nohref="nohref" />
+</map>
+
+<hr />
+<a name="ss-o5"></a>
+<h2>Miscellaneous <i>c</i>/5 orthogonal spaceships</h2>
+<p>This is a small sampling of spaceships that move orthogonally at a velocity
+of <i>c</i>/5. The Snail was found by
+<a class="i" href="lifecred.htm#coe">Tim Coe</a>. The Spider was
+found by <a class="i" href="lifecred.htm#bell">David Bell</a>.
+The 3 pre-pulsar-pushers are period 30.</p>
+<p><a class="p" href="stamp/ss-o5.rle"><img src="map/ss-o5.png"
+ alt="c/5 orthogonal spaceships"
+ width="601" height="301" usemap="#ss-o5" /></a><br />
+    <table width="605">
+    <colgroup><col width="151" /><col width="140" /><col width="312" />
+	</colgroup>
+    <tr>
+	<td rowspan="3" class="r"><a class="p" href="ss/128snail.rle">
+	    Snail [x]</a></td>
+	<td rowspan="3" class="r"><a class="p" href="ss/58spider.rle">
+	    Spider [x]</a></td>
+	<td class="r"><a class="p" href="ss/128spps.rle">
+	    Symmetrical pulsar-pushing spaceship (SPPS) [x+4]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="ss/128apps.rle">
+	    Asymmetrical pulsar-pushing spaceship (APPS) [x+4]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="ss/132gpps.rle">
+	    Glide-symmetrical pulsar-pushing spaceship (GPPS) [x+6]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-o5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,281,19,300" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/ss-o5.zip" />
+	<area coords="581,281,600,300" href="stamp/ss-o5.rle" />
+	<area coords="0,0,149,300" href="ss/128snail.rle" />
+	<area coords="150,0,289,300" href="ss/58spider.rle" />
+	<area coords="290,0,600,109" href="ss/128spps.rle" />
+	<area coords="290,110,600,209" href="ss/128apps.rle" />
+	<area coords="290,210,600,300" href="ss/132gpps.rle" />
+</map>
+
+<hr />
+<a name="ss-o6"></a>
+<h2>Miscellaneous <i>c</i>/6 orthogonal spaceships</h2>
+<p>This is a small sampling of spaceships that move orthogonally at a velocity
+of <i>c</i>/6.</p>
+<p><a class="p" href="stamp/ss-o6.rle"><img src="map/ss-o6.png"
+ alt="c/6 orthogonal spaceships"
+ width="541" height="381" usemap="#ss-o6" /></a><br />
+    <table width="545">
+    <colgroup><col width="131" /><col width="200" /><col width="212" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/102dr.rle">
+	    Dragon [x]</a></td>
+	<td class="r"><a class="p" href="ss/204drdr2.rle">
+	    Dragon on dragon [x]</a></td>
+	<td class="r"><a class="p" href="ss/210dr2td.rle">
+	    Two dragons sucking a toad [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="s">&nbsp;</td>
+	<td class="r"><a class="p" href="ss/56o6.rle">
+	    56-bit <i>c</i>/6 orthogonal spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/158o6.rle">
+	    158-bit <i>c</i>/6 orthogonal spaceship [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-o6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="521,0,540,19" href="zip/ss-o6.zip" />
+	<area coords="521,361,540,380" href="stamp/ss-o6.rle" />
+	<area coords="0,0,149,169" href="ss/102dr.rle" />
+	<area coords="150,0,369,169" href="ss/204drdr2.rle" />
+	<area coords="370,0,540,169" href="ss/210dr2td.rle" />
+	<area coords="0,170,149,380" nohref="nohref" />
+	<area coords="150,170,369,380" href="ss/56o6.rle" />
+	<area coords="370,170,540,380" href="ss/158o6.rle" />
+</map>
+
+<hr />
+<a name="ss-o7"></a>
+<h2>Miscellaneous <i>c</i>/7 orthogonal spaceships</h2>
+<p><a class="p" href="stamp/ss-o7.rle"><img src="map/ss-o7.png"
+ alt="c/7 ss" width="81" height="81" usemap="#ss-o7" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/20lfr.rle">Loafer [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-o7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ss-o7.zip" />
+	<area coords="61,61,80,80" href="stamp/ss-o7.rle" />
+	<area coords="0,0,80,80" href="ss/20lfr.rle" />
+</map>
+
+<p>In February 2013, <a class="i" href="lifecred.htm#ball">Josh Ball</a>
+discovered the Loafer, the only known spaceship that moves orthogonally at a
+velocity of <i>c</i>/7. It moves up one cell every 7 generations. It is remarkable
+due to its small size, the fact that it is easily synthesized from gliders,
+and that despite its small population and size, nobody had ever found it
+before.</p>
+
+<hr /><hr />
+<a name="ss-d4"></a>
+<h2>Miscellaneous <i>c</i>/4 diagonal spaceships</h2>
+<p>This is a small sampling of spaceships that move diagonally at a velocity
+of <i>c</i>/4. A few of them can also be turned into
+<a class="i" href="puff.htm#ws-d4">wick-stretchers.</a></p>
+<p><a class="p" href="stamp/ss-d4.rle"><img src="map/ss-d4.png"
+ alt="c/4 diagonal spaceships"
+ width="621" height="381" usemap="#ss-d4" /></a><br />
+    <table width="625">
+    <colgroup><col width="91" /><col span="2" width="40" />
+	<col span="2" width="80" /><col span="4" width="40" />
+	<col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/5gl.rle">
+	    Glider; Feather- weight space- ship; FWSS [2]</a></td>
+	<td colspan="2" class="r"><a class="p" href="ss/25crab.rle">
+	    Crab; Quarter [x]</a></td>
+	<td class="r"><a class="p" href="ss/32orion2.rle">
+	    Orion 2 [x]</a></td>
+	<td class="r"><a class="p" href="ss/36goose.rle">
+	    Canada Goose [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="ss/39orion.rle">
+	    Orion [x]</a></td>
+	<td colspan="3" class="r"><a class="p" href="ss/69ent.rle">
+	    Enterprise [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="r"><a class="p" href="ss/49swan.rle">
+	    Swan [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="ss/66d4.rle">
+	    66-bit <i>c</i>/4 diagonal spaceship [x]</a></td>
+	<td colspan="2" class="r">
+	    <a class="p" href="ss/109tire.rle">Tamed Tire Tracks [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="ss/118d4.rle">
+	    118-bit <i>c</i>/4 diagonal spaceship [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="ss/130d4.rle">
+	    130-bit <i>c</i>/4 diagonal spaceship [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="8" class="r"><a class="p" href="ss/179d4.rle">
+	    179-bit <i>c</i>/4 diagonal spaceship [x]</a></td>
+	<td rowspan="2" colspan="2" class="r">
+	    <a class="p" href="ss/111d4.rle">
+	    Tamed Swan wick-stretcher [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="8" class="r"><a class="p" href="ss/218d4.rle">
+	    Tamed wick-stretcher [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-d4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/ss-d4.zip" />
+	<area coords="601,361,620,380" href="stamp/ss-d4.rle" />
+	<area coords="0,0,89,109" href="ss/5gl.rle" />
+	<area coords="90,0,169,109" href="ss/25crab.rle" />
+	<area coords="170,0,249,109" href="ss/32orion2.rle" />
+	<area coords="250,0,329,109" href="ss/36goose.rle" />
+	<area coords="330,0,409,109" href="ss/39orion.rle" />
+	<area coords="410,0,620,109" href="ss/69ent.rle" />
+	<area coords="0,110,129,249" href="ss/49swan.rle" />
+	<area coords="130,110,249,249" href="ss/66d4.rle" />
+	<area coords="250,110,369,249" href="ss/109tire.rle" />
+	<area coords="370,110,489,249" href="ss/118d4.rle" />
+	<area coords="490,110,620,249" href="ss/130d4.rle" />
+	<area coords="0,250,449,309" href="ss/179d4.rle" />
+	<area coords="450,250,620,380" href="ss/111d4.rle" />
+	<area coords="0,310,449,380" href="ss/218d4.rle" />
+</map>
+
+<hr />
+<a name="ss-d5"></a>
+<h2>Miscellaneous <i>c</i>/5 diagonal spaceships</h2>
+<p>These are a few spaceships that move diagonally at a velocity of
+<i>c</i>/5.</p>
+<p><a class="p" href="stamp/ss-d5.rle"><img src="map/ss-d5.png"
+ alt="c/5 diagonal spaceships"
+ width="521" height="461" usemap="#ss-d5" /></a><br />
+    <table width="525">
+    <colgroup><col width="131" /><col width="120" /><col width="272" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/67d5nb.rle">
+	    Beluchenko's 67-bit <i>c</i>/5 diagonal spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/86d5js.rle">
+	    Summers's 86-bit <i>c</i>/5 diagonal spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/163d5nb.rle">Nicolay
+	    Beluchenko's 163-bit <i>c</i>/5 diagonal spaceship [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="r"><a class="p" href="ss/295d5.rle">
+	    295-bit <i>c</i>/5 diagonal spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/306d5nb.rle">Nicolay
+	    Beluchenko's <i>c</i>/5 diagonal spaceship w/ tag-along [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-d5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,441,19,460" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/ss-d5.zip" />
+	<area coords="501,441,520,460" href="stamp/ss-d5.rle" />
+	<area coords="0,0,129,189" href="ss/67d5nb.rle" />
+	<area coords="130,0,249,189" href="ss/86d5js.rle" />
+	<area coords="250,0,520,189" href="ss/163d5nb.rle" />
+	<area coords="0,190,249,460" href="ss/295d5.rle" />
+	<area coords="250,190,520,460" href="ss/306d5nb.rle" />
+</map>
+
+<hr />
+<a name="ss-d6"></a>
+<h2>Miscellaneous <i>c</i>/6 diagonal spaceships</h2>
+<p>These are two spaceships that move diagonally at a velocity of <i>c</i>/6.</p>
+<p><a class="p" href="stamp/ss-d6.rle"><img src="map/ss-d6.png"
+ alt="c/6 diagonal spaceships"
+ width="421" height="181" usemap="#ss-d6" /></a><br />
+    <table width="425">
+    <colgroup><col width="211" /><col width="212" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/77d6.rle">
+	    77-bit <i>c</i>/6 diagonal spaceship [x]</a></td>
+	<td class="r"><a class="p" href="ss/170seal.rle">
+	    Beluchenko's Seal [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-d6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/ss-d6.zip" />
+	<area coords="401,161,420,180" href="stamp/ss-d6.rle" />
+	<area coords="0,0,209,180" href="ss/77d6.rle" />
+	<area coords="210,0,420,180" href="ss/170seal.rle" />
+</map>
+
+<hr />
+<a name="ss-d7"></a>
+<h2>Miscellaneous <i>c</i>/7 diagonal spaceships</h2>
+<p>These are two spaceships that move diagonally at a velocity of
+<i>c</i>/7.</p>
+<p><a class="p" href="stamp/ss-d7.rle"><img src="map/ss-d7.png"
+ alt="c/7 diagonal spaceships"
+ width="341" height="181" usemap="#ss-d7" /></a><br />
+    <table width="345">
+    <colgroup><col width="131" /><col width="212" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/83d7mm.rle">Merzenich's
+	    83-bit <i>c</i>/7 diagonal spaceship [x]</a></td>
+	<td class="r">
+	    <a class="p" href="ss/147d7mm.rle">Merzenich's <i>c</i>/7 diagonal
+	    spaceship pushing multiple copies of its head [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-d7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/ss-d7.zip" />
+	<area coords="321,161,340,180" href="stamp/ss-d7.rle" />
+	<area coords="0,0,129,180" href="ss/83d7mm.rle" />
+	<area coords="130,0,340,180" href="ss/147d7mm.rle" />
+</map>
+
+<hr />
+<a name="ss-d12"></a>
+<h2>Miscellaneous <i>c</i>/12 diagonal spaceships</h2>
+<p><a class="i" href="lifecred.htm#corderman">Charles Corderman's</a> switch-engine
+forms the basis for several <a class="i" href="puff.htm">puffer-trains</a>.
+<a class="i" href="lifecred.htm#hickerson">Dean Hickerson</a> has found several
+ways to combine multiple switch-engines to produce clean spaceships that move
+diagonally at a velocity of <i>c</i>/12. The 6-engine one is the first one found.
+The 3-engine one is the smallest one known. Since switch-engines are made of
+common components, they can easily be synthesized from gliders, making it easy
+to construct large spaceships and flotillae of them, and guns and puffers that
+make them.</p>
+
+<p>All these syntheses here involve gliders coming from the sides and behind,
+but never in front of the spaceships, avoiding complications that would arise if
+constructed spaceship streams headed directly into arriving gliders necessary
+for subsequent spaceships. Furthermore, the synthesis of the 7-engine one involves
+only gliders coming from two directions below; if a third direction is allowed,
+the cost could be slightly reduced by removing some of the kick-back
+reactions.</p>
+<p><a class="p" href="stamp/ss-d12.rle"><img src="map/ss-d12.png"
+ alt="c/12 diagonal spaceship"
+ width="637" height="460" usemap="#ss-d12" /></a><br />
+    <table width="641">
+    <colgroup><col width="281" /><col width="358" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/149d12.rle">
+	    Glide-symmetric 3-engine Cordership [15]</a></td>
+	<td rowspan="2"><a class="p" href="ss/289d12.rle">
+	    Glide-symmetric 7-in-a-row-engine Cordership [48]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="ss/265d12.rle">
+	    Glide-symmetric 6-engine Cordership [37]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-d12">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,440,19,459" href="#bottom" />
+	<area coords="617,0,636,19" href="zip/ss-d12.zip" />
+	<area coords="617,440,636,459" href="stamp/ss-d12.rle" />
+	<area coords="0,0,279,219" href="ss/149d12.rle" />
+	<area coords="280,0,636,459" href="ss/289d12.rle" />
+	<area coords="0,220,279,459" href="ss/265d12.rle" />
+</map>
+
+<hr /><hr />
+<a name="ss-oblique"></a>
+<h2>Oblique spaceships</h2>
+<p>Oblique spaceships are any spaceships that move neither orthogonally nor
+diagonally. Since such spaceships in Life must be asymmetric and have periods
+of 6 or larger, they have been difficult to search for with standard search
+programs.</p>
+
+<hr />
+<a name="ss-k6"></a>
+<h2>(2,1)<i>c</i>/6 Knight-ship (almost)</h2>
+<p>In March 23, 2004, Eugene Langvagen created this almost-working period 6
+"knight-ship" (i.e. a spaceship that moves like a knight in chess - one square
+in one direction, and two in another, every cycle). In 6 generations, it moves
+up two cells and left one, totally re-forming except for two bits at the rear -
+one bit is missing, and another spurious one is formed. While this does not
+actually work, it is so close to working that it suggests that other similar
+ships may not be too far away.</p>
+<p>The images show the spaceship at generations 0 and 6, with pink cells in
+the respective images indicating living cells that do not properly reform, or
+unwanted births.</p>
+<p><a class="p" href="stamp/ss-k6.rle"><img src="map/ss-k6.png"
+ alt="c/6 knight-ships"
+ width="181" height="121" usemap="#ss-k6" /></a><br />
+    <table width="185">
+    <colgroup><col width="183" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/66k6.rle">
+	    Eugene Langvagen's P6 almost-knight-ship [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-k6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/ss-k6.zip" />
+	<area coords="161,101,180,120" href="stamp/ss-k6.rle" />
+	<area coords="0,0,180,120" href="ss/66k6.rle" />
+</map>
+
+<hr />
+<a name="ss-hbk"></a>
+<h2>Half-baked Knight-ships</h2>
+<p>In July 2014, <a class="i" href="lifecred.htm#goucher">Adam P. Goucher"</a>
+completed work on the Half-baked knight-ship, a series of spaceships of
+any velocity (2,1)<i>c</i>/<i>k</i> for any sufficiently large <i>k</i>
+(e.g. around 2400000 or larger). This is based on a remarkable interaction
+where a glider hits a half-bakery, shifting the half-bakery (3,6) cells, and
+shifting the glider one row. He has created a Python script that will create
+such a spaceship, given any sufficiently large <i>k</i>.</p>
+
+<hr />
+<a name="ss-gemini"></a>
+<h2>Gemini</h2>
+
+<p>In May 2010, Andrew J. Wade constructed Gemini, Life's first spaceship
+based on constructor technology. It consists of two constructor arms. Each arm
+interprets instructions on data encoded in streams of gliders, and generates
+customized glider flotillae that slowly construct a totally new copy of the
+the spaceship. Once this is done, the original copy is cleanly deconstructed,
+leaving only the new copy, offset in space. It moves obliquely, with a velocity
+of (5120,1024)<i>c</i>/33699586, or approximately (5,1)<i>c</i>/32910.</p>
+
+<p>The actual assembly was done by a computer program. With a bounding box
+of 4217807 by 4220191, and a population of 846278, it is much too large to work
+with by hand. It is currently the largest (in terms of bounding box) Life
+pattern ever assembled. (Since the full RLE file for Gemini is huge,
+it is not included here.)</p>
+
+<p>Its mechanism theoretically allows creation of spaceships of all rational
+directions, and all rational velocities less than (1,1)<i>c</i>/580.</p>
+
+<p>In June 2010, <a class="i" href="lifecred.htm#greene">Dave Greene</a>
+constructed a knight-ship based on Gemini, with a velocity of
+(8192,4096)<i>c</i>/35567490, or approximately (2,1)<i>c</i>/8683.</p>
+
+<p>In November 2013, Dave Greene completed construction of several "Geminoid"
+constructors that work on the same basic principle, but with many technical
+improvements. Because these do not destroy the original after making a copy,
+they are technically <a class="i" href="puff.htm#puff-geminoid">puffers</a> whose output
+consists of copies of themselves, rather than true spaceships, and they are
+discussed further in that section. However, it would probably not be too
+difficult to modify these to delete the original after making a copy, converting
+them into true spaceships.</p>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	exotic spaceships,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

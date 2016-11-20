@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Mark D. Niemiec's Page on Numbers and Games</title>
+<meta name="description"
+content="John Horton Conway's Numbers and Games, including Surreal Numbers" />
+<meta name="keywords"
+content="cantor conway berlekamp guy transfinite surreal numbers games" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Mark D. Niemiec's Page on Numbers and Games</h1>
+
+<p align="center">
+	<a class="j" href="#onag-intro">Introduction</a> |
+	<a class="j" href="#onag-rules">Rules</a> |
+	<a class="j" href="#onag-nomenclature">Nomenclature</a> |
+	<a class="j" href="#onag-numbers">Numbers</a> |
+	<a class="j" href="#onag-games">Games</a> |
+	<a class="j" href="#onag-nimbers">Nimbers</a> |
+	<a class="j" href="#onag-small">Small Games</a> |
+	<a class="j" href="#onag-half">Halves</a> |
+	<a class="j" href="#onag-loopy">Loopy Games</a> |
+	<a class="j" href="#onag-calculator">Calculator</a> |
+	<a class="j" href="#onag-bibliography">Bibliography</a> |
+	<a class="j" href="#onag-links">Links</a>
+</p>
+
+<hr /><hr />
+<a name="onag-intro"></a>
+<h2>Introduction</h2>
+<p>This page is about John Horton Conway's <i>Numbers and Games</i>.
+These define a kind of objects called <i>Games</i>, that represents positions in
+a two-person zero-sum game of complete information. A specific subset of games,
+that Conway initially just called <i>Numbers</i>, but which Donald Knuth called
+<i>Surreal Numbers</i>, form a complete field that behave just like real numbers,
+but is much larger, including transfinite numbers and their inverses
+(infinitesimals). Furthermore, this is the largest field it is possible to
+create using Cantor's set theory.</p>
+
+<hr />
+<a name="onag-rules"></a>
+<h2>Rules</h2>
+<p><i>Numbers</i> and <i>Games</i> are defined by the following basic rules:</p>
+<p><ul>
+    <li>Every game <i>x</i> consists of two sets, a left and a right set,
+	consisting of previously-generated games.</li>
+    <li>Every number <i>x</i> consists of two sets, a left and a right set,
+	consisting of previously-generated numbers, with the additional
+	stipulation that no member of <i>x</i>'s right set is less than or
+	equal to any member of <i>x</i>'s left set.</li>
+    <li><div>For two numbers or games <i>x</i> and <i>y</i>, <i>x</i> is less
+	than or equal to <i>y</i> if <i>y</i> is not less than or equal to
+	any member of <i>x</i>'s left set, and no member of <i>y</i>'s right
+	set is less than or equal to <i>x</i>. This means <i>x</i> and <i>y</i>
+	can be related in one of four different ways:</div>
+	<div><ul>
+	    <li><i>x</i> equals <i>y</i> if each is less than or equal to the
+		other.</li>
+	    <li><i>x</i> is less than <i>y</i> if <i>x</i> is less than or
+		equal to <i>y</i>, but not vice versa.</li>
+	    <li><i>x</i> is greater than <i>y</i> if <i>y</i> is less than or
+		equal to <i>x</i>, but not vice versa.</li>
+	    <li><i>x</i> is incomparable (i.e. fuzzy) with respect to <i>y</i>
+		if neither is less than or equal to the other. (This can
+		happen with games, but never with numbers.)</li>
+	</ul></div>
+	<div>These can, in turn, be combined in different ways to form 14
+	non-trivial comparison predicates relating <i>x</i> to <i>y</i>. These are defined
+	in the usual way (e.g. <i>x</i> equals <i>y</i> or <i>x</i> less than <i>y</i>
+	but neither <i>x</i> greater than <i>y</i> nor
+	<i>x</i> incomparable with <i>y</i>
+	&#8660; <i>x</i> &le; <i>y</i>).</div></li>
+    <li>Two numbers or games <i>x</i> and <i>y</i> are identical if their
+	corresponding sets contain identical members. All pairs of identical
+	numbers or games are equal to each other, but the reverse is not
+	necessarily true.</li>
+    <li>The negative of a number or game <i>x</i> has a left set consisting of
+	the the negative of every member of <i>x</i>'s right hand set, and vice
+	versa.</li>
+    <li>The sum of two numbers or games, <i>x</i> plus <i>y</i>, has left and
+	right sets combining <i>x</i> plus each member of <i>y</i>'s
+	corresponding left and right sets, and vice versa.</li>
+    <li>The difference of two numbers or games, <i>x</i> minus <i>y</i>, is
+	defined as as addition of the negative, as usual.</li>
+    <li>The product of two numbers, <i>x</i> times <i>y</i>, has a left
+	set consisting of all combinations of members from the same sets from
+	<i>x</i> and <i>y</i>, with the sum of each member times the other
+	number minus the members times each other; the right set is similarly
+	defined for all combinations of members from opposite sets from
+	<i>x</i> and <i>y</i>. (This formula also works for some games, but
+	not all.)</li>
+    <li>The general rule for the quotient of two numbers, <i>x</i> &divide;
+	<i>y</i>, is derived analytically, and usually results in infinite
+	recursion. For simple cases, it is usually easier to use more
+	specific, ad-hoc methods. Similar recursive definitions exist for
+	many other functions like square root, etc. These work because
+	numbers form a field, but as such, don't work for games in general.</li>
+</ul></p>
+
+<p>Or, symbolically:</p>
+<p><ul>
+    <li>Game <i>x</i> = { <i>x</i><sup>L</sup> | <i>x</i><sup>R</sup> }</li>
+    <li>Number <i>x</i> = { <i>x</i><sup>L</sup> | <i>x</i><sup>R</sup> },
+	no <i>x</i><sup>R</sup> &le; <i>x</i><sup>L</sup></li>
+    <li><i>x</i> &le; <i>y</i> &#8660; no <i>y</i> &le; <i>x</i><sup>L</sup>,
+	no <i>y</i><sup>R</sup> &le; <i>x</i></li>
+    <li><i>x</i> = <i>y</i> &#8660; <i>x</i> &le; <i>y</i>, <i>y</i> &le;
+	<i>x</i></li>
+    <li><i>x</i> &ne; <i>y</i> &#8660; &not; (<i>x</i> &le; <i>y</i>) or
+	&not; (<i>y</i> &le; <i>x</i>)</li>
+    <li><i>x</i> &lt; <i>y</i> &#8660; <i>x</i> &le; <i>y</i>,
+	&not; (<i>y</i> &le; <i>x</i>)</li>
+    <li><i>x</i> &gt; <i>y</i> &#8660; <i>y</i> &le; <i>x</i>,
+	&not; (<i>x</i> &le; <i>y</i>)</li>
+    <li><i>x</i> &#8741; <i>y</i> &#8660;
+	&not; (<i>x</i> &le; <i>y</i>),
+	&not; (<i>y</i> &le; <i>x</i>)</li>
+    <li><i>x</i> &#8742; <i>y</i> &#8660;
+	(<i>x</i> &le; <i>y</i>) or
+	(<i>y</i> &le; <i>x</i>)</li>
+    <li><i>x</i> &ge; <i>y</i> &#8660; <i>y</i> &le; <i>x</i></li>
+    <li><i>x</i> &#8822; <i>y</i> &#8660;
+	<i>x</i> &lt; <i>y</i> or <i>x</i> &gt; <i>y</i> </li>
+    <li><i>x</i> &#8814; <i>y</i> &#8660; &not; (<i>x</i> &lt; <i>y</i>)</li>
+    <li><i>x</i> &#8815; <i>y</i> &#8660; &not; (<i>x</i> &gt; <i>y</i>)</li>
+    <li><i>x</i> &#8816; <i>y</i> &#8660; <i>x</i> &#10704; <i>y</i> &#8660;
+	&not; (<i>x</i> &le; <i>y</i>)</li>
+    <li><i>x</i> &#8817; <i>y</i> &#8660; <i>x</i> &#10703; <i>y</i> &#8660;
+	&not; (<i>y</i> &le; <i>x</i>)</li>
+    <li><i>x</i> &#8824; <i>y</i> &#8660; <i>x</i> # <i>y</i> &#8660;
+	<i>x</i> = <i>y</i> or <i>x</i> &#8741; <i>y</i> </li>
+    <li><i>x</i> &#8801; <i>y</i> &#8660;
+	<i>x</i><sup>L</sup> &#8801; <i>y</i><sup>L</sup>,
+	<i>x</i><sup>R</sup> &#8801; <i>y</i><sup>R</sup></li>
+    <li><i>x</i> &#8802; <i>y</i> &#8660;
+	&not; (<i>x</i> &#8801; <i>y</i>)</li>
+    <li>- <i>x</i> &#8660;
+	{ -<i>x</i><sup>R</sup> | -<i>x</i><sup>L</sup> }</li>
+    <li><i>x</i> + <i>y</i> &#8660; { <i>x</i><sup>L</sup>+y,
+	<i>x</i>+<i>y</i><sup>L</sup> | <i>x</i><sup>R</sup>+y,
+	<i>x</i>+<i>y</i><sup>R</sup> }</li>
+    <li><i>x</i> - <i>y</i> &#8660; <i>x</i> + - <i>y</i> &#8660; {
+	<i>x</i><sup>L</sup>-y, x-<i>y</i><sup>R</sup> |
+	<i>x</i><sup>R</sup>-y, x-<i>y</i><sup>L</sup> }</li>
+    <li><i>x</i> &middot; <i>y</i> &#8660; {
+	<i>f</i>(<i>x</i>,<i>y</i>,<i>x</i><sup>L</sup>,<i>y</i><sup>L</sup>),
+	<i>f</i>(<i>x</i>,<i>y</i>,<i>x</i><sup>R</sup>,<i>y</i><sup>R</sup>) |
+	<i>f</i>(<i>x</i>,<i>y</i>,<i>x</i><sup>L</sup>,<i>y</i><sup>R</sup>),
+	<i>f</i>(<i>x</i>,<i>y</i>,<i>x</i><sup>R</sup>,<i>y</i><sup>L</sup>)
+	},<br />where <i>f</i>(<i>x</i>,<i>y</i>,<i>u</i>,<i>v</i>) &#8660;
+	<i>x</i>&middot;<i>v</i> + <i>u</i>&middot;<i>y</i> -
+	<i>u</i>&middot;<i>v</i></li>
+    <li>If <i>x</i>&gt;0, <i>y</i> &#8660; 1/<i>x</i> &#8660;
+	{ 0,
+	(1+(<i>x</i><sup>R</sup>-<i>x</i>)&middot;<i>y</i><sup>L</sup>)&divide;<i>x</i><sup>R</sup>,
+	(1+(<i>x</i><sup>L</sup>-<i>x</i>)&middot;<i>y</i><sup>R</sup>)&divide;<i>x</i><sup>L</sup>
+	|
+	{ 0,
+	(1+(<i>x</i><sup>L</sup>-<i>x</i>)&middot;<i>y</i><sup>L</sup>)&divide;<i>x</i><sup>L</sup>,
+	(1+(<i>x</i><sup>R</sup>-<i>x</i>)&middot;<i>y</i><sup>R</sup>)&divide;<i>x</i><sup>R</sup>
+	}</li>
+    <li><i>x</i> &divide; <i>y</i> &#8660; <i>x</i> &middot; 1/<i>y</i></li>
+    <li>If <i>x</i>&ge;0, <i>y</i> &#8660; &#8730;<i>x</i> &#8660;
+	{ &#8730;<i>x</i><sup>L</sup>,
+	(<i>x</i>+<i>y</i><sup>L</sup>&middot;<i>y</i><sup>R</sup>)&divide;(<i>y</i><sup>L</sup>+<i>y</i><sup>R</sup>)
+	| &#8730;<i>x</i><sup>R</sup>,
+	(<i>x</i>+<i>y</i><sup>L</sup>&middot;<i>y</i><sup>L*</sup>)&divide;(<i>y</i><sup>L</sup>+<i>y</i><sup>L*</sup>),
+	(<i>x</i>+<i>y</i><sup>R</sup>&middot;<i>y</i><sup>R*</sup>)&divide;(<i>y</i><sup>R</sup>+<i>y</i><sup>R*</sup>)
+	},<br />
+	where <i>x</i><sup>L</sup> and <i>x</i><sup>R</sup> are non-negative,
+	and <i>y</i><sup>L</sup>, <i>y</i><sup>L*</sup>,
+	<i>y</i><sup>R</sup>, <i>y</i><sup>R*</sup>
+	are chosen so that none of the denominators are zero.</li>
+</ul></p>
+
+<p>All of these rules are defined recursively, with each number or game being
+defined in terms of sets of simpler, previously-defined numbers or games. If
+one thinks of numbers and games being created on successive days from sets
+of numbers or games created on previous days, one can assign a <i>day number</i>
+to each number or game that specifies the earliest day on which that number
+or game appears. This number is always a non-negative ordinal number. Where
+convenient, it will be shown here in [square brackets]. The very first number,
+created on day 0, must have empty sets on both sides, since there have been no
+other numbers created before it. It is <b>0</b> &#8660; { | } [0].</p>
+
+<hr />
+<a name="onag-nomenclature"></a>
+<h2>Nomenclature</h2>
+<p>Since the surreal numbers contain many more values than reals, and games
+even more, the notation used to describe them is more complicated than that
+used to describe real numbers. The following conventions are used:</p>
+<p><ul>
+    <li>Standard mathematical conventions are used for real numbers.</li>
+    <li>Implicit operators between two numbers are context-sensitive, as they
+	are in mathematics, but may have different meanings between non-numeric
+	games (e.g. 2<i>&omega;</i> &#8660; 2&middot;<i>&omega;</i> as
+	2<i>x</i> &#8660; 2&middot;<i>x</i> and
+	2* &#8660; 2+* as 2&frac12; &#8660; 2+&frac12;,
+	but *2 is star-two, which is not any kind of direct combination of * nor
+	2). When ambiguity exists, one should always use explicit + for
+	addition, and &middot; or &times; for multiplication.</li>
+    <li>Superscripts on numbers imply exponentiation as in mathematics,
+	but may have different meanings between non-numeric games (e.g.
+	<i>&omega;</i>&sup2; &#8660; <i>&omega;</i>&middot;<i>&omega;</i>
+	as <i>x</i>&sup2; &#8660; <i>x</i>&middot;<i>x</i>
+	but &#8593;&sup2; is up-two,
+	which is not the same as &#8593;&middot;&#8593;).</li>
+    <li>The macron bar &macr; is a negative sign that is part of a number,
+	and distinct from the negation operator -, and binds more tightly,
+	e.g. &macr;2&#8593; &#8660; (-2) + &#8593;, while -2&#8593; is -(2+&#8593;).
+	In most cases, the distinction is not important.</li>
+    <li>The solidus / is usually a division sign that is part of a number and
+	distinct form the division operator &divide;, and binds more tightly,
+	e.g. */2 is semi-star, not * &divide; 2.</li>
+    <li>The plus-minus sign &plusmn; defines hot games, rather than two values
+	as in mathematics, e.g. &plusmn;2 &#8660; {2|-2}, not +2 or -2.</li>
+</ul></p>
+
+<hr />
+<a name="onag-numbers"></a>
+<h2>Numbers</h2>
+<p>The simplest kind of numbers are called <i>Ordinal</i> numbers.
+Non-negative ordinals have empty right sets (and correspond to Georg Cantor's
+ordinal numbers), while their negatives have empty left sets. Of course, the
+first possible number <b>0</b> &#8660; { | } is both. Ordinal numbers contain
+integers, but they also contain transfinite numbers like <i>&omega;</i>, <i>&omega;</i>+1,
+2<i>&omega;</i>, <i>&omega;</i>&sup2;, <i>&omega;</i><sup><i>&omega;</i></sup>, etc.</p>
+
+<p>Integers are constructed recursively, e.g. <b>1</b> &#8660; { 0 | },
+<b>2</b> &#8660; { 1 | }, etc. Their negatives are similar, e.g. <b>&macr;1</b>
+&#8660; { | 0 }, <b>&macr;2</b> &#8660; { | &macr;1 }, etc.
+The names assigned to such arbitrary numbers are the same as the corresponding
+reals, and can be verified algebraically; e.g. for all numbers <i>x</i>,
+0+<i>x</i>=<i>x</i>, 0&middot;<i>x</i>=0, 1&middot;<i>x</i>=<i>x</i>,
+&macr;1&middot;<i>x</i>=-<i>x</i>, 2&middot;<i>x</i>=<i>x</i>+<i>x</i>, etc.</p>
+
+<p>Binary rationals, i.e. all fractions whose denominators are powers of 2,
+can similarly be constructed recursively, e.g.
+(2<i>x</i>+1)/2<sup><i>y</i></sup> &#8660;
+{ (2<i>x</i>)/2<sup><i>y</i></sup> | (2<i>x</i>+2)/2<sup><i>y</i></sup> }
+&#8660; { <i>x</i>/2<sup><i>y</i>-1</sup> | (<i>x</i>+1)/2<sup><i>y</i>-1</sup>
+}, where <i>y</i>&gt;0.</p>
+
+<p>For example, <b>&frac12;</b> &#8660; { 0 | 1 }, <b>&frac14;</b> &#8660;
+{ 0 | &frac12; }, <b>&frac34;</b> &#8660; { &frac12; | 1 }, etc.</p>
+
+<p>NOTE: While it is always true that a number's value lies somewhere
+between the values in its left and right sets, it is <i>not</i> necessarily
+the average. Rather, it is the <i>simplest</i> (i.e. earliest constructed)
+number that fits. While this may not seem intuitive, it can be verified by
+using algebraic methods. For example, to verify that
+<i>x</i> = { 2&frac14; | 3 } has a value of 2&frac12; it suffices to show
+<i>x</i>+<i>x</i>-5 = 0.</p>
+
+<p>Another thing that is easily verifiable is that only the innermost
+values in the two sets are important (i.e. the largest value in the left
+set, and the smallest value in the right set). Symbolically,
+{ <i>a</i>, <i>b</i> | <i>c</i>, <i>d</i> } = { <i>b</i> | <i>c</i> },
+when <i>a</i> &le; <i>b</i> and <i>c</i> &le; <i>d</i>. In this case,
+left option <i>a</i> is <i>dominated</i> by <i>b</i>, so it is irrelevant.
+Similarly, <i>d</i> is dominated by <i>c</i>. (This principle is best illustrated by
+looking at games; for example, if someone offers you a choice of a $100
+dollar bill, a $10 dollar bill, or a $1 dollar bill, the $100 bill dominates
+the others; since there is no situation in which one would prefer them,
+their inclusion in the list of choices is totally superfluous.)</p>
+
+<p>Things begin to get much more interesting if one uses infinite sets,
+that have no specific greatest or least members. For example:</p>
+<p><ul>
+    <li><b><i>&omega;</i></b> &#8660; { &#8484; | } &#8660;
+	{ 0, 1, 2&hellip; | }</li>
+    <li><b><i>&omega;</i>+1</b> &#8660; { <i>&omega;</i> | }</li>
+    <li><b><i>&omega;</i>-1</b> &#8660; { &#8484; | <i>&omega;</i> } &#8660;
+	{ 0, 1, 2&hellip; | <i>&omega;</i> }</li>
+    <li><b>2<i>&omega;</i></b> &#8660;
+	<i>&omega;</i>&middot;2 &#8660; { <i>&omega;</i>+&#8484; | } &#8660;
+	{ <i>&omega;</i>, <i>&omega;</i>+1, <i>&omega;</i>+2&hellip; | }</li>
+    <li><b><i>&omega;</i>/2</b> &#8660;
+	<i>&omega;</i>&middot;&frac12; &#8660;
+	{ &#8484; | <i>&omega;</i>-&#8484; } &#8660;
+	{ 0, 1, 2&hellip; | <i>&omega;</i>, <i>&omega;</i>-1, <i>&omega;</i>-2&hellip; }</li>
+    <li><b><i>&omega;</i>&sup2;</b> &#8660;
+	<i>&omega;</i>&middot;<i>&omega;</i> &#8660;
+	{ <i>&omega;</i>&middot;&#8484; | } &#8660;
+	{ 0, <i>&omega;</i>, 2<i>&omega;</i>, 3<i>&omega;</i>&hellip; | }</li>
+    <li><b><i>&omega;</i><sup><i>&omega;</i></sup></b> &#8660;
+	{ <i>&omega;</i><sup>&#8484;</sup> | } &#8660;
+	{ 1, <i>&omega;</i>, <i>&omega;</i>&sup2;, <i>&omega;</i>&sup3;&hellip; | }</li>
+    <li><b>&#8730;<i>&omega;</i></b> &#8660;
+	<i>&omega;</i><sup>&frac12;</sup> &#8660;
+	{ &#8484; | <i>&omega;</i>/2<sup>&#8484;</sup> } &#8660;
+	{ 0, 1, 2&hellip; | <i>&omega;</i>, <i>&omega;</i>/2,
+	<i>&omega;</i>/4&hellip; }</li>
+    <li><b><sup><i>&omega;</i></sup>&#8730;<i>&omega;</i></b> &#8660;
+	<i>&omega;</i><sup>1/<i>&omega;</i></sup> &#8660;
+	{ &#8484; | <sup>&#8484;+</sup>&#8730;<i>&omega;</i> } &#8660;
+	{ 0, 1, 2&hellip; | <i>&omega;</i>, &#8730;<i>&omega;</i>,
+	&#8732;<i>&omega;</i>&hellip; }</li>
+    <li><b>&epsilon;</b> &#8660; 1/<i>&omega;</i> &#8660;
+	{ 0 | 1, &frac12;, &frac14;&hellip; }</li>
+    <li><b>2&epsilon;</b> &#8660; 2/<i>&omega;</i> &#8660;
+	{ &epsilon; | 1, &frac12;, &frac14;&hellip; }</li>
+    <li><b>&epsilon;/2</b> &#8660; &frac12;&middot;&epsilon; &#8660;
+	{ 0 | &epsilon; }</li>
+    <li><b>&epsilon;&sup2;</b> &#8660; &epsilon;&middot;&epsilon; &#8660;
+	{ 0 | &epsilon;, &epsilon;/2, &epsilon;/4&hellip; }</li>
+    <li><b>&#8730;&epsilon;</b> &#8660;
+	{ &epsilon;*&#8484; | 1, &frac12;, &frac14;&hellip; }</li>
+</ul></p>
+
+<p>The transfinite ordinal <i>&omega;</i> is an ordinal larger than than any real number.
+It may be thought of as the simplest number that cannot be reached by counting.
+Ordinals like <i>&omega;</i>+1, 2<i>&omega;</i>
+<i>&omega;</i>&sup2;, <i>&omega;</i><sup><i>&omega;</i></sup> etc.
+are even larger. These are all ordinary numbers, and can be used in any
+context that other numbers can be. This is unlike the infinity &#8734; used in
+real analysis, that is not, in fact, a number, and has many ugly properties,
+e.g. &#8734;+1=&#8734;, &#8734;/2=&#8734;, &#8734;-&#8734;=indeterminate, etc.
+This also yields many related transfinite non-ordinals,
+like <i>&omega;</i>-1, <i>&omega;</i>/2, &#8730;<i>&omega;</i>, etc.</p>
+
+<p>The number &epsilon; = 1/<i>&omega;</i> deserves special mention. It is an
+infinitesimal that is greater than zero, but smaller than any positive real.</p>
+
+<p>(NOTE: For ease of notation, all fractional expansions in the following
+sections will be in base two, rather than the more customary base ten.)</p>
+
+<p>All remaining rationals, and indeed, all remaining reals, can be
+represented by Dedekind cuts, by expressing the number as an infinite binary
+fraction, and including successive approximations (rounded down) in the left
+set, and successive approximations (rounded up) in the right set. These are all
+created on day <i>&omega;</i>. For example:</p>
+<p><ul>
+    <li><b>1/3</b> &#8660; 0.010101&hellip; &#8660;
+	{ 0, 0.01, 0.0101&hellip; | 0.1, 0.011, 0.01011&hellip; }</li>
+    <li><b>&pi;</b> &#8660; 11.00100100001111110&hellip; &#8660;
+	{ 11, 11.001, 11.001001&hellip; | 11.1, 11.0011, 11.0010011&hellip; }
+	</li>
+</ul></p>
+
+<p>Exponentiation to any numeric power can be defined in similar ways.
+For example:</p>
+<p><ul>
+    <li><i>x</i><sup>&frac12;</sup> &#8660; &#8730;<i>x</i></li>
+    <li><i>x</i><sup>&frac14;</sup> &#8660; &#8732;<i>x</i> &#8660;
+	&#8730;&#8730;<i>x</i></li>
+    <li><i>x</i><sup><i>a</i>+<i>b</i></sup> &#8660;
+	<i>x</i><sup><i>a</i></sup> &middot; <i>x</i><sup><i>b</i></sup></li>
+    <li>&#8731;<i>x</i> &#8660; <i>x</i><sup>1/3</sup> &#8660;
+	{ 1, <i>x</i><sup>0.01</sup>, <i>x</i><sup>0.0101</sup>&hellip; |
+	{ <i>x</i><sup>0.1</sup>, <i>x</i><sup>0.011</sup>&hellip; },
+	x&gt;1</li>
+    <li><i>x</i><sup>&pi;</sup> &#8660;
+	{ <i>x</i><sup>11</sup>, <i>x</i><sup>11.001</sup>&hellip; |
+	{ <i>x</i><sup>11.1</sup>, <i>x</i><sup>11.0011</sup>&hellip; },
+	x&gt;1</li>
+</ul></p>
+
+<p>Just as real numbers have their limiting value &#8734; that is not actually a
+real number, surreal numbers also have a similar limiting value,
+<b><i>on</i></b> &#8660; { <i>on</i> | },
+that is not actually a number (nor even a normal game), because its definition
+is recursive. (It is actually a
+<a class="j" href="#onag-loopy"><i>loopy game</i></a>.)
+It is mostly used as a limit; e.g. all numbers are less than <i>on</i>,
+all positive infinitesimals are greater than 1/<i>on</i>, all positive
+reals are less than <i>&omega;</i><sup>1/<i>on</i></sup>, and all positive
+transfinite numbers are greater than <i>&omega;</i><sup>1/<i>on</i></sup>.</p>
+
+<hr />
+<a name="onag-games"></a>
+<h2>Games</h2>
+
+<p><i>Games</i> are a superset of Numbers, formed by removing the constraint
+that no left option may be greater or equal to any right option. This means
+that we can no longer rely on the fact that a game's value lies between
+its options. Also unfortunately, games do not form a field, so many of the
+operations like multiplication, division, and square root no longer
+apply in general.</p>
+
+<p>A Game is analogous to a position in a two-player zero-sum game of
+complete information, without infinite play, and in which the first player
+unable to move loses. This includes games like Nim. It does not directly
+include games that permit infinite play (like Checkers), or that permit
+draws (like Chess), or that keep score (like Go), although such games can
+used if their rules are altered slightly (for example, in Chess by
+forbidding moves that would draw by repetition or by long sequence of moves,
+and by considering stalemate a loss, and similarly forbidding infinite
+play in Checkers).</p>
+
+<p>The Left player's list of options (i.e. left options) is the set of games,
+each of which is a position Left can reach by making a legal move, and the
+Right player's list of options is defined similarly. Such a game <i>x</i>
+can have one of four kinds of values:</p>
+<p><ul>
+    <li>Positive (i.e. <i>x</i>&gt;0): Left wins, no matter who moves first
+	(i.e. Left always has a valid move, and Right either has no moves,
+	or only has options that are to other simpler games where Left wins
+	anyway).</li>
+    <li>Negative (i.e. <i>x</i>&lt;0): Right wins no matter who moves first
+	(i.e. Right always has a valid move, and Left either has no moves,
+	or only has options that are to other simpler games where Right wins
+	anyway).</li>
+    <li>Zero (i.e. <i>x</i>=0): Whoever moves first loses (i.e. nobody has any
+	options, or if they do, they are only to other games that their
+	opponents can win or immediately reverse.)</li>
+    <li>Fuzzy (i.e. <i>x</i>&#8741;0): Whoever moves first wins.</li>
+</ul></p>
+
+<p>The numeric values of games are interesting, because many complicated games
+have moves that split the gaming area into smaller disjoint pieces where
+either player may make a move in any one piece. This is equivalent to the sum
+of multiple games, and it often becomes possible to analyze complicated games
+by analyzing the sums of their parts.</p>
+
+<p>A move in a game reduces it to a simpler game. Each player thus has an
+<i>incentive</i> to play in a particular game that is the difference between
+the value of that game after the move, and before it. Symbolically, for game
+<i>x</i>, Left's incentives are <i>x</i><sup>L</sup>-<i>x</i> and
+Right's incentives are <i>x</i>-<i>x</i><sup>R</sup>. Note that for Numbers,
+these incentives are always negative; i.e. no player will willingly move in
+a game equivalent to number unless absolutely necessary, and if it <i>is</i>
+necessary, will prefer to move in numbers with the smallest possible
+incentives (e.g. infinitesimals before fractions before integers before
+transfinites) to minimize the disincentives. Such games are also called <i>cold
+games</i>.</p>
+
+<p>Fuzzy games are also called <i>hot games</i>, because their incentives are
+non-negative, and players will wish to claim as many incentives as possible.
+As a result, players will always want to play in hot games if possible, with
+the hottest game (i.e. one with the largest incentive) first.</p>
+
+<p>The simplest fuzzy game is <i>Star</i>, <b>*</b> &#8660; { 0 | 0 } [1].
+This is less than any positive number, greater than any negative number,
+but not equal to zero.</p>
+
+<hr />
+<a name="onag-nimbers"></a>
+<h2>Nimbers</h2>
+<p>A special sub-category of games, called <i>impartial games</i> occurs when
+both players have the same options, that are themselves impartial games.
+Nim is the simplest classic example of such a game: one starts with several
+piles of items (coins, matchsticks, etc.) and each move consists of removing
+one or more items from a non-empty pile. Because of this, the game positions
+in Nim are called <i>nimbers</i>. They have a one-to-one correspondence with
+non-negative ordinal numbers. (Because the options are the same on both sides,
+and are always nimbers, a simplified notation will be used here, showing only
+one set of options, with the * symbol omitted from the option sets).
+Nimbers are formed as follows:</p>
+<p><ul>
+    <li><b>*0</b> &#8660; 0 &#8660; { | } &#8660; { } [0]</li>
+    <li><b>*1</b> &#8660; <b>*</b> &#8660; { 0 | 0 } &#8660; { 0 } [1]</li>
+    <li><b>*2</b> &#8660; { 0, * | 0, * } &#8660; { 0, 1 } [2]</li>
+    <li><b>*3</b> &#8660; { 0, *, *2 | 0, *, *2 } &#8660; { 0, 1, 2 } [3], etc.</li>
+    <li><b>*<i>&omega;</i></b> &#8660; { 0, *, *2&hellip; | 0, *, *2&hellip; }
+	&#8660; { 0, 1, 2, ... }</li>
+    <li><b>*<i>on</i></b> &#8660; { *<i>on</i> | *<i>on</i> } &#8660; <i>dud</i> &#8660; { <i>on</i> }</li>
+</ul></p>
+
+<p>Because both option sets are the same, the arithmetic rules for nimbers
+are a simplified version of those used for numbers:</p>
+<p><ul>
+    <li>Nimber *<i>x</i> = { <i>x</i><sup>L</sup> }</li>
+    <li>*<i>x</i> =; *<i>y</i> &#8660; no <i>y</i> &le; <i>x</i><sup>L</sup>,
+	no <i>y</i><sup>L</sup> &le; <i>x</i></li>
+    <li>*<i>x</i> &ne; *<i>y</i> &#8660; &not; (<i>x</i> = <i>y</i>)
+	&not; (<i>y</i> &le; <i>x</i>)</li>
+    <li>- *<i>x</i> &#8660; *<i>x</i></li>
+    <li>*<i>x</i> + *<i>y</i> &#8660; { <i>x</i><sup>L</sup>+y, <i>x</i>+<i>y</i><sup>L</sup> }</li>
+    <li>*<i>x</i> - *<i>y</i> &#8660; <i>x</i> + - <i>y</i> &#8660; <i>x</i> + <i>y</i></li>
+    <li>*<i>x</i> &middot; *<i>y</i> &#8660; {
+	<i>x</i>&middot;<i>y</i><sup>L</sup> + <i>x</i><sup>L</sup>&middot;<i>y</i> +
+	<i>x</i>^L;&middot;<i>y</i>^L;</li>
+    <li>If <i>x</i>&ne;0, *<i>y</i> &#8660; 1/*<i>x</i> &#8660;
+	{ 0, (1+(<i>x</i><sup>L</sup>-<i>x</i>)&middot;<i>y</i><sup>L</sup>)&divide;<i>x</i><sup>L</sup> }</li>
+    <li>*<i>x</i> &divide; *<i>y</i> &#8660; *<i>x</i> &middot; 1/*<i>y</i></li>
+    <li>*<i>y</i> &#8660; &#8730;*<i>x</i> &#8660;
+	{ &#8730;<i>x</i><sup>L</sup>,
+	(<i>x</i>+<i>y</i><sup>L</sup>&middot;<i>y</i><sup>L*</sup>)&divide;(<i>y</i><sup>L</sup>+<i>y</i><sup>L*</sup>) },<br />
+	where <i>y</i><sup>L</sup> and <i>y</i><sup>L*</sup>,
+	are chosen so that none of the denominators are zero.</li>
+</ul></p>
+
+<p>From the equality rule (=), it follows that the value of the result is the
+same as the minimum excluded option (<i>mex</i>). For this reason, nimbers must
+include all options to force the next higher one, unlike ordinal numbers
+that only need to include the highest option (e.g. 3 = {2 | }, but *3 =
+{0 1 2} ).</p>
+
+<p>The addition rules for nimbers *<i>x</i> + *<i>y</i> are somewhat
+unusual. Each nimber must be separated into distinct powers of two (e.g.
+*6 &#8660; *2 + *4).
+These are then added according to the following rules:</p>
+<p><ul>
+    <li>*2<sup><i>x</i></sup> + *2<sup><i>y</i></sup> &#8660;
+	*(2<sup><i>x</i></sup>+2<sup><i>y</i></sup>),
+	if <i>x</i>&ne;<i>y</i></li>
+    <li>*2<sup><i>x</i></sup> + *2<sup><i>x</i></sup> &#8660; 0</li>
+</ul></p>
+
+<p>This is equivalent to base-2 addition without carry, or the <i>xor</i>
+operation implemented on most computers. This also means that every nimber
+is its own negative.</p>
+
+<p>The multiplication rules for nimbers *<i>x</i> &middot; *<i>y</i>
+are even more unusual. Each nimber must be separated into distinct
+powers of two, which must in turn be separated into products of distinct
+Fermat powers of two (i.e. 2<sup>1</sup>, 2<sup>2</sup>, 2<sup>4</sup>, etc.),
+so, for example, *9 &#8660; *8 + *1 &#8660; *4&middot;*2 + *1).
+These are then multiplied according to the following rules, applying usual
+algebraic rules for distributing multiplication over addition:</p>
+<p><ul>
+    <li>*2<sup>2<sup><i>x</i></sup></sup> &middot;
+	*2<sup>2<sup><i>y</i></sup></sup> &#8660;
+	*(2<sup>2<sup><i>x</i></sup></sup>&middot;2<sup>2<sup><i>y</i></sup></sup>),
+	if <i>x</i>&ne;<i>y</i></li>
+    <li>*2<sup>2<sup><i>x</i></sup></sup> &middot; *2<sup>2<sup><i>x</i></sup></sup> &#8660;
+	*(1.5&middot;2<sup>2<sup><i>x</i></sup></sup>).</li>
+</ul></p>
+
+<p>Nimbers form a field, so from the above rules, it is also possible to
+derive rules for division, powers, roots, etc. These rules are consistent, but
+have highly unusual properties. For example:</p>
+<p><ul>
+    <li>1&divide;*<i>x</i> &#8660;
+	(*<i>x</i>)<sup>&macr;1</sup> &#8660;
+	(*<i>x</i>)<sup><i>n</i>-2;</sup>
+	for any <i>n</i> where <i>n</i> is a Fermat power of 2,
+	and 0&lt;<i>x</i>&lt;<i>n</i>.</li>
+    <li>&#8730;*<i>x</i> &#8660;
+	(*<i>x</i>)<sup>&frac12;</sup> &#8660;
+	(*<i>x</i>)<sup><i>n</i>/2;</sup>
+	for any <i>n</i> where <i>n</i> is a Fermat power of 2,
+	and <i>x</i>&lt;<i>n</i>.</li>
+    <li>Each number is the cube root of its <i>predecessor</i> in the sequence
+	*2, *<i>&omega;</i>, *(<i>&omega;</i><sup>3</sup>),
+	*(<i>&omega;</i><sup>9</sup>), &hellip;.</li>
+    <li>There are similar surprising results similar to the above for all
+	<i>n</i><sup>th</sup> roots for all odd primes <i>n</i>.</li>
+</ul></p>
+
+<hr />
+<a name="onag-small"></a>
+<h2>Small Games</h2>
+<p>The game <i>Up</i>, <b>&#8593;</b> &#8660; { 0 | * }, is strictly positive,
+yet smaller than the smallest infinitesimal number. It if fuzzy with respect to
+*, but strictly less than any other game that is greater than *. Even the most
+infinitely large multiple of &#8593; is smaller than the smallest infinitesimal
+numbers. This is why all multiples of &#8593; are called <i>small games</i>.
+Small positive integer multiples of &#8593; are usually signified by multiple
+arrows, e.g. &#8657;, &#10506;, &#10224;, etc. while negative multiples
+(i.e. multiples of <i>Down</i>) use down-arrows, e.g.
+&#8595;, &#8659;, &#10507;, &#10225;, etc.</p>
+
+<p>Up is actually just the largest of a group of games called <i>Tinies</i>,
+&#10750;<sub><i>x</i></sub> &#8660; { 0 | { 0 | -<i>x</i> } }, defined for all
+non-negative numbers <i>x</i>. If x &gt; y, even the largest multiples of
+&#10750;<sub><i>x</i></sub> is smaller than the most infinitesimal positive
+multiple of &#10750;<sub><i>y</i></sub>.
+The smallest possible positive game is &#10750;<sub><i>on</i></sub>.
+Negatives of tinies are called <i>Minies</i>,
+&#10751;<sub><i>x</i></sub> &#8660; -&#10750;<sub><i>x</i></sub>.</p>
+
+<hr />
+<a name="onag-half"></a>
+<h2>Halves of Games</h2>
+<p>Calculating half of a number is quite easy. Some examples are given in
+previous sections. However, calculating half of a game, especially a hot game,
+is not as simple. In particular, half of nimber <i>x</i> is not a nimber at all,
+because if it were, adding it to itself would yield 0, and not <i>x</i>.</p>
+
+<p>One of the exercises in <i>On Numbers and Games</i> is to find the game
+<i>Semi-star</i>, i.e. */2. The solution to this problem leads to many
+interesting sub-problems.</p>
+
+<p>It should be noted that in any hot game <i>c</i> &#8660; { <i>a</i> |
+<i>b</i> }, where <i>a</i> &#10704; <i>b</i>, <i>c</i>+<i>c</i> &#8660;
+<i>a</i>+<i>b</i> because if Left moves to <i>a</i> in one of the copies of
+<i>c</i>, Right will counter-move to <i>b</i> in the other copy,
+and/or vice versa. Thus, it's trivially easy to create games that are halves
+of other games by sufficiently inflating their options. For example,
+if <i>c</i> &#8660; { a | -a* }, then <i>c</i>+<i>c</i> &#8660; *.
+In particular, <i>c</i> &#8660; { 1 | &macr;1* } works. <i>c</i>+<i>c</i> &#8660; *.
+However, this is not the simplest game with this property.</p>
+
+<p>(In fact, if any game <i>c</i> has this property, so does -<i>c</i>,
+since -<i>c</i>+-<i>c</i> &#8660; -* which is just *. Thus, the partial game */2
+has a similar ambivalent relationship to impartial games (nimbers) and addition
+that imaginary number <i>i</i> has to real numbers and multiplication.)</p>
+
+<p>The simplest game with this property is { *,&#8593; | 0,&#8595;* }.
+This fulfills the requirement that every member of the left set &#10704;
+some member of the right set, and every member of the right set &#10703;
+some member of the left set. Note that game */2 is distinct from nimber
+*/*2, which is equal to *3.</p>
+
+<p>It is possible to construct similar half-values for any non-zero nimber:
+(*<i>n</i>)/2 &#8660; { *<i>n</i>, {0 | *<i>n</i>} | 0, &#8595;* }.</p>
+
+<hr />
+<a name="onag-loopy"></a>
+<h2>Loopy Games</h2>
+<p>Games that violate the non-recursion requirement (i.e. their sets contain
+games that were not created earlier, and can lead to infinitely-repeating
+sequences of moves), are called <i>loopy games</i>, and require special
+treatment. For example, even the basic rules for comparison and addition
+must be altered to handle them - usually by considering two sets of non-loopy
+games, in which infinite play is considered a win for Left, or for Right.</p>
+
+<p>The three simplest loopy games are <b><i>on</i></b> &#8660; { <i>on</i> | },
+the limit of <b>O</b>rdinal <b>N</b>umbers and the largest game,
+<b><i>off</i></b> &#8660; -<i>on</i> &#8660; { | <i>off</i> }, the smallest game,
+and <b><i>dud</i></b> &#8660; { <i>dud</i> | <i>dud</i> },
+the <b>D</b>ynamic <b>U</b>niversal <b>D</b>raw, that is fuzzy with respect
+to all games. These may be viewed as super-magnified versions of 1, &macr;1,
+and *. All loopy days are created on day <i>on</i>.</p>
+
+<p>The theory for loopy games can get very complicated, and is too involved
+to explain here. A good explanation of them is found in <i>Winning Ways</i>.</p>
+
+<hr /><hr />
+<a name="onag-calculator"></a>
+<h2>Calculator</h2>
+<p>I have written a simple desk calculator program that allows one to explore
+a little bit about Numbers and Games. Details are on a
+<a class="i" href="onagcalc.htm">separate page</a>.</p>
+
+<hr />
+<a name="onag-bibliography"></a>
+<h2>Bibliography</h2>
+<p><ul>
+    <li>J. H. Conway, <i>On Numbers and Games</i>, Second Edition,
+	A K Peters, Ltd., 2001.</li>
+    <li>Donald E. Knuth, <i>Surreal Numbers</i>,
+	Addison-Wesley Publishing Company, 1974.</li>
+    <li>Elwyn R. Berlekamp, John H. Conway, Richard K. Guy,
+	<i>Winning Ways For Your Mathematical Plays</i>, Second Edition,
+	A K Peters, Ltd., 2001.</li>
+</ul></p>
+
+<hr />
+<a name="onag-links"></a>
+<h2>Links to other Numbers and Games-related Web pages</h2>
+<p><ul>
+    <li><a class="x" target="_blank" href="http://planetmath.org/surrealnumber">
+	Surreal numbers at Planetmath</a>.</li>
+    <li><a class="x" target="_blank" href="http://en.wikipedia.org/wiki/Surreal_number">
+	Surreal numbers on Wikipedia</a>.</li>
+    <li><a class="x" target="_blank" href="http://mathworld.wolfram.com/SurrealNumber.html">
+	Surreal Number on MathWorld</a>.</li>
+    <li><a class="x" target="_blank" href="http://www.tondering.dk/main/index.php/surreal-numbers">
+	A gentle yet thorough introduction by Claus T&oslash;ndering</a>.</li>
+</ul></p>
+
+<hr /><hr />
+<p><a class="i" href="index.htm">Home page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

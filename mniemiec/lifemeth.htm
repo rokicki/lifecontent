@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Search Methodologies</title>
+<meta name="description"
+content="Conway's Game of Life: search methodologies" />
+<meta name="keywords"
+content="conway game life still life oscillator synthesis search methodologies" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Search Methodologies</h1>
+
+<p align="center">
+	<a class="j" href="#still">Still-lifes</a> |
+	<a class="j" href="#oscillator">Oscillators</a> |
+	<a class="j" href="#rules">Other rules</a> |
+	<a class="j" href="#synthesis">Syntheses</a>
+</p>
+
+<hr /><hr />
+<a name="still"></a>
+<h2>Searching for Still-lifes</h2>
+
+<h3>The Early Years</h3>
+
+<p>In Life's earliest days, lists of objects like still-lifes were compiled by
+hand. The lists of still-lifes up to 11 bits were compiled in this way.
+Unfortunately, such methods are slow and error-prone. While it is easy to
+automatically detect false positives by verifying that each object has the
+desired properties, it is easy to overlook unusual objects. Even today,
+new objects are occasionally discovered even in search spaces that have been
+thoroughly searched by hand previously. For example,
+<a class="i" href="lifecred.htm#koenig">H. Koenig</a> discovered a
+three glider synthesis of the <a class="p" href="12/12pc.rle">Pentadecathlon</a>
+and in 2013, Josh Ball found a small <i>c</i>/7 spaceship, the
+<a class="p" href="ss/20lfr.rle">Loafer</a>.</p>
+
+<p>In the late 1970s,
+<a class="i" href="lifecred.htm#raynham">Peter Raynham</a> automated the process
+of searching for still-lifes by writing a computer program to systematically
+search for them. He used his program to verify the lists up to 11 bits, and
+newly compute the 12- and 13-bit lists. David Buckingham later used the same
+program to compute the 14-bit list.</p>
+
+<h3>Still Life Search Program</h3>
+
+<p>In the late 1980s, I decided to try to recreate a program like Raynham's,
+based on a general description of how it worked. My program grows still-lifes
+like crystals, starting with a seed bit at the top left corner (i.e. leftmost
+cell on topmost row), in such a way that only objects that are stable
+according to Life's rules are emitted. Of course, it is desirable to search
+as few non-viable objects as possible</p>
+
+<p>The program treats an object as a two-dimensional array of cells. Each
+cell has one of three states: Living cells whose value has been fixed as alive,
+Dead cells whose value has been fixed as dead, and Uncommitted cells that are
+presumed to be dead, but that may later be either fixed as Dead, or changed
+to Alive. Each cell also has a counter of living neighbors, a counter of
+degrees of freedom (i.e. number of uncommitted neighbors), and a flag
+indicating the cell's stability.</p>
+
+<p>The program iterates by picking an eligible uncommitted cell, then
+recursively searching two sub-branches, by fixing the cell as both dead one
+way, and alive the other way. (If any cell states have been previously
+mandated to be dead or alive, those cells are fixed to their mandated values
+without permitting the alternate value). Fixing a cell decreases the degrees
+of freedom of all its neighbors. Fixing a cell as alive also affects all its
+neighbors' neighbor counts, and possibly their stability and its own. Certain
+situations force pruning of the search tree:</p>
+<p><ul>
+    <li>Living cells with more than 3 living neighbors are unstable, and this
+	instabilty can never be fixed by adding more neighbors, so they are
+	automatically non-viable.</li>
+    <li>Living cells with 3 living neighbors are stable, but they can never
+	have any more living neighbors. Thus, all uncommitted neighbors are
+	mandated to be dead.</li>
+    <li>Living cells with 1 living neighbor are unstable, and need 1-2 more,
+	so if they have no degrees of freedom, they are non-viable, and if they
+	have 1 degree of freedom, they mandate their 1 uncommitted neighbor to
+	be alive.</li>
+    <li>Living cells with 0 living neighbors are unstable, and need 2-3 more,
+	so if they have 0-1 degrees of freedom, they are non-viable, and if they
+	have 2 degree of freedom, they mandate their 2 uncommitted neighbors to
+	be alive.</li>
+    <li>Dead cells with 3 living neighbors are unstable, and need 1 or more
+	additional ones, so if they have no degrees of freedom, they are
+	non-viable, and if they have 1 degree of freedom, they mandate their 1
+	uncommitted neighbor to be alive.</li>
+    <li>Dead cells with 2 living neighbors are stable, and cannot have exactly
+	one additional one, so if they have 1 degree of freedom, they mandate
+	their 1 uncommitted neighbor to be dead.</li>
+</ul></p>
+
+<h3>Optimization</h3>
+
+<p>Many years ago, someone programmed a stand-alone word-processing machine at
+the office to search for viable tilings of pentominos. It inspired me to write
+a similar program on my computer. My program was able to find a solution within
+minutes, while the other program ran continually for over two months with no
+solutions, and was eventually lost during a power failure.</p>
+
+<p>It was obvious, from watching the other program running, that its algorithm
+consisted of trying to place the first pentomino in every possible position,
+then the second, etc. This lead to many non-viable sub-trees being searched.
+In fact, for most of the program's two-month run, it was fruitlessly
+searching a space that had already been rendered non-viable because a few of
+the earlier pentominos had split the field into two disjoint areas whose
+sizes were not multiples of five. (In fact, it is possible for such an
+arrangement to occur by placing a single pentomino.)</p>
+
+<p>The above example clearly illustrates the fact that, when performing
+searches, it is vitally important to perform them in the right order,
+so that non-viable branches can be discarded early all at once. The number of
+Life still-lifes seems asymptotic to around <i>O</i>(2.45<sup><i>n</i></sup>),
+or <i>O</i>(2.5<sup><i>n</i></sup>) when pseudo-still-lifes are included, and
+the number of living cells in those is around <i>O</i>(2.6<sup><i>n</i></sup>).
+The ideal search program would require commensurate computing resources.
+Raynham's program's execution time was around <i>O</i>(4<sup><i>n</i></sup>),
+and mine was similar to his.</p>
+
+<p>In an attempt to improve the program's performance, I decided to try to
+optimize the search order. By sorting the cells available for fixing in order
+by degrees of freedom followed by stability, it makes the problem concentrate
+on those areas with few options (typically close to the center of the object).
+For example, if an object has an unstable core, the program will first try to
+stabilize the core, rather than wasting time on adding surface fluff to an
+object whose core can never be stabilized.</p>
+
+<p>As a result, my program now uses time around
+<i>O</i>(2.6<sup><i>n</i></sup>). Since this is approximately the same
+order as that of the results, further improvements are unlikely.</p>
+
+<p>I have used the program to verify Raynham's and Buckingham's results, and
+count all the still-lifes (and pseudo-still-lifes) up to 24 bits.</p>
+
+<h3>Deficiencies</h3>
+
+<p>In order to avoid finding up to 8 copies of every object, the program
+originally converted each object into a standard canonical representation, and
+discarded all instances except the canonical one.</p>
+
+<p>In order to avoid wasting time creating large numbers of patterns that aren't
+even objects, the program avoids creating unnecessary disconnected islands of
+living cells, by only placing living cells adjacent to other living cells. It
+does, however, create necessary disconnected islands by also placing living
+cells next to unstable dead cells. Unfortunately, in situations where two
+islands, say <i>A</i> and <i>B</i> are related in such a way that <i>A</i> requires <i>B</i>
+but not vice versa (i.e. <i>A</i>&#8594;<i>B</i>), this means that if
+the program starts with <i>A</i>, it will find <i>A</i>&#8594;<i>B</i>, but if
+it starts with <i>B</i>, it will not find <i>B</i>&#8592;<i>A</i>.</p>
+
+<p>To alleviate this problem, the program was changed to emit all copies,
+and then remove duplicates in a separate post-processing pass, after the list
+of objects has been sorted. This means that objects of the form <i>A</i>&#8594;<i>B</i>
+would be found, as long as at least one orientation begins with piece <i>A</i>.
+For this to fail, <i>B</i> would have to wrap around <i>A</i> on three sides
+in such a way that no part of <i>A</i> occurs on an exposed corner. The
+smallest such object has 23 bits (figure 1a). This also fails in objects
+of the form <i>A</i>&#8592;<i>B</i>&#8594;<i>C</i> where no part of <i>B</i>
+occurs at an exposed corner. The smallest such object has 20 bits
+(figure 1b).</p>
+
+<p>The related problem occurs with objects of the form
+<i>A</i>&#8594;<i>B</i>&#8592;<i>C</i>, that could never be detected.
+The smallest such object has 16 bits (figure 1c).</p>
+
+<p>One way to reduce this problem is to allow the program to create a domino
+island adjacent to a stable domino. This causes the program to find
+pseudo-objects as well as objects. Fortunately, the additional computation cost
+in adding them is virtually unchanged. The pseudo-objects can then be removed by
+a post-processing pass that runs in linear time. As a useful side-effect, this
+also allows the program to find pseudo-objects virtually free.</p>
+
+<p>This solves most kinds of adjacent island problems except for one: a line of
+five bits vs. a single bit (e.g. a tub, or an eater tail). Problematic objects
+of the form <i>A</i>&#8592;<i>B</i>&#8594;<i>C</i> start to occur at 22 bits
+(figure 1d). There are 1 at 22 bits, 5 at 23 bits, and 26 at 24 bits.
+Problematic objects of the form <i>A</i>&#8594;<i>B</i>&#8592;<i>C</i> start to
+occur at 24 bits (figures 1e, 1f). The 4 different inductors can be combined
+in any way, and either up or down orientations, yielding 20 objects at 24 bits.
+While it was easy enough to add these specific missing objects manually, at 25
+bits there would be hundreds of missing objects, and adding so many objects
+manually would be quite error prone.</p>
+
+<p>One solution I tried was to allow the program to find "quasi-still-lifes",
+i.e. including those (like two adjacent tubs) that share adjacent dead cells.
+Unfortunately, the number of these seems to be around
+<i>O</i>(3.3<sup><i>n</i></sup>), making this impractical at large sizes, which is the only time
+when it is actually needed.</p>
+
+<p>Another solution I recently tried was to have the program specifically
+check for single-bit near line-of-five. While this did find the missing
+objects, it inexplicably lost the ability to find one pseudo-still-life:
+four blocks on a pond (figure 1g). Since there is no algorithmic reason for
+this, I must conclude that this change introduced a subtle bug, and until I
+determine what the cause is, it would be inadvisable to attempt further
+larger searches (most specifically, for 25-bit still-lifes).</p>
+
+<p>Figure 1.</p>
+<p><a class="p" href="stamp/exsearch.rle"><img src="map/exsearch.png"
+ alt="searches" width="441" height="81" usemap="#exsearch" /></a><br />
+    <table width="445">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="120" />
+	<col width="72" /></colgroup>
+    <tr>
+	<td>1a. 23-bit <i>A</i>&#8594;<i>B</i></td>
+	<td>1b. 20-bit <i>A</i>&#8592;<i>B</i>&#8594;<i>C</i></td>
+	<td>1c. 16-bit <i>A</i>&#8594;<i>B</i>&#8592;<i>C</i></td>
+	<td>1d. new 22-bit <i>A</i>&#8592;<i>B</i>&#8594;<i>C</i></td>
+	<td>1e,1f. 24-bit <i>A</i>&#8594;<i>B</i>&#8592;<i>C</i></td>
+	<td>1g. new missing 24-bit pseudo-object.</td>
+    </tr>
+</table></p>
+
+<map name="exsearch">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/exsearch.zip" />
+	<area coords="421,61,440,80" href="stamp/exsearch.rle" />
+	<area coords="0,0,69,80" nohref="nohref" />
+	<area coords="70,0,129,80" href="20/20-59202.rle" />
+	<area coords="130,0,189,80" href="16/16-9.rle" />
+	<area coords="190,0,369,80" nohref="nohref" />
+	<area coords="370,0,440,80" href="24/24pdbk4.rle" />
+</map>
+
+<hr />
+<a name="oscillator"></a>
+<h2>Searching for Oscillators</h2>
+
+<p>Oscillators may be viewed as still-lifes in a cylindrical three-dimensional
+cellular automata rule, with each plane corresponding to one Life time interval,
+where every cell's state is determined solely based on the conditions of its
+9 neighbors on the previous plane. I modified the still-life search program to
+search for such three-dimensional "still-lifes".</p>
+
+<p>A few additional considerations arose. For example, when searching for
+oscillators of a particular size, one needs to constrain the population of
+one generation, while other generations are allowed to have higher populations.
+As a result, the whole way of keeping track of populations needed to be
+done a different way. Also, all still-lifes are technically oscillators
+where all cells are stators and none are rotors, so these will be be found,
+and must later be discarded. (In fact, the vast majority of objects found
+would be of this form, so the program would spend most of its time finding
+and discarding still-lifes.)</p>
+
+<p>I have used the program to count all the period 2 oscillators (and
+pseudo-oscillators) up to 21 bits. Since, with my computer equipment,
+searching for 22-bit ones would take around 15 days of uninterrupted
+dedicated computation, I am unlikely to attempt this any time soon.</p>
+
+<p>Period 2 oscillators are a special case, in that each generation's
+parents are also that generation's children, so each generation is coupled
+to the other in two ways, and the two generations are symmetrical with each
+other. This is not true with higher periods. I have attempted to use
+the program to search for oscillators of higher periods. Unfortunately,
+in Life, the smallest such oscillators have 12 bits, and the program's
+computational requirements when finding oscillators increase so quickly
+that I was unable to even search for 12-bit objects in reasonable time.
+As a result, I leave searching for such oscillators to other people who
+have different search programs that use methodologies more suitable for
+finding higher-period oscillators.</p>
+
+<hr />
+<a name="rules"></a>
+<h2>Searching in Other Rules</h2>
+
+<p>The still-life search program can also find still-lifes and oscillators
+in other totalistic rules, provided that both birth and survival conditions
+occupy a single contiguous block, and birth-on-0 is not allowed.</p>
+
+<p>I have used it to do several
+<a class="i" href="rule34.htm#34-count">searches</a> in
+<a class="i" href="rule34.htm">3/4-Life (B34/S34)</a>. One notable
+feature of this rule is that, with birth-on-4, there are no pseudo-objects.</p>
+
+<p>A very unusual feature of B34/S34 is that, except for the 4-bit
+<a class="p" href="rule34/t4bk.rle">block</a>, still-lifes are extremely rare.
+They must all resemble large
+<a class="i" href="rule34.htm#34-p1">fortresses</a>,
+whose outer walls must have corners resembling Life's ships or long-ships, and
+connected by straight crenelations. While the interiors of such still-lifes are
+more flexible, the exterior must necessarily be constructed in this way. The
+smallest three still-lifes have 4, 36, and 44 bits respectively. I have been
+able to actually search for still-lifes up to 45 bits, because they are so
+unnatural, so the search tree has very few viable branches, so the computational
+requirements increase slowly.</p>
+
+<p>Finally, since birth and survival conditions are identical, this rule has
+the peculiar property that a cell's subsequent state is totally independent of
+its current state. Thus, a cell cannot influence its own child, but it can
+indirectly influence its own grandchild. Essentially, activity in even and odd
+cells usually appear to alternate. Not surprisingly, most known oscillators are
+<a class="i" href="rule34.htm#34-p2">period 2</a>, and a few have other even
+periods. The only exceptions are a few
+<a class="i" href="rule34.htm#34-p3">period 3</a> ones. Also, most known
+<a class="i" href="rule34.htm#34-o3">spaceships</a> move at <i>c</i>/3
+with a period of 3, that also correlates with this parity property.</p>
+
+<hr />
+<a name="synthesis"></a>
+<h2>Automated Syntheses</h2>
+
+<p>One thing that becomes quite apparent as one examines lists of larger
+objects, is that most such objects can be trivially derived from smaller,
+related objects. In fact, most object syntheses use this principle to
+synthesize larger objects from previously-synthesized smaller ones.</p>
+
+<p>I also realized that I was wasting an extraordinary amount of time
+manually creating syntheses for hundreds (and, sometimes, thousands) of objects,
+most of which were largely a matter of cutting and pasting existing pieces
+together. It would be a much more effective use of time if one could identify
+which objects could be synthesized trivially, leaving short lists of
+difficult-to-synthesize objects that would require more sophisticated
+methods.</p>
+
+<p>Around 2002, I wrote a search program that accepts a list of objects to
+synthesize and a set of synthesis recipes, and attempts to synthesize those
+objects. The output is the same list of objects, with an optional comment
+indicating a successful ancestor and synthesis recipe that can be used
+to convert that ancestor (always smaller and/or simpler) into the desired
+object. The object list is in the same format as output by the still-life
+search program. The recipes are normal Life files, with cells in 7
+different states/colors:</p>
+<p><ul>
+    <li><b>Mutable</b>: cells that may be dead or alive, and that may change
+	during the course of the synthesis, but that must ultimately return
+	to their original state. This is the default. They are used to
+	represent the empty ether where the tool gliders travel, as well as
+	where the source and target objects are placed; any cell in the
+	source object not otherwise described in the recipe must ultimately
+	remain unchanged in the target objects. Such cells <i>may</i> change
+	state if the objects are oscillators, but must not do so as a result
+	of the recipe.</li>
+    <li><b>Mutably Alive</b>: living cells that may change during the course
+	of the synthesis, but that must ultimately return to alive. These are
+	rarely used, but are sometimes useful for things like eaters, that
+	die and reform.</li>
+    <li><b>Permanently Dead</b>: dead cells that may never change during the
+	course of the synthesis. These mark "must be dead" cells in the
+	source and target objects, and are also used to constrain incoming
+	gliders so that they don't cause unwanted interactions with other
+	uninvolved parts of the objects.</li>
+    <li><b>Permanently Alive</b>: living cells that may never change during the
+	course of the synthesis. These mark necessary living cells that are common
+	to both source and target, and that must not change.</li>
+    <li><b>Birth</b>: cells that are dead in the source object, and alive in
+	the target object.</li>
+    <li><b>Death</b>: cells that are alive in the source object, and dead in
+	the target object.</li>
+    <li><b>Tool</b>: tools (typically gliders, and sometimes other spaceships)
+	that transform the source object into the target object.</li>
+</ul></p>
+
+<p>Each recipe is a template for transforming an entire class of objects that
+share one particular bonding area into a similar class of objects with
+slightly different bonding areas.</p>
+
+<p>The program is somewhat tolerant of human error. If any incorrect recipe is
+somehow included (for example, one that can never produce the specified
+outcome), the program will try to use it, but will merely never find any
+situation where the recipe is applicable, since it will always fail in any
+context where it is tried.</p>
+
+<p>There are currently over 800 recipes available to the program. The following
+is a small sampling of some of the simpler recipes. The colors indicate cell
+types: black=tools, grey=permanently dead, teal=permanently alive, pink=birth,
+brown=death.</p>
+<p><a class="p" href="stamp/exrecipe.rle"><img src="map/exrecipe.png"
+ alt="searches" width="541" height="301" usemap="#exrecipe" /></a><br />
+    <table width="545">
+    <colgroup><col width="141" /><col span="2" width="120" /><col width="162" />
+	</colgroup>
+    <tr>
+	<td rowspan="2" >Add block #3 [4]</td>
+	<td>Add boat #2 [3]</td>
+	<td>Boat to table #1 [2]</td>
+	<td>Snake to carrier #1 [5]</td>
+    </tr>
+
+    <tr>
+	<td>Boat to shillelagh #3 [3]</td>
+	<td>Snake to shillelagh #1 [4]</td>
+	<td>Add beacon #1 [6]</td>
+    </tr>
+</table></p>
+
+<map name="exrecipe">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,281,19,300" href="#bottom" />
+	<area coords="521,0,540,19" nohref="nohref" />
+	<area coords="0,0,540,300" href="stamp/exrecipe.rle" />
+</map>
+
+<p>Note that the recipes must be carefully chosen to avoid looping. This is done
+by assigning a total order to all objects. Recipes are free to convert smaller
+objects into larger ones (or objects of equal size, allowing only
+transformations from simpler to more complicated objects). For example,
+ship &lt; snake &lt; carrier &lt; beacon. Mechanisms that violate this rule
+may be used in combinations, as long as the recipe itself does not do so.
+For example, a hypothetical recipe to grow a snake by 7 bits could consist of
+growing a snake by 8 and then shrinking it by 1.</p>
+
+<p>This program has found syntheses for the following:</p>
+<p><ul>
+    <li>Most still-lifes up to 24 bits: all up to 13 bits, all but 4 14-bit
+	ones, all but 15 15-bit ones, and around 96% of the rest. (Explicit
+	syntheses for all 14-bit still-lifes were already previously known, and
+	all remaining unknown 15 through 17-bit ones have been created by
+	hand).</li>
+    <li>Most pseudo-still-lifes up to 24 bits: all up to 19 bits except 1
+	12-bit, 1 14-bit, 5 16-bit, 9 18-bit and 13 19-bit, and
+	around 99.7% of the rest. (Explicit synthesis for all remaining ones up
+	to 16 bits have been created by hand.)</li>
+    <li>Most period 2 oscillators up to 21 bits: around 80% up to 16 bits,
+	89% of 17-18 bits, 93% of 19 bits, and 95% of 20-21 bits.</li>
+    <li>Most period 2 pseudo-oscillators up to 21 bits: all but one 20-bit one,
+	all but five 21-bit ones.</li>
+    <li>Most P3 and higher oscillators up to 21 bits: all but 27 P3s, all but
+	four P4s, all but six P5s, all but one P6.</li>
+    <li>Most P8 and higher oscillators (except 14) up to 25 bits: all but two
+	P8s, all but one P10, and all P12s, P15s, P24s, P30s, P36s, P60, and
+	P120s. (Explicit syntheses for all remaining ones have been found by
+	hand.)</li>
+    <li>All P3 and higher pseudo-oscillators up to 21 bits.</li>
+</ul></p>
+
+<p>At present, the program is fairly rudimentary, and has several major
+design deficiencies:</p>
+<p><ul>
+    <li>The program does not currently work for automated synthesis of
+	moving patterns (e.g. spaceships, and especially spaceship flotillae).
+	It is actually intended to do so, but this feature does not currently
+	work.</li>
+    <li>It is mainly useful for inductive existence proofs. By default, it only
+	searches for one solution, not necessarily the best one. Finding the
+	best synthesis would require trying all methods, then recursively
+	searching all antecedents to find which path was ultimately the
+	cheapest. Ideally, this feature should be built into an expert system,
+	so one could enter an object of one's choice, and the program could
+	either output the best known synthesis, or say that none is currently
+	known.</li>
+    <li>The induction method precludes direct use of recipes that violate the
+	size ordering. There are several such recipes that would be useful, but
+	that cannot be included for this reason (unless they are combined with
+	other recipes, which limits their flexibility). (Such recipes <i>can</i>
+	of course be used manually, but cannot be included in the repertoire
+	of recipes used for general syntheses.)</li>
+    <li>Because it uses induction (e.g. building all <i>n</i>-bit objects
+	based on objects of less than <i>n</i> bits), this fails to be robust
+	if there are antecedent objects that, themselves, cannot be synthesized.
+	In several cases, these additional objects have been separately treated
+	manually, but doing so becomes less and less practical with larger
+	sizes.</li>
+    <li>A small number of recipes use source objects that have two disjoint
+	active areas. It is possible for a synthesis to be successful, but to
+	rely on a stable configuration that is not an object at all - for
+	example, two nearby still-lifes. In the few cases where this has
+	occurred so far, the antecedent had to be checked manually to make
+	sure the small adjacent still-life could be safely added. Again, while
+	this has been suitable so far, it can become less and less practical
+	with larger sizes.</li>
+    <li>Most of the recipes are designed for still-lifes (or at least
+	oscillators with fixed stators) in mind. Any cells that are close
+	enough to be adversely affected by incoming glider or their interactions
+	are forbidden. However, it is possible for large-period pulsators to
+	have areas that temporarily intrude on such areas, but move out of the
+	way before the gliders arrive. These recipes could theoretically be used
+	in such situations, but the conservative assumptions about forbidden
+	cells currently preclude this. (The alternative would be to remove
+	many such forbidden cells from the recipes. Unfortunately, this would
+	mean that many recipes might be considered viable in situations where
+	they are currently rejected outright, causing more recipes to be
+	actually tested, and as a result, substantially slowing down the
+	program's execution).</li>
+</ul></p>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>See also:</b>
+	<a class="i" href="lifeterm.htm">definitions</a>,
+	<a class="i" href="lifestr.htm">structure</a>,
+	search methodologies,
+	<a class="i" href="liferule.htm">other rules</a>,
+	<a class="i" href="lifenews.htm">news</a>,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>
+

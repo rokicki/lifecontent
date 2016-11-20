@@ -1,0 +1,31 @@
+#N 18-17069.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:01:29 2015
+x = 150, y = 120, rule = B3/S23
+79bo8bobo$78bo9boo$78b3o8bo$72bo$70bobo$71boo$94bobo$94boo$95bo$89bo$
+73bo13boo$63bo10bo13boo15bx19bo19bx$64bo7b3o30b3x17b3o6bo10b3x$62b3o
+43bx19bo4bo14bx$75bo31bx19bo5b3o11bxx$74bo31bx19bo19bx$74b3o23bxx4bxx
+12boo4boo12bxx4bx$101bxbbxx15bobboo4b3o8bxbbxx$101bxbxbx15bobobo4bo10b
+xbx$60boo11boo27bx19bo8bo10bxx$59bobo12boo16boo$61bo11bo18bobo31boo$
+92bo33bobo$126bo$122boo$121bobo$123bo$$69bo$59boo8boo$60boo6bobo$59bo
+$$79b3o$79bo$65boo13bo$66boo$65bo3$128bobo$128boo$129bo3$111bo$112boo$
+52bo58boo6bo5bobbo$52bobo65bobbobobbobo$48bo3boo33bo26boobb3o3boobboo$
+49boo36bobo25boo$48boo37boobboo21bo30bx$45bo44boo53b3x$43bobo46bo15bx
+19bo19bx$44boo21bx19bo19bxbx17bobo17bxbx$66bxbx17bobo17bxbx17bobo17bxb
+x$20bxx18boo18bxx4bxx12boo4boo12bxx4bxx12boo4boo12bxx4bxx$21bx19bo19bx
+bbxx15bobboo15bxbbxx15bobboo15bxbbxx$oo19bxbx17bobo17bxbxbx15bobobo15b
+xbxbx15bobobo15bxbxbx$boo19bxx18boo18bx19bo19bx19bo19bx$o3boo$4bobo38b
+oo$4bo41boo$45bo3boo$49bobo$49bo3$119bo$120bo$118b3o$$116bo17bo$117bo
+16bobo$115b3o16boo5$133bo$90bo40boo$5bo19bx62boo42boo$5b3o17b3x61boo$
+8bo19bx106bo$7bobo17bx64bo12bx19bo8boo8bxx$6bobo17bx64boo12bx19bo8bobo
+7bx$oo4boobb3o7bxx4bxx52boo9bobo6bxx3bx14boo3bo14bxx3bx$bobboo4bo10bx
+bbxx55bo19bx19bo19bxbbxx$bobobo5bo9bxbxbx55bobo17bxbx17bobo17bxbx$bbo
+19bx59boo18bxx18boo18bxx12$83bobo$47bo35boo48bobo$48bo31bo3bo9bo38boo$
+46b3o29bobo12bo20bo19bo$50bo28boo12b3o16bobo$49bo63boo7bo$49b3o28bo37b
+oboo$46bo33boo34bobobboo$47bo31bobo35boo$bbo4bobo35b3o58bxx18boo$3bo3b
+oo44bo13bxx18boo17bx19bo18bx$b3o4bo4bo37boo14bx19bo19bx19bo17b3x$13bob
+o36boo14bx19bo19bx19bo19bx$4boo7boo52bxx18boo18bxx18boo18bxx$4bo11boo
+8bxxbx16boobo16bx19bo19bx19bo19bx$oo3bo4boo4bobobxx4bxbxx10boo4boboo
+10bxx4bx13boo4bo13bxx4bx13boo4bo13bxx4bx$bobboo4bobo3bo4bxbbxx15bobboo
+5boo8bxbbxx15bobboo15bxbbxx15bobboo15bxbbxx$bobo6bo10bxbx17bobo7bobo7b
+xbx17bobo17bxbx17bobo17bxbx$bboo18bxx18boo7bo10bxx18boo18bxx18boo18bxx
+!

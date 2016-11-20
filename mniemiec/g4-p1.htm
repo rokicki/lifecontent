@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Still-Lifes Buildable From Four Gliders</title>
+<meta name="description"
+content="Conway's Game of Life: still-life 4 gliders lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life still life 4 five gliders still life object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Still-Lifes Buildable From Four Gliders</h1>
+
+<p align="center">
+	<a class="j" href="#g4-p1-0">First 100</a> |
+	<a class="j" href="#g4-p1-1">Last 11</a>
+</p>
+
+<hr /><hr />
+<a name="g4-p1-0"></a>
+<h2>111 <a class="i" href="p1.htm">still-lifes</a>
+<a class="i" href="glider-4.htm">buildable from four gliders</a></h2>
+<h3>First 100 still-lifes</h3>
+<p><a class="p" href="stamp/g4-p1-0.rle"><img src="map/g4-p1-0.png"
+ alt="4-glider still-lifes 1-100"
+ width="621" height="421" usemap="#g4-p1-0" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6sn.rle">Snake [4]</a></td>
+	<td><a class="p" href="0/6ac.rle">Carrier [4]</a></td>
+	<td><a class="p" href="0/7ls.rle">Python [4]</a></td>
+	<td><a class="p" href="0/8sl.rle">Shillelagh [4]</a></td>
+	<td><a class="p" href="0/8lp.rle">Long ship [4]</a></td>
+	<td><a class="p" href="0/8ht.rle">Hook w/tail [4]</a></td>
+	<td><a class="p" href="0/8vs.rle">Very long snake [4]</a></td>
+	<td><a class="p" href="0/8tt.rle">Tub w/tail [4]</a></td>
+	<td><a class="p" href="0/8cs.rle">Canoe [4]</a></td>
+	<td><a class="p" href="0/9-9.rle">9.9 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/9-6.rle">9.6 [4]</a></td>
+	<td><a class="p" href="0/9-4.rle">9.4 [4]</a></td>
+	<td><a class="p" href="0/9-5.rle">9.5 [4]</a></td>
+	<td><a class="p" href="0/9-3.rle">9.3 [4]</a></td>
+	<td><a class="p" href="10/10-4.rle">10.4 [4]</a></td>
+	<td><a class="p" href="10/10-25.rle">10.25 [4]</a></td>
+	<td><a class="p" href="10/10-21.rle">10.21 [4]</a></td>
+	<td><a class="p" href="10/10-2.rle">10.2 [4]</a></td>
+	<td><a class="p" href="10/10-7.rle">10.7 [4]</a></td>
+	<td><a class="p" href="10/10-20.rle">10.20 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="10/10-18.rle">10.18 [4]</a></td>
+	<td><a class="p" href="10/10-24.rle">10.24 [4]</a></td>
+	<td><a class="p" href="10/10-5.rle">10.5 [4]</a></td>
+	<td><a class="p" href="10/10-17.rle">10.17 [4]</a></td>
+	<td><a class="p" href="10/10-11.rle">10.11 [4]</a></td>
+	<td><a class="p" href="11/11-37.rle">11.37 [4]</a></td>
+	<td><a class="p" href="11/11-17.rle">11.17 [4]</a></td>
+	<td><a class="p" href="11/11-43.rle">11.43 [4]</a></td>
+	<td><a class="p" href="11/11-33.rle">11.33 [4]</a></td>
+	<td><a class="p" href="11/11-5.rle">11.5 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-35.rle">11.35 [4]</a></td>
+	<td><a class="p" href="11/11-4.rle">11.4 [4]</a></td>
+	<td><a class="p" href="11/11-38.rle">11.38 [4]</a></td>
+	<td><a class="p" href="11/11-11.rle">11.11 [4]</a></td>
+	<td><a class="p" href="11/11-1.rle">11.1 [4]</a></td>
+	<td><a class="p" href="11/11-30.rle">11.30 [4]</a></td>
+	<td><a class="p" href="12/12-25.rle">12.25 [4]</a></td>
+	<td><a class="p" href="12/12-27.rle">12.27 [4]</a></td>
+	<td><a class="p" href="12/12-111.rle">12.111 [4]</a></td>
+	<td><a class="p" href="12/12-112.rle">12.112 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="12/12-108.rle">12.108 [4]</a></td>
+	<td><a class="p" href="12/12-18.rle">12.18 [4]</a></td>
+	<td><a class="p" href="12/12-29.rle">12.29 [4]</a></td>
+	<td><a class="p" href="12/12-7.rle">12.7 [4]</a></td>
+	<td><a class="p" href="12/12-107.rle">12.107 [4]</a></td>
+	<td><a class="p" href="12/12-104.rle">12.104 [4]</a></td>
+	<td><a class="p" href="12/12-3.rle">12.3 [4]</a></td>
+	<td><a class="p" href="12/12-66.rle">12.66 [4]</a></td>
+	<td><a class="p" href="12/12-109.rle">12.109 [4]</a></td>
+	<td><a class="p" href="13/13-33.rle">13.33 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="13/13-224.rle">13.224 [4]</a></td>
+	<td><a class="p" href="13/13-32.rle">13.32 [4]</a></td>
+	<td><a class="p" href="13/13-26.rle">13.26 [4]</a></td>
+	<td><a class="p" href="13/13-11.rle">13.11 [4]</a></td>
+	<td><a class="p" href="13/13-171.rle">13.171 [4]</a></td>
+	<td><a class="p" href="13/13-95.rle">13.95 [4]</a></td>
+	<td><a class="p" href="14/14-433.rle">14.433 [4]</a></td>
+	<td><a class="p" href="14/14-55.rle">14.55 [4]</a></td>
+	<td><a class="p" href="14/14-591.rle">14.591 [4]</a></td>
+	<td><a class="p" href="14/14-590.rle">14.590 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="14/14-507.rle">14.507 [4]</a></td>
+	<td><a class="p" href="14/14-13.rle">14.13 [4]</a></td>
+	<td><a class="p" href="14/14-87.rle">14.87 [4]</a></td>
+	<td><a class="p" href="14/14-39.rle">14.39 [4]</a></td>
+	<td><a class="p" href="14/14-589.rle">14.589 [4]</a></td>
+	<td><a class="p" href="14/14-5.rle">14.5 [4]</a></td>
+	<td><a class="p" href="14/14-89.rle">14.89 [4]</a></td>
+	<td><a class="p" href="14/14-502.rle">14.502 [4]</a></td>
+	<td><a class="p" href="14/14-32.rle">14.32 [4]</a></td>
+	<td><a class="p" href="14/14-36.rle">14.36 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="14/14-520.rle">14.520 [4]</a></td>
+	<td><a class="p" href="14/14-11.rle">14.11 [4]</a></td>
+	<td><a class="p" href="14/14-595.rle">14.595 [4]</a></td>
+	<td><a class="p" href="14/14-526.rle">14.526 [4]</a></td>
+	<td><a class="p" href="14/14-176.rle">14.176 [4]</a></td>
+	<td><a class="p" href="15/15-94.rle">15.94 [4]</a></td>
+	<td><a class="p" href="15/15-106.rle">15.106 [4]</a></td>
+	<td><a class="p" href="15/15-114.rle">15.114 [4]</a></td>
+	<td><a class="p" href="15/15-151.rle">15.151 [4]</a></td>
+	<td><a class="p" href="15/15-243.rle">15.243 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="15/15-356.rle">15.356 [4]</a></td>
+	<td><a class="p" href="15/15-360.rle">15.360 [4]</a></td>
+	<td><a class="p" href="15/15-462.rle">15.462 [4]</a></td>
+	<td><a class="p" href="15/15-551.rle">15.551 [4]</a></td>
+	<td><a class="p" href="15/15-601.rle">15.601 [4]</a></td>
+	<td><a class="p" href="15/15-856.rle">15.856 [4]</a></td>
+	<td><a class="p" href="15/15-903.rle">15.903 [4]</a></td>
+	<td><a class="p" href="16/16-129.rle">16.129 [4]</a></td>
+	<td><a class="p" href="16/16-135.rle">16.135 [4]</a></td>
+	<td><a class="p" href="16/16-164.rle">16.164 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16-175.rle">16.175 [4]</a></td>
+	<td><a class="p" href="16/16-244.rle">16.244 [4]</a></td>
+	<td><a class="p" href="16/16-644.rle">16.644 [4]</a></td>
+	<td><a class="p" href="16/16-737.rle">16.737 [4]</a></td>
+	<td><a class="p" href="16/16-874.rle">16.874 [4]</a></td>
+	<td><a class="p" href="16/16-1123.rle">16.1123 [4]</a></td>
+	<td><a class="p" href="16/16-1942.rle">16.1942 [4]</a></td>
+	<td><a class="p" href="17/17-1296.rle">17.1296 [4]</a></td>
+	<td><a class="p" href="17/17-1572.rle">17.1572 [4]</a></td>
+	<td><a class="p" href="18/18-287.rle">18.287 [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-p1-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/g4-p1.zip" />
+	<area coords="601,401,620,420" href="stamp/g4-p1-0.rle" />
+	<area coords="0,0,69,49" href="0/6sn.rle" />
+	<area coords="70,0,129,49" href="0/6ac.rle" />
+	<area coords="130,0,189,49" href="0/7ls.rle" />
+	<area coords="190,0,249,49" href="0/8sl.rle" />
+	<area coords="250,0,309,49" href="0/8lp.rle" />
+	<area coords="310,0,369,49" href="0/8ht.rle" />
+	<area coords="370,0,429,49" href="0/8vs.rle" />
+	<area coords="430,0,489,49" href="0/8tt.rle" />
+	<area coords="490,0,549,49" href="0/8cs.rle" />
+	<area coords="550,0,620,49" href="0/9-9.rle" />
+	<area coords="0,50,69,89" href="0/9-6.rle" />
+	<area coords="70,50,129,89" href="0/9-4.rle" />
+	<area coords="130,50,189,89" href="0/9-5.rle" />
+	<area coords="190,50,249,89" href="0/9-3.rle" />
+	<area coords="250,50,309,89" href="10/10-4.rle" />
+	<area coords="310,50,369,89" href="10/10-25.rle" />
+	<area coords="370,50,429,89" href="10/10-21.rle" />
+	<area coords="430,50,489,89" href="10/10-2.rle" />
+	<area coords="490,50,549,89" href="10/10-7.rle" />
+	<area coords="550,50,620,89" href="10/10-20.rle" />
+	<area coords="0,90,69,129" href="10/10-18.rle" />
+	<area coords="70,90,129,129" href="10/10-24.rle" />
+	<area coords="130,90,189,129" href="10/10-5.rle" />
+	<area coords="190,90,249,129" href="10/10-17.rle" />
+	<area coords="250,90,309,129" href="10/10-11.rle" />
+	<area coords="310,90,369,129" href="11/11-37.rle" />
+	<area coords="370,90,429,129" href="11/11-17.rle" />
+	<area coords="430,90,489,129" href="11/11-43.rle" />
+	<area coords="490,90,549,129" href="11/11-33.rle" />
+	<area coords="550,90,620,129" href="11/11-5.rle" />
+	<area coords="0,130,69,169" href="11/11-35.rle" />
+	<area coords="70,130,129,169" href="11/11-4.rle" />
+	<area coords="130,130,189,169" href="11/11-38.rle" />
+	<area coords="190,130,249,169" href="11/11-11.rle" />
+	<area coords="250,130,309,169" href="11/11-1.rle" />
+	<area coords="310,130,369,169" href="11/11-30.rle" />
+	<area coords="370,130,429,169" href="12/12-25.rle" />
+	<area coords="430,130,489,169" href="12/12-27.rle" />
+	<area coords="490,130,549,169" href="12/12-111.rle" />
+	<area coords="550,130,620,169" href="12/12-112.rle" />
+	<area coords="0,170,69,209" href="12/12-108.rle" />
+	<area coords="70,170,129,209" href="12/12-18.rle" />
+	<area coords="130,170,189,209" href="12/12-29.rle" />
+	<area coords="190,170,249,209" href="12/12-7.rle" />
+	<area coords="250,170,309,209" href="12/12-107.rle" />
+	<area coords="310,170,369,209" href="12/12-104.rle" />
+	<area coords="370,170,429,209" href="12/12-3.rle" />
+	<area coords="430,170,489,209" href="12/12-66.rle" />
+	<area coords="490,170,549,209" href="12/12-109.rle" />
+	<area coords="550,170,620,209" href="13/13-33.rle" />
+	<area coords="0,210,69,249" href="13/13-224.rle" />
+	<area coords="70,210,129,249" href="13/13-32.rle" />
+	<area coords="130,210,189,249" href="13/13-26.rle" />
+	<area coords="190,210,249,249" href="13/13-11.rle" />
+	<area coords="250,210,309,249" href="13/13-171.rle" />
+	<area coords="310,210,369,249" href="13/13-95.rle" />
+	<area coords="370,210,429,249" href="14/14-433.rle" />
+	<area coords="430,210,489,249" href="14/14-55.rle" />
+	<area coords="490,210,549,249" href="14/14-591.rle" />
+	<area coords="550,210,620,249" href="14/14-590.rle" />
+	<area coords="0,250,69,289" href="14/14-507.rle" />
+	<area coords="70,250,129,289" href="14/14-13.rle" />
+	<area coords="130,250,189,289" href="14/14-87.rle" />
+	<area coords="190,250,249,289" href="14/14-39.rle" />
+	<area coords="250,250,309,289" href="14/14-589.rle" />
+	<area coords="310,250,369,289" href="14/14-5.rle" />
+	<area coords="370,250,429,289" href="14/14-89.rle" />
+	<area coords="430,250,489,289" href="14/14-502.rle" />
+	<area coords="490,250,549,289" href="14/14-32.rle" />
+	<area coords="550,250,620,289" href="14/14-36.rle" />
+	<area coords="0,290,69,329" href="14/14-520.rle" />
+	<area coords="70,290,129,329" href="14/14-11.rle" />
+	<area coords="130,290,189,329" href="14/14-595.rle" />
+	<area coords="190,290,249,329" href="14/14-526.rle" />
+	<area coords="250,290,309,329" href="14/14-176.rle" />
+	<area coords="310,290,369,329" href="15/15-94.rle" />
+	<area coords="370,290,429,329" href="15/15-106.rle" />
+	<area coords="430,290,489,329" href="15/15-114.rle" />
+	<area coords="490,290,549,329" href="15/15-151.rle" />
+	<area coords="550,290,620,329" href="15/15-243.rle" />
+	<area coords="0,330,69,369" href="15/15-356.rle" />
+	<area coords="70,330,129,369" href="15/15-360.rle" />
+	<area coords="130,330,189,369" href="15/15-462.rle" />
+	<area coords="190,330,249,369" href="15/15-551.rle" />
+	<area coords="250,330,309,369" href="15/15-601.rle" />
+	<area coords="310,330,369,369" href="15/15-856.rle" />
+	<area coords="370,330,429,369" href="15/15-903.rle" />
+	<area coords="430,330,489,369" href="16/16-129.rle" />
+	<area coords="490,330,549,369" href="16/16-135.rle" />
+	<area coords="550,330,620,369" href="16/16-164.rle" />
+	<area coords="0,370,69,420" href="16/16-175.rle" />
+	<area coords="70,370,129,420" href="16/16-244.rle" />
+	<area coords="130,370,189,420" href="16/16-644.rle" />
+	<area coords="190,370,249,420" href="16/16-737.rle" />
+	<area coords="250,370,309,420" href="16/16-874.rle" />
+	<area coords="310,370,369,420" href="16/16-1123.rle" />
+	<area coords="370,370,429,420" href="16/16-1942.rle" />
+	<area coords="430,370,489,420" href="17/17-1296.rle" />
+	<area coords="490,370,549,420" href="17/17-1572.rle" />
+	<area coords="550,370,620,420" href="18/18-287.rle" />
+</map>
+
+<hr />
+<a name="g4-p1-1"></a>
+<h3>Last 11 still-lifes</h3>
+<p><a class="p" href="stamp/g4-p1-1.rle"><img src="map/g4-p1-1.png"
+ alt="4-glider still-lifes 101-111"
+ width="381" height="101" usemap="#g4-p1-1" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18-355.rle">18.355 [4]</a></td>
+	<td><a class="p" href="18/18-2403.rle">18.2403 [4]</a></td>
+	<td><a class="p" href="18/18-6269.rle">18.6269 [4]</a></td>
+	<td><a class="p" href="18/18-6707.rle">18.6707 [4]</a></td>
+	<td><a class="p" href="18/18-7007.rle">18.7007 [4]</a></td>
+	<td><a class="p" href="19/19-3146.rle">19.3146 [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-703.rle">20.703 [4]</a></td>
+	<td><a class="p" href="20/20-5320.rle">20.5320 [4]</a></td>
+	<td><a class="p" href="20/20-8995.rle">20.8995 [4]</a></td>
+	<td><a class="p" href="20/20-22629.rle">20.22629 [4]</a></td>
+	<td><a class="p" href="22/22-040aa.rle">22.16554 [4]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g4-p1-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/g4-p1.zip" />
+	<area coords="361,81,380,100" href="stamp/g4-p1-1.rle" />
+	<area coords="0,0,69,49" href="18/18-355.rle" />
+	<area coords="70,0,129,49" href="18/18-2403.rle" />
+	<area coords="130,0,189,49" href="18/18-6269.rle" />
+	<area coords="190,0,249,49" href="18/18-6707.rle" />
+	<area coords="250,0,309,49" href="18/18-7007.rle" />
+	<area coords="310,0,380,49" href="19/19-3146.rle" />
+	<area coords="0,50,69,100" href="20/20-703.rle" />
+	<area coords="70,50,129,100" href="20/20-5320.rle" />
+	<area coords="130,50,189,100" href="20/20-8995.rle" />
+	<area coords="190,50,249,100" href="20/20-22629.rle" />
+	<area coords="250,50,309,100" href="22/22-040aa.rle" />
+	<area coords="310,50,380,100" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other
+<a class="i" href="glider-4.htm">objects buildable from 4 gliders</a>:</b>
+	still-lifes,
+	<a class="i" href="glider-4.htm#g4-pp1">pseudo-still-lifes</a>,
+	<a class="i" href="glider-4.htm#g4-p2">P2 oscillators</a>,
+	<a class="i" href="glider-4.htm#g4-pp2">P2 pseudo-oscillators</a>,
+	<a class="i" href="glider-4.htm#g4-p8">P8 oscillators</a>,
+	<a class="i" href="glider-4.htm#g4-cons">constellations</a>,
+	<a class="i" href="glider-4.htm#g4-meth">methuselahs</a>,
+	<a class="i" href="glider-4.htm#g4-nat">
+	    naturally-occurring objects</a>.</p>
+
+<p><b>Other costs:</b>
+	<a class="i" href="glider-2.htm">2 gliders</a>,
+	<a class="i" href="glider-3.htm">3 gliders</a>,
+	<a class="i" href="glider-4.htm">4 gliders</a>,
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	<a class="i" href="glider-6.htm">6 gliders</a>,
+	<a class="i" href="glider-e.htm">1 glider/bit</a>,
+	<a class="i" href="glider-g.htm">&gt;1 glider/bit</a>,
+	<a class="i" href="glider-u.htm">unknown</a>.</p>
+
+<p><b>Other <a class="i" href="p1.htm">still-lifes</a>:</b>
+	<a class="i" href="p1.htm#p1-4">4-bit</a>,
+	<a class="i" href="p1.htm#p1-5">5-bit</a>,
+	<a class="i" href="p1.htm#p1-6">6-bit</a>,
+	<a class="i" href="p1.htm#p1-7">7-bit</a>,
+	<a class="i" href="p1.htm#p1-8">8-bit</a>,
+	<a class="i" href="p1.htm#p1-9">9-bit</a>,
+	<a class="i" href="p1.htm#p1-10">10-bit</a>,
+	<a class="i" href="p1.htm#p1-11">11-bit</a>,
+	<a class="i" href="p1-12.htm">12-bit</a>,
+	<a class="i" href="p1-13.htm">13-bit</a>,
+	<a class="i" href="p1-14.htm">14-bit</a>,
+	<a class="i" href="p1-15.htm">15-bit</a>,
+	<a class="i" href="p1-16.htm">16-bit</a>,
+	<a class="i" href="p1-17.htm">17-bit</a>,
+	<a class="i" href="p1-18.htm">18-bit</a>,
+	<a class="i" href="p1.htm#p1-19">19-bit</a>,
+	<a class="i" href="p1.htm#p1-20">20-bit</a>,
+	<a class="i" href="p1.htm#p1-21">21-bit</a>,
+	<a class="i" href="p1.htm#p1-22">22-bit</a>,
+	<a class="i" href="p1.htm#p1-23">23-bit</a>,
+	<a class="i" href="p1.htm#p1-24">24-bit</a>,
+	<a class="i" href="p1.htm#p1-25">25-bit</a>,
+	<a class="i" href="p1.htm#p1-26">26-bit</a>,
+	<a class="i" href="p1.htm#p1-27">27-bit</a>,
+	<a class="i" href="p1.htm#p1-28">28-bit</a>,
+	<a class="i" href="p1.htm#p1-29">29-bit</a>,
+	<a class="i" href="p1.htm#p1-lg">30-bit and larger</a>,
+	<a class="i" href="p1.htm#p1-bad">not quite still</a>.</p>
+
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-30 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-30 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 30 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-30 Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p30-20">20</a> |
+	  <a class="j" href="#p30-22">22</a> |
+	  <a class="j" href="#p30-23">23</a> |
+	  <a class="j" href="#p30-24">24</a> |
+	  <a class="j" href="#p30-25">25</a> |
+	  <a class="j" href="#p30-lg">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g6-p30">6</a><br />
+	<b><a class="j" href="#nat-p30">Frequency of occurrence</a></b> |
+	<b><a class="j" href="#p30-bad">Not quite oscillators</a></b>
+</p>
+
+<hr />
+<hr />
+<a name="p30-20"></a>
+<h2>The 2 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 30 oscillators</h2>
+<p><a class="p" href="stamp/p30-20.rle"><img src="map/p30-20.png"
+ alt="20-bit period 30 oscillators"
+ width="261" height="81" usemap="#p30-20" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20bqbbk2.rle">
+	    Queen bee shuttle between trans blocks [6]</a></td>
+	<td><a class="p" href="20/20bqbbk1.rle">
+	    Queen bee shuttle between cis blocks [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p30-20.zip" />
+	<area coords="241,61,260,80" href="stamp/p30-20.rle" />
+	<area coords="0,0,129,80" href="20/20bqbbk2.rle" />
+	<area coords="130,0,260,80" href="20/20bqbbk1.rle" />
+</map>
+
+<p>The Queen bee is extremely versatile. It is a shuttle that flips over
+every 15 generations, leaving a <a class="p" href="0/6hv.rle">beehive</a> egg,
+which must be removed; in both cases above, by a
+<a class="p" href="0/4bk.rle">block</a>. The Queen bee forms the basis for the
+first <a class="i" href="gun.htm">glider gun</a> ever discovered,
+as well as many <a class="i" href="osc.htm">oscillators</a>
+with periods of 30<i>n</i>.</p>
+
+<p>It can also <a class="p" href="20/20qbeat.rle">eat gliders</a>
+many different ways:</p>
+<p><ul>
+    <li>Row 1 #1+2: left sides cook glider into block, then into toxic boat;
+	right sides cook glider into toxic block</li>
+    <li>Row 1 #3: cooks glider into boat, then into toxic blinker</li>
+    <li>Row 1 #4: both sides cook glider into toxic loaf</li>
+    <li>Row 1 #5: cooks glider into toxic beehive</li>
+    <li>Row 2 #1+2: cook glider into block, then eat the block</li>
+    <li>Row 2 #3+4: cook glider into something the block then eats</li>
+    <li>Rows 3-6: eat glider directly</li>
+</ul></p>
+
+<hr />
+<a name="p30-22"></a>
+<h2>The 2 <a class="i" href="bits-22.htm">22-bit</a>
+period 30 oscillators</h2>
+<p><a class="p" href="stamp/p30-22.rle"><img src="map/p30-22.png"
+ alt="22-bit period 30 oscillators"
+ width="261" height="81" usemap="#p30-22" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="22/22bqbet4.rle">
+	    Queen bee between block and down close eater [6]</a></td>
+	<td><a class="p" href="22/22bqbet3.rle">
+	    Queen bee between block and up close eater [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p30-22.zip" />
+	<area coords="241,61,260,80" href="stamp/p30-22.rle" />
+	<area coords="0,0,129,80" href="22/22bqbet4.rle" />
+	<area coords="130,0,260,80" href="22/22bqbet3.rle" />
+</map>
+
+<hr />
+<a name="p30-23"></a>
+<h2>The 2 <a class="i" href="bits-23.htm">23-bit</a>
+period 30 oscillators</h2>
+<p><a class="p" href="stamp/p30-23.rle"><img src="map/p30-23.png"
+ alt="23-bit period 30 oscillators"
+ width="261 " height="81" usemap="#p30-23" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="23/23bqbet2.rle">
+	    Trans buckaroo; Queen bee between block and down eater [6]</a></td>
+	<td><a class="p" href="23/23bqbet1.rle">
+	    Cis buckaroo; Queen bee between block and up eater [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p30-23.zip" />
+	<area coords="241,61,260,80" href="stamp/p30-23.rle" />
+	<area coords="0,0,129,80" href="23/23bqbet2.rle" />
+	<area coords="130,0,260,80" href="23/23bqbet1.rle" />
+</map>
+
+<p>In addition to being able to being able to eat gliders in all the same
+ways a <a class="p" href="20/20qbeat.rle">queen bee can</a>, plus several
+others, the Buckaroo can also naturally reflect gliders 90 degrees, making it
+useful in constructing glider loops of period 30<i>n</i>.</p>
+
+<hr />
+<a name="p30-24"></a>
+<h2>The 2 <a class="i" href="bits-24.htm">24-bit</a>
+period 30 oscillators</h2>
+<p><a class="p" href="stamp/p30-24.rle"><img src="map/p30-24.png"
+ alt="24-bit period 30 oscillators"
+ width="261" height="81" usemap="#p30-24" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="24/24bqbin4.rle">
+	    Queen bee between block and down close integral [8]</a></td>
+	<td><a class="p" href="24/24bqbin3.rle">
+	    Queen bee between block and up close integral [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p30-24.zip" />
+	<area coords="241,61,260,80" href="stamp/p30-24.rle" />
+	<area coords="0,0,129,80" href="24/24bqbin4.rle" />
+	<area coords="130,0,260,80" href="24/24bqbin3.rle" />
+</map>
+
+<hr />
+<a name="p30-25"></a>
+<h2>The 8 <a class="i" href="bits-25.htm">25-bit</a>
+period 30 oscillators</h2>
+<p><a class="p" href="stamp/p30-25.rle"><img src="map/p30-25.png"
+ alt="25-bit period 30 oscillators"
+ width="501" height="141" usemap="#p30-25" /></a><br />
+    <table width="505">
+    <colgroup><col width="131" /><col span="2" width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="25/25eqbet1.rle">Princess bee,
+	    Queen bee between cis close eaters [7]</a></td>
+	<td><a class="p" href="25/25bqbih4.rle">
+	    Queen bee between block and down close integral w/ hook [9]</a></td>
+	<td><a class="p" href="25/25bqbit3.rle">
+	    Queen bee between block and up close integral w/ hook [9]</a></td>
+	<td><a class="p" href="25/25bqbin2.rle">Trans buckaroo w/ integral;
+	    Queen bee between block and down integral [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="25/25bqbin1.rle">Cis buckaroo w/ integral;
+	    Queen bee between block and up integral [8]</a></td>
+	<td><a class="p" href="25/25eqbet2.rle">
+	    Queen bee between trans close eaters [7]</a></td>
+	<td><a class="p" href="25/25bqbit4.rle">
+	    Queen bee between block and down close integral w/ tub [8]</a></td>
+	<td><a class="p" href="25/25bqbit3.rle">
+	    Queen bee between block and up close integral w/ tub [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p30-25.zip" />
+	<area coords="481,121,500,140" href="stamp/p30-25.rle" />
+	<area coords="0,0,129,69" href="25/25eqbet1.rle" />
+	<area coords="130,0,249,69" href="25/25bqbih4.rle" />
+	<area coords="250,0,369,69" href="25/25bqbih3.rle" />
+	<area coords="370,0,500,69" href="25/25bqbin2.rle" />
+	<area coords="0,70,129,140" href="25/25bqbin1.rle" />
+	<area coords="130,70,249,140" href="25/25eqbet2.rle" />
+	<area coords="250,70,369,140" href="25/25bqbit4.rle" />
+	<area coords="370,70,500,140" href="25/25bqbit3.rle" />
+</map>
+
+<hr />
+<a name="p30-lg"></a>
+<h2>7 period 30 oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/p30-lg.rle"><img src="map/p30-lg.png"
+ alt="larger period 30 oscillators"
+ width="561" height="321" usemap="#p30-lg" /></a><br />
+    <table width="565">
+    <colgroup><col width="191" /><col width="180" /><col width="192" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/28tb4pu1.rle">
+	    Eureka; Four tubs hassling a pulsar [12]</a></td>
+	<td><a class="p" href="lg/28tb4pu2.rle">
+	    Skewed eureka; Four tubs hassling a skewed pulsar [12]</a></td>
+	<td rowspan="3"><a class="p" href="lg/74qb4gl2.rle">
+	    Hectic; Four queen bees shuttling 2 gliders [26]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/39badgun.rle">
+	    Capped bad gun [10]</a></td>
+	<td><a class="p" href="lg/40pc2bb.rle">
+	    Two penta- decathlons hassling two blocks [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/48p30-1.rle">
+	    Double eureka [22]</a></td>
+	<td><a class="p" href="lg/48p30-2.rle">
+	    Double skewed eureka [33]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p30-lg.zip" />
+	<area coords="541,301,560,320" href="stamp/p30-lg.rle" />
+	<area coords="0,0,189,109" href="lg/28tb4pu1.rle" />
+	<area coords="190,0,369,109" href="lg/28tb4pu2.rle" />
+	<area coords="370,0,560,320" href="lg/74qb4gl2.rle" />
+	<area coords="0,110,189,209" href="lg/39badgun.rle" />
+	<area coords="190,110,369,209" href="lg/40pc2bb.rle" />
+	<area coords="370,110,560,209" nohref="nohref" />
+	<area coords="0,210,189,320" href="lg/48p30-1.rle" />
+	<area coords="190,210,369,320" href="lg/48p30-2.rle" />
+	<area coords="370,210,560,320" nohref="nohref" />
+</map>
+
+<p>The "bad gun" is a an arrangement of two
+<a class="p" href="20/20bqbbk1.rle">queen bee shuttles</a> that forms a
+<a class="i" href="gun.htm#gun-gl">glider gun</a> that
+<a class="i" href="gun.htm#gun-bad">doesn't quite work</a>, because the escaping glider
+hits the right shuttle at the last moment; if it were advanced only 2 more
+generations, it would have escaped. This is rescued and turned into a
+period 30 oscillator by eating the glider before the
+right shuttle returns.</p>
+
+<hr />
+<hr />
+<a name="g6-p30"></a>
+<h2>6 period 30 oscillators
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-p30.rle"><img src="map/g6-p30.png"
+ alt="6-glider period 30 oscillators"
+ width="381" height="141" usemap="#g6-p30" /></a><br />
+    <table width="385">
+    <colgroup><col width="131" /><col width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20bqbbk2.rle">
+	    Queen bee shuttle between trans blocks [6]</a></td>
+	<td><a class="p" href="22/22bqbet4.rle">
+	    Queen bee between block and down close eater [6]</a></td>
+	<td><a class="p" href="23/23bqbet2.rle">
+	    Trans buckaroo; Queen bee between block and down eater [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20bqbbk1.rle">
+	    Queen bee shuttle between cis blocks [6]</a></td>
+	<td><a class="p" href="22/22bqbet3.rle">
+	    Queen bee between block and up close eater [6]</a></td>
+	<td><a class="p" href="23/23bqbet1.rle">
+	    Cis buckaroo; Queen bee between block and up eater [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p30">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/g6-p30.zip" />
+	<area coords="361,121,380,140" href="stamp/g6-p30.rle" />
+	<area coords="0,0,129,69" href="20/20bqbbk2.rle" />
+	<area coords="130,0,249,69" href="22/22bqbet4.rle" />
+	<area coords="250,0,380,69" href="23/23bqbet2.rle" />
+	<area coords="0,70,129,140" href="20/20bqbbk1.rle" />
+	<area coords="130,70,249,140" href="22/22bqbet3.rle" />
+	<area coords="250,70,380,140" href="23/23bqbet1.rle" />
+</map>
+
+<p>The Queen bee is extremely versatile. It is a shuttle that flips over
+every 15 generations, leaving a <a class="p" href="0/6hv.rle">beehive</a> egg,
+which must be removed; in both cases above, by a
+<a class="p" href="0/4bk.rle">block</a>. The Queen bee forms the basis for the
+first <a class="i" href="gun.htm">glider gun</a> ever discovered,
+as well as many <a class="i" href="osc.htm">oscillators</a>
+with periods of 30<i>n</i>.</p>
+
+<p>It can also <a class="p" href="20/20qbeat.rle">eat gliders</a>
+many different ways:</p>
+<p><ul>
+    <li>Row 1 #1+2: left sides cook glider into block, then into toxic boat;
+	right sides cook glider into toxic block</li>
+    <li>Row 1 #3: cooks glider into boat, then into toxic blinker</li>
+    <li>Row 1 #4: both sides cook glider into toxic loaf</li>
+    <li>Row 1 #5: cooks glider into toxic beehive</li>
+    <li>Row 2 #1+2: cook glider into block, then eat the block</li>
+    <li>Row 2 #3+4: cook glider into something the block then eats</li>
+    <li>Rows 3-6: eat glider directly</li>
+</ul></p>
+
+<p>In addition to being able to being able to eat gliders in all the same
+ways a <a class="p" href="20/20qbeat.rle">queen bee can</a>, plus several
+others, the Buckaroo can also naturally reflect gliders 90 degrees, making it
+useful in constructing glider loops of period 30<i>n</i>.</p>
+
+<hr />
+<hr />
+<a name="nat-p30"></a>
+<h2>The top 2 <a class="i" href="natural.htm">naturally-occurring</a>
+period 30 oscillators</h2>
+<p><a class="p" href="stamp/nat-p30.rle"><img src="map/nat-p30.png"
+ alt="natural period 30 oscillators"
+ width="261" height="81" usemap="#nat-p30" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20bqbbk2.rle">
+	    Queen bee shuttle between trans blocks [6] (5.7e8)</a></td>
+	<td><a class="p" href="20/20bqbbk1.rle">
+	    Queen bee shuttle between cis blocks [6] (5.7e8)</a></td>
+    </tr>
+</table></p>
+
+<map name="nat-p30">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/nat-p30.zip" />
+	<area coords="241,61,260,80" href="stamp/nat-p30.rle" />
+	<area coords="0,0,129,80" href="20/20bqbbk2.rle" />
+	<area coords="130,0,260,80" href="20/20bqbbk1.rle" />
+</map>
+
+<p>The Queen bee is extremely versatile. It is a shuttle that flips over
+every 15 generations, leaving a <a class="p" href="0/6hv.rle">beehive</a> egg,
+which must be removed; in both cases above, by a
+<a class="p" href="0/4bk.rle">block</a>. The Queen bee forms the basis for the
+first <a class="i" href="gun.htm">glider gun</a> ever discovered,
+as well as many <a class="i" href="osc.htm">oscillators</a>
+with periods of 30<i>n</i>.</p>
+
+<p>It can also <a class="p" href="20/20qbeat.rle">eat gliders</a>
+many different ways:</p>
+<p><ul>
+    <li>Row 1 #1+2: left sides cook glider into block, then into toxic boat;
+	right sides cook glider into toxic block</li>
+    <li>Row 1 #3: cooks glider into boat, then into toxic blinker</li>
+    <li>Row 1 #4: both sides cook glider into toxic loaf</li>
+    <li>Row 1 #5: cooks glider into toxic beehive</li>
+    <li>Row 2 #1+2: cook glider into block, then eat the block</li>
+    <li>Row 2 #3+4: cook glider into something the block then eats</li>
+    <li>Rows 3-6: eat glider directly</li>
+</ul></p>
+
+<hr />
+<hr />
+<a name="p30-bad"></a>
+<h2>2 <a class="i" href="bits-bad.htm">Not quite</a>
+period 30 oscillators</h2>
+<p><a class="p" href="stamp/p30-bad.rle"><img src="map/p30-bad.png"
+ alt="not quite P30"
+ width="261" height="81" usemap="#p30-bad" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="14/14qbqb1.rle">
+	    Two Queen bee shuttles #1 [4]</a></td>
+	<td><a class="p" href="14/14qbqb2.rle">
+	    Two Queen bee shuttles #2 [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p30-bad.zip" />
+	<area coords="241,61,260,80" href="stamp/p30-bad.rle" />
+	<area coords="0,0,129,80" href="14/14qbqb1.rle" />
+	<area coords="130,0,260,80" href="14/14qbqb2.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="pp30.htm">period-30 pseudo-oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	30,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

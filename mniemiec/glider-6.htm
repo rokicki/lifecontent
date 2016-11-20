@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Buildable With 6 Gliders</title>
+<meta name="description"
+content="Conway's Game of Life: Syntheses of objects from 4 gliders" />
+<meta name="keywords" content="conway game life six 6 glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Objects Buildable With 6 Gliders</h1>
+
+<p align="center">
+	<a class="j" href="#g6-p1">Still-lifes</a> |
+	<a class="j" href="#g6-pp1">Pseudo-still-lifes</a> |
+	<a class="j" href="#g6-p2">P2 oscillators</a> |
+	<a class="j" href="#g6-pp2">P2 pseudo-oscillators</a> |
+	<a class="j" href="#g6-p3">P3 oscillator</a> |
+	<a class="j" href="#g6-p5">P5 oscillator</a> |
+	<a class="j" href="#g6-p6">P6 oscillator</a> |
+	<a class="j" href="#g6-p8">P8 oscillator</a> |
+	<a class="j" href="#g6-p14">P14 oscillator</a> |
+	<a class="j" href="#g6-p15">P15 oscillators</a> |
+	<a class="j" href="#g6-pp15">P15 pseudo-oscillators</a> |
+	<a class="j" href="#g6-p30">P30 oscillators</a> |
+	<a class="j" href="#g6-pp30">P30 pseudo-oscillators</a> |
+	<a class="j" href="#g6-ss">Spaceships</a> |
+	<a class="j" href="#g6-cons">Constellations</a> |
+	<a class="j" href="#g6-meth">Methuselahs</a> |
+	<a class="j" href="#g6-nat">Naturally-occurring objects</a>
+</p>
+
+<hr /><hr />
+<p>Since only a small fraction of all the possible 6-glider interactions have
+been tracked, it is likely that many of these lists are incomplete.</p>
+
+<p>Also, these lists include all objects from the other "regular" synthesis
+lists that require 6 gliders, but there has been no attempt to systematically
+extend these lists to include larger trivial objects (for example, by adding a
+boat via the 1-glider "boat bit" method to all 5-glider objects and
+pseudo-objects) as was done for the <a class="i" href="glider-4.htm">3-</a>,
+<a class="i" href="glider-4.htm">4-</a> and
+<a class="i" href="glider-5.htm">5-glider</a> lists.</p>
+
+<hr />
+<hr />
+<a name="g6-p1"></a>
+<h2>217 <a class="i" href="p1.htm">still-lifes</a>
+buildable from 6 gliders</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="g6-p1.htm">separate page</a>.</p>
+
+<hr />
+<a name="g6-pp1"></a>
+<h2>253 <a class="i" href="pp1.htm">pseudo-still-lifes</a>
+buildable from 6 gliders</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="g6-pp1.htm">separate page</a>.</p>
+
+<hr />
+<a name="g6-p2"></a>
+<h2>14 <a class="i" href="p2.htm">period 2 oscillators</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-p2.rle"><img src="map/g6-p2.png"
+ alt="6-glider period 2 oscillators"
+ width="581" height="141" usemap="#g6-p2" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="10/10qp.rle">
+	    Quadpole [6]</a></td>
+	<td><a class="p" href="14/14bcct1.rle">
+	    Up beacon on cap; Cis- beacon and cap [6]</a></td>
+	<td><a class="p" href="14/14bcle1.rle">Up beacon on up long bookend;
+	    Cis- beacon up and long hook [6]</a></td>
+	<td><a class="p" href="14/14ttb.rle">
+	    Test tube baby [6]</a></td>
+	<td><a class="p" href="14/14bcle3.rle">Up beacon on down long bookend;
+	    Cis- beacon down and long hook [6]</a></td>
+	<td><a class="p" href="14/14bcle4.rle">Down beacon on down long bookend;
+	    Trans- beacon up and long hook [6]</a></td>
+	<td><a class="p" href="14/14bcle2.rle">Down beacon on up long bookend;
+	    Trans- beacon down and long hook [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="12/12bcta1.rle">
+	    Up beacon on table; Cis- beacon and table [6]</a></td>
+	<td><a class="p" href="12/12bcta2.rle">
+	    Down beacon on table; Trans- beacon and table [6]</a></td>
+	<td><a class="p" href="19/19sctb.rle">
+	    Spark coil w/ tub [6]</a></td>
+	<td><a class="p" href="21/21bcdkcg.rle">
+	    Up beacon on down dock w/ down mango [6]</a></td>
+	<td><a class="p" href="lg/28scbts1.rle">
+	    Spark coil tie cis boats [6]</a></td>
+	<td><a class="p" href="lg/28scbts2.rle">
+	    Spark coil tie trans boats [6]</a></td>
+	<td><a class="p" href="lg/32dsc.rle">
+	    Double spark coil [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/g6-p2.zip" />
+	<area coords="561,121,580,140" href="stamp/g6-p2.rle" />
+	<area coords="0,0,89,69" href="10/10qp.rle" />
+	<area coords="90,0,169,69" href="14/14bcct1.rle" />
+	<area coords="170,0,249,69" href="14/14bcle1.rle" />
+	<area coords="250,0,329,69" href="14/14ttb.rle" />
+	<area coords="330,0,409,69" href="14/14bcle3.rle" />
+	<area coords="410,0,489,69" href="14/14bcle4.rle" />
+	<area coords="490,0,580,69" href="14/14bcle2.rle" />
+	<area coords="0,70,89,140" href="12/12bcta1.rle" />
+	<area coords="90,70,169,140" href="12/12bcta2.rle" />
+	<area coords="170,70,249,140" href="19/19sctb.rle" />
+	<area coords="250,70,329,140" href="21/21bcdkcg.rle" />
+	<area coords="330,70,409,140" href="lg/28scbts1.rle" />
+	<area coords="410,70,489,140" href="lg/28scbts2.rle" />
+	<area coords="490,70,580,140" href="lg/32dsc.rle" />
+</map>
+
+<hr />
+<a name="g6-pp2"></a>
+<h2>30 <a class="i" href="pp2.htm">period 2 pseudo-oscillators</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-pp2.rle"><img src="map/g6-pp2.png"
+ alt="6-glider P2 pseudo-oscillators"
+ width="621" height="201" usemap="#g6-pp2" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="11/11bcbt2.rle">
+	    Down boat on beacon [6]</a></td>
+	<td><a class="p" href="12/12tdtd2.rle">
+	    Down toad on toad [6]</a></td>
+	<td><a class="p" href="12/12bcsh1.rle">
+	    Up ship on beacon [6]</a></td>
+	<td><a class="p" href="12/12bcbc1.rle">
+	    Up cis beacon on beacon [6]</a></td>
+	<td><a class="p" href="12/12bcsh2.rle">
+	    Down ship on beacon [6]</a></td>
+	<td><a class="p" href="12/12bcbc2.rle">
+	    Down cis beacon on beacon [6]</a></td>
+	<td><a class="p" href="13/13bclb1.rle">
+	    Up long boat on beacon [6]</a></td>
+	<td><a class="p" href="13/13bpbt1.rle">
+	    Up boat on bipole [6]</a></td>
+	<td><a class="p" href="13/13bclf1.rle">
+	    Up loaf on beacon [6]</a></td>
+	<td><a class="p" href="13/13bclf2.rle">
+	    Down loaf on beacon [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="13/13bclb2.rle">
+	    Down long boat on beacon [6]</a></td>
+	<td><a class="p" href="14/14bcbc3.rle">
+	    Up trans beacon on beacon [6]</a></td>
+	<td><a class="p" href="14/14bbcbk2.rle">
+	    Trans block on beacon on block [6]</a></td>
+	<td><a class="p" href="14/14bcbc4.rle">
+	    Down trans beacon on beacon [6]</a></td>
+	<td><a class="p" href="14/14qpbk.rle">
+	    Block on quad- pole [6]</a></td>
+	<td><a class="p" href="15/15bcbbt1.rle">
+	    Up boat on block on beacon [6]</a></td>
+	<td><a class="p" href="15/15bcbbt2.rle">
+	    Down boat on block on beacon [6]</a></td>
+	<td><a class="p" href="15/15bbcbt3.rle">
+	    Cis block and down boat on beacon beacon [6]</a></td>
+	<td><a class="p" href="16/16bcbhv.rle">
+	    Beehive on block on beacon [6]</a></td>
+	<td><a class="p" href="16/16bbchv2.rle">
+	    Trans block on beacon on beehive [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16bbcbc1.rle">
+	    Cis block on up beacon on beacon [6]</a></td>
+	<td><a class="p" href="16/16qpsh1.rle">
+	    Up ship on quad- pole [6]</a></td>
+	<td><a class="p" href="16/16bbchv1.rle">
+	    Cis block on beacon on beehive [6]</a></td>
+	<td><a class="p" href="17/17bcbet6.rle">
+	    Down eater above block on beacon [6]</a></td>
+	<td><a class="p" href="17/17bbcetc.rle">
+	    Trans block on beacon above down eater [6]</a></td>
+	<td><a class="p" href="17/17bbchv3.rle">
+	    Trans up boat on beacon on beehive [6]</a></td>
+	<td><a class="p" href="17/17bbceta.rle">
+	    Trans block on beacon above up eater [6]</a></td>
+	<td><a class="p" href="17/17bbchv1.rle">
+	    Cis up boat on beacon on beehive [6]</a></td>
+	<td><a class="p" href="lg/26scbbk.rle">
+	    Two blocks on spark coil [6]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g6-pp2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/g6-pp2.zip" />
+	<area coords="601,181,620,200" href="stamp/g6-pp2.rle" />
+	<area coords="0,0,69,69" href="11/11bcbt2.rle" />
+	<area coords="70,0,129,69" href="12/12tdtd2.rle" />
+	<area coords="130,0,189,69" href="12/12bcsh1.rle" />
+	<area coords="190,0,249,69" href="12/12bcbc1.rle" />
+	<area coords="250,0,309,69" href="12/12bcsh2.rle" />
+	<area coords="310,0,369,69" href="12/12bcbc2.rle" />
+	<area coords="370,0,429,69" href="13/13bclb1.rle" />
+	<area coords="430,0,489,69" href="13/13bpbt1.rle" />
+	<area coords="490,0,549,69" href="13/13bclf1.rle" />
+	<area coords="550,0,620,69" href="13/13bclf2.rle" />
+	<area coords="0,70,69,129" href="13/13bclb2.rle" />
+	<area coords="70,70,129,129" href="14/14bcbc3.rle" />
+	<area coords="130,70,189,129" href="14/14bbcbk2.rle" />
+	<area coords="190,70,249,129" href="14/14bcbc4.rle" />
+	<area coords="250,70,309,129" href="14/14qpbk.rle" />
+	<area coords="310,70,369,129" href="15/15bcbbt1.rle" />
+	<area coords="370,70,429,129" href="15/15bcbbt2.rle" />
+	<area coords="430,70,489,129" href="15/15bbcbt3.rle" />
+	<area coords="490,70,549,129" href="16/16bcbhv.rle" />
+	<area coords="550,70,620,129" href="16/16bbchv2.rle" />
+	<area coords="0,130,69,200" href="16/16bbcbc1.rle" />
+	<area coords="70,130,129,200" href="16/16qpsh1.rle" />
+	<area coords="130,130,189,200" href="16/16bbchv1.rle" />
+	<area coords="190,130,249,200" href="17/17bcbet6.rle" />
+	<area coords="250,130,309,200" href="17/17bbcetc.rle" />
+	<area coords="310,130,369,200" href="17/17bbchv3.rle" />
+	<area coords="370,130,429,200" href="17/17bbceta.rle" />
+	<area coords="430,130,489,200" href="17/17bbchv1.rle" />
+	<area coords="490,130,549,200" href="lg/26scbbk.rle" />
+	<area coords="550,130,620,200" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g6-p3"></a>
+<h2>2  <a class="i" href="p3.htm">period 3 oscillators</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-p3.rle"><img src="map/g6-p3.png"
+ alt="6-glider P3s" width="181" height="81" usemap="#g6-p3" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16kyky1.rle">Short Keys [6]</a></td>
+	<td><a class="p" href="lg/36p3sd.rle">Snake dance [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/g6-p3.zip" />
+	<area coords="161,61,180,80" href="stamp/g6-p3.rle" />
+	<area coords="0,0,89,80" href="16/16kyky1.rle" />
+	<area coords="90,0,180,80" href="lg/36p3sd.rle" />
+</map>
+
+<hr />
+<a name="g6-p5"></a>
+<h2>1  <a class="i" href="p5.htm">period 5 oscillator</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-p5.rle"><img src="map/g6-p5.png"
+ alt="g6 P5" width="81" height="61" usemap="#g6-p5" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16oc.rle">Octagon II [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g6-p5.zip" />
+	<area coords="61,41,80,60" href="stamp/g6-p5.rle" />
+	<area coords="0,0,80,60" href="16/16oc.rle" />
+</map>
+
+<p>Octagon II has eight <a class="i" href="lifeterm.htm#spark">fingers</a>
+that can sometimes be used to hassle other oscillators like the
+<a class="i" href="period.htm#p50">period 50</a>
+<a class="p" href="lg/92p50tj.rle">Traffic Jam</a>.</p>
+
+<hr />
+<a name="g6-p6"></a>
+<h2>1 <a class="i" href="p6.htm">period 6 oscillator</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-p6.rle"><img src="map/g6-p6.png"
+ alt="6g P6" width="81" height="81" usemap="#g6-p6" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16ux.rle">Unix [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g6-p6.zip" />
+	<area coords="61,61,80,80" href="stamp/g6-p6.rle" />
+	<area coords="0,0,80,80" href="16/16ux.rle" />
+</map>
+
+<p>The Unix is the smallest oscillator that produces a period 6
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+<hr />
+<a name="g6-p8"></a>
+<h2>1 <a class="i" href="p8.htm">period 8 oscillator</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-p8.rle"><img src="map/g6-p8.png"
+ alt="6g P8" width="81" height="61" usemap="#g6-p8" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="15/15br.rle">Blocker [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g6-p8.zip" />
+	<area coords="61,41,80,60" href="stamp/g6-p8.rle" />
+	<area coords="0,0,80,60" href="15/15br.rle" />
+</map>
+
+<p>The blocker is the smallest oscillator that produces a period 8
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+<hr />
+<a name="g6-p14"></a>
+<h2>The 1 <a class="i" href="p14.htm">period 14 oscillator</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-p14.rle"><img src="map/g6-p14.png"
+ alt="6g P14" width="81" height="61" usemap="#g6-p14" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16tu.rle">
+	    Tumbler [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p14">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g6-p14.zip" />
+	<area coords="61,41,80,60" href="stamp/g6-p14.rle" />
+	<area coords="0,0,80,60" href="16/16tu.rle" />
+</map>
+
+<hr />
+<a name="g6-p15"></a>
+<h2>16 <a class="i" href="p15.htm">period 15 oscillators</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-p15.rle"><img src="map/g6-p15.png"
+ alt="6-glider period 15 oscillators"
+ width="581" height="421" usemap="#g6-p15" /></a><br />
+    <table width="585">
+    <colgroup><col width="151" /><col span="2" width="140" /><col width="152" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19pcet.rle">
+	    Eater eating penta- decathlon [6]</a></td>
+	<td><a class="p" href="lg/28pcpc21.rle">
+	    Penta- decathlon on penta- decathlon #21 [6]</a></td>
+	<td><a class="p" href="lg/28pcpc20.rle">
+	    Penta- decathlon on penta- decathlon #20 [6]</a></td>
+	<td><a class="p" href="lg/31pcpc27.rle">
+	    Penta- decathlon on penta- decathlon #27 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/30pcpc16.rle">
+	    Penta- decathlon on penta- decathlon #16 [6]</a></td>
+	<td><a class="p" href="lg/30pcpc17.rle">
+	    Penta- decathlon on penta- decathlon #17 [6]</a></td>
+	<td><a class="p" href="lg/30pcpc22.rle">
+	    Penta- decathlon on penta- decathlon #22 [6]</a></td>
+	<td><a class="p" href="lg/30pcpc23.rle">
+	    Penta- decathlon on penta- decathlon #23 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/32pcpc18.rle">
+	    Penta- decathlon on penta- decathlon #18 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc29.rle">
+	    Penta- decathlon on penta- decathlon #29 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc30.rle">
+	    Penta- decathlon on penta- decathlon #30 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc28.rle">
+	    Penta- decathlon on penta- decathlon #28 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/32pcpc26.rle">
+	    Penta- decathlon on penta- decathlon #26 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc24.rle">
+	    Penta- decathlon on penta- decathlon #24 [6]</a></td>
+	<td><a class="p" href="lg/32pcpc25.rle">
+	    Penta- decathlon on penta- decathlon #25 [6]</a></td>
+	<td><a class="p" href="lg/34pcpc19.rle">
+	    Penta- decathlon on penta- decathlon #19 [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/g6-p15.zip" />
+	<area coords="561,401,580,420" href="stamp/g6-p15.rle" />
+	<area coords="0,0,149,109" href="19/19pcet.rle" />
+	<area coords="150,0,289,109" href="lg/28pcpc21.rle" />
+	<area coords="290,0,429,109" href="lg/28pcpc20.rle" />
+	<area coords="430,0,580,109" href="lg/31pcpc27.rle" />
+	<area coords="0,110,149,209" href="lg/30pcpc16.rle" />
+	<area coords="150,110,289,209" href="lg/30pcpc17.rle" />
+	<area coords="290,110,429,209" href="lg/30pcpc22.rle" />
+	<area coords="430,110,580,209" href="lg/30pcpc23.rle" />
+	<area coords="0,210,149,309" href="lg/32pcpc18.rle" />
+	<area coords="150,210,289,309" href="lg/32pcpc29.rle" />
+	<area coords="290,210,429,309" href="lg/32pcpc30.rle" />
+	<area coords="430,210,580,309" href="lg/32pcpc28.rle" />
+	<area coords="0,310,149,420" href="lg/32pcpc26.rle" />
+	<area coords="150,310,289,420" href="lg/32pcpc24.rle" />
+	<area coords="290,310,429,420" href="lg/32pcpc25.rle" />
+	<area coords="430,310,580,420" href="lg/34pcpc19.rle" />
+</map>
+
+<hr />
+<a name="g6-pp15"></a>
+<h2>6 <a class="i" href="pp15.htm">period 15 pseudo-oscillators</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-pp15.rle"><img src="map/g6-pp15.png"
+ alt="6-glider P15 pseudo-oscillators"
+ width="501" height="81" usemap="#g6-pp15" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18pcsh.rle">
+	    Ship on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pclf.rle">
+	    Loaf on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pcet2.rle">
+	    Penta- decathlon below eater [6]</a></td>
+	<td><a class="p" href="19/19pclb.rle">
+	    long boat on penta- decathlon [6]</a></td>
+	<td><a class="p" href="20/20pccg.rle">
+	    Mango on penta- decathlon [6]</a></td>
+	<td><a class="p" href="21/21pcbbt.rle">
+	    Boat on block on penta- decathlon [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-pp15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/g6-pp15.zip" />
+	<area coords="481,61,500,80" href="stamp/g6-pp15.rle" />
+	<area coords="0,0,89,80" href="18/18pcsh.rle" />
+	<area coords="90,0,169,80" href="19/19pclf.rle" />
+	<area coords="170,0,249,80" href="19/19pcet2.rle" />
+	<area coords="250,0,329,80" href="19/19pclb.rle" />
+	<area coords="330,0,409,80" href="20/20pccg.rle" />
+	<area coords="410,0,500,80" href="21/21pcbbt.rle" />
+</map>
+
+<hr />
+<a name="g6-p30"></a>
+<h2>6 <a class="i" href="p30.htm">period 30 oscillators</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-p30.rle"><img src="map/g6-p30.png"
+ alt="6-glider period 30 oscillators"
+ width="381" height="141" usemap="#g6-p30" /></a><br />
+    <table width="385">
+    <colgroup><col width="131" /><col width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20bqbbk2.rle">
+	    Queen bee shuttle between trans blocks [6]</a></td>
+	<td><a class="p" href="22/22bqbet4.rle">
+	    Queen bee between block and down close eater [6]</a></td>
+	<td><a class="p" href="23/23bqbet2.rle">
+	    Trans buckaroo; Queen bee between block and down eater [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20bqbbk1.rle">
+	    Queen bee shuttle between cis blocks [6]</a></td>
+	<td><a class="p" href="22/22bqbet3.rle">
+	    Queen bee between block and up close eater [6]</a></td>
+	<td><a class="p" href="23/23bqbet1.rle">
+	    Cis buckaroo; Queen bee between block and up eater [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p30">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/g6-p30.zip" />
+	<area coords="361,121,380,140" href="stamp/g6-p30.rle" />
+	<area coords="0,0,129,69" href="20/20bqbbk2.rle" />
+	<area coords="130,0,249,69" href="22/22bqbet4.rle" />
+	<area coords="250,0,380,69" href="23/23bqbet2.rle" />
+	<area coords="0,70,129,140" href="20/20bqbbk1.rle" />
+	<area coords="130,70,249,140" href="22/22bqbet3.rle" />
+	<area coords="250,70,380,140" href="23/23bqbet1.rle" />
+</map>
+
+<p>The Queen bee is extremely versatile. It is a shuttle that flips over
+every 15 generations, leaving a <a class="p" href="0/6hv.rle">beehive</a> egg,
+which must be removed; in both cases above, by a
+<a class="p" href="0/4bk.rle">block</a>. The Queen bee forms the basis for the
+first <a class="i" href="gun.htm">glider gun</a> ever discovered,
+as well as many <a class="i" href="osc.htm">oscillators</a>
+with periods of 30<i>n</i>.</p>
+
+<p>It can also <a class="p" href="20/20qbeat.rle">eat gliders</a>
+many different ways:</p>
+<p><ul>
+    <li>Row 1 #1+2: left sides cook glider into block, then into toxic boat;
+	right sides cook glider into toxic block</li>
+    <li>Row 1 #3: cooks glider into boat, then into toxic blinker</li>
+    <li>Row 1 #4: both sides cook glider into toxic loaf</li>
+    <li>Row 1 #5: cooks glider into toxic beehive</li>
+    <li>Row 2 #1+2: cook glider into block, then eat the block</li>
+    <li>Row 2 #3+4: cook glider into something the block then eats</li>
+    <li>Rows 3-6: eat glider directly</li>
+</ul></p>
+
+<p>In addition to being able to being able to eat gliders in all the same
+ways a <a class="p" href="20/20qbeat.rle">queen bee can</a>, plus several
+others, the Buckaroo can also naturally reflect gliders 90 degrees, making it
+useful in constructing glider loops of period 30<i>n</i>.</p>
+
+<hr />
+<a name="g6-pp30"></a>
+<h2>3 <a class="i" href="pp30.htm">period 30 pseudo-oscillators</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-pp30.rle"><img src="map/g6-pp30.png"
+ alt="6-glider P30 pseudo-oscillators"
+ width="381" height="81" usemap="#g6-pp30" /></a><br />
+    <table width="385">
+    <colgroup><col width="131" /><col width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18pcbc.rle">
+	    Beacon on penta- decathlon [6]</a></td>
+	<td><a class="p" href="24/24bqbbb2.rle">
+	    Queen bee between trans block and block on block [6]</a></td>
+	<td><a class="p" href="24/24bqbbb1.rle">
+	    Queen bee between cis block and block on block [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-pp30">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/g6-pp30.zip" />
+	<area coords="361,61,380,80" href="stamp/g6-pp30.rle" />
+	<area coords="0,0,129,80" href="18/18pcbc.rle" />
+	<area coords="130,0,249,80" href="24/24bqbbb2.rle" />
+	<area coords="250,0,380,80" href="24/24bqbbb1.rle" />
+</map>
+
+<p>The beacon on pentadecathlon has a pseudo-period of 30, a composite of 2 and
+15.</p>
+
+<hr />
+<a name="g6-ss"></a>
+<h2>The 4 <a class="i" href="ss.htm">spaceships</a>
+<a class="i" href="glider-3.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-ss.rle"><img src="map/g6-ss.png"
+ alt="6-glider spaceships"
+ width="341" height="81" usemap="#g6-ss" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/22hwlw3.rle">LWSS on HWSS #3 [6]</a></td>
+	<td><a class="p" href="ss/22hwlw4.rle">LWSS on HWSS #4 [6]</a></td>
+	<td><a class="p" href="ss/23mwlw2.rle">LWSS on MWSS #2 [6]</a></td>
+	<td><a class="p" href="ss/26hwhw4.rle">HWSS on HWSS #4 [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/g6-ss.zip" />
+	<area coords="321,61,340,80" href="stamp/g6-ss.rle" />
+	<area coords="0,0,89,80" href="ss/22hwlw3.rle" />
+	<area coords="90,0,169,80" href="ss/22hwlw4.rle" />
+	<area coords="170,0,249,80" href="ss/23mwlw2.rle" />
+	<area coords="250,0,340,80" href="ss/26hwhw4.rle" />
+</map>
+
+<hr />
+<a name="g6-cons"></a>
+<h2>5 small <a class="i" href="cons.htm">constellations</a>
+buildable from 6 gliders</h2>
+<p>There are an infinite number of 6-glider constellations;
+these are some of the most common.</p>
+<p><a class="p" href="stamp/g6-cons.rle"><img src="map/g6-cons.png"
+ alt="6-glider constellations"
+ width="341" height="101" usemap="#g6-cons" /></a><br />
+    <table width="345">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="12/12kt.rle">Killer toads [6]</a></td>
+	<td><a class="p" href="12/12e5.rle">Eater-5 [6]</a></td>
+	<td><a class="p" href="24/24sfl.rle">Small fleet [6]</a></td>
+	<td><a class="p" href="24/24shf.rle">Small honey- farm [6]</a></td>
+	<td><a class="p" href="lg/32laundr.rle">Laundromat [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/g6-cons.zip" />
+	<area coords="321,81,340,100" href="stamp/g6-cons.rle" />
+	<area coords="0,0,69,100" href="12/12kt.rle" />
+	<area coords="70,0,129,100" href="12/12e5.rle" />
+	<area coords="130,0,189,100" href="24/24sfl.rle" />
+	<area coords="190,0,249,100" href="24/24shf.rle" />
+	<area coords="250,0,340,100" href="lg/32laundr.rle" />
+</map>
+
+<hr />
+<a name="g6-meth"></a>
+<h2>1 <a class="i" href="meth.htm">methuselah</a>
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-meth.rle"><img src="map/g6-meth.png"
+ alt="6gl meth"
+ width="81" height="61" usemap="#g6-meth" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6tm.rle">
+	    Thompson's 6-bit methuselah [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/6tm.rle">
+	    Loaf, 6 blocks and 12 blinkers (@608)</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g6-meth.zip" />
+	<area coords="61,41,80,60" href="stamp/g6-meth.rle" />
+	<area coords="0,0,80,60" href="0/6tm.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="g6-nat"></a>
+<h2>The top 21 <a class="i" href="natural.htm">naturally-occurring</a> objects
+buildable from 6 gliders</h2>
+<p><a class="p" href="stamp/g6-nat.rle"><img src="map/g6-nat.png"
+ alt="6-glider natural objects"
+ width="501" height="201" usemap="#g6-nat" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="15/15-472.rle">
+	    15.472; Down boat on dock [6] (5.6e6)</a></td>
+	<td><a class="p" href="12/12-113.rle">
+	    12.113; Snorkel loop [6] (6.7e6)</a></td>
+	<td><a class="p" href="10/10qp.rle">
+	    Quad- pole [6] (8.2e6)</a></td>
+	<td><a class="p" href="12/12-73.rle">
+	    12.73; Integral w/ beehive; Beehive w/ nine [6] (8.4e6)</a></td>
+	<td><a class="p" href="15/15-8.rle">
+	    15.8; Up bun on wing; Cis R-bee on and R-loaf [6] (8.5e6)</a></td>
+	<td><a class="p" href="13/13-10.rle">
+	    13.10; Long boat tie ship (8.6e6)</a></td>
+	<td><a class="p" href="15/15br.rle">
+	    Blocker [6] (3.7e8)</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="20/20bqbbk2.rle">
+	    Queen bee between trans blocks [6] (5.7e8)</a></td>
+	<td colspan="2"><a class="p" href="20/20bqbbk1.rle">
+	    Queen bee between cis blocks [6] (5.7e8)</a></td>
+	<td><a class="p" href="12/12bcta1.rle">
+	    Up beacon on table; Cis- beacon and table [6] (9.0e8)</a></td>
+	<td><a class="p" href="12/12bcta2.rle">
+	    Down beacon on table; Trans- beacon and table [6] (9.3e8)</a></td>
+	<td><a class="p" href="14/14ttb.rle">
+	    Test tube baby [8] (1.3e9)</a></td>
+	<td><a class="p" href="16/16oc.rle">
+	    Octagon II [6] (1.7e9)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16ux.rle">
+	    Unix [6] (1.7e9)</a></td>
+	<td><a class="p" href="16/16tu.rle">
+	    Tumbler [6] (2.3e9)</a></td>
+	<td><a class="p" href="14/14bcle1.rle">Up beacon on up long bookend;
+	    Cis- beacon up and long hook [6] (3.0e9)</a></td>
+	<td><a class="p" href="14/14bcct1.rle">
+	    Up beacon on cap; Cis- beacon and cap [6] (3.3e9)</a></td>
+	<td><a class="p" href="21/21bcdkcg.rle">
+	    Up beacon on down dock w/ down mango [6] (3.6e9)</a></td>
+	<td><a class="p" href="14/14bcle3.rle">Up beacon on down long bookend
+	    Cis- beacon down and long hook [6] (3.9e9)</a></td>
+	<td><a class="p" href="14/14bcle2.rle">Down beacon on up long bookend;
+	    Trans- beacon down and long hook [6] (1.0e10)</a></td>
+	<td><a class="p" href="14/14bcle4.rle">Down beacon on down long bookend;
+	    Trans- beacon up and long hook [6] (2.5e10)</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-nat">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/g6-nat.zip" />
+	<area coords="481,181,500,200" href="stamp/g6-nat.rle" />
+	<area coords="0,0,69,69" href="15/15-472.rle" />
+	<area coords="70,0,129,69" href="12/12-113.rle" />
+	<area coords="130,0,189,69" href="10/10qp.rle" />
+	<area coords="190,0,249,69" href="12/12-73.rle" />
+	<area coords="250,0,309,69" href="15/15-8.rle" />
+	<area coords="310,0,369,69" href="13/13-10.rle" />
+	<area coords="370,0,429,69" href="15/15br.rle" />
+	<area coords="430,0,500,69" nohref="nohref" />
+	<area coords="0,70,129,129" href="20/20bqbbk2.rle" />
+	<area coords="130,70,249,129" href="20/20bqbbk1.rle" />
+	<area coords="250,70,309,129" href="12/12bcta1.rle" />
+	<area coords="310,70,369,129" href="12/12bcta2.rle" />
+	<area coords="370,70,429,129" href="14/14ttb.rle" />
+	<area coords="430,70,500,129" href="16/16oc.rle" />
+	<area coords="0,130,69,200" href="16/16ux.rle" />
+	<area coords="70,130,129,200" href="16/16tu.rle" />
+	<area coords="130,130,189,200" href="14/14bcle1.rle" />
+	<area coords="190,130,249,200" href="14/14bcct1.rle" />
+	<area coords="250,130,309,200" href="21/21bcdkcg.rle" />
+	<area coords="310,130,369,200" href="14/14bcle3.rle" />
+	<area coords="370,130,429,200" href="14/14bcle2.rle" />
+	<area coords="430,130,500,200" href="14/14bcle4.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other costs:</b>
+	<a class="i" href="glider-2.htm">2 gliders</a>,
+	<a class="i" href="glider-3.htm">3 gliders</a>,
+	<a class="i" href="glider-4.htm">4 gliders</a>,
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	6 gliders,
+	<a class="i" href="glider-e.htm">1 glider/bit</a>,
+	<a class="i" href="glider-g.htm">&gt;1 glider/bit</a>,
+	<a class="i" href="glider-u.htm">unknown</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

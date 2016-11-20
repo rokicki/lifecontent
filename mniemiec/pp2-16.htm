@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Sixteen-Bit Period-2 Pseudo-Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: sixteen-bit period 2 pseudo-oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 16 sixteen bit period 2 pseudo oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Sixteen-Bit Period-2 Pseudo-Oscillators</h1>
+
+<p align="center">
+	<a class="j" href="#pp2-16-0">First 100</a> |
+	<a class="j" href="#pp2-16-1">Second 70</a> |
+	<a class="j" href="#pp2-16-2">Last 55</a>
+</p>
+
+<hr /><hr />
+<a name="pp2-16-0"></a>
+<h2>The 225 <a class="i" href="bits-16.htm">sixteen-bit</a>
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<h3>The first 100 16-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-16-0.rle"><img src="map/pp2-16-0.png"
+ alt="16-bit period 2 pseudo-oscillators 1-100"
+ width="621" height="421" usemap="#pp2-16-0" /></a></p>
+
+<map name="pp2-16-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp2-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp2-16-0.rle" />
+	<area coords="0,0,69,49" href="16/16bbcta2.rle" />
+	<area coords="70,0,129,49" href="16/16bcbta1.rle" />
+	<area coords="130,0,189,49" href="16/16bcbsh1.rle" />
+	<area coords="190,0,249,49" href="16/16bcshb3.rle" />
+	<area coords="250,0,309,49" href="16/16bcbac3.rle" />
+	<area coords="310,0,369,49" href="16/16bcli3.rle" />
+	<area coords="370,0,429,49" href="16/16bcblt6.rle" />
+	<area coords="430,0,489,49" href="16/16bcblt3.rle" />
+	<area coords="490,0,549,49" href="16/16bbcsh2.rle" />
+	<area coords="550,0,620,49" href="16/16bbcac6.rle" />
+	<area coords="0,50,69,89" href="16/16bcacb7.rle" />
+	<area coords="70,50,129,89" href="16/16bcbts4.rle" />
+	<area coords="130,50,189,89" href="16/16bcss3.rle" />
+	<area coords="190,50,249,89" href="16/16bcbsn1.rle" />
+	<area coords="250,50,309,89" href="16/16bcas9.rle" />
+	<area coords="310,50,369,89" href="16/16bcbac1.rle" />
+	<area coords="370,50,429,89" href="16/16bcacb1.rle" />
+	<area coords="430,50,489,89" href="16/16bcas5.rle" />
+	<area coords="490,50,549,89" href="16/16bcbbc1.rle" />
+	<area coords="550,50,620,89" href="16/16bcaa1.rle" />
+	<area coords="0,90,69,129" href="16/16bcvl7.rle" />
+	<area coords="70,90,129,129" href="16/16bcvht1.rle" />
+	<area coords="130,90,189,129" href="16/16bcbsn2.rle" />
+	<area coords="190,90,249,129" href="16/16bcsnb1.rle" />
+	<area coords="250,90,309,129" href="16/16bbcsn2.rle" />
+	<area coords="310,90,369,129" href="16/16bbcsn4.rle" />
+	<area coords="370,90,429,129" href="16/16bbcac2.rle" />
+	<area coords="430,90,489,129" href="16/16bbcbc3.rle" />
+	<area coords="490,90,549,129" href="16/16bcss4.rle" />
+	<area coords="550,90,620,129" href="16/16bcsnb2.rle" />
+	<area coords="0,130,69,169" href="16/16bclha2.rle" />
+	<area coords="70,130,129,169" href="16/16btabc2.rle" />
+	<area coords="130,130,189,169" href="16/16bpsl3.rle" />
+	<area coords="190,130,249,169" href="16/16bplp1.rle" />
+	<area coords="250,130,309,169" href="16/16bcvp1.rle" />
+	<area coords="310,130,369,169" href="16/16bpht6.rle" />
+	<area coords="370,130,429,169" href="16/16bclfg1.rle" />
+	<area coords="430,130,489,169" href="16/16bccht3.rle" />
+	<area coords="490,130,549,169" href="16/16bccsl7.rle" />
+	<area coords="550,130,620,169" href="16/16bcihk3.rle" />
+	<area coords="0,170,69,209" href="16/16bcclt5.rle" />
+	<area coords="70,170,129,209" href="16/16bpsl8.rle" />
+	<area coords="130,170,189,209" href="16/16bpsl5.rle" />
+	<area coords="190,170,249,209" href="16/16bcbhv.rle" />
+	<area coords="250,170,309,209" href="16/16bpht4.rle" />
+	<area coords="310,170,369,209" href="16/16bchvb.rle" />
+	<area coords="370,170,429,209" href="16/16bcihk2.rle" />
+	<area coords="430,170,489,209" href="16/16bcbsh2.rle" />
+	<area coords="490,170,549,209" href="16/16bptt2.rle" />
+	<area coords="550,170,620,209" href="16/16bccsl4.rle" />
+	<area coords="0,210,69,249" href="16/16bpcs1.rle" />
+	<area coords="70,210,129,249" href="16/16bpbp3.rle" />
+	<area coords="130,210,189,249" href="16/16bpbp5.rle" />
+	<area coords="190,210,249,249" href="16/16bpcs3.rle" />
+	<area coords="250,210,309,249" href="16/16bbcsh4.rle" />
+	<area coords="310,210,369,249" href="16/16bbpbk2.rle" />
+	<area coords="370,210,429,249" href="16/16bbchv2.rle" />
+	<area coords="430,210,489,249" href="16/16bcshb4.rle" />
+	<area coords="490,210,549,249" href="16/16bpbbk.rle" />
+	<area coords="550,210,620,249" href="16/16bcbts5.rle" />
+	<area coords="0,250,69,289" href="16/16bctvt4.rle" />
+	<area coords="70,250,129,289" href="16/16bcvl4.rle" />
+	<area coords="130,250,189,289" href="16/16bpvs1.rle" />
+	<area coords="190,250,249,289" href="16/16bctvt3.rle" />
+	<area coords="250,250,309,289" href="16/16bcbac2.rle" />
+	<area coords="310,250,369,289" href="16/16bcas10.rle" />
+	<area coords="370,250,429,289" href="16/16bcvl3.rle" />
+	<area coords="430,250,489,289" href="16/16bcas6.rle" />
+	<area coords="490,250,549,289" href="16/16bbcac4.rle" />
+	<area coords="550,250,620,289" href="16/16bcacb2.rle" />
+	<area coords="0,290,69,329" href="16/16bcshb1.rle" />
+	<area coords="70,290,129,329" href="16/16bccht6.rle" />
+	<area coords="130,290,189,329" href="16/16bcblt1.rle" />
+	<area coords="190,290,249,329" href="16/16bclha1.rle" />
+	<area coords="250,290,309,329" href="16/16bcli1.rle" />
+	<area coords="310,290,369,329" href="16/16bcacb5.rle" />
+	<area coords="370,290,429,329" href="16/16bchvt1.rle" />
+	<area coords="430,290,489,329" href="16/16bcdgt2.rle" />
+	<area coords="490,290,549,329" href="16/16bccht1.rle" />
+	<area coords="550,290,620,329" href="16/16bchvt4.rle" />
+	<area coords="0,330,69,369" href="16/16bccsl9.rle" />
+	<area coords="70,330,129,369" href="16/16bcclt1.rle" />
+	<area coords="130,330,189,369" href="16/16bcihk5.rle" />
+	<area coords="190,330,249,369" href="16/16bcbta2.rle" />
+	<area coords="250,330,309,369" href="16/16bppd.rle" />
+	<area coords="310,330,369,369" href="16/16bpcg2.rle" />
+	<area coords="370,330,429,369" href="16/16bpvs3.rle" />
+	<area coords="430,330,489,369" href="16/16tpls3.rle" />
+	<area coords="490,330,549,369" href="16/16bclfg2.rle" />
+	<area coords="550,330,620,369" href="16/16bcclt4.rle" />
+	<area coords="0,370,69,420" href="16/16bccsl6.rle" />
+	<area coords="70,370,129,420" href="16/16bbcta4.rle" />
+	<area coords="130,370,189,420" href="16/16bcugt2.rle" />
+	<area coords="190,370,249,420" href="16/16bcitb3.rle" />
+	<area coords="250,370,309,420" href="16/16bcitb1.rle" />
+	<area coords="310,370,369,420" href="16/16bcftt2.rle" />
+	<area coords="370,370,429,420" href="16/16bcblt4.rle" />
+	<area coords="430,370,489,420" href="16/16bcbac4.rle" />
+	<area coords="490,370,549,420" href="16/16bccsl3.rle" />
+	<area coords="550,370,620,420" href="16/16bpsl6.rle" />
+</map>
+
+<hr />
+<a name="pp2-16-1"></a>
+<h3>The second 70 16-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-16-1.rle"><img src="map/pp2-16-1.png"
+ alt="16-bit period 2 pseudo-oscillators 101-200"
+ width="621" height="421" usemap="#pp2-16-1" /></a></p>
+
+<map name="pp2-16-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp2-16.zip" />
+	<area coords="601,401,620,420" href="stamp/pp2-16-0.rle" />
+	<area coords="0,0,69,65" href="16/16tpet5.rle" />
+	<area coords="70,0,129,65" href="16/16tplb1.rle" />
+	<area coords="130,0,189,65" href="16/16tpet8.rle" />
+	<area coords="190,0,249,65" href="16/16tpet3.rle" />
+	<area coords="250,0,309,65" href="16/16bcli4.rle" />
+	<area coords="310,0,369,65" href="16/16bpsl7.rle" />
+	<area coords="370,0,429,65" href="16/16bcblt5.rle" />
+	<area coords="430,0,489,65" href="16/16bbcac8.rle" />
+	<area coords="490,0,549,65" href="16/16bcacb8.rle" />
+	<area coords="550,0,620,65" href="16/16bcbts6.rle" />
+	<area coords="0,66,69,121" href="16/16bcvl8.rle" />
+	<area coords="70,66,129,121" href="16/16bcvht2.rle" />
+	<area coords="130,66,189,121" href="16/16bcbbc2.rle" />
+	<area coords="190,66,249,121" href="16/16tpls1.rle" />
+	<area coords="250,66,309,121" href="16/16bcaa2.rle" />
+	<area coords="310,66,369,121" href="16/16bbcbc4.rle" />
+	<area coords="370,66,429,121" href="16/16bcys1.rle" />
+	<area coords="430,66,489,121" href="16/16bctab1.rle" />
+	<area coords="490,66,549,121" href="16/16bbcta1.rle" />
+	<area coords="550,66,620,121" href="16/16bctvt5.rle" />
+	<area coords="0,122,69,177" href="16/16bcvl1.rle" />
+	<area coords="70,122,129,177" href="16/16bcas7.rle" />
+	<area coords="130,122,189,177" href="16/16bbcsh1.rle" />
+	<area coords="190,122,249,177" href="16/16bbcac5.rle" />
+	<area coords="250,122,309,177" href="16/16bcacb3.rle" />
+	<area coords="310,122,369,177" href="16/16bcvht4.rle" />
+	<area coords="370,122,429,177" href="16/16bcvht5.rle" />
+	<area coords="430,122,489,177" href="16/16bctvt2.rle" />
+	<area coords="490,122,549,177" href="16/16bcvl9.rle" />
+	<area coords="550,122,620,177" href="16/16bcaa3.rle" />
+	<area coords="0,178,69,233" href="16/16bcvl6.rle" />
+	<area coords="70,178,129,233" href="16/16bbcsn1.rle" />
+	<area coords="130,178,189,233" href="16/16bbcac1.rle" />
+	<area coords="190,178,249,233" href="16/16bbcbc1.rle" />
+	<area coords="250,178,309,233" href="16/16btabc1.rle" />
+	<area coords="310,178,369,233" href="16/16bctvt1.rle" />
+	<area coords="370,178,429,233" href="16/16bctab2.rle" />
+	<area coords="430,178,489,233" href="16/16bbcsn3.rle" />
+	<area coords="490,178,549,233" href="16/16bbcta3.rle" />
+	<area coords="550,178,620,233" href="16/16bpcg1.rle" />
+	<area coords="0,234,69,289" href="16/16bchvt2.rle" />
+	<area coords="70,234,129,289" href="16/16bccsl5.rle" />
+	<area coords="130,234,189,289" href="16/16bcvp2.rle" />
+	<area coords="190,234,249,289" href="16/16bplp2.rle" />
+	<area coords="250,234,309,289" href="16/16bccsl8.rle" />
+	<area coords="310,234,369,289" href="16/16bccht4.rle" />
+	<area coords="370,234,429,289" href="16/16bcclt6.rle" />
+	<area coords="430,234,489,289" href="16/16bcihk4.rle" />
+	<area coords="490,234,549,289" href="16/16qpsh1.rle" />
+	<area coords="550,234,620,289" href="16/16qpac3.rle" />
+	<area coords="0,290,69,345" href="16/16tplf1.rle" />
+	<area coords="70,290,129,345" href="16/16tplf2.rle" />
+	<area coords="130,290,189,345" href="16/16bpht3.rle" />
+	<area coords="190,290,249,345" href="16/16bcihk1.rle" />
+	<area coords="250,290,309,345" href="16/16bcvc1.rle" />
+	<area coords="310,290,369,345" href="16/16qpsn1.rle" />
+	<area coords="370,290,429,345" href="16/16qpac1.rle" />
+	<area coords="430,290,489,345" href="16/16qpbc3.rle" />
+	<area coords="490,290,549,345" href="16/16qpbc1.rle" />
+	<area coords="550,290,620,345" href="16/16bcvc3.rle" />
+	<area coords="0,346,69,420" href="16/16bpvs2.rle" />
+	<area coords="70,346,129,420" href="16/16tpls2.rle" />
+	<area coords="130,346,189,420" href="16/16qpsn2.rle" />
+	<area coords="190,346,249,420" href="16/16bcbts1.rle" />
+	<area coords="250,346,309,420" href="16/16bccsl2.rle" />
+	<area coords="310,346,369,420" href="16/16bbcsh3.rle" />
+	<area coords="370,346,429,420" href="16/16bbchv1.rle" />
+	<area coords="430,346,489,420" href="16/16bbpbk1.rle" />
+	<area coords="490,346,549,420" href="16/16bcshb2.rle" />
+	<area coords="550,346,620,420" href="16/16bcbts2.rle" />
+</map>
+
+<hr />
+<a name="pp2-16-2"></a>
+<h3>The last 55 16-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-16-2.rle"><img src="map/pp2-16-2.png"
+ alt="16-bit period 2 pseudo-oscillators 201-225"
+ width="621" height="381" usemap="#pp2-16-2" /></a></p>
+
+<map name="pp2-16-2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp2-16.zip" />
+	<area coords="601,361,620,380" href="stamp/pp2-16-0.rle" />
+	<area coords="0,0,69,69" href="16/16bctvt6.rle" />
+	<area coords="70,0,129,69" href="16/16bcvl2.rle" />
+	<area coords="130,0,189,69" href="16/16bccht5.rle" />
+	<area coords="190,0,249,69" href="16/16bcli2.rle" />
+	<area coords="250,0,309,69" href="16/16bcblt2.rle" />
+	<area coords="310,0,369,69" href="16/16bcvl5.rle" />
+	<area coords="370,0,429,69" href="16/16bpsl4.rle" />
+	<area coords="430,0,489,69" href="16/16bbcac3.rle" />
+	<area coords="490,0,549,69" href="16/16bcacb6.rle" />
+	<area coords="550,0,620,69" href="16/16bcas8.rle" />
+	<area coords="0,70,69,129" href="16/16bbcac7.rle" />
+	<area coords="70,70,129,129" href="16/16bcacb4.rle" />
+	<area coords="130,70,189,129" href="16/16bchvt3.rle" />
+	<area coords="190,70,249,129" href="16/16bcdgt1.rle" />
+	<area coords="250,70,309,129" href="16/16bcihk6.rle" />
+	<area coords="310,70,369,129" href="16/16bccsla.rle" />
+	<area coords="370,70,429,129" href="16/16bccht2.rle" />
+	<area coords="430,70,489,129" href="16/16bcclt2.rle" />
+	<area coords="490,70,549,129" href="16/16bpht5.rle" />
+	<area coords="550,70,620,129" href="16/16bcclt3.rle" />
+	<area coords="0,130,69,189" href="16/16bcftt1.rle" />
+	<area coords="70,130,129,189" href="16/16bcugt1.rle" />
+	<area coords="130,130,189,189" href="16/16bcitb4.rle" />
+	<area coords="190,130,249,189" href="16/16bcitb2.rle" />
+	<area coords="250,130,309,189" href="16/16bcys3.rle" />
+	<area coords="310,130,369,189" href="16/16qphv.rle" />
+	<area coords="370,130,429,189" href="16/16tpet6.rle" />
+	<area coords="430,130,489,189" href="16/16tpet4.rle" />
+	<area coords="490,130,549,189" href="16/16tplb2.rle" />
+	<area coords="550,130,620,189" href="16/16bptt1.rle" />
+	<area coords="0,190,69,249" href="16/16bpbp4.rle" />
+	<area coords="70,190,129,249" href="16/16bpcs2.rle" />
+	<area coords="130,190,189,249" href="16/16tpet7.rle" />
+	<area coords="190,190,249,249" href="16/16bpbp6.rle" />
+	<area coords="250,190,309,249" href="16/16bpcs4.rle" />
+	<area coords="310,190,369,249" href="16/16qpsh2.rle" />
+	<area coords="370,190,429,249" href="16/16ppbt1.rle" />
+	<area coords="430,190,489,249" href="16/16qpac2.rle" />
+	<area coords="490,190,549,249" href="16/16bcys2.rle" />
+	<area coords="550,190,620,249" href="16/16bcbts3.rle" />
+	<area coords="0,250,69,309" href="16/16bcvht3.rle" />
+	<area coords="70,250,129,309" href="16/16bcvl10.rle" />
+	<area coords="130,250,189,309" href="16/16bcvht6.rle" />
+	<area coords="190,250,249,309" href="16/16bcaa4.rle" />
+	<area coords="250,250,309,309" href="16/16bbcbc2.rle" />
+	<area coords="310,250,369,309" href="16/16tpls4.rle" />
+	<area coords="370,250,429,309" href="16/16bpvs4.rle" />
+	<area coords="430,250,489,309" href="16/16qpac4.rle" />
+	<area coords="490,250,549,309" href="16/16bcvc2.rle" />
+	<area coords="550,250,620,309" href="16/16hpbk.rle" />
+	<area coords="0,310,69,380" href="16/16ppbt2.rle" />
+	<area coords="70,310,129,380" href="16/16qpbc4.rle" />
+	<area coords="130,310,189,380" href="16/16qpbc2.rle" />
+	<area coords="190,310,249,380" href="16/16bcvc4.rle" />
+	<area coords="250,310,309,380" href="16/16bcys4.rle" />
+	<area coords="310,310,620,380" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-16.htm">16-bit objects</a>:</b>
+	<a class="i" href="p1-16.htm">still-lifes</a>,
+	<a class="i" href="pp1-16.htm">pseudo-still-lifes</a>,
+	<a class="i" href="bits-16.htm#p2-16">P2 oscillators</a>,
+	P2 pseudo-oscillators,
+	<a class="i" href="bits-16.htm#p3-16">P3 oscillators</a>,
+	<a class="i" href="bits-16.htm#pp4-16">P4 pseudo-oscillator</a>,
+	<a class="i" href="bits-16.htm#p5-16">P5 oscillator</a>,
+	<a class="i" href="bits-16.htm#p6-16">P6 oscillator</a>,
+	<a class="i" href="bits-16.htm#p14-16">P14 oscillator</a>,
+	<a class="i" href="bits-16.htm#pp15-16">P15 pseudo-oscillator</a>,
+	<a class="i" href="bits-16.htm#cons-16">constellations</a>.</p>
+
+<p><b>Other <a class="i" href="pp2.htm">period 2 pseudo-oscillators</a>:</b>
+	<a class="i" href="pp2.htm#pp2-10">10-bit</a>,
+	<a class="i" href="pp2.htm#pp2-11">11-bit</a>,
+	<a class="i" href="pp2.htm#pp2-12">12-bit</a>,
+	<a class="i" href="pp2.htm#pp2-13">13-bit</a>,
+	<a class="i" href="pp2.htm#pp2-14">14-bit</a>,
+	<a class="i" href="pp2.htm#pp2-15">15-bit</a>,
+	16-bit,
+	<a class="i" href="pp2-17.htm">17-bit</a>,
+	<a class="i" href="pp2-18.htm">18-bit</a>,
+	<a class="i" href="pp2-19.htm">19-bit</a>,
+	<a class="i" href="pp2-20.htm">20-bit</a>,
+	<a class="i" href="pp2-21.htm">21-bit</a>,
+	<a class="i" href="pp2.htm#pp2-22">22-bit</a>,
+	<a class="i" href="pp2.htm#pp2-23">23-bit</a>,
+	<a class="i" href="pp2.htm#pp2-24">24-bit</a>,
+	<a class="i" href="pp2.htm#pp2-24">25-bit</a>,
+	<a class="i" href="pp2.htm#pp2-lg">26-bit and larger</a>.</p>
+
+<p><b>Other
+<a class="i" href="posc.htm">pseudo-oscillators</a> by period:</b>
+	<a class="i" href="pp2.htm">2</a>,
+	<a class="i" href="pp3.htm">3</a>,
+	<a class="i" href="pp4.htm">4</a>,
+	<a class="i" href="pp5.htm">5</a>,
+	<a class="i" href="pp6.htm">6</a>,
+	<a class="i" href="pp8.htm">8</a>,
+	<a class="i" href="pp10.htm">10</a>,
+	<a class="i" href="pp12.htm">12</a>,
+	<a class="i" href="pp15.htm">15</a>,
+	<a class="i" href="pp30.htm">30</a>,
+	<a class="i" href="pp60.htm">60</a>,
+	<a class="i" href="pperiod.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

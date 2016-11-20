@@ -1,0 +1,626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Basic Spaceships and Pseudo-spaceships</title>
+<meta name="description"
+content="Conway's Game of Life: Basic Spaceship and pseudo-spaceship lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life basic pseudo spaceship object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Basic Spaceships and Pseudo-spaceships</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#ss-5">5</a> |
+	  <a class="j" href="#ss-9">9</a> |
+	  <a class="j" href="#ss-11">11</a> |
+	  <a class="j" href="#ss-13">13</a> |
+	  <a class="j" href="#ss-18">18 (pseudo)</a> |
+	  <a class="j" href="#ss-20">20</a> |
+	  <a class="j" href="#ss-22">22</a> |
+	  <a class="j" href="#ss-23">23</a> |
+	  <a class="j" href="#ss-24">24</a> |
+	  <a class="j" href="#ss-25">25</a> |
+	  <a class="j" href="#ss-lg">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g2-ss">2</a> |
+	  <a class="j" href="#g3-ss">3</a> |
+	  <a class="j" href="#g6-ss">6</a> |
+	  <a class="j" href="#gu-ss">unknown</a><br />
+	<b><a class="j" href="#ss-bad">Not quite spaceships</a></b>
+</p>
+
+<hr />
+<hr />
+<a name="ss-5"></a>
+<h2>The 1 <a class="i" href="bits-5.htm">five-bit</a>
+spaceship</h2>
+<p><a class="p" href="stamp/ss-5.rle"><img src="map/ss-5.png"
+ alt="5b SS" width="81" height="61" usemap="#ss-5" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/5gl.rle">
+	    Glider; Feather- weight space- ship; FWSS [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ss-5.zip" />
+	<area coords="61,41,80,60" href="stamp/ss-5.rle" />
+	<area coords="0,0,80,60" href="ss/5gl.rle" />
+</map>
+
+<p>The Glider has a period of 4 and a diagonal velocity of <i>c</i>/4.
+It moves one cell up and flips diagonally every two generations, effectively
+moving one cell up and left every 4 generations.
+It is the simplest and most common spaceship
+in Life, and forms the basis for all syntheses.</p>
+
+<hr />
+<a name="ss-9"></a>
+<h2>The 1 <a class="i" href="bits-9.htm">nine-bit</a>
+spaceship</h2>
+<p><a class="p" href="stamp/ss-9.rle"><img src="map/ss-9.png"
+ alt="9b SS" width="81" height="81" usemap="#ss-9" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/9lw.rle">
+	    Light-weight spaceship; LWSS; Small fish [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-9">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ss-9.zip" />
+	<area coords="61,61,80,80" href="stamp/ss-9.rle" />
+	<area coords="0,0,80,80" href="ss/9lw.rle" />
+</map>
+
+<p>The LWSS has a period of 4 and an orthogonal velocity of <i>c</i>/2.
+It moves one cell up and flips from side to side every two generations,
+effectively moving two cells up every 4 generations.
+It is one of the few common spaceship
+in Life, and is used in some syntheses.</p>
+
+<hr />
+<a name="ss-11"></a>
+<h2>The 1 <a class="i" href="bits-11.htm">eleven-bit</a>
+spaceship</h2>
+<p><a class="p" href="stamp/ss-11.rle"><img src="map/ss-11.png"
+ alt="11b SS" width="81" height="81" usemap="#ss-11" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/11mw.rle">
+	    Middle- weight spaceship; MWSS; Medium fish [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ss-11.zip" />
+	<area coords="61,61,80,80" href="stamp/ss-11.rle" />
+	<area coords="0,0,80,80" href="ss/11mw.rle" />
+</map>
+
+<p>The MWSS has a period of 4 and an orthogonal velocity of <i>c</i>/2.
+It moves one cell up and flips from side to side every two generations,
+effectively moving two cells up every 4 generations.
+It is one of the few common spaceship
+in Life, and is used in some syntheses.</p>
+
+<hr />
+<a name="ss-13"></a>
+<h2>The 1 <a class="i" href="bits-13.htm">thirteen-bit</a>
+spaceship</h2>
+<p><a class="p" href="stamp/ss-13.rle"><img src="map/ss-13.png"
+ alt="13b SS" width="81" height="81" usemap="#ss-13" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/13hw.rle">
+	    Heavy- weight spaceship; HWSS; Big fish [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-13">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ss-13.zip" />
+	<area coords="61,61,80,80" href="stamp/ss-13.rle" />
+	<area coords="0,0,80,80" href="ss/13hw.rle" />
+</map>
+
+<p>The HWSS has a period of 4 and an orthogonal velocity of <i>c</i>/2.
+It moves one cell up and flips from side to side every two generations,
+effectively moving two cells up every 4 generations.
+It is one of the few common spaceship
+in Life, and is used in some syntheses.</p>
+
+<hr />
+<a name="ss-18"></a>
+<h2>The 1 <a class="i" href="bits-18.htm">eighteen-bit</a>
+pseudo-spaceship</h2>
+<p><a class="p" href="stamp/ss-18.rle"><img src="map/ss-18.png"
+ alt="18b PSS" width="81" height="81" usemap="#ss-18" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/18lwlw.rle">LWSS on LWSS [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ss-18.zip" />
+	<area coords="61,61,80,80" href="stamp/ss-18.rle" />
+	<area coords="0,0,80,80" href="ss/18lwlw.rle" />
+</map>
+
+<p>This has a period of 4 and an orthogonal velocity of <i>c</i>/2.
+It moves two cells up every 4 generations.</p>
+
+<hr />
+<a name="ss-20"></a>
+<h2>The 6 <a class="i" href="bits-20.htm">twenty-bit</a>
+spaceships</h2>
+<p><a class="p" href="stamp/ss-20.rle"><img src="map/ss-20.png"
+ alt="20-bit spaceships" width="381" height="81" usemap="#ss-20" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/20mwlw1.rle">LWSS on MWSS #1 [7]</a></td>
+	<td><a class="p" href="ss/20mwmw1.rle">MWSS on MWSS #1 [7]</a></td>
+	<td><a class="p" href="ss/20hwlw1.rle">LWSS on HWSS #1 [7]</a></td>
+	<td><a class="p" href="ss/20hwlw2.rle">LWSS on HWSS #2 [7]</a></td>
+	<td><a class="p" href="ss/20mwmw2.rle">MWSS on MWSS #2 [7]</a></td>
+	<td><a class="p" href="ss/20lfr.rle">Loafer [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/ss-20.zip" />
+	<area coords="361,61,380,80" href="stamp/ss-20.rle" />
+	<area coords="0,0,69,80" href="ss/20mwlw1.rle" />
+	<area coords="70,0,129,80" href="ss/20mwmw1.rle" />
+	<area coords="130,0,189,80" href="ss/20hwlw1.rle" />
+	<area coords="190,0,249,80" href="ss/20hwlw2.rle" />
+	<area coords="250,0,309,80" href="ss/20mwmw2.rle" />
+	<area coords="310,0,380,80" href="ss/20lfr.rle" />
+</map>
+
+<p>In February 2013, <a class="i" href="lifecred.htm#ball">Josh Ball</a>
+discovered the Loafer, the only known spaceship that moves orthogonally at a
+velocity of <i>c</i>/7. It moves up one cell every 7 generations. It is remarkable
+due to its small size, the fact that it is easily synthesized from gliders,
+and that despite its small population and size, nobody had ever found it
+before.</p>
+
+<p>The rest of these have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move two cells up every 4 generations.</p>
+
+<hr />
+<a name="ss-22"></a>
+<h2>The 9 <a class="i" href="bits-22.htm">22-bit</a>
+spaceships</h2>
+<p><a class="p" href="stamp/ss-22.rle"><img src="map/ss-22.png"
+ alt="22-bit spaceships" width="561" height="81" usemap="#ss-22" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/22hwlw3.rle">LWSS on HWSS #3 [6]</a></td>
+	<td><a class="p" href="ss/22hwlw4.rle">LWSS on HWSS #4 [6]</a></td>
+	<td><a class="p" href="ss/22hwlw5.rle">LWSS on HWSS #5 [7]</a></td>
+	<td><a class="p" href="ss/22hwlw6.rle">LWSS on HWSS #6 [7]</a></td>
+	<td><a class="p" href="ss/22hwmw1.rle">MWSS on HWSS #1 [7]</a></td>
+	<td><a class="p" href="ss/22hwmw2.rle">MWSS on HWSS #2 [7]</a></td>
+	<td><a class="p" href="ss/22hwmw3.rle">MWSS on HWSS #3 [7]</a></td>
+	<td><a class="p" href="ss/22hwhw1.rle">HWSS on HWSS #1 [7]</a></td>
+	<td><a class="p" href="ss/22hwhw2.rle">HWSS on HWSS #2 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/ss-22.zip" />
+	<area coords="541,61,560,80" href="stamp/ss-22.rle" />
+	<area coords="0,0,69,80" href="ss/22hwlw3.rle" />
+	<area coords="70,0,129,80" href="ss/22hwlw4.rle" />
+	<area coords="130,0,189,80" href="ss/22hwlw5.rle" />
+	<area coords="190,0,249,80" href="ss/22hwlw6.rle" />
+	<area coords="250,0,309,80" href="ss/22hwmw1.rle" />
+	<area coords="310,0,369,80" href="ss/22hwmw2.rle" />
+	<area coords="370,0,429,80" href="ss/22hwmw3.rle" />
+	<area coords="430,0,489,80" href="ss/22hwhw1.rle" />
+	<area coords="490,0,560,80" href="ss/22hwhw2.rle" />
+</map>
+
+<p>All of these have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move two cells up every 4 generations.</p>
+
+<hr />
+<a name="ss-23"></a>
+<h2>The 2 <a class="i" href="bits-23.htm">23-bit</a>
+spaceships</h2>
+<p><a class="p" href="stamp/ss-23.rle"><img src="map/ss-23.png"
+ alt="23-bit spaceships" width="141" height="81" usemap="#ss-23" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/23mwlw2.rle">LWSS on MWSS #2 [6]</a></td>
+	<td><a class="p" href="ss/23mwlw3.rle">LWSS on MWSS #3 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/ss-23.zip" />
+	<area coords="121,61,140,80" href="stamp/ss-23.rle" />
+	<area coords="0,0,69,80" href="ss/23mwlw2.rle" />
+	<area coords="70,0,140,80" href="ss/23mwlw3.rle" />
+</map>
+
+<p>All of these have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move two cells up every 4 generations.</p>
+
+<hr />
+<a name="ss-24"></a>
+<h2>The 7 <a class="i" href="bits-24.htm">24-bit</a>
+spaceships</h2>
+<p><a class="p" href="stamp/ss-24.rle"><img src="map/ss-24.png"
+ alt="24-bit spaceships" width="581" height="81" usemap="#ss-24" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/24mwmw3.rle">MWSS on MWSS #3 [7]</a></td>
+	<td><a class="p" href="ss/24hwmw4.rle">MWSS on HWSS #4 [7]</a></td>
+	<td><a class="p" href="ss/24hwmw5.rle">MWSS on HWSS #5 [7]</a></td>
+	<td><a class="p" href="ss/24hwmw6.rle">MWSS on HWSS #6 [7]</a></td>
+	<td><a class="p" href="ss/24hwmw7.rle">MWSS on HWSS #7 [7]</a></td>
+	<td><a class="p" href="ss/24hwmw8.rle">MWSS on HWSS #8 [7]</a></td>
+	<td><a class="p" href="ss/24hwsc.rle">Sidecar on HWSS [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/ss-24.zip" />
+	<area coords="561,61,580,80" href="stamp/ss-24.rle" />
+	<area coords="0,0,89,80" href="ss/24mwmw3.rle" />
+	<area coords="90,0,169,80" href="ss/24hwmw4.rle" />
+	<area coords="170,0,249,80" href="ss/24hwmw5.rle" />
+	<area coords="250,0,329,80" href="ss/24hwmw6.rle" />
+	<area coords="330,0,409,80" href="ss/24hwmw7.rle" />
+	<area coords="410,0,489,80" href="ss/24hwmw8.rle" />
+	<area coords="490,0,580,80" href="ss/24hwsc.rle" />
+</map>
+
+<p>All of these have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move two cells up every 4 generations.</p>
+
+<hr />
+<a name="ss-25"></a>
+<h2>The 6 <a class="i" href="bits-25.htm">25-bit</a>
+spaceships</h2>
+<p><a class="p" href="stamp/ss-25.rle"><img src="map/ss-25.png"
+ alt="25-bit spaceships" width="501" height="101" usemap="#ss-25" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/25crab.rle">
+	    Crab; Quarter [x]</a></td>
+	<td><a class="p" href="ss/25hwlw7.rle">LWSS on HWSS #7 [7]</a></td>
+	<td><a class="p" href="ss/25hwlw8.rle">LWSS on HWSS #8 [7]</a></td>
+	<td><a class="p" href="ss/25hwmw9.rle">MWSS on HWSS #9 [7]</a></td>
+	<td class="r"><a class="p" href="ss/25o3a.rle">
+	    25-bit <i>c</i>/3 orthogonal spaceship #1 [x]</a></td>
+	<td class="r"><a class="p" href="ss/25o3b.rle">
+	    25-bit <i>c</i>/3 orthogonal spaceship #2 [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/ss-25.zip" />
+	<area coords="481,81,500,100" href="stamp/ss-25.rle" />
+	<area coords="0,0,89,100" href="ss/25crab.rle" />
+	<area coords="90,0,169,100" href="ss/25hwlw7.rle" />
+	<area coords="170,0,249,100" href="ss/25hwlw8.rle" />
+	<area coords="250,0,329,100" href="ss/25hwmw9.rle" />
+	<area coords="330,0,409,100" href="ss/25o3a.rle" />
+	<area coords="410,0,489,100" href="ss/25o3b.rle" />
+	<area coords="490,0,500,100" nohref="nohref" />
+</map>
+
+<p>The Crab has a period of 4 and a diagonal velocity of <i>c</i>/4.
+It moves one cell up and flips diagonally every two generations, effectively
+moving one cell up and left every 4 generations.</p>
+
+<p>The next three have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move two cells up every 4 generations. The middle one is actually a
+pseudo-spaceship, rather than an actual spaceship.</p>
+
+<p>The last two have a period of 3 and an orthogonal velocity of <i>c</i>/3.
+They move one cell up every 3 generations.</p>
+
+<hr />
+<a name="ss-lg"></a>
+<h2>Spaceships 26 bits and larger</h2>
+<p>Due to the large number of spaceships, these are shown on the
+<a class="i" href="exotic.htm">Exotic spaceship</a> and
+<a class="i" href="flotilla.htm">Flotilla</a> pages,
+since most larger spaceships are in these categories.</p>
+
+<hr />
+<hr />
+<a name="g2-ss"></a>
+<h2>The 1 spaceship
+<a class="i" href="glider-2.htm">buildable from 2 gliders</a></h2>
+<p><a class="p" href="stamp/g2-ss.rle"><img src="map/g2-ss.png"
+ alt="2gl SS" width="81" height="61" usemap="#g2-ss" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/5gl.rle">
+	    Glider; Feather- weight space- ship; FWSS [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="g2-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g2-ss.zip" />
+	<area coords="61,41,80,60" href="stamp/g2-ss.rle" />
+	<area coords="0,0,80,60" href="ss/5gl.rle" />
+</map>
+
+<p>The Glider has a period of 4 and a diagonal velocity of <i>c</i>/4.
+It moves one cell up and flips diagonally every two generations, effectively
+moving one cell up and left every 4 generations.
+It is the simplest and most common spaceship
+in Life, and forms the basis for all syntheses.</p>
+
+<hr />
+<a name="g3-ss"></a>
+<h2>The 3 spaceships
+<a class="i" href="glider-3.htm">buildable from 3 gliders</a></h2>
+<p><a class="p" href="stamp/g3-ss.rle"><img src="map/g3-ss.png"
+ alt="3-glider spaceships"
+ width="241" height="81" usemap="#g3-ss" /></a><br />
+    <table width="245">
+    <colgroup><col width="81" /><col width="80" /><col width="82" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/9lw.rle">
+	    Light- weight space- ship; LWSS; Small fish [3]</a></td>
+	<td><a class="p" href="ss/11mw.rle">
+	    Middle- weight space- ship; MWSS; Medium fish [3]</a></td>
+	<td><a class="p" href="ss/13hw.rle">
+	    Heavy- weight spaceship; HWSS; Big fish [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="221,0,240,19" href="zip/g3-ss.zip" />
+	<area coords="221,61,240,80" href="stamp/g3-ss.rle" />
+	<area coords="0,0,89,80" href="ss/9lw.rle" />
+	<area coords="90,0,169,80" href="ss/11mw.rle" />
+	<area coords="170,0,240,80" href="ss/13hw.rle" />
+</map>
+
+<p>These all have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move one cell up and flip from side to side every two generations,
+effectively moving two cells up every 4 generations.
+Except for the <a class="p" href="ss/5gl.rle">glider</a>, these are the only
+common natural spaceships in Life,
+and are used in some syntheses.</p>
+
+<hr />
+<a name="g6-ss"></a>
+<h2>The 4 spaceships
+<a class="i" href="glider-3.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-ss.rle"><img src="map/g6-ss.png"
+ alt="6-glider spaceships"
+ width="341" height="81" usemap="#g6-ss" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/22hwlw3.rle">LWSS on HWSS #3 [6]</a></td>
+	<td><a class="p" href="ss/22hwlw4.rle">LWSS on HWSS #4 [6]</a></td>
+	<td><a class="p" href="ss/23mwlw2.rle">LWSS on MWSS #2 [6]</a></td>
+	<td><a class="p" href="ss/26hwhw4.rle">HWSS on HWSS #4 [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/g6-ss.zip" />
+	<area coords="321,61,340,80" href="stamp/g6-ss.rle" />
+	<area coords="0,0,89,80" href="ss/22hwlw3.rle" />
+	<area coords="90,0,169,80" href="ss/22hwlw4.rle" />
+	<area coords="170,0,249,80" href="ss/23mwlw2.rle" />
+	<area coords="250,0,340,80" href="ss/26hwhw4.rle" />
+</map>
+
+<hr />
+<a name="gu-ss"></a>
+<h2>The 3 spaceships up to 25 bits
+<a class="i" href="glider-u.htm">without any known syntheses</a></h2>
+<p><a class="p" href="stamp/gu-ss.rle"><img src="map/gu-ss.png"
+ alt="unknown spaceships" width="261" height="81" usemap="#gu-ss" /></a><br />
+    <table width="265">
+    <colgroup><col width="91" /><col width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/25crab.rle">
+	    Crab; Quarter [x]</a></td>
+	<td class="r"><a class="p" href="ss/25o3a.rle">
+	    25-bit <i>c</i>/3 orthogonal spaceship #1 [x]</a></td>
+	<td class="r"><a class="p" href="ss/25o3b.rle">
+	    25-bit <i>c</i>/3 orthogonal spaceship #2 [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/gu-ss.zip" />
+	<area coords="241,61,260,80" href="stamp/gu-ss.rle" />
+	<area coords="0,0,89,80" href="ss/25crab.rle" />
+	<area coords="90,0,169,80" href="ss/25o3a.rle" />
+	<area coords="170,0,260,80" href="ss/25o3b.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="ss-bad"></a>
+<h2>5 <a class="i" href="bits-bad.htm">Not quite</a>
+spaceships</h2>
+<p><a class="p" href="stamp/ss-bad.rle"><img src="map/ss-bad.png"
+ alt="not quite spaceships"
+ width="341" height="321" usemap="#ss-bad" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/10glgl.rle">
+	    Two gliders [4]</a></td>
+	<td rowspan="3" class="r"><a class="p" href="ss/229mp3c7.rle">
+	    Mike Playle's 3<i>c</i>/7 almost- spaceship [x]</a></td>
+	<td rowspan="3" class="r"><a class="p" href="ss/406pt3c7.rle">
+	    Paul Tooke's 3<i>c</i>/7 almost- spaceship [x]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="ss/14-10wss.rle">
+	    Ten- bit- long space- ship (10WSS) [6]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="ss/66k6.rle">
+	    Eugene Lang- vagen's P6 almost- knight- ship [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/ss-bad.zip" />
+	<area coords="321,301,340,320" href="stamp/ss-bad.rle" />
+	<area coords="0,0,89,89" href="ss/10glgl.rle" />
+	<area coords="90,0,209,320" href="ss/229mp3c7.rle" />
+	<area coords="210,0,340,320" href="ss/406pt3c7.rle" />
+	<area coords="0,90,89,169" href="ss/14-10wss.rle" />
+	<area coords="0,170,89,320" href="ss/66k6.rle" />
+</map>
+
+<p>Because Eugene Langvagen's knight-ship doesn't quite work, and can't be
+made to work per se, it fits into this category of "useless objects". However,
+its discovery is extremely significant, because the very existence of an object
+this close to working (i.e. it reforms 97% correctly) suggests that other
+moderately small, working knight-ships are fairly likely to exist in Life.</p>
+
+<p>The same comments also apply to the 3<i>c</i>/7 almost-spaceships. While no
+working spaceships of this velocity have yet been found, these results strongly
+suggest that such spaceships are likely to exist.</p>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="color.htm#c-ss">spaceships in multi-color Life</a>.</p>
+
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	
+	    basic spaceships and pseudo-spaceships,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

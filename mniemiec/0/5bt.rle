@@ -1,0 +1,31 @@
+#N 5bt.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 01:59:58 2015
+x = 200, y = 162, rule = B3/S23
+140bo$139bo$59bo79b3o$60bo75boo$18bo39b3o39bo34bobo$19bo79bo37bo$17b3o
+42bo36b3o$37bxx21boo15bxx38bxx38bxx19bobo16bxx$19bo17bxbx21boo14bxbx
+37bxbx37bxbx18boo17bxbx$18boo18bx19boo18bx23bobo13bx24boo13bx20bo18bx$
+18bobo36bobo42boo39bobo$59bo43bo39bo32b3o$171bo4bo$104b3o64boo4bo$104b
+o65bobo$105bo17$6bo85bobo44bo$7bo84boo44bo$5b3o3bo81bo44b3o$12bo$10b3o
+$37bxx15bo22bxx12bobo23bxx38bxx$37bxbx15bo21bxbx12boo23bxbx14boo21bxbx
+$11b3o24bx8bo5b3o22bx13bo25bx14boo23bx$13bo34boo38b3o40bo3bo$12bo34boo
+41bo38bobo$52b3o34bo40boo$54bo$53bo5$140bo$139bo$139b3o$46bo90bo$44bob
+o88bobo$45boo89boo$10boo$9bobo83bo$11bo3bo21bxx12bobo23bxx17bo20bxx38b
+xx38bxx$13boo22bxbx11boo24bxbx14b3o20bxbx37bxbx37bxbx$14boo22bx13bo25b
+x11b3o25bx39bx39bx$92bo$53b3o35bo$53bo134bo$14b3o37bo132bo$14bo116b3o
+53b3o$15bo82b3o32bo49b3o$98bo33bo43b3o4bo$99bo78bo5bo$177bo$$obo$boo$b
+o8bo$8bobo121bo$9boo82bobo37bo$94boo35b3o$11boo81bo$12boo23bxx38bxx38b
+xx13bo24bxx38bxx$11bo25bxbx37bxbx13b3o21bxbx12boo23bxbx37bxbx$38bx3boo
+bboo30bx16bo22bx12bobo24bx39bx$43boobobo45bo74bobo4boo$12b3o27bo3bo
+123boo4bobo$14bo155bo5bo$13bo83b3o$97bo71boo$48b3o47bo69boo$48bo121bo$
+49bo96bo$145boo$145bobo7$8boobboo164bo$7boboboo24bxx38bo29bxx17boo29b
+xx18bobo17bxx$9bo3bo23bxbx36bo30bxbx15boo30bxbx18bo18bxbx$38bx37b3o29b
+x18bo30bx39bx$123boo54boo$122bobo53bobo$75b3o46bo55bo$75bo$76bo3$120bo
+$120boo$119bobo$72boo$71bobo$73bo7$25b3o$25bo$26bo5$17bo$15bobo19bxx
+18boo18bxx18boo18bxx18boo18bxx18boo18bxx$16boo19bxx18boo18bxbx17boo18b
+xbx11bo5boo18bxx18boo18bxbx$13boo36bo26bx39bx13bo65bx$12bobo37boo47bo
+28b3o22bx19bo$14bo36boobboo3boo34boobboo52bxbx17bobobboo$54bobobboo36b
+oobobo30b3o18bxbx17boboboo$56bo4bo34bo38bo19bx19bo4bo$134bo$97boo79boo
+$97bobo77bobo$97bo81bo13$96bobo$96boo$97bo77bobo$171bo3boo$90b4o78boo
+bbo$89bo3bo3bo14byy22bo3bo30boo$93bobobo14byy23boobobo$89bobbo3boo19b
+xx17boobboo16bx19bo18bxx$117bxbx37bxbx17bobo17bxbx$118bx23b3o13bx19bo
+19bx$142bo$143bo!

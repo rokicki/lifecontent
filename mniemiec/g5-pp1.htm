@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Pseudo-Still-Lifes Buildable From Five Gliders</title>
+<meta name="description"
+content="Conway's Game of Life: pseudo-still-life 5 gliders lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life pseudo still life 5 five gliders pseudo still life object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Pseudo-Still-Lifes Buildable From Five Gliders</h1>
+
+<p align="center">
+	<a class="j" href="#g5-pp1-0">First 100</a> |
+	<a class="j" href="#g5-pp1-1">Last 56</a>
+</p>
+
+<hr /><hr />
+<a name="g5-pp1-0"></a>
+<h2>156 <a class="i" href="pp1.htm">pseudo-still-lifes</a>
+<a class="i" href="glider-5.htm">buildable from five gliders</a></h2>
+<h3>First 100 pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/g5-pp1-0.rle"><img src="map/g5-pp1-0.png"
+ alt="5-glider pseudo-still-lifes 1-100"
+ width="621" height="421" usemap="#g5-pp1-0" /></a></p>
+
+<map name="g5-pp1-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/g5-pp1.zip" />
+	<area coords="601,401,620,420" href="stamp/g5-pp1-0.rle" />
+	<area coords="0,0,69,49" href="11/11shbt1.rle" />
+	<area coords="70,0,129,49" href="11/11snbt1.rle" />
+	<area coords="130,0,189,49" href="11/11acbt1.rle" />
+	<area coords="190,0,249,49" href="11/11snbt2.rle" />
+	<area coords="250,0,309,49" href="11/11etbk2.rle" />
+	<area coords="310,0,369,49" href="11/11lbbk.rle" />
+	<area coords="370,0,429,49" href="12/12lsbt1.rle" />
+	<area coords="430,0,489,49" href="12/12snsn3.rle" />
+	<area coords="490,0,549,49" href="12/12lpbk.rle" />
+	<area coords="550,0,620,49" href="12/12lfbt2.rle" />
+	<area coords="0,50,69,89" href="12/12lbbt1.rle" />
+	<area coords="70,50,129,89" href="12/12etbt3.rle" />
+	<area coords="130,50,189,89" href="12/12etbt6.rle" />
+	<area coords="190,50,249,89" href="12/12cgbk.rle" />
+	<area coords="250,50,309,89" href="12/12etbt4.rle" />
+	<area coords="310,50,369,89" href="12/12etbt2.rle" />
+	<area coords="370,50,429,89" href="13/13btbkbk.rle" />
+	<area coords="430,50,489,89" href="13/13etsh1.rle" />
+	<area coords="490,50,549,89" href="13/13etsh6.rle" />
+	<area coords="550,50,620,89" href="13/13lfsh1.rle" />
+	<area coords="0,90,69,129" href="13/13slbt5.rle" />
+	<area coords="70,90,129,129" href="13/13vsbt1.rle" />
+	<area coords="130,90,189,129" href="13/13slbt1.rle" />
+	<area coords="190,90,249,129" href="13/13lbhv.rle" />
+	<area coords="250,90,309,129" href="13/13ethv2.rle" />
+	<area coords="310,90,369,129" href="13/13etsh5.rle" />
+	<area coords="370,90,429,129" href="13/13htbt1.rle" />
+	<area coords="430,90,489,129" href="13/13csbt1.rle" />
+	<area coords="490,90,549,129" href="13/13htbt3.rle" />
+	<area coords="550,90,620,129" href="13/13ttbt1.rle" />
+	<area coords="0,130,69,169" href="14/14shbbk.rle" />
+	<area coords="70,130,129,169" href="14/14llbt3.rle" />
+	<area coords="130,130,189,169" href="14/14pdsh.rle" />
+	<area coords="190,130,249,169" href="14/14bhvbk.rle" />
+	<area coords="250,130,309,169" href="14/14hvbbk.rle" />
+	<area coords="310,130,369,169" href="14/14lflf2.rle" />
+	<area coords="370,130,429,169" href="14/14etlb1.rle" />
+	<area coords="430,130,489,169" href="14/14etlb6.rle" />
+	<area coords="490,130,549,169" href="14/14acbbk2.rle" />
+	<area coords="550,130,620,169" href="14/14cghv.rle" />
+	<area coords="0,170,69,209" href="14/14etlf2.rle" />
+	<area coords="70,170,129,209" href="14/14etlf6.rle" />
+	<area coords="130,170,189,209" href="14/14etlf5.rle" />
+	<area coords="190,170,249,209" href="14/14inbt1.rle" />
+	<area coords="250,170,309,209" href="14/14tltbt1.rle" />
+	<area coords="310,170,369,209" href="14/14hvtbk1.rle" />
+	<area coords="370,170,429,209" href="14/14hvtbk2.rle" />
+	<area coords="430,170,489,209" href="14/14dbtbt3.rle" />
+	<area coords="490,170,549,209" href="14/14etlb5.rle" />
+	<area coords="550,170,620,209" href="14/14ubtbt5.rle" />
+	<area coords="0,210,69,249" href="14/14lcbt1.rle" />
+	<area coords="70,210,129,249" href="15/15bshbt3.rle" />
+	<area coords="130,210,189,249" href="15/15hvbbt.rle" />
+	<area coords="190,210,249,249" href="15/15bshbt4.rle" />
+	<area coords="250,210,309,249" href="15/15etbbk3.rle" />
+	<area coords="310,210,369,249" href="15/15etbbk2.rle" />
+	<area coords="370,210,429,249" href="15/15etbbk1.rle" />
+	<area coords="430,210,489,249" href="15/15vlbt7.rle" />
+	<area coords="490,210,549,249" href="15/15pdlb.rle" />
+	<area coords="550,210,620,249" href="15/15pdet1.rle" />
+	<area coords="0,250,69,289" href="15/15cget5.rle" />
+	<area coords="70,250,129,289" href="15/15bacbt5.rle" />
+	<area coords="130,250,189,289" href="15/15btabt1.rle" />
+	<area coords="190,250,249,289" href="15/15cslbt9.rle" />
+	<area coords="250,250,309,289" href="15/15cget6.rle" />
+	<area coords="310,250,369,289" href="15/15iubbk3.rle" />
+	<area coords="370,250,429,289" href="15/15itbbt1.rle" />
+	<area coords="430,250,489,289" href="15/15hvtbt3.rle" />
+	<area coords="490,250,549,289" href="15/15cltbt3.rle" />
+	<area coords="550,250,620,289" href="15/15ugtbt1.rle" />
+	<area coords="0,290,69,329" href="15/15vcbt1.rle" />
+	<area coords="70,290,129,329" href="16/16bk4.rle" />
+	<area coords="130,290,189,329" href="16/16bkhvhv.rle" />
+	<area coords="190,290,249,329" href="16/16pdbbk.rle" />
+	<area coords="250,290,309,329" href="16/16shbhv.rle" />
+	<area coords="310,290,369,329" href="16/16etbbt6.rle" />
+	<area coords="370,290,429,329" href="16/16cgpd.rle" />
+	<area coords="430,290,489,329" href="16/16itlbt1.rle" />
+	<area coords="490,290,549,329" href="16/16etbbt5.rle" />
+	<area coords="550,290,620,329" href="16/16shshb1.rle" />
+	<area coords="0,330,69,369" href="16/16blsbt3.rle" />
+	<area coords="70,330,129,369" href="16/16gubt1.rle" />
+	<area coords="130,330,189,369" href="16/16iubbt5.rle" />
+	<area coords="190,330,249,369" href="16/16shbts1.rle" />
+	<area coords="250,330,309,369" href="16/16ubtab1.rle" />
+	<area coords="310,330,369,369" href="16/16blfbt1.rle" />
+	<area coords="370,330,429,369" href="16/16blfbt2.rle" />
+	<area coords="430,330,489,369" href="16/16betbt1.rle" />
+	<area coords="490,330,549,369" href="16/16ulftb5.rle" />
+	<area coords="550,330,620,369" href="16/16shbtb2.rle" />
+	<area coords="0,370,69,420" href="16/16dlftb3.rle" />
+	<area coords="70,370,129,420" href="16/16lctbt3.rle" />
+	<area coords="130,370,189,420" href="16/16betbt5.rle" />
+	<area coords="190,370,249,420" href="17/17bctbt2.rle" />
+	<area coords="250,370,309,420" href="17/17pdbbt.rle" />
+	<area coords="310,370,369,420" href="17/17etbsh6.rle" />
+	<area coords="370,370,429,420" href="17/17etbsh5.rle" />
+	<area coords="430,370,489,420" href="17/17btbk3.rle" />
+	<area coords="490,370,549,420" href="17/17acacbt.rle" />
+	<area coords="550,370,620,420" href="17/17btpdb1.rle" />
+</map>
+
+<hr />
+<a name="g5-pp1-1"></a>
+<h3>Last 56 pseudo-still-lifes</h3>
+<p><a class="p" href="stamp/g5-pp1-1.rle"><img src="map/g5-pp1-1.png"
+ alt="5-glider pseudo-still-lifes 101-156"
+ width="621" height="381" usemap="#g5-pp1-1" /></a></p>
+
+<map name="g5-pp1-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/g5-pp1.zip" />
+	<area coords="601,361,620,380" href="stamp/g5-pp1-1.rle" />
+	<area coords="0,0,69,69" href="17/17btetbt.rle" />
+	<area coords="70,0,129,69" href="17/17gutbt1.rle" />
+	<area coords="130,0,189,69" href="17/17dcgtbt.rle" />
+	<area coords="190,0,249,69" href="18/18bctta.rle" />
+	<area coords="250,0,309,69" href="18/18hvhvhv.rle" />
+	<area coords="310,0,369,69" href="18/18pdbsh.rle" />
+	<area coords="370,0,429,69" href="18/18ppcbk2.rle" />
+	<area coords="430,0,489,69" href="18/18ppcbk1.rle" />
+	<area coords="490,0,549,69" href="18/18sshhv1.rle" />
+	<area coords="550,0,620,69" href="18/18hbbk.rle" />
+	<area coords="0,70,69,129" href="18/18gulf1.rle" />
+	<area coords="70,70,129,129" href="18/18hvlfb1.rle" />
+	<area coords="130,70,189,129" href="18/18hvetbt.rle" />
+	<area coords="190,70,249,129" href="18/18bketlf.rle" />
+	<area coords="250,70,309,129" href="18/18btethv.rle" />
+	<area coords="310,70,369,129" href="19/19ppcbt4.rle" />
+	<area coords="370,70,429,129" href="19/19ethhv3.rle" />
+	<area coords="430,70,489,129" href="19/19bdkbt9.rle" />
+	<area coords="490,70,549,129" href="19/19bdkbt1.rle" />
+	<area coords="550,70,620,129" href="19/19habtbt.rle" />
+	<area coords="0,130,69,189" href="19/19sshet6.rle" />
+	<area coords="70,130,129,189" href="19/19etlfb9.rle" />
+	<area coords="130,130,189,189" href="19/19etsbt1.rle" />
+	<area coords="190,130,249,189" href="19/19vcfttb.rle" />
+	<area coords="250,130,309,189" href="19/19sshet5.rle" />
+	<area coords="310,130,369,189" href="19/19gutlf1.rle" />
+	<area coords="370,130,429,189" href="19/19etetbt.rle" />
+	<area coords="430,130,489,189" href="19/19etlfbb.rle" />
+	<area coords="490,130,549,189" href="19/19etsbt2.rle" />
+	<area coords="550,130,620,189" href="20/20pdhvhv.rle" />
+	<area coords="0,190,69,249" href="20/20ppchv2.rle" />
+	<area coords="70,190,129,249" href="20/20ppchv1.rle" />
+	<area coords="130,190,189,249" href="20/20dkbts7.rle" />
+	<area coords="190,190,249,249" href="20/20dkbts1.rle" />
+	<area coords="250,190,309,249" href="20/20hbhv.rle" />
+	<area coords="310,190,369,249" href="20/20sshpd1.rle" />
+	<area coords="370,190,429,249" href="20/20pdlfb1.rle" />
+	<area coords="430,190,489,249" href="20/20etctbt.rle" />
+	<area coords="490,190,549,249" href="20/20pdetbt.rle" />
+	<area coords="550,190,620,249" href="20/20mhbt1.rle" />
+	<area coords="0,250,69,309" href="20/20hvetlf.rle" />
+	<area coords="70,250,129,309" href="21/21ppcetb.rle" />
+	<area coords="130,250,189,309" href="21/21ppcetc.rle" />
+	<area coords="190,250,249,309" href="21/21hbet5.rle" />
+	<area coords="250,250,309,309" href="21/21btshdk.rle" />
+	<area coords="310,250,369,309" href="21/21hbet6.rle" />
+	<area coords="370,250,429,309" href="21/21etslf1.rle" />
+	<area coords="430,250,489,309" href="21/21etetlf.rle" />
+	<area coords="490,250,549,309" href="21/21etslf2.rle" />
+	<area coords="550,250,620,309" href="22/22shsbts.rle" />
+	<area coords="0,310,69,380" href="22/22ppcpd2.rle" />
+	<area coords="70,310,129,380" href="22/22hbpd.rle" />
+	<area coords="130,310,189,380" href="22/22etpdet.rle" />
+	<area coords="190,310,249,380" href="22/22etctlf.rle" />
+	<area coords="250,310,309,380" href="22/22pdetlf.rle" />
+	<area coords="310,310,369,380" href="25/25dksbt1.rle" />
+	<area coords="370,310,620,380" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other
+<a class="i" href="glider-5.htm">objects buildable from 5 gliders</a>:</b>
+	<a class="i" href="g5-p1.htm">still-lifes</a>,
+	pseudo-still-lifes,
+	<a class="i" href="glider-5.htm#g5-p2">P2 oscillators</a>,
+	<a class="i" href="glider-5.htm#g5-pp2">P2 pseudo-oscillators</a>,
+	<a class="i" href="glider-5.htm#g5-p4">P4 oscillators</a>,
+	<a class="i" href="glider-5.htm#g5-pp15">P15 pseudo-oscillators</a>,
+	<a class="i" href="glider-5.htm#g5-puff">puffers</a>,
+	<a class="i" href="glider-5.htm#g5-meth">methuselahs</a>,
+	<a class="i" href="glider-5.htm#g5-nat">
+	    naturally-occurring objects</a>.</p>
+
+<p><b>Other costs:</b>
+	<a class="i" href="glider-2.htm">2 gliders</a>,
+	<a class="i" href="glider-3.htm">3 gliders</a>,
+	<a class="i" href="glider-4.htm">4 gliders</a>,
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	<a class="i" href="glider-6.htm">6 gliders</a>,
+	<a class="i" href="glider-e.htm">1 glider/bit</a>,
+	<a class="i" href="glider-g.htm">&gt;1 glider/bit</a>,
+	<a class="i" href="glider-u.htm">unknown</a>.</p>
+
+<p><b>Other <a class="i" href="pp1.htm">pseudo-still-lifes</a>:</b>
+	<a class="i" href="pp1.htm#pp1-8">8-bit</a>,
+	<a class="i" href="pp1.htm#pp1-9">9-bit</a>,
+	<a class="i" href="pp1.htm#pp1-10">10-bit</a>,
+	<a class="i" href="pp1.htm#pp1-11">11-bit</a>,
+	<a class="i" href="pp1.htm#pp1-12">12-bit</a>,
+	<a class="i" href="pp1.htm#pp1-13">13-bit</a>,
+	<a class="i" href="pp1-14.htm">14-bit</a>,
+	<a class="i" href="pp1-15.htm">15-bit</a>,
+	<a class="i" href="pp1-16.htm">16-bit</a>,
+	<a class="i" href="pp1-17.htm">17-bit</a>,
+	<a class="i" href="pp1-18.htm">18-bit</a>,
+	<a class="i" href="pp1.htm#pp1-19">19-bit</a>,
+	<a class="i" href="pp1.htm#pp1-20">20-bit</a>,
+	<a class="i" href="pp1.htm#pp1-21">21-bit</a>,
+	<a class="i" href="pp1.htm#pp1-22">22-bit</a>,
+	<a class="i" href="pp1.htm#pp1-23">23-bit</a>,
+	<a class="i" href="pp1.htm#pp1-24">24-bit</a>,
+	<a class="i" href="pp1.htm#pp1-lg">25-bit and larger</a>,
+	<a class="i" href="pp1.htm#pp1-bad">not quite still</a>.</p>
+
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

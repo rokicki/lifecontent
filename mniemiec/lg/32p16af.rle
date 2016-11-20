@@ -1,0 +1,31 @@
+#N 32p16af.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:05:22 2015
+x = 153, y = 122, rule = B3/S23
+16bo$17boo$16boo$116bo$116bobo$116boo3$112bo$112bobo$105bo6boo$106boo$
+105boo$$84bo$21bobo61bo18bo$21boo10bo16bobo30b3o16boo10bo$22bo8boo17b
+oo51boo7boo$32boo17bo37bo6bobo14boo$16bobo71bo6boo$17boo48bxx19b3o6bo
+49bxx$17bo18boo29bxbx77bxbx$35boo25bx4bxbxx45bo25bx4bxbxx$37bo23bxx5bx
+46boo24bxx5bx$60bxbbx51bobo22bxbbx$60b3x28bo28bobo17b3x$91boo27boo$70b
+3x17bobo28bo28b3x$69bxbbx22bobo51bxbbx$15bo48bx5bxx24boo46bx5bxx$16boo
+44bxxbx4bx25bo45bxxbx4bx$15boo18bo27bxbx77bxbx$34boo28bxx49bo6b3o19bxx
+$34bobo77boo6bo$bo17boo77boo14bobo6bo$boo17boo8bo68boo7boo$obo16bo10b
+oo66bo10boo16b3o$29bobo76bo18bo$128bo$$106boo$105boo$99boo6bo$98bobo$
+100bo3$95boo$94bobo$96bo$35boo$34boo$36bo3$112bo$113bo$111b3o$$43bo5bo
+$43bobobbo29bx29bo29bx$43boo3b3o26bxbx27bobo10bo16bxbx$41bo35bxbx27bob
+o9bo17bxbx$39bobo9b3o17bxx5bx22boo5bo10b3o9bxx5bx4bx$40boo9bo18bxbbx
+26bobbo11b3o12bxbbx8bxbx$52bo18bxx28boo12bo15bxx10bxx$96bo19bo$40bo39b
+xx15bo12boo16bxx10bxx$41bo9boo26bxbbx12b3o11bobbo15bxbx8bxbbx$39b3o9bo
+bo20bx5bxx9b3o10bo5boo17bx4bx5bxx$51bo21bxbx17bo9bobo27bxbx$42b3o3boo
+23bxbx16bo10bobo27bxbx$44bobbobo24bx29bo29bx$43bo5bo$$99b3o$99bo$100bo
+14$43bo66bobo$41bobo58bo8boo15bobo$42boo59boo6bo7bo8boo$102boo4bo11boo
+7bo$44bo61bobo10boo$44bobo60boo18bo$44boo80bo$74bxx38boo10b3o$36boo35b
+xbx37bobo$35bobo10bo25bx3bx35bo3bo12bo15bxx$37bo9bobo27bxbx24bo12bobo
+9boo16bxbx$47bobo27bxbx24boo11bobo10boo10bx4bxbxx$41boo5bo4bo17bxx5bx
+4bx19bobo5boo5bo4bo17bxx5bx$40bobbo8bobo15bxbbx8bxbx25bobbo8bobo15bxbb
+x$41boo10boo16bxx10bxx26boo10boo15b3x$$38boo10boo16bxx10bxx26boo10boo
+28b3x$38bobo8bobbo15bxbx8bxbbx25bobo8bobbo26bxbbx$39bo4bo5boo17bx4bx5b
+xx27bo4bo5boo5bobo14bx5bxx$43bobo27bxbx25boo10bobo11boo13bxxbx4bx$43bo
+bo9bo17bxbx26boo9bobo12bo14bxbx$44bo10bobo16bx3bx22bo12bo3bo25bxx$55b
+oo20bxbx37bobo$77bxx25b3o10boo$47boo57bo$46bobo56bo18boo$48bo63boo10bo
+bo$103bo7boo11bo4boo$49boo52boo8bo7bo6boo$49bobo50bobo15boo8bo$49bo70b
+obo!

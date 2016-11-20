@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life 21-Bit Period-3 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: 21-bit period 3 oscillator and pseudo-oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 21 bit period 3 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life 21-Bit Period-3 Oscillators</h1>
+
+<a name="top"></a>
+<p align="center">
+	<a class="j" href="#p3-21-intro">Introduction</a> |
+	<a class="j" href="#p3-21-0">First 49</a> |
+	<a class="j" href="#p3-21-1">Second 49</a> |
+	<a class="j" href="#p3-21-2">Third 49</a> |
+	<a class="j" href="#p3-21-3">Fourth 49</a> |
+	<a class="j" href="#p3-21-4">Last 22</a>
+</p>
+
+<hr /><hr />
+<a name="p3-21-intro"></a>
+<h2>The 420 <a class="i" href="bits-21.htm">21-bit</a>
+<a class="i" href="p3.htm">period 3 oscillators</a></h2>
+<p>All 420 21-bit period 3 oscillators can be synthesized except two.
+Unfortunately, due to time limitations, only 218 syntheses have been completed
+so far. The following syntheses have been completed and are shown below:</p>
+<p><ul>
+    <li>79 Candelfrobra on 9-bit still-life or pseudo-still-life.</li>
+    <li>12 Candelfrobra on long bookend w/tub or hook.</li>
+    <li>8 Candelfrobra siamese snake or carrier on boat.</li>
+    <li>8 Candelfrobra siamese python, eater or bookend on block or tub.</li>
+    <li>8 Candelfrobra w/tail on boat.</li>
+    <li>11 Unusual candelfrobra configurations.</li>
+    <li>39 Cuphook variants.</li>
+    <li>23 Jam based on 15-bit still-life.</li>
+    <li>12 Jam on cap or long bookend.</li>
+    <li>3 Mango jams.</li>
+    <li>1 Larger pulsar quadrant.</li>
+    <li>1 Larger Beluchenko's P3 with super mango.</li>
+    <li>2 Larger French kiss.</li>
+    <li>4 Skewed pole on key w/tail.</li>
+    <li>4 Larger trice tongs.</li>
+    <li>1 Larger fire spitting (no synthesis).</li>
+    <li>1 Caterer variant (no synthesis).</li>
+</ul></p>
+
+<p>The following additional syntheses have not yet been completed; all can be
+synthesized using the same techniques that are used for smaller still-lifes and
+period-3 oscillators:</p>
+<p><ul>
+    <li>65 Cuphook w/tail variants.</li>
+    <li>105 Eater eating 14-bit still-life.</li>
+    <li>17 Integral eating 12-bit still-life.</li>
+    <li>16 Integral w/tub or hook eating 11-bit still-life (1 shown).</li>
+</ul></p>
+
+<hr />
+<a name="p3-21-0"></a>
+<h3>The first 49 21-bit period 3 oscillators</h3>
+<p><a class="p" href="stamp/p3-21-0.rle"><img src="map/p3-21-0.png"
+ alt="21-bit period 3 oscillators 1-49"
+ width="581" height="421" usemap="#p3-21-0" /></a></p>
+
+<map name="p3-21-0">
+	<area coords="0,0,20,20" href="#top" />
+	<area coords="0,400,20,420" href="#bottom" />
+	<area coords="560,0,580,20" href="zip/p3-21.zip" />
+	<area coords="560,400,580,420" href="stamp/p3-21-0.rle" />
+	<area coords="0,0,89,65" href="21/21cfleh1.rle" />
+	<area coords="90,0,169,65" href="21/21cfvb1.rle" />
+	<area coords="170,0,249,65" href="21/21cfdbt6.rle" />
+	<area coords="250,0,329,65" href="21/21cfubt5.rle" />
+	<area coords="330,0,409,65" href="21/21cfubt1.rle" />
+	<area coords="410,0,489,65" href="21/21cfin5.rle" />
+	<area coords="490,0,580,65" href="21/21cfin1.rle" />
+	<area coords="0,66,89,121" href="21/21cfubta.rle" />
+	<area coords="90,66,169,121" href="21/21cfdbt4.rle" />
+	<area coords="170,66,249,121" href="21/21cfll15.rle" />
+	<area coords="250,66,329,121" href="21/21cfll7.rle" />
+	<area coords="330,66,409,121" href="21/21cfll8.rle" />
+	<area coords="410,66,489,121" href="21/21cflht4.rle" />
+	<area coords="490,66,580,121" href="21/21cftlt2.rle" />
+	<area coords="0,122,89,177" href="21/21cftlt4.rle" />
+	<area coords="90,122,169,177" href="21/21cfll16.rle" />
+	<area coords="170,122,249,177" href="21/21cflht3.rle" />
+	<area coords="250,122,329,177" href="21/21cfll13.rle" />
+	<area coords="330,122,409,177" href="21/21cfll5.rle" />
+	<area coords="410,122,489,177" href="21/21cfxs1.rle" />
+	<area coords="490,122,580,177" href="21/21jmct1.rle" />
+	<area coords="0,178,89,233" href="21/21jmle1.rle" />
+	<area coords="90,178,169,233" href="21/21cfll10.rle" />
+	<area coords="170,178,249,233" href="21/21cfll12.rle" />
+	<area coords="250,178,329,233" href="21/21jmle3.rle" />
+	<area coords="330,178,409,233" href="21/21cfleh6.rle" />
+	<area coords="410,178,489,233" href="21/21cflet1.rle" />
+	<area coords="490,178,580,233" href="21/21cflet6.rle" />
+	<area coords="0,234,89,289" href="21/21cflht6.rle" />
+	<area coords="90,234,169,289" href="21/21cfleh2.rle" />
+	<area coords="170,234,249,289" href="21/21cfdbt2.rle" />
+	<area coords="250,234,329,289" href="21/21cfvb3.rle" />
+	<area coords="330,234,409,289" href="21/21cfdbt8.rle" />
+	<area coords="410,234,489,289" href="21/21cfubt7.rle" />
+	<area coords="490,234,580,289" href="21/21cftbt5.rle" />
+	<area coords="0,290,89,345" href="21/21cftbt7.rle" />
+	<area coords="90,290,169,345" href="21/21cfdbt3.rle" />
+	<area coords="170,290,249,345" href="21/21cftbt8.rle" />
+	<area coords="250,290,329,345" href="21/21cftbt4.rle" />
+	<area coords="330,290,409,345" href="21/21cftbt3.rle" />
+	<area coords="410,290,489,345" href="21/21cftbt1.rle" />
+	<area coords="490,290,580,345" href="21/21cfubt4.rle" />
+	<area coords="0,346,89,420" href="21/21cfin7.rle" />
+	<area coords="90,346,169,420" href="21/21cfin3.rle" />
+	<area coords="170,346,249,420" href="21/21cfubtc.rle" />
+	<area coords="250,346,329,420" href="21/21cftbt2.rle" />
+	<area coords="330,346,409,420" href="21/21cfll6.rle" />
+	<area coords="410,346,489,420" href="21/21cflht2.rle" />
+	<area coords="490,346,580,420" href="21/21cftlt3.rle" />
+</map>
+
+<hr />
+<a name="p3-21-1"></a>
+<h3>The second 49 21-bit period 3 oscillators</h3>
+<p><a class="p" href="stamp/p3-21-1.rle"><img src="map/p3-21-1.png"
+ alt="21-bit period 3 oscillators 50-98"
+ width="581" height="421" usemap="#p3-21-1" /></a></p>
+
+<map name="p3-21-1">
+	<area coords="0,0,20,20" href="#top" />
+	<area coords="0,400,20,420" href="#bottom" />
+	<area coords="560,0,580,20" href="zip/p3-21.zip" />
+	<area coords="560,400,580,420" href="stamp/p3-21-1.rle" />
+	<area coords="0,0,89,65" href="21/21cfll14.rle" />
+	<area coords="90,0,169,65" href="21/21cflht1.rle" />
+	<area coords="170,0,249,65" href="21/21cflc1.rle" />
+	<area coords="250,0,329,65" href="21/21cflc5.rle" />
+	<area coords="330,0,409,65" href="21/21kytsp2.rle" />
+	<area coords="410,0,489,65" href="21/21kytsp3.rle" />
+	<area coords="490,0,580,65" href="21/21cfxs3.rle" />
+	<area coords="0,66,89,121" href="21/21cupacb.rle" />
+	<area coords="90,66,169,121" href="21/21cupsnb.rle" />
+	<area coords="170,66,249,121" href="21/21cptsn3.rle" />
+	<area coords="250,66,329,121" href="21/21cptta.rle" />
+	<area coords="330,66,409,121" href="21/21cptic1.rle" />
+	<area coords="410,66,489,121" href="21/21cptibk.rle" />
+	<area coords="490,66,580,121" href="21/21cupitb.rle" />
+	<area coords="0,122,89,177" href="21/21cptic2.rle" />
+	<area coords="90,122,169,177" href="21/21jmct3.rle" />
+	<area coords="170,122,249,177" href="21/21jmle5.rle" />
+	<area coords="250,122,329,177" href="21/21cgjmlf.rle" />
+	<area coords="330,122,409,177" href="21/21cgjmbn.rle" />
+	<area coords="410,122,489,177" href="21/21jmwg3.rle" />
+	<area coords="490,122,580,177" href="21/21jmle7.rle" />
+	<area coords="0,178,89,233" href="21/21cpttlb.rle" />
+	<area coords="90,178,169,233" href="21/21cflit2.rle" />
+	<area coords="170,178,249,233" href="21/21cflhtb.rle" />
+	<area coords="250,178,329,233" href="21/21cfcui.rle" />
+	<area coords="330,178,409,233" href="21/21cftlbt.rle" />
+	<area coords="410,178,489,233" href="21/21jmle4.rle" />
+	<area coords="490,178,580,233" href="21/21jmwg1.rle" />
+	<area coords="0,234,89,289" href="21/21jmct2.rle" />
+	<area coords="90,234,169,289" href="21/21cfll11.rle" />
+	<area coords="170,234,249,289" href="21/21cflet3.rle" />
+	<area coords="250,234,329,289" href="21/21cfleh3.rle" />
+	<area coords="330,234,409,289" href="21/21cflet2.rle" />
+	<area coords="410,234,489,289" href="21/21cflht8.rle" />
+	<area coords="490,234,580,289" href="21/21cfleh5.rle" />
+	<area coords="0,290,89,345" href="21/21cfvb4.rle" />
+	<area coords="90,290,169,345" href="21/21cfdbt7.rle" />
+	<area coords="170,290,249,345" href="21/21cfubt8.rle" />
+	<area coords="250,290,329,345" href="21/21cfubt3.rle" />
+	<area coords="330,290,409,345" href="21/21cfdbt1.rle" />
+	<area coords="410,290,489,345" href="21/21cftbt6.rle" />
+	<area coords="490,290,580,345" href="21/21cfxs5.rle" />
+	<area coords="0,346,89,420" href="21/21cfin8.rle" />
+	<area coords="90,346,169,420" href="21/21cfin4.rle" />
+	<area coords="170,346,249,420" href="21/21cfubtb.rle" />
+	<area coords="250,346,329,420" href="21/21cftlt1.rle" />
+	<area coords="330,346,409,420" href="21/21kytsp4.rle" />
+	<area coords="410,346,489,420" href="21/21cflc3.rle" />
+	<area coords="490,346,580,420" href="21/21kytsp1.rle" />
+</map>
+
+<hr />
+<a name="p3-21-2"></a>
+<h3>The third 49 21-bit period 3 oscillators</h3>
+<p><a class="p" href="stamp/p3-21-2.rle"><img src="map/p3-21-2.png"
+ alt="21-bit period 3 oscillators 99-147"
+ width="581" height="421" usemap="#p3-21-2" /></a></p>
+
+<map name="p3-21-2">
+	<area coords="0,0,20,20" href="#top" />
+	<area coords="0,400,20,420" href="#bottom" />
+	<area coords="560,0,580,20" href="zip/p3-21.zip" />
+	<area coords="560,400,580,420" href="stamp/p3-21-2.rle" />
+	<area coords="0,0,89,65" href="21/21cflc7.rle" />
+	<area coords="90,0,169,65" href="21/21cfxs4.rle" />
+	<area coords="170,0,249,65" href="21/21cupls3.rle" />
+	<area coords="250,0,329,65" href="21/21cupib1.rle" />
+	<area coords="330,0,409,65" href="21/21cupib2.rle" />
+	<area coords="410,0,489,65" href="21/21cptac4.rle" />
+	<area coords="490,0,580,65" href="21/21cptsh2.rle" />
+	<area coords="0,66,89,121" href="21/21cpthv.rle" />
+	<area coords="90,66,169,121" href="21/21cptsh1.rle" />
+	<area coords="170,66,249,121" href="21/21cptac3.rle" />
+	<area coords="250,66,329,121" href="21/21cupet5.rle" />
+	<area coords="330,66,409,121" href="21/21cupet4.rle" />
+	<area coords="410,66,489,121" href="21/21cupet2.rle" />
+	<area coords="490,66,580,121" href="21/21cuplb2.rle" />
+	<area coords="0,122,89,177" href="21/21cuplf1.rle" />
+	<area coords="90,122,169,177" href="21/21cuplf2.rle" />
+	<area coords="170,122,249,177" href="21/21cupet3.rle" />
+	<area coords="250,122,329,177" href="21/21cuplb1.rle" />
+	<area coords="330,122,409,177" href="21/21cupet6.rle" />
+	<area coords="410,122,489,177" href="21/21cupet1.rle" />
+	<area coords="490,122,580,177" href="21/21tglftb.rle" />
+	<area coords="0,178,89,233" href="21/21tghv.rle" />
+	<area coords="90,178,169,233" href="21/21tgguh.rle" />
+	<area coords="170,178,249,233" href="21/21cpbtb2.rle" />
+	<area coords="250,178,329,233" href="21/21cpbtb1.rle" />
+	<area coords="330,178,409,233" href="21/21cuptl1.rle" />
+	<area coords="410,178,489,233" href="21/21cuptl2.rle" />
+	<area coords="490,178,580,233" href="21/21cflit1.rle" />
+	<area coords="0,234,89,289" href="21/21cfcgpb.rle" />
+	<area coords="90,234,169,289" href="21/21cfbebk.rle" />
+	<area coords="170,234,249,289" href="21/21cfebk3.rle" />
+	<area coords="250,234,329,289" href="21/21cfebk2.rle" />
+	<area coords="330,234,409,289" href="21/21cfftbk.rle" />
+	<area coords="410,234,489,289" href="21/21jmcsl1.rle" />
+	<area coords="490,234,580,289" href="21/21jmlha1.rle" />
+	<area coords="0,290,89,345" href="21/21jmht1.rle" />
+	<area coords="90,290,169,345" href="21/21cfebk1.rle" />
+	<area coords="170,290,249,345" href="21/21cfbtbk.rle" />
+	<area coords="250,290,329,345" href="21/21jmbet3.rle" />
+	<area coords="330,290,409,345" href="21/21cpbgbk.rle" />
+	<area coords="410,290,489,345" href="21/21jmlha2.rle" />
+	<area coords="490,290,580,345" href="21/21jmle8.rle" />
+	<area coords="0,346,89,420" href="21/21cupls2.rle" />
+	<area coords="90,346,169,420" href="21/21cupls1.rle" />
+	<area coords="170,346,249,420" href="21/21jmct4.rle" />
+	<area coords="250,346,329,420" href="21/21cgjmtl.rle" />
+	<area coords="330,346,409,420" href="21/21cpftbk.rle" />
+	<area coords="410,346,489,420" href="21/21tggut.rle" />
+	<area coords="490,346,580,420" href="21/21cfabt4.rle" />
+</map>
+
+<hr />
+<a name="p3-21-3"></a>
+<h3>The fourth 49 21-bit period 3 oscillators</h3>
+<p><a class="p" href="stamp/p3-21-3.rle"><img src="map/p3-21-3.png"
+ alt="21-bit period 3 oscillators 148-196"
+ width="581" height="421" usemap="#p3-21-3" /></a></p>
+
+<map name="p3-21-3">
+	<area coords="0,0,20,20" href="#top" />
+	<area coords="0,400,20,420" href="#bottom" />
+	<area coords="560,0,580,20" href="zip/p3-21.zip" />
+	<area coords="560,400,580,420" href="stamp/p3-21-3.rle" />
+	<area coords="0,0,89,65" href="21/21cfabt3.rle" />
+	<area coords="90,0,169,65" href="21/21cfsbt4.rle" />
+	<area coords="170,0,249,65" href="21/21cfsbt3.rle" />
+	<area coords="250,0,329,65" href="21/21cfsbt1.rle" />
+	<area coords="330,0,409,65" href="21/21cfetb1.rle" />
+	<area coords="410,0,489,65" href="21/21cflhtc.rle" />
+	<area coords="490,0,580,65" href="21/21cfabt2.rle" />
+	<area coords="0,66,89,121" href="21/21cfabt1.rle" />
+	<area coords="90,66,169,121" href="21/21cfcgb.rle" />
+	<area coords="170,66,249,121" href="21/21cfetb2.rle" />
+	<area coords="250,66,329,121" href="21/21jmbet1.rle" />
+	<area coords="330,66,409,121" href="21/21cfsbt2.rle" />
+	<area coords="410,66,489,121" href="21/21cfll4.rle" />
+	<area coords="490,66,580,121" href="21/21cfll20.rle" />
+	<area coords="0,122,89,177" href="21/21cfll9.rle" />
+	<area coords="90,122,169,177" href="21/21jmle2.rle" />
+	<area coords="170,122,249,177" href="21/21cflet5.rle" />
+	<area coords="250,122,329,177" href="21/21cflht7.rle" />
+	<area coords="330,122,409,177" href="21/21cfleh4.rle" />
+	<area coords="410,122,489,177" href="21/21cfvb2.rle" />
+	<area coords="490,122,580,177" href="21/21cfdbt5.rle" />
+	<area coords="0,178,89,233" href="21/21cfubt6.rle" />
+	<area coords="90,178,169,233" href="21/21cfubt2.rle" />
+	<area coords="170,178,249,233" href="21/21cfxs7.rle" />
+	<area coords="250,178,329,233" href="21/21cfin6.rle" />
+	<area coords="330,178,409,233" href="21/21cflc6.rle" />
+	<area coords="410,178,489,233" href="21/21cfin2.rle" />
+	<area coords="490,178,580,233" href="21/21cfubt9.rle" />
+	<area coords="0,234,89,289" href="21/21cflc4.rle" />
+	<area coords="90,234,169,289" href="21/21cflc8.rle" />
+	<area coords="170,234,249,289" href="21/21cfxs2.rle" />
+	<area coords="250,234,329,289" href="21/21pqlf.rle" />
+	<area coords="330,234,409,289" href="21/21jmht2.rle" />
+	<area coords="410,234,489,289" href="21/21jmcsl2.rle" />
+	<area coords="490,234,580,289" href="21/21jmlha4.rle" />
+	<area coords="0,290,89,345" href="21/21jmlha3.rle" />
+	<area coords="90,290,169,345" href="21/21cptsn1.rle" />
+	<area coords="170,290,249,345" href="21/21cptac1.rle" />
+	<area coords="250,290,329,345" href="21/21cptac2.rle" />
+	<area coords="330,290,409,345" href="21/21cptsn2.rle" />
+	<area coords="410,290,489,345" href="21/21jmcftt.rle" />
+	<area coords="490,290,580,345" href="21/21cflsbk.rle" />
+	<area coords="0,346,89,420" href="21/21sjmsn.rle" />
+	<area coords="90,346,169,420" href="21/21sjmac.rle" />
+	<area coords="170,346,249,420" href="21/21ajmsn.rle" />
+	<area coords="250,346,329,420" href="21/21ajmac.rle" />
+	<area coords="330,346,409,420" href="21/21cfcusn.rle" />
+	<area coords="410,346,489,420" href="21/21jmpd.rle" />
+	<area coords="490,346,580,420" href="21/21jmblf.rle" />
+</map>
+
+<hr />
+<a name="p3-21-4"></a>
+<h3>The last 22 21-bit period 3 oscillators</h3>
+<p><a class="p" href="stamp/p3-21-4.rle"><img src="map/p3-21-4.png"
+ alt="21-bit period 3 oscillators 197-218"
+ width="501" height="261" usemap="#p3-21-4" /></a></p>
+
+<map name="p3-21-4">
+	<area coords="0,0,20,20" href="#top" />
+	<area coords="0,240,20,260" href="#bottom" />
+	<area coords="480,0,500,20" href="zip/p3-21.zip" />
+	<area coords="480,240,500,260" href="stamp/p3-21-4.rle" />
+	<area coords="0,0,89,65" href="21/21cfcuac.rle" />
+	<area coords="90,0,169,65" href="21/21jmle6.rle" />
+	<area coords="170,0,249,65" href="21/21fshd.rle" />
+	<area coords="250,0,329,65" href="21/21cflstb.rle" />
+	<area coords="330,0,409,65" href="21/21cflhta.rle" />
+	<area coords="410,0,500,65" href="21/21cfpbgp.rle" />
+	<area coords="0,66,89,121" href="21/21cfll2.rle" />
+	<area coords="90,66,169,121" href="21/21jmwg2.rle" />
+	<area coords="170,66,249,121" href="21/21cfll18.rle" />
+	<area coords="250,66,329,121" href="21/21cflet4.rle" />
+	<area coords="330,66,409,121" href="21/21cflht5.rle" />
+	<area coords="410,66,500,121" href="21/21cfxs8.rle" />
+	<area coords="0,122,89,177" href="21/21cflc2.rle" />
+	<area coords="90,122,169,177" href="21/21jmwg4.rle" />
+	<area coords="170,122,249,177" href="21/21jmbet4.rle" />
+	<area coords="250,122,329,177" href="21/21jmbet2.rle" />
+	<area coords="330,122,409,177" href="21/21catapb.rle" />
+	<area coords="410,122,500,177" href="21/21nbscg.rle" />
+	<area coords="0,178,89,260" href="21/21cfxs6.rle" />
+	<area coords="90,178,169,260" href="21/21fkih.rle" />
+	<area coords="170,178,249,260" href="21/21fkit.rle" />
+	<area coords="250,178,329,260" href="21/21ihkidb.rle" />
+	<area coords="330,178,500,260" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-21.htm">21-bit objects</a>:</b>
+	<a class="i" href="bits-21.htm#p1-21">still-lifes</a>,
+	<a class="i" href="bits-21.htm#pp1-21">pseudo-still-lifes</a>,
+	<a class="i" href="p2-21.htm">P2 oscillators</a>,
+	<a class="i" href="pp2-21.htm">P2 pseudo-oscillators</a>,
+	P3 oscillators,
+	<a class="i" href="bits-21.htm#pp3-21">P3 pseudo-oscillators</a>,
+	<a class="i" href="bits-21.htm#pp4-21">P4 pseudo-oscillators</a>,
+	<a class="i" href="bits-21.htm#p5-21">P5 oscillators</a>,
+	<a class="i" href="bits-21.htm#pp5-21">P5 pseudo-oscillators</a>,
+	<a class="i" href="bits-21.htm#p6-21">P6 oscillators</a>,
+	<a class="i" href="bits-21.htm#pp6-21">P6 pseudo-oscillators</a>,
+	<a class="i" href="bits-21.htm#p8-21">P8 oscillators</a>,
+	<a class="i" href="bits-21.htm#pp8-21">P8 pseudo-oscillators</a>,
+	<a class="i" href="bits-21.htm#pp10-21">P10 pseudo-oscillators</a>,
+	<a class="i" href="bits-21.htm#p15-21">P15 oscillator</a>,
+	<a class="i" href="bits-21.htm#pp15-21">P15 pseudo-oscillators</a>,
+	<a class="i" href="bits-21.htm#pp3-21">P30 pseudo-oscillator</a>.</p>
+
+<p><b>Other <a class="i" href="p3.htm">period 3 oscillators</a>:</b>
+	<a class="i" href="p3.htm#p3-12">12-bit</a>,
+	<a class="i" href="p3.htm#p3-13">13-bit</a>,
+	<a class="i" href="p3.htm#p3-14">14-bit</a>,
+	<a class="i" href="p3.htm#p3-16">16-bit</a>,
+	<a class="i" href="p3.htm#p3-17">17-bit</a>,
+	<a class="i" href="p3.htm#p3-18">18-bit</a>,
+	<a class="i" href="p3.htm#p3-19">19-bit</a>,
+	<a class="i" href="p3-20.htm">20-bit</a>,
+	21-bit,
+	<a class="i" href="p3.htm#p3-22">22-bit</a>,
+	<a class="i" href="p3.htm#p3-24">24-bit</a>,
+	<a class="i" href="p3.htm#p3-lg">25-bit and larger</a>.,
+	<a class="i" href="p3.htm#p3-bad">not quite oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>
+

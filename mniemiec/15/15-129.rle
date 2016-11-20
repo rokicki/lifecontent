@@ -1,0 +1,31 @@
+#N 15-129.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:34 2015
+x = 150, y = 158, rule = B3/S23
+93bo$92bo$92b3o10$133bo$131boo$132boo$78bo47bo$78bobo46boo$78boo42bo3b
+oo$123bo$77bo43b3o8bo$78bo51boo$76b3o52boo$120boo12boo$119bobo12bobo$
+106bxx13bo4boo6bo10bxx$106bx19bo18bx$107bx19bo19bx$73bo32bxx18boo18bxx
+$73boo28bxx18boo18bxx$72bobo29bxbxx16boboo16bxbxx$104bxbbx16bobbo16bx
+bbx$105bxx18boo18bxx3$85boo$84boo$86bo13$75bo$76boo$75boo$3obbo$bbobo$
+bobb3o18bxx18boo18bxx11bobo4boo18bxx18boo18bxx$25bx19bo19bx13boo4bo19b
+x19bo19bx$27bx19bo19bx3bo7bo7bo19bx19bo19bx$6b3obbo14bxx18boo18bxx4bo
+13boo18bxx18boo18bxx$8bobo59b3o30bxx18boo18bxx$7bobb3o53bxx6b3o9boo16b
+xbxx16boboo16bxbxx$44b3o19bxx8bo9boo14bxbxbxx14boboboo16bxbbx$46bo28bo
+26bxx18boo21bxx$45bo$47b3o74bo$47bo31boo42boo$48bo29bobo42bobo$80bo39b
+oo$88boo29bobo$87boo32bo$89bo5$28bo$27bo$19bo7b3o$20bo62bo$18b3o61bo$
+22bo59b3o$22bobo34byy18boo$22boo34bybby16bobbo$59byy18boo$$55bxx18boo
+18bxx28boo18bxx$55bx19bo19bx29bo19bx$57bx19bo19bx29bo19bx$56bxx18boo
+18bxx8bo4bo14boo18bxx$107boboo32bxx$56bxx18boo18bxx7b3obboo14boo16bxb
+xx$57bx19bo19bx29bo16bxbbx$57bxbx17bobo17bxbx27bobo13bxxbbxbx$58bxx18b
+oo18bxx28boo18bxx7$127bo$126boo$126bobo4$12boo114b3o$13boo113bo$12bo
+31boo83bo$44bobo$44bo5$85boo18bxx18boo18bxx$85bo19bx19bo8bo10bx$87bo
+19bx19bo5bo13bx$86boo18bxx18boo5b3o10bxx$$85bo20bxx18boo18bxx$85boo18b
+xbx17bobo4b3o12bx$84bobo19bx19bo5bo14bxbx$133bo14bxx$$130boo$123boo4bo
+bo$124boo5bo$123bo7$35boo8bobo17bxx18boo18bxx18boo18bxx$35bo9boo18bx
+19bo19bx19bo19bx$37bo8bo20bx19bo19bx19bo19bx$36boo28bxx18boo18bxx18boo
+18bxx$26bo6boo28bxx18boo18bxx18boo18bxx$24bobo7boboo26bxbxx16boboo16bx
+bxx16boboo16bxbxx$25boo7bobbo8bobo15bxbbx16bobbo16bxbbx16bobbo16bxbbx$
+33boobbobo6boo17bx19bo19bx19bo19bxx$38boo7bo14b3x6by10b3o6bo10b3x17b3o
+6bo$62bx7byby9bo7bobo9bx19bo6boo$70byby17bobo33bo3boo$71by19bo33b3o$
+94boo29boboo$68byy18boo4bobo29b3o$31b3o10bo22bybby16bobbo3bo31boo$33bo
+9boo22bybby16bobbo$24boo6bo10bobo22byy18boo$23bobo$25bo7boo$33bobo$33b
+o$29bo$29boo$28bobo!

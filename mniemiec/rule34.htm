@@ -1,0 +1,1267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Variant: 3/4 Life</title>
+<meta name="description"
+content="Life Variant: 3/4 Life: B34/S34 object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life variant 34 life still life oscillator spaceship object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Variant: 3/4 Life</h1>
+
+<p align="center">
+	<a class="j" href="#34-intro">Introduction</a> |
+	<a class="j" href="#34-count">Object Counts</a> |
+	<a class="j" href="#34-p1">Still-lifes</a> |
+	<a class="j" href="#34-p2">Small P2 oscillators</a> |
+	<a class="j" href="#34-lg">Large P2 oscillators</a> |
+	<a class="j" href="#34-p3">P3 oscillators</a> |
+	<a class="j" href="#34-p4">P4 oscillators</a> |
+	<a class="j" href="#34-p6">P6 oscillators</a> |
+	<a class="j" href="#34-p8">P8 oscillators</a> |
+	<a class="j" href="#34-p10">P10 oscillators</a> |
+	<a class="j" href="#34-p12">P12 oscillators</a> |
+	<a class="j" href="#34-p20">P20 oscillators</a> |
+	<a class="j" href="#34-ss">Spaceships</a> |
+	<a class="j" href="#34-o3"><i>c</i>/3 Orthogonal spaceships</a> |
+	<a class="j" href="#34-cons">Constellations</a> |
+	<a class="j" href="#34-meth">Methuselahs</a> |
+	<a class="j" href="#34-link">Links</a>
+</p>
+
+<hr /><hr />
+<a name="34-intro"></a>
+<h2>Introduction</h2>
+
+<p>One of the earliest variant Life rules to be studied and discussed was
+B34/S34, which was simply known as 3/4-Life. This is similar to Life, except
+both birth and survival occur on exactly 3 or 4 living neighbors.
+This rule has the following interesting properties:</p>
+<p><ul>
+    <li>Due to the birth-on-4 rule, pseudo-objects are not possible.</li>
+    <li><a class="j" href="#34-p1">Still-lifes</a> are possible, but except for
+	the 4-bit <a class="p" href="rule34/t4bk.rle">block</a> they are all
+	extremely large and rare. They must all resemble large fortresses, whose
+	outer walls must have corners resembling Life's ships or long-ships, and
+	connected by straight crenelations. While the interiors of such
+	still-lifes are more flexible, the exterior must necessarily be
+	constructed in this way. The smallest three have 4, 36, and 44 bits
+	respectively.</li>
+    <li>Since the birth and survival rules are identical, a cell does not
+	participate in its subsequent state. I.e., no information is transferred
+	directly from a cell to its child. Information can only be transferred
+	from a cell to its subsequent generation by moving to an alternate cell
+	and coming back later. This principle attaches parity to information,
+	and it is no surprise that most known oscillators have a
+	<a class="j" href="#34-p2">period of 2</a> and fill the niche left
+	vacant by the rare still-lifes. Most higher-period oscillators also have
+	even periods (except for a few that are
+	<a class="j" href="#34-p3">period 3</a>).
+	Furthermore, all three natural <a class="j" href="#34-ss">spaceships</a>
+	(as well as most known larger ones) have a period of 3 and a velocity
+	of <i>c</i>/3, demonstrating the same parity principle.</li>
+    <li>Unlike Life, where "hot" interiors of broths have a tendency to quickly
+	over-populate everything and mostly die (causing broths to quickly
+	fragment), the birth-on-4 rule allows large random broths to thrive.
+	As a result, there are many patterns that exhibit chaotic infinite
+	growth. In terms of object synthesis, the practical result of this is
+	that it is harder to collide gliders together expecting them to die,
+	leaving behind only small usable sparks. Similarly, small perturbations
+	of existing objects frequently cause them to explode into uncontrolled
+	growth.</li>
+</ul></p>
+
+<hr />
+<a name="34-count"></a>
+<h2>Object Counts</h2>
+
+<p>Computer searches have counted <a class="j" href="#34-p1">still-lifes</a>
+up to 45 bits,
+<a class="j" href="#34-p2">period 2 oscillators</a> up to 17 bits, and
+<a class="j" href="#34-p3">period 3 oscillators</a> up to 7 bits.</p>
+
+<p>Numbers in <b>bold face</b> have been confirmed by computer search. Other
+given numbers are believed to be complete, but have not yet been verified.
+Lists with large numbers of objects that have not yet been counted are shown
+with "many".</p>
+
+<p>Status of object lists on sub-pages is shown by background color:</p>
+<p><ul>
+    <li>White (or <span class="h">light blue</span>) indicates small complete
+	object list, with syntheses for all (or at least most).</li>
+    <li><span class="r">Red</span> indicates complete object count; may have
+	syntheses for some.</li>
+    <li><span class="s">Grey</span> indicates objects not counted; may have
+	syntheses for some.</li>
+</ul></p>
+
+<p>    <table width="824">
+    <colgroup><col width="161" /><col span="8" width="20" />
+	<col span="2" width="30" /><col span="2" width="40" />
+	<col span="3" width="50" /><col width="20" /><col width="50" />
+	<col span="2" width="20" /><col width="50" /><col width="20" />
+	<col width="31" /></colgroup>
+    <tr>
+	<td class="h"><b>Bits</b></td>
+	<td class="h"><b>4</b></td><td class="h"><b>5</b></td>
+	<td class="h"><b>6</b></td><td class="h"><b>7</b></td>
+	<td class="h"><b>8</b></td><td class="h"><b>9</b></td>
+	<td class="h"><b>10</b></td><td class="h"><b>11</b></td>
+	<td class="h"><b>12</b></td><td class="h"><b>13</b></td>
+	<td class="h"><b>14</b></td><td class="h"><b>15</b></td>
+	<td class="h"><b>16</b></td><td class="h"><b>17</b></td>
+	<td class="h"><b>18-35</b></td><td class="h"><b>36</b></td>
+	<td class="h"><b>37-43</b></td><td class="h"><b>44</b></td>
+	<td class="h"><b>45</b></td><td class="h"><b>46-49</b></td>
+	<td class="h"><b>50</b></td><td class="h"><b>51</b></td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#34-p1">Still-lifes</a></b></td>
+	<td><b>1</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>1</b></td><td><b>0</b></td><td><b>1</b></td>
+	<td><b>0</b></td><td>0</td>
+	<td class="h">2</td><td>1</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#34-p2">P2 oscillators</a></b></td>
+	<td><b>3</b></td>
+	<td class="h"><b>1</b></td><td><b>0</b></td><td><b>5</b></td>
+	<td><b>11</b></td><td><b>6</b></td>
+	<td class="h"><b>25</b></td><td class="r"><b>75</b></td>
+	<td class="r"><b>173</b></td><td class="r"><b>301</b></td>
+	<td class="r"><b>1452</b></td>
+	<td class="r"><b>4859</b></td><td class="r"><b>12789</b></td>
+	<td class="r"><b>44621</b></td><td class="s" colspan="8">many</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#34-p3">P3 oscillators</a></b></td>
+	<td><b>0</b></td>
+	<td class="h"><b>1</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>2</td><td>0</td><td class="r">18</td>
+	<td class="h">0</td><td class="r">157</td><td class="r">10</td>
+	<td>0</td><td class="r">2675</td>
+	<td class="h">0</td><td>0</td>
+    </tr>
+
+    <tr>
+	<td class="h"><b><a class="j" href="#34-p4">P4 oscillators</a></b></td>
+	<td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h">1</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">1</td>
+	<td class="h">0</td><td class="h">0</td><td class="h">1</td>
+	<td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">3</td><td class="h">0</td>
+	<td colspan="8" class="s">many</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#34-p6">P6 oscillators</a></b></td>
+	<td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>1</td><td>0</td><td>0</td><td>1</td>
+	<td class="h">0</td><td>0</td><td>3</td><td>0</td><td>2</td>
+	<td class="h">0</td><td>3</td><td>0</td>
+	<td colspan="8" class="s">many</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#34-p8">P8 oscillators</a></b></td>
+	<td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">1</td><td>0</td><td>1</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td>
+	<td colspan="8" class="s">none known</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#34-p10">P10 oscillators</a></b></td>
+	<td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>2</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td>
+	<td colspan="8" class="s">none known</td>
+    </tr>
+
+    <tr>
+	<td class="h">
+	    <b><a class="j" href="#34-p12">P12 oscillators</a></b></td>
+	<td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h">1</td><td class="h">0</td>
+	<td class="h">1</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">2</td>
+	<td class="r">26</td><td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="r">305</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#34-p20">P20 oscillators</a></b></td>
+	<td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>1</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>1</td>
+	<td class="h">0</td><td>2</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#34-ss">Spaceships</a></b></td>
+	<td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>1</td><td>0</td><td>1</td><td>0</td>
+	<td class="h">0</td><td>1</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td>
+	<td colspan="8" class="s">many</td>
+    </tr>
+</table></p>
+
+<hr /><hr />
+<a name="34-p1"></a>
+<h2>Still-lifes</h2>
+<p>These are all the still-lifes up to 51 bits. Except for the block, it is
+unlikely that any will every be synthesized from gliders.</p>
+
+<p><a class="p" href="stamp/34-p1.rle"><img src="map/34-p1.png"
+ alt="B34/S34 still-lifes"
+ width="501" height="81" usemap="#34-p1" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t4bk.rle">
+	    Block [3]</a></td>
+	<td class="r"><a class="p" href="rule34/t36p1.rle">
+	    36-bit fortress [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t44p1.rle">
+	    44-bit fortress [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t50p1a.rle">
+	    50-bit fortress #1 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t50p1b.rle">
+	    50-bit fortress #2 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t51p1.rle">
+	    51-bit fortress [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/34-p1.zip" />
+	<area coords="481,61,500,80" href="stamp/34-p1.rle" />
+	<area coords="0,0,89,80" href="rule34/t4bk.rle" />
+	<area coords="90,0,169,80" href="rule34/t36p1.rle" />
+	<area coords="170,0,249,80" href="rule34/t44p1.rle" />
+	<area coords="250,0,329,80" href="rule34/t50p1a.rle" />
+	<area coords="330,0,409,80" href="rule34/t50p1b.rle" />
+	<area coords="410,0,500,80" href="rule34/t51p1.rle" />
+</map>
+
+<p>Although not generally considered a still-life, the empty field (i.e.
+<a class="p" href="rule34/t0death.rle">death</a>) technically fulfills all the
+criteria, and it occurs sufficiently frequently to warrant being mentioned.
+For example, it is the most common result of two gliders colliding.</p>
+
+<hr />
+<a name="34-p2"></a>
+<h2>Small Period-2 Oscillators (4-10 bits)</h2>
+<p>These are all the period 2 oscillators 10 bits and smaller. All have
+syntheses, except eight 10-bit ones (roughly 1/3 of them).</p>
+
+<p><a class="p" href="stamp/34-p2.rle"><img src="map/34-p2.png"
+ alt="B34/S34 period 2 oscillators 4-10 bits"
+ width="561" height="381" usemap="#34-p2" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t4-1.rle">Z (4.1) [3]</a></td>
+	<td><a class="p" href="rule34/t4-2.rle">Y (4.2) [3]</a></td>
+	<td><a class="p" href="rule34/t4-3.rle">Yoyo (4.3) [3]</a></td>
+	<td><a class="p" href="rule34/t5-1.rle">Blinker (5.1) [2]</a></td>
+	<td><a class="p" href="rule34/t7-1.rle">Needle (7.1) [3]</a></td>
+	<td><a class="p" href="rule34/t7-2.rle">Sema- phore (7.2) [5]</a></td>
+	<td><a class="p" href="rule34/t7-3.rle">N (7.3) [5]</a></td>
+	<td><a class="p" href="rule34/t7-4.rle">YY (7.4) [3]</a></td>
+	<td><a class="p" href="rule34/t7-5.rle">Clock (7.5) [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rule34/t8-1.rle">Guard (8.1) [5]</a></td>
+	<td><a class="p" href="rule34/t8-2.rle">Crown (8.2) [5]</a></td>
+	<td><a class="p" href="rule34/t8-3.rle">Candle (8.3) [5]</a></td>
+	<td><a class="p" href="rule34/t8-4.rle">Yoyo (8.4) [3]</a></td>
+	<td><a class="p" href="rule34/t8-5.rle">
+	    Cis yoyo on yoyo (8.5) [4]</a></td>
+	<td><a class="p" href="rule34/t8-6.rle">
+	    Trans yoyo on yoyo (8.6) [6]</a></td>
+	<td><a class="p" href="rule34/t8-7.rle">
+	    Yoyo by yoyo (8.7) [4]</a></td>
+	<td class="y"><a class="p" href="rule34/t8-8.rle">
+	    Turban (8.8) [13]</a></td>
+	<td><a class="p" href="rule34/t8-9.rle">
+	    Skewed Y on Y (8.9) [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rule34/t8-10.rle">
+	    Y tie cis Y (8.10) [6]</a></td>
+	<td><a class="p" href="rule34/t8-11.rle">
+	    Y tie trans y (8.11) [6]</a></td>
+	<td><a class="p" href="rule34/t9-1.rle">
+	    Acrobat (9.1) [3]</a></td>
+	<td class="y"><a class="p" href="rule34/t9-2.rle">
+	    9.2 [33]</a></td>
+	<td class="y"><a class="p" href="rule34/t9-3.rle">
+	    9.3 [14]</a></td>
+	<td><a class="p" href="rule34/t9-4.rle">
+	    Yoyo blinker (9.4) [3]</a></td>
+	<td><a class="p" href="rule34/t9-5.rle">
+	    Fork (9.5) [3]</a></td>
+	<td class="y"><a class="p" href="rule34/t9-6.rle">
+	    9.6 [18]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="rule34/t10-1.rle">10.1 [20]</a></td>
+	<td class="y"><a class="p" href="rule34/t10-2.rle">10.2 [25]</a></td>
+	<td class="y"><a class="p" href="rule34/t10-3.rle">10.3 [22]</a></td>
+	<td class="y"><a class="p" href="rule34/t10-4.rle">10.4 [19]</a></td>
+	<td class="y"><a class="p" href="rule34/t10-5.rle">10.5 [17]</a></td>
+	<td><a class="p" href="rule34/t10-6.rle">10.6 [9]</a></td>
+	<td class="y"><a class="p" href="rule34/t10-7.rle">10.7 [21]</a></td>
+	<td class="y"><a class="p" href="rule34/t10-8.rle">10.8 [11]</a></td>
+	<td><a class="p" href="rule34/t10-9.rle">10.9 [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rule34/t10-10.rle">10.10 [8]</a></td>
+	<td><a class="p" href="rule34/t10-11.rle">10.11 [9]</a></td>
+	<td><a class="p" href="rule34/t10-12.rle">10.12 [4]</a></td>
+	<td><a class="p" href="rule34/t10-13.rle">Hat (10.13) [2]</a></td>
+	<td><a class="p" href="rule34/t10-14.rle">
+	    Sea- horses (10.14) [4]</a></td>
+	<td class="r"><a class="p" href="rule34/t10-15.rle">10.15 [x]</a></td>
+	<td><a class="p" href="rule34/t10-16.rle">10.16 [6]</a></td>
+	<td class="r"><a class="p" href="rule34/t10-17.rle">10.17 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t10-18.rle">10.18 [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="rule34/t10-19.rle">10.19 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t10-20.rle">10.20 [x]</a></td>
+	<td class="g"><a class="p" href="rule34/t10-21.rle">10.21 [10]</a></td>
+	<td><a class="p" href="rule34/t10-22.rle">10.22 [3]</a></td>
+	<td class="r"><a class="p" href="rule34/t10-23.rle">10.23 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t10-24.rle">10.24 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t10-25.rle">10.25 [x]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="34-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/34-p2.zip" />
+	<area coords="541,361,560,380" href="stamp/34-p2.rle" />
+	<area coords="0,0,69,69" href="rule34/t4-1.rle" />
+	<area coords="70,0,129,69" href="rule34/t4-2.rle" />
+	<area coords="130,0,189,69" href="rule34/t4-3.rle" />
+	<area coords="190,0,249,69" href="rule34/t5-1.rle" />
+	<area coords="250,0,309,69" href="rule34/t7-1.rle" />
+	<area coords="310,0,369,69" href="rule34/t7-2.rle" />
+	<area coords="370,0,429,69" href="rule34/t7-3.rle" />
+	<area coords="430,0,489,69" href="rule34/t7-4.rle" />
+	<area coords="490,0,560,69" href="rule34/t7-5.rle" />
+	<area coords="0,70,69,129" href="rule34/t8-1.rle" />
+	<area coords="70,70,129,129" href="rule34/t8-2.rle" />
+	<area coords="130,70,189,129" href="rule34/t8-3.rle" />
+	<area coords="190,70,249,129" href="rule34/t8-4.rle" />
+	<area coords="250,70,309,129" href="rule34/t8-5.rle" />
+	<area coords="310,70,369,129" href="rule34/t8-6.rle" />
+	<area coords="370,70,429,129" href="rule34/t8-7.rle" />
+	<area coords="430,70,489,129" href="rule34/t8-8.rle" />
+	<area coords="490,70,560,129" href="rule34/t8-9.rle" />
+	<area coords="0,130,69,189" href="rule34/t8-10.rle" />
+	<area coords="70,130,129,189" href="rule34/t8-11.rle" />
+	<area coords="130,130,189,189" href="rule34/t9-1.rle" />
+	<area coords="190,130,249,189" href="rule34/t9-2.rle" />
+	<area coords="250,130,309,189" href="rule34/t9-3.rle" />
+	<area coords="310,130,369,189" href="rule34/t9-4.rle" />
+	<area coords="370,130,429,189" href="rule34/t9-5.rle" />
+	<area coords="430,130,489,189" href="rule34/t9-6.rle" />
+	<area coords="490,130,560,189" nohref="nohref" />
+	<area coords="0,190,69,249" href="rule34/t10-1.rle" />
+	<area coords="70,190,129,249" href="rule34/t10-2.rle" />
+	<area coords="130,190,189,249" href="rule34/t10-3.rle" />
+	<area coords="190,190,249,249" href="rule34/t10-4.rle" />
+	<area coords="250,190,309,249" href="rule34/t10-5.rle" />
+	<area coords="310,190,369,249" href="rule34/t10-6.rle" />
+	<area coords="370,190,429,249" href="rule34/t10-7.rle" />
+	<area coords="430,190,489,249" href="rule34/t10-8.rle" />
+	<area coords="490,190,560,249" href="rule34/t10-9.rle" />
+	<area coords="0,250,69,309" href="rule34/t10-10.rle" />
+	<area coords="70,250,129,309" href="rule34/t10-11.rle" />
+	<area coords="130,250,189,309" href="rule34/t10-12.rle" />
+	<area coords="190,250,249,309" href="rule34/t10-13.rle" />
+	<area coords="250,250,309,309" href="rule34/t10-14.rle" />
+	<area coords="310,250,369,309" href="rule34/t10-15.rle" />
+	<area coords="370,250,429,309" href="rule34/t10-16.rle" />
+	<area coords="430,250,489,309" href="rule34/t10-17.rle" />
+	<area coords="490,250,560,309" href="rule34/t10-18.rle" />
+	<area coords="0,310,69,380" href="rule34/t10-19.rle" />
+	<area coords="70,310,129,380" href="rule34/t10-20.rle" />
+	<area coords="130,310,189,380" href="rule34/t10-21.rle" />
+	<area coords="190,310,249,380" href="rule34/t10-22.rle" />
+	<area coords="250,310,309,380" href="rule34/t10-23.rle" />
+	<area coords="310,310,369,380" href="rule34/t10-24.rle" />
+	<area coords="370,310,429,380" href="rule34/t10-25.rle" />
+	<area coords="430,310,560,380" nohref="nohref" />
+</map>
+
+<hr />
+<a name="34-lg"></a>
+<h2>Large Period-2 Oscillators</h2>
+<p>These are some period 2 oscillators 11 bits and up that have syntheses.
+Note that the last one has a still-life fortress-structure on top, with
+oscillating bits on the bottom.</p>
+
+<p><a class="p" href="stamp/34-lg.rle"><img src="map/34-lg.png"
+ alt="B34/S34 period 2 oscillators 4-10 bits"
+ width="621" height="421" usemap="#34-lg" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="rule34/t11-1.rle">
+	    Small dollar (11.1) [19]</a></td>
+	<td><a class="p" href="rule34/t11-2.rle">11.2 [8]</a></td>
+	<td class="y"><a class="p" href="rule34/t11-3.rle">11.3 [22]</a></td>
+	<td><a class="p" href="rule34/t11-4.rle">11.4 [10]</a></td>
+	<td class="y"><a class="p" href="rule34/t11-5.rle">11.5 [50]</a></td>
+	<td><a class="p" href="rule34/t11-20.rle">Bell (11.20) [3]</a></td>
+	<td class="g"><a class="p" href="rule34/t11-21.rle">11.21 [11]</a></td>
+	<td><a class="p" href="rule34/t11-23.rle">11.23 [10]</a></td>
+	<td class="y"><a class="p" href="rule34/t11-24.rle">11.24 [12]</a></td>
+	<td class="y"><a class="p" href="rule34/t11-25.rle">
+	    Clock skewed tie Y (11.25) [13]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rule34/t11-30.rle">11.30 [8]</a></td>
+	<td><a class="p" href="rule34/t11-46.rle">
+	    Clock tie cis Y (11.46) [5]</a></td>
+	<td class="y"><a class="p" href="rule34/t11-47.rle">
+	    Clock tie trans Y (11.47) [13]</a></td>
+	<td><a class="p" href="rule34/t11-51.rle">
+	    N tie cis Y (11.51) [5]</a></td>
+	<td><a class="p" href="rule34/t11-52.rle">
+	    YY tie cis Y (11.52) [6]</a></td>
+	<td><a class="p" href="rule34/t11-54.rle">
+	    Sema- phore tie cis Y (11.54) [8]</a></td>
+	<td class="s">&nbsp;</td>
+	<td><a class="p" href="rule34/t13-6.rle">13.6 [6]</a></td>
+	<td class="y"><a class="p" href="rule34/t13-10.rle">13.10 [29]</a></td>
+	<td><a class="p" href="rule34/t13-112.rle">
+	    13.112 [11]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="rule34/t12-6.rle">12.6 [28]</a></td>
+	<td class="y"><a class="p" href="rule34/t12-7.rle">12.7 [17]</a></td>
+	<td><a class="p" href="rule34/t12-8.rle">12.8 [4]</a></td>
+	<td><a class="p" href="rule34/t12-64.rle">12.64 [4]</a></td>
+	<td><a class="p" href="rule34/t12-71.rle">12.71 [4]</a></td>
+	<td><a class="p" href="rule34/t12-72.rle">12.72 [4]</a></td>
+	<td><a class="p" href="rule34/t12-117.rle">12.117 [8]</a></td>
+	<td><a class="p" href="rule34/t12-144.rle">Phoenix (12.144) [6]</a></td>
+	<td><a class="p" href="rule34/t12-158.rle">12.158 [4]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="rule34/t14-10.rle">14.10 [20]</a></td>
+	<td><a class="p" href="rule34/t14-123.rle">14.123 [3]</a></td>
+	<td class="y"><a class="p" href="rule34/t14-127.rle">
+	    14.127 [22]</a></td>
+	<td class="y"><a class="p" href="rule34/t14-389.rle">
+	    14.389 [22]</a></td>
+	<td class="y"><a class="p" href="rule34/t14-390.rle">
+	    14.390 [22]</a></td>
+	<td><a class="p" href="rule34/t14-401.rle">14.401 [12]</a></td>
+	<td><a class="p" href="rule34/t14-402.rle">
+	    Bi- clock (14.402) [5]</a></td>
+	<td class="y"><a class="p" href="rule34/t14-656.rle">
+	    14.656 [20]</a></td>
+	<td><a class="p" href="rule34/t14-657.rle">14.657 [12]</a></td>
+	<td><a class="p" href="rule34/t14-1420.rle">
+	    14.1420 [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rule34/t15-1699.rle">15.1699 [9]</a></td>
+	<td><a class="p" href="rule34/t16-1573.rle">16.1573 [9]</a></td>
+	<td><a class="p" href="rule34/t16-6520.rle">16.6520 [8]</a></td>
+	<td class="s">&nbsp;</td>
+	<td class="y"><a class="p" href="rule34/t17-1158.rle">
+	    17.1158 [21]</a></td>
+	<td><a class="p" href="rule34/t1739101.rle">
+	    17. 39101 [10]</a></td>
+	<td class="s">&nbsp;</td>
+	<td><a class="p" href="rule34/t18-1.rle">
+	    18-bit flip- flop #1 [7]</a></td>
+	<td class="y"><a class="p" href="rule34/t18-2.rle">
+	    18-bit flip- flop #1 [22]</a></td>
+	<td><a class="p" href="rule34/t19-1.rle">
+	    19-bit flip- flop #1 [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rule34/t20-1.rle">
+	    20-bit flip- flop #1 [15]</a></td>
+	<td><a class="p" href="rule34/t20-2.rle">
+	    20-bit flip- flop #2 [8]</a></td>
+	<td class="s">&nbsp;</td>
+	<td><a class="p" href="rule34/t26-1.rle">
+	    26-bit flip- flop #1 [6]</a></td>
+	<td class="s">&nbsp;</td>
+	<td class="r"><a class="p" href="rule34/t35-1.rle">
+	    35-bit fortress flip- flop [x]</a></td>
+	<td colspan="4" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="34-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/34-lg.zip" />
+	<area coords="601,401,620,420" href="stamp/34-lg.rle" />
+	<area coords="0,0,69,69" href="rule34/t11-1.rle" />
+	<area coords="70,0,129,69" href="rule34/t11-2.rle" />
+	<area coords="130,0,189,69" href="rule34/t11-3.rle" />
+	<area coords="190,0,249,69" href="rule34/t11-4.rle" />
+	<area coords="250,0,309,69" href="rule34/t11-5.rle" />
+	<area coords="310,0,369,69" href="rule34/t11-20.rle" />
+	<area coords="370,0,429,69" href="rule34/t11-21.rle" />
+	<area coords="430,0,489,69" href="rule34/t11-23.rle" />
+	<area coords="490,0,549,69" href="rule34/t11-24.rle" />
+	<area coords="550,0,620,69" href="rule34/t11-25.rle" />
+	<area coords="0,70,69,129" href="rule34/t11-30.rle" />
+	<area coords="70,70,129,129" href="rule34/t11-46.rle" />
+	<area coords="130,70,189,129" href="rule34/t11-47.rle" />
+	<area coords="190,70,249,129" href="rule34/t11-51.rle" />
+	<area coords="250,70,309,129" href="rule34/t11-52.rle" />
+	<area coords="310,70,369,129" href="rule34/t11-54.rle" />
+	<area coords="370,70,429,129" nohref="nohref" />
+	<area coords="430,70,489,129" href="rule34/t13-6.rle" />
+	<area coords="490,70,549,129" href="rule34/t13-10.rle" />
+	<area coords="550,70,620,129" href="rule34/t13-112.rle" />
+	<area coords="0,130,69,189" href="rule34/t12-6.rle" />
+	<area coords="70,130,129,189" href="rule34/t12-7.rle" />
+	<area coords="130,130,189,189" href="rule34/t12-8.rle" />
+	<area coords="190,130,249,189" href="rule34/t12-64.rle" />
+	<area coords="250,130,309,189" href="rule34/t12-71.rle" />
+	<area coords="310,130,369,189" href="rule34/t12-72.rle" />
+	<area coords="370,130,429,189" href="rule34/t12-117.rle" />
+	<area coords="430,130,489,189" href="rule34/t12-144.rle" />
+	<area coords="490,130,549,189" href="rule34/t12-158.rle" />
+	<area coords="550,130,620,189" nohref="nohref" />
+	<area coords="0,190,69,269" href="rule34/t14-10.rle" />
+	<area coords="70,190,129,269" href="rule34/t14-123.rle" />
+	<area coords="130,190,189,269" href="rule34/t14-127.rle" />
+	<area coords="190,190,249,269" href="rule34/t14-389.rle" />
+	<area coords="250,190,309,269" href="rule34/t14-390.rle" />
+	<area coords="310,190,369,269" href="rule34/t14-401.rle" />
+	<area coords="370,190,429,269" href="rule34/t14-402.rle" />
+	<area coords="430,190,489,269" href="rule34/t14-656.rle" />
+	<area coords="490,190,549,269" href="rule34/t14-657.rle" />
+	<area coords="550,190,620,269" href="rule34/t14-1420.rle" />
+	<area coords="0,270,69,349" href="rule34/t15-1699.rle" />
+	<area coords="70,270,129,349" href="rule34/t16-1573.rle" />
+	<area coords="130,270,189,349" href="rule34/t16-6520.rle" />
+	<area coords="190,270,249,349" nohref="nohref" />
+	<area coords="250,270,309,349" href="rule34/t17-1158.rle" />
+	<area coords="310,270,369,349" href="rule34/t1739101.rle" />
+	<area coords="370,270,429,349" nohref="nohref" />
+	<area coords="430,270,489,349" href="rule34/t18-1.rle" />
+	<area coords="490,270,549,349" href="rule34/t18-2.rle" />
+	<area coords="550,270,620,349" href="rule34/t19-1.rle" />
+	<area coords="0,350,69,420" href="rule34/t20-1.rle" />
+	<area coords="70,350,129,420" href="rule34/t20-2.rle" />
+	<area coords="130,350,189,420" nohref="nohref" />
+	<area coords="190,350,249,420" href="rule34/t26-1.rle" />
+	<area coords="250,350,309,420" nohref="nohref" />
+	<area coords="310,350,369,420" href="rule34/t35-1.rle" />
+	<area coords="370,350,620,420" nohref="nohref" />
+</map>
+
+<hr />
+<a name="34-p3"></a>
+<h2>Period-3 Oscillators</h2>
+<p><a class="p" href="stamp/34-p3.rle"><img src="map/34-p3.png"
+ alt="B34/S34 period 3 oscillators"
+ width="541" height="141" usemap="#34-p3" /></a><br />
+    <table width="545">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="80" />
+	<col width="100" /><col width="112" /></colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t5p3st.rle">
+	    Star [3]</a></td>
+	<td><a class="p" href="rule34/t18p3lb.rle">
+	    Light- weight beetle [12]</a></td>
+	<td><a class="p" href="rule34/t19p3mb.rle">
+	    Middle- weight beetle [14]</a></td>
+	<td><a class="p" href="rule34/t20p3hb.rle">
+	    Heavy- weight beetle [16]</a></td>
+	<td rowspan="2" class="r">
+	    <a class="p" href="rule34/t56p3sd.rle">Super diamond* [x]</a></td>
+	<td rowspan="2" class="r">
+	    <a class="p" href="rule34/t69p3sp.rle">Spur* [x]</a></td>
+	<td rowspan="2" class="r">
+	    <a class="p" href="rule34/t136p3fd.rle">Frog diamond* [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="rule34/t16st2b1.rle">
+	    Cis stars hassling block [13]</a></td>
+	<td colspan="2" class="y"><a class="p" href="rule34/t16st2b2.rle">
+	    Trans stars hassling block [19]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-p3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="521,0,540,19" href="zip/34-p3.zip" />
+	<area coords="521,121,540,140" href="stamp/34-p3.rle" />
+	<area coords="0,0,69,89" href="rule34/t5p3st.rle" />
+	<area coords="70,0,129,89" href="rule34/t18p3lb.rle" />
+	<area coords="130,0,189,89" href="rule34/t19p3mb.rle" />
+	<area coords="190,0,249,89" href="rule34/t20p3hb.rle" />
+	<area coords="250,0,329,140" href="rule34/t56p3sd.rle" />
+	<area coords="330,0,429,140" href="rule34/t69p3sp.rle" />
+	<area coords="430,0,540,140" href="rule34/t136p3fd.rle" />
+	<area coords="0,90,129,140" href="rule34/t16st2b1.rle" />
+	<area coords="130,90,249,140" href="rule34/t16st2b2.rle" />
+</map>
+
+<p>The stars hassling blocks and the super diamond are infinitely extensible,
+by using one star to hassle multiple oscillators. Blocks can also be hassled by
+super diamonds, spurs, and frog diamonds, and these are also infinitely
+extensible. Note that the frog diamond has corners resembling
+fortress-like still-lifes.</p>
+
+<hr />
+<a name="34-p4"></a>
+<h2>Period-4 Oscillators</h2>
+<p><a class="p" href="stamp/34-p4.rle"><img src="map/34-p4.png"
+ alt="B34/S34 period 4 oscillators"
+ width="561" height="141" usemap="#34-p4" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t6p4pw.rle">
+	    Pinwheel [3]</a></td>
+	<td><a class="p" href="rule34/t9p4fl.rle">
+	    Flag [5]</a></td>
+	<td class="r"><a class="p" href="rule34/t12p4-1.rle">
+	    12-bit P4 #1 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t16p4-1.rle">
+	    16-bit P4 #1 [x]</a></td>
+	<td><a class="p" href="rule34/t16p4oc.rle">
+	    Octagon [2]</a></td>
+	<td class="y"><a class="p" href="rule34/t16p4fr.rle">
+	    Frog [41]</a></td>
+	<td class="r"><a class="p" href="rule34/t18p4-3.rle">
+	    18-bit P4 #3 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t18p4-1.rle">
+	    18-bit P4 #1 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t18p4-2.rle">
+	    18-bit P4 #2 [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="rule34/t19p4-1.rle">
+	    19-bit P4 #1 [29]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t20p4-2.rle">
+	    20-bit P4 #2 [x]</a></td>
+	<td class="y"><a class="p" href="rule34/t20p4-1.rle">
+	    20-bit P4 #1 [31]</a></td>
+	<td class="r"><a class="p" href="rule34/t25p4hc.rle">
+	    Half Cross [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t28p4-1.rle">
+	    28-bit P4 #1 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t33p4crs.rle">
+	    Cross [x]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="34-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/34-p4.zip" />
+	<area coords="541,121,560,140" href="stamp/34-p4.rle" />
+	<area coords="0,0,69,69" href="rule34/t6p4pw.rle" />
+	<area coords="70,0,129,69" href="rule34/t9p4fl.rle" />
+	<area coords="130,0,189,69" href="rule34/t12p4-1.rle" />
+	<area coords="190,0,249,69" href="rule34/t16p4-1.rle" />
+	<area coords="250,0,309,69" href="rule34/t16p4oc.rle" />
+	<area coords="310,0,369,69" href="rule34/t16p4fr.rle" />
+	<area coords="370,0,429,69" href="rule34/t18p4-3.rle" />
+	<area coords="430,0,489,69" href="rule34/t18p4-1.rle" />
+	<area coords="490,0,560,69" href="rule34/t18p4-2.rle" />
+	<area coords="0,70,69,140" href="rule34/t19p4-1.rle" />
+	<area coords="70,70,189,140" href="rule34/t20p4-2.rle" />
+	<area coords="190,70,249,140" href="rule34/t20p4-1.rle" />
+	<area coords="250,70,309,140" href="rule34/t25p4hc.rle" />
+	<area coords="310,70,369,140" href="rule34/t28p4-1.rle" />
+	<area coords="370,70,429,140" href="rule34/t33p4crs.rle" />
+	<area coords="430,70,560,140" nohref="nohref" />
+</map>
+
+<p>There appear to be many oscillators of period 4 with structures similar to
+ones of period 2 (including 1/3 of those shown). Note that the half-cross has
+a corner resembling fortress-like still-lifes.</p>
+
+<hr />
+<a name="34-p6"></a>
+<h2>Period-6 Oscillators</h2>
+<p><a class="p" href="stamp/34-p6.rle"><img src="map/34-p6.png"
+ alt="B34/S34 period 6 oscillators"
+ width="561" height="161" usemap="#34-p6" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col width="60" /><col width="20" />
+	<col span="2" width="40" /><col width="20" /><col span="4" width="60" />
+	<col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t6p6hf.rle">
+	    Hexafrob [2]</a></td>
+	<td><a class="p" href="rule34/t9p6w.rle">
+	    W [3]</a></td>
+	<td colspan="2"><a class="p" href="rule34/t12p6hf2.rle">
+	    Bi- hexa- frob [5]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t12p6-1.rle">
+	    12-bit P6 #1 [x]</a></td>
+	<td><a class="p" href="rule34/t12yo4yo.rle">
+	    Yoyo line-4 yoyo [7]</a></td>
+	<td class="r"><a class="p" href="rule34/t14p6-1.rle">
+	    14-bit P6 #1 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t14y24yo.rle">
+	    Y line-2 line-4 yoyo [x]</a></td>
+	<td class="s">&nbsp;</td>
+	<td class="r"><a class="p" href="rule34/t43p6fcr.rle">
+	    Frog chain ripple* [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="rule34/t16p6dn.rle">
+	    Donut [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t16p6-2.rle">
+	    16-bit P6 #2 [x]</a></td>
+	<td colspan="2" class="g">
+	    <a class="p" href="rule34/t16y242y.rle">
+	    Y line-2 line-4 line-2 Y [16]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t18p6-1.rle">
+	    18-bit P6 #1 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t19p6-1.rle">
+	    19-bit P6 #1 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t20p6-1.rle">
+	    20-bit P6 #1 [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t21p6ch.rle">
+	    Chorine [x]</a></td>
+	<td><a class="p" href="rule34/t22p6by.rle">
+	    Bakery [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/34-p6.zip" />
+	<area coords="541,141,560,160" href="stamp/34-p6.rle" />
+	<area coords="0,0,69,89" href="rule34/t6p6hf.rle" />
+	<area coords="70,0,129,89" href="rule34/t9p6w.rle" />
+	<area coords="130,0,189,89" href="rule34/t12p6hf2.rle" />
+	<area coords="190,0,249,89" href="rule34/t12p6-1.rle" />
+	<area coords="250,0,309,89" href="rule34/t12yo4yo.rle" />
+	<area coords="310,0,369,89" href="rule34/t14p6-1.rle" />
+	<area coords="370,0,429,89" href="rule34/t14y24yo.rle" />
+	<area coords="430,0,489,89" nohref="nohref" />
+	<area coords="490,0,560,89" href="rule34/t43p6fcr.rle" />
+	<area coords="0,90,69,160" href="rule34/t16p6dn.rle" />
+	<area coords="70,90,149,160" href="rule34/t16p6-2.rle" />
+	<area coords="150,90,229,160" href="rule34/t16y242y.rle" />
+	<area coords="230,90,309,160" href="rule34/t18p6-1.rle" />
+	<area coords="310,90,369,160" href="rule34/t19p6-1.rle" />
+	<area coords="370,90,429,160" href="rule34/t20p6-1.rle" />
+	<area coords="430,90,489,160" href="rule34/t21p6ch.rle" />
+	<area coords="490,90,560,160" href="rule34/t22p6by.rle" />
+</map>
+
+<p>The bi-hexafrob is infinitely extensible. There appear to be many oscillators
+of period 6 with structures similar to ones of period 2 (including half of those
+shown). Note that frog chain ripple has corners resembling fortress-like
+still-lifes, and has a pseudo-period of 6 (a composite of a period 2 exterior
+and a period 3 interior).</p>
+
+<hr />
+<a name="34-p8"></a>
+<h2>Period-8 Oscillators</h2>
+<p><a class="p" href="stamp/34-p8.rle"><img src="map/34-p8.png"
+ alt="B34/S34 P8"
+ width="141" height="61" usemap="#34-p8" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t9p8ro.rle">Rot8or [7]</a></td>
+	<td><a class="p" href="rule34/t12p8-1.rle">12-bit P8 #1 [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-p8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/34-p8.zip" />
+	<area coords="121,41,140,60" href="stamp/34-p8.rle" />
+	<area coords="0,0,69,60" href="rule34/t9p8ro.rle" />
+	<area coords="70,0,140,60" href="rule34/t12p8-1.rle" />
+</map>
+
+<hr />
+<a name="34-p10"></a>
+<h2>Period-10 Oscillators</h2>
+<p><a class="p" href="stamp/34-p10.rle"><img src="map/34-p10.png"
+ alt="B34/S34 P10"
+ width="141" height="61" usemap="#34-p10" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t12p10cy.rle">Cyclone [7]</a></td>
+	<td><a class="p" href="rule34/t12p10wb.rle">Webster's P10 [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-p10">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/34-p10.zip" />
+	<area coords="121,41,140,60" href="stamp/34-p10.rle" />
+	<area coords="0,0,69,60" href="rule34/t12p10cy.rle" />
+	<area coords="70,0,140,60" href="rule34/t12p10wb.rle" />
+</map>
+
+<hr />
+<a name="34-p12"></a>
+<h2>Period-12 Oscillators</h2>
+<p><a class="p" href="stamp/34-p12.rle"><img src="map/34-p12.png"
+ alt="B34/S34 period 12 oscillators"
+ width="401" height="141" usemap="#34-p12" /></a><br />
+    <table width="405">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="100" />
+	<col width="112" /></colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t6p12lf.rle">Loaf [3]</a></td>
+	<td><a class="p" href="rule34/t8p12pp.rle">Prop- eller [3]</a></td>
+	<td class="r"><a class="p" href="rule34/t18p12-1.rle">
+	    18-bit P12 #1* [x]</a></td>
+	<td rowspan="2" class="r"><a class="p" href="rule34/t36l3r2.rle">
+	    3 loaves hassling 2 M1s [x]</a></td>
+	<td rowspan="2" class="r"><a class="p" href="rule34/t51l4r3.rle">
+	    4 loaves hassling 3 M1s [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="r"><a class="p" href="rule34/t21l2r.rle">
+	    2 loaves hassling M1 [x]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="34-p12">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="381,0,400,19" href="zip/34-p12.zip" />
+	<area coords="381,121,400,140" href="stamp/34-p12.rle" />
+	<area coords="0,0,69,69" href="rule34/t6p12lf.rle" />
+	<area coords="70,0,129,69" href="rule34/t8p12pp.rle" />
+	<area coords="130,0,189,69" href="rule34/t18p12-1.rle" />
+	<area coords="190,0,289,140" href="rule34/t36l3r2.rle" />
+	<area coords="290,0,400,140" href="rule34/t51l4r3.rle" />
+	<area coords="0,70,129,140" href="rule34/t21l2r.rle" />
+	<area coords="130,70,189,140" nohref="nohref" />
+</map>
+
+<p>The M1-hassler is infinitely extensible. Two examples of this are shown.</p>
+
+<hr />
+<a name="34-p20"></a>
+<h2>Period-20 Oscillators</h2>
+<p><a class="p" href="stamp/34-p20.rle"><img src="map/34-p20.png"
+ alt="B34/S34 period-20 oscillators"
+ width="501" height="121" usemap="#34-p20" /></a><br />
+    <table width="505">
+    <colgroup><col width="131" /><col span="2" width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t14p20fg.rle">
+	    Figure 8 [6]</a></td>
+	<td><a class="p" href="rule34/t28fg2.rle">
+	    Dual figure 8 [23]</a></td>
+	<td><a class="p" href="rule34/t42fg3b.rle">
+	    Cis triple figure 8 [40]</a></td>
+	<td><a class="p" href="rule34/t42fg3a.rle">
+	    Trans triple figure 8 [40]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-p20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/34-p20.zip" />
+	<area coords="481,101,500,120" href="stamp/34-p20.rle" />
+	<area coords="0,0,129,120" href="rule34/t14p20fg.rle" />
+	<area coords="130,0,249,120" href="rule34/t28fg2.rle" />
+	<area coords="250,0,369,120" href="rule34/t42fg3b.rle" />
+	<area coords="370,0,500,120" href="rule34/t42fg3a.rle" />
+</map>
+
+<p>Figure-8s are infinitely extensible by sharing sparks, and can be arranged
+in any arrangement resembling large diagonally-aligned ominos. Three examples of
+this are shown.</p>
+
+<hr />
+<a name="34-ss"></a>
+<h2>Spaceships</h2>
+<p>There are only three common spaceships, all with a period of 3 and a
+velocity of <i>c</i>/3. One moves diagonally, and the other two orthogonally.
+The smallest one is the most common, and the basis for all syntheses. The other
+two are extremely rare, but have been seen to escape from broths. The diagonal
+one is the most rare, and is only commonly seen escaping along the line of
+symmetry of some diagonal broths. It does, however, on occasion escape
+asymmetric broths, but this happens much more rarely.</p>
+
+<p>With the advent of computer search programs, several large spaceships
+have been found; most also <i>c</i>/3 orthogonal, and 3 of other velocities. Due
+to the large number of <i>c</i>/3 orthogonal spaceships, these are shown in the
+next section. The alpha fast ship is infinitely extensible, by adding 8
+additional sections on top for every 5 on the bottom; the first instance is
+shown next to it.</p>
+
+<p><a class="p" href="stamp/34-ss.rle"><img src="map/34-ss.png"
+ alt="B34/S34 spaceships"
+ width="581" height="261" usemap="#34-ss" /></a><br />
+    <table width="585">
+    <colgroup><col width="171" /><col width="320" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="rule34/t199o2.rle">
+	    Alpha fast ship; Glider 18266* [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t289o2.rle">
+	    Expanded alpha fast ship [x]</a></td>
+	<td rowspan="2" class="r"><a class="p" href="rule34/t200o5.rle">
+	    200-bit <i>c</i>/5 orthogonal spaceship; Glider 21027 [x]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rule34/t8dg.rle">
+	    <i>c</i>/3 Diagonal glider; Glider 563 [7]</a></td>
+	<td class="r" class="r"><a class="p" href="rule34/t253d4.rle">
+	    <i>c</i>/4 Diagonal glider; Glider 19358 [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/34-ss.zip" />
+	<area coords="561,241,580,260" href="stamp/34-ss.rle" />
+	<area coords="0,0,169,109" href="rule34/t199o2.rle" />
+	<area coords="170,0,489,109" href="rule34/t289o2.rle" />
+	<area coords="490,0,580,260" href="rule34/t200o5.rle" />
+	<area coords="0,110,169,260" href="rule34/t8dg.rle" />
+	<area coords="170,110,489,260" href="rule34/t253d4.rle" />
+</map>
+
+<hr />
+<a name="34-o3"></a>
+<h2><i>c</i>/3 Orthogonal Spaceships</h2>
+<p><a class="p" href="stamp/34-o3.rle"><img src="map/34-o3.png"
+ alt="B34/S34 c/3 orthogonal spaceships"
+ width="621" height="421" usemap="#34-o3" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col width="20" /><col span="2" width="40" />
+	<col span="2" width="20" /><col span="2" width="40" /><col width="20" />
+	<col span="2" width="60" /><col width="40" /><col width="20" />
+	<col width="40" /><col width="20" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t6gl.rle">
+	    Glider; Glider 212&sup2; [3]</a></td>
+	<td colspan="2"><a class="p" href="rule34/t11ag.rle">
+	    Super glider; Asym- metric glider; Glider 1125 [4]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t18agta.rle">
+	    Super glider w/ tag-along&sup3;* [x] (8(&#8734;))</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t20gplow.rle">
+	    Glider and plow&sup2;* [x] (7)</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t26broke.rle">
+	    Broken titan glider&sup1;* [x] (4)</a></td>
+	<td class="r"><a class="p" href="rule34/t28titan.rle">
+	    Titan glider&sup1;* [x] (4)</a></td>
+	<td class="r"><a class="p" href="rule34/t41gamma.rle">
+	    Gamma ship* [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t42theta.rle">
+	    Theta ship* [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t45eta.rle">
+	    Eta ship&sup3;* [x] (7(&#8734;))</a></td>
+	<td class="r"><a class="p" href="rule34/t48zeta.rle">
+	    Zeta ship* [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="rule34/t53beta.rle">
+	    Beta ship* [x]</a></td>
+	<td colspan="3" class="r"><a class="p" href="rule34/t58eps.rle">
+	    Epsilon ship&sup2;&sup2;* [x] (17)</a></td>
+	<td colspan="4" class="r"><a class="p" href="rule34/t78nu.rle">
+	    Nu ship* [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t82lamb.rle">
+	    Lambda ship* [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t82alpha.rle">
+	    Alpha ship* [x]</a></td>
+	<td colspan="3" class="r"><a class="p" href="rule34/t84xi.rle">
+	    Xi ship* [x]</a></td>
+	<td class="r"><a class="p" href="rule34/t95sigma.rle">
+	    Sigma ship* [x]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="r"><a class="p" href="rule34/t96mu.rle">
+	    Mu ship&sup2;* [x] (7)</a></td>
+	<td colspan="4" class="r"><a class="p" href="rule34/t106kapp.rle">
+	    Kappa ship* [x]</a></td>
+	<td colspan="3" class="r"><a class="p" href="rule34/t108delt.rle">
+	    Delta ship&sup1;&sup2;&sup2;* [x] (20(&#8734;))</a></td>
+	<td colspan="3" class="r"><a class="p" href="rule34/t110iota.rle">
+	    Iota ship&sup2;* [x] (7)</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t130omic.rle">
+	    Omicron ship* [x]</a></td>
+	<td colspan="2" class="r"><a class="p" href="rule34/t143pi.rle">
+	    Pi ship* [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-o3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/34-o3.zip" />
+	<area coords="601,401,620,420" href="stamp/34-o3.rle" />
+	<area coords="0,0,69,109" href="rule34/t6gl.rle" />
+	<area coords="70,0,129,109" href="rule34/t11ag.rle" />
+	<area coords="130,0,189,109" href="rule34/t18agta.rle" />
+	<area coords="190,0,249,109" href="rule34/t20gplow.rle" />
+	<area coords="250,0,309,109" href="rule34/t26broke.rle" />
+	<area coords="310,0,369,109" href="rule34/t28titan.rle" />
+	<area coords="370,0,429,109" href="rule34/t41gamma.rle" />
+	<area coords="430,0,489,109" href="rule34/t42theta.rle" />
+	<area coords="490,0,549,109" href="rule34/t45eta.rle" />
+	<area coords="550,0,620,109" href="rule34/t48zeta.rle" />
+	<area coords="0,110,69,229" href="rule34/t53beta.rle" />
+	<area coords="70,110,169,229" href="rule34/t58eps.rle" />
+	<area coords="170,110,289,229" href="rule34/t78nu.rle" />
+	<area coords="290,110,369,229" href="rule34/t82alpha.rle" />
+	<area coords="370,110,469,229" href="rule34/t82lamb.rle" />
+	<area coords="470,110,549,229" href="rule34/t84xi.rle" />
+	<area coords="550,110,620,229" href="rule34/t95sigma.rle" />
+	<area coords="0,230,129,420" href="rule34/t96mu.rle" />
+	<area coords="130,230,249,420" href="rule34/t106kapp.rle" />
+	<area coords="250,230,349,420" href="rule34/t108delt.rle" />
+	<area coords="350,230,469,420" href="rule34/t110iota.rle" />
+	<area coords="470,230,569,420" href="rule34/t130omic.rle" />
+	<area coords="570,230,620,420" href="rule34/t143pi.rle" />
+</map>
+
+<p>Note &sup1;: These spaceships can drag plows*, or act as drifters behind a
+trailing line of 4* or a trailing line of 2.</p>
+
+<p>Note &sup2;: These spaceships have front ends that resemble the basic glider,
+allowing them to be used as drifters in one of 6 different ways. (If this is
+mentioned twice, the spaceship has 2 front ends, also allowing 10 additional
+configurations where the spaceship is dragged by two smaller engines.</p>
+
+<p>Since Delta ships can both drag drifters, and be used as drifters, they can
+form infinitely-extensible chains of Delta ships dragging one another.</p>
+
+<p>Note &sup3;: These spaceships can drag tag-alongs*, optionally with
+infinitely-extensible wick fragments between them. These can also be turned into
+wick-stretchers by anchoring the back end of the wicks.</p>
+
+<p>Due to the large number of such variants, all the variants are grouped with
+their respective spaceships, and are not shown individually above (Gliders as
+drifters are shown with their draggers, and act as prototypes. Other drifters
+are shown with the spaceships being dragged.) The number of variants is shown
+in parentheses after the cost.</p>
+
+<hr />
+<a name="34-cons"></a>
+<h2>Constellations</h2>
+<p>There are infinitely many constellations. These are some of the most common
+ones.</p>
+
+<p><a class="p" href="stamp/34-cons.rle"><img src="map/34-cons.png"
+ alt="B34/S34 spaceships"
+ width="201" height="81" usemap="#34-cons" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t8y2.rle">Two Ys [6]</a></td>
+	<td><a class="p" href="rule34/t8yoyo2.rle">Two yoyos [3]</a></td>
+	<td><a class="p" href="rule34/t14ck2.rle">Two clocks [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="34-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/34-cons.zip" />
+	<area coords="181,61,200,80" href="stamp/34-cons.rle" />
+	<area coords="0,0,69,80" href="rule34/t8y2.rle" />
+	<area coords="70,0,129,80" href="rule34/t8yoyo2.rle" />
+	<area coords="130,0,200,80" href="rule34/t14ck2.rle" />
+</map>
+
+<hr />
+<a name="34-meth"></a>
+<h2>Methuselahs</h2>
+<p>Since many patterns in this rule grow forever, the term Methuselah is used
+to refer to such patterns, rather than merely long-lived ones, as it does in
+Life. These are some simple common ones.</p>
+
+<p><a class="p" href="stamp/34-meth.rle"><img src="map/34-meth.png"
+ alt="B34/S34 spaceships"
+ width="201" height="61" usemap="#34-meth" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="rule34/t6m1.rle">
+	    M1; Methu- selah #1 [3]</a></td>
+	<td class="y"><a class="p" href="rule34/t10m2.rle">
+	    M2; Methu- selah #2 [14]</a></td>
+	<td><a class="p" href="rule34/t14m3.rle">
+	    M3; Methu- selah #3 [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rule34/t6m1run.rle">
+	    Run M1...</a></td>
+	<td class="y"><a class="p" href="rule34/t10m2run.rle">
+	    Run M2...</a></td>
+	<td><a class="p" href="rule34/t14m3run.rle">
+	    Run M3...</a></td>
+    </tr>
+</table></p>
+
+<map name="34-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/34-meth.zip" />
+	<area coords="181,41,200,60" href="stamp/34-meth.rle" />
+	<area coords="0,0,69,60" href="rule34/t6m1.rle" />
+	<area coords="70,0,129,60" href="rule34/t10m2.rle" />
+	<area coords="130,0,200,60" href="rule34/t14m3.rle" />
+</map>
+
+<hr /><hr />
+<a name="34-link"></a>
+<h2>Links</h2>
+<p><a class="i" href="lifecred.htm#eisenmann">Jack Eisenmann</a> discovered most
+of the non-trivial spaceships, and many of the larger oscillators of several
+periods (marked with * in the above tables). He has much useful information
+about this rule on his
+<a class="x" target="_blank" href="http://www.ostracodfiles.com/34life/main.html">web site</a>.</p>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other rules:</b>
+	<a class="i" href="lifepage.htm">B3/S23 (Conway's Life)</a>,
+	<a class="i" href="color.htm">Multi-colored Life</a>,
+	<a class="i" href="rule22.htm">B2/S2 (2/2 Life)</a>,
+	B34/S34 (3/4 Life),
+	<a class="i" href="rulemn.htm">Niemiec's Rules</a>.</p>
+
+<p><b>See also:</b>
+	<a class="i" href="lifeterm.htm">definitions</a>,
+	<a class="i" href="lifestr.htm">structure</a>,
+	<a class="i" href="lifemeth.htm">search methodologies</a>,
+	<a class="i" href="liferule.htm">other rules</a>,
+	<a class="i" href="lifenews.htm">news</a>,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

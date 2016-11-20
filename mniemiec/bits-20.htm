@@ -1,0 +1,1287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Twenty-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: twenty-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 20 twenty bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Twenty-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-20">Still-lifes</a> |
+	<a class="j" href="#pp1-20">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-20">P2 oscillators</a> |
+	<a class="j" href="#pp2-20">P2 pseudo-oscillators</a> |
+	<a class="j" href="#p3-20">P3 oscillators</a> |
+	<a class="j" href="#pp3-20">P3 pseudo-oscillators</a> |
+	<a class="j" href="#p4-20">P4 oscillators</a> |
+	<a class="j" href="#pp4-20">P4 pseudo-oscillators</a> |
+	<a class="j" href="#p5-20">P5 oscillators</a> |
+	<a class="j" href="#pp5-20">P5 pseudo-oscillators</a> |
+	<a class="j" href="#p6-20">P6 oscillators</a> |
+	<a class="j" href="#pp6-20">P6 pseudo-oscillators</a> |
+	<a class="j" href="#pp8-20">P8 pseudo-oscillators</a> |
+	<a class="j" href="#pp15-20">P15 pseudo-oscillators</a> |
+	<a class="j" href="#p30-20">P30 oscillators</a> |
+	<a class="j" href="#pp30-20">P30 pseudo-oscillator</a> |
+	<a class="j" href="#ss-20">Spaceships</a> |
+	<a class="j" href="#cons-20">Constellation</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-20"></a>
+<h2>The 112243 twenty-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 81 of these are shown.</p>
+<p><a class="p" href="stamp/p1-20.rle"><img src="map/p1-20.png"
+ alt="20-bit still-lifes" width="621" height="441" usemap="#p1-20" /></a><br />
+    <table width="625">
+    <colgroup><col width="79" /><col span="7" width="68" /><col width="68" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20-631.rle">20.631 [16]</a></td>
+	<td><a class="p" href="20/20-639.rle">20.639 [16]</a></td>
+	<td><a class="p" href="20/20-682.rle">20.682 [9]</a></td>
+	<td><a class="p" href="20/20-703.rle">20.703 [4]</a></td>
+	<td><a class="p" href="20/20-1292.rle">20.1292 [5]</a></td>
+	<td><a class="p" href="20/20-5318.rle">20.5318 [8]</a></td>
+	<td><a class="p" href="20/20-5320.rle">
+	    20.5320; Cis dock on dock; Mirrored dock [4]</a></td>
+	<td class="y"><a class="p" href="20/20-5445.rle">20.5445 [25]</a></td>
+	<td><a class="p" href="20/20-5655.rle">20.5655 [18]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-6019.rle">20.6019 [15]</a></td>
+	<td><a class="p" href="20/20-6034.rle">20.6034 [11]</a></td>
+	<td><a class="p" href="20/20-6039.rle">20.6039 [14]</a></td>
+	<td><a class="p" href="20/20-6274.rle">20.6274 [15]</a></td>
+	<td class="y"><a class="p" href="20/20-6281.rle">20.6281 [36]</a></td>
+	<td class="y"><a class="p" href="20/20-6282.rle">20.6282 [44]</a></td>
+	<td><a class="p" href="20/20-6406.rle">20.6406 [14]</a></td>
+	<td><a class="p" href="20/20-6717.rle">20.6717 [14]</a></td>
+	<td><a class="p" href="20/20-6770.rle">20.6770 [7]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20-6861.rle">20.6861 [39]</a></td>
+	<td><a class="p" href="20/20-7353.rle">20.7353 [12]</a></td>
+	<td><a class="p" href="20/20-8351.rle">20.8351 [6]</a></td>
+	<td><a class="p" href="20/20-8920.rle">20.8920 [6]</a></td>
+	<td><a class="p" href="20/20-8995.rle">20.8995 [4]</a></td>
+	<td><a class="p" href="20/20-9442.rle">20.9442 [10]</a></td>
+	<td><a class="p" href="20/20-10484.rle">20. 10484 [10]</a></td>
+	<td class="y"><a class="p" href="20/20-11763.rle">20. 11763 [27]</a></td>
+	<td><a class="p" href="20/20-21877.rle">
+	    20. 21877; Shuriken [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-21908.rle">20. 21908 [10]</a></td>
+	<td><a class="p" href="20/20-22049.rle">20. 22049; Spiral [10]</a></td>
+	<td><a class="p" href="20/20-22428.rle">20. 22428 [10]</a></td>
+	<td><a class="p" href="20/20-22629.rle">20. 22629 [4]</a></td>
+	<td class="y"><a class="p" href="20/20-22811.rle">
+	    20. 22811 [87]</a></td>
+	<td><a class="p" href="20/20-23540.rle">20. 23540 [8]</a></td>
+	<td><a class="p" href="20/20-23572.rle">20. 23572 [14]</a></td>
+	<td><a class="p" href="20/20-24041.rle">20. 24041 [7]</a></td>
+	<td><a class="p" href="20/20-24642.rle">20. 24642 [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-24653.rle">20. 24653 [11]</a></td>
+	<td><a class="p" href="20/20-25181.rle">
+	    20. 25181; Century eater w/ cis snake [18]</a></td>
+	<td class="y"><a class="p" href="20/20-25327.rle">
+	    20. 25327 [27]</a></td>
+	<td><a class="p" href="20/20-25886.rle">20. 25886 [8]</a></td>
+	<td><a class="p" href="20/20-26999.rle">20. 26999 [16]</a></td>
+	<td class="y"><a class="p" href="20/20-27001.rle">
+	    20. 27001 [86]</a></td>
+	<td class="g"><a class="p" href="20/20-27105.rle">
+	    20. 27105 [20]</a></td>
+	<td><a class="p" href="20/20-28209.rle">20. 28209 [9]</a></td>
+	<td><a class="p" href="20/20-28487.rle">
+	    20.28487; Up bookend on long beehive siamese loaf [7]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-29610.rle">20. 29610 [8]</a></td>
+	<td><a class="p" href="20/20-29799.rle">20. 29799 [5]</a></td>
+	<td><a class="p" href="20/20-32207.rle">20. 32207 [7]</a></td>
+	<td><a class="p" href="20/20-32475.rle">20. 32475 [18]</a></td>
+	<td><a class="p" href="20/20-33054.rle">20. 33054 [13]</a></td>
+	<td><a class="p" href="20/20-33812.rle">20. 33812 [14]</a></td>
+	<td><a class="p" href="20/20-35364.rle">20. 35364 [5]</a></td>
+	<td><a class="p" href="20/20-38322.rle">20. 38322 [9]</a></td>
+	<td><a class="p" href="20/20-43936.rle">20. 43936 [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-54418.rle">20. 54418 [12]</a></td>
+	<td><a class="p" href="20/20-55058.rle">20. 55058 [15]</a></td>
+	<td><a class="p" href="20/20-55063.rle">
+	    20. 55063; Buckle [14]</a></td>
+	<td class="y"><a class="p" href="20/20-55084.rle">
+	    20. 55084; Fuse w/ four tails [21]</a></td>
+	<td><a class="p" href="20/20-55512.rle">20. 55512 [11]</a></td>
+	<td><a class="p" href="20/20-58843.rle">20. 58843 [7]</a></td>
+	<td class="y"><a class="p" href="20/20-59202.rle">
+	    20. 59202 [45]</a></td>
+	<td><a class="p" href="20/20-59274.rle">20. 59274 [10]</a></td>
+	<td><a class="p" href="20/20-59595.rle">20. 59595 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-59596.rle">20. 59596 [5]</a></td>
+	<td><a class="p" href="20/20-63771.rle">20. 63771 [11]</a></td>
+	<td><a class="p" href="20/20-68602.rle">
+	    20. 68602; Century eater w/ beehive [9]</a></td>
+	<td class="y"><a class="p" href="20/20-72141.rle">
+	    20. 72141 [25]</a></td>
+	<td><a class="p" href="20/20-74326.rle">20. 74326 [8]</a></td>
+	<td><a class="p" href="20/20-88034.rle">20. 88034 [10]</a></td>
+	<td><a class="p" href="20/20-88078.rle">20. 88078 [11]</a></td>
+	<td><a class="p" href="20/20-90076.rle">20. 90076 [18]</a></td>
+	<td><a class="p" href="20/20-90659.rle">20. 90659 [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-91980.rle">20. 91980 [10]</a></td>
+	<td><a class="p" href="20/20-94776.rle">20. 94776 [6]</a></td>
+	<td><a class="p" href="20/20-95176.rle">20. 95176 [11]</a></td>
+	<td><a class="p" href="20/20-98447.rle">20. 98447 [10]</a></td>
+	<td><a class="p" href="20/20-a5399.rle">20. 105399 [8]</a></td>
+	<td><a class="p" href="20/20-a6279.rle">20. 106279 [10]</a></td>
+	<td><a class="p" href="20/20-b0232.rle">20. 110232 [8]</a></td>
+	<td><a class="p" href="20/20-b0871.rle">20. 110871 [10]</a></td>
+	<td><a class="p" href="20/20-b1809.rle">20. 111809 [9]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,421,19,440" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-20.zip" />
+	<area coords="601,421,620,440" href="stamp/p1-20.rle" />
+	<area coords="0,0,77,53" href="20/20-631.rle" />
+	<area coords="78,0,145,53" href="20/20-639.rle" />
+	<area coords="146,0,213,53" href="20/20-682.rle" />
+	<area coords="214,0,281,53" href="20/20-703.rle" />
+	<area coords="282,0,349,53" href="20/20-1292.rle" />
+	<area coords="350,0,417,53" href="20/20-5318.rle" />
+	<area coords="418,0,485,53" href="20/20-5320.rle" />
+	<area coords="486,0,553,53" href="20/20-5445.rle" />
+	<area coords="554,0,620,53" href="20/20-5655.rle" />
+	<area coords="0,54,77,97" href="20/20-6019.rle" />
+	<area coords="78,54,145,97" href="20/20-6034.rle" />
+	<area coords="146,54,213,97" href="20/20-6039.rle" />
+	<area coords="214,54,281,97" href="20/20-6274.rle" />
+	<area coords="282,54,349,97" href="20/20-6281.rle" />
+	<area coords="350,54,417,97" href="20/20-6282.rle" />
+	<area coords="418,54,485,97" href="20/20-6406.rle" />
+	<area coords="486,54,553,97" href="20/20-6717.rle" />
+	<area coords="554,54,620,97" href="20/20-6770.rle" />
+	<area coords="0,98,77,141" href="20/20-6861.rle" />
+	<area coords="78,98,145,141" href="20/20-7353.rle" />
+	<area coords="146,98,213,141" href="20/20-8351.rle" />
+	<area coords="214,98,281,141" href="20/20-8920.rle" />
+	<area coords="282,98,349,141" href="20/20-8995.rle" />
+	<area coords="350,98,417,141" href="20/20-9442.rle" />
+	<area coords="418,98,485,141" href="20/20-10484.rle" />
+	<area coords="486,98,553,141" href="20/20-11763.rle" />
+	<area coords="554,98,620,141" href="20/20-21877.rle" />
+	<area coords="0,142,77,185" href="20/20-21908.rle" />
+	<area coords="78,142,145,185" href="20/20-22049.rle" />
+	<area coords="146,142,213,185" href="20/20-22428.rle" />
+	<area coords="214,142,281,185" href="20/20-22629.rle" />
+	<area coords="282,142,349,185" href="20/20-22811.rle" />
+	<area coords="350,142,417,185" href="20/20-23540.rle" />
+	<area coords="418,142,485,185" href="20/20-23572.rle" />
+	<area coords="486,142,553,185" href="20/20-24041.rle" />
+	<area coords="554,142,620,185" href="20/20-24642.rle" />
+	<area coords="0,186,77,229" href="20/20-24653.rle" />
+	<area coords="78,186,145,229" href="20/20-25181.rle" />
+	<area coords="146,186,213,229" href="20/20-25327.rle" />
+	<area coords="214,186,281,229" href="20/20-25886.rle" />
+	<area coords="282,186,349,229" href="20/20-26999.rle" />
+	<area coords="350,186,417,229" href="20/20-27001.rle" />
+	<area coords="418,186,485,229" href="20/20-27105.rle" />
+	<area coords="486,186,553,229" href="20/20-28209.rle" />
+	<area coords="554,186,620,229" href="20/20-28487.rle" />
+	<area coords="0,230,77,273" href="20/20-29610.rle" />
+	<area coords="78,230,145,273" href="20/20-29799.rle" />
+	<area coords="146,230,213,273" href="20/20-32207.rle" />
+	<area coords="214,230,281,273" href="20/20-32475.rle" />
+	<area coords="282,230,349,273" href="20/20-33054.rle" />
+	<area coords="350,230,417,273" href="20/20-33812.rle" />
+	<area coords="418,230,485,273" href="20/20-35364.rle" />
+	<area coords="486,230,553,273" href="20/20-38322.rle" />
+	<area coords="554,230,620,273" href="20/20-43936.rle" />
+	<area coords="0,274,77,317" href="20/20-54418.rle" />
+	<area coords="78,274,145,317" href="20/20-55058.rle" />
+	<area coords="146,274,213,317" href="20/20-55063.rle" />
+	<area coords="214,274,281,317" href="20/20-55084.rle" />
+	<area coords="282,274,349,317" href="20/20-55512.rle" />
+	<area coords="350,274,417,317" href="20/20-58843.rle" />
+	<area coords="418,274,485,317" href="20/20-59202.rle" />
+	<area coords="486,274,553,317" href="20/20-59274.rle" />
+	<area coords="554,274,620,317" href="20/20-59595.rle" />
+	<area coords="0,318,77,361" href="20/20-59596.rle" />
+	<area coords="78,318,145,361" href="20/20-63771.rle" />
+	<area coords="146,318,213,361" href="20/20-68602.rle" />
+	<area coords="214,318,281,361" href="20/20-72141.rle" />
+	<area coords="282,318,349,361" href="20/20-74326.rle" />
+	<area coords="350,318,417,361" href="20/20-88034.rle" />
+	<area coords="418,318,485,361" href="20/20-88078.rle" />
+	<area coords="486,318,553,361" href="20/20-90076.rle" />
+	<area coords="554,318,620,361" href="20/20-90659.rle" />
+	<area coords="0,362,77,440" href="20/20-91980.rle" />
+	<area coords="78,362,145,440" href="20/20-94776.rle" />
+	<area coords="146,362,213,440" href="20/20-95176.rle" />
+	<area coords="214,362,281,440" href="20/20-98447.rle" />
+	<area coords="282,362,349,440" href="20/20-a5399.rle" />
+	<area coords="350,362,417,440" href="20/20-a6279.rle" />
+	<area coords="418,362,485,440" href="20/20-b0232.rle" />
+	<area coords="486,362,553,440" href="20/20-b0871.rle" />
+	<area coords="554,362,620,440" href="20/20-b1809.rle" />
+</map>
+
+<p>The Century eater is specifically designed to eat a
+<a class="p" href="0/6be.rle">century</a>.</p>
+
+<hr />
+<a name="pp1-20"></a>
+<h2>The 70637 twenty-bit
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>All but 96 of these can be synthesized using the same techniques that are
+used for smaller pseudo-oscillators and pseudo-still-lifes. Syntheses for 74
+specific examples are shown here.</p>
+<p><a class="p" href="stamp/pp1-20.rle"><img src="map/pp1-20.png"
+ alt="20-bit pseudo-still-lifes"
+ width="621" height="421" usemap="#pp1-20" /></a></p>
+
+<map name="pp1-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-20.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-20.rle" />
+	<area coords="0,0,77,53" href="20/20shbbs1.rle" />
+	<area coords="78,0,145,53" href="20/20lhas5.rle" />
+	<area coords="146,0,213,53" href="20/20pdhvhv.rle" />
+	<area coords="214,0,281,53" href="20/20shbbs2.rle" />
+	<area coords="282,0,349,53" href="20/20btabta.rle" />
+	<area coords="350,0,417,53" href="20/20lhas2.rle" />
+	<area coords="418,0,485,53" href="20/20lhas1.rle" />
+	<area coords="486,0,553,53" href="20/20ppchv2.rle" />
+	<area coords="554,0,620,53" href="20/20ssbk.rle" />
+	<area coords="0,54,77,97" href="20/20csl2-p.rle" />
+	<area coords="78,54,145,97" href="20/20csl2-b.rle" />
+	<area coords="146,54,213,97" href="20/20bshshb.rle" />
+	<area coords="214,54,281,97" href="20/20lhabha.rle" />
+	<area coords="282,54,349,97" href="20/20ppchv1.rle" />
+	<area coords="350,54,417,97" href="20/20csl2-9.rle" />
+	<area coords="418,54,485,97" href="20/20chtss4.rle" />
+	<area coords="486,54,553,97" href="20/20slbnbt.rle" />
+	<area coords="554,54,620,97" href="20/20csl2-t.rle" />
+	<area coords="0,98,77,141" href="20/20hhvpd.rle" />
+	<area coords="78,98,145,141" href="20/20dkbts7.rle" />
+	<area coords="146,98,213,141" href="20/20dkbts1.rle" />
+	<area coords="214,98,281,141" href="20/20csl2-j.rle" />
+	<area coords="282,98,349,141" href="20/20csl2-r.rle" />
+	<area coords="350,98,417,141" href="20/20csl2-d.rle" />
+	<area coords="418,98,485,141" href="20/20csl2-m.rle" />
+	<area coords="486,98,553,141" href="20/20cslys1.rle" />
+	<area coords="554,98,620,141" href="20/20csl2-g.rle" />
+	<area coords="0,142,77,185" href="20/20csl2-c.rle" />
+	<area coords="78,142,145,185" href="20/20bt4.rle" />
+	<area coords="146,142,213,185" href="20/20lsttls.rle" />
+	<area coords="214,142,281,185" href="20/20chtaa6.rle" />
+	<area coords="282,142,349,185" href="20/20chtas6.rle" />
+	<area coords="350,142,417,185" href="20/20csl2-2.rle" />
+	<area coords="418,142,485,185" href="20/20csl2-4.rle" />
+	<area coords="486,142,553,185" href="20/20bipdbk.rle" />
+	<area coords="554,142,620,185" href="20/20lchlhd.rle" />
+	<area coords="0,186,77,229" href="20/20vbtetg.rle" />
+	<area coords="78,186,145,229" href="20/20lcils8.rle" />
+	<area coords="146,186,213,229" href="20/20hbhv.rle" />
+	<area coords="214,186,281,229" href="20/20csl2-o.rle" />
+	<area coords="282,186,349,229" href="20/20ilfety.rle" />
+	<area coords="350,186,417,229" href="20/20csl2-i.rle" />
+	<area coords="418,186,485,229" href="20/20csl2-e.rle" />
+	<area coords="486,186,553,229" href="20/20csl2-f.rle" />
+	<area coords="554,186,620,229" href="20/20ilfetv.rle" />
+	<area coords="0,230,77,273" href="20/20lcilf2.rle" />
+	<area coords="78,230,145,273" href="20/20sshpd1.rle" />
+	<area coords="146,230,213,273" href="20/20lcilb2.rle" />
+	<area coords="214,230,281,273" href="20/20pdlfb1.rle" />
+	<area coords="282,230,349,273" href="20/20lciet2.rle" />
+	<area coords="350,230,417,273" href="20/20lciet8.rle" />
+	<area coords="418,230,485,273" href="20/20lcietd.rle" />
+	<area coords="486,230,553,273" href="20/20lcils2.rle" />
+	<area coords="554,230,620,273" href="20/20csltab.rle" />
+	<area coords="0,274,77,317" href="20/20etctbt.rle" />
+	<area coords="78,274,145,317" href="20/20csl2-k.rle" />
+	<area coords="146,274,213,317" href="20/20csl2-h.rle" />
+	<area coords="214,274,281,317" href="20/20csl2-l.rle" />
+	<area coords="282,274,349,317" href="20/20csl2-q.rle" />
+	<area coords="350,274,417,317" href="20/20pdetbt.rle" />
+	<area coords="418,274,485,317" href="20/20mhbt1.rle" />
+	<area coords="486,274,553,317" href="20/20ascs4.rle" />
+	<area coords="554,274,620,317" href="20/20csl2-a.rle" />
+	<area coords="0,318,77,361" href="20/20csl2-8.rle" />
+	<area coords="78,318,145,361" href="20/20hvetlf.rle" />
+	<area coords="146,318,213,361" href="20/20cslcl2.rle" />
+	<area coords="214,318,281,361" href="20/20cslclm.rle" />
+	<area coords="282,318,349,361" href="20/20cslclb.rle" />
+	<area coords="350,318,417,361" href="20/20csl2-n.rle" />
+	<area coords="418,318,485,361" href="20/20csl2-s.rle" />
+	<area coords="486,318,553,361" href="20/20ilfetz.rle" />
+	<area coords="554,318,620,361" href="20/20csl2-u.rle" />
+	<area coords="0,362,77,420" href="20/20cslysc.rle" />
+	<area coords="78,362,145,420" href="20/20cslys2.rle" />
+	<area coords="146,362,620,420" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p2-20"></a>
+<h2>The 2722 twenty-bit
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p2-20.htm">separate page</a>.
+Syntheses for 8 of them are shown here.</p>
+<p><a class="p" href="stamp/p2-20.rle"><img src="map/p2-20.png"
+ alt="20-bit period 2"
+ width="561" height="81" usemap="#p2-20" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20sctbs1.rle">
+	    Spark Coil w/ cis tubs [10]</a></td>
+	<td class="y"><a class="p" href="20/20zsntd.rle">
+	    Toad and snake on Z [31]</a></td>
+	<td><a class="p" href="20/20pvtatc.rle">
+	    Pre- block on very long table w/ tail and curl [10]</a></td>
+	<td><a class="p" href="20/20pvtafc.rle">
+	    Pre- block on very long table w/ feather and curl [9]</a></td>
+	<td class="y"><a class="p" href="20/20dttbht.rle">
+	    Hook w/ tail on griddle w/ tub [40]</a></td>
+	<td class="g"><a class="p" href="20/20bptacs.rle">
+	    Up bipole on table siamese canoe [20]</a></td>
+	<td><a class="p" href="20/20bcbebe.rle">
+	    Two tied book- ends on beacon [10]</a></td>
+	<td class="y"><a class="p" href="20/20bfsn2.rle">
+	    Two snakes on butter- fly [26]</a></td>
+	<td><a class="p" href="20/20cavtb2.rle">
+	    Cavity w/ two tubs [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p2-20.zip" />
+	<area coords="541,61,560,80" href="stamp/p1-20.rle" />
+	<area coords="0,0,69,80" href="20/20sctbs1.rle" />
+	<area coords="70,0,129,80" href="20/20zsntd.rle" />
+	<area coords="130,0,189,80" href="20/20pvtatc.rle" />
+	<area coords="190,0,249,80" href="20/20pvtafc.rle" />
+	<area coords="250,0,309,80" href="20/20dttbht.rle" />
+	<area coords="310,0,369,80" href="20/20bptacs.rle" />
+	<area coords="370,0,429,80" href="20/20bcbebe.rle" />
+	<area coords="430,0,489,80" href="20/20bfsn2.rle" />
+	<area coords="490,0,560,80" href="20/20cavtb2.rle" />
+</map>
+
+<hr />
+<a name="pp2-20"></a>
+<h2>The 9460 twenty-bit
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="pp2-20.htm">separate page</a>.</p>
+<p>All of these can be synthesized using the same techniques that are used for
+smaller pseudo-oscillators and pseudo-still-lifes, except 25 trivial ones that
+involve adding a small simple still-life to a large complex
+<a class="i" href="glider-u.htm#gu-p2">period 2 oscillator that does not yet
+have a synthesis</a> (i.e. 8 with a boat on one of three
+15-bit oscillators, and 17 with a block on one of ten 16-bit oscillators).
+These are not included in the list below.</p>
+<p><a class="p" href="stamp/pp2-20.rle"><img src="map/pp2-20.png"
+ alt="20-bit pseudo-P2"
+ width="501" height="141" usemap="#pp2-20" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="20/20bpcltc.rle">
+	    Up bipole below claw siamese claw w/ cape [26]</a></td>
+	<td class="y"><a class="p" href="20/20bpilt3.rle">
+	    Up bipole below integral w/ long tail [23]</a></td>
+	<td class="y"><a class="p" href="20/20bpbct1.rle">
+	    Up bipole on boat w/ cis tail [22]</a></td>
+	<td><a class="p" href="20/20tpbvt6.rle">
+	    Down tripole below boat w/ very long tail [14]</a></td>
+	<td class="y"><a class="p" href="20/20bclssf.rle">
+	    Beacon between up cis snakes [52]</a></td>
+	<td class="y"><a class="p" href="20/20bcvci1.rle">
+	    Up beacon on very long cis integral [27]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20snsnbp.rle">
+	    Bipole on snake tie snake [44]</a></td>
+	<td><a class="p" href="20/20bplse9.rle">
+	    Up bipole before long snake siamese eater [11]</a></td>
+	<td><a class="p" href="20/20tpdlft.rle">
+	    Up tripole on down loaf w/ tail [11]</a></td>
+	<td class="g"><a class="p" href="20/20bpas4.rle">
+	    Down bipole below carrier bridge snake [20]</a></td>
+	<td><a class="p" href="20/20tpidb6.rle">
+	    Down tripole below integral w/ down boat [13]</a></td>
+	<td><a class="p" href="20/20tpiub6.rle">
+	    Down tripole below integral w/ up boat [14]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp2-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp2-20.zip" />
+	<area coords="481,121,500,140" href="stamp/pp2-20.rle" />
+	<area coords="0,0,89,69" href="20/20bpcltc.rle" />
+	<area coords="90,0,169,69" href="20/20bpilt3.rle" />
+	<area coords="170,0,249,69" href="20/20bpbct1.rle" />
+	<area coords="250,0,329,69" href="20/20tpbvt6.rle" />
+	<area coords="330,0,409,69" href="20/20bclssf.rle" />
+	<area coords="410,0,500,69" href="20/20bcvci1.rle" />
+	<area coords="0,70,89,140" href="20/20snsnbp.rle" />
+	<area coords="90,70,169,140" href="20/20bplse9.rle" />
+	<area coords="170,70,249,140" href="20/20tpdlft.rle" />
+	<area coords="250,70,329,140" href="20/20bpas4.rle" />
+	<area coords="330,70,409,140" href="20/20tpidb6.rle" />
+	<area coords="410,70,500,140" href="20/20tpiub6.rle" />
+</map>
+
+
+<hr />
+<a name="p3-20"></a>
+<h2>The 216 twenty-bit
+<a class="i" href="p3.htm">period 3 oscillators</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p3-20.htm">separate page</a>.</p>
+
+<hr />
+<a name="pp3-20"></a>
+<h2>The 44 twenty-bit
+<a class="i" href="pp3.htm">period 3 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp3-20.rle"><img src="map/pp3-20.png"
+ alt="20-bit period 3 pseudo-oscillators"
+ width="621" height="321" usemap="#pp3-20" /></a></p>
+
+<map name="pp3-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp3-20.zip" />
+	<area coords="601,301,620,320" href="stamp/pp3-20.rle" />
+	<area coords="0,0,69,69" href="20/20cfbbk2.rle" />
+	<area coords="70,0,129,69" href="20/20cfbbk1.rle" />
+	<area coords="130,0,189,69" href="20/20jmls5.rle" />
+	<area coords="190,0,249,69" href="20/20jmlb1.rle" />
+	<area coords="250,0,309,69" href="20/20jmet10.rle" />
+	<area coords="310,0,369,69" href="20/20jmet1.rle" />
+	<area coords="370,0,429,69" href="20/20jmlf2.rle" />
+	<area coords="430,0,489,69" href="20/20jmet5.rle" />
+	<area coords="490,0,549,69" href="20/20jmlf1.rle" />
+	<area coords="550,0,620,69" href="20/20jmls1.rle" />
+	<area coords="0,70,69,129" href="20/20jmls2.rle" />
+	<area coords="70,70,129,129" href="20/20jmls7.rle" />
+	<area coords="130,70,189,129" href="20/20tgbk.rle" />
+	<area coords="190,70,249,129" href="20/20jmlf3.rle" />
+	<area coords="250,70,309,129" href="20/20jmlf4.rle" />
+	<area coords="310,70,369,129" href="20/20jmlb3.rle" />
+	<area coords="370,70,429,129" href="20/20jmet12.rle" />
+	<area coords="430,70,489,129" href="20/20jmet3.rle" />
+	<area coords="490,70,549,129" href="20/20jmlb2.rle" />
+	<area coords="550,70,620,129" href="20/20jmls3.rle" />
+	<area coords="0,130,69,189" href="20/20jmet7.rle" />
+	<area coords="70,130,129,189" href="20/20jmet6.rle" />
+	<area coords="130,130,189,189" href="20/20jmet2.rle" />
+	<area coords="190,130,249,189" href="20/20jmet9.rle" />
+	<area coords="250,130,309,189" href="20/20jmls4.rle" />
+	<area coords="310,130,369,189" href="20/20bkcfbk.rle" />
+	<area coords="370,130,429,189" href="20/20jmlb4.rle" />
+	<area coords="430,130,489,189" href="20/20jmet8.rle" />
+	<area coords="490,130,549,189" href="20/20jmet4.rle" />
+	<area coords="550,130,620,189" href="20/20jmls6.rle" />
+	<area coords="0,190,69,249" href="20/20jmet11.rle" />
+	<area coords="70,190,129,249" href="20/20jmls8.rle" />
+	<area coords="130,190,189,249" href="20/20eetsh2.rle" />
+	<area coords="190,190,249,249" href="20/20eetac8.rle" />
+	<area coords="250,190,309,249" href="20/20eetac6.rle" />
+	<area coords="310,190,369,249" href="20/20eetsn6.rle" />
+	<area coords="370,190,429,249" href="20/20eetsn5.rle" />
+	<area coords="430,190,489,249" href="20/20einbk1.rle" />
+	<area coords="490,190,549,249" href="20/20eethv.rle" />
+	<area coords="550,190,620,249" href="20/20eetsh1.rle" />
+	<area coords="0,250,69,320" href="20/20einbk3.rle" />
+	<area coords="70,250,129,320" href="20/20einbk2.rle" />
+	<area coords="130,250,189,320" href="20/20eetac5.rle" />
+	<area coords="190,250,249,320" href="20/20eetac7.rle" />
+	<area coords="250,250,620,320" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p4-20"></a>
+<h2>The 23 twenty-bit
+<a class="i" href="p4.htm">period 4 oscillators</a></h2>
+<p><a class="p" href="stamp/p4-20.rle"><img src="map/p4-20.png"
+ alt="20-bit period 4 oscillators"
+ width="501" height="201" usemap="#p4-20" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20mdct1.rle">
+	    Up mold on cap [10]</a></td>
+	<td><a class="p" href="20/20mdle1.rle">
+	    Up mold on up long bookend [12]</a></td>
+	<td><a class="p" href="20/20mdle4.rle">
+	    Down mold on down long bookend [10]</a></td>
+	<td><a class="p" href="20/20mdle3.rle">
+	    Up mold on down long bookend [10]</a></td>
+	<td><a class="p" href="20/20mdwg1.rle">
+	    Up mold tie wing [16]</a></td>
+	<td><a class="p" href="20/20mdct2.rle">
+	    Down mold on cap [10]</a></td>
+	<td class="y"><a class="p" href="20/20mdlha1.rle">
+	    Mold siamese up long hat [22]</a></td>
+	<td class="y"><a class="p" href="20/20mdht.rle">
+	    Mold tie hook w/ tail [25]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20mdcslh.rle">
+	    Mold siamese short cis hook w/ tail [71]</a></td>
+	<td class="y"><a class="p" href="20/20mdlha2.rle">
+	    Mold siamese down long hat [22]</a></td>
+	<td class="y"><a class="p" href="20/20mdbet1.rle">
+	    Mold tie up bookend w/ tub [21]</a></td>
+	<td><a class="p" href="20/20mdle2.rle">
+	    Down mold on up long bookend [12]</a></td>
+	<td class="y"><a class="p" href="20/20p4-1.rle">
+	    20-bit P4 #1 [24]</a></td>
+	<td class="y"><a class="p" href="20/20mdcftt.rle">
+	    Mold siamese cis fuse w/ two tails [30]</a></td>
+	<td class="y"><a class="p" href="20/20smdsn.rle">
+	    Snake siamese mold siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="20/20amdsn.rle">
+	    Carrier siamese mold siamese snake [33]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20amdac.rle">
+	    Carrier siamese mold siamese carrier [39]</a></td>
+	<td><a class="p" href="20/20mdpd.rle">
+	    Mold tie pond [14]</a></td>
+	<td class="y"><a class="p" href="20/20mdblf.rle">
+	    Mold bit tie loaf [26]</a></td>
+	<td><a class="p" href="20/20mdwg2.rle">
+	    Down mold tie wing [15]</a></td>
+	<td class="g"><a class="p" href="20/20mdbet2.rle">
+	    Down mold tie bookend w/ tub [20]</a></td>
+	<td><a class="p" href="20/20eebf.rle">
+	    Eater block frob; Eater and block eating loaf w/ tail [12]</a></td>
+	<td class="g"><a class="p" href="20/20ce.rle">
+	    Con- fused eaters [20]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p4-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p4-20.zip" />
+	<area coords="481,181,500,200" href="stamp/p4-20.rle" />
+	<area coords="0,0,69,69" href="20/20mdct1.rle" />
+	<area coords="70,0,129,69" href="20/20mdle1.rle" />
+	<area coords="130,0,189,69" href="20/20mdle3.rle" />
+	<area coords="190,0,249,69" href="20/20mdle4.rle" />
+	<area coords="250,0,309,69" href="20/20mdwg1.rle" />
+	<area coords="310,0,369,69" href="20/20mdct2.rle" />
+	<area coords="370,0,429,69" href="20/20mdlha1.rle" />
+	<area coords="430,0,500,69" href="20/20mdht.rle" />
+	<area coords="0,70,69,129" href="20/20mdcslh.rle" />
+	<area coords="70,70,129,129" href="20/20mdlha2.rle" />
+	<area coords="130,70,189,129" href="20/20mdbet1.rle" />
+	<area coords="190,70,249,129" href="20/20mdle2.rle" />
+	<area coords="250,70,309,129" href="20/20p4-1.rle" />
+	<area coords="310,70,369,129" href="20/20mdcftt.rle" />
+	<area coords="370,70,429,129" href="20/20smdsn.rle" />
+	<area coords="430,70,500,129" href="20/20amdsn.rle" />
+	<area coords="0,130,69,200" href="20/20amdac.rle" />
+	<area coords="70,130,129,200" href="20/20mdpd.rle" />
+	<area coords="130,130,189,200" href="20/20mdblf.rle" />
+	<area coords="190,130,249,200" href="20/20mdwg2.rle" />
+	<area coords="250,130,309,200" href="20/20mdbet2.rle" />
+	<area coords="310,130,369,200" href="20/20eebf.rle" />
+	<area coords="370,130,429,200" href="20/20ce.rle" />
+	<area coords="430,130,500,200" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp4-20"></a>
+<h2>The 33 twenty-bit
+<a class="i" href="pp4.htm">period 4 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp4-20.rle"><img src="map/pp4-20.png"
+ alt="20-bit period 4 pseudo-oscillators"
+ width="561" height="261" usemap="#pp4-20" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20mdsl1.rle">
+	    Up shillelagh head on mold [11]</a></td>
+	<td><a class="p" href="20/20mdcg2.rle">
+	    Down mango on mold [9]</a></td>
+	<td><a class="p" href="20/20mdlp1.rle">
+	    Up long ship on mold [9]</a></td>
+	<td><a class="p" href="20/20mdbc4.rle">
+	    Down trans beacon on mold [11]</a></td>
+	<td><a class="p" href="20/20mdpd1.rle">
+	    Pond on mold [8]</a></td>
+	<td><a class="p" href="20/20mdht4.rle">
+	    Down hook w/ tail tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdsl4.rle">
+	    Down shil- lelagh chin on mold [11]</a></td>
+	<td><a class="p" href="20/20mdbbk.rle">
+	    Block on block on mold [8]</a></td>
+	<td><a class="p" href="20/20mdsl6.rle">
+	    Down shil- lelagh tail on mold [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20mdsl3.rle">
+	    Up shil- lelagh chin on mold [11]</a></td>
+	<td><a class="p" href="20/20mdht2.rle">
+	    Down hook w/ tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdtt2.rle">
+	    Down tub w/ tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdcs1.rle">
+	    Up trans canoe on mold [14]</a></td>
+	<td><a class="p" href="20/20mdbp1.rle">
+	    Up trans bipole on mold [16]</a></td>
+	<td><a class="p" href="20/20mdbp3.rle">
+	    Up cis bipole on mold [16]</a></td>
+	<td><a class="p" href="20/20mdcs3.rle">
+	    Up cis canoe on mold [14]</a></td>
+	<td><a class="p" href="20/20mdbp4.rle">
+	    Down cis bipole on mold [16]</a></td>
+	<td><a class="p" href="20/20mdbc3.rle">
+	    Up trans beacon on mold [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20mdbp2.rle">
+	    Up trans bipole on mold [16]</a></td>
+	<td><a class="p" href="20/20mdsl5.rle">
+	    Up shil- lelagh tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdvs1.rle">
+	    Up trans very long snake on mold [14]</a></td>
+	<td><a class="p" href="20/20mdcg1.rle">
+	    Up mango on mold [9]</a></td>
+	<td><a class="p" href="20/20mdlp2.rle">
+	    Down long ship on mold [9]</a></td>
+	<td><a class="p" href="20/20mdvs3.rle">
+	    Up cis very long snake on mold [12</a></td>
+	<td><a class="p" href="20/20mdht1.rle">
+	    Up hook w/ tail head on mold [15]</a></td>
+	<td><a class="p" href="20/20mdvs2.rle">
+	    Down trans very long snake on mold [14]</a></td>
+	<td><a class="p" href="20/20mdsl2.rle">
+	    Down shil- lelagh head on mold [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20mdht3.rle">
+	    Up hook w/ tail tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdtt1.rle">
+	    Up tub w/ tail on mold [15]</a></td>
+	<td><a class="p" href="20/20mdcs2.rle">
+	    Down trans canoe on mold [14]</a></td>
+	<td><a class="p" href="20/20mdcs4.rle">
+	    Down trans canoe on mold [13]</a></td>
+	<td><a class="p" href="20/20bmdbk.rle">
+	    Block on mold on block [9]</a></td>
+	<td><a class="p" href="20/20mdvs4.rle">
+	    Down cis very long snake on mold [12]</a></td>
+	<td colspan="3" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp4-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/pp4-20.zip" />
+	<area coords="541,241,560,260" href="stamp/pp4-20.rle" />
+	<area coords="0,0,69,69" href="20/20mdsl1.rle" />
+	<area coords="70,0,129,69" href="20/20mdcg2.rle" />
+	<area coords="130,0,189,69" href="20/20mdlp1.rle" />
+	<area coords="190,0,249,69" href="20/20mdbc4.rle" />
+	<area coords="250,0,309,69" href="20/20mdpd1.rle" />
+	<area coords="310,0,369,69" href="20/20mdht4.rle" />
+	<area coords="370,0,429,69" href="20/20mdsl4.rle" />
+	<area coords="430,0,489,69" href="20/20mdbbk.rle" />
+	<area coords="490,0,560,69" href="20/20mdsl6.rle" />
+	<area coords="0,70,69,129" href="20/20mdsl3.rle" />
+	<area coords="70,70,129,129" href="20/20mdht2.rle" />
+	<area coords="130,70,189,129" href="20/20mdtt2.rle" />
+	<area coords="190,70,249,129" href="20/20mdcs1.rle" />
+	<area coords="250,70,309,129" href="20/20mdbp1.rle" />
+	<area coords="310,70,369,129" href="20/20mdbp3.rle" />
+	<area coords="370,70,429,129" href="20/20mdcs3.rle" />
+	<area coords="430,70,489,129" href="20/20mdbp4.rle" />
+	<area coords="490,70,560,129" href="20/20mdbc3.rle" />
+	<area coords="0,130,69,189" href="20/20mdbp2.rle" />
+	<area coords="70,130,129,189" href="20/20mdsl5.rle" />
+	<area coords="130,130,189,189" href="20/20mdvs1.rle" />
+	<area coords="190,130,249,189" href="20/20mdcg1.rle" />
+	<area coords="250,130,309,189" href="20/20mdlp2.rle" />
+	<area coords="310,130,369,189" href="20/20mdvs3.rle" />
+	<area coords="370,130,429,189" href="20/20mdht1.rle" />
+	<area coords="430,130,489,189" href="20/20mdvs2.rle" />
+	<area coords="490,130,560,189" href="20/20mdsl2.rle" />
+	<area coords="0,190,69,260" href="20/20mdht3.rle" />
+	<area coords="70,190,129,260" href="20/20mdtt1.rle" />
+	<area coords="130,190,189,260" href="20/20mdcs2.rle" />
+	<area coords="190,190,249,260" href="20/20mdcs4.rle" />
+	<area coords="250,190,309,260" href="20/20bmdbk.rle" />
+	<area coords="310,190,369,260" href="20/20mdvs4.rle" />
+	<area coords="370,190,560,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p5-20"></a>
+<h2>The 16 twenty-bit
+<a class="i" href="p5.htm">period 5 oscillators</a></h2>
+<p><a class="p" href="stamp/p5-20.rle"><img src="map/p5-20.png"
+ alt="20-bit period 5 oscillators"
+ width="521" height="161" usemap="#p5-20" /></a><br />
+    <table width="525">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20fmub.rle">
+	    Fumarole w/ up boat [10]</a></td>
+	<td><a class="p" href="20/20fmtt.rle">
+	    Fumar- ole w/ two tubs [16]</a></td>
+	<td class="y"><a class="p" href="20/20svin.rle">
+	    Silver's P5 on integral [27]</a></td>
+	<td class="y"><a class="p" href="20/20svll.rle">
+	    Silver's P5 above long shil- lelagh [27]</a></td>
+	<td class="g"><a class="p" href="20/20svlc.rle">
+	    Silver's P5 on long canoe [20]</a></td>
+	<td class="y"><a class="p" href="20/20svlht1.rle">
+	    Silver's P5 on long hook w/ tail [23]</a></td>
+	<td class="g"><a class="p" href="20/20svxs.rle">
+	    Silver's P5 above extra long snake [20]</a></td>
+	<td class="y"><a class="p" href="20/20ne.rle">
+	    Elkies's P5 [24]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20svtlt1.rle">
+	    Silver's P5 above tub w/ long tail [26]</a></td>
+	<td><a class="p" href="20/20svha.rle">
+	    Silver's P5 on hat [18]</a></td>
+	<td class="y"><a class="p" href="20/20svtlt2.rle">
+	    Silver's P5 behind tub w/ long tail [22]</a></td>
+	<td><a class="p" href="20/20svdbt.rle">
+	    Silver's P5 above down boat w/ tail [14]</a></td>
+	<td><a class="p" href="20/20svubt.rle">
+	    Silver's P5 above up boat w/ tail [15]</a></td>
+	<td><a class="p" href="20/20svlht2.rle">
+	    Silver's P5 above long hook w/ tail [16]</a></td>
+	<td><a class="p" href="20/20et2z.rle">
+	    Pentoad between two eaters [12]</a></td>
+	<td class="y"><a class="p" href="20/20apbt.rle">
+	    Pseudo- barber- pole tie boat [36]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/p5-20.zip" />
+	<area coords="501,141,520,160" href="stamp/p5-20.rle" />
+	<area coords="0,0,69,69" href="20/20fmub.rle" />
+	<area coords="70,0,129,69" href="20/20fmtt.rle" />
+	<area coords="130,0,189,69" href="20/20svin.rle" />
+	<area coords="190,0,249,69" href="20/20svll.rle" />
+	<area coords="250,0,309,69" href="20/20svlc.rle" />
+	<area coords="310,0,369,69" href="20/20svlht1.rle" />
+	<area coords="370,0,429,69" href="20/20svxs.rle" />
+	<area coords="430,0,520,69" href="20/20ne.rle" />
+	<area coords="0,70,69,160" href="20/20svtlt1.rle" />
+	<area coords="70,70,129,160" href="20/20svha.rle" />
+	<area coords="130,70,189,160" href="20/20svtlt2.rle" />
+	<area coords="190,70,249,160" href="20/20svdbt.rle" />
+	<area coords="250,70,309,160" href="20/20svubt.rle" />
+	<area coords="310,70,369,160" href="20/20svlht2.rle" />
+	<area coords="370,70,429,160" href="20/20et2z.rle" />
+	<area coords="430,70,520,160" href="20/20apbt.rle" />
+</map>
+
+<hr />
+<a name="pp5-20"></a>
+<h2>The 4 twenty-bit
+<a class="i" href="pp5.htm">period 5 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp5-20.rle"><img src="map/pp5-20.png"
+ alt="20-bit P5 pseudo-oscillators"
+ width="341" height="81" usemap="#pp5-20" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="20/20apbt1.rle">
+	    Up boat on pseudo- barber- pole [29]</a></td>
+	<td class="y"><a class="p" href="20/20apbt3.rle">
+	    Up boat below pseudo- barber- pole [29]</a></td>
+	<td class="y"><a class="p" href="20/20apbt4.rle">
+	    Down boat on pseudo- barber- pole [31]</a></td>
+	<td class="y"><a class="p" href="20/20apbt2.rle">
+	    Down boat below pseudo- barber- pole [31]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp5-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/pp5-20.zip" />
+	<area coords="321,61,340,80" href="stamp/pp5-20.rle" />
+	<area coords="0,0,89,80" href="20/20apbt1.rle" />
+	<area coords="90,0,169,80" href="20/20apbt3.rle" />
+	<area coords="170,0,249,80" href="20/20apbt2.rle" />
+	<area coords="250,0,340,80" href="20/20apbt4.rle" />
+</map>
+
+<hr />
+<a name="p6-20"></a>
+<h2>The 11 twenty-bit
+<a class="i" href="p6.htm">period 6 oscillators</a></h2>
+<p><a class="p" href="stamp/p6-20.rle"><img src="map/p6-20.png"
+ alt="20-bit period 6 oscillators"
+ width="381" height="141" usemap="#p6-20" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20cfbp1.rle">
+	    Up bipole on up candel- frobra [16]</a></td>
+	<td><a class="p" href="20/20cfbp3.rle">
+	    Up bipole on down candel- frobra [16]</a></td>
+	<td><a class="p" href="20/20cfbp4.rle">
+	    Down bipole on down candel- frobra [16]</a></td>
+	<td><a class="p" href="20/20cupbc2.rle">
+	    Down beacon on cuphook w/ pre- block [17]</a></td>
+	<td><a class="p" href="20/20cupbc1.rle">
+	    Up beacon on cuphook w/ pre- block [18]</a></td>
+	<td><a class="p" href="20/20cutbc3.rle">
+	    Up beacon on down cuphook w/ tail [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20cutbc1.rle">
+	    Up beacon on up cuphook w/ tail [14]</a></td>
+	<td><a class="p" href="20/20cutbc2.rle">
+	    Down beacon on up cuphook w/ tail [12]</a></td>
+	<td class="y"><a class="p" href="20/20blonkr.rle">
+	    Blonker [25]</a></td>
+	<td><a class="p" href="20/20cfbp2.rle">
+	    Down bipole on up candel- frobra [17]</a></td>
+	<td><a class="p" href="20/20cutbc4.rle">
+	    Down beacon on down cuphook w/ tail [13]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p6-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/p6-20.zip" />
+	<area coords="361,121,380,140" href="stamp/p6-20.rle" />
+	<area coords="0,0,69,49" href="20/20cfbp1.rle" />
+	<area coords="70,0,129,49" href="20/20cfbp3.rle" />
+	<area coords="130,0,189,49" href="20/20cfbp4.rle" />
+	<area coords="190,0,249,49" href="20/20cupbc2.rle" />
+	<area coords="250,0,309,49" href="20/20cupbc1.rle" />
+	<area coords="310,0,380,49" href="20/20cutbc3.rle" />
+	<area coords="0,50,69,140" href="20/20cutbc1.rle" />
+	<area coords="70,50,129,140" href="20/20cutbc2.rle" />
+	<area coords="130,50,189,140" href="20/20blonkr.rle" />
+	<area coords="190,50,249,140" href="20/20cfbp2.rle" />
+	<area coords="250,50,309,140" href="20/20cutbc4.rle" />
+	<area coords="310,50,380,140" nohref="nohref" />
+</map>
+
+<p>All of these except the Blonker have a pseudo-period of 6, a composite of
+2 and 3.</p>
+
+<hr />
+<a name="pp6-20"></a>
+<h2>The 3 twenty-bit
+<a class="i" href="pp6.htm">period 6 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp6-20.rle"><img src="map/pp6-20.png"
+ alt="20-bit pseudo-P6" width="261" height="81" usemap="#pp6-20" /></a><br />
+    <table width="265">
+    <colgroup><col width="91" /><col width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20uxbk.rle">
+	    Block on unix [7]</a></td>
+	<td><a class="p" href="20/20eetbc2.rle">
+	    Down beacon on eater eating eater [12]</a></td>
+	<td><a class="p" href="20/20eetbc1.rle">
+	    Up beacon on eater eating eater [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp6-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/pp6-20.zip" />
+	<area coords="241,61,260,80" href="stamp/pp6-20.rle" />
+	<area coords="0,0,89,80" href="20/20uxbk.rle" />
+	<area coords="90,0,169,80" href="20/20eetbc2.rle" />
+	<area coords="170,0,260,80" href="20/20eetbc1.rle" />
+</map>
+
+<p>All of these except block on unix have a pseudo-period of 6, a composite
+of 2 and 3.</p>
+
+<hr />
+<a name="pp8-20"></a>
+<h2>The 2 twenty-bit
+<a class="i" href="pp8.htm">period 8 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp8-20.rle"><img src="map/pp8-20.png"
+ alt="20-bit pseudo-P8" width="181" height="61" usemap="#pp8-20" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20brbt1.rle">
+	    Up boat on blocker [9]</a></td>
+	<td><a class="p" href="20/20brbt2.rle">
+	    Down boat on blocker [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/pp8-20.zip" />
+	<area coords="161,41,180,60" href="stamp/pp8-20.rle" />
+	<area coords="0,0,89,60" href="20/20brbt1.rle" />
+	<area coords="90,0,180,60" href="20/20brbt2.rle" />
+</map>
+
+<hr />
+<a name="pp15-20"></a>
+<h2>The 15 twenty-bit
+<a class="i" href="pp15.htm">period 15 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp15-20.rle"><img src="map/pp15-20.png"
+ alt="20-bit period 15 pseudo-oscillators"
+ width="421" height="261" usemap="#pp15-20" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20pcsl1.rle">
+	    Shillelagh head on penta- decathlon [7]</a></td>
+	<td><a class="p" href="20/20pcpd.rle">
+	    Pond on penta- decathlon [5]</a></td>
+	<td><a class="p" href="20/20pccg.rle">
+	    Mango on penta- decathlon [6]</a></td>
+	<td><a class="p" href="20/20pclp.rle">
+	    Long ship on penta- decathlon [7]</a></td>
+	<td><a class="p" href="20/20pcht2.rle">
+	    Hook w/ tail tail on penta- decathlon [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20pcvs2.rle">
+	    Trans very long snake on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pcbbk.rle">
+	    Block on block on penta- decathlon [5]</a></td>
+	<td><a class="p" href="20/20pcsl3.rle">
+	    Shillelagh tail on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pcsl2.rle">
+	    Shillelagh chin on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pcht1.rle">
+	    Hook w/ tail head on penta- decathlon [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20pctt.rle">
+	    Tub w/ tail on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pccs1.rle">
+	    Trans canoe on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pccs2.rle">
+	    Cis canoe on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pcvs1.rle">
+	    Trans very long snake on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20bpcbk.rle">
+	    Block on penta- decathlon on block [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/pp15-20.zip" />
+	<area coords="401,241,420,260" href="stamp/pp15-20.rle" />
+	<area coords="0,0,89,89" href="20/20pcsl1.rle" />
+	<area coords="90,0,169,89" href="20/20pcpd.rle" />
+	<area coords="170,0,249,89" href="20/20pccg.rle" />
+	<area coords="250,0,329,89" href="20/20pclp.rle" />
+	<area coords="330,0,420,89" href="20/20pcht2.rle" />
+	<area coords="0,90,89,169" href="20/20pcvs2.rle" />
+	<area coords="90,90,169,169" href="20/20pcbbk.rle" />
+	<area coords="170,90,249,169" href="20/20pcsl3.rle" />
+	<area coords="250,90,329,169" href="20/20pcsl2.rle" />
+	<area coords="330,90,420,169" href="20/20pcht1.rle" />
+	<area coords="0,170,89,260" href="20/20pctt.rle" />
+	<area coords="90,170,169,260" href="20/20pccs1.rle" />
+	<area coords="170,170,249,260" href="20/20pccs2.rle" />
+	<area coords="250,170,329,260" href="20/20pcvs1.rle" />
+	<area coords="330,170,420,260" href="20/20bpcbk.rle" />
+</map>
+
+<hr />
+<a name="p30-20"></a>
+<h2>The 2 twenty-bit
+<a class="i" href="p30.htm">period 30 oscillators</a></h2>
+<p><a class="p" href="stamp/p30-20.rle"><img src="map/p30-20.png"
+ alt="20-bit period 30 oscillators"
+ width="261" height="81" usemap="#p30-20" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20bqbbk2.rle">
+	    Queen bee shuttle between trans blocks [6]</a></td>
+	<td><a class="p" href="20/20bqbbk1.rle">
+	    Queen bee shuttle between cis blocks [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p30-20.zip" />
+	<area coords="241,61,260,80" href="stamp/p30-20.rle" />
+	<area coords="0,0,129,80" href="20/20bqbbk2.rle" />
+	<area coords="130,0,260,80" href="20/20bqbbk1.rle" />
+</map>
+
+<p>The Queen bee is extremely versatile. It is a shuttle that flips over
+every 15 generations, leaving a <a class="p" href="0/6hv.rle">beehive</a> egg,
+which must be removed; in both cases above, by a
+<a class="p" href="0/4bk.rle">block</a>. The Queen bee forms the basis for the
+first <a class="i" href="gun.htm">glider gun</a> ever discovered,
+as well as many <a class="i" href="osc.htm">oscillators</a>
+with periods of 30<i>n</i>.</p>
+
+<p>It can also <a class="p" href="20/20qbeat.rle">eat gliders</a>
+many different ways:</p>
+<p><ul>
+    <li>Row 1 #1+2: left sides cook glider into block, then into toxic boat;
+	right sides cook glider into toxic block</li>
+    <li>Row 1 #3: cooks glider into boat, then into toxic blinker</li>
+    <li>Row 1 #4: both sides cook glider into toxic loaf</li>
+    <li>Row 1 #5: cooks glider into toxic beehive</li>
+    <li>Row 2 #1+2: cook glider into block, then eat the block</li>
+    <li>Row 2 #3+4: cook glider into something the block then eats</li>
+    <li>Rows 3-6: eat glider directly</li>
+</ul></p>
+
+<hr />
+<a name="pp30-20"></a>
+<h2>The 1 twenty-bit
+<a class="i" href="pp30.htm">period 30 pseudo-oscillator</a></h2>
+<p><a class="p" href="stamp/pp30-20.rle"><img src="map/pp30-20.png"
+ alt="20b PP30" width="101" height="81" usemap="#pp30-20" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20pcbp.rle">
+	    Bipole on penta- decathlon [9]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp30-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp30-20.zip" />
+	<area coords="81,61,100,80" href="stamp/pp30-20.rle" />
+	<area coords="0,0,100,80" href="20/20pcbp.rle" />
+</map>
+
+<p>This has a pseudo-period of 30, a composite of 2 and 15.</p>
+<hr />
+<a name="ss-20"></a>
+<h2>The 6 twenty-bit
+<a class="i" href="ss.htm">spaceships</a></h2>
+<p><a class="p" href="stamp/ss-20.rle"><img src="map/ss-20.png"
+ alt="20-bit spaceships" width="381" height="81" usemap="#ss-20" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/20mwlw1.rle">LWSS on MWSS #1 [7]</a></td>
+	<td><a class="p" href="ss/20mwmw1.rle">MWSS on MWSS #1 [7]</a></td>
+	<td><a class="p" href="ss/20hwlw1.rle">LWSS on HWSS #1 [7]</a></td>
+	<td><a class="p" href="ss/20hwlw2.rle">LWSS on HWSS #2 [7]</a></td>
+	<td><a class="p" href="ss/20mwmw2.rle">MWSS on MWSS #2 [7]</a></td>
+	<td><a class="p" href="ss/20lfr.rle">Loafer [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/ss-20.zip" />
+	<area coords="361,61,380,80" href="stamp/ss-20.rle" />
+	<area coords="0,0,69,80" href="ss/20mwlw1.rle" />
+	<area coords="70,0,129,80" href="ss/20mwmw1.rle" />
+	<area coords="130,0,189,80" href="ss/20hwlw1.rle" />
+	<area coords="190,0,249,80" href="ss/20hwlw2.rle" />
+	<area coords="250,0,309,80" href="ss/20mwmw2.rle" />
+	<area coords="310,0,380,80" href="ss/20lfr.rle" />
+</map>
+
+<p>In February 2013, <a class="i" href="lifecred.htm#ball">Josh Ball</a>
+discovered the Loafer, the only known spaceship that moves orthogonally at a
+velocity of <i>c</i>/7. It moves up one cell every 7 generations. It is remarkable
+due to its small size, the fact that it is easily synthesized from gliders,
+and that despite its small population and size, nobody had ever found it
+before.</p>
+
+<p>The rest of these have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move two cells up every 4 generations.</p>
+
+<hr />
+<a name="cons-20"></a>
+<h2>1 easily-constructible twenty-bit
+<a class="i" href="cons.htm">constellation</a></h2>
+<p><a class="p" href="stamp/cons-20.rle"><img src="map/cons-20.png"
+ alt="20b const." width="101" height="101" usemap="#cons-20" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20shb2b2.rle">
+	    Ship two blocks and two blinkers [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/cons-20.zip" />
+	<area coords="81,81,100,100" href="stamp/cons-20.rle" />
+	<area coords="0,0,100,100" href="20/20shb2b2.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	20,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

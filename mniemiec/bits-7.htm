@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Seven-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: seven-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 7 seven bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Seven-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-7">Still-lifes</a> |
+	<a class="j" href="#meth-7">Methuselah</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-7"></a>
+<h2>The 4 seven-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p><a class="p" href="stamp/p1-7.rle"><img src="map/p1-7.png"
+ alt="7-bit still-lifes" width="261" height="61" usemap="#p1-7" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/7ls.rle">
+	    Long snake; Python [4]</a></td>
+	<td><a class="p" href="0/7lf.rle">
+	    Loaf; Burloaf [2]</a></td>
+	<td><a class="p" href="0/7et.rle">
+	    Eater; Eater-1; Fishhook [2]</a></td>
+	<td><a class="p" href="0/7lb.rle">
+	    Long boat [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p1-7.zip" />
+	<area coords="241,41,260,60" href="stamp/p1-7.rle" />
+	<area coords="0,0,69,60" href="0/7ls.rle" />
+	<area coords="70,0,129,60" href="0/7lf.rle" />
+	<area coords="130,0,189,60" href="0/7et.rle" />
+	<area coords="190,0,260,60" href="0/7lb.rle" />
+</map>
+
+<p>Very early on, it was discovered that the fishhook can safely eat a wide
+variety of things. As a result, it has been subsequently known as the Eater.
+Since then, other kinds of eaters have been discovered, but the eater (now
+also known as Eater-1 to distinguish it from other kinds of eaters), is the
+smallest and easiest to synthesize. It is used to stablize many
+<a class="i" href="osc.htm">oscillators</a>. Because it has a 3-generation
+reset time, two of them form a simple
+<a class="p" href="14/14eet.rle">period 3 oscillator</a>.</p>
+
+<hr />
+<a name="meth-7"></a>
+<h2>4 seven-bit
+<a class="i" href="meth.htm">methuselahs</a></h2>
+<p><a class="p" href="stamp/meth-7.rle"><img src="map/meth-7.png"
+ alt="7-bit methuselahs" width="341" height="61" usemap="#meth-7" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/7oo.rle">
+	    (2 glider) Oct- omino (@4) [2]</a></td>
+	<td><a class="p" href="0/7dv.rle">
+	    Dove (@1); R-mango (@1) [3]</a></td>
+	<td><a class="p" href="0/7ak.rle">
+	    Acorn [4]</a></td>
+	<td><a class="p" href="0/7mp.rle">
+	    Multum in parvo [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/48oo.rle">
+	    2 Traffic lights, 4 beehives (@388)</a></td>
+	<td><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (@201)</a></td>
+	<td><a class="p" href="lg/633ak.rle">
+	    Oak: Mango, 2 ponds, 5 loaves, 2 barges, 2 ships, 30 beehives, 3
+	    ships, 8 boats, 34 blocks, 41 blinkers, 13 gliders (@5206)</a></td>
+	<td><a class="p" href="lg/633mp.rle">
+	    Block on beehive, pond, 6 loaves, toad, 28 beehives, 6 ships,
+	    8 boats, 2 tubs, 40 blocks, 36 blinkers, 13 gliders (@3933)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/meth-7.zip" />
+	<area coords="321,41,340,60" href="stamp/meth-7.rle" />
+	<area coords="0,0,89,60" href="0/7oo.rle" />
+	<area coords="90,0,169,60" href="0/7dv.rle" />
+	<area coords="170,0,249,60" href="0/7ak.rle" />
+	<area coords="250,0,340,60" href="0/7mp.rle" />
+</map>
+
+<p>Note that the minimum sizes of Acorn and Multum in parvo are the same size
+(7 bits), their censuses are the same size (633 bits), and both release 13
+gliders, but they are totally unrelated in any other way.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	7,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

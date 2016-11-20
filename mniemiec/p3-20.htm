@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Twenty-Bit Period-3 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: twenty-bit period 3 oscillator and pseudo-oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 20 twenty bit period 3 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life Twenty-Bit Period-3 Oscillators</h1>
+
+<a name="top"></a>
+<p align="center">
+	<a class="j" href="#p3-20-0">First 80</a> |
+	<a class="j" href="#p3-20-1">Second 80</a> |
+	<a class="j" href="#p3-20-2">Last 56</a>
+</p>
+
+<hr /><hr />
+<a name="p3-20-0"></a>
+<h2>The 216 <a class="i" href="bits-20.htm">twenty-bit</a>
+<a class="i" href="p3.htm">period 3 oscillators</a></h2>
+<h3>The first 80 20-bit period 3 oscillators</h3>
+<p><a class="p" href="stamp/p3-20-0.rle"><img src="map/p3-20-0.png"
+ alt="20-bit period 3 oscillators 1-80"
+ width="621" height="421" usemap="#p3-20-0" /></a></p>
+
+<map name="p3-20-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p3-20.zip" />
+	<area coords="601,401,620,420" href="stamp/p3-20-0.rle" />
+	<area coords="0,0,69,57" href="20/20cfct1.rle" />
+	<area coords="70,0,129,57" href="20/20cfsl1.rle" />
+	<area coords="130,0,189,57" href="20/20cfle1.rle" />
+	<area coords="190,0,249,57" href="20/20cfcg4.rle" />
+	<area coords="250,0,309,57" href="20/20cflp1.rle" />
+	<area coords="310,0,369,57" href="20/20cfpd2.rle" />
+	<area coords="370,0,429,57" href="20/20cfht11.rle" />
+	<area coords="430,0,489,57" href="20/20cfht6.rle" />
+	<area coords="490,0,549,57" href="20/20cflp3.rle" />
+	<area coords="550,0,620,57" href="20/20cfsl7.rle" />
+	<area coords="0,58,69,105" href="20/20cfsl12.rle" />
+	<area coords="70,58,129,105" href="20/20cfsl5.rle" />
+	<area coords="130,58,189,105" href="20/20cfht2.rle" />
+	<area coords="190,58,249,105" href="20/20cftt2.rle" />
+	<area coords="250,58,309,105" href="20/20cfsl10.rle" />
+	<area coords="310,58,369,105" href="20/20cfsl8.rle" />
+	<area coords="370,58,429,105" href="20/20cfcs1.rle" />
+	<area coords="430,58,489,105" href="20/20cfsl11.rle" />
+	<area coords="490,58,549,105" href="20/20cfcs5.rle" />
+	<area coords="550,58,620,105" href="20/20cfht4.rle" />
+	<area coords="0,106,69,153" href="20/20cfvs1.rle" />
+	<area coords="70,106,129,153" href="20/20ktky1.rle" />
+	<area coords="130,106,189,153" href="20/20cfvs3.rle" />
+	<area coords="190,106,249,153" href="20/20ktky7.rle" />
+	<area coords="250,106,309,153" href="20/20ktky3.rle" />
+	<area coords="310,106,369,153" href="20/20p3-1.rle" />
+	<area coords="370,106,429,153" href="20/20cfle6.rle" />
+	<area coords="430,106,489,153" href="20/20cfct3.rle" />
+	<area coords="490,106,549,153" href="20/20cfsl3.rle" />
+	<area coords="550,106,620,153" href="20/20cfle2.rle" />
+	<area coords="0,154,69,201" href="20/20cfcg2.rle" />
+	<area coords="70,154,129,201" href="20/20cfht9.rle" />
+	<area coords="130,154,189,201" href="20/20cfcg3.rle" />
+	<area coords="190,154,249,201" href="20/20cfpd1.rle" />
+	<area coords="250,154,309,201" href="20/20htx1.rle" />
+	<area coords="310,154,369,201" href="20/20cftbk4.rle" />
+	<area coords="370,154,429,201" href="20/20cftbk2.rle" />
+	<area coords="430,154,489,201" href="20/20cftbk1.rle" />
+	<area coords="490,154,549,201" href="20/20cfht8.rle" />
+	<area coords="550,154,620,201" href="20/20cfvs5.rle" />
+	<area coords="0,202,69,249" href="20/20cflp4.rle" />
+	<area coords="70,202,129,249" href="20/20htx2.rle" />
+	<area coords="130,202,189,249" href="20/20cftbk3.rle" />
+	<area coords="190,202,249,249" href="20/20cftt4.rle" />
+	<area coords="250,202,309,249" href="20/20cfsl6.rle" />
+	<area coords="310,202,369,249" href="20/20cfht3.rle" />
+	<area coords="370,202,429,249" href="20/20cfcs3.rle" />
+	<area coords="430,202,489,249" href="20/20cfsl9.rle" />
+	<area coords="490,202,549,249" href="20/20cfcs7.rle" />
+	<area coords="550,202,620,249" href="20/20ktky2.rle" />
+	<area coords="0,250,69,297" href="20/20ktky6.rle" />
+	<area coords="70,250,129,297" href="20/20ktky5.rle" />
+	<area coords="130,250,189,297" href="20/20cfvs4.rle" />
+	<area coords="190,250,249,297" href="20/20cupta.rle" />
+	<area coords="250,250,309,297" href="20/20cupsn3.rle" />
+	<area coords="310,250,369,297" href="20/20cupicp.rle" />
+	<area coords="370,250,429,297" href="20/20cupibk.rle" />
+	<area coords="430,250,489,297" href="20/20jmbn3.rle" />
+	<area coords="490,250,549,297" href="20/20tgcp.rle" />
+	<area coords="550,250,620,297" href="20/20jmbe3.rle" />
+	<area coords="0,298,69,345" href="20/20cpbtbk.rle" />
+	<area coords="70,298,129,345" href="20/20tggu.rle" />
+	<area coords="130,298,189,345" href="20/20cuptlb.rle" />
+	<area coords="190,298,249,345" href="20/20cfli.rle" />
+	<area coords="250,298,309,345" href="20/20jmbn1.rle" />
+	<area coords="310,298,369,345" href="20/20jmbe1.rle" />
+	<area coords="370,298,429,345" href="20/20cfle3.rle" />
+	<area coords="430,298,489,345" href="20/20cfct2.rle" />
+	<area coords="490,298,549,345" href="20/20cfsl4.rle" />
+	<area coords="550,298,620,345" href="20/20cfle5.rle" />
+	<area coords="0,346,69,420" href="20/20casp.rle" />
+	<area coords="70,346,129,420" href="20/20cfcg1.rle" />
+	<area coords="130,346,189,420" href="20/20cfht12.rle" />
+	<area coords="190,346,249,420" href="20/20cfht7.rle" />
+	<area coords="250,346,309,420" href="20/20cfvs7.rle" />
+	<area coords="310,346,369,420" href="20/20cflp2.rle" />
+	<area coords="370,346,429,420" href="20/20cftt3.rle" />
+	<area coords="430,346,489,420" href="20/20cfht1.rle" />
+	<area coords="490,346,549,420" href="20/20cfcs4.rle" />
+	<area coords="550,346,620,420" href="20/20cfcs8.rle" />
+</map>
+
+<hr />
+<a name="p3-20-1"></a>
+<h3>The second 80 20-bit period 3 oscillators</h3>
+<p><a class="p" href="stamp/p3-20-1.rle"><img src="map/p3-20-1.png"
+ alt="20-bit period 3 oscillators 81-160"
+ width="621" height="421" usemap="#p3-20-1" /></a></p>
+
+<map name="p3-20-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p3-20.zip" />
+	<area coords="601,401,620,420" href="stamp/p3-20-1.rle" />
+	<area coords="0,0,69,57" href="20/20ktky4.rle" />
+	<area coords="70,0,129,57" href="20/20ktky8.rle" />
+	<area coords="130,0,189,57" href="20/20p3stil.rle" />
+	<area coords="190,0,249,57" href="20/20cfvs2.rle" />
+	<area coords="250,0,309,57" href="20/20cupac4.rle" />
+	<area coords="310,0,369,57" href="20/20cupsh2.rle" />
+	<area coords="370,0,429,57" href="20/20cuphv.rle" />
+	<area coords="430,0,489,57" href="20/20cupsh1.rle" />
+	<area coords="490,0,549,57" href="20/20cupac3.rle" />
+	<area coords="550,0,620,57" href="20/20tgpd.rle" />
+	<area coords="0,58,69,105" href="20/20cuhbk2.rle" />
+	<area coords="70,58,129,105" href="20/20cuhbk1.rle" />
+	<area coords="130,58,189,105" href="20/20cptbt1.rle" />
+	<area coords="190,58,249,105" href="20/20cptbt2.rle" />
+	<area coords="250,58,309,105" href="20/20cupsn1.rle" />
+	<area coords="310,58,369,105" href="20/20cupac2.rle" />
+	<area coords="370,58,429,105" href="20/20cupsn2.rle" />
+	<area coords="430,58,489,105" href="20/20cupac1.rle" />
+	<area coords="490,58,549,105" href="20/20cutta1.rle" />
+	<area coords="550,58,620,105" href="20/20cutta2.rle" />
+	<area coords="0,106,69,153" href="20/20cflfpb.rle" />
+	<area coords="70,106,129,153" href="20/20cfcv.rle" />
+	<area coords="130,106,189,153" href="20/20cfst.rle" />
+	<area coords="190,106,249,153" href="20/20cfftpb.rle" />
+	<area coords="250,106,309,153" href="20/20cfsnbk.rle" />
+	<area coords="310,106,369,153" href="20/20cfacbk.rle" />
+	<area coords="370,106,429,153" href="20/20jmcht1.rle" />
+	<area coords="430,106,489,153" href="20/20jmha1.rle" />
+	<area coords="490,106,549,153" href="20/20cuthv2.rle" />
+	<area coords="550,106,620,153" href="20/20cutsh3.rle" />
+	<area coords="0,154,69,201" href="20/20cutac7.rle" />
+	<area coords="70,154,129,201" href="20/20cutac5.rle" />
+	<area coords="130,154,189,201" href="20/20cutsh1.rle" />
+	<area coords="190,154,249,201" href="20/20cuthv1.rle" />
+	<area coords="250,154,309,201" href="20/20cutsh2.rle" />
+	<area coords="310,154,369,201" href="20/20cutac6.rle" />
+	<area coords="370,154,429,201" href="20/20cfpbtp.rle" />
+	<area coords="430,154,489,201" href="20/20cutsh4.rle" />
+	<area coords="490,154,549,201" href="20/20cfsntb.rle" />
+	<area coords="550,154,620,201" href="20/20cfactb.rle" />
+	<area coords="0,202,69,249" href="20/20fkcu.rle" />
+	<area coords="70,202,129,249" href="20/20cutsn3.rle" />
+	<area coords="130,202,189,249" href="20/20cutsn4.rle" />
+	<area coords="190,202,249,249" href="20/20cutac3.rle" />
+	<area coords="250,202,309,249" href="20/20cutsn2.rle" />
+	<area coords="310,202,369,249" href="20/20cutac1.rle" />
+	<area coords="370,202,429,249" href="20/20cutsn1.rle" />
+	<area coords="430,202,489,249" href="20/20cutac2.rle" />
+	<area coords="490,202,549,249" href="20/20cfsl2.rle" />
+	<area coords="550,202,620,249" href="20/20dbtx1.rle" />
+	<area coords="0,250,69,297" href="20/20cfle4.rle" />
+	<area coords="70,250,129,297" href="20/20cutac4.rle" />
+	<area coords="130,250,189,297" href="20/20cfht10.rle" />
+	<area coords="190,250,249,297" href="20/20cfht5.rle" />
+	<area coords="250,250,309,297" href="20/20cfvs8.rle" />
+	<area coords="310,250,369,297" href="20/20cftt1.rle" />
+	<area coords="370,250,429,297" href="20/20eetsn4.rle" />
+	<area coords="430,250,489,297" href="20/20cfcs2.rle" />
+	<area coords="490,250,549,297" href="20/20cfcs6.rle" />
+	<area coords="550,250,620,297" href="20/20eetac4.rle" />
+	<area coords="0,298,69,345" href="20/20jmha2.rle" />
+	<area coords="70,298,129,345" href="20/20jmcht2.rle" />
+	<area coords="130,298,189,345" href="20/20bcubk2.rle" />
+	<area coords="190,298,249,345" href="20/20bcubk1.rle" />
+	<area coords="250,298,309,345" href="20/20cutta3.rle" />
+	<area coords="310,298,369,345" href="20/20jmlf.rle" />
+	<area coords="370,298,429,345" href="20/20jmbn2.rle" />
+	<area coords="430,298,489,345" href="20/20ca2.rle" />
+	<area coords="490,298,549,345" href="20/20jmbn4.rle" />
+	<area coords="550,298,620,345" href="20/20eetsn1.rle" />
+	<area coords="0,346,69,420" href="20/20tcubt4.rle" />
+	<area coords="70,346,129,420" href="20/20tcubt3.rle" />
+	<area coords="130,346,189,420" href="20/20tcubt1.rle" />
+	<area coords="190,346,249,420" href="20/20tcubt2.rle" />
+	<area coords="250,346,309,420" href="20/20cutac8.rle" />
+	<area coords="310,346,369,420" href="20/20jmbe4.rle" />
+	<area coords="370,346,429,420" href="20/20cuibk2.rle" />
+	<area coords="430,346,489,420" href="20/20cuibk1.rle" />
+	<area coords="490,346,549,420" href="20/20eincl.rle" />
+	<area coords="550,346,620,420" href="20/20jmbe2.rle" />
+</map>
+
+<hr />
+<a name="p3-20-2"></a>
+<h3>The last 56 20-bit period 3 oscillators</h3>
+<p><a class="p" href="stamp/p3-20-2.rle"><img src="map/p3-20-2.png"
+ alt="20-bit period 3 oscillators 161-216"
+ width="621" height="381" usemap="#p3-20-2" /></a></p>
+
+<map name="p3-20-2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p3-20.zip" />
+	<area coords="601,361,620,380" href="stamp/p3-20-2.rle" />
+	<area coords="0,0,69,69" href="20/20eetsh.rle" />
+	<area coords="70,0,129,69" href="20/20eetac1.rle" />
+	<area coords="130,0,189,69" href="20/20eetta2.rle" />
+	<area coords="190,0,249,69" href="20/20eetsn2.rle" />
+	<area coords="250,0,309,69" href="20/20eetcs.rle" />
+	<area coords="310,0,369,69" href="20/20eetac2.rle" />
+	<area coords="370,0,429,69" href="20/20elebt1.rle" />
+	<area coords="430,0,489,69" href="20/20eiltbt.rle" />
+	<area coords="490,0,549,69" href="20/20elebt3.rle" />
+	<area coords="550,0,620,69" href="20/20elebt4.rle" />
+	<area coords="0,70,69,129" href="20/20einet.rle" />
+	<area coords="70,70,129,129" href="20/20cfvs6.rle" />
+	<area coords="130,70,189,129" href="20/20ietcp.rle" />
+	<area coords="190,70,249,129" href="20/20eetvs.rle" />
+	<area coords="250,70,309,129" href="20/20eilcl.rle" />
+	<area coords="310,70,369,129" href="20/20eilch.rle" />
+	<area coords="370,70,429,129" href="20/20einsn.rle" />
+	<area coords="430,70,489,129" href="20/20eixh.rle" />
+	<area coords="490,70,549,129" href="20/20cfcatl.rle" />
+	<area coords="550,70,620,129" href="20/20nblf.rle" />
+	<area coords="0,130,69,189" href="20/20eivt.rle" />
+	<area coords="70,130,129,189" href="20/20eaae.rle" />
+	<area coords="130,130,189,189" href="20/20ease.rle" />
+	<area coords="190,130,249,189" href="20/20dbtx2.rle" />
+	<area coords="250,130,309,189" href="20/20fkin.rle" />
+	<area coords="310,130,369,189" href="20/20elebt2.rle" />
+	<area coords="370,130,429,189" href="20/20eiulf.rle" />
+	<area coords="430,130,489,189" href="20/20eidlb.rle" />
+	<area coords="490,130,549,189" href="20/20ietsn.rle" />
+	<area coords="550,130,620,189" href="20/20ietac.rle" />
+	<area coords="0,190,69,249" href="20/20eetsl.rle" />
+	<area coords="70,190,129,249" href="20/20iitl.rle" />
+	<area coords="130,190,189,249" href="20/20ihkihk.rle" />
+	<area coords="190,190,249,249" href="20/20eetsn3.rle" />
+	<area coords="250,190,309,249" href="20/20eetac3.rle" />
+	<area coords="310,190,369,249" href="20/20eilft.rle" />
+	<area coords="370,190,429,249" href="20/20einac.rle" />
+	<area coords="430,190,489,249" href="20/20iilh.rle" />
+	<area coords="490,190,549,249" href="20/20eetta1.rle" />
+	<area coords="550,190,620,249" href="20/20egutl.rle" />
+	<area coords="0,250,69,309" href="20/20nbtl.rle" />
+	<area coords="70,250,129,309" href="20/20egulh.rle" />
+	<area coords="130,250,189,309" href="20/20eiflt.rle" />
+	<area coords="190,250,249,309" href="20/20eidlf.rle" />
+	<area coords="250,250,309,309" href="20/20eetht2.rle" />
+	<area coords="310,250,369,309" href="20/20egudb.rle" />
+	<area coords="370,250,429,309" href="20/20eetht1.rle" />
+	<area coords="430,250,489,309" href="20/20iidb.rle" />
+	<area coords="490,250,549,309" href="20/20igu.rle" />
+	<area coords="550,250,620,309" href="20/20eguub.rle" />
+	<area coords="0,310,69,380" href="20/20iiub.rle" />
+	<area coords="70,310,129,380" href="20/20eiulb.rle" />
+	<area coords="130,310,189,380" href="20/20ihkitb.rle" />
+	<area coords="190,310,249,380" href="20/20eiclt.rle" />
+	<area coords="250,310,309,380" href="20/20eettt.rle" />
+	<area coords="310,310,369,380" href="20/20itbitb.rle" />
+	<area coords="370,310,620,380" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-20.htm">20-bit objects</a>:</b>
+	<a class="i" href="bits-20.htm#p1-20">still-lifes</a>,
+	<a class="i" href="bits-20.htm#pp1-20">pseudo-still-lifes</a>,
+	<a class="i" href="p2-20.htm">P2 oscillators</a>,
+	<a class="i" href="pp2-20.htm">P2 pseudo-oscillators</a>,
+	P3 oscillators,
+	<a class="i" href="bits-20.htm#pp3-20">P3 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#p4-20">P4 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp4-20">P4 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#p5-20">P5 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp5-20">P5 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#p6-20">P6 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp6-20">P6 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#pp8-20">P8 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#pp15-20">P15 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#p30-20">P30 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp30-20">P30 pseudo-oscillator</a>,
+	<a class="i" href="bits-20.htm#ss-20">spaceships</a>,
+	<a class="i" href="bits-20.htm#cons-20">constellation</a>.</p>
+
+<p><b>Other <a class="i" href="p3.htm">period 3 oscillators</a>:</b>
+	<a class="i" href="p3.htm#p3-12">12-bit</a>,
+	<a class="i" href="p3.htm#p3-13">13-bit</a>,
+	<a class="i" href="p3.htm#p3-14">14-bit</a>,
+	<a class="i" href="p3.htm#p3-16">16-bit</a>,
+	<a class="i" href="p3.htm#p3-17">17-bit</a>,
+	<a class="i" href="p3.htm#p3-18">18-bit</a>,
+	<a class="i" href="p3.htm#p3-19">19-bit</a>,
+	20-bit,
+	<a class="i" href="p3-21.htm">21-bit</a>,
+	<a class="i" href="p3.htm#p3-22">22-bit</a>,
+	<a class="i" href="p3.htm#p3-24">24-bit</a>,
+	<a class="i" href="p3.htm#p3-lg">25-bit and larger</a>.,
+	<a class="i" href="p3.htm#p3-bad">not quite oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

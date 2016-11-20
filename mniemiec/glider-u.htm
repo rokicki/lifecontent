@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Without Known Syntheses</title>
+<meta name="description"
+content="Conway's Game of Life: Objects with no known glider syntheses" />
+<meta name="keywords" content="conway game life glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Objects Without Known Syntheses</h1>
+
+<p align="center">
+	<a class="j" href="#gu-intro">Introduction</a> |
+	<a class="j" href="#gu-p2">P2 oscillators</a> |
+	<a class="j" href="#gu-pp2">P2 pseudo-oscillators</a> |
+	<a class="j" href="#gu-p3">P3 oscillators</a> |
+	<a class="j" href="#gu-pp3">P3 pseudo-oscillators</a> |
+	<a class="j" href="#gu-p4">P4 oscillators</a> |
+	<a class="j" href="#gu-pp4">P4 pseudo-oscillators</a> |
+	<a class="j" href="#gu-p5">P5 oscillators</a> |
+	<a class="j" href="#gu-p6">P6 oscillator</a> |
+	<a class="j" href="#gu-pp6">P6 pseudo-oscillators</a> |
+	<a class="j" href="#gu-ss">spaceships</a>
+</p>
+
+<hr /><hr />
+<a name="gu-intro"></a>
+<p>The extremely rare and artificial Garden of Eden patterns can be proved to
+have no predecessors, so of course they cannot be synthesized. Other than these,
+however, all patterns have predecessors, so it may be theoretically possible to
+synthesize them. When we say "this pattern has no synthesis", except for Garden
+of Eden patterns, it is really just an informal shorthand for "this pattern
+has no known synthesis <i>yet</i>", as a synthesis may be discovered or
+developed later.</p>
+
+<p>Most small objects can be synthesized from gliders.
+<a class="i" href="lifecred.htm#buckingham">Buckingham</a> completed the
+monumental task of synthesizing all objects up to 14 bits in the 1980s,
+as well as a fair number of larger objects.</p>
+
+<p>Syntheses have been found for most objects on the following lists:</p>
+<p><ul>
+    <li><a class="i" href="p1.htm">Still-lifes</a> up to 14 bits are complete, about half
+	of the 15-bit ones are complete, and all up to 18 bits are proven to
+	have syntheses.</li>
+    <li><a class="i" href="pp1.htm">Pseudo-still-lifes</a> up to 16 bits are complete,
+	and all up to 19 bits are proven to have syntheses.</li>
+    <li><a class="i" href="p2.htm">Period 2 oscillators</a> up to 17 bits are complete,
+	and about half of the 18-bit ones are complete.</li>
+    <li><a class="i" href="pp2.htm">Period 2 pseudo-oscillators</a>
+	up to 17 bits are complete, and all up to 18 bits are proven to have
+	syntheses. Also, all up to 21 have syntheses except two, plus several
+	trivial ones involving 4-6-bit objects on as-yet-unsynthesized period-2
+	oscillators.</li>
+    <li><a class="i" href="osc.htm">Period 3 and higher oscillators</a> and
+	<a class="i" href="posc.htm">pseudo-oscillators</a> up to 21 bits are complete
+	(except for 21-bit period 3, all but two of which have syntheses).</li>
+    <li><a class="i" href="p15.htm">Period 15 oscillators</a>
+	up to 24 bits are complete.</li>
+    <li><a class="i" href="osc.htm">Other period 8 and higher oscillators</a>
+	up to 25 bits are complete.</li>
+    <li><a class="i" href="ss.htm">Spaceships</a>
+	up to 25 bits are complete.</li>
+</ul></p>
+
+<p>In addition, even though no systematic syntheses for them have been
+attempted, several of the larger lists have been counted and analyzed
+to determine which of their items can be synthesized using known methods:</p>
+<p><ul>
+    <li><a class="i" href="p1.htm">Still-lifes</a> up to 18 bits.</li>
+    <li><a class="i" href="pp1.htm">Pseudo-still-lifes</a> up to 19 bits.</li>
+    <li><a class="i" href="pp2.htm">Period 2 pseudo-oscillators</a>
+	up to 21 bits.</li>
+    <li><a class="i" href="posc.htm">Period 5 and higher pseudo-oscillators</a>
+	up to 25 bits.</li>
+</ul></p>
+
+<p>The basic <a class="i" href="ss.htm">spaceships and pseudo-spaceships</a> as
+well as most 2- and 3-spaceship <a class="i" href="flotilla.htm">flotillae</a>
+of these can all also be synthesized.</p>
+
+<p>The few remaining objects in the above groups with no known syntheses are
+shown here. Omitted are categories where all syntheses are know. Also omitted
+are the larger-population categories where syntheses have only been attempted
+for a small number of objects. (NOTE: As technology improves, objects and even
+entire categories may be removed from these lists.)</p>
+
+<p>Several of these objects (whose costs are indicated as [x+<i>n</i>] can be
+trivially synthesized from smaller objects in the same lists with costs of [x],
+and only await syntheses for those smaller objects.</p>
+
+<p>(Two of the categories include large numbers of oscillators using a single
+mechanism attached to various different still-life. These are the
+<a class="j" href="#gu-p4">period 4 molds</a> and
+<a class="j" href="#gu-p5">Silver's P5s</a>. While most in both categories can be
+synthesized, there are several for which syntheses are currently unknown,
+based on the underlying still-life. Since syntheses have not yet been attempted
+for all of these, the number of objects of these kinds without syntheses is not
+yet known. As a result, they are currently omitted from the lists below until
+their status can be accurately determined.)</p>
+
+<hr />
+<hr />
+<a name="gu-p2"></a>
+<h2>The 48 <a class="i" href="p2.htm">period 2 oscillators</a> up to 17 bits
+without any known syntheses</h2>
+<p>At present, the technology for synthesis of oscillators containing
+large number of disconnected bits is sorely lacking.</p>
+<p><a class="p" href="stamp/gu-p2.rle"><img src="map/gu-p2.png"
+ alt="unknown period 2 oscillators"
+ width="621" height="321" usemap="#gu-p2" /></a></p>
+
+<map name="gu-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/gu-p2.zip" />
+	<area coords="601,301,620,320" href="stamp/gu-p2.rle" />
+	<area coords="0,0,69,69" href="14/14ff4.rle" />
+	<area coords="70,0,129,69" href="15/15ff1.rle" />
+	<area coords="130,0,189,69" href="15/15ff2.rle" />
+	<area coords="190,0,249,69" href="15/15ff5.rle" />
+	<area coords="250,0,309,69" href="16/16ff9.rle" />
+	<area coords="310,0,369,69" href="16/16ff15.rle" />
+	<area coords="370,0,429,69" href="16/16ydtycv.rle" />
+	<area coords="430,0,489,69" href="16/16ff7.rle" />
+	<area coords="490,0,549,69" href="16/16ff6.rle" />
+	<area coords="550,0,620,69" href="16/16ff8.rle" />
+	<area coords="0,70,69,129" href="16/16ff18.rle" />
+	<area coords="70,70,129,129" href="16/16ff17.rle" />
+	<area coords="130,70,189,129" href="16/16ff14.rle" />
+	<area coords="190,70,249,129" href="16/16ff19.rle" />
+	<area coords="250,70,309,129" href="16/16ff21.rle" />
+	<area coords="310,70,369,129" href="16/16pxbe.rle" />
+	<area coords="370,70,429,129" href="16/16ff23.rle" />
+	<area coords="430,70,489,129" href="17/17ff3.rle" />
+	<area coords="490,70,549,129" href="17/17ff6.rle" />
+	<area coords="550,70,620,129" href="17/17ff7.rle" />
+	<area coords="0,130,69,189" href="17/17ff10.rle" />
+	<area coords="70,130,129,189" href="17/17ff5.rle" />
+	<area coords="130,130,189,189" href="17/17ff2.rle" />
+	<area coords="190,130,249,189" href="17/17lqd.rle" />
+	<area coords="250,130,309,189" href="17/17ff12.rle" />
+	<area coords="310,130,369,189" href="17/17ff20.rle" />
+	<area coords="370,130,429,189" href="17/17ff4.rle" />
+	<area coords="430,130,489,189" href="17/17ff9.rle" />
+	<area coords="490,130,549,189" href="17/17ff8.rle" />
+	<area coords="550,130,620,189" href="17/17ff11.rle" />
+	<area coords="0,190,69,249" href="17/17ff17.rle" />
+	<area coords="70,190,129,249" href="17/17ff22.rle" />
+	<area coords="130,190,189,249" href="17/17ff16.rle" />
+	<area coords="190,190,249,249" href="17/17ff21.rle" />
+	<area coords="250,190,309,249" href="17/17ff25.rle" />
+	<area coords="310,190,369,249" href="17/17ff13.rle" />
+	<area coords="370,190,429,249" href="17/17ff14.rle" />
+	<area coords="430,190,489,249" href="17/17ff18.rle" />
+	<area coords="490,190,549,249" href="17/17ff15.rle" />
+	<area coords="550,190,620,249" href="17/17ff19.rle" />
+	<area coords="0,250,69,320" href="17/17ff23.rle" />
+	<area coords="70,250,129,320" href="17/17ff26.rle" />
+	<area coords="130,250,189,320" href="17/17ff29.rle" />
+	<area coords="190,250,249,320" href="17/17ff30.rle" />
+	<area coords="250,250,309,320" href="17/17ff32.rle" />
+	<area coords="310,250,369,320" href="17/17ff31.rle" />
+	<area coords="370,250,620,320" nohref="nohref" />
+</map>
+
+<hr />
+<a name="gu-pp2"></a>
+<h2>The 199 <a class="i" href="pp2.htm">Period-2 pseudo-oscillators</a> up to
+21 bits without any known syntheses</h2>
+<p>All period 2 pseudo-oscillators up to 17 bits have been synthesized.
+All period 2 pseudo-oscillators up to 21 bits can be synthesized using
+the same techniques used for smaller pseudo-oscillators and pseudo-still-lifes,
+except one non-trivial one, and many trivial ones.</p>
+
+<p>There are many trivial pseudo-objects, consisting of a small objects added
+to a large object that, itself, has eluded synthesis. These include:</p>
+<p><ul>
+    <li>4 19-bit pseudo-objects (shown) from a block on one of the three
+	unbuildable 15-bit period 2 oscillators.</li>
+    <li>25 20-bit pseudo-objects (not shown), 8 from a boat on one of the
+	three unbuildable 15-bit period 2 oscillators, and 17 from a block on
+	one of ten unbuildable 16-bit period 2 oscillators.</li>
+    <li>169 21-bit pseudo-objects (not shown), 52 from a beacon or six-bit
+	still-life on one of the three unbuildable 15-bit period 2 oscillators,
+	33 from a boat on one of ten unbuildable 16-bit period 2 oscillators, and
+	84 from a block on one of 21 unbuildable 17-bit period 2
+	oscillators.</li>
+</ul></p>
+
+<p>The 4 trivial 19-bit ones, and the 1 non-trivial 21-bit ones shown here.
+(The 25 trivial 20-bit ones and 169 trivial 21-bit ones above are not shown.)</p>
+
+<p><a class="p" href="stamp/gu-pp2.rle"><img src="map/gu-pp2.png"
+ alt="unknown pseudo-P2" width="321" height="81" usemap="#gu-pp2" /></a><br />
+    <table width="325">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="19/19b15ff1.rle">
+	    Block on 15-bit P2 #1 [x+2]</a></td>
+	<td class="r"><a class="p" href="19/19b15ff2.rle">
+	    Block on blinkers bit pole [x+2]</a></td>
+	<td class="r"><a class="p" href="19/19b15f5a.rle">
+	    Block on 15-bit P2 #5 [x+2]</a></td>
+	<td class="r"><a class="p" href="19/19b15f5b.rle">
+	    Block below 15-bit P2 #5 [x+3]</a></td>
+	<td class="r"><a class="p" href="21/21lhbcsn.rle">
+	    Up snake on up beacon above long hook w/ tail [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-pp2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/gu-pp2.zip" />
+	<area coords="301,61,320,80" href="stamp/gu-pp2.rle" />
+	<area coords="0,0,69,80" href="19/19b15ff1.rle" />
+	<area coords="70,0,129,80" href="19/19b15ff2.rle" />
+	<area coords="130,0,189,80" href="19/19b15f5a.rle" />
+	<area coords="190,0,249,80" href="19/19b15f5b.rle" />
+	<area coords="250,0,320,80" href="21/21lhbcsn.rle" />
+</map>
+
+<hr />
+<a name="gu-p3"></a>
+<h2>The 12 <a class="i" href="p3.htm">period 3 oscillators</a> up to
+21 bits without any known syntheses</h2>
+<p><a class="p" href="stamp/gu-p3.rle"><img src="map/gu-p3.png"
+ alt="unknown period 3 oscillators"
+ width="581" height="141" usemap="#gu-p3" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="20/20htx1.rle">
+	    Up weird thing below hook w/ tail [x]</a></td>
+	<td class="r"><a class="p" href="20/20htx2.rle">
+	    Down weird thing below hook w/ tail [x]</a></td>
+	<td class="r"><a class="p" href="20/20casp.rle">
+	    Caterer w/ skewed pole [x]</a></td>
+	<td class="r"><a class="p" href="20/20dbtx1.rle">
+	    Up weird thing below down boat w/ tail [x]</a></td>
+	<td class="r"><a class="p" href="20/20ca2.rle">
+	    Dual caterer [x]</a></td>
+	<td class="r"><a class="p" href="20/20cfcatl.rle">
+	    Candel- frobra and caterer w/ tail [x]</a></td>
+	<td class="r"><a class="p" href="20/20dbtx2.rle">
+	    Down weird thing below down boat w/ tail [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="18/18spsp2.rle">
+	    Trans skewed poles [x]</a></td>
+	<td class="r"><a class="p" href="19/19bw.rle">
+	    Bowed caterer [x]</a></td>
+	<td class="r"><a class="p" href="19/19fs.rle">
+	    Fire spitting [x]</a></td>
+	<td class="r"><a class="p" href="21/21fshd.rle">
+	    Fire spitting w/ head [x+3]</a></td>
+	<td class="r"><a class="p" href="21/21catapb.rle">
+	    Caterer w/ table on pre-block [x]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="gu-p3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/gu-p3.zip" />
+	<area coords="561,121,580,140" href="stamp/gu-p3.rle" />
+	<area coords="0,0,89,69" href="20/20htx1.rle" />
+	<area coords="90,0,169,69" href="20/20htx2.rle" />
+	<area coords="170,0,249,69" href="20/20casp.rle" />
+	<area coords="250,0,329,69" href="20/20dbtx1.rle" />
+	<area coords="330,0,409,69" href="20/20ca2.rle" />
+	<area coords="410,0,489,69" href="20/20cfcatl.rle" />
+	<area coords="490,0,580,69" href="20/20dbtx2.rle" />
+	<area coords="0,70,89,140" href="18/18spsp2.rle" />
+	<area coords="90,70,169,140" href="19/19bw.rle" />
+	<area coords="170,70,249,140" href="19/19fs.rle" />
+	<area coords="250,70,329,140" href="21/21fshd.rle" />
+	<area coords="330,70,409,140" href="21/21catapb.rle" />
+	<area coords="410,70,580,140" nohref="nohref" />
+</map>
+
+<hr />
+<a name="gu-pp3"></a>
+<h2>The 158 <a class="i" href="pp3.htm">period 3 pseudo-oscillators</a> up to
+25 bits without any known syntheses</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+Most consist of a small still-life on as
+<a class="j" href="#gu-p3">as-yet-unsynthesized
+period-3 oscillator</a>. There are also a few consisting of two oscillators
+(<a class="p" href="12/12ca.rle">caterer</a> and/or
+<a class="p" href="13/13jm.rle">jam</a>) with adjacent rotors.</p>
+
+<p>There are 2 22-bit ones:</p>
+<p><ul>
+    <li>2 Trans skewed poles on block.</li>
+</ul></p>
+
+<p>There are 8 23-bit ones:</p>
+<p><ul>
+    <li>4 Trans skewed poles on boat.</li>
+    <li>4 Fire spitting or bowed caterer on block.</li>
+</ul></p>
+
+<p>There are 45 24-bit ones:</p>
+<p><ul>
+    <li>18 Trans skewed poles on beehive, ship, snake or carrier.</li>
+    <li>8 Fire spitting or bowed caterer on boat.</li>
+    <li>16 Block on 20-bit P3 oscillator.</li>
+    <li>3 Caterer on caterer (there are four;
+	<a class="p" href="24/24caca3.rle">one</a> can be synthesized).</li>
+</ul></p>
+
+<p>There are 103 25-bit ones:</p>
+<p><ul>
+    <li>28 Trans skewed poles on long boat, loaf, python or eater.</li>
+    <li>35 Fire spitting or bowed caterer on beehive, ship, snake or
+	carrier.</li>
+    <li>32 Boat on 20-bit P3 oscillator.</li>
+    <li>6 Block on 21-bit P3 oscillator.</li>
+    <li>2 Jam on caterer.</li>
+</ul></p>
+
+<hr />
+<a name="gu-p4"></a>
+<h2>10 <a class="i" href="p4.htm">period 4 oscillators</a> up to 25 bits
+without any known syntheses</h2>
+<p>(NOTE: this excludes many mold-based oscillators from 24-25 bits that are
+based on still-lifes from 19-20 bits that do not yet have syntheses.)</p>
+
+<p><a class="p" href="stamp/gu-p4.rle"><img src="map/gu-p4.png"
+ alt="unknown P4 oscillators"
+ width="421" height="161" usemap="#gu-p4" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="21/21p4-1.rle">
+	    21-bit P4 oscillator #1 [x]</a></td>
+	<td class="r"><a class="p" href="24/24p4-1.rle">
+	    24-bit P4 oscillator #1 [x]</a></td>
+	<td class="r"><a class="p" href="24/24p4-2.rle">
+	    24-bit P4 oscillator #2 [x]</a></td>
+	<td class="r"><a class="p" href="24/24p4-3.rle">
+	    24-bit P4 oscillator #3 [x]</a></td>
+	<td class="r"><a class="p" href="24/24mdmd3.rle">
+	    Cis molds sharing sparks [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="22/22p4-4.rle">
+	    22-bit P4 oscillator #4 [x]</a></td>
+	<td class="r"><a class="p" href="22/22p4-5.rle">
+	    22-bit P4 oscillator #5 [x]</a></td>
+	<td class="r"><a class="p" href="25/25p4-2.rle">
+	    25-bit P4 oscillator #2 [x]</a></td>
+	<td class="r"><a class="p" href="25/25p4-1.rle">
+	    25-bit P4 oscillator #1 [x]</a></td>
+	<td class="r"><a class="p" href="25/25eichbf.rle">
+	    Eater and block eating integral w/loaf and cis hook [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/gu-p4.zip" />
+	<area coords="401,141,420,160" href="stamp/gu-p4.rle" />
+	<area coords="0,0,89,89" href="21/21p4-1.rle" />
+	<area coords="90,0,169,89" href="24/24p4-1.rle" />
+	<area coords="170,0,249,89" href="24/24p4-2.rle" />
+	<area coords="250,0,329,89" href="24/24p4-3.rle" />
+	<area coords="330,0,420,89" href="24/24mdmd3.rle" />
+	<area coords="0,90,89,160" href="22/22p4-4.rle" />
+	<area coords="90,90,169,160" href="22/22p4-5.rle" />
+	<area coords="170,90,249,160" href="25/25p4-2.rle" />
+	<area coords="250,90,329,160" href="25/25p4-1.rle" />
+	<area coords="330,90,420,160" href="25/25eichbf.rle" />
+</map>
+
+<hr />
+<a name="gu-pp4"></a>
+<h2>The 2 <a class="i" href="pp4.htm">period 4 pseudo-oscillators</a> up to 25 bits
+without any known syntheses</h2>
+<p>These are both easy to synthesize, but are based on
+<a class="j" href="#gu-p4">one predecessor</a>
+that does not yet have a synthesis.</p>
+<p><a class="p" href="stamp/gu-pp4.rle"><img src="map/gu-pp4.png"
+ alt="unknown P4 pseudo-oscllators"
+ width="181" height="81" usemap="#gu-pp4" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="25/25p4-1b1.rle">
+	    Block on 21-bit P4 #1 [x+2]</a></td>
+	<td class="r"><a class="p" href="25/25p4-1b2.rle">
+	    Block below 21-bit P4 #1 [x+3]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-pp4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/gu-pp4.zip" />
+	<area coords="161,61,180,80" href="stamp/gu-pp4.rle" />
+	<area coords="0,0,89,80" href="25/25p4-1b1.rle" />
+	<area coords="90,0,180,80" href="25/25p4-1b2.rle" />
+</map>
+
+<hr />
+<a name="gu-p5"></a>
+<h2>The 2 <a class="i" href="p5.htm">period 5 oscillators</a> up to 22 bits
+without any known syntheses</h2>
+<p><a class="p" href="stamp/gu-p5.rle"><img src="map/gu-p5.png"
+ alt="unknown P5 oscillators"
+ width="181" height="81" usemap="#gu-p5" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="22/22neclpb.rle">
+	    Elkies's P5 w/ claw and pre-block [x]</a></td>
+	<td class="r"><a class="p" href="22/22svcslt.rle">
+	    Silver's P5 before cis shil- lelagh w/ tub [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/gu-p5.zip" />
+	<area coords="161,61,180,80" href="stamp/gu-p5.rle" />
+	<area coords="0,0,89,80" href="22/22neclpb.rle" />
+	<area coords="90,0,180,80" href="22/22svcslt.rle" />
+</map>
+
+<hr />
+<a name="gu-p6"></a>
+<h2>The 9 <a class="i" href="p6.htm">period 6 oscillators</a> up to 25 bits
+without any known syntheses</h2>
+<p>These are all derived from one base 23-bit oscillator.</p>
+<p><a class="p" href="stamp/gu-p6.rle"><img src="map/gu-p6.png"
+ alt="unknown period-6 oscillators"
+ width="601" height="81" usemap="#gu-p6" /></a><br />
+    <table width="605">
+    <colgroup><col width="91" /><col width="60" /><col width="80" />
+	<col span="5" width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="23/23p6bkhd.rle">
+	    P6 w/ block and head [x]</a></td>
+	<td class="r"><a class="p" href="24/24p6bthd.rle">
+	    P6 w/ boat and head [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24p6bktb.rle">
+	    P6 w/ block and tub [x+5]</a></td>
+	<td class="r"><a class="p" href="25/25p6tahd.rle">
+	    P6 w/ table and head [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25p6shhd.rle">
+	    P6 w/ ship and head [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25p6bkbt.rle">
+	    P6 w/ block and boat [x+7]</a></td>
+	<td class="r"><a class="p" href="25/25p6achd.rle">
+	    P6 w/ carrier and head [x+12]</a></td>
+	<td class="r"><a class="p" href="25/25p6bttb.rle">
+	    P6 w/ boat and tub [x+11]</a></td>
+	<td class="r"><a class="p" href="25/25p6bchd.rle">
+	    P6 w/ beacon and head [x+7]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/gu-p6.zip" />
+	<area coords="581,61,600,80" href="stamp/gu-p6.rle" />
+	<area coords="0,0,109,80" href="23/23p6bkhd.rle" />
+	<area coords="110,0,189,80" href="24/24p6bthd.rle" />
+	<area coords="190,0,289,80" href="24/24p6bktb.rle" />
+	<area coords="290,0,369,80" href="25/25p6tahd.rle" />
+	<area coords="370,0,449,80" href="25/25p6shhd.rle" />
+	<area coords="450,0,529,80" href="25/25p6bkbt.rle" />
+	<area coords="530,0,600,80" href="25/25p6achd.rle" />
+</map>
+
+<hr />
+<a name="gu-pp6"></a>
+<h2>The 12 <a class="i" href="pp6.htm">period 6 pseudo-oscillators</a> up to 25 bits
+without any known syntheses</h2>
+<p>These are all easy to synthesize, but are based on
+<a class="j" href="#gu-p3">three predecessors</a>
+that do not yet have syntheses.</p>
+<p><a class="p" href="stamp/gu-pp6.rle"><img src="map/gu-pp6.png"
+ alt="unknown P6 pseudo-oscillators"
+ width="501" height="161" usemap="#gu-pp6" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="24/24spsbc5.rle">
+	    Up beacon on down skewed poles [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc7.rle">
+	    Up beacon below down skewed poles [x+7]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc6.rle">
+	    Down beacon on down skewed poles [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc7.rle">
+	    Down beacon below down skewed poles [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc1.rle">
+	    Up beacon on bowed caterer [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc1.rle">
+	    Up beacon on fire spitting [x+6]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="25/25bwbc2.rle">
+	    Down beacon on bowed caterer [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc3.rle">
+	    Up beacon below bowed caterer [x+12]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc3.rle">
+	    Up beacon below fire spitting [x+7]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc2.rle">
+	    Down beacon on fire spitting [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc4.rle">
+	    Down beacon below bowed caterer [x+8]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc4.rle">
+	    Down beacon below fire spitting [x+6]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-pp6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/gu-pp6.zip" />
+	<area coords="481,141,500,160" href="stamp/gu-pp6.rle" />
+	<area coords="0,0,89,89" href="24/24spsbc5.rle" />
+	<area coords="90,0,169,89" href="24/24spsbc7.rle" />
+	<area coords="170,0,249,89" href="24/24spsbc6.rle" />
+	<area coords="250,0,329,89" href="24/24spsbc8.rle" />
+	<area coords="330,0,409,89" href="25/25bwbc1.rle" />
+	<area coords="410,0,500,89" href="25/25fsbc1.rle" />
+	<area coords="0,90,89,160" href="25/25bwbc2.rle" />
+	<area coords="90,90,169,160" href="25/25bwbc3.rle" />
+	<area coords="170,90,249,160" href="25/25fsbc3.rle" />
+	<area coords="250,90,329,160" href="25/25fsbc2.rle" />
+	<area coords="330,90,409,160" href="25/25bwbc4.rle" />
+	<area coords="410,90,500,160" href="25/25fsbc4.rle" />
+</map>
+
+<hr />
+<a name="gu-ss"></a>
+<h2>The 3 <a class="i" href="ss.htm">spaceships</a> up to 25 bits
+without any known syntheses</h2>
+<p><a class="p" href="stamp/gu-ss.rle"><img src="map/gu-ss.png"
+ alt="unknown spaceships" width="261" height="81" usemap="#gu-ss" /></a><br />
+    <table width="265">
+    <colgroup><col width="91" /><col width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/25crab.rle">
+	    Crab; Quarter [x]</a></td>
+	<td class="r"><a class="p" href="ss/25o3a.rle">
+	    25-bit <i>c</i>/3 orthogonal spaceship #1 [x]</a></td>
+	<td class="r"><a class="p" href="ss/25o3b.rle">
+	    25-bit <i>c</i>/3 orthogonal spaceship #2 [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/gu-ss.zip" />
+	<area coords="241,61,260,80" href="stamp/gu-ss.rle" />
+	<area coords="0,0,89,80" href="ss/25crab.rle" />
+	<area coords="90,0,169,80" href="ss/25o3a.rle" />
+	<area coords="170,0,260,80" href="ss/25o3b.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other costs:</b>
+	<a class="i" href="glider-2.htm">2 gliders</a>,
+	<a class="i" href="glider-3.htm">3 gliders</a>,
+	<a class="i" href="glider-4.htm">4 gliders</a>,
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	<a class="i" href="glider-6.htm">6 gliders</a>,
+	<a class="i" href="glider-e.htm">1 glider/bit</a>,
+	<a class="i" href="glider-g.htm">&gt;1 glider/bit</a>,
+	unknown.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

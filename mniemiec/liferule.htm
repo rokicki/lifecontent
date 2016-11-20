@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Other Cellular Automata Rules</title>
+<meta name="description"
+content="Other Cellular Automata Rules" />
+<meta name="keywords"
+content="conway game life other ceulluar automata rules" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Other Cellular Automata Rules</h1>
+
+<p align="center">
+	<a class="j" href="#rule-intro">Introduction</a> |
+	<a class="j" href="#rule-rules">Rules</a>
+</p>
+
+<hr /><hr />
+<a name="rule-intro"></a>
+<h2>Introduction</h2>
+<p>All the rules described here are similar to Life, with some minor changes.
+Unless otherwise noted, they all are all two state (i.e. cells are dead or
+alive), totalistic (i.e. a cell's state is determined solely on its own state
+and the sum of its neighbors without regard to their relative positions), and
+use a Moore neighborhood (i.e. a two-dimensional square lattice in which every
+cell's neighborhoods consists of the 4 orthogonally adjacent and 4 diagonally
+adjacent cells).</p>
+
+<hr /><hr />
+<a name="rule-rules"></a>
+<h2>Rules</h2>
+<p><ul>
+    <li><b><a class="i" href="lifepage.htm">B3/S23
+	(Conway's Game of Life)</a></b>: This rule has birth on 3 neighbors,
+	and survival on 2 or 3 neighbors. This is one of the most interesting,
+	and most widely studied two-dimensional cellular automata, and the
+	subject of most of these pages.</li>
+    <li><b><a class="i" href="color.htm">Multi-colored Life</a></b>:
+	This describes several enhanced multi-state versions of Life, where
+	cells are born and die the same way as in Life, but there are multiple
+	living states (typically indicated by different colors) that supply
+	additional information and complexity.</li>
+    <li><b><a class="i" href="rule34.htm">B34/S34 (3/4 Life)</a></b>:
+	This rule has both birth and survival on 3 or 4 neighbors. There was
+	a fairly extensive discussion of this rule in the Lifeline newsletter
+	in the 1970s. It is also fairly interesting, but many patterns expand
+	infinitely, making it harder to work with.</li>
+    <li><b><a class="i" href="rule22.htm">B2/S2 (2/2 Life)</a></b>:
+	This rule has both birth and survival on 2. Patterns are extremely
+	volatile, and it is difficult to make them <i>not</i> expand without
+	limit.</li>
+    <li><b><a class="i" href="rulemn.htm">Niemiec's Rules</a></b>:
+	This is actually several closely-related rules. While the birth
+	conditions are totalistic (and, in fact, the same as Life's), the
+	survival conditions are not totalistic - i.e. they depend not only on
+	the number of neighbors, but also their relative positions. Birth
+	occurs on any 3 neighbors, while survival occurs on 2-4 neighbors
+	that are orthogonally connected to the original cell (i.e. diagonal
+	neighbors are allowed only if they are themselves adjacent to one or
+	two orthogonal neighbors). Most common patterns are shared by all
+	variants. Some characteristics of these rules rule are that most useful
+	patterns are or contain ominos, ad there are 4 natural spaceships, all
+	of different velocities, several simple guns and puffers, and a
+	natural replicator.</li>
+</ul></p>
+
+<hr /><hr />
+<p><b>See also:</b>
+	<a class="i" href="lifeterm.htm">definitions</a>,
+	<a class="i" href="lifestr.htm">structure</a>,
+	<a class="i" href="lifemeth.htm">search methodologies</a>,
+	other rules,
+	<a class="i" href="lifenews.htm">news</a>,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

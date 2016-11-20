@@ -1,0 +1,1070 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Object Counts</title>
+<meta name="description"
+content="Conway's Game of Life: Object counts and syntheses" />
+<meta name="keywords" content="conway game life object count glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life Object Counts</h1>
+
+<p align="center">
+	<a class="j" href="#count-search">Computer searches</a> |
+	<a class="j" href="#count-obj">Objects</a> |
+	<a class="j" href="#count-pobj">Pseudo-objects</a> |
+	<a class="j" href="#count-ss">Spaceships</a>
+</p>
+
+<hr /><hr />
+<a name="count-search"></a>
+<h2>Computer searches</h2>
+<p>Computer searches have counted still-lifes and pseudo-still-lifes up to 24
+bits (by <a class="i" href="lifecred.htm#raynham">Raynham</a>,
+<a class="i" href="lifecred.htm#buckingham">Buckingham</a>,
+and <a class="i" href="lifecred.htm#niemiec">Niemiec</a> and
+<a class="i" href="lifecred.htm#koenig">Koenig</a>),
+period 2 oscillators and pseudo-oscillators up to 21 bits (by
+<a class="i" href="lifecred.htm#niemiec">Niemiec</a> and
+<a class="i" href="lifecred.htm#koenig">Koenig</a>),
+period 3 oscillators and pseudo-oscillators up to 20 bits (by
+<a class="i" href="lifecred.htm#beluchenko">Beluchenko</a>),
+and all objects of all types up to 10 bits (by
+<a class="i" href="lifecred.htm#thompson">Thompson</a>).</p>
+
+<p>Such lists of objects can also yield robust hand-assembled lists of
+pseudo-objects, since their assembly typically involves fairly trivial
+combinatorical procedures.</p>
+
+<p>Numbers in <b>bold face</b> have been confirmed by computer search
+(or trivial hand-assembly). Other given numbers are believed to be complete,
+but have not yet been verified. Lists with large numbers of objects that
+have not yet been counted are shown with "many".</p>
+
+<p>Status of object lists on sub-pages is shown by background color:</p>
+<p><ul>
+    <li>White (the default) indicates a list where all items are counted and
+	shown, and syntheses exist (or at least have been attempted) for all.
+	(<span class="h">Light blue</span> is similar, and used to make table
+	structure easier to read.)</li>
+    <li><span class="b">Blue</span> is like white, except syntheses for all are
+	planned, but are not yet complete.</li>
+    <li><span class="y">Yellow</span> indicates a list of up to 10000 items
+	where all items have been counted and shown, but for which there is no
+	attempt to provide syntheses for all items. Lists of more than 1000
+	items show much smaller objects, with 1000 per page rather than
+	100.</li>
+    <li><span class="g">Green</span> is like yellow, except all items have also
+	been analyzed to determine whether syntheses are possible, and trivial
+	syntheses exist for most. For the few that do not have trivial
+	syntheses, explicit syntheses have been developed for all (or at least
+	most).</li>
+    <li><span class="r">Red</span> indicates a list of items where all items
+	have been counted, but are not shown. This is typically for objects with
+	more than 10000 items, or for hand-generated lists that are much easier
+	to enumerate than to instantiate (here, typically objects in the 22-25
+	bit range).</li>
+    <li><span class="o">Orange</span> is like red, except all items have also
+	been analyzed to determine whether syntheses are possible, and trivial
+	syntheses exist for most. For the few that do not have trivial
+	syntheses, explicit syntheses have been developed for all (or at least
+	most).</li>
+    <li><span class="s">Grey</span> indicates a list of items where no
+	definitive item lists exists, either because a computer search would
+	exceed available computing resources, or there are too many items to
+	count by hand.</li>
+    <li><span class="v">Purple</span> is like grey, except all known item
+	categories have also been analyzed to determine whether syntheses are
+	possible, and trivial syntheses exist for most. For the few that do not
+	have trivial syntheses, explicit syntheses have been developed for all
+	(or at least most).</li>
+    <li><span class="c">Teal</span> indicates an aggregate list, containing the
+	sums of related lists preceding them.</li>
+    <li>In all but the first two cases, these may be accompanied by smaller
+	lists of selected objects for which syntheses have been found, but these
+	are haphazard rather than systematic.</li>
+    <li>Lists that have been verified by computer search (or smaller
+	manually-generated lists of pseudo-objects based on verified lists of
+	objects) are shown in <b>boldface</b>.</li>
+</ul></p>
+
+<hr />
+<a name="count-obj"></a>
+<h2>Objects up to 25 bits</h2>
+<p>    <table width="994">
+    <colgroup><col width="181" /><col span="8" width="20" />
+	<col span="4" width="30" /><col span="3" width="40" />
+	<col span="5" width="50" /><col span="2" width="60" /><col width="41" />
+	</colgroup>
+    <tr>
+	<td class="h"><b>Bits</b></td>
+	<td class="h"><a class="i" href="bits-3.htm"><b>3</b></a></td>
+	<td class="h"><a class="i" href="bits-4.htm"><b>4</b></a></td>
+	<td class="h"><a class="i" href="bits-5.htm"><b>5</b></a></td>
+	<td class="h"><a class="i" href="bits-6.htm"><b>6</b></a></td>
+	<td class="h"><a class="i" href="bits-7.htm"><b>7</b></a></td>
+	<td class="h"><a class="i" href="bits-8.htm"><b>8</b></a></td>
+	<td class="h"><a class="i" href="bits-9.htm"><b>9</b></a></td>
+	<td class="h"><a class="i" href="bits-10.htm"><b>10</b></a></td>
+	<td class="h"><a class="i" href="bits-11.htm"><b>11</b></a></td>
+	<td class="h"><a class="i" href="bits-12.htm"><b>12</b></a></td>
+	<td class="h"><a class="i" href="bits-13.htm"><b>13</b></a></td>
+	<td class="h"><a class="i" href="bits-14.htm"><b>14</b></a></td>
+	<td class="h"><a class="i" href="bits-15.htm"><b>15</b></a></td>
+	<td class="h"><a class="i" href="bits-16.htm"><b>16</b></a></td>
+	<td class="h"><a class="i" href="bits-17.htm"><b>17</b></a></td>
+	<td class="h"><a class="i" href="bits-18.htm"><b>18</b></a></td>
+	<td class="h"><a class="i" href="bits-19.htm"><b>19</b></a></td>
+	<td class="h"><a class="i" href="bits-20.htm"><b>20</b></a></td>
+	<td class="h"><a class="i" href="bits-21.htm"><b>21</b></a></td>
+	<td class="h"><a class="i" href="bits-22.htm"><b>22</b></a></td>
+	<td class="h"><a class="i" href="bits-23.htm"><b>23</b></a></td>
+	<td class="h"><a class="i" href="bits-24.htm"><b>24</b></a></td>
+	<td class="h"><a class="i" href="bits-25.htm"><b>25</b></a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p1.htm"><b>Still-lifes</b></a></td>
+	<td><b>0</b></td>
+	<td><a class="i" href="p1.htm#p1-4"><b>2</b></a></td>
+	<td class="h"><a class="i" href="p1.htm#p1-5"><b>1</b></a></td>
+	<td><a class="i" href="p1.htm#p1-6"><b>5</b></a></td>
+	<td><a class="i" href="p1.htm#p1-7"><b>4</b></a></td>
+	<td><a class="i" href="p1.htm#p1-8"><b>9</b></a></td>
+	<td><a class="i" href="p1.htm#p1-9"><b>10</b></a></td>
+	<td class="h"><a class="i" href="p1.htm#p1-10"><b>25</b></a></td>
+	<td><a class="i" href="p1.htm#p1-11"><b>46</b></a></td>
+	<td><a class="i" href="p1-12.htm"><b>121</b></a></td>
+	<td><a class="i" href="p1-13.htm"><b>240</b></a></td>
+	<td><a class="i" href="p1-14.htm"><b>619</b></a></td>
+	<td class="b"><a class="i" href="p1-15.htm"><b>1353</b></a></td>
+	<td class="g"><a class="i" href="p1-16.htm"><b>3286</b></a></td>
+	<td class="g"><a class="i" href="p1-17.htm"><b>7773</b></a></td>
+	<td class="y"><a class="i" href="p1-18.htm"><b>19044</b></a></td>
+	<td class="r"><a class="i" href="p1.htm#p1-19"><b>45759</b></a></td>
+	<td class="r"><a class="i" href="p1.htm#p1-20"><b>112243</b></a></td>
+	<td class="r"><a class="i" href="p1.htm#p1-21"><b>273188</b></a></td>
+	<td class="r"><a class="i" href="p1.htm#p1-22"><b>672172</b></a></td>
+	<td class="r"><a class="i" href="p1.htm#p1-23"><b>1646147</b></a></td>
+	<td class="r"><a class="i" href="p1.htm#p1-24"><b>4051726</b></a></td>
+	<td class="s"><a class="i" href="p1.htm#p1-25">many</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p2.htm"><b>P2 oscillators</b></a></td>
+	<td><a class="i" href="p2.htm#p2-3"><b>1</b></a></td>
+	<td><b>0</b></td><td class="h"><b>0</b></td>
+	<td><a class="i" href="p2.htm#p2-6"><b>3</b></a></td>
+	<td><b>0</b></td>
+	<td><a class="i" href="p2.htm#p2-8"><b>1</b></a></td>
+	<td><a class="i" href="p2.htm#p2-9"><b>1</b></a></td>
+	<td class="h"><a class="i" href="p2.htm#p2-10"><b>1</b></a></td>
+	<td><a class="i" href="p2.htm#p2-11"><b>1</b></a></td>
+	<td><a class="i" href="p2.htm#p2-12"><b>6</b></a></td>
+	<td><a class="i" href="p2.htm#p2-13"><b>3</b></a></td>
+	<td><a class="i" href="p2.htm#p2-14"><b>20</b></a></td>
+	<td class="h"><a class="i" href="p2.htm#p2-15"><b>29</b></a></td>
+	<td><a class="i" href="p2.htm#p2-16"><b>98</b></a></td>
+	<td><a class="i" href="p2-17.htm"><b>199</b></a></td>
+	<td class="b"><a class="i" href="p2-18.htm"><b>484</b></a></td>
+	<td class="y"><a class="i" href="p2-19.htm"><b>1083</b></a></td>
+	<td class="y"><a class="i" href="p2-20.htm"><b>2722</b></a></td>
+	<td class="y"><a class="i" href="p2-21.htm"><b>6596</b></a></td>
+	<td class="s"><a class="i" href="p2.htm#p2-22">many</a></td>
+	<td class="s"><a class="i" href="p2.htm#p2-23">many</a></td>
+	<td class="s"><a class="i" href="p2.htm#p2-24">many</a></td>
+	<td class="s"><a class="i" href="p2.htm#p2-25">many</a></td>
+    </tr>
+
+    <tr>
+	<td class="h"><a class="i" href="p3.htm"><b>P3 oscillators</b></a></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><a class="i" href="p3.htm#p3-12"><b>1</b></a></td>
+	<td class="h"><a class="i" href="p3.htm#p3-13"><b>1</b></a></td>
+	<td class="h"><a class="i" href="p3.htm#p3-14"><b>1</b></a></td>
+	<td class="h"><b>0</b></td>
+	<td class="h"><a class="i" href="p3.htm#p3-16"><b>7</b></a></td>
+	<td class="h"><a class="i" href="p3.htm#p3-17"><b>8</b></a></td>
+	<td class="h"><a class="i" href="p3.htm#p3-18"><b>39</b></a></td>
+	<td class="h"><a class="i" href="p3.htm#p3-19"><b>66</b></a></td>
+	<td class="h"><a class="i" href="p3-20.htm"><b>216</b></a></td>
+	<td class="o"><a class="i" href="p3-21.htm">420</a></td>
+	<td class="s"><a class="i" href="p3.htm#p3-22">many</a></td>
+	<td class="s"><a class="i" href="p3.htm#p3-23">many</a></td>
+	<td class="s"><a class="i" href="p3.htm#p3-24">many</a></td>
+	<td class="s"><a class="i" href="p3.htm#p3-25">many</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p4.htm"><b>P4 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td>
+	<td><a class="i" href="p4.htm#p4-12"><b>2</b></a></td>
+	<td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td>
+	<td><a class="i" href="p4.htm#p4-18">3</a></td>
+	<td><a class="i" href="p4.htm#p4-19">7</a></td>
+	<td class="h"><a class="i" href="p4.htm#p4-20">23</a></td>
+	<td><a class="i" href="p4.htm#p4-21">34</a></td>
+	<td class="o"><a class="i" href="p4.htm#p4-22">120</a></td>
+	<td class="o"><a class="i" href="p4.htm#p4-23">239</a></td>
+	<td class="o"><a class="i" href="p4.htm#p4-24">571</a></td>
+	<td class="o"><a class="i" href="p4.htm#p4-25">1343</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p5.htm"><b>P5 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td>0</td>
+	<td>0</td><td>0</td>
+	<td class="h"><a class="i" href="p5.htm#p5-15">1</a></td>
+	<td><a class="i" href="p5.htm#p5-16">1</a></td>
+	<td><a class="i" href="p5.htm#p5-17">2</a></td>
+	<td><a class="i" href="p5.htm#p5-18">4</a></td>
+	<td><a class="i" href="p5.htm#p5-19">8</a></td>
+	<td class="h"><a class="i" href="p5.htm#p5-20">16</a></td>
+	<td><a class="i" href="p5.htm#p5-21">42</a></td>
+	<td class="o"><a class="i" href="p5.htm#p5-22">76</a></td>
+	<td class="o"><a class="i" href="p5.htm#p5-23">210</a></td>
+	<td class="o"><a class="i" href="p5.htm#p5-24">419</a></td>
+	<td class="v">many</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p6.htm"><b>P6 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td>
+	<td><a class="i" href="p6.htm#p6-16">1</a></td>
+	<td>0</td>
+	<td><a class="i" href="p6.htm#p6-18">4</a></td>
+	<td>0</td>
+	<td class="h"><a class="i" href="p6.htm#p6-20">11</a></td>
+	<td><a class="i" href="p6.htm#p6-21">15</a></td>
+	<td class="o"><a class="i" href="p6.htm#p6-22">43</a></td>
+	<td class="o"><a class="i" href="p6.htm#p6-23">71</a></td>
+	<td class="o"><a class="i" href="p6.htm#p6-24">186</a></td>
+	<td class="v"><a class="i" href="p6.htm#p6-25">many</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p8.htm"><b>P8 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td>
+	<td><a class="i" href="p8.htm#p8-12">1</a></td>
+	<td>0</td><td>0</td>
+	<td class="h"><a class="i" href="p8.htm#p8-15">1</a></td>
+	<td>0</td>
+	<td><a class="i" href="p8.htm#p8-17">2</a></td>
+	<td><a class="i" href="p8.htm#p8-18">1</a></td>
+	<td>0</td><td class="h">0</td>
+	<td><a class="i" href="p8.htm#p8-21">2</a></td>
+	<td>0</td>
+	<td><a class="i" href="p8.htm#p8-23">8</a></td>
+	<td><a class="i" href="p8.htm#p8-24">12</a></td>
+	<td class="h"><a class="i" href="p8.htm#p8-25">18</a></td>
+    </tr>
+
+    <tr>
+	<td class="h"><a class="i" href="p10.htm"><b>P10 oscillators</b></a></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td><td class="h">0</td>
+	<td class="h"><a class="i" href="p10.htm#p10-23">5</a></td>
+	<td class="h"><a class="i" href="p10.htm#p10-24">2</a></td>
+	<td class="h"><a class="i" href="p10.htm#p10-25">1</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p12.htm"><b>P12 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td>
+	<td><a class="i" href="p12.htm#p12-24">4</a></td>
+	<td class="h"><a class="i" href="p12.htm#p12-25">1</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p14.htm"><b>P14 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td>
+	<td><a class="i" href="p14.htm#p14-16">1</a></td>
+	<td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p15.htm"><b>P15 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td>
+	<td><a class="i" href="p15.htm#p15-12">1</a></td>
+	<td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td>
+	<td><a class="i" href="p15.htm#p15-19">1</a></td>
+	<td class="h">0</td>
+	<td><a class="i" href="p15.htm#p15-21">1</a></td>
+	<td><a class="i" href="p15.htm#p15-22">2</a></td>
+	<td><a class="i" href="p15.htm#p15-23">8</a></td>
+	<td><a class="i" href="p15.htm#p15-24">24</a></td>
+	<td class="h"><a class="i" href="p15.htm#p15-25">40</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p24.htm"><b>P24 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td>
+	<td><a class="i" href="p24.htm#p24-24">4</a></td>
+	<td class="h"><a class="i" href="p24.htm#p24-25">4</a></td>
+    </tr>
+
+    <tr>
+	<td class="h"><a class="i" href="p30.htm"><b>P30 oscillators</b></a></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td><td class="h">0</td>
+	<td class="h"><a class="i" href="p30.htm#p30-20">2</a></td>
+	<td class="h">0</td>
+	<td class="h"><a class="i" href="p30.htm#p30-22">2</a></td>
+	<td class="h"><a class="i" href="p30.htm#p30-23">2</a></td>
+	<td class="h"><a class="i" href="p30.htm#p30-24">2</a></td>
+	<td class="h"><a class="i" href="p30.htm#p30-25">8</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p36.htm"><b>P36 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td>
+	<td><a class="i" href="p36.htm#p36-22">1</a></td>
+	<td>0</td>
+	<td><a class="i" href="p36.htm#p36-24">1</a></td>
+	<td class="h"><a class="i" href="p36.htm#p36-25">2</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="p60.htm"><b>P60 oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td>
+	<td><a class="i" href="p60.htm#p60-24">1</a></td>
+	<td class="h">0</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="period.htm"><b>Other periods</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td>
+    </tr>
+
+    <tr>
+	<td class="c"><a class="i" href="osc.htm">
+	    <b>All oscillators</b></a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-3"><b>1</b></a></td>
+	<td class="c"><b>0</b></td>
+	<td class="c"><b>0</b></td>
+	<td class="c"><a class="i" href="osc.htm#osc-6"><b>3</b></a></td>
+	<td class="c"><b>0</b></td>
+	<td class="c"><a class="i" href="osc.htm#osc-8"><b>1</b></a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-9"><b>1</b></a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-10"><b>1</b></a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-11">1</a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-12">11</a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-13">4</a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-14">21</a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-15">31</a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-16">108</a></td>
+	<td class="c"><a class="i" href="osc.htm#osc-17">211</a></td>
+	<td class="g"><a class="i" href="osc.htm#osc-18">535</a></td>
+	<td class="y"><a class="i" href="osc.htm#osc-19">1165</a></td>
+	<td class="y"><a class="i" href="osc.htm#osc-20">2990</a></td>
+	<td class="r"><a class="i" href="osc.htm#osc-21">7119</a></td>
+	<td class="s"><a class="i" href="osc.htm#osc-22">244*</a></td>
+	<td class="s"><a class="i" href="osc.htm#osc-23">539*</a></td>
+	<td class="s"><a class="i" href="osc.htm#osc-24">1225*</a></td>
+	<td class="s"><a class="i" href="osc.htm#osc-25">1417**</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="ss.htm"><b>Orthogonal <i>c</i>/2 P4</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td>
+	<td><a class="i" href="ss.htm#ss-9"><b>1</b></a></td>
+	<td class="h"><b>0</b></td>
+	<td><a class="i" href="ss.htm#ss-11"><b>1</b></a></td>
+	<td><b>0</b></td>
+	<td><a class="i" href="ss.htm#ss-13"><b>1</b></a></td>
+	<td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><a class="i" href="ss.htm#ss-20"><b>5</b></a></td>
+	<td><b>0</b></td>
+	<td><a class="i" href="ss.htm#ss-22"><b>9</b></a></td>
+	<td><a class="i" href="ss.htm#ss-23"><b>2</b></a></td>
+	<td><a class="i" href="ss.htm#ss-24"><b>7</b></a></td>
+	<td class="h"><a class="i" href="ss.htm#ss-25"><b>2</b></a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-o3">
+	    <b>Orthogonal <i>c</i>/3 P3</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h"><a class="i" href="ss.htm#ss-25">3</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-o7">
+	    <b>Orthogonal <i>c</i>/7 P7</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h"><a class="i" href="ss.htm#ss-20">1</a></td>
+	<td>0</td><td>0</td><td>0</td><td>0</td><td class="h">0</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-d4">
+	    <b>Diagonal <i>c</i>/4 P4</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b><a class="i" href="ss.htm#ss-5">1</a></b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h"><a class="i" href="ss.htm#ss-25">1</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm"><b>Other velocities</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td>
+    </tr>
+
+    <tr>
+	<td class="c"><a class="i" href="ss.htm"><b>All spaceships</b></a></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><a class="i" href="ss.htm#ss-5"><b>1</b></a></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><b>0</b></td>
+	<td class="c"><a class="i" href="ss.htm#ss-9"><b>1</b></a></td>
+	<td class="c"><b>0</b></td>
+	<td class="c"><a class="i" href="ss.htm#ss-11">1</a></td>
+	<td class="c">0</td>
+	<td class="c"><a class="i" href="ss.htm#ss-13">1</a></td>
+	<td class="c">0</td><td class="c">0</td>
+	<td class="c">0</td><td class="c">0</td>
+	<td class="c">0</td><td class="c">0</td>
+	<td class="c"><a class="i" href="ss.htm#ss-20">6</a></td>
+	<td class="c">0</td>
+	<td class="c"><a class="i" href="ss.htm#ss-22">9</a></td>
+	<td class="c"><a class="i" href="ss.htm#ss-23">2</a></td>
+	<td class="c"><a class="i" href="ss.htm#ss-24">7</a></td>
+	<td class="c"><a class="i" href="ss.htm#ss-25">5</a></td>
+    </tr>
+</table></p>
+
+<p>(NOTE: * also include an as-yet-uncounted number of P2 and P3
+oscillators; ** also include an as-yet-uncounted number of P2, P3, P5, and
+P6 oscillators.)</p>
+
+<hr />
+<a name="count-pobj"></a>
+<h2>Pseudo-objects up to 25 bits</h2>
+<p>    <table width="894">
+    <colgroup><col width="201" /><col span="5" width="20" />
+	<col span="3" width="30" /><col span="2" width="40" />
+	<col span="5" width="50" /><col span="2" width="60" /><col width="51" />
+	</colgroup>
+    <tr>
+	<td class="h"><b>Bits</b></td>
+	<td class="h"><a class="i" href="bits-8.htm"><b>8</b></a></td>
+	<td class="h"><a class="i" href="bits-9.htm"><b>9</b></a></td>
+	<td class="h"><a class="i" href="bits-10.htm"><b>10</b></a></td>
+	<td class="h"><a class="i" href="bits-11.htm"><b>11</b></a></td>
+	<td class="h"><a class="i" href="bits-12.htm"><b>12</b></a></td>
+	<td class="h"><a class="i" href="bits-13.htm"><b>13</b></a></td>
+	<td class="h"><a class="i" href="bits-14.htm"><b>14</b></a></td>
+	<td class="h"><a class="i" href="bits-15.htm"><b>15</b></a></td>
+	<td class="h"><a class="i" href="bits-16.htm"><b>16</b></a></td>
+	<td class="h"><a class="i" href="bits-17.htm"><b>17</b></a></td>
+	<td class="h"><a class="i" href="bits-18.htm"><b>18</b></a></td>
+	<td class="h"><a class="i" href="bits-19.htm"><b>19</b></a></td>
+	<td class="h"><a class="i" href="bits-20.htm"><b>20</b></a></td>
+	<td class="h"><a class="i" href="bits-21.htm"><b>21</b></a></td>
+	<td class="h"><a class="i" href="bits-22.htm"><b>22</b></a></td>
+	<td class="h"><a class="i" href="bits-23.htm"><b>23</b></a></td>
+	<td class="h"><a class="i" href="bits-24.htm"><b>24</b></a></td>
+	<td class="h"><a class="i" href="bits-25.htm"><b>25</b></a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp1.htm"><b>Pseudo-still-lifes</b></a></td>
+	<td><a class="i" href="pp1.htm#pp1-8"><b>1</b></a></td>
+	<td><a class="i" href="pp1.htm#pp1-9"><b>1</b></a></td>
+	<td class="h"><a class="i" href="pp1.htm#pp1-10"><b>7</b></a></td>
+	<td><a class="i" href="pp1.htm#pp1-11"><b>16</b></a></td>
+	<td><a class="i" href="pp1.htm#pp1-12"><b>55</b></a></td>
+	<td><a class="i" href="pp1.htm#pp1-13"><b>110</b></a></td>
+	<td><a class="i" href="pp1-14.htm"><b>279</b></a></td>
+	<td class="h"><a class="i" href="pp1-15.htm"><b>620</b></a></td>
+	<td><a class="i" href="pp1-16.htm"><b>1645</b></a></td>
+	<td class="g"><a class="i" href="pp1-17.htm"><b>4067</b></a></td>
+	<td class="g"><a class="i" href="pp1-18.htm"><b>10843</b></a></td>
+	<td class="o"><a class="i" href="pp1.htm#pp1-19"><b>27250</b></a></td>
+	<td class="r"><a class="i" href="pp1.htm#pp1-20"><b>70637</b></a></td>
+	<td class="r"><a class="i" href="pp1.htm#pp1-21"><b>179011</b></a></td>
+	<td class="r"><a class="i" href="pp1.htm#pp1-22"><b>462086</b></a></td>
+	<td class="r"><a class="i" href="pp1.htm#pp1-23"><b>1184882</b></a></td>
+	<td class="r"><a class="i" href="pp1.htm#pp1-24"><b>3069134</b></a></td>
+	<td class="s"><a class="i" href="pp1.htm#pp1-25">many</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp2.htm"><b>P2 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><a class="i" href="pp2.htm#pp2-10"><b>1</b></a></td>
+	<td><a class="i" href="pp2.htm#pp2-11"><b>2</b></a></td>
+	<td><a class="i" href="pp2.htm#pp2-12"><b>14</b></a></td>
+	<td><a class="i" href="pp2.htm#pp2-13"><b>17</b></a></td>
+	<td><a class="i" href="pp2.htm#pp2-14"><b>46</b></a></td>
+	<td class="h"><a class="i" href="pp2.htm#pp2-15"><b>78</b></a></td>
+	<td><a class="i" href="pp2.htm#pp2-16"><b>225</b></a></td>
+	<td><a class="i" href="pp2-17.htm"><b>484</b></a></td>
+	<td class="g"><a class="i" href="pp2-18.htm"><b>1519</b></a></td>
+	<td class="g"><a class="i" href="pp2-19.htm"><b>3350</b></a></td>
+	<td class="g"><a class="i" href="pp2-20.htm"><b>9460</b></a></td>
+	<td class="g"><a class="i" href="pp2-21.htm"><b>22134</b></a></td>
+	<td class="s"><a class="i" href="pp2.htm#pp2-22">many</a></td>
+	<td class="s"><a class="i" href="pp2.htm#pp2-23">many</a></td>
+	<td class="s"><a class="i" href="pp2.htm#pp2-24">many</a></td>
+	<td class="s">many</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp3.htm"><b>P3 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td>
+	<td><a class="i" href="pp3.htm#pp3-17"><b>2</b></a></td>
+	<td><a class="i" href="pp3.htm#pp3-18"><b>5</b></a></td>
+	<td><a class="i" href="pp3.htm#pp3-19"><b>20</b></a></td>
+	<td class="h"><a class="i" href="pp3.htm#pp3-20"><b>44</b></a></td>
+	<td><a class="i" href="pp3.htm#pp3-21"><b>90</b></a></td>
+	<td class="o"><a class="i" href="pp3.htm#pp3-22"><b>265</b></a></td>
+	<td class="v">many</td>
+	<td class="v"><a class="i" href="pp3.htm#pp3-24">many</a></td>
+	<td class="v">many</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp4.htm"><b>P4 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td>
+	<td><a class="i" href="pp4.htm#pp4-16"><b>1</b></a></td>
+	<td><a class="i" href="pp4.htm#pp4-17">2</a></td>
+	<td><a class="i" href="pp4.htm#pp4-18">11</a></td>
+	<td><a class="i" href="pp4.htm#pp4-19">14</a></td>
+	<td class="h"><a class="i" href="pp4.htm#pp4-20">33</a></td>
+	<td><a class="i" href="pp4.htm#pp4-21">50</a></td>
+	<td class="o"><a class="i" href="pp4.htm#pp4-22">154</a></td>
+	<td class="v">many</td><td class="v">many</td><td class="v">many</td>
+    </tr>
+
+    <tr>
+	<td class="h"><a class="i" href="pp5.htm"><b>P5 pseudo-oscillators</b></a></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h">0</td><td class="h">0</td>
+	<td class="h">0</td>
+	<td class="h"><a class="i" href="pp5.htm#pp5-19">2</a></td>
+	<td class="h"><a class="i" href="pp5.htm#pp5-20">4</a></td>
+	<td class="h"><a class="i" href="pp5.htm#pp5-21">28</a></td>
+	<td class="o"><a class="i" href="pp5.htm#pp5-22">55</a></td>
+	<td class="o"><a class="i" href="pp5.htm#pp5-23">220</a></td>
+	<td class="o"><a class="i" href="pp5.htm#pp5-24">490</a></td>
+	<td class="o"><a class="i" href="pp5.htm#pp5-25">1370</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp6.htm"><b>P6 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td>
+	<td><a class="i" href="pp6.htm#pp6-19">4</a></td>
+	<td class="h"><a class="i" href="pp6.htm#pp6-20">3</a></td>
+	<td><a class="i" href="pp6.htm#pp6-21">6</a></td>
+	<td class="o"><a class="i" href="pp6.htm#pp6-22">41</a></td>
+	<td class="o"><a class="i" href="pp6.htm#pp6-23">74</a></td>
+	<td class="o"><a class="i" href="pp6.htm#pp6-24">394</a></td>
+	<td class="o"><a class="i" href="pp6.htm#pp6-25">734</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp8.htm"><b>P8 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h">0</td><td>0</td><td>0</td>
+	<td><a class="i" href="pp8.htm#pp8-18">2</a></td>
+	<td><a class="i" href="pp8.htm#pp8-19">1</a></td>
+	<td class="h"><a class="i" href="pp8.htm#pp8-20">2</a></td>
+	<td><a class="i" href="pp8.htm#pp8-21">12</a></td>
+	<td><a class="i" href="pp8.htm#pp8-22">18</a></td>
+	<td class="o"><a class="i" href="pp8.htm#pp8-23">44</a></td>
+	<td class="o"><a class="i" href="pp8.htm#pp8-24">78</a></td>
+	<td class="o"><a class="i" href="pp8.htm#pp8-25">176</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp10.htm"><b>P10 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td>
+	<td><a class="i" href="pp10.htm#pp10-21">4</a></td>
+	<td>0</td>
+	<td><a class="i" href="pp10.htm#pp10-23">24</a></td>
+	<td class="o"><a class="i" href="pp10.htm#pp10-24">37</a></td>
+	<td class="o"><a class="i" href="pp10.htm#pp10-25">89</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp12.htm"><b>P12 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h"><a class="i" href="pp12.htm#pp12-25">4</a></td>
+    </tr>
+
+    <tr>
+	<td class="h"><a class="i" href="pp15.htm"><b>P15 pseudo-oscillators</b></a></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td><td class="h"><b>0</b></td>
+	<td class="h"><b>0</b></td>
+	<td class="h">0</td>
+	<td class="h"><a class="i" href="pp15.htm#pp15-16">1</a></td>
+	<td class="h"><a class="i" href="pp15.htm#pp15-17">1</a></td>
+	<td class="h"><a class="i" href="pp15.htm#pp15-18">5</a></td>
+	<td class="h"><a class="i" href="pp15.htm#pp15-19">7</a></td>
+	<td class="h"><a class="i" href="pp15.htm#pp15-20">15</a></td>
+	<td class="h"><a class="i" href="pp15.htm#pp15-21">22</a></td>
+	<td class="o"><a class="i" href="pp15.htm#pp15-22">68</a></td>
+	<td class="o"><a class="i" href="pp15.htm#pp15-23">151</a></td>
+	<td class="o"><a class="i" href="pp15.htm#pp15-24">460</a></td>
+	<td class="v">many</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp30.htm"><b>P30 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h">0</td><td>0</td><td>0</td>
+	<td><a class="i" href="pp30.htm#pp30-18">1</a></td>
+	<td>0</td>
+	<td class="h"><a class="i" href="pp30.htm#pp30-20">1</a></td>
+	<td><a class="i" href="pp30.htm#pp30-21">1</a></td>
+	<td><a class="i" href="pp30.htm#pp30-22">5</a></td>
+	<td><a class="i" href="pp30.htm#pp30-23">7</a></td>
+	<td class="o"><a class="i" href="pp30.htm#pp30-24">61</a></td>
+	<td class="o"><a class="i" href="pp30.htm#pp30-25">82</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pp60.htm"><b>P60 pseudo-oscillators</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td>
+	<td><a class="i" href="pp60.htm#pp60-24">1</a></td>
+	<td class="h">0</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="pperiod.htm"><b>Other periods</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td>
+    </tr>
+
+    <tr>
+	<td class="c"><a class="i" href="posc.htm">
+	    <b>All pseudo-oscillators</b></a></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><a class="i" href="posc.htm#posc-10"><b>1</b></a></td>
+	<td class="c"><a class="i" href="posc.htm#posc-11"><b>2</b></a></td>
+	<td class="c"><a class="i" href="posc.htm#posc-12"><b>14</b></a></td>
+	<td class="c"><a class="i" href="posc.htm#posc-13"><b>17</b></a></td>
+	<td class="c"><a class="i" href="posc.htm#posc-14"><b>46</b></a></td>
+	<td class="c"><a class="i" href="posc.htm#posc-15">78</a></td>
+	<td class="c"><a class="i" href="posc.htm#posc-16">227</a></td>
+	<td class="c"><a class="i" href="posc.htm#posc-17">489</a></td>
+	<td class="g"><a class="i" href="posc.htm#posc-18">1543</a></td>
+	<td class="g"><a class="i" href="posc.htm#posc-19">3398</a></td>
+	<td class="g"><a class="i" href="posc.htm#posc-20">9562</a></td>
+	<td class="g"><a class="i" href="posc.htm#posc-21">22347</a></td>
+	<td class="s"><a class="i" href="posc.htm#posc-22">604*</a></td>
+	<td class="s"><a class="i" href="posc.htm#posc-23">520**</a></td>
+	<td class="s"><a class="i" href="posc.htm#posc-24">1521**</a></td>
+	<td class="s"><a class="i" href="posc.htm#posc-25">2455***</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="ss.htm"><b>Orthogonal <i>c</i>/2 P4</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><a class="i" href="ss.htm#ss-18"><b>1</b></a></td>
+	<td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><a class="i" href="ss.htm#ss-25"><b>1</b></a></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm"><b>Other velocities</b></a></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td>
+	<td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td>
+    </tr>
+
+    <tr>
+	<td class="c"><a class="i" href="ss.htm"><b>All pseudo-spaceships</b></a></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><a class="i" href="ss.htm#ss-18"><b>1</b></a></td>
+	<td class="c"><b>0</b></td><td class="c"><b>0</b></td>
+	<td class="c"><b>0</b></td><td class="c">0</td>
+	<td class="c">0</td><td class="c">0</td>
+	<td class="c"><a class="i" href="ss.htm#ss-25">1</a></td>
+    </tr>
+</table></p>
+
+<p>(NOTE: * also include an as-yet-uncounted number of P2
+pseudo-oscillators; ** also include an as-yet-uncounted number of P2, P3, and
+P4 pseudo-oscillators.; *** also include an as-yet-uncounted number of P2, P3, and
+P4 and P15 pseudo-oscillators.)</p>
+
+<hr />
+<a name="count-ss"></a>
+<h2>Spaceships</h2>
+<p>Most of the known Life spaceships (at least the small ones) move at a
+velocity of <i>c</i>/2. These have a base period of 4, but some of the
+larger variants have periods that are multiples of this.</p>
+
+<p>H. Koenig's computer searches have not revealed any spaceships that were
+not previously known, but they have confirmed that the previously-known lists
+of <i>c</i>/2 spaceships have been complete up to 24 bits, as well as smaller
+limits for other velocities. In 2013, Josh Ball added the
+<a class="p" href="ss/20lfr.rle">loafer</a> to this list.</p>
+
+<p>    <table width="634">
+    <colgroup><col width="81" /><col width="170" /><col width="80" />
+	<col width="301" /></colgroup>
+    <tr>
+	<td class="h"><b>Direction</b></td><td class="h"><b>Velocity</b></td>
+	<td class="h"><b>Period</b></td><td class="h"><b>Synopsis</b></td>
+    </tr>
+
+    <tr>
+	<td rowspan="15"><b>Orthogonal<br />(<i>x</i>,0)<i>c</i>/d</b></td>
+	<td>&gt;<i>c</i>/2</td>
+	<td>any</td><td>None possible</td>
+    </tr>
+
+    <tr>
+	<td rowspan="3"><a class="i" href="exotic.htm#ss-o2"><i>c</i>/2</a></td>
+	<td>2</td><td>None up to 35 bits; many larger<b>*</b></td>
+    </tr>
+
+    <tr>
+	<td>4</td>
+	<td>Many (See <a class="j" href="#count-obj">previous section</a>)</td>
+    </tr>
+
+    <tr>
+	<td>6</td><td>None up to 13 bits</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-3o7">3<i>c</i>/7</a></td>
+	<td>7</td><td>None up to 13 bits; two larger (almost)</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-2o5">2<i>c</i>/5</a></td>
+	<td>5</td><td>None up to 17 bits; several larger<b>*</b></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-17o45">17<i>c</i>/45</a></td>
+	<td>270</td><td>None up to 10 bits; one very large</td>
+    </tr>
+
+    <tr>
+	<td rowspan="2"><a class="i" href="exotic.htm#ss-o3"><i>c</i>/3</a></td>
+	<td>3</td><td>None up to 24 bits; two 25-bit; many larger<b>*</b></td>
+    </tr>
+
+    <tr>
+	<td>6</td><td>None up to 17 bits</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-2o7">2<i>c</i>/7</a></td>
+	<td>7</td><td>None up to 11 bits; several larger</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-o4"><i>c</i>/4</a></td>
+	<td>4</td><td>None up to 15 bits; many larger<b>*</b></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-o5"><i>c</i>/5</a></td>
+	<td>5</td><td>None up to 12 bits; many larger<b>*</b></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-o6"><i>c</i>/6</a></td>
+	<td>6</td><td>None up to 11 bits; several larger</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-o7"><i>c</i>/7</a></td><td>7</td>
+	<td>None up to 10 bits;
+	    <a class="p" href="ss/20lfr.rle">one 20-bit</a></td>
+    </tr>
+
+    <tr>
+	<td>Other</td><td>any</td><td>None up to 10 bits</td>
+    </tr>
+
+    <tr>
+	<td rowspan="7"><b>Diagonal<br />(<i>x</i>,<i>x</i>)<i>c</i>/d</b></td>
+	<td>&gt;<i>c</i>/4</td>
+	<td>any</td><td>None possible</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-d4"><i>c</i>/4</a></td><td>4</td>
+	<td><a class="i" href="ss.htm#ss-5">One 5-bit;</a>
+	    no others up to 15 bits; many larger<b>*</b></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-d5"><i>c</i>/5</a></td>
+	<td>5</td><td>None up to 12 bits; several larger<b>*</b></td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-d6"><i>c</i>/6</a></td>
+	<td>6</td><td>None up to 12 bits; several larger</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-d7"><i>c</i>/7</a></td>
+	<td>7</td><td>None up to 10 bits; several larger</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-d12"><i>c</i>/12</a></td>
+	<td>96</td><td>None up to 10 bits; several larger</td>
+    </tr>
+
+    <tr>
+	<td>Other</td><td>any</td><td>None up to 10 bits</td>
+    </tr>
+
+    <tr>
+	<td rowspan="6"><b>Knight-move<br />(2<i>x</i>,<i>x</i>)<i>c</i>/d</b></td>
+	<td>&gt;(2,1)<i>c</i>/6</td>
+	<td>any</td><td>None possible</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-k6">(2,1)<i>c</i>/6</a></td>
+	<td>6</td><td>None up to 14 bits; one larger (almost)</td>
+    </tr>
+
+    <tr>
+	<td>(2,1)<i>c</i>/7</td><td>7</td><td>None up to 11 bits</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-hbk">(2,1)<i>c</i>/<i>k</i>,
+	    <i>k</i>&ge;2400000</a></td>
+	<td>&nbsp;</td><td>None up to 10 bits; infinitely many larger</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-gemini">
+	    (8192,4096)<i>c</i>/35567490</a></td>
+	<td>35567490</td><td>None up to 10 bits; one very large</td>
+    </tr>
+
+    <tr>
+	<td>Other</td><td>any</td><td>None up to 10 bits</td>
+    </tr>
+
+    <tr>
+	<td rowspan="3"><b>Oblique<br />
+	    (<i>x</i>,<i>y</i>)<i>c</i>/d, <i>x</i>&gt;<i>y</i></b></td>
+	<td>&gt;(<i>x</i>,<i>y</i>)<i>c</i>/2(<i>x</i>+<i>y</i>)</td>
+	<td>any</td><td>None possible</td>
+    </tr>
+
+    <tr>
+	<td><a class="i" href="exotic.htm#ss-gemini">
+	    (5120,1024)<i>c</i>/33699586</a></td>
+	<td>33699586</td><td>None up to 10 bits; one very large</td>
+    </tr>
+
+    <tr>
+	<td>Other</td><td>any</td><td>None up to 10 bits</td>
+    </tr>
+</table></p>
+
+<p>Groups marked <b>*</b> include known spaceships whose periods are larger
+multiples of the base period.</p>
+
+<hr /><hr />
+<p><b>See also:</b> Life objects sorted by:
+	counts,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

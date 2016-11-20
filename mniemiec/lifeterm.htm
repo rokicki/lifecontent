@@ -1,0 +1,1292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Definitions of Life Terms</title>
+<meta name="description"
+content="Conway's Game of Life: Definitions of terms" />
+<meta name="keywords"
+content="conway game life definitions terms glossary dictionary" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Definitions of Life Terms</h1>
+
+<p align="center">
+	<a class="j" href="#life">Life</a> |
+	<a class="j" href="#term">Terms</a> |
+	<a class="j" href="#obj">Object</a> |
+	<a class="j" href="#pobj">Pseudo-object</a> |
+	<a class="j" href="#p1">Still-life</a> |
+	<a class="j" href="#eater">Eater</a> |
+	<a class="j" href="#rock">Rock</a> |
+	<a class="j" href="#pp1">Pseudo-still-life</a> |
+	<a class="j" href="#osc">Oscillator</a> |
+	<a class="j" href="#spark">Sparker</a> |
+	<a class="j" href="#posc">Pseudo-oscillator</a> |
+	<a class="j" href="#ss">Spaceship</a> |
+	<a class="j" href="#pss">Pseudo-spaceship</a> |
+	<a class="j" href="#flot">Flotilla</a> |
+	<a class="j" href="#gun">Gun</a> |
+	<a class="j" href="#puff">Puffer</a> |
+	<a class="j" href="#breeder">Breeder</a> |
+	<a class="j" href="#ind">Inductor</a> |
+	<a class="j" href="#cons">Constellation</a> |
+	<a class="j" href="#meth">Methuselah</a>
+</p>
+
+<hr /><hr />
+<a name="life"></a>
+<h2>Life</h2>
+<p>Life is a cellular automata invented by professor
+<a class="i" href="lifecred.htm#conway">John Horton Conway</a>
+in the early 1970s.</p>
+
+<p>The universe is an infinitely large array of square cells.
+Each cell can be in one of two distinct states: dead or alive, empty or full,
+0 or 1, etc. Each cell is adjacent to eight other neighboring cells.</p>
+<p><a class="p" href="stamp/exnbr.rle"><img src="map/exnbr.png"
+ alt="nbrs." width="57" height="57" /></a></p>
+
+<p>In every generation, a cell changes state according to its current state
+and the state of its eight neighbors:</p>
+<p><ul>
+    <li>If a cell is dead, and has exactly three living neighbors,
+	it becomes alive (a birth).</li>
+    <li>If a cell is dead, and has less than three or more than three
+	living neighbors, it remains dead.</li>
+    <li>If a cell is alive, and has two or three living neighbors,
+	it remains alive.</li>
+    <li>If a cell is alive, and has less than two or more than three
+	living neighbors, it dies.</li>
+</ul></p>
+
+<p>All cells change state simultaneously.
+By successively repeating this operation, patterns evolve.</p>
+
+<p>To avoid confusion, on these pages, the term <i>cell</i> refers to a
+cell as an entity that can be in one of several different states, while the
+term <i>bit</i> always refers to a cell that is alive, and is generally used
+for counting purposes. For example, a
+<a class="i" href="p1-12.htm">12-bit still-life</a> is a
+<a class="j" href="#p1">still-life</a> that has exactly 12 living cells.</p>
+
+<p>Most of the other definitions on this page apply not only to Life,
+but also to many <a class="i" href="liferule.htm">other cellular automata</a>
+with different states, neighborhoods or transition rules.</p>
+
+<p>Patterns are usually characterized by their behavior:</p>
+<p><ul>
+    <li><b>Type I (<a class="j" href="#p1">still-lifes</a>)</b>:
+	these patterns have no births and no deaths, and never change.</li>
+    <li><b>Type II (<a class="j" href="#osc">oscillators</a>)</b>:
+	these patterns evolve through a fixed sequence of states
+	and eventually return to their original state..</li>
+    <li><b>Type III (<a class="j" href="#ss">spaceships</a>)</b>:
+	these patterns evolve through a fixed sequence of states
+	and eventually return to their original state, but
+	translated in space, moving at a constant velocity.</li>
+    <li><b>Type IV: </b>these patterns constantly increase in population:
+	<ul>
+	    <li><b>Type IVa (<a class="j" href="#gun">guns</a>)</b>:
+		these are oscillators that emit spaceships each cycle.</li>
+	    <li><b>Type IVb (<a class="j" href="#puff">puffers</a>)</b>:
+		these are spaceships that leave behind still-lifes,
+		oscillators, and/or spaceships each cycle.</li>
+	    <li><b>Type IVc (<a class="j" href="#breeder">breeders</a>)</b>:
+		these patterns increase their population quadratically:
+		<ul>
+		    <li><b>MMM (moving/moving/moving) breeders</b>:
+			puffers that emit puffers that emit spaceships</li>
+		    <li><b>MMS (moving/moving/still) breeders</b>:
+			puffers that emit puffers that emit still-lifes
+			and/or oscillators</li>
+		    <li><b>MSM (moving/still/moving) breeders</b>:
+			puffers that emit guns that emit spaceships</li>
+		    <li><b>SMM (still/moving/moving) breeders</b>:
+			guns that shoot puffers that emit spaceships</li>
+		</ul></li>
+	    <li>Other gun/puffer combinations that expand at other rates</li>
+	</ul></li>
+    <li><b>Type V (unstable)</b>:
+	these patterns evolve through a sequence of states that never return to
+	the original state. Small patterns that last a long time before
+	stabilizing are called
+	<a class="j" href="#meth">methuselahs</a>.</li>
+</ul></p>
+
+<hr />
+<a name="term"></a>
+<h2>Terms</h2>
+<p>The following terms are used frequently when discussing Life and other
+cellular automata. These are all basic terms that require little explanation.
+Terms with more complex definitions are described separately in subsequent
+sections.</p>
+<p><ul>
+    <li><b>Agar:</b>This is a pattern that repeats infinitely in two dimensions.
+	It is equivalent to Life on a torus, with (for example), the left
+	edge of the cylinder connected to the right edge, and the top edge
+	connected to the bottom edge.</li>
+    <li><b>Bit:</b>A living cell.</li>
+    <li><b>Cell:</b>A single location in a Life field. It may be in any one of
+	several different states (e.g. dead or alive.)</li>
+    <li><b>Composite period:</b>For oscillators and other repeating patterns,
+	if none of the cells oscillate with full period, and the full period
+	is just the LCM (lowest common multiple) of smaller sub-sections, the
+	period is composite (rather than true), and the oscillator is usually
+	not interesting in and of itself, except that it forms a trivial example
+	of a period that may not otherwise be obtainable.</li>
+    <li><b>Egg:</b>For puffers and guns, these are extra objects left behind
+	after the original puffer or gun returns to its initial configuration.</li>
+    <li><b>Generation:</b>The number of Life steps that have been applied to
+	the initial configuration of cells.</li>
+    <li><b>Heat:</b>This is a measure of the number of a pattern's activity. It
+	is defined as the average number of cells that change state each
+	generation. Due to its definition, heat is always rational. (For
+	non-repeating patterns, it may be measured asymptotically, e.g.
+	lim<sub><i>x</i>&#8594;&#8734;</sub>(heat of first <i>x</i> generations).
+	For unstable patterns like methuselahs, this becomes the heat of the
+	final census. For expanding patterns like still-life-making puffers
+	and still wick-stretchers, the growing parts have no effect on the
+	heat. For other expanding patterns like guns, other puffers and
+	breeders, the heat is infinite.)</li>
+    <li><b>Modulus:</b> Some repeating patterns re-form themselves multiple
+	times during their period, subject to rotation or reflection.
+	Oscillators that rotate 90 degrees do this four times, while those that
+	rotate 180 degrees, or that are reflected through an axis of symmetry,
+	as well as spaceships with glide symmetry (i.e. gliders) do so twice.
+	The modulus (or mod) is the length of time it takes to do this, which
+	is always the period divided by 1, 2, or 4. (This can also have other
+	values for rules with non-rectangular geometries. For example, with
+	a hexagonal grid, it can be period divided by 1, 2, 3 or 6).</li>
+    <li><b>Period:</b>For repeating patterns, this is the number of generations
+	after which the configuration of life cells returns to the same state as
+	that of the initial configuration, or a reasonable facsimile. (For
+	spaceships and puffers, this will be translated in space; for guns and
+	puffers, this will also include eggs.)</li>
+    <li><b>Population:</b>This is the number of bits in a pattern.</li>
+    <li><b>Temperature:</b>This is a measure of a pattern's volatility. It is
+	defined as heat divided by average population (or 0 for an empty field).
+	The minimum value is 0, for still-lifes (where no cells change), and the
+	maximum is 1, for phoenixes (where all cells change). Most patterns
+	lie somewhere between these two extremes. Unlike heat, temperature is
+	well-defined even for expanding patterns, and is asymptotic to the
+	temperature of the most rapidly expanding parts.</li>
+    <li><b>True period:</b>For oscillators and other repeating patterns,
+	if one or more cells oscillate with full period, the period is true,
+	and the oscillator is considered non-trivial.</li>
+    <li><b>Wick:</b>This is a pattern that repeats infinitely in one dimension.
+	It is equivalent to Life on a cylinder, with (for example), the left
+	edge of the cylinder connected to the right edge.</li>
+</ul></p>
+
+<hr />
+<a name="obj"></a>
+<h2>Object</h2>
+<p>An object is a pattern consisting of one or more closely-connected bits.
+In order to provide an unambiguous method of distinguish objects from
+non-objects, the definition of "close" is defined precisely:</p>
+
+<p>Any bit (i.e. living cell) forms an object.</p>
+<p><a class="p" href="stamp/exobj1.rle"><img src="map/exobj1.png"
+ alt="bit object" width="81" height="61" usemap="#exobj1" /></a></p>
+
+<map name="exobj1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" nohref="nohref" />
+	<area coords="0,0,80,60" href="stamp/exobj1.rle" />
+</map>
+
+<p>If two objects contains any bits that are neighbors of each other, they are
+a single connected object. In Life, this includes any bits adjacent to each
+other either orthogonally or diagonally.</p>
+<p><a class="p" href="stamp/exobj2.rle"><img src="map/exobj2.png"
+ alt="connected objects" width="321" height="61" usemap="#exobj2" /></a></p>
+
+<map name="exobj2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="301,0,320,19" nohref="nohref" />
+	<area coords="0,0,320,60" href="stamp/exobj2.rle" />
+</map>
+
+<p>If two unconnected objects interact with each other so that they cause births
+that would otherwise not occur, or suppress births that would otherwise occur,
+they form a single spatially-connected object.</p>
+<p><a class="p" href="stamp/exobj3.rle"><img src="map/exobj3.png"
+ alt="spatial objects" width="321" height="81" usemap="#exobj3" /></a><br />
+    <table width="325">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6ac.rle">Carrier [4]</a></td>
+	<td><a class="p" href="10/10-25.rle">10.25; Block on table [4]</a></td>
+	<td><a class="p" href="13/13-221.rle">
+	    13.221; Up bun on snake [7]</a></td>
+	<td><a class="p" href="11/11snbt1.rle">
+	    Glider- snake collision adding "boat-bit" [3]</a></td>
+	<td><a class="p" href="ss/20mwmw1.rle">MWSS on MWSS #1 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="exobj3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/exobj3.zip" />
+	<area coords="301,61,320,80" href="stamp/exobj3.rle" />
+	<area coords="0,0,69,80" href="0/6ac.rle" />
+	<area coords="70,0,129,80" href="10/10-25.rle" />
+	<area coords="130,0,189,80" href="13/13-221.rle" />
+	<area coords="190,0,249,80" href="11/11snbt1.rle" />
+	<area coords="250,0,320,80" href="ss/20mwmw1.rle" />
+</map>
+
+<p>If two or more unconnected objects are adjacent to each other in such a way
+that some empty cells change from being sterile due to under-population to
+being sterile due to over-population, but they do not affect each other, they
+do <i>not</i> automatically form an object; these form a
+<i>pseudo-object</i>.</p>
+<p><a class="p" href="stamp/exobj4.rle"><img src="map/exobj4.png"
+ alt="simple pseudo-objects"
+ width="261" height="81" usemap="#exobj4" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/8bkbk.rle">Block on block [2]</a></td>
+	<td><a class="p" href="12/12snsn4.rle">
+	    Down snake below snake [8]</a></td>
+	<td><a class="p" href="10/10bcbk.rle">Block on beacon [4]</a></td>
+	<td><a class="p" href="ss/26hwhw3.rle">HWSS on HWSS #3 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="exobj4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/exobj4.zip" />
+	<area coords="241,61,260,80" href="stamp/exobj4.rle" />
+	<area coords="0,0,69,80" href="0/8bkbk.rle" />
+	<area coords="70,0,129,80" href="12/12snsn4.rle" />
+	<area coords="130,0,189,80" href="10/10bcbk.rle" />
+	<area coords="190,0,260,80" href="ss/26hwhw3.rle" />
+</map>
+
+<p>If three or more unconnected objects are adjacent to each other in such a
+way that there exists any way of partitioning these objects into two distinct
+sets, such that the combined objects in one set do not affect the combined
+objects in the other set, these objects do <i>not</i> automatically form a
+single object, even if there is some partition where they <i>do</i> affect one
+another. They form a <i>pseudo-object</i>. The third example, found by Pavel
+Podgoretsky, was the first pseudo-object where the pieces <i>must</i> be
+partitioned into more than two distinct sets. Gabriel Nivasch subsequently
+found the next two examples. The fourth example is a smaller one with similar
+properties, and the fifth one requires partitioning into four distinct sets.
+The Four Color Map Theorem can show that no more than four distinct sets will
+ever be required.</p>
+<p><a class="p" href="stamp/exobj5.rle"><img src="map/exobj5.png"
+ alt="complex pseudo-objects"
+ width="401" height="81" usemap="#exobj5" /></a><br />
+    <table width="405">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="16/16bbkbbk.rle">
+	    Two blocks on two blocks [4]</a></td>
+	<td><a class="p" href="18/18ssbkbk.rle">
+	    Two blocks on snake siamese snake [18]</a></td>
+	<td class="r"><a class="p" href="lg/44bta4bk.rle">
+	    Four blocks on table around block [x+34]</a></td>
+	<td class="r"><a class="p" href="lg/32ht2s2b.rle">
+	    Two hooks w/ tail and two snakes on block [x]</a></td>
+	<td class="r"><a class="p" href="lg/34hbsshb.rle">
+	    Hook w/ tail bit snake on snake and hat and block [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="exobj5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="381,0,400,19" href="zip/exobj5.zip" />
+	<area coords="381,61,400,80" href="stamp/exobj5.rle" />
+	<area coords="0,0,89,80" href="16/16bbkbbk.rle" />
+	<area coords="90,0,169,80" href="18/18ssbkbk.rle" />
+	<area coords="170,0,249,80" href="lg/44bta4bk.rle" />
+	<area coords="250,0,329,80" href="lg/32ht2s2b.rle" />
+	<area coords="330,0,400,80" href="lg/34hbsshb.rle" />
+</map>
+
+<p>When dealing with periodic objects over their entire lifespan, such as
+<a class="j" href="#osc">oscillators</a> and
+<a class="j" href="#ss">spaceships</a>, if any components form a single object
+together in any generation, they are considered to form a single object in all
+generations. (This only applies when considering all generations as a whole;
+when only considering a single generation at a time, this rule is not
+applicable.)</p>
+<p><a class="p" href="stamp/exobj6.rle"><img src="map/exobj6.png"
+ alt="simple temporal objects"
+ width="581" height="101" usemap="#exobj6" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6bc.rle">Beacon [3]</a></td>
+	<td><a class="p" href="16/16ux.rle">Unix [6]</a></td>
+	<td><a class="p" href="15/15br.rle">Blocker [6]</a></td>
+	<td><a class="p" href="12/12pc.rle">Penta- decath- lon [3]</a></td>
+	<td><a class="p" href="lg/28pcpc7.rle">
+	    Penta- decath- lon on penta- decath- lon #7 [8]</a></td>
+	<td><a class="p" href="ss/29hwhw7.rle">HWSS on HWSS #7 [7]</a></td>
+	<td><a class="p" href="ss/31l7l11.rle">
+	    LWSS on 7WSS on LWSS #1 [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="exobj6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/exobj6.zip" />
+	<area coords="561,81,580,100" href="stamp/exobj6.rle" />
+	<area coords="0,0,89,100" href="0/6bc.rle" />
+	<area coords="90,0,169,100" href="16/16ux.rle" />
+	<area coords="170,0,249,100" href="15/15br.rle" />
+	<area coords="250,0,329,100" href="12/12pc.rle" />
+	<area coords="330,0,409,100" href="lg/28pcpc7.rle" />
+	<area coords="410,0,489,100" href="ss/29hwhw7.rle" />
+	<area coords="490,0,580,100" href="ss/31l7l11.rle" />
+</map>
+
+<p>The above also applies, even if the interaction between individual components
+is completely trivial, either forming attachments between dying bits, or
+creating additional births that die unobtrusively, or suppressing births that
+would otherwise die unobtrusively.</p>
+<p><a class="p" href="stamp/exobj7.rle"><img src="map/exobj7.png"
+ alt="complex temporal objects"
+ width="521" height="121" usemap="#exobj7" /></a><br />
+    <table width="525">
+    <colgroup><col width="111" /><col span="3" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="24/24pcpc4.rle">
+	    Pentadec- athlon on pentadec- athlon #4 [8]</a></td>
+	<td><a class="p" href="19/19pcet.rle">
+	    Eater eating pentadec- athlon [6]</a></td>
+	<td><a class="p" href="lg/30brbr2.rle">
+	    Two trans blockers [16]</a></td>
+	<td><a class="p" href="lg/32uxux2.rle">
+	    Two trans unices [14]</a></td>
+	<td><a class="p" href="ss/26hwhw4.rle">
+	    HWSS on HWSS #4 [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="exobj7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/exobj7.zip" />
+	<area coords="501,101,520,120" href="stamp/exobj7.rle" />
+	<area coords="0,0,109,120" href="24/24pcpc4.rle" />
+	<area coords="110,0,209,120" href="19/19pcet.rle" />
+	<area coords="210,0,309,120" href="lg/30brbr2.rle" />
+	<area coords="310,0,409,120" href="lg/32uxux2.rle" />
+	<area coords="410,0,520,120" href="ss/26hwhw4.rle" />
+</map>
+
+<hr />
+<a name="pobj"></a>
+<h2>Pseudo-object</h2>
+<p>A pseudo-object is a pattern that, although not quite meeting the criteria
+necessary to be a single <a class="j" href="#obj">object</a>,
+is nevertheless closely connected.</p>
+
+<p>If two unconnected objects are adjacent to one another in such a way
+that any empty cells between then do not cause new births, but have
+a neighborhood that could form a birth if some if its cells
+were removed (in Life, this means four or more neighbors),
+the objects combine to form a pseudo-object. (See
+<a class="j" href="#obj">previous section</a>
+for a more rigorous description).</p>
+
+<hr />
+<a name="p1"></a>
+<h2>Still-life</h2>
+<p>A <a class="i" href="p1.htm">still-life</a> is an
+<a class="j" href="#obj">object</a> where all bits survive,
+and no new births are formed. For example:</p>
+<p><a class="p" href="stamp/exp1.rle"><img src="map/exp1.png"
+ alt="still-lifes" width="441" height="81" usemap="#exp1" /></a><br />
+    <table width="445">
+    <colgroup><col width="71" /><col span="5" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/4bk.rle">Block [2]</a></td>
+	<td><a class="p" href="0/6ac.rle">Carrier [6]</a></td>
+	<td><a class="p" href="10/10-25.rle">10.25; Block on table [4]</a></td>
+	<td><a class="p" href="12/12-121.rle">
+	    12.121; Super beehive [6]</a></td>
+	<td><a class="p" href="14/14-79.rle">14.79; Paperclip [3]</a></td>
+	<td><a class="p" href="15/15-243.rle">
+	    15.243; Moose antlers [4]</a></td>
+	<td><a class="p" href="20/20-88034.rle">
+	    20. 88034; Small lake [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="exp1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/exp1.zip" />
+	<area coords="421,61,440,80" href="stamp/exp1.rle" />
+	<area coords="0,0,69,80" href="0/4bk.rle" />
+	<area coords="70,0,129,80" href="0/6ac.rle" />
+	<area coords="130,0,189,80" href="10/10-25.rle" />
+	<area coords="190,0,249,80" href="12/12-121.rle" />
+	<area coords="250,0,309,80" href="14/14-79.rle" />
+	<area coords="310,0,369,80" href="15/15-243.rle" />
+	<area coords="370,0,440,80" href="20/20-88034.rle" />
+</map>
+
+<hr />
+<a name="eater"></a>
+<h2>Eater</h2>
+<p>An eater is a <a class="j" href="#p1">still-life</a> (or sometimes an
+<a class="j" href="#pp1">pseudo-still-life</a> or
+<a class="j" href="#cons">constellation</a>) that can eat other objects, or parts of
+other objects, which may temporarily damage or destroy the eater, but the eater
+later re-appears unchanged. For example:</p>
+<p><a class="p" href="stamp/exeater.rle"><img src="map/exeater.png"
+ alt="eaters" width="621" height="81" usemap="#exeater" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/4bk.rle">Block [2]</a></td>
+	<td><a class="p" href="0/4tb.rle">Tub [3]</a></td>
+	<td><a class="p" href="0/7et.rle">Eater; Eater-1; Fishhook [2]</a></td>
+	<td><a class="p" href="12/12e5.rle">Eater-5 [6]</a></td>
+	<td><a class="p" href="18/18-13721.rle">18.13721; Century eater [9]</a></td>
+	<td><a class="p" href="19/19-11763.rle">19.11763; Eater-2 [16]</a></td>
+	<td><a class="p" href="23/23ge.rle">Glider eater [12-14]</a></td>
+	<td><a class="p" href="25/25b1gl.rle">B1 glider eater [21]</a></td>
+	<td class="y"><a class="p" href="lg/37e3lf.rle">
+	    Eater-3 [72]</a></td>
+	<td class="y"><a class="p" href="lg/39ve3lf.rle">
+	    Variant eater-3 [42]</a></td>
+    </tr>
+</table></p>
+
+<map name="exeater">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/exeater.zip" />
+	<area coords="601,61,620,80" href="stamp/exeater.rle" />
+	<area coords="0,0,69,80" href="0/4bk.rle" />
+	<area coords="70,0,129,80" href="0/4tb.rle" />
+	<area coords="130,0,189,80" href="0/7et.rle" />
+	<area coords="190,0,249,80" href="12/12e5.rle" />
+	<area coords="250,0,309,80" href="18/18-13721.rle" />
+	<area coords="310,0,369,80" href="19/19-11763.rle" />
+	<area coords="370,0,429,80" href="23/23ge.rle" />
+	<area coords="430,0,489,80" href="25/25b1gl.rle" />
+	<area coords="490,0,549,80" href="lg/37e3lf.rle" />
+	<area coords="550,0,620,80" href="lg/39ve3lf.rle" />
+</map>
+
+<hr />
+<a name="rock"></a>
+<h2>Rock</h2>
+<p>A rock is a <a class="j" href="#p1">still-life</a> (or sometimes a
+<a class="j" href="#pp1">pseudo-still-life</a> or
+<a class="j" href="#osc">oscillator</a>) that is an eater, but with the
+additional property that its own behavior is never altered in the process.
+For example:</p>
+<p><a class="p" href="stamp/exrock.rle"><img src="map/exrock.png"
+ alt="eaters" width="421" height="61" usemap="#exrock" /></a><br />
+    <table width="425">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/4bk.rle">Block [2]</a></td>
+	<td><a class="p" href="0/7et.rle">Eater; Eater-1; Fishhook [2]</a></td>
+	<td><a class="p" href="0/3bl.rle">Blinker [2]</a></td>
+	<td><a class="p" href="0/6ck.rle">Clock [4]</a></td>
+	<td><a class="p" href="12/12kt.rle">Killer toads [6]</a></td>
+	<td><a class="p" href="lg/32kcf.rle">
+	    Killer candel- frobras [12-16]</a></td>
+    </tr>
+</table></p>
+
+<map name="exrock">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/exrock.zip" />
+	<area coords="401,41,420,60" href="stamp/exrock.rle" />
+	<area coords="0,0,69,60" href="0/4bk.rle" />
+	<area coords="70,0,129,60" href="0/7et.rle" />
+	<area coords="130,0,189,60" href="0/3bl.rle" />
+	<area coords="190,0,249,60" href="0/6ck.rle" />
+	<area coords="250,0,309,60" href="12/12kt.rle" />
+	<area coords="310,0,420,60" href="lg/32kcf.rle" />
+</map>
+
+<hr />
+<a name="pp1"></a>
+<h2>Pseudo-still-life</h2>
+<p>A <a class="i" href="pp1.htm">pseudo-still-life</a> is a
+<a class="j" href="#pobj">pseudo-object</a>
+where all bits survive, and no new births are formed. For example:</p>
+<p><a class="p" href="stamp/expp1.rle"><img src="map/expp1.png"
+ alt="pseudo-still-lifes"
+ width="541" height="81" usemap="#expp1" /></a><br />
+    <table width="545">
+    <colgroup><col width="71" /><col span="4" width="60" />
+	<col span="2" width="80" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8bkbk.rle">
+	    Block on block [2]</a></td>
+	<td><a class="p" href="12/12snsn4.rle">
+	    Down snake below snake [8]</a></td>
+	<td><a class="p" href="12/12bkbkbk.rle">
+	    Block on block on block [4]</a></td>
+	<td><a class="p" href="16/16bbkbbk.rle">
+	    Two blocks on two blocks [4]</a></td>
+	<td><a class="p" href="18/18ssbkbk.rle">
+	    Two blocks on snake siamese snake [18]</a></td>
+	<td class="r"><a class="p" href="lg/32ht2s2b.rle">
+	    Two hooks w/ tail and two snakes on block [x]</a></td>
+	<td class="r"><a class="p" href="lg/34hbsshb.rle">
+	    Hook w/ tail bit snake on snake and hat and block [x]</a></td>
+	<td class="r"><a class="p" href="lg/44bta4bk.rle">
+	    Four blocks on table around block [x+34]</a></td>
+    </tr>
+</table></p>
+
+<map name="expp1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="521,0,540,19" href="zip/expp1.zip" />
+	<area coords="521,61,540,80" href="stamp/expp1.rle" />
+	<area coords="0,0,69,80" href="0/8bkbk.rle" />
+	<area coords="70,0,129,80" href="12/12snsn4.rle" />
+	<area coords="130,0,189,80" href="12/12bkbkbk.rle" />
+	<area coords="190,0,249,80" href="16/16bbkbbk.rle" />
+	<area coords="250,0,309,80" href="18/18ssbkbk.rle" />
+	<area coords="310,0,389,80" href="lg/32ht2s2b.rle" />
+	<area coords="390,0,469,80" href="lg/34hbsshb.rle" />
+	<area coords="470,0,540,80" href="lg/44bta4bk.rle" />
+</map>
+
+<hr />
+<a name="osc"></a>
+<h2>Oscillator</h2>
+<p>An <a class="i" href="osc.htm">oscillator</a> is an
+<a class="j" href="#obj">object</a> that, after several generations, returns
+to its original state. Objects that return to their original state in 1
+generation are <a class="j" href="#p1">still-lifes</a>,
+and are not considered oscillators.</p>
+
+<p>Terms used to describe electric motors can also describe parts of
+oscillators:</p>
+<p><ul>
+    <li>The <b>rotor</b> consists of the cells of the oscillator that
+	change from generation to generation.</li>
+    <li>The <b>stator</b> consists of the cells of the oscillator that
+	never change (and also includes vital dead cells).</li>
+    <li>The <b>bushing</b> is the part of the stator that borders on the
+	rotor, and affects its function.</li>
+    <li>The <b>casing</b> is the part of the stator that not touch
+	the rotor, and that is used to support the bushing.</li>
+    <li><b>Sparks</b> are dying bits that are emitted by an oscillator
+	that have no effect on its function, but that are sometimes
+	useful for other purposes, such as modifying other oscillators.</li>
+    <li><b>Eggs</b> are thrown off like sparks, but do not die, so they
+	must normally be removed or suppressed by some other means.</li>
+</ul></p>
+
+<p>Oscillators are often classified by their form or function:</p>
+
+<p><ul>
+    <li>A <b>flip-flop</b> is a period 2 oscillator where all rotor bits
+	die from underpopulation.</li>
+    <li>An <b>on-off</b> is a period 2 oscillator where all rotor bits
+	die from over-population. Some period 2 oscillators combine
+	both flip-flop and on-off components.</li>
+    <li>A <b>phoenix</b> is an oscillator where every living bit dies in
+	every generation. Most such oscillators are period 2.</li>
+    <li>A <b>pulsator</b> is a larger-period oscillator with the rotor on
+	the outside, and usually little or no stator.</li>
+    <li>An <b>inductor</b> is a pulsator with a line of symmetry that is
+	used to suppress births.</li>
+    <li>A <b>billiard table</b> configuration (BTC) is an oscillator with the
+	stator on the outside totally surrounding the rotor.</li>
+    <li>A <b>shuttle</b> is a larger-period pulsator with no stator, where the
+	oscillator moves from place to place during the course of its
+	oscillation, typically being rotated or reflected in the process.</li>
+    <li>A <b>sparker</b> is an oscillator that throws off
+	<a class="j" href="#spark">sparks</a> that are useful for building
+	other oscillators, etc.</li>
+    <li>A <b>hassler</b> is an oscillator whose rotor creates
+	projections that can affect other oscillators without being
+	damaged.</li>
+    <li>An <b>eater-bound</b> oscillator has an object that is attacked by
+	one or more still-life <i>eaters</i> that affect its behavior.
+	Common eaters are the <a class="p" href="0/4bk.rle">block</a>,
+	<a class="p" href="0/4tb.rle">tub</a>, and
+	<a class="p" href="0/7et.rle">eater</a>, although many more complex eaters
+	have been designed for specialized purposes.</li>
+    <li>An <b>sparked</b> oscillator is has an object that is attacked by one
+	or more <a class="j" href="#spark">sparkers</a>
+	that affect its behavior.</li>
+    <li>An <b>hassled</b> oscillator is an object whose behavior is
+	altered by one or more other objects, including eaters,
+	<a class="j" href="#spark">sparkers</a>, or hasslers.</li>
+    <li>An <b>babbling brook</b> is an oscillator whose rotor consists of
+	a string of single cells connected end to end. (A <b>muttering moat</b>
+	is similar, with the ends joined together to form a closed loop).
+	These oscillators are equivalent to one-dimensional cellular automata,
+	and easy to model. Unfortunately, due to the constraints imposed by
+	Life, only a small number of non-trivial variants of such oscillators
+	can exist, because it is usually quite difficult to create bushing
+	cells that remain stable in every state of the rotor.</li>
+</ul></p>
+
+<p><a class="p" href="stamp/exosc.rle"><img src="map/exosc.png"
+ alt="oscillators" width="441" height="141" usemap="#exosc" /></a><br />
+    <table width="445">
+    <colgroup><col width="71" /><col span="5" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/3bl.rle">
+	    Blinker [2]</a> (flip- flop, muttering moat)</td>
+	<td><a class="p" href="0/6bc.rle">
+	    Beacon [3]</a> (on-off, babbling brook)</td>
+	<td><a class="p" href="12/12px.rle">
+	    Phoenix [10]</a> (flip- flop, phoenix)</td>
+	<td><a class="p" href="12/12ca.rle">
+	    Caterer [11]</a> (puls- ator, hassler)</td>
+	<td><a class="p" href="16/16tu.rle">
+	    Tumbler [6]</a> (puls- ator, in- ductor)</td>
+	<td rowspan="2"><a class="p" href="lg/37p8hz.rle">
+	    Hertz oscillator [11]</a> (BTC)</td>
+	<td rowspan="2"><a class="p" href="lg/42p15aj.rle">
+	    Al Jolson [13]</a> (sparked)</td>
+    </tr>
+
+    <tr>
+	<td colspan="3"><a class="p" href="23/23bqbet1.rle">
+	    Cis buckaroo [6]</a> (shuttle, eater- bound, sparker)</td>
+	<td colspan="2"><a class="p" href="lg/39ca2lf.rle">
+	    Loaf hassled by two blocks and two caterers [52]</a>
+	    (eater- bound, hassled)</td>
+    </tr>
+</table></p>
+
+<map name="exosc">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/exosc.zip" />
+	<area coords="421,121,440,140" href="stamp/exosc.rle" />
+	<area coords="0,0,69,69" href="0/3bl.rle" />
+	<area coords="70,0,129,69" href="0/6bc.rle" />
+	<area coords="130,0,189,69" href="12/12px.rle" />
+	<area coords="190,0,249,69" href="12/12ca.rle" />
+	<area coords="250,0,309,69" href="16/16tu.rle" />
+	<area coords="310,0,369,140" href="lg/37p8hz.rle" />
+	<area coords="370,0,440,140" href="lg/42p15aj.rle" />
+	<area coords="0,70,189,140" href="23/23bqbet1.rle" />
+	<area coords="190,70,309,140" href="lg/39ca2lf.rle" />
+</map>
+
+<hr />
+<a name="spark"></a>
+<h2>Sparker</h2>
+<p>A sparker is a special kind of <a class="j" href="#osc">oscillator</a>
+that throws off sparks, i.e. dying bits at the edge of the object, or a
+part of the object at the edge that protrudes. These can be useful to
+provide momentary alterations of neighborhoods of cells in another object, to
+either cause additional births, or suppress unwanted ones. There are several
+categories of sparks that are commonly seen:</p>
+<p><ul>
+    <li><b>Bit</b>: a single detached bit at an edge.</li>
+    <li><b>Domino</b>: two orthogonally connected detached bits at an
+	edge, parallel to that edge.</li>
+    <li><b>Delayed domino</b>: a domino spark where one bit appears first,
+	and the other is added later.</li>
+    <li><b>Fountain bit</b>: a single bit at an edge, with no other bits in
+	the two rows behind it.</li>
+    <li><b>Fountain domino</b>: two orthogonally connected bits at an edge,
+	with no other bits in the two rows behind it.</li>
+    <li><b>Diagonal bit</b>: a single detached bits at a corner.</li>
+    <li><b>Diagonal domino</b>: two diagonally connected detached bits at a
+	corner.</li>
+    <li><b>Vertical domino</b>: two detached back-to-back bits at an
+	edge, perpendicular to that edge. Oscillators that make these are
+	called pipsquirters.</li>
+    <li><b>Finger</b>: like a vertical domino, except attached orthogonally to
+	something else at the back.</li>
+    <li><b>Thumb</b>: like a bit, but attached diagonally to something
+	else.</li>
+</ul></p>
+
+<hr />
+<a name="posc"></a>
+<h2>Pseudo-oscillator</h2>
+<p>A <a class="i" href="posc.htm">pseudo-oscillator</a> is a
+<a class="j" href="#pobj">pseudo-object</a> that, after several
+generations, returns to its original state.
+Pseudo-objects that return to their original state in 1 generation are
+<a class="j" href="#pp1">pseudo-still-lifes</a>,
+and are not considered pseudo-oscillators.</p>
+
+<p><a class="p" href="stamp/exposc.rle"><img src="map/exposc.png"
+ alt="pseudo-oscillators" width="201" height="101" usemap="#exposc" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12tdtd1.rle">
+	    Up toad on toad [5]</a></td>
+	<td><a class="p" href="10/10bcbk.rle">
+	    Block on beacon [4]</a></td>
+	<td><a class="p" href="24/24pcpc3.rle">
+	    Pentadec- athlon on pentadec- athlon #3 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="exposc">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/exposc.zip" />
+	<area coords="181,81,200,100" href="stamp/exposc.rle" />
+	<area coords="0,0,69,100" href="12/12tdtd1.rle" />
+	<area coords="70,0,129,100" href="10/10bcbk.rle" />
+	<area coords="130,0,200,100" href="24/24pcpc3.rle" />
+</map>
+
+<hr />
+<a name="ss"></a>
+<h2>Spaceship</h2>
+<p>A <a class="i" href="ss.htm">spaceship</a> is an
+<a class="j" href="#obj">object</a> that, after several generations, returns
+to its original state, but translated in space. Objects that return to their
+original state without moving are
+<a class="j" href="#osc">oscillators</a>,
+and are not considered spaceships. Many spaceships also produce
+<a class="j" href="#spark">sparks</a>. Sparks at the back of the spaceship
+are called tails parks, while those at the sides are called belly sparks.</p>
+
+<p><a class="p" href="stamp/exss.rle"><img src="map/exss.png"
+ alt="spaceships" width="501" height="81" usemap="#exss" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/5gl.rle">
+	    Glider [2]</a></td>
+	<td><a class="p" href="ss/9lw.rle">
+	    Light- weight space- ship (LWSS) [3]</a></td>
+	<td><a class="p" href="ss/11mw.rle">
+	    Middle- weight space- ship (MWSS) [3]</a></td>
+	<td><a class="p" href="ss/13hw.rle">
+	    Heavy- weight space- ship (HWSS) [3]</a></td>
+	<td><a class="p" href="ss/24hwsc.rle">
+	    Sidecar on HWSS [8]</a></td>
+	<td class="r"><a class="p" href="ss/30hwx33.rle">
+	    Half of X66 on HWSS [x]</a></td>
+	<td><a class="p" href="ss/39lsl.rle">
+	    Schick ship behind two LWSS [10]</a></td>
+	<td><a class="p" href="ss/28coelw.rle">
+	    LWSS on Coe ship [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="exss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/exss.zip" />
+	<area coords="481,61,500,80" href="stamp/exss.rle" />
+	<area coords="0,0,69,80" href="ss/5gl.rle" />
+	<area coords="70,0,129,80" href="ss/9lw.rle" />
+	<area coords="130,0,189,80" href="ss/11mw.rle" />
+	<area coords="190,0,249,80" href="ss/13hw.rle" />
+	<area coords="250,0,309,80" href="ss/24hwsc.rle" />
+	<area coords="310,0,369,80" href="ss/30hwx33.rle" />
+	<area coords="370,0,429,80" href="ss/39lsl.rle" />
+	<area coords="430,0,489,80" href="ss/28coelw.rle" />
+	<area coords="490,0,500,80" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pss"></a>
+<h2>Pseudo-spaceship</h2>
+<p>A pseudo-spaceship is an <a class="j" href="#pobj">pseudo-object</a> that,
+after several generations, returns to its original state, but translated in
+space. Pseudo-objects that return to their original state without moving are
+<a class="j" href="#posc">pseudo-oscillators</a>,
+and are not considered pseudo-spaceships.</p>
+
+<p><a class="p" href="stamp/expss.rle"><img src="map/expss.png"
+ alt="pseudo-spaceships" width="241" height="81" usemap="#expss" /></a><br />
+    <table width="245">
+    <colgroup><col width="91" /><col width="80" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/18lwlw.rle">
+	    LWSS on LWSS [7]</a></td>
+	<td><a class="p" href="ss/25hwlw8.rle">
+	    LWSS on HWSS #8 [7]</a></td>
+	<td><a class="p" href="ss/26hwhw3.rle">
+	    HWSS on HWSS #3 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="expss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="221,0,240,19" href="zip/expss.zip" />
+	<area coords="221,61,240,80" href="stamp/expss.rle" />
+	<area coords="0,0,89,80" href="ss/18lwlw.rle" />
+	<area coords="90,0,169,80" href="ss/25hwlw8.rle" />
+	<area coords="170,0,240,80" href="ss/26hwhw3.rle" />
+</map>
+
+<hr />
+<a name="flot"></a>
+<h2>Spaceship Flotilla (Flotilla)</h2>
+<p>An <a class="i" href="flotilla.htm">spaceship flotilla</a> (or just flotilla)
+is a collection of two or more <a class="j" href="#ss">spaceships</a>
+traveling in tandem. Some of the spaceships may escort mechanisms that are
+not able to travel by themselves, or they may interact trivially with each
+other. Many flotillae are themselves technically just spaceships or
+pseudo-spaceships; however, it is usually easier to discuss them separately.
+Flotillae that are not objects (i.e. multiple independent spaceships
+traveling in tandem, separated by a small distance) are not detailed on
+these pages, because there are infinitely many of them.</p>
+
+<p><a class="p" href="stamp/exflot.rle"><img src="map/exflot.png"
+ alt="spaceship flotillae" width="421" height="81" usemap="#exflot" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="100" />
+	<col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/23mwlw3.rle">
+	    LWSS on MWSS #3 [7]</a></td>
+	<td><a class="p" href="ss/24hwsc.rle">
+	    Sidecar on HWSS [8]</a></td>
+	<td class="r"><a class="p" href="ss/30hwx33.rle">
+	    Half of X66 on HWSS [x]</a></td>
+	<td><a class="p" href="ss/31l7l11.rle">
+	    LWSS on 7WSS on LWSS #1 [12]</a></td>
+	<td><a class="p" href="ss/28coelw.rle">
+	    LWSS on Coe ship [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="exflot">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/exflot.zip" />
+	<area coords="401,61,420,80" href="stamp/exflot.rle" />
+	<area coords="0,0,69,80" href="ss/23mwlw3.rle" />
+	<area coords="70,0,129,80" href="ss/24hwsc.rle" />
+	<area coords="130,0,189,80" href="ss/30hwx33.rle" />
+	<area coords="190,0,269,80" href="ss/31l7l11.rle" />
+	<area coords="270,0,329,80" href="ss/28coelw.rle" />
+	<area coords="330,0,420,80" nohref="nohref" />
+</map>
+
+<hr />
+<a name="gun"></a>
+<h2>Spaceship Gun (Gun)</h2>
+<p>A <a class="i" href="gun.htm">spaceship gun</a> (or gun) is an
+<a class="j" href="#osc">oscillator</a> that creates eggs that are
+<a class="j" href="#ss">spaceships</a> that can safely escape.
+The population of a gun increases linearly with time.</p>
+
+<p>Guns that emit <a class="j" href="#puff">puffer trains</a> are
+<a class="j" href="#breeder">SMM breeders</a>, and have populations that increase
+quadratically with time.</p>
+
+<p>Glider guns (i.e. guns that emit gliders) can be constructed for all
+periods 56 and higher, and guns of many lower periods are known. Guns that
+emit glider streams of any period 14 and up can be constructed, but even though
+the glider stream has a period as low as 14, the the gun itself typically has
+a period that is some larger multiple of the stream period.</p>
+
+<p>For example, one can construct a gun that shoots gliders 14 generations apart
+using base period 30 guns by creating a slow period 210 gun by using several base
+guns and a reaction that divide the period by seven, then using many such gun to
+create and align 15 period 210 glider streams in the same lane.</p>
+
+<p>Since the three simple <i>c</i>/2 orthogonal spaceships can be constructed
+from gliders, guns (also known as factories) for these spaceships of the same
+periods can be constructed.
+<a class="p" href="ss/9lw.rle">Light-weight spaceship</a> streams must at least
+period 24. <a class="p" href="ss/11mw.rle">Middle-weight spaceship</a> streams
+must at least period 28.
+<a class="p" href="ss/13hw.rle">Heavy-weight spaceship</a> streams must at least
+period 32. (Theoretically, streams as dense as periods 14, 16, and 18
+respectively could be created, but there are currently no known synthesis
+techniques to do so).</p>
+
+<p><a class="p" href="stamp/exgun.rle"><img src="map/exgun.png"
+ alt="spaceship guns" width="441" height="301" usemap="#exgun" /></a><br />
+    <table width="445">
+    <colgroup><col width="211" /><col width="232" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/g30gl.rle">Period-30 glider gun [8]</a></td>
+	<td>Period-46 glider gun</td>
+    </tr>
+
+    <tr>
+	<td colspan="2">Period-30 LWSS factory</td>
+    </tr>
+</table></p>
+
+<map name="exgun">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,281,19,300" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/exgun.zip" />
+	<area coords="421,281,440,300" href="stamp/exgun.rle" />
+	<area coords="0,0,209,129" href="ss/g30gl.rle" />
+	<area coords="210,0,440,129" nohref="nohref" />
+	<area coords="0,130,440,300" nohref="nohref" />
+</map>
+
+<hr />
+<a name="puff"></a>
+<h2>Puffer Train (Puffer)</h2>
+<p>A <a class="i" href="puff.htm">puffer train</a> (or puffer) is a
+<a class="j" href="#ss">spaceship</a> that emits debris,
+that may be anything that does not move with the same velocity as the
+puffer train, such as <a class="j" href="#p1">still-lifes</a>,
+<a class="j" href="#osc">oscillators</a>, or
+<a class="j" href="#ss">spaceships</a>.</p>
+<p><ul>
+    <li>Puffer trains that leave no debris are called clean puffers, and are
+	actually just <a class="j" href="#ss">spaceships</a>, and are generally
+	not considered with other puffers; however, such clean puffers can often
+	be sparked to produce debris, and are thus often form the basis for
+	larger puffers.</li>
+    <li>Puffers trains that produce a fixed number of objects of increasing
+	population are called <i>wick-stretchers</i>, as their output may
+	considered to be an ever-growing sub-section of a wick.</li>
+    <li>Wick-stretchers that stretch oscillating wicks (as opposed to
+	still-lies) are called <i>taffy-pullers</i>.</li>
+    <li>Puffer trains that leave <a class="j" href="#gun">spaceship guns</a> or
+	other puffer trains are <a class="j" href="#breeder">breeders</a>, and have
+	populations that increase quadratically with time.</li>
+    <li>Breeders that generate a single expanding object are called
+	<i>space-fillers</i>, and their output may be considered to be an
+	ever-growing sub-section of an agar.</li>
+</ul></p>
+
+<p><a class="p" href="stamp/expuff.rle"><img src="map/expuff.png"
+ alt="puffer trains" width="621" height="261" usemap="#expuff" /></a><br />
+    <table width="625">
+    <colgroup><col width="251" /><col span="2" width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/12swbk.rle">
+	    Corderman's block-making switch engine [5]</a></td>
+	<td><a class="p" href="ss/p8rtwbl.rle">
+	    Wainwright's P8 blinker puffer [10]</a></td>
+	<td><a class="p" href="ss/p24djbtb.rle">
+	    Buckingham's P24 tub puffer [9]</a></td>
+	<td><a class="p" href="ss/p20rwg2.rle">
+	    Gosper's P20 puffer [9]</a></td>
+    </tr>
+</table></p>
+
+<map name="expuff">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/expuff.zip" />
+	<area coords="601,241,620,260" href="stamp/expuff.rle" />
+	<area coords="0,0,249,260" href="ss/12swbk.rle" />
+	<area coords="250,0,369,260" href="ss/p8rtwbl.rle" />
+	<area coords="370,0,489,260" href="ss/p24djbtb.rle" />
+	<area coords="490,0,620,260" href="ss/p20rwg2.rle" />
+</map>
+
+<hr />
+<a name="breeder"></a>
+<h2>Breeder</h2>
+<p>A breeder is a pattern whose population increases forever, and whose
+population is greater than a linear function of time. Breeders are
+generally factories that build producers that produce debris, and
+their population normally increases quadratically with respect to time.
+Breeders that produce a fixed number of objects of quadratically-increasing
+population are called <i>space-fillers</i>.
+The four categories of breeders are categorized by which of the
+three parts are stationary:</p>
+
+<p><ol>
+    <li><b>SMM breeder</b> (stationary factory):
+	<a class="j" href="#gun">guns</a> that builds
+	<a class="j" href="#puff">puffer trains</a> that emit
+	<a class="j" href="#ss">spaceships</a>.</li>
+    <li><b>MSM breeder</b> (stationary producer):
+	<a class="j" href="#puff">puffer trains</a> that build
+	<a class="j" href="#gun">guns</a> that emit
+	<a class="j" href="#ss">spaceships</a>
+	(this is the first type of breeder ever built).</li>
+    <li><b>MMS breeder</b> (stationary debris):
+	<a class="j" href="#puff">puffer trains</a> that build
+	<a class="j" href="#puff">puffer trains</a> that emit
+	<a class="j" href="#p1">still-lifes</a> and/or
+	<a class="j" href="#osc">oscillators</a>.</li>
+    <li><b>MMM</b> breeder (nothing stationary):
+	<a class="j" href="#puff">puffer trains</a> that build
+	<a class="j" href="#puff">puffer trains</a> that emit
+	<a class="j" href="#ss">spaceships</a>.</li>
+</ol></p>
+
+<p>There are also many other hybrid categories possible, including many
+variations whose population increases at other rates.
+<a class="i" href="lifecred.htm#hickerson">Dean Hickerson</a>
+has created many such patterns, with populations of
+<i>O</i>(&#8730;<i>n</i>), <i>O</i>(<i>n</i> log <i>n</i>), etc.</p>
+
+<hr />
+<a name="ind"></a>
+<h2>Induction Coil (inductor)</h2>
+<p>An induction coil (or inductor) is an unstable
+<a class="j" href="#obj">object</a> that, by itself, would produce several
+unwanted births on its outside. These births can be suppressed by placing
+another object beside the induction coil. This birth-suppression is referred to
+as <i>induction</i>.</p>
+
+<p>This is a sampling of inducted objects (named below), with their
+corresponding inductors (named above) shown in teal.</p>
+
+<p><a class="p" href="stamp/exind.rle"><img src="map/exind.png"
+ alt="induction coils" width="561" height="81" usemap="#exind" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><b>Table</b></td>
+	<td><b>Side</b></td>
+	<td><b>Bookend</b></td>
+	<td><b>Cover</b></td>
+	<td><b>Tear- drop</b></td>
+	<td><b>Very long house, siamese bookends</b></td>
+	<td><b>Cup- hook with tail</b></td>
+	<td><b>Long bookend eating eater</b></td>
+	<td><b>Candel- frobra</b></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="12/12bcta1.rle">
+	    Down beacon on table [6]</a></td>
+	<td><a class="p" href="13/13-214.rle">
+	    Snake on side (13.214) [10]</a></td>
+	<td><a class="p" href="13/13-223.rle">
+	    Up snake on bookend (13.223) [7]</a></td>
+	<td><a class="p" href="12/12-111.rle">
+	    Block with cover (12.111) [4]</a></td>
+	<td><a class="p" href="21/21-j8031.rle">
+	    Two bridged carriers on teardrop (21. 198031) [6]</a></td>
+	<td><a class="p" href="16/16-1858.rle">
+	    Tub on very long house (16.1858) [7]</a></td>
+	<td><a class="p" href="18/18cutbk1.rle">
+	    Block on up cuphook w/ tail; M.I.T. Oscillator [8]</a></td>
+	<td><a class="p" href="19/19elebk1.rle">
+	    Eater eating block on up long bookend [11]</a></td>
+	<td><a class="p" href="16/16cfbk2.rle">
+	    Block on up candel- frobra [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="exind">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/exind.zip" />
+	<area coords="541,61,560,80" href="stamp/exind.rle" />
+	<area coords="0,0,69,80" href="12/12bcta1.rle" />
+	<area coords="70,0,129,80" href="13/13-214.rle" />
+	<area coords="130,0,189,80" href="13/13-223.rle" />
+	<area coords="190,0,249,80" href="12/12-111.rle" />
+	<area coords="250,0,309,80" href="21/21-j8031.rle" />
+	<area coords="310,0,369,80" href="16/16-1858.rle" />
+	<area coords="370,0,429,80" href="18/18cutbk1.rle" />
+	<area coords="430,0,489,80" href="19/19elebk1.rle" />
+	<area coords="490,0,560,80" href="16/16cfbk2.rle" />
+</map>
+
+<hr />
+<a name="cons"></a>
+<h2>Constellation</h2>
+<p>A constellation is a collection of several periodic
+<a class="j" href="#obj">objects</a> or
+<a class="j" href="#pobj">pseudo-objects</a>. Since there are so many
+possible constellations (for example, there are an infinite number of
+arrangements of two blocks alone), most constellations are not interesting in
+themselves. Exceptions include constellations that occur naturally, or that
+have some functional significance, or that can be constructed for a cost less
+than their individual components.</p>
+
+<p><a class="p" href="stamp/excons.rle"><img src="map/excons.png"
+ alt="constellations" width="521" height="81" usemap="#excons" /></a><br />
+    <table width="525">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/8bkbk14.rle">
+	    Two blocks offset (1, 4) [2]</a></td>
+	<td><a class="p" href="12/12te.rle">
+	    Teardrop [2]</a></td>
+	<td><a class="p" href="24/24fl.rle">
+	    Fleet [3]</a></td>
+	<td><a class="p" href="24/24hf.rle">
+	    Honey- farm [2]</a></td>
+	<td><a class="p" href="lg/28by.rle">
+	    Bakery [3]</a></td>
+	<td><a class="p" href="10/10lfbl.rle">
+	    Loaf and blinker [2]</a></td>
+	<td><a class="p" href="12/12tl.rle">
+	    Traffic light [2]</a></td>
+	<td><a class="p" href="18/18lftbbb.rle">
+	    Loaf and tub and block and blinker [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="excons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/excons.zip" />
+	<area coords="501,61,520,80" href="stamp/excons.rle" />
+	<area coords="0,0,69,80" href="0/8bkbk14.rle" />
+	<area coords="70,0,129,80" href="12/12te.rle" />
+	<area coords="130,0,189,80" href="24/24fl.rle" />
+	<area coords="190,0,249,80" href="24/24hf.rle" />
+	<area coords="250,0,309,80" href="lg/28by.rle" />
+	<area coords="310,0,369,80" href="10/10lfbl.rle" />
+	<area coords="370,0,429,80" href="12/12tl.rle" />
+	<area coords="430,0,520,80" href="18/18lftbbb.rle" />
+</map>
+
+<hr />
+<a name="meth"></a>
+<h2>Methuselah</h2>
+<p>A methuselah is a small unstable <a class="j" href="#obj">object</a> that
+lives for an unusually long time before becoming stable. (The name is derived
+from the biblical patriarch of the same name, who had the longest recorded human
+life span: 969 years.) In Life, this was originally defined as any object of 8
+bits or less that survives at least 50 generations before becoming stable.
+In colloquial usage, and on these pages, this definition is relaxed somewhat
+to also include some larger long-lived objects or pseudo-objects, or even
+patterns that are neither, and focuses on the results (that can be obtained
+from several predecessors), rather than dwelling on specific predecessors.
+The key feature methuselahs share is that they start small and run for a
+disproportionately long time.</p>
+
+<p><a class="p" href="stamp/exmeth.rle"><img src="map/exmeth.png"
+ alt="methuselahs" width="621" height="61" usemap="#exmeth" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/5ph.rle">
+	    Pi hept- omino [2]</a></td>
+	<td><a class="p" href="0/5rp.rle">
+	    R pent- omino [3]</a></td>
+	<td><a class="p" href="0/6bh.rle">
+	    B hept- omino [2]</a></td>
+	<td><a class="p" href="0/6be.rle">
+	    Bookend [3]</a></td>
+	<td><a class="p" href="0/6tbd.rle">
+	    Thunder- bird [4]</a></td>
+	<td><a class="p" href="0/7ak.rle">
+	    Acorn [4]</a></td>
+	<td><a class="p" href="0/7oo.rle">
+	    (2 glider) Oct- omino [2]</a></td>
+	<td><a class="p" href="0/8gd.rle">
+	    Gliders by the dozen [3]</a></td>
+	<td><a class="p" href="0/9ra.rle">
+	    Rabbits [5]</a></td>
+	<td><a class="p" href="10/10gm.rle">
+	    Two glider mess [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="exmeth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/exmeth.zip" />
+	<area coords="601,41,620,60" href="stamp/exmeth.rle" />
+	<area coords="0,0,69,60" href="0/5ph.rle" />
+	<area coords="70,0,129,60" href="0/5rp.rle" />
+	<area coords="130,0,189,60" href="0/6bh.rle" />
+	<area coords="190,0,249,60" href="0/6be.rle" />
+	<area coords="250,0,309,60" href="0/6tbd.rle" />
+	<area coords="310,0,369,60" href="0/7ak.rle" />
+	<area coords="370,0,429,60" href="0/7oo.rle" />
+	<area coords="430,0,489,60" href="0/8gd.rle" />
+	<area coords="490,0,549,60" href="0/9ra.rle" />
+	<area coords="550,0,620,60" href="10/10gm.rle" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>See also:</b>
+	definitions,
+	<a class="i" href="lifestr.htm">structure</a>,
+	<a class="i" href="lifemeth.htm">search methodologies</a>,
+	<a class="i" href="liferule.htm">other rules</a>,
+	<a class="i" href="lifenews.htm">news</a>,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

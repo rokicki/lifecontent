@@ -1,0 +1,19 @@
+#N 16bcas3.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:03:05 2015
+x = 150, y = 74, rule = B3/S23
+42bo3bo$43boobobo18bxx18boo18bxx18boo18bxx$42boobboo20bx19bo19bx19bo
+19bx$63bxxbx16boobo16bxxbx16boobo16bxxbx$63bxb3x15bob3o15bxb3x15bob3o
+15bxb3x$$38bo25bxx18boo18bxx18boo18bxx$39bo7boo15bxx18boo17bxbx17bobo
+18bx$37b3o6boo55bxx18boo22bx$42bo5bo81boo14bxx$42boo38boobb3o41bobo$
+41bobo39boobo31b3o4boo3bo$82bo4bo32bo5boo$48bo70bo5bo$47boo34boo$47bob
+o33bobo$83bo9$93bo$93bobo$93boo$87bobo$88boo$6bobo79bo$7boo40bo$7bo41b
+obo$9bo13bxxbx16boobobboo12bxxbxbxx13booboboo13bxxbxbxx13booboboo13bxx
+bxbxx$4boobbo14bxbxx16boboo5boo9bxbxxbxx13bobooboo13bxb3xbx13bob3obo
+13bxb3xbx$3boo3b3o41bobo$5bo46bo27bo23bxx18boo18bxx$oo79boo20bxbx17bob
+o18bx$boo77boo21bxx18boo22bx$o84boo43boo14bxx$76b3o5bobobo41bobo$78bo
+7bobobo27b3o4boo3bo$77bo10boo30bo5boo$119bo5bo8$124bo$123bo$119bo3b3o
+9bo$120boo7bo4bo$119boo6boo5b3o$80bo47boo$81bo$79b3obbo$84bobo$84boo$
+147bxx$108bxx18boo18bx$73booboboo6bobo14bxxbxbbx13boobobbo13bxxbx$73bo
+b3obo6boo15bxb3x15bob3o15bxb3x$87bo47b3o$74boo28bxx18boo9bo8bxx$74bo8b
+o20bx19bo11bo7bx$77bo4boo6bo16bx19bo19bx$76boo4bobo4boo15bxx18boo18bxx
+$89bobo$79b3o$81bo$80bo!

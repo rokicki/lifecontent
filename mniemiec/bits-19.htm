@@ -1,0 +1,1017 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Nineteen-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: nineteen-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 19 nineteen bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Nineteen-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-19">Still-lifes</a> |
+	<a class="j" href="#pp1-19">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-19">P2 oscillators</a> |
+	<a class="j" href="#pp2-19">P2 pseudo-oscillators</a> |
+	<a class="j" href="#p3-19">P3 oscillators</a> |
+	<a class="j" href="#pp3-19">P3 pseudo-oscillators</a> |
+	<a class="j" href="#p4-19">P4 oscillators</a> |
+	<a class="j" href="#pp4-19">P4 pseudo-oscillators</a> |
+	<a class="j" href="#p5-19">P5 oscillators</a> |
+	<a class="j" href="#pp5-19">P5 pseudo-oscillators</a> |
+	<a class="j" href="#pp6-19">P6 pseudo-oscillators</a> |
+	<a class="j" href="#pp8-19">P8 pseudo-oscillator</a> |
+	<a class="j" href="#p15-19">P15 oscillator</a> |
+	<a class="j" href="#pp15-19">P15 pseudo-oscillators</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-19"></a>
+<h2>The 45759 nineteen-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 73 of these are shown.</p>
+<p><a class="p" href="stamp/p1-19.rle"><img src="map/p1-19.png"
+ alt="19-bit still-lifes" width="621" height="421" usemap="#p1-19" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19-398.rle">19.398 [6]</a></td>
+	<td><a class="p" href="19/19-991.rle">19.991 [9]</a></td>
+	<td><a class="p" href="19/19-1637.rle">19.1637 [7]</a></td>
+	<td><a class="p" href="19/19-2964.rle">19.2964 [9]</a></td>
+	<td><a class="p" href="19/19-3087.rle">19.3087 [10]</a></td>
+	<td><a class="p" href="19/19-3100.rle">19.3100 [10]</a></td>
+	<td><a class="p" href="19/19-3128.rle">19.3128 [13]</a></td>
+	<td><a class="p" href="19/19-3146.rle">19.3146 [4]</a></td>
+	<td class="y"><a class="p" href="19/19-3161.rle">19.3161 [24]</a></td>
+	<td><a class="p" href="19/19-3523.rle">19.3523 [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-3528.rle">19.3528 [7]</a></td>
+	<td><a class="p" href="19/19-3529.rle">19.3529 [10]</a></td>
+	<td><a class="p" href="19/19-3549.rle">19.3549 [6]</a></td>
+	<td><a class="p" href="19/19-3754.rle">19.3754 [13]</a></td>
+	<td><a class="p" href="19/19-3779.rle">19.3779 [8]</a></td>
+	<td><a class="p" href="19/19-3780.rle">19.3780 [11]</a></td>
+	<td><a class="p" href="19/19-3930.rle">19.3930 [9]</a></td>
+	<td><a class="p" href="19/19-4044.rle">19.4044 [8]</a></td>
+	<td><a class="p" href="19/19-4199.rle">19.4199; Longhorn [9]</a></td>
+	<td><a class="p" href="19/19-4304.rle">19.4304 [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-5226.rle">19.5226 [12]</a></td>
+	<td><a class="p" href="19/19-5231.rle">19.5231 [9]</a></td>
+	<td><a class="p" href="19/19-5390.rle">19.5390 [6]</a></td>
+	<td class="y"><a class="p" href="19/19-7470.rle">19.7470 [27]</a></td>
+	<td><a class="p" href="19/19-11332.rle">19. 11332 [9]</a></td>
+	<td><a class="p" href="19/19-11445.rle">19. 11445 [13]</a></td>
+	<td><a class="p" href="19/19-11570.rle">19. 11570 [9]</a></td>
+	<td><a class="p" href="19/19-11611.rle">19. 11611 [6]</a></td>
+	<td><a class="p" href="19/19-11763.rle">19. 11753; Eater-2 [16]</a></td>
+	<td><a class="p" href="19/19-11785.rle">
+	    19. 11785; Cheap eater-2 [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-11903.rle">19. 11903 [7]</a></td>
+	<td class="y"><a class="p" href="19/19-11990.rle">
+	    19. 11990 [27]</a></td>
+	<td><a class="p" href="19/19-12471.rle">19. 12471 [18]</a></td>
+	<td><a class="p" href="19/19-12707.rle">19. 12707 [13]</a></td>
+	<td><a class="p" href="19/19-12709.rle">19. 12709 [7]</a></td>
+	<td><a class="p" href="19/19-12824.rle">19. 12834 [11]</a></td>
+	<td><a class="p" href="19/19-12839.rle">19. 12839 [15]</a></td>
+	<td><a class="p" href="19/19-12841.rle">19. 12841 [14]</a></td>
+	<td><a class="p" href="19/19-13260.rle">19. 13260 [8]</a></td>
+	<td><a class="p" href="19/19-13783.rle">19. 13783 [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-13790.rle">19. 13790 [9]</a></td>
+	<td><a class="p" href="19/19-13942.rle">19. 13942 [11]</a></td>
+	<td><a class="p" href="19/19-14090.rle">19. 14090 [6]</a></td>
+	<td><a class="p" href="19/19-14219.rle">19. 14219 [10]</a></td>
+	<td><a class="p" href="19/19-14258.rle">19. 14258 [12]</a></td>
+	<td><a class="p" href="19/19-14663.rle">19. 14663 [12]</a></td>
+	<td><a class="p" href="19/19-15187.rle">19. 15187 [12]</a></td>
+	<td class="y"><a class="p" href="19/19-15406.rle">
+	    19. 15406 [64]</a></td>
+	<td><a class="p" href="19/19-16598.rle">19. 16598 [8]</a></td>
+	<td><a class="p" href="19/19-16888.rle">19. 16888 [16]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-16895.rle">19. 16895 [13]</a></td>
+	<td><a class="p" href="19/19-16896.rle">19. 16896 [13]</a></td>
+	<td><a class="p" href="19/19-17579.rle">19. 17579 [8]</a></td>
+	<td class="y"><a class="p" href="19/19-17763.rle">
+	    19. 17763 [30]</a></td>
+	<td><a class="p" href="19/19-17797.rle">19. 17797 [17]</a></td>
+	<td class="y"><a class="p" href="19/19-18222.rle">
+	    19. 18222 [20]</a></td>
+	<td><a class="p" href="19/19-19119.rle">19. 19119 [13]</a></td>
+	<td class="y"><a class="p" href="19/19-19181.rle">
+	    19. 19181 [20]</a></td>
+	<td><a class="p" href="19/19-27262.rle">19. 27262 [11]</a></td>
+	<td><a class="p" href="19/19-28022.rle">19. 28022 [18]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-28047.rle">19. 28047 [5]</a></td>
+	<td><a class="p" href="19/19-29154.rle">19. 29154 [6]</a></td>
+	<td><a class="p" href="19/19-30501.rle">19. 30501 [5]</a></td>
+	<td><a class="p" href="19/19-30862.rle">19. 30862 [8]</a></td>
+	<td><a class="p" href="19/19-31541.rle">19. 31541 [16]</a></td>
+	<td><a class="p" href="19/19-33198.rle">19. 33198 [16]</a></td>
+	<td><a class="p" href="19/19-33912.rle">19. 33912 [16]</a></td>
+	<td><a class="p" href="19/19-34133.rle">19. 34133 [13]</a></td>
+	<td class="g"><a class="p" href="19/19-35478.rle">
+	    19. 35478 [19]</a></td>
+	<td><a class="p" href="19/19-38169.rle">19. 38169 [12]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="19/19-39872.rle">
+	    19. 39872 [26]</a></td>
+	<td><a class="p" href="19/19-40007.rle">19. 40007 [17]</a></td>
+	<td><a class="p" href="19/19-42206.rle">19. 42206 [6]</a></td>
+	<td colspan="7" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-19.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-19.rle" />
+	<area coords="0,0,69,57" href="19/19-398.rle" />
+	<area coords="70,0,129,57" href="19/19-991.rle" />
+	<area coords="130,0,189,57" href="19/19-1637.rle" />
+	<area coords="190,0,249,57" href="19/19-2964.rle" />
+	<area coords="250,0,309,57" href="19/19-3087.rle" />
+	<area coords="310,0,369,57" href="19/19-3100.rle" />
+	<area coords="370,0,429,57" href="19/19-3128.rle" />
+	<area coords="430,0,489,57" href="19/19-3146.rle" />
+	<area coords="490,0,549,57" href="19/19-3161.rle" />
+	<area coords="550,0,620,57" href="19/19-3523.rle" />
+	<area coords="0,58,69,105" href="19/19-3528.rle" />
+	<area coords="70,58,129,105" href="19/19-3529.rle" />
+	<area coords="130,58,189,105" href="19/19-3549.rle" />
+	<area coords="190,58,249,105" href="19/19-3754.rle" />
+	<area coords="250,58,309,105" href="19/19-3779.rle" />
+	<area coords="310,58,369,105" href="19/19-3780.rle" />
+	<area coords="370,58,429,105" href="19/19-3930.rle" />
+	<area coords="430,58,489,105" href="19/19-4044.rle" />
+	<area coords="490,58,549,105" href="19/19-4199.rle" />
+	<area coords="550,58,620,105" href="19/19-4304.rle" />
+	<area coords="0,106,69,153" href="19/19-5226.rle" />
+	<area coords="70,106,129,153" href="19/19-5231.rle" />
+	<area coords="130,106,189,153" href="19/19-5390.rle" />
+	<area coords="190,106,249,153" href="19/19-7470.rle" />
+	<area coords="250,106,309,153" href="19/19-11332.rle" />
+	<area coords="310,106,369,153" href="19/19-11445.rle" />
+	<area coords="370,106,429,153" href="19/19-11570.rle" />
+	<area coords="430,106,489,153" href="19/19-11611.rle" />
+	<area coords="490,106,549,153" href="19/19-11763.rle" />
+	<area coords="550,106,620,153" href="19/19-11785.rle" />
+	<area coords="0,154,69,201" href="19/19-11903.rle" />
+	<area coords="70,154,129,201" href="19/19-11990.rle" />
+	<area coords="130,154,189,201" href="19/19-12471.rle" />
+	<area coords="190,154,249,201" href="19/19-12707.rle" />
+	<area coords="250,154,309,201" href="19/19-12709.rle" />
+	<area coords="310,154,369,201" href="19/19-12824.rle" />
+	<area coords="370,154,429,201" href="19/19-12839.rle" />
+	<area coords="430,154,489,201" href="19/19-12841.rle" />
+	<area coords="490,154,549,201" href="19/19-13260.rle" />
+	<area coords="550,154,620,201" href="19/19-13783.rle" />
+	<area coords="0,202,69,249" href="19/19-13790.rle" />
+	<area coords="70,202,129,249" href="19/19-13942.rle" />
+	<area coords="130,202,189,249" href="19/19-14090.rle" />
+	<area coords="190,202,249,249" href="19/19-14219.rle" />
+	<area coords="250,202,309,249" href="19/19-14258.rle" />
+	<area coords="310,202,369,249" href="19/19-14663.rle" />
+	<area coords="370,202,429,249" href="19/19-15187.rle" />
+	<area coords="430,202,489,249" href="19/19-15406.rle" />
+	<area coords="490,202,549,249" href="19/19-16598.rle" />
+	<area coords="550,202,620,249" href="19/19-16888.rle" />
+	<area coords="0,250,69,297" href="19/19-16895.rle" />
+	<area coords="70,250,129,297" href="19/19-16896.rle" />
+	<area coords="130,250,189,297" href="19/19-17579.rle" />
+	<area coords="190,250,249,297" href="19/19-17763.rle" />
+	<area coords="250,250,309,297" href="19/19-17797.rle" />
+	<area coords="310,250,369,297" href="19/19-18222.rle" />
+	<area coords="370,250,429,297" href="19/19-19119.rle" />
+	<area coords="430,250,489,297" href="19/19-19181.rle" />
+	<area coords="490,250,549,297" href="19/19-27262.rle" />
+	<area coords="550,250,620,297" href="19/19-28022.rle" />
+	<area coords="0,298,69,345" href="19/19-28047.rle" />
+	<area coords="70,298,129,345" href="19/19-29154.rle" />
+	<area coords="130,298,189,345" href="19/19-30501.rle" />
+	<area coords="190,298,249,345" href="19/19-30862.rle" />
+	<area coords="250,298,309,345" href="19/19-31541.rle" />
+	<area coords="310,298,369,345" href="19/19-33198.rle" />
+	<area coords="370,298,429,345" href="19/19-33912.rle" />
+	<area coords="430,298,489,345" href="19/19-34133.rle" />
+	<area coords="490,298,549,345" href="19/19-35478.rle" />
+	<area coords="550,298,620,345" href="19/19-38169.rle" />
+	<area coords="0,346,69,420" href="19/19-39872.rle" />
+	<area coords="70,346,129,420" href="19/19-40007.rle" />
+	<area coords="130,346,189,420" href="19/19-42206.rle" />
+	<area coords="190,346,620,420" nohref="nohref" />
+</map>
+
+<p>Eater-2 is an eater that can eat most things the
+<a class="p" href="0/7et.rle">Eater-1</a> can eat. However, because it has a
+6-generation reset time compared to the Eater's 3, it can eat many things the
+Eater can't. Furthermore, because its active area is on a diagonal axis of
+symmetry, it can eat things from either side, while the Eater can eat only
+one.</p>
+
+<hr />
+<a name="pp1-19"></a>
+<h2>The 27250 nineteen-bit
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>All but ten of these can be synthesized using the same techniques that are
+used for smaller still-lifes and pseudo-still-lifes. These and &#pp1-19.in,#-10; other
+specific examples are shown here.</p>
+<p><a class="p" href="stamp/pp1-19.rle"><img src="map/pp1-19.png"
+ alt="19-bit pseudo-still-lifes"
+ width="621" height="421" usemap="#pp1-19" /></a></p>
+
+<map name="pp1-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-19.zip" />
+	<area coords="601,401,620,420" href="stamp/pp1-19.rle" />
+	<area coords="0,0,69,53" href="19/19llbts5.rle" />
+	<area coords="70,0,129,53" href="19/19lhaha.rle" />
+	<area coords="130,0,189,53" href="19/19ppcbt4.rle" />
+	<area coords="190,0,249,53" href="19/19snsdsn.rle" />
+	<area coords="250,0,309,53" href="19/19btshle.rle" />
+	<area coords="310,0,369,53" href="19/19ethhv3.rle" />
+	<area coords="370,0,429,53" href="19/19slhts5.rle" />
+	<area coords="430,0,489,53" href="19/19slbnb2.rle" />
+	<area coords="490,0,549,53" href="19/19slbnb1.rle" />
+	<area coords="550,0,620,53" href="19/19csllhk.rle" />
+	<area coords="0,54,69,97" href="19/19asls3.rle" />
+	<area coords="70,54,129,97" href="19/19bcslbr.rle" />
+	<area coords="130,54,189,97" href="19/19cslub1.rle" />
+	<area coords="190,54,249,97" href="19/19sesn1.rle" />
+	<area coords="250,54,309,97" href="19/19habac2.rle" />
+	<area coords="310,54,369,97" href="19/19csltl2.rle" />
+	<area coords="370,54,429,97" href="19/19bdkbt9.rle" />
+	<area coords="430,54,489,97" href="19/19bdkbt1.rle" />
+	<area coords="490,54,549,97" href="19/19cslbb1.rle" />
+	<area coords="550,54,620,97" href="19/19csllc1.rle" />
+	<area coords="0,98,69,141" href="19/19cslllv.rle" />
+	<area coords="70,98,129,141" href="19/19hhvlf2.rle" />
+	<area coords="130,98,189,141" href="19/19hhvet5.rle" />
+	<area coords="190,98,249,141" href="19/19hhvlf1.rle" />
+	<area coords="250,98,309,141" href="19/19cslxs1.rle" />
+	<area coords="310,98,369,141" href="19/19bt3bk.rle" />
+	<area coords="370,98,429,141" href="19/19lcish1.rle" />
+	<area coords="430,98,489,141" href="19/19lselsj.rle" />
+	<area coords="490,98,549,141" href="19/19habtbt.rle" />
+	<area coords="550,98,620,141" href="19/19slbtsn.rle" />
+	<area coords="0,142,69,185" href="19/19lsssn2.rle" />
+	<area coords="70,142,129,185" href="19/19sshet6.rle" />
+	<area coords="130,142,189,185" href="19/19betls5.rle" />
+	<area coords="190,142,249,185" href="19/19asdsn3.rle" />
+	<area coords="250,142,309,185" href="19/19lsas11.rle" />
+	<area coords="310,142,369,185" href="19/19lcisn1.rle" />
+	<area coords="370,142,429,185" href="19/19lcish2.rle" />
+	<area coords="430,142,489,185" href="19/19vllhtg.rle" />
+	<area coords="490,142,549,185" href="19/19vitlsg.rle" />
+	<area coords="550,142,620,185" href="19/19lsssn1.rle" />
+	<area coords="0,186,69,229" href="19/19lcisn2.rle" />
+	<area coords="70,186,129,229" href="19/19scusn7.rle" />
+	<area coords="130,186,189,229" href="19/19bcslb6.rle" />
+	<area coords="190,186,249,229" href="19/19csldb2.rle" />
+	<area coords="250,186,309,229" href="19/19bcslbu.rle" />
+	<area coords="310,186,369,229" href="19/19lciac8.rle" />
+	<area coords="370,186,429,229" href="19/19cslll2.rle" />
+	<area coords="430,186,489,229" href="19/19cslllc.rle" />
+	<area coords="490,186,549,229" href="19/19csllhm.rle" />
+	<area coords="550,186,620,229" href="19/19cslbb2.rle" />
+	<area coords="0,230,69,273" href="19/19cslllz.rle" />
+	<area coords="70,230,129,273" href="19/19cslllw.rle" />
+	<area coords="130,230,189,273" href="19/19csllh1.rle" />
+	<area coords="190,230,249,273" href="19/19hhvet6.rle" />
+	<area coords="250,230,309,273" href="19/19ilfhv4.rle" />
+	<area coords="310,230,369,273" href="19/19lciac2.rle" />
+	<area coords="370,230,429,273" href="19/19etlfb9.rle" />
+	<area coords="430,230,489,273" href="19/19etsbt1.rle" />
+	<area coords="490,230,549,273" href="19/19vcfttb.rle" />
+	<area coords="550,230,620,273" href="19/19csldb1.rle" />
+	<area coords="0,274,69,317" href="19/19sset.rle" />
+	<area coords="70,274,129,317" href="19/19sshet5.rle" />
+	<area coords="130,274,189,317" href="19/19csllh2.rle" />
+	<area coords="190,274,249,317" href="19/19csltl1.rle" />
+	<area coords="250,274,309,317" href="19/19ilfhv5.rle" />
+	<area coords="310,274,369,317" href="19/19ilfhv6.rle" />
+	<area coords="370,274,429,317" href="19/19vbthv2.rle" />
+	<area coords="430,274,489,317" href="19/19gutlf1.rle" />
+	<area coords="490,274,549,317" href="19/19etetbt.rle" />
+	<area coords="550,274,620,317" href="19/19cslvb2.rle" />
+	<area coords="0,318,69,361" href="19/19csldbb.rle" />
+	<area coords="70,318,129,361" href="19/19cslubc.rle" />
+	<area coords="130,318,189,361" href="19/19cslub2.rle" />
+	<area coords="190,318,249,361" href="19/19cslinc.rle" />
+	<area coords="250,318,309,361" href="19/19cslin2.rle" />
+	<area coords="310,318,369,361" href="19/19etlfbb.rle" />
+	<area coords="370,318,429,361" href="19/19cslubl.rle" />
+	<area coords="430,318,489,361" href="19/19btetlf.rle" />
+	<area coords="490,318,549,361" href="19/19etsbt2.rle" />
+	<area coords="550,318,620,361" href="19/19cslxsc.rle" />
+	<area coords="0,362,69,420" href="19/19cslxs2.rle" />
+	<area coords="70,362,129,420" href="19/19csllhb.rle" />
+	<area coords="130,362,189,420" href="19/19csllc2.rle" />
+	<area coords="190,362,249,420" href="19/19csllcc.rle" />
+	<area coords="250,362,620,420" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p2-19"></a>
+<h2>The 1083 nineteen-bit
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p2-19.htm">separate page</a>.
+Syntheses for 9 of them are shown here.</p>
+<p><a class="p" href="stamp/p2-19.rle"><img src="map/p2-19.png"
+ alt="19-bit P2" width="561" height="81" usemap="#p2-19" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+   <tr>
+	<td class="y"><a class="p" href="19/19dtbkbk.rle">
+	    Two blocks on griddle [34]</a></td>
+	<td><a class="p" href="19/19dtpd.rle">
+	    Pond on griddle [12]</a></td>
+	<td class="y"><a class="p" href="19/19ttbcvb.rle">
+	    Test tube baby siamese cover on block [22]</a></td>
+	<td><a class="p" href="19/19bcan1.rle">
+	    Up beacon on up anvil; Cis- beacon and anvil [7]</a></td>
+	<td class="y"><a class="p" href="19/19ff2.rle">
+	    19-bit P2 #2 [59]</a></td>
+	<td><a class="p" href="19/19sctb.rle">
+	    Spark coil w/ tub [6]</a></td>
+	<td><a class="p" href="19/19acbcbn.rle">
+	    Bun on beacon beside carrier [11]</a></td>
+	<td><a class="p" href="19/19snbcbn.rle">
+	    Bun on beacon beside snake [11]</a></td>
+	<td class="y"><a class="p" href="19/19ff1.rle">
+	    19-bit P2 #1 [59]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p2-19.zip" />
+	<area coords="541,61,560,80" href="stamp/p2-19.rle" />
+	<area coords="0,0,69,80" href="19/19dtbkbk.rle" />
+	<area coords="70,0,129,80" href="19/19dtpd.rle" />
+	<area coords="130,0,189,80" href="19/19ttbcvb.rle" />
+	<area coords="190,0,249,80" href="19/19sctb.rle" />
+	<area coords="250,0,309,80" href="19/19ff2.rle" />
+	<area coords="310,0,369,80" href="19/19snbcbn.rle" />
+	<area coords="370,0,429,80" href="19/19acbcbn.rle" />
+	<area coords="430,0,489,80" href="19/19acbcbn.rle" />
+	<area coords="490,0,560,80" href="19/19ff1.rle" />
+</map>
+
+
+<hr />
+<a name="pp2-19"></a>
+<h2>The 3350 nineteen-bit
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="pp2-19.htm">separate page</a>.
+All of these can be synthesized using the same techniques that are used for
+smaller pseudo-oscillators and pseudo-still-lifes, except 4 that involve adding
+a block to <a class="i" href="glider-u.htm#gu-p2">15-bit period 2 oscillators
+with no known syntheses</a>. These and ten other syntheses are shown here.</p>
+<p><a class="p" href="stamp/pp2-19.rle"><img src="map/pp2-19.png"
+ alt="19-bit pseudo-P2"
+ width="581" height="141" usemap="#pp2-19" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="19/19bpecp8.rle">
+	    Up bipole under eater w/ cape [22]</a></td>
+	<td class="y"><a class="p" href="19/19tpcht6.rle">
+	    Down tripole above cis hook w/ tail [42]</a></td>
+	<td><a class="p" href="19/19tpaa1.rle">
+	    Up tripole on carrier siamese carrier [13]</a></td>
+	<td class="r"><a class="p" href="19/19b15ff1.rle">
+	    Block on 15-bit P2 #1 [x+2]</a></td>
+	<td><a class="p" href="19/19bpae9.rle">
+	    Up bipole above carrier siamese eater [15]</a></td>
+	<td class="r"><a class="p" href="19/19b15ff2.rle">
+	    Block on blinkers bit pole [x+2]</a></td>
+	<td class="y"><a class="p" href="19/19bplch6.rle">
+	    Up bipole above long cis hook w/ tail [51]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="19/19bpsnf5.rle">
+	    Up bipole below snake w/ feather [23]</a></td>
+	<td class="y"><a class="p" href="19/19bpacf5.rle">
+	    Up bipole below carrier w/ feather [21]</a></td>
+	<td class="r"><a class="p" href="19/19b15f5a.rle">
+	    Block on 15-bit P2 #5 [x+2]</a></td>
+	<td class="r"><a class="p" href="19/19b15f5b.rle">
+	    Block below 15-bit P2 #5 [x+3]</a></td>
+	<td><a class="p" href="19/19bclci2.rle">
+	    Down beacon on long cis integral [16]</a></td>
+	<td class="y"><a class="p" href="19/19tpcsl2.rle">
+	    Down tripole on cis shillelagh [25]</a></td>
+	<td class="y"><a class="p" href="19/19tpcht5.rle">
+	    Up tripole above cis hook w/ tail [27]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp2-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/pp2-19.zip" />
+	<area coords="561,121,580,140" href="stamp/pp2-19.rle" />
+	<area coords="0,0,89,69" href="19/19bpecp8.rle" />
+	<area coords="90,0,169,69" href="19/19tpcht6.rle" />
+	<area coords="170,0,249,69" href="19/19tpaa1.rle" />
+	<area coords="250,0,329,69" href="19/19b15ff1.rle" />
+	<area coords="330,0,409,69" href="19/19bpae9.rle" />
+	<area coords="410,0,489,69" href="19/19b15ff2.rle" />
+	<area coords="490,0,580,69" href="19/19bplch6.rle" />
+	<area coords="0,70,89,140" href="19/19bpsnf5.rle" />
+	<area coords="90,70,169,140" href="19/19bpacf5.rle" />
+	<area coords="170,70,249,140" href="19/19b15f5a.rle" />
+	<area coords="250,70,329,140" href="19/19b15f5b.rle" />
+	<area coords="330,70,409,140" href="19/19bclci2.rle" />
+	<area coords="410,70,489,140" href="19/19tpcsl2.rle" />
+	<area coords="490,70,580,140" href="19/19tpcht5.rle" />
+</map>
+
+<hr />
+<a name="p3-19"></a>
+<h2>The 66 nineteen-bit
+<a class="i" href="p3.htm">period 3 oscillators</a></h2>
+<p><a class="p" href="stamp/p3-19.rle"><img src="map/p3-19.png"
+ alt="19-bit period 3 oscillators"
+ width="621" height="421" usemap="#p3-19" /></a></p>
+
+<map name="p3-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p3-19.zip" />
+	<area coords="601,401,620,420" href="stamp/p3-19.rle" />
+	<area coords="0,0,69,65" href="19/19cfls5.rle" />
+	<area coords="70,0,129,65" href="19/19cfet10.rle" />
+	<area coords="130,0,189,65" href="19/19cflf4.rle" />
+	<area coords="190,0,249,65" href="19/19cfet5.rle" />
+	<area coords="250,0,309,65" href="19/19cfet1.rle" />
+	<area coords="310,0,369,65" href="19/19cflb1.rle" />
+	<area coords="370,0,429,65" href="19/19cflb3.rle" />
+	<area coords="430,0,489,65" href="19/19cflf3.rle" />
+	<area coords="490,0,549,65" href="19/19cfet7.rle" />
+	<area coords="550,0,620,65" href="19/19cfet3.rle" />
+	<area coords="0,66,69,121" href="19/19cfet12.rle" />
+	<area coords="70,66,129,121" href="19/19cfls3.rle" />
+	<area coords="130,66,189,121" href="19/19cfls1.rle" />
+	<area coords="190,66,249,121" href="19/19cfls4.rle" />
+	<area coords="250,66,309,121" href="19/19jmta1.rle" />
+	<area coords="310,66,369,121" href="19/19cfls7.rle" />
+	<area coords="370,66,429,121" href="19/19cflf2.rle" />
+	<area coords="430,66,489,121" href="19/19cflb4.rle" />
+	<area coords="490,66,549,121" href="19/19cflf1.rle" />
+	<area coords="550,66,620,121" href="19/19cfet8.rle" />
+	<area coords="0,122,69,177" href="19/19cfet4.rle" />
+	<area coords="70,122,129,177" href="19/19cfet11.rle" />
+	<area coords="130,122,189,177" href="19/19cfls2.rle" />
+	<area coords="190,122,249,177" href="19/19jmta3.rle" />
+	<area coords="250,122,309,177" href="19/19cptbk.rle" />
+	<area coords="310,122,369,177" href="19/19cfhvpb.rle" />
+	<area coords="370,122,429,177" href="19/19cfcu.rle" />
+	<area coords="430,122,489,177" href="19/19cfscsl.rle" />
+	<area coords="490,122,549,177" href="19/19jmta2.rle" />
+	<area coords="550,122,620,177" href="19/19cfls8.rle" />
+	<area coords="0,178,69,233" href="19/19cflb2.rle" />
+	<area coords="70,178,129,233" href="19/19cfet6.rle" />
+	<area coords="130,178,189,233" href="19/19cfet2.rle" />
+	<area coords="190,178,249,233" href="19/19cfet9.rle" />
+	<area coords="250,178,309,233" href="19/19bw.rle" />
+	<area coords="310,178,369,233" href="19/19cupbt2.rle" />
+	<area coords="370,178,429,233" href="19/19cupbt1.rle" />
+	<area coords="430,178,489,233" href="19/19tglf.rle" />
+	<area coords="490,178,549,233" href="19/19jmta4.rle" />
+	<area coords="550,178,620,233" href="19/19fs.rle" />
+	<area coords="0,234,69,289" href="19/19cutbt4.rle" />
+	<area coords="70,234,129,289" href="19/19cutbt3.rle" />
+	<area coords="130,234,189,289" href="19/19cutbt1.rle" />
+	<area coords="190,234,249,289" href="19/19cutbt2.rle" />
+	<area coords="250,234,309,289" href="19/19cfls6.rle" />
+	<area coords="310,234,369,289" href="19/19tcubk2.rle" />
+	<area coords="370,234,429,289" href="19/19tcubk1.rle" />
+	<area coords="430,234,489,289" href="19/19eetet1.rle" />
+	<area coords="490,234,549,289" href="19/19eetbt.rle" />
+	<area coords="550,234,620,289" href="19/19eilt.rle" />
+	<area coords="0,290,69,345" href="19/19elebk2.rle" />
+	<area coords="70,290,129,345" href="19/19elebk1.rle" />
+	<area coords="130,290,189,345" href="19/19eetls.rle" />
+	<area coords="190,290,249,345" href="19/19eich.rle" />
+	<area coords="250,290,309,345" href="19/19eivh.rle" />
+	<area coords="310,290,369,345" href="19/19eetft.rle" />
+	<area coords="370,290,429,345" href="19/19eihv.rle" />
+	<area coords="430,290,489,345" href="19/19eidg.rle" />
+	<area coords="490,290,549,345" href="19/19eicl.rle" />
+	<area coords="550,290,620,345" href="19/19iihk.rle" />
+	<area coords="0,346,69,420" href="19/19eguhk.rle" />
+	<area coords="70,346,129,420" href="19/19eetet2.rle" />
+	<area coords="130,346,189,420" href="19/19eiftl.rle" />
+	<area coords="190,346,249,420" href="19/19eiug.rle" />
+	<area coords="250,346,309,420" href="19/19egutb.rle" />
+	<area coords="310,346,369,420" href="19/19iitb.rle" />
+	<area coords="370,346,620,420" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp3-19"></a>
+<h2>The 20 nineteen-bit
+<a class="i" href="pp3.htm">period 3 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp3-19.rle"><img src="map/pp3-19.png"
+ alt="19-bit period 3 pseudo-oscillators"
+ width="621" height="141" usemap="#pp3-19" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19jmsh1.rle">
+	    Up ship above jam [10]</a></td>
+	<td><a class="p" href="19/19jmac5.rle">
+	    Up cis carrier above jam [12]</a></td>
+	<td><a class="p" href="19/19jmhv1.rle">
+	    beehive above jam [9]</a></td>
+	<td><a class="p" href="19/19jmsh2.rle">
+	    Down ship above jam [11]</a></td>
+	<td><a class="p" href="19/19jmsn1.rle">
+	    Up snake above jam [12]</a></td>
+	<td><a class="p" href="19/19jmsn2.rle">
+	    Down snake above jam [12]</a></td>
+	<td><a class="p" href="19/19jmac1.rle">
+	    Up trans carrier above jam [12]</a></td>
+	<td><a class="p" href="19/19jmac2.rle">
+	    Down trans carrier above jam [12]</a></td>
+	<td><a class="p" href="19/19jmsh3.rle">
+	    Up ship beside jam [10]</a></td>
+	<td><a class="p" href="19/19jmhv2.rle">
+	    beehive beside jam [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19jmac7.rle">
+	    Up cis carrier beside jam [12]</a></td>
+	<td><a class="p" href="19/19jmsh4.rle">
+	    Down ship beside jam [11]</a></td>
+	<td><a class="p" href="19/19jmsn3.rle">
+	    Up snake beside jam [12]</a></td>
+	<td><a class="p" href="19/19jmsn4.rle">
+	    Down snake beside jam [12]</a></td>
+	<td><a class="p" href="19/19jmac3.rle">
+	    Up trans carrier beside jam [12]</a></td>
+	<td><a class="p" href="19/19jmac6.rle">
+	    Down cis carrier above jam [12]</a></td>
+	<td><a class="p" href="19/19jmac4.rle">
+	    Down trans carrier beside jam [12]</a></td>
+	<td><a class="p" href="19/19jmac8.rle">
+	    Down cis carrier beside jam [12]</a></td>
+	<td><a class="p" href="19/19eetbt2.rle">
+	    Down boat on eater eating eater [11]</a></td>
+	<td><a class="p" href="19/19eetbt1.rle">
+	    Up boat on eater eating eater [9]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp3-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp3-19.zip" />
+	<area coords="601,121,620,140" href="stamp/pp3-19.rle" />
+	<area coords="0,0,69,69" href="19/19jmsh1.rle" />
+	<area coords="70,0,129,69" href="19/19jmac5.rle" />
+	<area coords="130,0,189,69" href="19/19jmhv1.rle" />
+	<area coords="190,0,249,69" href="19/19jmsh2.rle" />
+	<area coords="250,0,309,69" href="19/19jmsn1.rle" />
+	<area coords="310,0,369,69" href="19/19jmsn2.rle" />
+	<area coords="370,0,429,69" href="19/19jmac1.rle" />
+	<area coords="430,0,489,69" href="19/19jmac2.rle" />
+	<area coords="490,0,549,69" href="19/19jmsh3.rle" />
+	<area coords="550,0,620,69" href="19/19jmhv2.rle" />
+	<area coords="0,70,69,140" href="19/19jmac7.rle" />
+	<area coords="70,70,129,140" href="19/19jmsh4.rle" />
+	<area coords="130,70,189,140" href="19/19jmsn3.rle" />
+	<area coords="190,70,249,140" href="19/19jmsn4.rle" />
+	<area coords="250,70,309,140" href="19/19jmac3.rle" />
+	<area coords="310,70,369,140" href="19/19jmac6.rle" />
+	<area coords="370,70,429,140" href="19/19jmac4.rle" />
+	<area coords="430,70,489,140" href="19/19jmac8.rle" />
+	<area coords="490,70,549,140" href="19/19eetbt2.rle" />
+	<area coords="550,70,620,140" href="19/19eetbt1.rle" />
+</map>
+
+<hr />
+<a name="p4-19"></a>
+<h2>The 7 nineteen-bit
+<a class="i" href="p4.htm">period 4 oscillators</a></h2>
+<p><a class="p" href="stamp/p4-19.rle"><img src="map/p4-19.png"
+ alt="19-bit period 4 oscillators"
+ width="441" height="81" usemap="#p4-19" /></a><br />
+    <table width="445">
+    <colgroup><col width="71" /><col span="5" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19mdbn1.rle">
+	    Mold tie up bun [17]</a></td>
+	<td><a class="p" href="19/19mdbe1.rle">
+	    Mold tie up bookend [18]</a></td>
+	<td><a class="p" href="19/19mdlf.rle">
+	    Mold tie loaf [12]</a></td>
+	<td><a class="p" href="19/19mdbn2.rle">
+	    Mold tie down bun [12]</a></td>
+	<td><a class="p" href="19/19mdbe2.rle">
+	    Mold tie down bookend [14]</a></td>
+	<td class="y"><a class="p" href="19/19mdcht.rle">
+	    Mold siamese cis hook w/ tail [21]</a></td>
+	<td class="y"><a class="p" href="19/19mdha.rle">
+	    Mold siamese hat [20]</a></td>
+    </tr>
+</table></p>
+
+<map name="p4-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/p4-19.zip" />
+	<area coords="421,61,440,80" href="stamp/p4-19.rle" />
+	<area coords="0,0,69,80" href="19/19mdbn1.rle" />
+	<area coords="70,0,129,80" href="19/19mdbe1.rle" />
+	<area coords="130,0,189,80" href="19/19mdlf.rle" />
+	<area coords="190,0,249,80" href="19/19mdbn2.rle" />
+	<area coords="250,0,309,80" href="19/19mdbe2.rle" />
+	<area coords="310,0,369,80" href="19/19mdcht.rle" />
+	<area coords="370,0,440,80" href="19/19mdha.rle" />
+</map>
+
+<hr />
+<a name="pp4-19"></a>
+<h2>The 14 nineteen-bit
+<a class="i" href="pp4.htm">period 4 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp4-19.rle"><img src="map/pp4-19.png"
+ alt="19-bit period 4 pseudo-oscillators"
+ width="441" height="101" usemap="#pp4-19" /></a><br />
+    <table width="445">
+    <colgroup><col width="71" /><col span="5" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19mdls3.rle">
+	    Up cis python on mold [14]</a></td>
+	<td><a class="p" href="19/19mdlf2.rle">
+	    Down loaf on mold [8]</a></td>
+	<td><a class="p" href="19/19mdet3.rle">
+	    Up mold below eater [9]</a></td>
+	<td><a class="p" href="19/19mdlb1.rle">
+	    Up long boat on mold [10]</a></td>
+	<td><a class="p" href="19/19mdet6.rle">
+	    Down mold above eater [12]</a></td>
+	<td><a class="p" href="19/19mdet1.rle">
+	    Up mold on eater [9]</a></td>
+	<td><a class="p" href="19/19mdlf1.rle">
+	    Up loaf on mold [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19mdls1.rle">
+	    Up trans python on mold [15]</a></td>
+	<td><a class="p" href="19/19mdls2.rle">
+	    Down trans python on mold [15]</a></td>
+	<td><a class="p" href="19/19mdlb2.rle">
+	    Down long boat on mold [9]</a></td>
+	<td><a class="p" href="19/19mdet4.rle">
+	    Down mold below eater [9]</a></td>
+	<td><a class="p" href="19/19mdet2.rle">
+	    Down mold on eater [9]</a></td>
+	<td><a class="p" href="19/19mdet5.rle">
+	    Up mold above eater [12]</a></td>
+	<td><a class="p" href="19/19mdls4.rle">
+	    Down cis python on mold [14]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp4-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/pp4-19.zip" />
+	<area coords="421,81,440,100" href="stamp/pp4-19.rle" />
+	<area coords="0,0,69,49" href="19/19mdls3.rle" />
+	<area coords="70,0,129,49" href="19/19mdlf2.rle" />
+	<area coords="130,0,189,49" href="19/19mdet3.rle" />
+	<area coords="190,0,249,49" href="19/19mdlb1.rle" />
+	<area coords="250,0,309,49" href="19/19mdet6.rle" />
+	<area coords="310,0,369,49" href="19/19mdet1.rle" />
+	<area coords="370,0,440,49" href="19/19mdlf1.rle" />
+	<area coords="0,50,69,100" href="19/19mdls1.rle" />
+	<area coords="70,50,129,100" href="19/19mdls2.rle" />
+	<area coords="130,50,189,100" href="19/19mdlb2.rle" />
+	<area coords="190,50,249,100" href="19/19mdet4.rle" />
+	<area coords="250,50,309,100" href="19/19mdet2.rle" />
+	<area coords="310,50,369,100" href="19/19mdet5.rle" />
+	<area coords="370,50,440,100" href="19/19mdls4.rle" />
+</map>
+
+<hr />
+<a name="p5-19"></a>
+<h2>The 8 nineteen-bit
+<a class="i" href="p5.htm">period 5 oscillators</a></h2>
+<p><a class="p" href="stamp/p5-19.rle"><img src="map/p5-19.png"
+ alt="19-bit P5" width="501" height="81" usemap="#p5-19" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19fmtb.rle">
+	    Fumarole w/ tub [12]</a></td>
+	<td><a class="p" href="19/19svvs.rle">
+	    Silver's P5 on very long snake [16]</a></td>
+	<td><a class="p" href="19/19svcs.rle">
+	    Silver's P5 on canoe [16]</a></td>
+	<td class="y"><a class="p" href="19/19svsl1.rle">
+	    Silver's P5 above shil- lelagh [23]</a></td>
+	<td><a class="p" href="19/19svsl2.rle">
+	    Silver's P5 behind shil- lelagh [17]</a></td>
+	<td class="y"><a class="p" href="19/19svht1.rle">
+	    Silver's P5 on hook w/ tail [31]</a></td>
+	<td><a class="p" href="19/19svht2.rle">
+	    Silver's P5 above hook w/ tail [15]</a></td>
+	<td><a class="p" href="19/19svtt.rle">
+	    Silver's P5 above tub w/ tail [14]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p5-19.zip" />
+	<area coords="481,61,500,80" href="stamp/p5-19.rle" />
+	<area coords="0,0,69,80" href="19/19fmtb.rle" />
+	<area coords="70,0,129,80" href="19/19svvs.rle" />
+	<area coords="130,0,189,80" href="19/19svcs.rle" />
+	<area coords="190,0,249,80" href="19/19svsl1.rle" />
+	<area coords="250,0,309,80" href="19/19svsl2.rle" />
+	<area coords="310,0,369,80" href="19/19svht1.rle" />
+	<area coords="370,0,429,80" href="19/19svht2.rle" />
+	<area coords="430,0,500,80" href="19/19svtt.rle" />
+</map>
+
+<hr />
+<a name="pp5-19"></a>
+<h2>The 2 nineteen-bit
+<a class="i" href="pp5.htm">period 5 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp5-19.rle"><img src="map/pp5-19.png"
+ alt="19-bit pseudo-P5" width="181" height="81" usemap="#pp5-19" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="19/19apbk1.rle">
+	    Block on pseudo- barber- pole [30]</a></td>
+	<td class="y"><a class="p" href="19/19apbk2.rle">
+	    Block below pseudo- barber- pole [30]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp5-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/pp5-19.zip" />
+	<area coords="161,61,180,80" href="stamp/pp5-19.rle" />
+	<area coords="0,0,89,80" href="19/19apbk1.rle" />
+	<area coords="90,0,180,80" href="19/19apbk2.rle" />
+</map>
+
+<hr />
+<a name="pp6-19"></a>
+<h2>The 4 nineteen-bit
+<a class="i" href="pp6.htm">period 6 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp6-19.rle"><img src="map/pp6-19.png"
+ alt="19-bit P6 pseudo-oscillators"
+ width="341" height="81" usemap="#pp6-19" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19jmbc1.rle">
+	    Up beacon on jam [11]</a></td>
+	<td><a class="p" href="19/19jmbc3.rle">
+	    Up beacon below jam [11]</a></td>
+	<td><a class="p" href="19/19jmbc2.rle">
+	    Down beacon on jam [11]</a></td>
+	<td><a class="p" href="19/19jmbc4.rle">
+	    Down beacon below jam [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp6-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/pp6-19.zip" />
+	<area coords="321,61,340,80" href="stamp/pp6-19.rle" />
+	<area coords="0,0,89,80" href="19/19jmbc1.rle" />
+	<area coords="90,0,169,80" href="19/19jmbc3.rle" />
+	<area coords="170,0,249,80" href="19/19jmbc2.rle" />
+	<area coords="250,0,340,80" href="19/19jmbc4.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="pp8-19"></a>
+<h2>The 1 nineteen-bit
+<a class="i" href="pp8.htm">period 8 pseudo-oscillator</a></h2>
+<p><a class="p" href="stamp/pp8-19.rle"><img src="map/pp8-19.png"
+ alt="19b PP8" width="101" height="61" usemap="#pp8-19" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="19/19brbk.rle">
+	    Block on blocker [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp8-19.zip" />
+	<area coords="81,41,100,60" href="stamp/pp8-19.rle" />
+	<area coords="0,0,89,60" href="19/19brbk.rle" />
+	<area coords="90,0,100,60" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p15-19"></a>
+<h2>The 1 nineteen-bit
+<a class="i" href="p15.htm">period 15 oscillator</a></h2>
+<p><a class="p" href="stamp/p15-19.rle"><img src="map/p15-19.png"
+ alt="19b P15" width="101" height="81" usemap="#p15-19" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="19/19pcet.rle">
+	    Eater eating penta- decathlon [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p15-19.zip" />
+	<area coords="81,61,100,80" href="stamp/p15-19.rle" />
+	<area coords="0,0,100,80" href="19/19pcet.rle" />
+</map>
+
+<hr />
+<a name="pp15-19"></a>
+<h2>The 7 nineteen-bit
+<a class="i" href="pp15.htm">period 15 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp15-19.rle"><img src="map/pp15-19.png"
+ alt="19-bit period 15 pseudo-oscillators"
+ width="581" height="81" usemap="#pp15-19" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19pcls2.rle">
+	    Cis python on penta- decathlon [8]</a></td>
+	<td><a class="p" href="19/19pclf.rle">
+	    Loaf on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pcet2.rle">
+	    Eater chin on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pclb.rle">
+	    Long boat on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pcet3.rle">
+	    Eater tail on penta- decathlon [5]</a></td>
+	<td><a class="p" href="19/19pcet1.rle">
+	    Eater head on penta- decathlon [5]</a></td>
+	<td><a class="p" href="19/19pcls1.rle">
+	    Trans python on penta- decathlon [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/pp15-19.zip" />
+	<area coords="561,61,580,80" href="stamp/pp15-16.rle" />
+	<area coords="0,0,89,80" href="19/19pcls2.rle" />
+	<area coords="90,0,169,80" href="19/19pclf.rle" />
+	<area coords="170,0,249,80" href="19/19pcet2.rle" />
+	<area coords="250,0,329,80" href="19/19pclb.rle" />
+	<area coords="330,0,409,80" href="19/19pcet3.rle" />
+	<area coords="410,0,489,80" href="19/19pcet1.rle" />
+	<area coords="490,0,580,80" href="19/19pcls1.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	19,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

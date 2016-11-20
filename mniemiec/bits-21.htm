@@ -1,0 +1,1619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>21-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: 21-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 21 bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>21-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-21">Still-lifes</a> |
+	<a class="j" href="#pp1-21">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-21">P2 oscillators</a> |
+	<a class="j" href="#pp2-21">P2 pseudo-oscillators</a> |
+	<a class="j" href="#p3-21">P3 oscillators</a> |
+	<a class="j" href="#pp3-21">P3 pseudo-oscillators</a> |
+	<a class="j" href="#p4-21">P4 oscillators</a> |
+	<a class="j" href="#pp4-21">P4 pseudo-oscillators</a> |
+	<a class="j" href="#p5-21">P5 oscillators</a> |
+	<a class="j" href="#pp5-21">P5 pseudo-oscillators</a> |
+	<a class="j" href="#p6-21">P6 oscillators</a> |
+	<a class="j" href="#pp6-21">P6 pseudo-oscillators</a> |
+	<a class="j" href="#p8-21">P8 oscillators</a> |
+	<a class="j" href="#pp8-21">P8 pseudo-oscillators</a> |
+	<a class="j" href="#pp10-21">P10 pseudo-oscillators</a> |
+	<a class="j" href="#p15-21">P15 oscillator</a> |
+	<a class="j" href="#pp15-21">P15 pseudo-oscillators</a> |
+	<a class="j" href="#pp30-21">P30 pseudo-oscillator</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-21"></a>
+<h2>The 273188 21-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 47 of these are shown.</p>
+<p><a class="p" href="stamp/p1-21.rle"><img src="map/p1-21.png"
+ alt="21-bit still-lifes" width="621" height="321" usemap="#p1-21" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21-1409.rle">
+	    21.1409 [9]</a></td>
+	<td><a class="p" href="21/21-9556.rle">
+	    21.9556 [20]</a></td>
+	<td><a class="p" href="21/21-9734.rle">
+	    21.9734 [19]</a></td>
+	<td><a class="p" href="21/21-9735.rle">
+	    21.9735 [19]</a></td>
+	<td><a class="p" href="21/21-12138.rle">
+	    21.12138 [9]</a></td>
+	<td><a class="p" href="21/21-16612.rle">
+	    21. 16612 [9]</a></td>
+	<td><a class="p" href="21/21-16659.rle">
+	    21. 16659 [9]</a></td>
+	<td><a class="p" href="21/21-18937.rle">
+	    21. 18937 [11]</a></td>
+	<td><a class="p" href="21/21-19110.rle">
+	    21. 19110 [11]</a></td>
+	<td><a class="p" href="21/21-22391.rle">
+	    21. 22391 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21-40881.rle">
+	    21. 40881 [10]</a></td>
+	<td><a class="p" href="21/21-40996.rle">
+	    21. 40996 [7]</a></td>
+	<td><a class="p" href="21/21-41351.rle">
+	    21. 41351 [6]</a></td>
+	<td><a class="p" href="21/21-41458.rle">
+	    21. 41458 [11]</a></td>
+	<td><a class="p" href="21/21-43296.rle">
+	    21. 43296 [19]</a></td>
+	<td><a class="p" href="21/21-44222.rle">
+	    21. 44222 [6]</a></td>
+	<td><a class="p" href="21/21-46394.rle">
+	    21. 46394 [7]</a></td>
+	<td><a class="p" href="21/21-47007.rle">
+	    21. 47007 [17]</a></td>
+	<td><a class="p" href="21/21-47034.rle">
+	    21. 47034 [14]</a></td>
+	<td><a class="p" href="21/21-47643.rle">
+	    21. 47643 [16]</a></td>
+    </tr>
+
+    <tr>
+	<td class="g"><a class="p" href="21/21-47708.rle">
+	    21. 47708 [21]</a></td>
+	<td><a class="p" href="21/21-51514.rle">
+	    21. 51514 [13]</a></td>
+	<td class="y"><a class="p" href="21/21-51763.rle">
+	    21. 51763 [26]</a></td>
+	<td><a class="p" href="21/21-52368.rle">
+	    21. 52368 [11]</a></td>
+	<td><a class="p" href="21/21-56578.rle">
+	    21. 56578 [15]</a></td>
+	<td><a class="p" href="21/21-58260.rle">
+	    21. 58260 [9]</a></td>
+	<td><a class="p" href="21/21-67201.rle">
+	    21. 67201 [17]</a></td>
+	<td><a class="p" href="21/21-67406.rle">
+	    21. 67406 [6]</a></td>
+	<td><a class="p" href="21/21-67612.rle">
+	    21. 67612 [9]</a></td>
+	<td><a class="p" href="21/21-74005.rle">
+	    21. 74005 [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21-75446.rle">
+	    21. 75446 [16]</a></td>
+	<td><a class="p" href="21/21-88720.rle">
+	    21. 88720 [9]</a></td>
+	<td><a class="p" href="21/21-b5231.rle">
+	    21. 115231; Century eater w/ down cis bookend [9]</a></td>
+	<td><a class="p" href="21/21-b5270.rle">
+	    21. 115270; Century eater w/ up cis bookend [9]</a></td>
+	<td><a class="p" href="21/21-b8465.rle">
+	    21. 118465 [7]</a></td>
+	<td><a class="p" href="21/21-c5951.rle">
+	    21. 125951 [10]</a></td>
+	<td><a class="p" href="21/21-d0813.rle">
+	    21. 130813 [8]</a></td>
+	<td><a class="p" href="21/21-d3930.rle">
+	    21. 133930 [8]</a></td>
+	<td><a class="p" href="21/21-d5994.rle">
+	    21. 135994 [13]</a></td>
+	<td><a class="p" href="21/21-e9597.rle">
+	    21. 149597 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21-f1850.rle">
+	    21. 151850 [7]</a></td>
+	<td><a class="p" href="21/21-g9733.rle">
+	    21. 169733 [7]</a></td>
+	<td><a class="p" href="21/21-j8031.rle">
+	    21. 198031 [6]</a></td>
+	<td><a class="p" href="21/21-j8605.rle">
+	    21. 198605 [12]</a></td>
+	<td><a class="p" href="21/21-l4663.rle">
+	    21. 214663 [9]</a></td>
+	<td><a class="p" href="21/21-o7593.rle">
+	    21. 247593; Tri- loaf [11]</a></td>
+	<td><a class="p" href="21/21-q5698.rle">
+	    21. 265698 [10]</a></td>
+	<td colspan="3" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-21.zip" />
+	<area coords="601,301,620,320" href="stamp/p1-21.rle" />
+	<area coords="0,0,69,69" href="21/21-1409.rle" />
+	<area coords="70,0,129,69" href="21/21-9556.rle" />
+	<area coords="130,0,189,69" href="21/21-9734.rle" />
+	<area coords="190,0,249,69" href="21/21-9735.rle" />
+	<area coords="250,0,309,69" href="21/21-12138.rle" />
+	<area coords="310,0,369,69" href="21/21-16612.rle" />
+	<area coords="370,0,429,69" href="21/21-18937.rle" />
+	<area coords="430,0,489,69" href="21/21-16659.rle" />
+	<area coords="490,0,549,69" href="21/21-19110.rle" />
+	<area coords="550,0,620,69" href="21/21-22391.rle" />
+	<area coords="0,70,69,129" href="21/21-40881.rle" />
+	<area coords="70,70,129,129" href="21/21-40996.rle" />
+	<area coords="130,70,189,129" href="21/21-41351.rle" />
+	<area coords="190,70,249,129" href="21/21-41458.rle" />
+	<area coords="250,70,309,129" href="21/21-43296.rle" />
+	<area coords="310,70,369,129" href="21/21-44222.rle" />
+	<area coords="370,70,429,129" href="21/21-46394.rle" />
+	<area coords="430,70,489,129" href="21/21-47007.rle" />
+	<area coords="490,70,549,129" href="21/21-47034.rle" />
+	<area coords="550,70,620,129" href="21/21-47643.rle" />
+	<area coords="0,130,69,189" href="21/21-47708.rle" />
+	<area coords="70,130,129,189" href="21/21-51514.rle" />
+	<area coords="130,130,189,189" href="21/21-51763.rle" />
+	<area coords="190,130,249,189" href="21/21-52368.rle" />
+	<area coords="250,130,309,189" href="21/21-56578.rle" />
+	<area coords="310,130,369,189" href="21/21-58260.rle" />
+	<area coords="370,130,429,189" href="21/21-67201.rle" />
+	<area coords="430,130,489,189" href="21/21-67406.rle" />
+	<area coords="490,130,549,189" href="21/21-67612.rle" />
+	<area coords="550,130,620,189" href="21/21-74005.rle" />
+	<area coords="0,190,69,249" href="21/21-75446.rle" />
+	<area coords="70,190,129,249" href="21/21-88720.rle" />
+	<area coords="130,190,189,249" href="21/21-b5231.rle" />
+	<area coords="190,190,249,249" href="21/21-b5270.rle" />
+	<area coords="250,190,309,249" href="21/21-b8465.rle" />
+	<area coords="310,190,369,249" href="21/21-c5951.rle" />
+	<area coords="370,190,429,249" href="21/21-d0813.rle" />
+	<area coords="430,190,489,249" href="21/21-d3930.rle" />
+	<area coords="490,190,549,249" href="21/21-d5994.rle" />
+	<area coords="550,190,620,249" href="21/21-e9597.rle" />
+	<area coords="0,250,69,320" href="21/21-f1850.rle" />
+	<area coords="70,250,129,320" href="21/21-g9733.rle" />
+	<area coords="130,250,189,320" href="21/21-j8031.rle" />
+	<area coords="190,250,249,320" href="21/21-j8605.rle" />
+	<area coords="250,250,309,320" href="21/21-l4663.rle" />
+	<area coords="310,250,369,320" href="21/21-o7593.rle" />
+	<area coords="370,250,429,320" href="21/21-q5698.rle" />
+	<area coords="430,250,620,320" nohref="nohref" />
+</map>
+
+<p>The Century eater is specifically designed to eat a
+<a class="p" href="0/6be.rle">century</a>.</p>
+
+<hr />
+<a name="pp1-21"></a>
+<h2>The 179011 21-bit
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 30 of these are shown.</p>
+<p><a class="p" href="stamp/pp1-21.rle"><img src="map/pp1-21.png"
+ alt="21-bit pseudo-still-lifes"
+ width="621" height="201" usemap="#pp1-21" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21ppcetb.rle">
+	    Up paperclip above eater [5]</a></td>
+	<td><a class="p" href="21/21lhabl1.rle">
+	    Up long hat on long hat siamese boat [15]</a></td>
+	<td><a class="p" href="21/21lhabl2.rle">
+	    Down long hat on long hat siamese boat [15]</a></td>
+	<td><a class="p" href="21/21slbnh2.rle">
+	    Beehive below shil- lelagh tie bun [6]</a></td>
+	<td><a class="p" href="21/21slbnh1.rle">
+	    Beehive on shil- lelagh tie bun [6]</a></td>
+	<td><a class="p" href="21/21ppcetc.rle">
+	    Down paperclip above eater [5]</a></td>
+	<td><a class="p" href="21/21lcibb1.rle">
+	    Block on block on long cis integral [14]</a></td>
+	<td><a class="p" href="21/21lcisl2.rle">
+	    Down shil- lelagh head on long cis integral [17]</a></td>
+	<td><a class="p" href="21/21bipdb2.rle">
+	    Down boat on bi- pond [6]</a></td>
+	<td><a class="p" href="21/21bipdb1.rle">
+	    Up boat on bi- pond [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21hbet5.rle">
+	    Up half bakery above eater [5]</a></td>
+	<td><a class="p" href="21/21lcipd1.rle">
+	    Pond on long cis integral [14]</a></td>
+	<td><a class="p" href="21/21btshdk.rle">
+	    Down boat beside up ship on dock [5]</a></td>
+	<td><a class="p" href="21/21lcisl8.rle">
+	    Down shil- lelagh chin on long cis integral [17]</a></td>
+	<td><a class="p" href="21/21lcisld.rle">
+	    Up shil- lelagh tail on long cis integral [15]</a></td>
+	<td><a class="p" href="21/21lcilp2.rle">
+	    Down long ship on long cis integral [14]</a></td>
+	<td><a class="p" href="21/21lcitet.rle">
+	    Up eater tail on long cis integral w/ tub [18]</a></td>
+	<td><a class="p" href="21/21lciht7.rle">
+	    Up trans hook w/ tail on long cis integral [15]</a></td>
+	<td><a class="p" href="21/21lcivs8.rle">
+	    Down cis very long snake on long cis integral [16]</a></td>
+	<td><a class="p" href="21/21ilfpd6.rle">
+	    Pond above integral w/ down loaf [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21ilfpd5.rle">
+	    Pond behind integral w/ down loaf [6]</a></td>
+	<td><a class="p" href="21/21hbet6.rle">
+	    Down half bakery above eater [5]</a></td>
+	<td><a class="p" href="21/21lciht1.rle">
+	    Up cis hook w/ tail on long cis integral [15]</a></td>
+	<td><a class="p" href="21/21lcitt1.rle">
+	    Up tub w/ tail on long cis integral [15]</a></td>
+	<td><a class="p" href="21/21etslf1.rle">
+	    Up boat on up eater tail above eater [5]</a></td>
+	<td><a class="p" href="21/21lcics8.rle">
+	    Down cis canoe on long cis integral [17]</a></td>
+	<td><a class="p" href="21/21lcics2.rle">
+	    Down trans canoe on long cis integral [17]</a></td>
+	<td><a class="p" href="21/21lcivs2.rle">
+	    Down trans very long snake on long cis integral [17]</a></td>
+	<td><a class="p" href="21/21etetlf.rle">
+	    Up loaf on eater bridge eater [5]</a></td>
+	<td><a class="p" href="21/21etslf2.rle">
+	    Down boat on up eater tail above eater [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp1-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp1-21.zip" />
+	<area coords="601,181,620,200" href="stamp/pp1-21.rle" />
+	<area coords="0,0,69,49" href="21/21ppcetb.rle" />
+	<area coords="70,0,129,49" href="21/21lhabl1.rle" />
+	<area coords="130,0,189,49" href="21/21lhabl2.rle" />
+	<area coords="190,0,249,49" href="21/21slbnh1.rle" />
+	<area coords="250,0,309,49" href="21/21slbnh2.rle" />
+	<area coords="310,0,369,49" href="21/21ppcetc.rle" />
+	<area coords="370,0,429,49" href="21/21lcibb1.rle" />
+	<area coords="430,0,489,49" href="21/21lcisl2.rle" />
+	<area coords="490,0,549,49" href="21/21bipdb2.rle" />
+	<area coords="550,0,620,49" href="21/21bipdb1.rle" />
+	<area coords="0,50,69,89" href="21/21hbet5.rle" />
+	<area coords="70,50,129,89" href="21/21lcipd1.rle" />
+	<area coords="130,50,189,89" href="21/21btshdk.rle" />
+	<area coords="190,50,249,89" href="21/21lcisl8.rle" />
+	<area coords="250,50,309,89" href="21/21lcisld.rle" />
+	<area coords="310,50,369,89" href="21/21lcilp2.rle" />
+	<area coords="370,50,429,89" href="21/21lcitet.rle" />
+	<area coords="430,50,489,89" href="21/21lciht7.rle" />
+	<area coords="490,50,549,89" href="21/21lcivs8.rle" />
+	<area coords="550,50,620,89" href="21/21ilfpd6.rle" />
+	<area coords="0,90,69,200" href="21/21ilfpd5.rle" />
+	<area coords="70,90,129,200" href="21/21hbet6.rle" />
+	<area coords="130,90,189,200" href="21/21lciht1.rle" />
+	<area coords="190,90,249,200" href="21/21lcitt1.rle" />
+	<area coords="250,90,309,200" href="21/21etslf1.rle" />
+	<area coords="310,90,369,200" href="21/21lcics8.rle" />
+	<area coords="370,90,429,200" href="21/21lcics2.rle" />
+	<area coords="430,90,489,200" href="21/21lcivs2.rle" />
+	<area coords="490,90,549,200" href="21/21etetlf.rle" />
+	<area coords="550,90,620,200" href="21/21etslf2.rle" />
+</map>
+
+<hr />
+<a name="p2-21"></a>
+<h2>The 6596 21-bit
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p2-21.htm">separate page</a>.
+Syntheses for 2 of them are shown here.</p>
+<p><a class="p" href="stamp/p2-21.rle"><img src="map/p2-21.png"
+ alt="21b P2" width="141" height="81" usemap="#p2-21" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="21/21bcbeli.rle">
+	    Beacon on bookend siamese long integral [12]</a></td>
+	<td><a class="p" href="21/21bcdkcg.rle">
+	    Up beacon on down dock w/ down mango [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p2-21.zip" />
+	<area coords="121,61,140,80" href="stamp/p2-21.rle" />
+	<area coords="0,0,69,80" href="21/21bcbeli.rle" />
+	<area coords="70,0,140,80" href="21/21bcdkcg.rle" />
+</map>
+
+<hr />
+<a name="pp2-21"></a>
+<h2>The 22134 21-bit
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="pp2-21.htm">separate page</a>.</p>
+
+<p>All of these can be synthesized using the same techniques that are used for
+smaller pseudo-oscillators and pseudo-still-lifes, except one non-trivial one
+(shown below) and 169 trivial ones (not shown below) that involve adding a small
+still-life or oscillator to a large complex
+<a class="i" href="glider-u.htm#gu-p2">period 2 oscillator</a>
+that does not yet have a synthesis:</p>
+<p><ul>
+    <li>36 with 6-bit still-life one of three 15-bit
+	<a class="i" href="glider-u.htm#gu-p2">period 2 oscillators</a>.</li>
+    <li>16 with beacon on one of three 15-bit
+	<a class="i" href="glider-u.htm#gu-p2">period 2 oscillators</a>.</li>
+    <li>33 with boat on of ten 16-bit
+	<a class="i" href="glider-u.htm#gu-p2">period 2 oscillators</a>.</li>
+    <li>84 with block on one of 21 17-bit
+	<a class="i" href="glider-u.htm#gu-p2">period 2 oscillators</a>.</li>
+</ul></p>
+
+<p>Here are syntheses (or lack thereof) for 11 of these. All of the expensive
+ones were once on the "non-trivial without synthesis" list for a long time,
+but were eventually solved. Note that these, plus the ones without syntheses,
+all share three mechanisms that are all very difficult to synthesize: a beacon
+sandwiched between two other pieces, a bipole with pieces wrapped around it,
+or a cis python whose free end is near something else.</p>
+<p><a class="p" href="stamp/pp2-21.rle"><img src="map/pp2-21.png"
+ alt="21-bit pseudo-P2" width="501" height="141" usemap="#pp2-21" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21tphvhv.rle">
+	    Beehive on beehive on tripole [10]</a></td>
+	<td class="y"><a class="p" href="21/21glh2bc.rle">
+	    Beacon between gull w/ two long hooks [178]</a></td>
+	<td class="y"><a class="p" href="21/21slbcls.rle">
+	    Beacon between shillelagh and up cis python [88]</a></td>
+	<td class="y"><a class="p" href="21/21bptals.rle">
+	    Up bipole on table on cis python [32]</a></td>
+	<td class="g"><a class="p" href="21/21etacbp.rle">
+	    Bipole on carrier behind eater [21]</a></td>
+	<td class="r"><a class="p" href="21/21lhbcsn.rle">
+	    Up snake on up beacon above long hook w/ tail [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21bpbcld.rle">
+	    Up cis python on up beacon below bipole [55]</a></td>
+	<td class="y"><a class="p" href="21/21bpbcl9.rle">
+	    Up cis python on up beacon on bipole [55]</a></td>
+	<td class="y"><a class="p" href="21/21htftbp.rle">
+	    Up bipole on feather on hook w/ tail [32]</a></td>
+	<td><a class="p" href="21/21bplci2.rle">
+	    Down bipole on long cis integral [18]</a></td>
+	<td><a class="p" href="21/21tpas4.rle">
+	    Down tripole below carrier bridge snake [18]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp2-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp2-21.zip" />
+	<area coords="481,121,500,140" href="stamp/pp2-21.rle" />
+	<area coords="0,0,69,69" href="21/21tphvhv.rle" />
+	<area coords="70,0,129,69" href="21/21glh2bc.rle" />
+	<area coords="130,0,189,69" href="21/21slbcls.rle" />
+	<area coords="190,0,249,69" href="21/21bptals.rle" />
+	<area coords="250,0,309,69" href="21/21etacbp.rle" />
+	<area coords="310,0,500,69" href="21/21lhbcsn.rle" />
+	<area coords="0,70,69,140" href="21/21bpbcld.rle" />
+	<area coords="70,70,129,140" href="21/21bpbcl9.rle" />
+	<area coords="130,70,189,140" href="21/21htftbp.rle" />
+	<area coords="190,70,249,140" href="21/21bplci2.rle" />
+	<area coords="250,70,309,140" href="21/21tpas4.rle" />
+	<area coords="310,70,500,140" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p3-21"></a>
+<h2>The 420 21-bit
+<a class="i" href="p3.htm">period 3 oscillators</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p3-21.htm">separate page</a>.</p>
+
+<hr />
+<a name="pp3-21"></a>
+<h2>The 90 21-bit
+<a class="i" href="pp3.htm">period 3 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp3-21.rle"><img src="map/pp3-21.png"
+ alt="21-bit period 3 pseudo-oscillators"
+ width="637" height="461" usemap="#pp3-21" /></a></p>
+
+<map name="pp3-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,441,19,460" href="#bottom" />
+	<area coords="617,0,636,19" href="zip/pp3-21.zip" />
+	<area coords="617,441,636,460" href="stamp/pp3-21.rle" />
+	<area coords="0,0,77,49" href="21/21cfbbt4.rle" />
+	<area coords="78,0,145,49" href="21/21cfbbt3.rle" />
+	<area coords="146,0,213,49" href="21/21cfbbt1.rle" />
+	<area coords="214,0,281,49" href="21/21jmsl1.rle" />
+	<area coords="282,0,349,49" href="21/21jmcg2.rle" />
+	<area coords="350,0,417,49" href="21/21jmlp1.rle" />
+	<area coords="418,0,485,49" href="21/21jmpd1.rle" />
+	<area coords="486,0,553,49" href="21/21jmht10.rle" />
+	<area coords="554,0,636,49" href="21/21jmht8.rle" />
+	<area coords="0,50,77,89" href="21/21jmbbk1.rle" />
+	<area coords="78,50,145,89" href="21/21jmsl10.rle" />
+	<area coords="146,50,213,89" href="21/21jmsl5.rle" />
+	<area coords="214,50,281,89" href="21/21jmht4.rle" />
+	<area coords="282,50,349,89" href="21/21jmtt2.rle" />
+	<area coords="350,50,417,89" href="21/21jmsl6.rle" />
+	<area coords="418,50,485,89" href="21/21jmcs1.rle" />
+	<area coords="486,50,553,89" href="21/21jmcs5.rle" />
+	<area coords="554,50,636,89" href="21/21jmsl9.rle" />
+	<area coords="0,90,77,129" href="21/21jmvs1.rle" />
+	<area coords="78,90,145,129" href="21/21cfbbt2.rle" />
+	<area coords="146,90,213,129" href="21/21kyspb1.rle" />
+	<area coords="214,90,281,129" href="21/21kyspb3.rle" />
+	<area coords="282,90,349,129" href="21/21jmsl3.rle" />
+	<area coords="350,90,417,129" href="21/21jmcg4.rle" />
+	<area coords="418,90,485,129" href="21/21jmlp3.rle" />
+	<area coords="486,90,553,129" href="21/21jmpd2.rle" />
+	<area coords="554,90,636,129" href="21/21tgbt1.rle" />
+	<area coords="0,130,77,169" href="21/21jmvs7.rle" />
+	<area coords="78,130,145,169" href="21/21jmcg1.rle" />
+	<area coords="146,130,213,169" href="21/21jmbbk2.rle" />
+	<area coords="214,130,281,169" href="21/21jmsl12.rle" />
+	<area coords="282,130,349,169" href="21/21jmsl7.rle" />
+	<area coords="350,130,417,169" href="21/21jmht6.rle" />
+	<area coords="418,130,485,169" href="21/21jmtt4.rle" />
+	<area coords="486,130,553,169" href="21/21jmcs3.rle" />
+	<area coords="554,130,636,169" href="21/21jmcs7.rle" />
+	<area coords="0,170,77,209" href="21/21jmsl8.rle" />
+	<area coords="78,170,145,209" href="21/21jmvs5.rle" />
+	<area coords="146,170,213,209" href="21/21jmlp2.rle" />
+	<area coords="214,170,281,209" href="21/21jmsl11.rle" />
+	<area coords="282,170,349,209" href="21/21jmvs3.rle" />
+	<area coords="350,170,417,209" href="21/21jmht3.rle" />
+	<area coords="418,170,485,209" href="21/21jmvs2.rle" />
+	<area coords="486,170,553,209" href="21/21btcfb1.rle" />
+	<area coords="554,170,636,209" href="21/21tgbt2.rle" />
+	<area coords="0,210,77,249" href="21/21btcfb2.rle" />
+	<area coords="78,210,145,249" href="21/21jmcg3.rle" />
+	<area coords="146,210,213,249" href="21/21jmsl2.rle" />
+	<area coords="214,210,281,249" href="21/21jmlp4.rle" />
+	<area coords="282,210,349,249" href="21/21jmht7.rle" />
+	<area coords="350,210,417,249" href="21/21jmht5.rle" />
+	<area coords="418,210,485,249" href="21/21jmtt1.rle" />
+	<area coords="486,210,553,249" href="21/21jmcs2.rle" />
+	<area coords="554,210,636,249" href="21/21jmcs6.rle" />
+	<area coords="0,250,77,290" href="21/21jmvs4.rle" />
+	<area coords="78,250,145,290" href="21/21bcfbt1.rle" />
+	<area coords="146,250,213,290" href="21/21bcfbt2.rle" />
+	<area coords="214,250,281,290" href="21/21bjmbk.rle" />
+	<area coords="282,250,349,290" href="21/21jmsl4.rle" />
+	<area coords="350,250,417,290" href="21/21jmht9.rle" />
+	<area coords="418,250,485,290" href="21/21jmtt3.rle" />
+	<area coords="486,250,553,290" href="21/21eetlsc.rle" />
+	<area coords="554,250,636,290" href="21/21jmvs6.rle" />
+	<area coords="0,291,77,331" href="21/21jmcs4.rle" />
+	<area coords="78,291,145,331" href="21/21jmcs8.rle" />
+	<area coords="146,291,213,331" href="21/21kyspb2.rle" />
+	<area coords="214,291,281,331" href="21/21kyspb4.rle" />
+	<area coords="282,291,349,331" href="21/21eetetb.rle" />
+	<area coords="350,291,417,331" href="21/21eetlb2.rle" />
+	<area coords="418,291,485,331" href="21/21eetetc.rle" />
+	<area coords="486,291,553,331" href="21/21eetet9.rle" />
+	<area coords="554,291,636,331" href="21/21eetlsa.rle" />
+	<area coords="0,332,77,373" href="21/21einbt3.rle" />
+	<area coords="78,332,145,373" href="21/21eihbk2.rle" />
+	<area coords="146,332,213,373" href="21/21jmvs8.rle" />
+	<area coords="214,332,281,373" href="21/21einbt5.rle" />
+	<area coords="282,332,349,373" href="21/21eetlf2.rle" />
+	<area coords="350,332,417,373" href="21/21eetlf1.rle" />
+	<area coords="418,332,485,373" href="21/21einbt8.rle" />
+	<area coords="486,332,553,373" href="21/21einbt4.rle" />
+	<area coords="554,332,636,373" href="21/21eetls9.rle" />
+	<area coords="0,374,77,460" href="21/21eihbk1.rle" />
+	<area coords="78,374,145,460" href="21/21einbt6.rle" />
+	<area coords="146,374,213,460" href="21/21eetlb1.rle" />
+	<area coords="214,374,281,460" href="21/21eeteta.rle" />
+	<area coords="282,374,349,460" href="21/21eetet8.rle" />
+	<area coords="350,374,417,460" href="21/21einbt7.rle" />
+	<area coords="418,374,485,460" href="21/21eetetd.rle" />
+	<area coords="486,374,553,460" href="21/21eitbk.rle" />
+	<area coords="554,374,636,460" href="21/21eetlsb.rle" />
+</map>
+
+<hr />
+<a name="p4-21"></a>
+<h2>The 34 21-bit
+<a class="i" href="p4.htm">period 4 oscillators</a></h2>
+<p><a class="p" href="stamp/p4-21.rle"><img src="map/p4-21.png"
+ alt="21-bit period 4 oscillators"
+ width="561" height="261" usemap="#p4-21" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="21/21mdtlb2.rle">
+	    Down boat on mold sharing tail [52]</a></td>
+	<td><a class="p" href="21/21mdleh1.rle">
+	    Up mold on up long bookend w/ hook [15]</a></td>
+	<td><a class="p" href="21/21mdleh4.rle">
+	    Down mold on down long bookend w/ hook[13]</a></td>
+	<td class="y"><a class="p" href="21/21mdzpb1.rle">
+	    Up mold tie Z w/ pre-block [23]</a></td>
+	<td><a class="p" href="21/21mdlet1.rle">
+	    Up mold on up long bookend w/ tub [15]</a></td>
+	<td><a class="p" href="21/21mdleh3.rle">
+	    Up mold on down long bookend w/ hook [13]</a></td>
+	<td><a class="p" href="21/21mdlet3.rle">
+	    Up mold on down long bookend w/ tub [13]</a></td>
+	<td><a class="p" href="21/21mdlet4.rle">
+	    Down mold on down long bookend w/ tub [13]</a></td>
+	<td class="r"><a class="p" href="21/21p4-1.rle">
+	    21-bit P4 oscillator #1 [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21mdhlt.rle">
+	    Mold tie hook w/ long tail [34]</a></td>
+	<td><a class="p" href="21/21mddv1.rle">
+	    Up mold tie dove [18]</a></td>
+	<td class="y"><a class="p" href="21/21mdtlb1.rle">
+	    Up boat on mold sharing tail [41]</a></td>
+	<td class="y"><a class="p" href="21/21mddbt.rle">
+	    Mold tie down boat w/ tail [27]</a></td>
+	<td class="y"><a class="p" href="21/21mdvha1.rle">
+	    Up mold siamese very long hat [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdvha2.rle">
+	    Down mold siamese very long hat [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdbeb1.rle">
+	    Up mold tie bookend w/ boat [23]</a></td>
+	<td><a class="p" href="21/21mdleh2.rle">
+	    Down mold on up long bookend w/ hook [15]</a></td>
+	<td class="y"><a class="p" href="21/21mdbtta.rle">
+	    Mold siamese boat on table [23]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21emdsn.rle">
+	    Eater siamese mold siamese snake [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdblsd.rle">
+	    Mold w/bit tie long side [44]</a></td>
+	<td class="y"><a class="p" href="21/21mdlhab.rle">
+	    Mold siamese long hat siamese boat [24]</a></td>
+	<td class="y"><a class="p" href="21/21smdet.rle">
+	    Snake siamese mold siamese eater [29]</a></td>
+	<td class="y"><a class="p" href="21/21mdacbt.rle">
+	    Mold siamese boat below carrier [27]</a></td>
+	<td class="y"><a class="p" href="21/21amdet.rle">
+	    Carrier siamese mold siamese eater [35]</a></td>
+	<td class="y"><a class="p" href="21/21emdac.rle">
+	    Eater siamese mold siamese carrier [28]</a></td>
+	<td><a class="p" href="21/21mdzpb2.rle">
+	    Down mold tie Z w/ pre-block [20]</a></td>
+	<td class="y"><a class="p" href="21/21mdbcs.rle">
+	    Mold w/ bit tie canoe [30]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21smdls.rle">
+	    Snake siamese mold siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="21/21amdls.rle">
+	    Carrier siamese mold siamese snake [33]</a></td>
+	<td class="y"><a class="p" href="21/21mdbcg.rle">
+	    Mold w/ bit tie mango [40]</a></td>
+	<td><a class="p" href="21/21mdlet2.rle">
+	    Down mold on up long bookend w/ tub [15]</a></td>
+	<td><a class="p" href="21/21mddv2.rle">
+	    Up mold tie dove [17]</a></td>
+	<td class="y"><a class="p" href="21/21mdbeb2.rle">
+	    Down mold tie bookend w/ boat [22]</a></td>
+	<td><a class="p" href="21/21cetb.rle">
+	    Con- fused eaters w/ tub [20]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p4-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p4-21.zip" />
+	<area coords="541,241,560,260" href="stamp/p4-21.rle" />
+	<area coords="0,0,69,69" href="21/21mdtlb2.rle" />
+	<area coords="70,0,129,69" href="21/21mdleh1.rle" />
+	<area coords="130,0,189,69" href="21/21mdleh4.rle" />
+	<area coords="190,0,249,69" href="21/21mdzpb1.rle" />
+	<area coords="250,0,309,69" href="21/21mdlet1.rle" />
+	<area coords="310,0,369,69" href="21/21mdleh3.rle" />
+	<area coords="370,0,429,69" href="21/21mdlet3.rle" />
+	<area coords="430,0,489,69" href="21/21mdlet4.rle" />
+	<area coords="490,0,549,69" href="21/21p4-1.rle" />
+	<area coords="550,0,560,69" nohref="nohref" />
+	<area coords="0,70,69,129" href="21/21mdhlt.rle" />
+	<area coords="70,70,129,129" href="21/21mddv1.rle" />
+	<area coords="130,70,189,129" href="21/21mdtlb1.rle" />
+	<area coords="190,70,249,129" href="21/21mddbt.rle" />
+	<area coords="250,70,309,129" href="21/21mdvha1.rle" />
+	<area coords="310,70,369,129" href="21/21mdvha2.rle" />
+	<area coords="370,70,429,129" href="21/21mdbeb1.rle" />
+	<area coords="430,70,489,129" href="21/21mdleh2.rle" />
+	<area coords="490,70,549,129" href="21/21mdbtta.rle" />
+	<area coords="550,70,560,129" nohref="nohref" />
+	<area coords="0,130,69,189" href="21/21emdsn.rle" />
+	<area coords="70,130,129,189" href="21/21mdblsd.rle" />
+	<area coords="130,130,189,189" href="21/21mdlhab.rle" />
+	<area coords="190,130,249,189" href="21/21smdet.rle" />
+	<area coords="250,130,309,189" href="21/21mdacbt.rle" />
+	<area coords="310,130,369,189" href="21/21amdet.rle" />
+	<area coords="370,130,429,189" href="21/21emdac.rle" />
+	<area coords="430,130,489,189" href="21/21mdzpb2.rle" />
+	<area coords="490,130,549,189" href="21/21mdbcs.rle" />
+	<area coords="550,130,560,189" nohref="nohref" />
+	<area coords="0,190,69,260" href="21/21smdls.rle" />
+	<area coords="70,190,129,260" href="21/21amdls.rle" />
+	<area coords="130,190,189,260" href="21/21mdbcg.rle" />
+	<area coords="190,190,249,260" href="21/21mdlet2.rle" />
+	<area coords="250,190,309,260" href="21/21mddv2.rle" />
+	<area coords="310,190,369,260" href="21/21mdbeb2.rle" />
+	<area coords="370,190,429,260" href="21/21cetb.rle" />
+	<area coords="430,190,560,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp4-21"></a>
+<h2>The 50 21-bit
+<a class="i" href="pp4.htm">period 4 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp4-21.rle"><img src="map/pp4-21.png"
+ alt="21-bit period 4 pseudo-oscillators"
+ width="621" height="321" usemap="#pp4-21" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21mdll6.rle">
+	    Down mold behind long shil- lelagh [16]</a></td>
+	<td><a class="p" href="21/21mddbt2.rle">
+	    Down mold on down boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdvb1.rle">
+	    Up very long boat on mold [12]</a></td>
+	<td><a class="p" href="21/21mddbt4.rle">
+	    Down mold above down boat w/ tail [14]</a></td>
+	<td><a class="p" href="21/21mdubt3.rle">
+	    Up mold below up boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdubt1.rle">
+	    Up mold on up boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdin3.rle">
+	    Up mold below integral [12]</a></td>
+	<td><a class="p" href="21/21mdin1.rle">
+	    Up mold on integral [15]</a></td>
+	<td><a class="p" href="21/21mdubt6.rle">
+	    Down mold above up boat w/ tail [15]</a></td>
+	<td><a class="p" href="21/21mdll4.rle">
+	    Down mold below long shil- lelagh [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21mdbbt2.rle">
+	    Down boat on block on mold [10]</a></td>
+	<td><a class="p" href="21/21mdbbt1.rle">
+	    Up boat on block on mold [10]</a></td>
+	<td><a class="p" href="21/21mdlht2.rle">
+	    Down mold on long hook w/ tail [15]</a></td>
+	<td><a class="p" href="21/21mdll7.rle">
+	    Up mold above long shil- lelagh [19]</a></td>
+	<td><a class="p" href="21/21mdll3.rle">
+	    Up mold below long shil- lelagh [15]</a></td>
+	<td><a class="p" href="21/21mdtlt2.rle">
+	    Down mold on tub w/long tail [15]</a></td>
+	<td><a class="p" href="21/21mdll8.rle">
+	    Down mold above long shil- lelagh [19]</a></td>
+	<td><a class="p" href="21/21mdlht1.rle">
+	    Up mold on long hook w/ tail [15]</a></td>
+	<td><a class="p" href="21/21mdxs1.rle">
+	    Up trans extra long snake on mold [18]</a></td>
+	<td><a class="p" href="21/21mdlht5.rle">
+	    Up mold below long hook w/ tail [19]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21mdll1.rle">
+	    Up mold on long shil- lelagh [19]</a></td>
+	<td><a class="p" href="21/21mdll9.rle">
+	    Up mold before long shil- lelagh [15]</a></td>
+	<td><a class="p" href="21/21mdlht4.rle">
+	    Down mold above long hook w/ tail [19]</a></td>
+	<td><a class="p" href="21/21mddbt1.rle">
+	    Up mold on down boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdtlt1.rle">
+	    Up mold on tub w/long tail [15]</a></td>
+	<td><a class="p" href="21/21mdlc1.rle">
+	    Up trans long canoe on mold [18]</a></td>
+	<td><a class="p" href="21/21mdtp1.rle">
+	    Up mold on tripole [18]</a></td>
+	<td><a class="p" href="21/21mdtp3.rle">
+	    Up mold below tripole [18]</a></td>
+	<td><a class="p" href="21/21mdlc3.rle">
+	    Up cis long canoe on mold [18]</a></td>
+	<td><a class="p" href="21/21mdll5.rle">
+	    Up mold behind long shil- lelagh [16]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21mdvb2.rle">
+	    Down very long boat on mold [12]</a></td>
+	<td><a class="p" href="21/21mddbt3.rle">
+	    Up mold above down boat w/ tail [14]</a></td>
+	<td><a class="p" href="21/21mdubt4.rle">
+	    Down mold below up boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdubt2.rle">
+	    Down mold on up boat w/ tail [12]</a></td>
+	<td><a class="p" href="21/21mdxs3.rle">
+	    Up cis extra long snake on mold [12]</a></td>
+	<td><a class="p" href="21/21mdin4.rle">
+	    Down mold below integral [9]</a></td>
+	<td><a class="p" href="21/21mdin2.rle">
+	    Down mold on integral [15]</a></td>
+	<td><a class="p" href="21/21mdubt5.rle">
+	    Up mold above up boat w/ tail [15]</a></td>
+	<td><a class="p" href="21/21mdxs2.rle">
+	    Down trans extra long snake on mold [18]</a></td>
+	<td><a class="p" href="21/21mdlht6.rle">
+	    Down mold below long hook w/ tail [16]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21bmdbt2.rle">
+	    Down boat on mold on block [8]</a></td>
+	<td><a class="p" href="21/21bmdbt1.rle">
+	    Up boat on mold on block [10]</a></td>
+	<td><a class="p" href="21/21mdll2.rle">
+	    Down mold on long shil- lelagh [18]</a></td>
+	<td><a class="p" href="21/21mdll10.rle">
+	    Down mold before long shil- lelagh [14]</a></td>
+	<td><a class="p" href="21/21mdlht3.rle">
+	    Up mold above long hook w/ tail [16]</a></td>
+	<td><a class="p" href="21/21mdlc2.rle">
+	    Down trans long canoe on mold [18]</a></td>
+	<td><a class="p" href="21/21mdtp2.rle">
+	    Down mold on tripole [18]</a></td>
+	<td><a class="p" href="21/21mdtp4.rle">
+	    Down mold below tripole [18]</a></td>
+	<td><a class="p" href="21/21mdlc4.rle">
+	    Down cis long canoe on mold [17]</a></td>
+	<td><a class="p" href="21/21mdxs4.rle">
+	    Down cis extra long snake on mold [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp4-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp4-21.zip" />
+	<area coords="601,301,620,320" href="stamp/pp4-20.rle" />
+	<area coords="0,0,69,69" href="21/21mdll6.rle" />
+	<area coords="70,0,129,69" href="21/21mddbt2.rle" />
+	<area coords="130,0,189,69" href="21/21mdvb1.rle" />
+	<area coords="190,0,249,69" href="21/21mddbt4.rle" />
+	<area coords="250,0,309,69" href="21/21mdubt3.rle" />
+	<area coords="310,0,369,69" href="21/21mdubt1.rle" />
+	<area coords="370,0,429,69" href="21/21mdin3.rle" />
+	<area coords="430,0,489,69" href="21/21mdin1.rle" />
+	<area coords="490,0,549,69" href="21/21mdubt6.rle" />
+	<area coords="550,0,620,69" href="21/21mdll4.rle" />
+	<area coords="0,70,69,129" href="21/21mdbbt2.rle" />
+	<area coords="70,70,129,129" href="21/21mdbbt1.rle" />
+	<area coords="130,70,189,129" href="21/21mdlht2.rle" />
+	<area coords="190,70,249,129" href="21/21mdll7.rle" />
+	<area coords="250,70,309,129" href="21/21mdll3.rle" />
+	<area coords="310,70,369,129" href="21/21mdtlt2.rle" />
+	<area coords="370,70,429,129" href="21/21mdll8.rle" />
+	<area coords="430,70,489,129" href="21/21mdlht1.rle" />
+	<area coords="490,70,549,129" href="21/21mdxs1.rle" />
+	<area coords="550,70,620,129" href="21/21mdlht5.rle" />
+	<area coords="0,130,69,189" href="21/21mdll1.rle" />
+	<area coords="70,130,129,189" href="21/21mdll9.rle" />
+	<area coords="130,130,189,189" href="21/21mdlht4.rle" />
+	<area coords="190,130,249,189" href="21/21mddbt1.rle" />
+	<area coords="250,130,309,189" href="21/21mdtlt1.rle" />
+	<area coords="310,130,369,189" href="21/21mdlc1.rle" />
+	<area coords="370,130,429,189" href="21/21mdtp1.rle" />
+	<area coords="430,130,489,189" href="21/21mdtp3.rle" />
+	<area coords="490,130,549,189" href="21/21mdlc3.rle" />
+	<area coords="550,130,620,189" href="21/21mdll5.rle" />
+	<area coords="0,190,69,249" href="21/21mdvb2.rle" />
+	<area coords="70,190,129,249" href="21/21mddbt3.rle" />
+	<area coords="130,190,189,249" href="21/21mdubt4.rle" />
+	<area coords="190,190,249,249" href="21/21mdubt2.rle" />
+	<area coords="250,190,309,249" href="21/21mdxs3.rle" />
+	<area coords="310,190,369,249" href="21/21mdin4.rle" />
+	<area coords="370,190,429,249" href="21/21mdin2.rle" />
+	<area coords="430,190,489,249" href="21/21mdubt5.rle" />
+	<area coords="490,190,549,249" href="21/21mdxs2.rle" />
+	<area coords="550,190,620,249" href="21/21mdlht6.rle" />
+	<area coords="0,250,69,320" href="21/21bmdbt2.rle" />
+	<area coords="70,250,129,320" href="21/21bmdbt1.rle" />
+	<area coords="130,250,189,320" href="21/21mdll2.rle" />
+	<area coords="190,250,249,320" href="21/21mdll10.rle" />
+	<area coords="250,250,309,320" href="21/21mdlht3.rle" />
+	<area coords="310,250,369,320" href="21/21mdlc2.rle" />
+	<area coords="370,250,429,320" href="21/21mdtp2.rle" />
+	<area coords="430,250,489,320" href="21/21mdtp4.rle" />
+	<area coords="490,250,549,320" href="21/21mdlc4.rle" />
+	<area coords="550,250,620,320" href="21/21mdxs4.rle" />
+</map>
+
+<hr />
+<a name="p5-21"></a>
+<h2>The 42 21-bit
+<a class="i" href="p5.htm">period 5 oscillators</a></h2>
+<p><a class="p" href="stamp/p5-21.rle"><img src="map/p5-21.png"
+ alt="21-bit period 5 oscillators"
+ width="581" height="401" usemap="#p5-21" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21fmtub.rle">
+	    Fumarole w/ tub and up boat [14]</a></td>
+	<td class="y"><a class="p" href="21/21svcsl.rle">
+	    Silver's P5 before cis shillelagh [22]</a></td>
+	<td class="y"><a class="p" href="21/21svcht1.rle">
+	    Silver's P5 on cis hook w/ tail [30]</a></td>
+	<td class="y"><a class="p" href="21/21svihk2.rle">
+	    Silver's P5 above integral w/ hook [30]</a></td>
+	<td class="y"><a class="p" href="21/21svitb.rle">
+	    Silver's P5 above integral w/ tub [30]</a></td>
+	<td class="y"><a class="p" href="21/21svss.rle">
+	    Silver's P5 on snake siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="21/21svsa.rle">
+	    Silver's P5 on snake siamese carrier [24]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21svtvt.rle">
+	    Silver's P5 above tub w/ very long tail [30]</a></td>
+	<td class="y"><a class="p" href="21/21svas.rle">
+	    Silver's P5 on carrier siamese snake [22]</a></td>
+	<td><a class="p" href="21/21svaa.rle">
+	    Silver's P5 on carrier siamese carrier [19]</a></td>
+	<td class="y"><a class="p" href="21/21svvht1.rle">
+	    Silver's P5 on very long hook w/ tail [27]</a></td>
+	<td><a class="p" href="21/21svvl.rle">
+	    Silver's P5 above very long shillelagh [20]</a></td>
+	<td><a class="p" href="21/21svys.rle">
+	    Silver's P5 on extra extra long snake [20]</a></td>
+	<td><a class="p" href="21/21fmug.rle">
+	    Fumarole w/ up barge [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21fmft.rle">
+	    Fumarole w/ fuse w/ tail [16]</a></td>
+	<td class="y"><a class="p" href="21/21svblt1.rle">
+	    Silver's P5 above boat w/ long tail [28]</a></td>
+	<td><a class="p" href="21/21svvc.rle">
+	    Silver's P5 on very long canoe [20]</a></td>
+	<td class="y"><a class="p" href="21/21netb.rle">
+	    Elkies's P5 w/ tub [28]</a></td>
+	<td class="g"><a class="p" href="21/21svlha1.rle">
+	    Silver's P5 on up long hat [21]</a></td>
+	<td class="y"><a class="p" href="21/21svbta1.rle">
+	    Silver's P5 on block on table [22]</a></td>
+	<td class="y"><a class="p" href="21/21svlha2.rle">
+	    Silver's P5 on down long hat [40]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21svblt2.rle">
+	    Silver's P5 behind boat w/ long tail [24]</a></td>
+	<td class="y"><a class="p" href="21/21svbta2.rle">
+	    Silver's P5 above block on table [31]</a></td>
+	<td class="y"><a class="p" href="21/21svihk1.rle">
+	    Silver's P5 on integral w/ hook [37]</a></td>
+	<td><a class="p" href="21/21hxsn.rle">
+	    Hooks on snake [17]</a></td>
+	<td><a class="p" href="21/21hxac.rle">
+	    Hooks on carrier [14]</a></td>
+	<td class="y"><a class="p" href="21/21svcht2.rle">
+	    Silver's P5 above cis hook w/ tail [43]</a></td>
+	<td><a class="p" href="21/21svhvt.rle">
+	    Silver's P5 on beehive w/ tail [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21svdgt.rle">
+	    Silver's P5 on down barge w/ tail [17]</a></td>
+	<td><a class="p" href="21/21svclt.rle">
+	    Silver's P5 above claw w/ tail [14]</a></td>
+	<td><a class="p" href="21/21svftt.rle">
+	    Silver's P5 on fuse w/ two tails [18]</a></td>
+	<td><a class="p" href="21/21svugt.rle">
+	    Silver's P5 on up barge w/ tail [16]</a></td>
+	<td><a class="p" href="21/21svvht2.rle">
+	    Silver's P5 above very long hook w/ tail [18]</a></td>
+	<td class="y"><a class="p" href="21/21apta1.rle">
+	    Up table on pseudo barber pole [31]</a></td>
+	<td class="y"><a class="p" href="21/21apta3.rle">
+	    Up table below pseudo barber pole [31]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21apta4.rle">
+	    Down table below pseudo barber pole [33]</a></td>
+	<td class="y"><a class="p" href="21/21apta2.rle">
+	    Down table on pseudo barber pole [33]</a></td>
+	<td class="y"><a class="p" href="21/21apsn1.rle">
+	    Pseudo barber pole tie up snake [41]</a></td>
+	<td class="y"><a class="p" href="21/21apsn2.rle">
+	    Pseudo barber pole tie down snake [41]</a></td>
+	<td class="y"><a class="p" href="21/21apsh.rle">
+	    Pseudo barber pole tie ship [38]</a></td>
+	<td class="y"><a class="p" href="21/21apac1.rle">
+	    Pseudo barber pole tie up carrier [40]</a></td>
+	<td class="y"><a class="p" href="21/21apac2.rle">
+	    Pseudo barber pole tie down carrier [40]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,381,19,400" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p5-21.zip" />
+	<area coords="561,381,580,400" href="stamp/pp5-21.rle" />
+	<area coords="0,0,89,69" href="21/21fmtub.rle" />
+	<area coords="90,0,169,69" href="21/21svcsl.rle" />
+	<area coords="170,0,249,69" href="21/21svcht1.rle" />
+	<area coords="250,0,329,69" href="21/21svihk2.rle" />
+	<area coords="330,0,409,69" href="21/21svitb.rle" />
+	<area coords="410,0,489,69" href="21/21svss.rle" />
+	<area coords="490,0,580,69" href="21/21svsa.rle" />
+	<area coords="0,70,89,129" href="21/21svtvt.rle" />
+	<area coords="90,70,169,129" href="21/21svas.rle" />
+	<area coords="170,70,249,129" href="21/21svaa.rle" />
+	<area coords="250,70,329,129" href="21/21svvht1.rle" />
+	<area coords="330,70,409,129" href="21/21svvl.rle" />
+	<area coords="410,70,489,129" href="21/21svys.rle" />
+	<area coords="490,70,580,129" href="21/21fmug.rle" />
+	<area coords="0,130,89,189" href="21/21fmft.rle" />
+	<area coords="90,130,169,189" href="21/21svblt1.rle" />
+	<area coords="170,130,249,189" href="21/21svvc.rle" />
+	<area coords="250,130,329,189" href="21/21netb.rle" />
+	<area coords="330,130,409,189" href="21/21svlha1.rle" />
+	<area coords="410,130,489,189" href="21/21svbta1.rle" />
+	<area coords="490,130,580,189" href="21/21svlha2.rle" />
+	<area coords="0,190,89,249" href="21/21svblt2.rle" />
+	<area coords="90,190,169,249" href="21/21svbta2.rle" />
+	<area coords="170,190,249,249" href="21/21svihk1.rle" />
+	<area coords="250,190,329,249" href="21/21hxsn.rle" />
+	<area coords="330,190,409,249" href="21/21hxac.rle" />
+	<area coords="410,190,489,249" href="21/21svcht2.rle" />
+	<area coords="490,190,580,249" href="21/21svhvt.rle" />
+	<area coords="0,250,89,309" href="21/21svdgt.rle" />
+	<area coords="90,250,169,309" href="21/21svclt.rle" />
+	<area coords="170,250,249,309" href="21/21svftt.rle" />
+	<area coords="250,250,329,309" href="21/21svugt.rle" />
+	<area coords="330,250,409,309" href="21/21svvht2.rle" />
+	<area coords="410,250,489,309" href="21/21apta1.rle" />
+	<area coords="490,250,580,309" href="21/21apta3.rle" />
+	<area coords="0,310,89,400" href="21/21apta4.rle" />
+	<area coords="90,310,169,400" href="21/21apta2.rle" />
+	<area coords="170,310,249,400" href="21/21apsn1.rle" />
+	<area coords="250,310,329,400" href="21/21apsn2.rle" />
+	<area coords="330,310,409,400" href="21/21apsh.rle" />
+	<area coords="410,310,489,400" href="21/21apac1.rle" />
+	<area coords="490,310,580,400" href="21/21apac2.rle" />
+</map>
+
+<hr />
+<a name="pp5-21"></a>
+<h2>The 28 21-bit
+<a class="i" href="pp5.htm">period 5 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp5-21.rle"><img src="map/pp5-21.png"
+ alt="21-bit P5 pseudo-oscillators"
+ width="581" height="341" usemap="#pp5-21" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21svacb2.rle">
+	    Silver's P5 on carrier above block [17]</a></td>
+	<td class="g"><a class="p" href="21/21svsnbk.rle">
+	    Silver's P5 on snake on block [21]</a></td>
+	<td><a class="p" href="21/21svacb1.rle">
+	    Silver's P5 on carrier on block [16]</a></td>
+	<td class="g"><a class="p" href="21/21bsvsn2.rle">
+	    Block on Silver's P5 on snake [21]</a></td>
+	<td><a class="p" href="21/21bsvac2.rle">
+	    Block on Silver's P5 on carrier [16]</a></td>
+	<td><a class="p" href="21/21svacb3.rle">
+	    Silver's P5 on carrier below block [18]</a></td>
+	<td class="g"><a class="p" href="21/21bsvsn1.rle">
+	    Block above Silver's P5 on snake [21]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21bsvac1.rle">
+	    Block above Silver's P5 on carrier [16]</a></td>
+	<td class="g"><a class="p" href="21/21bsvsn3.rle">
+	    Block below Silver's P5 on snake [21]</a></td>
+	<td><a class="p" href="21/21bsvac3.rle">
+	    Block below Silver's P5 on carrier [16]</a></td>
+	<td class="y"><a class="p" href="21/21apsh3.rle">
+	    Up ship below pseudo- barber- pole [31]</a></td>
+	<td class="y"><a class="p" href="21/21apac9.rle">
+	    Up cis carrier below pseudo- barber- pole [35]</a></td>
+	<td class="y"><a class="p" href="21/21apsh1.rle">
+	    Up ship on pseudo- barber- pole [31]</a></td>
+	<td class="y"><a class="p" href="21/21apac7.rle">
+	    Up cis carrier on pseudo- barber- pole [35]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21apsn3.rle">
+	    Up snake on pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apsn5.rle">
+	    Up snake below pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apac5.rle">
+	    Up trans carrier below pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apac3.rle">
+	    Up trans carrier on pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apsn4.rle">
+	    Down snake on pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apsn6.rle">
+	    Down snake below pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21aphv2.rle">
+	    Beehive below pseudo- barber- pole [31]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21aphv1.rle">
+	    Beehive on pseudo- barber- pole [31]</a></td>
+	<td class="y"><a class="p" href="21/21apsh2.rle">
+	    Down ship on pseudo- barber- pole [32]</a></td>
+	<td class="y"><a class="p" href="21/21apsh4.rle">
+	    Down ship below pseudo- barber- pole [32]</a></td>
+	<td class="y"><a class="p" href="21/21apac4.rle">
+	    Down trans carrier on pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apac6.rle">
+	    Down trans carrier below pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apac10.rle">
+	    Down cis carrier below pseudo- barber- pole [35]</a></td>
+	<td class="y"><a class="p" href="21/21apac8.rle">
+	    Down cis carrier on pseudo- barber- pole [35]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp5-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,321,19,340" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/pp5-21.zip" />
+	<area coords="561,321,580,340" href="stamp/pp5-21.rle" />
+	<area coords="0,0,89,89" href="21/21svacb2.rle" />
+	<area coords="90,0,169,89" href="21/21svsnbk.rle" />
+	<area coords="170,0,249,89" href="21/21svacb1.rle" />
+	<area coords="250,0,329,89" href="21/21bsvsn2.rle" />
+	<area coords="330,0,409,89" href="21/21bsvac2.rle" />
+	<area coords="410,0,489,89" href="21/21svacb3.rle" />
+	<area coords="490,0,580,89" href="21/21bsvsn1.rle" />
+	<area coords="0,90,89,169" href="21/21bsvac1.rle" />
+	<area coords="90,90,169,169" href="21/21bsvsn3.rle" />
+	<area coords="170,90,249,169" href="21/21bsvac3.rle" />
+	<area coords="250,90,329,169" href="21/21apsh3.rle" />
+	<area coords="330,90,409,169" href="21/21apac9.rle" />
+	<area coords="410,90,489,169" href="21/21apsh1.rle" />
+	<area coords="490,90,580,169" href="21/21apac7.rle" />
+	<area coords="0,170,89,249" href="21/21apsn3.rle" />
+	<area coords="90,170,169,249" href="21/21apsn5.rle" />
+	<area coords="170,170,249,249" href="21/21apac5.rle" />
+	<area coords="250,170,329,249" href="21/21apac3.rle" />
+	<area coords="330,170,409,249" href="21/21apsn4.rle" />
+	<area coords="410,170,489,249" href="21/21apsn6.rle" />
+	<area coords="490,170,580,249" href="21/21aphv2.rle" />
+	<area coords="0,250,89,340" href="21/21aphv1.rle" />
+	<area coords="90,250,169,340" href="21/21apsh2.rle" />
+	<area coords="170,250,249,340" href="21/21apsh4.rle" />
+	<area coords="250,250,329,340" href="21/21apac4.rle" />
+	<area coords="330,250,409,340" href="21/21apac6.rle" />
+	<area coords="410,250,489,340" href="21/21apac10.rle" />
+	<area coords="490,250,580,340" href="21/21apac8.rle" />
+</map>
+
+<hr />
+<a name="p6-21"></a>
+<h2>The 15 21-bit
+<a class="i" href="p6.htm">period 6 oscillators</a></h2>
+<p><a class="p" href="stamp/p6-21.rle"><img src="map/p6-21.png"
+ alt="21-bit period 6 oscillators"
+ width="421" height="201" usemap="#p6-21" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21cftp1.rle">
+	    Up tripole on up candel- frobra [19]</a></td>
+	<td><a class="p" href="21/21cftp3.rle">
+	    Up tripole on down candel- frobra [19]</a></td>
+	<td><a class="p" href="21/21cftp4.rle">
+	    Down tripole on down candel- frobra [19]</a></td>
+	<td class="g"><a class="p" href="21/21cptbc1.rle">
+	    Up beacon on cuphook w/ pre- block w/ tub [21]</a></td>
+	<td><a class="p" href="21/21cptbc2.rle">
+	    Down beacon on cuphook w/ pre- block w/ tub [20]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21tcubc3.rle">
+	    Up beacon on down cuphook w/ tub and tail [12]</a></td>
+	<td><a class="p" href="21/21tcubc1.rle">
+	    Up beacon on up cuphook w/ tub and tail [17]</a></td>
+	<td><a class="p" href="21/21tcubc2.rle">
+	    Down beacon on up cuphook w/ tub and tail [15]</a></td>
+	<td><a class="p" href="21/21tcubc4.rle">
+	    Down beacon on down cuphook w/ tub and tail [16]</a></td>
+	<td><a class="p" href="21/21elebc1.rle">
+	    Up beacon on up long bookend eating eater [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21ttbet.rle">
+	    Eater eating test tube baby [12]</a></td>
+	<td><a class="p" href="21/21elebc4.rle">
+	    Down beacon on down long bookend eating eater [12]</a></td>
+	<td><a class="p" href="21/21elebc3.rle">
+	    Up beacon on down long bookend eating eater [12]</a></td>
+	<td><a class="p" href="21/21cftp2.rle">
+	    Down tripole on up candel- frobra [17]</a></td>
+	<td><a class="p" href="21/21elebc2.rle">
+	    Down beacon on up long bookend eating eater [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p6-21.zip" />
+	<area coords="401,181,420,200" href="stamp/p6-20.rle" />
+	<area coords="0,0,89,69" href="21/21cftp1.rle" />
+	<area coords="90,0,169,69" href="21/21cftp3.rle" />
+	<area coords="170,0,249,69" href="21/21cftp4.rle" />
+	<area coords="250,0,329,69" href="21/21cptbc1.rle" />
+	<area coords="330,0,420,69" href="21/21cptbc2.rle" />
+	<area coords="0,70,89,129" href="21/21tcubc3.rle" />
+	<area coords="90,70,169,129" href="21/21tcubc1.rle" />
+	<area coords="170,70,249,129" href="21/21tcubc2.rle" />
+	<area coords="250,70,329,129" href="21/21tcubc4.rle" />
+	<area coords="330,70,420,129" href="21/21elebc1.rle" />
+	<area coords="0,130,89,200" href="21/21ttbet.rle" />
+	<area coords="90,130,169,200" href="21/21elebc4.rle" />
+	<area coords="170,130,249,200" href="21/21elebc3.rle" />
+	<area coords="250,130,329,200" href="21/21cftp2.rle" />
+	<area coords="330,130,420,200" href="21/21elebc2.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="pp6-21"></a>
+<h2>The 6 21-bit
+<a class="i" href="pp6.htm">period 6 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp6-21.rle"><img src="map/pp6-21.png"
+ alt="21-bit pseudo-P6" width="501" height="81" usemap="#pp6-21" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21jmbp1.rle">
+	    Up bipole on jam [13]</a></td>
+	<td><a class="p" href="21/21jmbp3.rle">
+	    Up bipole below jam [13]</a></td>
+	<td><a class="p" href="21/21uxbt2.rle">
+	    Down boat on unix [8]</a></td>
+	<td><a class="p" href="21/21uxbt1.rle">
+	    Up boat on unix [8]</a></td>
+	<td><a class="p" href="21/21jmbp2.rle">
+	    Down bipole on jam [13]</a></td>
+	<td><a class="p" href="21/21jmbp4.rle">
+	    Down bipole below jam [13]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp6-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp6-21.zip" />
+	<area coords="481,61,500,80" href="stamp/pp1-21.rle" />
+	<area coords="0,0,89,80" href="21/21jmbp1.rle" />
+	<area coords="90,0,169,80" href="21/21jmbp3.rle" />
+	<area coords="170,0,249,80" href="21/21uxbt2.rle" />
+	<area coords="250,0,329,80" href="21/21uxbt1.rle" />
+	<area coords="330,0,409,80" href="21/21jmbp2.rle" />
+	<area coords="410,0,500,80" href="21/21jmbp4.rle" />
+</map>
+
+<p>All of these except the two variants of boat on unix have a pseudo-period of
+6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="p8-21"></a>
+<h2>The 2 21-bit
+<a class="i" href="p8.htm">period 8 oscillators</a></h2>
+<p><a class="p" href="stamp/p8-21.rle"><img src="map/p8-21.png"
+ alt="21-bit P8" width="181" height="81" usemap="#p8-21" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="21/21brta2.rle">
+	    Down table on blocker [9]</a></td>
+	<td><a class="p" href="21/21brta1.rle">
+	    Up table on blocker [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="p8-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p8-21.zip" />
+	<area coords="161,61,180,80" href="stamp/p8-21.rle" />
+	<area coords="0,0,89,80" href="21/21brta2.rle" />
+	<area coords="90,0,180,80" href="21/21brta1.rle" />
+</map>
+
+<hr />
+<a name="pp8-21"></a>
+<h2>The 12 21-bit
+<a class="i" href="pp8.htm">period 8 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp8-21.rle"><img src="map/pp8-21.png"
+ alt="21-bit pseudo-P8" width="501" height="141" usemap="#pp8-21" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21brsh1.rle">
+	    Up ship on blocker [7]</a></td>
+	<td><a class="p" href="21/21brhv.rle">
+	    Beehive on blocker [9]</a></td>
+	<td><a class="p" href="21/21brsh2.rle">
+	    Down ship on blocker [7]</a></td>
+	<td><a class="p" href="21/21brac4.rle">
+	    Down cis carrier on blocker [12]</a></td>
+	<td><a class="p" href="21/21brsn2.rle">
+	    Down snake on blocker [11]</a></td>
+	<td><a class="p" href="21/21brac1.rle">
+	    Up trans carrier on blocker [13]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21brsn1.rle">
+	    Up snake on blocker [11]</a></td>
+	<td><a class="p" href="21/21brac2.rle">
+	    Down trans carrier on blocker [13]</a></td>
+	<td><a class="p" href="21/21brbc2.rle">
+	    Down cis beacon on blocker [12]</a></td>
+	<td><a class="p" href="21/21brac3.rle">
+	    Up cis carrier on blocker [12]</a></td>
+	<td><a class="p" href="21/21brbc1.rle">
+	    Up cis beacon on blocker [12]</a></td>
+	<td><a class="p" href="21/21tcbk.rle">
+	    Block on Coe's P8 [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp8-21.zip" />
+	<area coords="481,121,500,140" href="stamp/pp8-21.rle" />
+	<area coords="0,0,89,69" href="21/21brsh1.rle" />
+	<area coords="90,0,169,69" href="21/21brhv.rle" />
+	<area coords="170,0,249,69" href="21/21brsh2.rle" />
+	<area coords="250,0,329,69" href="21/21brac4.rle" />
+	<area coords="330,0,409,69" href="21/21brsn2.rle" />
+	<area coords="410,0,500,69" href="21/21brac1.rle" />
+	<area coords="0,70,89,140" href="21/21brsn1.rle" />
+	<area coords="90,70,169,140" href="21/21brac2.rle" />
+	<area coords="170,70,249,140" href="21/21brbc2.rle" />
+	<area coords="250,70,329,140" href="21/21brac3.rle" />
+	<area coords="330,70,409,140" href="21/21brbc1.rle" />
+	<area coords="410,70,500,140" href="21/21tcbk.rle" />
+</map>
+
+<hr />
+<a name="pp10-21"></a>
+<h2>The 4 21-bit
+<a class="i" href="pp10.htm">period 10 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp10-21.rle"><img src="map/pp10-21.png"
+ alt="21-bit pseudo-p10"
+ width="341" height="101" usemap="#pp10-21" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="21/21apbc3.rle">
+	    Up beacon below pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apbc1.rle">
+	    Up beacon on pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apbc4.rle">
+	    Down beacon below pseudo- barber- pole [34]</a></td>
+	<td class="y"><a class="p" href="21/21apbc2.rle">
+	    Down beacon on pseudo- barber- pole [34]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp10-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/pp10-21.zip" />
+	<area coords="321,81,340,100" href="stamp/pp10-21.rle" />
+	<area coords="0,0,89,100" href="21/21apbc3.rle" />
+	<area coords="90,0,169,100" href="21/21apbc1.rle" />
+	<area coords="170,0,249,100" href="21/21apbc4.rle" />
+	<area coords="250,0,340,100" href="21/21apbc2.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 10, a composite of 2 and 5.</p>
+
+<hr />
+<a name="p15-21"></a>
+<h2>The 1 21-bit
+<a class="i" href="p15.htm">period 15 oscillator</a></h2>
+<p><a class="p" href="stamp/p15-21.rle"><img src="map/p15-21.png"
+ alt="21b P15" width="101" height="81" usemap="#p15-21" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="21/21pcin.rle">
+	    Integral eating penta- decathlon [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="p15-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p15-21.zip" />
+	<area coords="81,61,100,80" href="stamp/p15-21.rle" />
+	<area coords="0,0,100,80" href="21/21pcin.rle" />
+</map>
+
+<hr />
+<a name="pp15-21"></a>
+<h2>The 22 21-bit
+<a class="i" href="pp15.htm">period 15 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp15-21.rle"><img src="map/pp15-21.png"
+ alt="21-bit period 15 pseudo-oscillators"
+ width="501" height="341" usemap="#pp15-21" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21pcll3.rle">
+	    Penta- decathlon behind long shillelagh [9]</a></td>
+	<td><a class="p" href="21/21pcll1.rle">
+	    Penta- decathlon on long shillelagh [10]</a></td>
+	<td><a class="p" href="21/21pcll5.rle">
+	    Penta- decathlon before long shillelagh [10]</a></td>
+	<td><a class="p" href="21/21pclht2.rle">
+	    Penta- decathlon above long hook w/ tail [9]</a></td>
+	<td><a class="p" href="21/21pcdbt1.rle">
+	    Penta- decathlon on down boat 2/tail [8]</a></td>
+	<td><a class="p" href="21/21pcubt2.rle">
+	    Penta- decathlon below up boat 2/tail [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21pcvb.rle">
+	    Very long boat on penta- decathlon [7]</a></td>
+	<td><a class="p" href="21/21pcin2.rle">
+	    Cis integral on penta- decathlon [7]</a></td>
+	<td><a class="p" href="21/21pcubt1.rle">
+	    Penta- decathlon on up boat w/ tail [8]</a></td>
+	<td><a class="p" href="21/21pcubt3.rle">
+	    Penta- decathlon above up boat 2/tail [8]</a></td>
+	<td><a class="p" href="21/21pcin1.rle">
+	    Trans integral on penta- decathlon [8]</a></td>
+	<td><a class="p" href="21/21pcdbt2.rle">
+	    Penta- decathlon above down boat 2/tail [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21pcll2.rle">
+	    Penta- decathlon below long shillelagh [9]</a></td>
+	<td><a class="p" href="21/21pcbbt.rle">
+	    Boat on block on penta- decathlon [6]</a></td>
+	<td><a class="p" href="21/21pclht1.rle">
+	    Penta- decathlon on long hook w/ tail [9]</a></td>
+	<td><a class="p" href="21/21pcll4.rle">
+	    Penta- decathlon above long shillelagh [9]</a></td>
+	<td><a class="p" href="21/21pctlt.rle">
+	    Tub w/ long tail on penta- decathlon [8]</a></td>
+	<td><a class="p" href="21/21pclc1.rle">
+	    Trans long canoe on penta- decathlon [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21pclc2.rle">
+	    Cis long canoe on penta- decathlon [7]</a></td>
+	<td><a class="p" href="21/21pcxs1.rle">
+	    Trans extra long snake on penta- decathlon [10]</a></td>
+	<td><a class="p" href="21/21bpcbt.rle">
+	    Block on penta- decathlon on boat [7]</a></td>
+	<td><a class="p" href="21/21pcxs2.rle">
+	    Cis extra long snake on penta- decathlon [9]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp15-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,321,19,340" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp15-21.zip" />
+	<area coords="481,321,500,340" href="stamp/pp15-21.rle" />
+	<area coords="0,0,89,89" href="21/21pcll3.rle" />
+	<area coords="90,0,169,89" href="21/21pcll1.rle" />
+	<area coords="170,0,249,89" href="21/21pcll5.rle" />
+	<area coords="250,0,329,89" href="21/21pclht2.rle" />
+	<area coords="330,0,409,89" href="21/21pcdbt1.rle" />
+	<area coords="410,0,500,89" href="21/21pcubt2.rle" />
+	<area coords="0,90,89,169" href="21/21pcvb.rle" />
+	<area coords="90,90,169,169" href="21/21pcin2.rle" />
+	<area coords="170,90,249,169" href="21/21pcubt1.rle" />
+	<area coords="250,90,329,169" href="21/21pcubt3.rle" />
+	<area coords="330,90,409,169" href="21/21pcin1.rle" />
+	<area coords="410,90,500,169" href="21/21pcdbt2.rle" />
+	<area coords="0,170,89,249" href="21/21pcll2.rle" />
+	<area coords="90,170,169,249" href="21/21pcbbt.rle" />
+	<area coords="170,170,249,249" href="21/21pclht1.rle" />
+	<area coords="250,170,329,249" href="21/21pcll4.rle" />
+	<area coords="330,170,409,249" href="21/21pctlt.rle" />
+	<area coords="410,170,500,249" href="21/21pclc1.rle" />
+	<area coords="0,250,89,340" href="21/21pclc2.rle" />
+	<area coords="90,250,169,340" href="21/21pcxs1.rle" />
+	<area coords="170,250,249,340" href="21/21bpcbt.rle" />
+	<area coords="250,250,329,340" href="21/21pcxs2.rle" />
+	<area coords="330,250,500,340" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp30-21"></a>
+<h2>The 1 21-bit
+<a class="i" href="pp30.htm">period 30 pseudo-oscillator</a></h2>
+<p><a class="p" href="stamp/pp30-21.rle"><img src="map/pp30-21.png"
+ alt="21b PP30" width="101" height="81" usemap="#pp30-21" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="21/21pctp.rle">
+	    Tripole on penta- decathlon [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp30-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp30-21.zip" />
+	<area coords="81,61,100,80" href="stamp/pp30-21.rle" />
+	<area coords="0,0,100,80" href="21/21pctp.rle" />
+</map>
+
+<p>This has a pseudo-period of 30, a composite of 2 and 15.</p>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	21,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

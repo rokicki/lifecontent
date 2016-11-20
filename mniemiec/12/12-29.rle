@@ -1,0 +1,31 @@
+#N 12-29.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:03 2015
+x = 150, y = 157, rule = B3/S23
+37bo$36bo$36b3o$87bo$88bo$86b3o$79b3o$58bxx21bo3b3o10bxx48bxx$55bx3bx
+20bo4bo9bx3bx45bx3bx$31bobo21b4x27bo8b4x46b4x$32boo96bo$32bo22bxx38bxx
+31bobobbo11bxx$55bxx38bxx32boobbobo9bxx$33b3o97boo$35bo$34bo$41bo$40b
+oo85boo$40bobo85boo$127bo5$62boo$61bobo47boo$63bo46bobo$90boo20bo$90bo
+bo48boo$90bo50bobo$141bo13$120bo$121bo$119b3o$123bo$123bobo$123boo$$
+38bo$36bobo$37boo$40bo$40bobo16bxx18boo18bxx18boo$40boo16bxbbx16bobbo
+16bxbbx16bobbo$44bo14bxx18boo8bo9bxx18boo$43bo19bx19bo5bobo11bx4bxx13b
+o4boo18bxx$43b3o16bxbx17bobo4boo11bxbx3bxx12bobo3boo15bx3bx$62bxbx17bo
+bo7boo8bxbx17bobo20b4x$46b3o14bx19bo8bobo8bx19bo$46bo45bo52bxx$47bo97b
+xx11$52bo79bo$51bo69bo9bo$3bo3bo43b3o65bobo9b3o$4boobobo110boo$3boobb
+oo16bx19bo3boo17bxx34bxx18boo3boo17bxx$24bxbx17bobobbobo13bx3bx13boo
+18bxbbx16bobbobbobo13bx3bx$9b3o13bx19bo3bo15b4x13bobo19bxx18boo3bo15b
+4x$9bo74bo$10bo54bxx19boo57bxx$44boo19bxx19bobo38bo17bxx$43bobo40bo39b
+oo$45bo80bobo$48boo72bo$48bobo71boo$48bo72bobo8$127bo$126bo$122bo3b3o$
+123boo7bo$122boo6boo$131boo$$94bo39bo$41boo49boo39bo$40bobobo48boo38b
+3o$42bobobo$44boo45bo$49boo15bx19bo3boo16bxx16bo21bxx$48boo15bxbx17bob
+obbobo12bx3bx15bobo17bx3bx$50bo14bxx18boo18b4x16boo18b4x$5bo$3bobo19b
+xx18boo18bxx18boo7boo9bxx18boo18bxx$4boo19bxx18boo18bxx18boo3bobboo10b
+xx18boo18bxx$boo87boo3bo41bo$obo86bobo44boo$bbo133bobo7$43bo82bo$12bo
+31boobobo76bobo$10boo31boobboo42bo34boo$11boo35bo41bo$14boo74b3o$6bo7b
+obo9bxx18boo20bxx38bxx5boo11boo18bxx$5bobo6bo10bxbbx16bobbo16bx3bx19bo
+19bx6boo11bo15bx3bx$5boo18b4x16b4o16b4x19boo16b3x6bo10b3o16b4x$88bobo
+15bx19bo$5boo18bxx18boo18bxx78bxx$5boo18bxx18boo18bxx78bxx4$127boo$
+118boo6boo$119boo7bo$118bo3b3o$122bo$87bobo33bo$88boo$88bo$51bo$51bobo
+36bobo$51boo37boo$5bo85bo14bx$3bobo19bxx18boo4bo13bxx3bxx13boo18bxbx$
+4boo19bxx18boo3boo13bxxbbxbbx12boo3boo13bxx$50bobo16bxbbx16bobbo$4boo
+19bxx18boo18bxx3bxx13boobbobbo12bxx$3bobo19bxx18boo18bxx18boo3boo3bo9b
+xx$5bo88bo$91bobb3o$90boo$90bobo!

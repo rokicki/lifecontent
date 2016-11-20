@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-8 Pseudo-Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-8 pseudo-oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 8 pseudo oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-8 Pseudo-Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#pp8-18">18</a> |
+	  <a class="j" href="#pp8-19">19</a> |
+	  <a class="j" href="#pp8-20">20</a> |
+	  <a class="j" href="#pp8-21">21</a> |
+	  <a class="j" href="#pp8-22">22</a> |
+	  <a class="j" href="#pp8-23">23</a> |
+	  <a class="j" href="#pp8-24">24</a> |
+	  <a class="j" href="#pp8-25">25</a>
+</p>
+
+<hr />
+<hr />
+<a name="pp8-18"></a>
+<h2>The 2 <a class="i" href="bits-18.htm">eighteen-bit</a>
+period 8 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp8-18.rle"><img src="map/pp8-18.png"
+ alt="18-bit pseudo-P8" width="181" height="61" usemap="#pp8-18" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="18/18fgtd2.rle">
+	    Down toad on figure-8 [7]</a></td>
+	<td><a class="p" href="18/18fgtd1.rle">
+	    Up toad on figure-8 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/pp8-18.zip" />
+	<area coords="161,41,180,60" href="stamp/pp8-18.rle" />
+	<area coords="0,0,89,60" href="18/18fgtd2.rle" />
+	<area coords="90,0,180,60" href="18/18fgtd1.rle" />
+</map>
+
+<hr />
+<a name="pp8-19"></a>
+<h2>The 1 <a class="i" href="bits-19.htm">nineteen-bit</a>
+period 8 pseudo-oscillator</h2>
+<p><a class="p" href="stamp/pp8-19.rle"><img src="map/pp8-19.png"
+ alt="19b PP8" width="101" height="61" usemap="#pp8-19" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="19/19brbk.rle">
+	    Block on blocker [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp8-19.zip" />
+	<area coords="81,41,100,60" href="stamp/pp8-19.rle" />
+	<area coords="0,0,89,60" href="19/19brbk.rle" />
+	<area coords="90,0,100,60" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp8-20"></a>
+<h2>The 2 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 8 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp8-20.rle"><img src="map/pp8-20.png"
+ alt="20-bit pseudo-P8" width="181" height="61" usemap="#pp8-20" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20brbt1.rle">
+	    Up boat on blocker [9]</a></td>
+	<td><a class="p" href="20/20brbt2.rle">
+	    Down boat on blocker [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/pp8-20.zip" />
+	<area coords="161,41,180,60" href="stamp/pp8-20.rle" />
+	<area coords="0,0,89,60" href="20/20brbt1.rle" />
+	<area coords="90,0,180,60" href="20/20brbt2.rle" />
+</map>
+
+<hr />
+<a name="pp8-21"></a>
+<h2>The 12 <a class="i" href="bits-21.htm">21-bit</a>
+period 8 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp8-21.rle"><img src="map/pp8-21.png"
+ alt="21-bit pseudo-P8" width="501" height="141" usemap="#pp8-21" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21brsh1.rle">
+	    Up ship on blocker [7]</a></td>
+	<td><a class="p" href="21/21brhv.rle">
+	    Beehive on blocker [9]</a></td>
+	<td><a class="p" href="21/21brsh2.rle">
+	    Down ship on blocker [7]</a></td>
+	<td><a class="p" href="21/21brac4.rle">
+	    Down cis carrier on blocker [12]</a></td>
+	<td><a class="p" href="21/21brsn2.rle">
+	    Down snake on blocker [11]</a></td>
+	<td><a class="p" href="21/21brac1.rle">
+	    Up trans carrier on blocker [13]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21brsn1.rle">
+	    Up snake on blocker [11]</a></td>
+	<td><a class="p" href="21/21brac2.rle">
+	    Down trans carrier on blocker [13]</a></td>
+	<td><a class="p" href="21/21brbc2.rle">
+	    Down cis beacon on blocker [12]</a></td>
+	<td><a class="p" href="21/21brac3.rle">
+	    Up cis carrier on blocker [12]</a></td>
+	<td><a class="p" href="21/21brbc1.rle">
+	    Up cis beacon on blocker [12]</a></td>
+	<td><a class="p" href="21/21tcbk.rle">
+	    Block on Coe's P8 [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp8-21.zip" />
+	<area coords="481,121,500,140" href="stamp/pp8-21.rle" />
+	<area coords="0,0,89,69" href="21/21brsh1.rle" />
+	<area coords="90,0,169,69" href="21/21brhv.rle" />
+	<area coords="170,0,249,69" href="21/21brsh2.rle" />
+	<area coords="250,0,329,69" href="21/21brac4.rle" />
+	<area coords="330,0,409,69" href="21/21brsn2.rle" />
+	<area coords="410,0,500,69" href="21/21brac1.rle" />
+	<area coords="0,70,89,140" href="21/21brsn1.rle" />
+	<area coords="90,70,169,140" href="21/21brac2.rle" />
+	<area coords="170,70,249,140" href="21/21brbc2.rle" />
+	<area coords="250,70,329,140" href="21/21brac3.rle" />
+	<area coords="330,70,409,140" href="21/21brbc1.rle" />
+	<area coords="410,70,500,140" href="21/21tcbk.rle" />
+</map>
+
+<hr />
+<a name="pp8-22"></a>
+<h2>The 18 <a class="i" href="bits-22.htm">22-bit</a>
+period 8 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp8-22.rle"><img src="map/pp8-22.png"
+ alt="22-bit pseudo-P8" width="501" height="201" usemap="#pp8-22" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="22/22brlf1.rle">
+	    Up loaf on blocker [9]</a></td>
+	<td><a class="p" href="22/22brlb2.rle">
+	    Down long boat on blocker [9]</a></td>
+	<td><a class="p" href="22/22brlf2.rle">
+	    Down loaf on blocker [9]</a></td>
+	<td><a class="p" href="22/22bret4.rle">
+	    Down blocker below eater [12]</a></td>
+	<td><a class="p" href="22/22brbc4.rle">
+	    Down trans beacon on blocker [9]</a></td>
+	<td><a class="p" href="22/22brbc3.rle">
+	    Up trans beacon on blocker [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="22/22bret2.rle">
+	    Down blocker on eater [12]</a></td>
+	<td><a class="p" href="22/22bret5.rle">
+	    Up blocker above eater [11]</a></td>
+	<td><a class="p" href="22/22brls2.rle">
+	    Down trans python on blocker [15]</a></td>
+	<td><a class="p" href="22/22brls1.rle">
+	    Up trans python on blocker [15]</a></td>
+	<td><a class="p" href="22/22brls4.rle">
+	    Down cis python on blocker [13]</a></td>
+	<td><a class="p" href="22/22brlb1.rle">
+	    Up long boat on blocker [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="22/22bret3.rle">
+	    Up blocker below eater [12]</a></td>
+	<td><a class="p" href="22/22bret1.rle">
+	    Up blocker on eater [12]</a></td>
+	<td><a class="p" href="22/22bret6.rle">
+	    Down blocker above eater [11]</a></td>
+	<td><a class="p" href="22/22tcbt1.rle">
+	    Up boat on Coe's P8 [11]</a></td>
+	<td><a class="p" href="22/22brls3.rle">
+	    Up cis python on blocker [14]</a></td>
+	<td><a class="p" href="22/22tcbt2.rle">
+	    Down boat on Coe's P8 [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp8-22.zip" />
+	<area coords="481,181,500,200" href="stamp/pp8-22.rle" />
+	<area coords="0,0,89,69" href="22/22brlf1.rle" />
+	<area coords="90,0,169,69" href="22/22brlb2.rle" />
+	<area coords="170,0,249,69" href="22/22brlf2.rle" />
+	<area coords="250,0,329,69" href="22/22bret4.rle" />
+	<area coords="330,0,409,69" href="22/22brbc4.rle" />
+	<area coords="410,0,500,69" href="22/22brbc3.rle" />
+	<area coords="0,70,89,129" href="22/22bret2.rle" />
+	<area coords="90,70,169,129" href="22/22bret5.rle" />
+	<area coords="170,70,249,129" href="22/22brls2.rle" />
+	<area coords="250,70,329,129" href="22/22brls1.rle" />
+	<area coords="330,70,409,129" href="22/22brls4.rle" />
+	<area coords="410,70,500,129" href="22/22brlb1.rle" />
+	<area coords="0,130,89,200" href="22/22bret3.rle" />
+	<area coords="90,130,169,200" href="22/22bret1.rle" />
+	<area coords="170,130,249,200" href="22/22bret6.rle" />
+	<area coords="250,130,329,200" href="22/22tcbt1.rle" />
+	<area coords="330,130,409,200" href="22/22brls3.rle" />
+	<area coords="410,130,500,200" href="22/22tcbt2.rle" />
+</map>
+
+<hr />
+<a name="pp8-23"></a>
+<h2>The 44 <a class="i" href="bits-23.htm">23-bit</a>
+period 8 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>31 Eight-bit still-life, bipole, or two blocks on blocker.</li>
+    <li>13 Six-bit still-life or beacon on Coe's P8.</li>
+</ul></p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+<hr />
+<a name="pp8-24"></a>
+<h2>The 78 <a class="i" href="bits-24.htm">24-bit</a>
+period 8 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>49 Nine-bit still-life, tripole, or boat and block on blocker.</li>
+    <li>16 Seven-bit still-life or beacon on Coe's P8.</li>
+    <li>13 Two toads on figure-8.</li>
+    <li>2 Figure-8 on figure-8 (shown).</li>
+</ul></p>
+
+<p>Syntheses for 2 of these are shown; all others are easy to synthesize
+using standard techniques.</p>
+<p><a class="p" href="stamp/pp8-24.rle"><img src="map/pp8-24.png"
+ alt="24-bit pseudo-P8" width="221" height="81" usemap="#pp8-24" /></a><br />
+    <table width="225">
+    <colgroup><col width="111" /><col width="112" /></colgroup>
+    <tr>
+	<td><a class="p" href="24/24fgfg1.rle">
+	    Up figure-8 on figure-8 [11]</a></td>
+	<td><a class="p" href="24/24fgfg2.rle">
+	    Down figure-8 on figure-8 [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp8-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="201,0,220,19" href="zip/pp8-24.zip" />
+	<area coords="201,61,220,80" href="stamp/pp8-24.rle" />
+	<area coords="0,0,109,80" href="24/24fgfg1.rle" />
+	<area coords="110,0,220,80" href="24/24fgfg2.rle" />
+</map>
+
+<hr />
+<a name="pp8-25"></a>
+<h2>The 176 <a class="i" href="bits-25.htm">25-bit</a>
+period 8 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>100 Ten-bit still-life or quadpole on blocker.</li>
+    <li>45 Two still-lifes or block and table on blocker.</li>
+    <li>31 Eight-bit still-life, bipole, or two blocks on Coe's P8.</li>
+</ul></p>
+
+<p>All are easy to synthesize using standard techniques.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="p8.htm">period-8 oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="posc.htm">pseudo-oscillators</a> by period:</b>
+	<a class="i" href="pp2.htm">2</a>,
+	<a class="i" href="pp3.htm">3</a>,
+	<a class="i" href="pp4.htm">4</a>,
+	<a class="i" href="pp5.htm">5</a>,
+	<a class="i" href="pp6.htm">6</a>,
+	8,
+	<a class="i" href="pp10.htm">10</a>,
+	<a class="i" href="pp12.htm">12</a>,
+	<a class="i" href="pp15.htm">15</a>,
+	<a class="i" href="pp30.htm">30</a>,
+	<a class="i" href="pp60.htm">60</a>,
+	<a class="i" href="pperiod.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

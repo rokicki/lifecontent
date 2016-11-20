@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Sorted By Type</title>
+<meta name="description"
+content="Conway's Game of Life: Object lists and syntheses sorted by type" />
+<meta name="keywords"
+content="conway game life object list type glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life Objects Sorted By Type</h1>
+
+<p align="center">
+	<a class="j" href="#type-p1">Still-lifes</a> |
+	<a class="j" href="#type-pp1">Pseudo-still-lifes</a> |
+	<a class="j" href="#type-osc">Oscillators</a> |
+	<a class="j" href="#type-posc">Pseudo-oscillators</a> |
+	<a class="j" href="#type-gun">Guns</a> |
+	<a class="j" href="#type-color">Multi-colored Life</a> |
+	<a class="j" href="#type-ss">
+	    Basic spaceships and pseudo-spaceships</a> |
+	<a class="j" href="#type-exotic">Exotic spaceships</a> |
+	<a class="j" href="#type-flot">Flotillae</a> |
+	<a class="j" href="#type-puff">Puffers</a> |
+	<a class="j" href="#type-cons">Constellations</a> |
+	<a class="j" href="#type-meth">Methuselahs</a> |
+	<a class="j" href="#type-nat">Naturally-occurring objects</a>
+</p>
+
+<hr /><hr />
+<a name="type-p1"></a>
+<h2><a class="i" href="p1.htm">Still-lifes</a></h2>
+<p><ul>
+    <li><b>Still-lifes by <a class="i" href="objsize.htm">size</a>:</b><br />
+	the 1 <a class="i" href="p1.htm#p1-0">0-bit</a>
+	(<a class="p" href="0/0death.rle">death</a>),
+	the 2 <a class="i" href="p1.htm#p1-4">4-bit</a>,
+	the 1 <a class="i" href="p1.htm#p1-5">5-bit</a>,
+	the 5 <a class="i" href="p1.htm#p1-6">6-bit</a>,
+	the 4 <a class="i" href="p1.htm#p1-7">7-bit</a>,
+	the 9 <a class="i" href="p1.htm#p1-8">8-bit</a>,
+	the 10 <a class="i" href="p1.htm#p1-9">9-bit</a>,
+	the 25 <a class="i" href="p1.htm#p1-10">10-bit</a>,
+	the 46 <a class="i" href="p1.htm#p1-11">11-bit</a>,
+	the 121 <a class="i" href="p1-12.htm">12-bit</a>,
+	the 240 <a class="i" href="p1-13.htm">13-bit</a>,
+	the 619 <a class="i" href="p1-14.htm">14-bit</a>,
+	the 1353 <a class="i" href="p1-15.htm">15-bit</a>,
+	the 3286 <a class="i" href="p1-16.htm">16-bit</a>,
+	the 7773 <a class="i" href="p1-17.htm">17-bit</a>,
+	the 19044 <a class="i" href="p1-18.htm">18-bit</a>,
+	<a class="i" href="p1.htm#p1-19">73</a> of the 45759 19-bit,
+	<a class="i" href="p1.htm#p1-20">81</a> of the 112243 20-bit,
+	<a class="i" href="p1.htm#p1-21">47</a> of the 273188 21-bit,
+	<a class="i" href="p1.htm#p1-22">43</a> of the 672172 22-bit,
+	<a class="i" href="p1.htm#p1-23">23</a> of the 1646147 23-bit,
+	<a class="i" href="p1.htm#p1-24">26</a> of the 4051726 24-bit,
+	10 <a class="i" href="p1.htm#p1-25">25 bits</a>,
+	23 <a class="i" href="p1.htm#p1-26">26 bits</a>,
+	7 <a class="i" href="p1.htm#p1-27">27 bits</a>,
+	20 <a class="i" href="p1.htm#p1-28">28 bits</a>,
+	3 <a class="i" href="p1.htm#p1-29">29 bits</a>,
+	41 <a class="i" href="p1.htm#p1-lg">
+	30-bit and larger</a>,
+	5 <a class="i" href="p1.htm#p1-bad">not quite still-lifes</a>.</li>
+    <li><b>Still-lifes by <a class="i" href="objcost.htm">
+	cost in gliders</a>:</b><br />
+	the 6 <a class="i" href="p1.htm#g2-p1">from 2 gliders</a>,
+	the 11 <a class="i" href="p1.htm#g3-p1">from 3 gliders</a>,
+	111 <a class="i" href="p1.htm#g4-p1">from 4 gliders</a>,
+	114 <a class="i" href="g5-p1.htm">from 5 gliders</a>,
+	217 <a class="i" href="g6-p1.htm">from 6 gliders</a>,
+	11 <a class="i" href="p1.htm#ge-p1">
+	from 1 glider/bit up to 14 bits</a>,
+	1 <a class="i" href="p1.htm#gg-p1">
+	from &gt;1 glider/bit up to 14 bits</a>,
+	0 unknown up to 18 bits.</li>
+</ul></p>
+
+<hr />
+<a name="type-pp1"></a>
+<h2><a class="i" href="pp1.htm">Pseudo-still-lifes</a></h2>
+<p><ul>
+    <li><b>Pseudo-still-lifes by
+	<a class="i" href="objsize.htm">size</a>:</b><br />
+	the 1 <a class="i" href="pp1.htm#pp1-8">8-bit</a>,
+	the 1 <a class="i" href="pp1.htm#pp1-9">9-bit</a>,
+	the 7 <a class="i" href="pp1.htm#pp1-10">10-bit</a>,
+	the 16 <a class="i" href="pp1.htm#pp1-11">11-bit</a>,
+	the 55 <a class="i" href="pp1.htm#pp1-12">12-bit</a>,
+	the 110 <a class="i" href="pp1.htm#pp1-13">13-bit</a>,
+	the 279 <a class="i" href="pp1-14.htm">14-bit</a>.
+	the 620 <a class="i" href="pp1-15.htm">15-bit</a>,
+	the 1645 <a class="i" href="pp1-16.htm">16-bit</a>,
+	the 4067 <a class="i" href="pp1-17.htm">17-bit</a>,
+	the 10843 <a class="i" href="pp1-18.htm">18-bit</a>,
+	<a class="i" href="pp1.htm#pp1-19">84 </a> of the 27250 19-bit,
+	<a class="i" href="pp1.htm#pp1-20">74 </a> of the 70637 20-bit,
+	<a class="i" href="pp1.htm#pp1-21">30 </a> of the 179011 21-bit,
+	<a class="i" href="pp1.htm#pp1-22">42 </a> of the 462086 22-bit,
+	<a class="i" href="pp1.htm#pp1-23">11 </a> of the 1184882 23-bit,
+	<a class="i" href="pp1.htm#pp1-24">12 </a> of the 3069134 24-bit,
+	2 <a class="i" href="pp1.htm#pp1-25">25-bit</a>,
+	29 <a class="i" href="pp1.htm#pp1-lg">26 bits and larger</a>,
+	4 <a class="i" href="pp1.htm#pp1-bad">
+	not quite pseudo-still-lifes</a>.</li>
+    <li><b>Pseudo-still-lifes by
+	<a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	the 1 <a class="i" href="pp1.htm#g2-pp1">from 2 gliders</a>,
+	the 11 <a class="i" href="pp1.htm#g3-pp1">from 3 gliders</a>,
+	33 <a class="i" href="pp1.htm#g4-pp1">from 4 gliders</a>,
+	156 <a class="i" href="g5-pp1.htm">from 5 gliders</a>,
+	253 <a class="i" href="g6-pp1.htm">from 6 gliders</a>,
+	9 <a class="i" href="pp1.htm#ge-pp1">from 1 glider/bit</a>,
+	10 <a class="i" href="pp1.htm#gg-pp1">
+	from &gt;1 glider/bit up to 14 bits</a>,
+	0 unknown up to 19 bits.</li>
+</ul></p>
+
+<hr />
+<a name="type-osc"></a>
+<h2><a class="i" href="period.htm">Oscillators</a></h2>
+<p><ul>
+    <li><b><a class="i" href="osc.htm">All oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b><br />
+	the 1 <a class="i" href="osc.htm#osc-3">3-bit</a>,
+	the 3 <a class="i" href="osc.htm#osc-6">6-bit</a>,
+	the 1 <a class="i" href="osc.htm#osc-8">8-bit</a>,
+	the 1 <a class="i" href="osc.htm#osc-9">9-bit</a>,
+	the 1 <a class="i" href="osc.htm#osc-10">10-bit</a>,
+	the 1 <a class="i" href="osc.htm#osc-11">11-bit</a>,
+	the 11 <a class="i" href="osc.htm#osc-12">12-bit</a>,
+	the 4 <a class="i" href="osc.htm#osc-13">13-bit</a>,
+	the 21 <a class="i" href="osc.htm#osc-14">14-bit</a>,
+	the 31 <a class="i" href="osc.htm#osc-15">15-bit</a>,
+	the 108 <a class="i" href="osc.htm#osc-16">16-bit</a>,
+	the 211 <a class="i" href="osc.htm#osc-17">17-bit</a>,
+	the 535 <a class="i" href="osc.htm#osc-18">18-bit</a>,
+	the 1165 <a class="i" href="osc.htm#osc-19">19-bit</a>,
+	the 2990 <a class="i" href="osc.htm#osc-20">20-bit</a>,
+	the 7110 <a class="i" href="osc.htm#osc-21">21-bit</a>,
+	the 244+ <a class="i" href="osc.htm#osc-22">22-bit</a>,
+	the 539+ <a class="i" href="osc.htm#osc-23">23-bit</a>,
+	the 1223+ <a class="i" href="osc.htm#osc-24">24-bit</a>,
+	the 1417+ <a class="i" href="osc.htm#osc-25">25-bit</a>,
+	5 <a class="i" href="osc.htm#osc-bad">not quite oscillators</a>.</li>
+    <li><b><a class="i" href="osc.htm">All oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	the 1 <a class="i" href="osc.htm#g2-osc">from 2 gliders</a>,
+	the 4 <a class="i" href="osc.htm#g3-osc">from 3 gliders</a>,
+	3 <a class="i" href="osc.htm#g4-osc">from 4 gliders</a>,
+	5 <a class="i" href="osc.htm#g5-osc">from 5 gliders</a>,
+	40 <a class="i" href="osc.htm#g6-osc">from 6 gliders</a>,
+	the 61 <a class="i" href="osc.htm#nat-osc">common</a>.</li>
+    <li><b><a class="i" href="p2.htm">Period-2 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b><br />
+	the 1 <a class="i" href="p2.htm#p2-3">3-bit</a>,
+	the 3 <a class="i" href="p2.htm#p2-6">6-bit</a>,
+	the 1 <a class="i" href="p2.htm#p2-8">8-bit</a>,
+	the 1 <a class="i" href="p2.htm#p2-9">9-bit</a>,
+	the 1 <a class="i" href="p2.htm#p2-10">10-bit</a>,
+	the 1 <a class="i" href="p2.htm#p2-11">11-bit</a>,
+	the 6 <a class="i" href="p2.htm#p2-12">12-bit</a>,
+	the 3 <a class="i" href="p2.htm#p2-13">13-bit</a>,
+	the 20 <a class="i" href="p2.htm#p2-14">14-bit</a>,
+	the 29 <a class="i" href="p2.htm#p2-15">15-bit</a>,
+	the 98 <a class="i" href="p2.htm#p2-15">16-bit</a>,
+	the 199 <a class="i" href="p2-17.htm">17-bit</a>,
+	the 484 <a class="i" href="p2-18.htm">18-bit</a>,
+	the 1083 <a class="i" href="p2-19.htm">19-bit</a>,
+	the 2722 <a class="i" href="p2-20.htm">20-bit</a>,
+	the 6596 <a class="i" href="p2-21.htm">21-bit</a>,
+	4 <a class="i" href="p2.htm#p2-22">22-bit</a>,
+	6 <a class="i" href="p2.htm#p2-23">23-bit</a>,
+	11 <a class="i" href="p2.htm#p2-24">24-bit</a>,
+	2 <a class="i" href="p2.htm#p2-25">25-bit</a>,
+	34 <a class="i" href="p2.htm#p2-lg">26-bit and larger</a>,
+	18 <a class="i" href="p2.htm#p2-sc">scrubbers</a>,
+	1 <a class="i" href="p2.htm#p2-bad">not quite oscillator</a>.</li>
+    <li><b><a class="i" href="p2.htm">Period-2 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	the 1 <a class="i" href="p2.htm#g2-p2">from 2 gliders</a>,
+	the 2 <a class="i" href="p2.htm#g3-p2">from 3 gliders</a>,
+	2 <a class="i" href="p2.htm#g4-p2">from 4 gliders</a>,
+	3 <a class="i" href="p2.htm#g5-p2">from 5 gliders</a>,
+	14 <a class="i" href="p2.htm#g6-p2">from 6 gliders</a>,
+	16 <a class="i" href="p2.htm#ge-p2">from 1 glider/bit</a>,
+	54 <a class="i" href="p2.htm#gg-p2">from &gt;1 glider/bit</a>,
+	48 <a class="i" href="p2.htm#gu-p2">unknown</a> up to 17 bits,
+	the 41 <a class="i" href="p2.htm#nat-p2">common</a>.</li>
+    <li><b><a class="i" href="p3.htm">Period-3 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b><br />
+	the 1 <a class="i" href="p3.htm#p3-12">12-bit</a>,
+	the 1 <a class="i" href="p3.htm#p3-13">13-bit</a>,
+	the 1 <a class="i" href="p3.htm#p3-14">14-bit</a>,
+	the 7 <a class="i" href="p3.htm#p3-16">16-bit</a>,
+	the 8 <a class="i" href="p3.htm#p3-17">17-bit</a>,
+	the 39 <a class="i" href="p3.htm#p3-18">18-bit</a>,
+	the 66 <a class="i" href="p3.htm#p3-19">19-bit</a>,
+	the 216 <a class="i" href="p3-20.htm">20-bit</a>,
+	the 420 <a class="i" href="p3-21.htm">21-bit</a>,
+	5 <a class="i" href="p3.htm#p3-22">22-bit</a>,
+	0 <a class="i" href="p3.htm#p3-23">23-bit</a>,
+	2 <a class="i" href="p3.htm#p3-24">24-bit</a>,
+	2 <a class="i" href="p3.htm#p3-25">25-bit</a>,
+	15 <a class="i" href="p3.htm#p3-lg">26-bit and larger</a>,
+	2 <a class="i" href="p3.htm#p3-bad">not quite oscillators</a>.</li>
+    <li><b><a class="i" href="p3.htm">Period-3 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	the 1 <a class="i" href="p3.htm#g3-p3">from 3 gliders</a>,
+	2 <a class="i" href="p3.htm#g6-p3">from 6 gliders</a>,
+	3 <a class="i" href="p3.htm#ge-p3">from 1 glider/bit</a>,
+	27 <a class="i" href="p3.htm#gg-p3">from &gt;1 glider/bit</a>,
+	12 <a class="i" href="p3.htm#gu-p3">unknown</a> up to 21 bits,
+	the 7 <a class="i" href="p3.htm#nat-p3">common</a>.</li>
+    <li><b><a class="i" href="p4.htm">Period-4 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 2 <a class="i" href="p4.htm#p4-12">12-bit</a>,
+	the 3 <a class="i" href="p4.htm#p4-18">18-bit</a>,
+	the 7 <a class="i" href="p4.htm#p4-19">19-bit</a>,
+	the 23 <a class="i" href="p4.htm#p4-20">20-bit</a>,
+	the 34 <a class="i" href="p4.htm#p4-21">21-bit</a>,
+	9 of the 120 <a class="i" href="p4.htm#p4-22">22-bit</a>,
+	10 of the 239 <a class="i" href="p4.htm#p4-23">23-bit</a>,
+	40 of the 569 <a class="i" href="p4.htm#p4-24">24-bit</a>,
+	75 of the 1343 <a class="i" href="p4.htm#p4-25">25-bit</a>,
+	22 <a class="i" href="p4.htm#p4-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="p4.htm">Period-4 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	2 <a class="i" href="p4.htm#g5-p4">from 5 gliders</a>,
+	2 <a class="i" href="p4.htm#ge-p4">from 1 glider/bit</a>,
+	34 <a class="i" href="p4.htm#gg-p4">from &gt;1 glider/bit</a>,
+	10+ <a class="i" href="p4.htm#gu-p4">unknown</a> up to 25 bits,
+	the 3 <a class="i" href="p4.htm#nat-p4">common</a>.</li>
+    <li><b><a class="i" href="p5.htm">Period-5 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="p5.htm#p5-15">15-bit</a>,
+	the 1 <a class="i" href="p5.htm#p5-16">16-bit</a>,
+	the 2 <a class="i" href="p5.htm#p5-17">17-bit</a>,
+	the 4 <a class="i" href="p5.htm#p5-18">18-bit</a>,
+	the 8 <a class="i" href="p5.htm#p5-19">19-bit</a>,
+	the 16 <a class="i" href="p5.htm#p5-20">20-bit</a>.
+	the 42 <a class="i" href="p5.htm#p5-21">21-bit</a>.
+	7 of the 76 <a class="i" href="p5.htm#p5-22">22-bit</a>,
+	2 of the 210 <a class="i" href="p5.htm#p5-23">23-bit</a>,
+	4 of the 419 <a class="i" href="p5.htm#p5-24">24-bit</a>,
+	6 <a class="i" href="p5.htm#p5-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="p5.htm">Period-5 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	1 <a class="i" href="p5.htm#g6-p5">from 6 gliders</a>,
+	3 <a class="i" href="p5.htm#ge-p5">from 1 glider/bit</a>,
+	38 <a class="i" href="p5.htm#gg-p5">from &gt;1 glider/bit</a>,
+	2 <a class="i" href="p5.htm#gu-p5">unknown</a> up to 22 bits,
+	the 1 <a class="i" href="p5.htm#nat-p5">common</a>.</li>
+    <li><b><a class="i" href="p6.htm">Period-6 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="p6.htm#p6-16">16-bit</a>,
+	the 4 <a class="i" href="p6.htm#p6-18">18-bit</a>,
+	the 11 <a class="i" href="p6.htm#p6-20">20-bit</a>,
+	the 15 <a class="i" href="p6.htm#p6-20">21-bit</a>,
+	0 of the 43 <a class="i" href="p6.htm#p6-22">22-bit</a>,
+	2 of the 71 <a class="i" href="p6.htm#p6-23">23-bit</a>,
+	3 of the 186 <a class="i" href="p6.htm#p6-24">24-bit</a>,
+	8 <a class="i" href="p6.htm#p6-25">25-bit</a>,
+	21 <a class="i" href="p6.htm#p6-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="p6.htm">Period-6 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	1 <a class="i" href="p6.htm#g6-p6">from 6 gliders</a>,
+	1 <a class="i" href="p6.htm#ge-p6">from 1 glider/bit</a>,
+	1 <a class="i" href="p6.htm#gg-p6">from &gt;1 glider/bit</a>,
+	9 <a class="i" href="p6.htm#gu-p6">unknown</a> up to 25 bits,
+	the 1 <a class="i" href="p6.htm#nat-p6">common</a>.</li>
+    <li><b><a class="i" href="p8.htm">Period-8 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="p8.htm#p8-12">12-bit</a>,
+	the 1 <a class="i" href="p8.htm#p8-15">15-bit</a>,
+	the 2 <a class="i" href="p8.htm#p8-17">17-bit</a>,
+	the 1 <a class="i" href="p8.htm#p8-18">18-bit</a>,
+	the 2 <a class="i" href="p8.htm#p8-21">21-bit</a>,
+	the 8 <a class="i" href="p8.htm#p8-23">23-bit</a>,
+	the 12 <a class="i" href="p8.htm#p8-24">24-bit</a>,
+	the 18 <a class="i" href="p8.htm#p8-25">25-bit</a>,
+	20 <a class="i" href="p8.htm#p8-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="p8.htm">Period-8 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	1 <a class="i" href="p8.htm#g4-p8">from 4 gliders</a>,
+	1 <a class="i" href="p8.htm#g6-p8">from 6 gliders</a>,
+	1 <a class="i" href="p8.htm#gg-p8">from &gt;1 glider/bit</a>,
+	the 3 <a class="i" href="p8.htm#nat-p8">common</a>.</li>
+    <li><b><a class="i" href="p10.htm">Period-10 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 5 <a class="i" href="p10.htm#p10-23">23-bit</a>,
+	the 2 <a class="i" href="p10.htm#p10-24">24-bit</a>,
+	the 1 <a class="i" href="p10.htm#p10-25">25-bit</a>,
+	2 <a class="i" href="p10.htm#p10-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="p10.htm">Period-10 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	7 <a class="i" href="p10.htm#gg-p10">
+	from &gt;1 glider/bit</a>.</li>
+    <li><b><a class="i" href="p12.htm">Period-12 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 4 <a class="i" href="p12.htm#p12-24">24-bit</a>,
+	the 1 <a class="i" href="p12.htm#p12-25">25-bit</a>,
+	4 <a class="i" href="p12.htm#p12-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="p14.htm">Period-14 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="p14.htm#p14-16">16-bit</a>,
+	1 <a class="i" href="p14.htm#p14-lg">26-bit and larger</a>,
+	the 1 <a class="i" href="p14.htm#nat-p14">common</a>.</li>
+    <li><b><a class="i" href="p15.htm">Period-15 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="p15.htm#p15-12">12-bit</a>,
+	the 1 <a class="i" href="p15.htm#p15-19">19-bit</a>,
+	the 1 <a class="i" href="p15.htm#p15-21">21-bit</a>,
+	the 2 <a class="i" href="p15.htm#p15-22">22-bit</a>,
+	the 8 <a class="i" href="p15.htm#p15-23">23-bit</a>,
+	the 24 <a class="i" href="p15.htm#p15-24">24-bit</a>,
+	the 40 <a class="i" href="p15.htm#p15-25">25-bit</a>,
+	7 <a class="i" href="p15.htm#p15-lg">26-bit and larger</a>,
+	24 <a class="i" href="p15.htm#p15-pc">pentadecathlon pairs</a>.</li>
+    <li><b><a class="i" href="p15.htm">Period-15 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	the 1 1 <a class="i" href="p15.htm#g3-p15">from 3 gliders</a>,
+	16 <a class="i" href="p15.htm#g6-p15">from 6 gliders</a>,
+	the 1 <a class="i" href="p15.htm#nat-p15">common</a>.</li>
+    <li><b><a class="i" href="p24.htm">Period-24 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 4 <a class="i" href="p24.htm#p24-24">24-bit</a>,
+	the 4 <a class="i" href="p24.htm#p24-25">25-bit</a>,
+	1 <a class="i" href="p24.htm#p24-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="p30.htm">Period-30 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 2 <a class="i" href="p30.htm#p30-20">20-bit</a>,
+	the 2 <a class="i" href="p30.htm#p30-22">22-bit</a>,
+	the 2 <a class="i" href="p30.htm#p30-23">23-bit</a>,
+	the 2 <a class="i" href="p30.htm#p30-24">24-bit</a>,
+	the 8 <a class="i" href="p30.htm#p30-25">25-bit</a>,
+	7 <a class="i" href="p30.htm#p30-lg">26-bit and larger</a>,
+	2 <a class="i" href="p30.htm#p30-bad">not quite oscillators</a>.</li>
+    <li><b><a class="i" href="p30.htm">Period-30 oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	6 <a class="i" href="p30.htm#g6-p30">from 6 gliders</a>,
+	the 3 <a class="i" href="p30.htm#nat-p30">common</a>.</li>
+    <li><b><a class="i" href="p36.htm">Period-36 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="p36.htm#p36-22">22-bit</a>,
+	the 1 <a class="i" href="p36.htm#p36-24">24-bit</a>,
+	the 2 <a class="i" href="p36.htm#p36-25">25-bit</a>,
+	1 <a class="i" href="p36.htm#p36-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="p60.htm">Period-60 oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 1 <a class="i" href="p60.htm#p60-24">24-bit</a>,
+	7 <a class="i" href="p60.htm#p60-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="period.htm">Other periods</a>:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="period.htm#p7">7</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="period.htm#p9">9</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="period.htm#p11">11</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="period.htm#p13">13</a>,
+	<a class="i" href="period.htm#p14">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="period.htm#p16">16</a>,
+	<a class="i" href="period.htm#p18">18</a>,
+	<a class="i" href="period.htm#p20">20</a>,
+	<a class="i" href="period.htm#p21">21</a>,
+	<a class="i" href="period.htm#p22">22</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="period.htm#p25">25</a>,
+	<a class="i" href="period.htm#p26">26</a>,
+	<a class="i" href="period.htm#p27">27</a>,
+	<a class="i" href="period.htm#p28">28</a>,
+	<a class="i" href="period.htm#p29">29</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="period.htm#p31">31</a>,
+	<a class="i" href="period.htm#p32">32</a>,
+	<a class="i" href="period.htm#p33">33</a>,
+	<a class="i" href="period.htm#p35">35</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="period.htm#p37">37</a>,
+	<a class="i" href="period.htm#p39">39</a>,
+	<a class="i" href="period.htm#p40">40</a>,
+	<a class="i" href="period.htm#p42">42</a>,
+	<a class="i" href="period.htm#p44">44</a>,
+	<a class="i" href="period.htm#p45">45</a>,
+	<a class="i" href="period.htm#p46">46</a>,
+	<a class="i" href="period.htm#p47">42</a>,
+	<a class="i" href="period.htm#p50">50</a>,
+	<a class="i" href="period.htm#p51">51</a>,
+	<a class="i" href="period.htm#p52">52</a>,
+	<a class="i" href="period.htm#p54">54</a>,
+	<a class="i" href="period.htm#p55">55</a>,
+	<a class="i" href="period.htm#p56">56</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm#p63">64</a>,
+	<a class="i" href="period.htm#p64">64</a>,
+	<a class="i" href="period.htm#p70">70</a>,
+	<a class="i" href="period.htm#p72">72</a>,
+	<a class="i" href="period.htm#p75">75</a>,
+	<a class="i" href="period.htm#p88">88</a>,
+	<a class="i" href="period.htm#p100">100</a>,
+	<a class="i" href="period.htm#p120">120</a>,
+	<a class="i" href="period.htm#p138">138</a>,
+	<a class="i" href="period.htm#p144">144</a>,
+	<a class="i" href="period.htm#p156">156</a>,
+	<a class="i" href="period.htm#p177">177</a>,
+	<a class="i" href="period.htm#p256">256</a>,
+	<a class="i" href="period.htm#p276">276</a>,
+	<a class="i" href="period.htm#p300">300</a>,
+	<a class="i" href="period.htm#p312">312</a>.</li>
+</ul></p>
+
+<hr />
+<a name="type-posc"></a>
+<h2><a class="i" href="pperiod.htm">Pseudo-oscillators</a></h2>
+<p><ul>
+    <li><b><a class="i" href="posc.htm">All pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b><br />
+	the 1 <a class="i" href="posc.htm#posc-10">10-bit</a>,
+	the 2 <a class="i" href="posc.htm#posc-11">11-bit</a>,
+	the 14 <a class="i" href="posc.htm#posc-12">12-bit</a>,
+	the 17 <a class="i" href="posc.htm#posc-13">13-bit</a>,
+	the 46 <a class="i" href="posc.htm#posc-14">14-bit</a>,
+	the 78 <a class="i" href="posc.htm#posc-15">15-bit</a>,
+	the 227 <a class="i" href="posc.htm#posc-16">16-bit</a>,
+	the 489 <a class="i" href="posc.htm#posc-17">17-bit</a>,
+	the 1543 <a class="i" href="posc.htm#posc-18">18-bit</a>,
+	the 3398 <a class="i" href="posc.htm#posc-19">19-bit</a>,
+	the 9562 <a class="i" href="posc.htm#posc-20">20-bit</a>,
+	the 22347 <a class="i" href="posc.htm#posc-21">21-bit</a>,
+	the 604+ <a class="i" href="posc.htm#posc-22">22-bit</a>,
+	the 520+ <a class="i" href="posc.htm#posc-23">23-bit</a>,
+	the 1514+ <a class="i" href="posc.htm#posc-24">24-bit</a>,
+	the 347+ <a class="i" href="posc.htm#posc-25">25-bit</a>.</li>
+    <li><b><a class="i" href="posc.htm">All pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b>
+	3 3 <a class="i" href="posc.htm#g4-posc">from 4 gliders</a>,
+	17 <a class="i" href="posc.htm#g5-posc">from 5 gliders</a>,
+	39 <a class="i" href="posc.htm#g6-posc">from 6 gliders</a>,
+	14 <a class="i" href="posc.htm#gu-posc">unknown</a>.</li>
+    <li><b><a class="i" href="pp2.htm">Period-2 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b><br />
+	the 1 <a class="i" href="pp2.htm#pp2-10">10-bit</a>,
+	the 2 <a class="i" href="pp2.htm#pp2-11">11-bit</a>,
+	the 14 <a class="i" href="pp2.htm#pp2-12">12-bit</a>,
+	the 17 <a class="i" href="pp2.htm#pp2-13">13-bit</a>,
+	the 46 <a class="i" href="pp2.htm#pp2-14">14-bit</a>,
+	the 78 <a class="i" href="pp2.htm#pp2-15">15-bit</a>,
+	the 225 <a class="i" href="pp2.htm#pp2-16">16-bit</a>,
+	the 484 <a class="i" href="pp2-17.htm">17-bit</a>,
+	the 1519 <a class="i" href="pp2-18.htm">18-bit</a>,
+	the 3350 <a class="i" href="pp2-19.htm">19-bit</a>,
+	the 9460 <a class="i" href="pp2-20.htm">20-bit</a>,
+	the 22134 <a class="i" href="pp2-21.htm">21-bit</a>,
+	2 <a class="i" href="pp2.htm#pp2-22">22-bit</a>,
+	2 <a class="i" href="pp2.htm#pp2-23">23-bit</a>,
+	1 <a class="i" href="pp2.htm#pp2-24">24-bit</a>,
+	2 <a class="i" href="pp2.htm#pp2-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="pp2.htm">Period-2 pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b>
+	3 <a class="i" href="pp2.htm#g4-pp2">from 4 gliders</a>,
+	10 <a class="i" href="pp2.htm#g5-pp2">from 5 gliders</a>,
+	30 <a class="i" href="pp2.htm#g6-pp2">from 6 gliders</a>,
+	11 <a class="i" href="pp2.htm#ge-pp2">from 1 glider/bit</a>,
+	12 <a class="i" href="pp2.htm#gg-pp2">from &gt;1 glider/bit</a>,
+	8 of 201 <a class="i" href="pp2.htm#gu-pp2">unknown</a>
+	up to 21 bits.</li>
+    <li><b><a class="i" href="pp3.htm">Period-3 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 2 <a class="i" href="pp3.htm#pp3-17">17-bit</a>,
+	the 5 <a class="i" href="pp3.htm#pp3-18">18-bit</a>,
+	the 20 <a class="i" href="pp3.htm#pp3-19">19-bit</a>,
+	the 44 <a class="i" href="pp3.htm#pp3-20">20-bit</a>,
+	the 90 <a class="i" href="pp3.htm#pp3-21">21-bit</a>,
+	0 the 265 <a class="i" href="pp3.htm#pp3-22">22-bit</a>,
+	1 <a class="i" href="pp3.htm#pp3-24">24-bit</a>.</li>
+    <li><b><a class="i" href="pp3.htm">Period-3 pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b>
+	4 <a class="i" href="pp3.htm#gg-pp3">from &gt;1 glider/bit</a>
+	up to 21 bits,
+	158 <a class="i" href="pp3.htm#gu-pp3">unknown</a>
+	up to 25 bits.</li>
+    <li><b><a class="i" href="pp4.htm">Period-4 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="pp4.htm#pp4-16">16-bit</a>,
+	the 2 <a class="i" href="pp4.htm#pp4-17">17-bit</a>,
+	the 11 <a class="i" href="pp4.htm#pp4-18">18-bit</a>,
+	the 14 <a class="i" href="pp4.htm#pp4-19">19-bit</a>,
+	the 33 <a class="i" href="pp4.htm#pp4-20">20-bit</a>,
+	the 50 <a class="i" href="pp4.htm#pp4-21">21-bit</a>,
+	0 of the 154
+	<a class="i" href="pp4.htm#pp4-22">22-bit</a>,
+	2 <a class="i" href="pp4.htm#pp4-25">25-bit</a>.</li>
+    <li><b><a class="i" href="pp4.htm">Period-4 pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	2 <a class="i" href="pp4.htm#gu-pp4">unknown</a> up to 25 bits.</li>
+    <li><b><a class="i" href="pp5.htm">Period-5 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 2 <a class="i" href="pp5.htm#pp5-19">19-bit</a>,
+	the 4 <a class="i" href="pp5.htm#pp5-20">20-bit</a>,
+	the 28 <a class="i" href="pp5.htm#pp5-21">21-bit</a>,
+	0 of the 55 <a class="i" href="pp5.htm#pp5-22">22-bit</a>,
+	0 of the 220 <a class="i" href="pp5.htm#pp5-23">23-bit</a>,
+	0 of the 490 <a class="i" href="pp5.htm#pp5-24">24-bit</a>,
+	0 of the 1370 <a class="i" href="pp5.htm#pp5-25">25-bit</a>.</li>
+    <li><b><a class="i" href="pp5.htm">Period-5 pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	4 <a class="i" href="pp5.htm#ge-pp5">from 1 glider/bit</a>,
+	24 <a class="i" href="pp5.htm#gg-pp5">from &gt;1 glider/bit</a>.</li>
+    <li><b><a class="i" href="pp6.htm">Period-6 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 4 <a class="i" href="pp6.htm#pp6-19">19-bit</a>,
+	the 3 <a class="i" href="pp6.htm#pp6-20">20-bit</a>,
+	the 6 <a class="i" href="pp6.htm#pp6-21">21-bit</a>,
+	0 of the 41 <a class="i" href="pp6.htm#pp6-22">22-bit</a>,
+	0 of the 76 <a class="i" href="pp6.htm#pp6-23">23-bit</a>,
+	4 of the 394 <a class="i" href="pp6.htm#pp6-24">24-bit</a>,
+	8 of the 734 <a class="i" href="pp6.htm#pp6-25">25-bit</a>.</li>
+    <li><b><a class="i" href="pp6.htm">Period-6 pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	12 <a class="i" href="pp6.htm#gu-pp6">unknown</a> up to 25 bits.</li>
+    <li><b><a class="i" href="pp8.htm">Period-8 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 2 <a class="i" href="pp8.htm#pp8-18">18-bit</a>,
+	the 1 <a class="i" href="pp8.htm#pp8-19">19-bit</a>,
+	the 2 <a class="i" href="pp8.htm#pp8-20">20-bit</a>,
+	the 12 <a class="i" href="pp8.htm#pp8-21">21-bit</a>,
+	the 18 <a class="i" href="pp8.htm#pp8-22">22-bit</a>,
+	0 of the 44 <a class="i" href="pp8.htm#pp8-23">23-bit</a>,
+	2 of the 78 <a class="i" href="pp8.htm#pp8-24">24-bit</a>,
+	0 of the 176 <a class="i" href="pp8.htm#pp8-25">25-bit</a>.</li>
+    <li><b><a class="i" href="pp10.htm">Period-10 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 4 <a class="i" href="pp10.htm#pp10-21">21-bit</a>,
+	the 24 <a class="i" href="pp10.htm#pp10-23">23-bit</a>,
+	0 of the 37 <a class="i" href="pp10.htm#pp10-24">24-bit</a>,
+	0 of the 89 <a class="i" href="pp10.htm#pp10-25">25-bit</a>.</li>
+    <li><b><a class="i" href="pp10.htm">Period-10 pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	1 <a class="i" href="pp10.htm#ge-pp10">from 1 glider/bit</a>,
+	18 <a class="i" href="pp10.htm#gg-pp10">from &gt;1 glider/bit</a>.</li>
+    <li><b><a class="i" href="pp12.htm">Period-12 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 4 <a class="i" href="pp12.htm#pp12-25">25-bit</a>.</li>
+    <li><b><a class="i" href="pp15.htm">Period-15 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="pp15.htm#pp15-16">16-bit</a>,
+	the 1 <a class="i" href="pp15.htm#pp15-17">17-bit</a>,
+	the 5 <a class="i" href="pp15.htm#pp15-18">18-bit</a>,
+	the 7 <a class="i" href="pp15.htm#pp15-19">19-bit</a>,
+	the 15 <a class="i" href="pp15.htm#pp15-20">20-bit</a>,
+	the 22 <a class="i" href="pp15.htm#pp15-21">21-bit</a>,
+	0 of the 68 <a class="i" href="pp15.htm#pp15-22">22-bit</a>,
+	0 of the 151 <a class="i" href="pp15.htm#pp15-23">23-bit</a>,
+	1 of the 410 <a class="i" href="pp15.htm#pp15-24">24-bit</a>.
+	2 <a class="i" href="pp15.htm#pp15-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="pp15.htm">Period-15 pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	7 <a class="i" href="pp15.htm#g5-pp15">from 5 gliders</a>,
+	6 <a class="i" href="pp15.htm#g6-pp15">from 6 gliders</a>.</li>
+    <li><b><a class="i" href="pp30.htm">Period-30 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="pp30.htm#pp30-18">18-bit</a>,
+	the 1 <a class="i" href="pp30.htm#pp30-20">20-bit</a>,
+	the 1 <a class="i" href="pp30.htm#pp30-21">21-bit</a>,
+	the 5 <a class="i" href="pp30.htm#pp30-22">22-bit</a>,
+	the 7 <a class="i" href="pp30.htm#pp30-23">23-bit</a>,
+	2 of the 61 <a class="i" href="pp30.htm#pp30-24">24-bit</a>,
+	0 of the 82 <a class="i" href="pp30.htm#pp30-25">25-bit</a>.</li>
+    <li><b><a class="i" href="pp30.htm">Period-30 pseudo-oscillators</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	3 <a class="i" href="pp30.htm#g6-pp30">from 6 gliders</a>.</li>
+    <li><b><a class="i" href="pp60.htm">Period-60 pseudo-oscillators</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="pp60.htm#pp60-24">24-bit</a>.</li>
+</ul></p>
+
+<hr />
+<a name="type-gun"></a>
+<h2><a class="i" href="gun.htm">Spaceship Guns (Guns)</a></h2>
+<p><ul>
+    <li><b><a class="i" href="gun.htm">Spaceship guns (guns)</a></b></li>
+</ul></p>
+
+<hr />
+<a name="type-color"></a>
+<h2><a class="i" href="color.htm">Multi-colored Life</a></h2>
+<p><ul>
+    <li><b><a class="i" href="color.htm#c-color">Color Variants</a>:</b>
+	<a class="i" href="color.htm#c-imm">Immigration</a>,
+	<a class="i" href="color.htm#c-quad">Quad-Life</a>,
+	<a class="i" href="color.htm#c-oct">Oct-Life</a>,
+	<a class="i" href="color.htm#c-gen">General</a>.</li>
+    <li><b><a class="i" href="color.htm#c-synth">Syntheses</a>:</b>
+	<a class="i" href="color.htm#c-p1">still-lifes</a>,
+	<a class="i" href="color.htm#c-pp1">pseudo-still-lifes</a>,
+	<a class="i" href="color.htm#c-osc">oscillators</a>,
+	<a class="i" href="color.htm#c-ss">spaceships</a>,
+	<a class="i" href="color.htm#c-cons">constellations.</a></li>
+</ul></p>
+
+<hr />
+<a name="type-ss"></a>
+<h2><a class="i" href="ss.htm">
+Basic spaceships and pseudo-spaceships</a></h2>
+<p><ul>
+    <li><b>Basic Spaceships by <a class="i" href="objsize.htm">size</a>:</b>
+	the 1 <a class="i" href="ss.htm#ss-5">5-bit</a>,
+	the 1 <a class="i" href="ss.htm#ss-9">9-bit</a>,
+	the 1 <a class="i" href="ss.htm#ss-11">11-bit</a>,
+	the 1 <a class="i" href="ss.htm#ss-13">13-bit</a>,
+	the 1 <a class="i" href="ss.htm#ss-18">18-bit (pseudo)</a>,
+	the 6 <a class="i" href="ss.htm#ss-20">20-bit</a>,
+	the 9 <a class="i" href="ss.htm#ss-22">22-bit</a>,
+	the 2 <a class="i" href="ss.htm#ss-23">23-bit</a>,
+	the 7 <a class="i" href="ss.htm#ss-24">24-bit</a>,
+	the 5 5 <a class="i" href="ss.htm#ss-25">25-bit</a>,
+	the 1 <a class="i" href="ss.htm#ss-25">25-bit (pseudo)</a>,
+	5 <a class="i" href="ss.htm#ss-bad">not quite spaceships</a>.</li>
+    <li><b>Basic Spaceships
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	the 1 <a class="i" href="ss.htm#g2-ss">from 2 gliders</a>,
+	the 3 <a class="i" href="ss.htm#g3-ss">from 3 gliders</a>,
+	the 4 <a class="i" href="ss.htm#g6-ss">from 6 gliders</a>,
+	the 3 <a class="i" href="ss.htm#gu-ss">unknown</a>,
+	the 2 <a class="i" href="glider-5.htm#g5-puff">
+	puffers from 5 gliders</a>.</li>
+</ul></p>
+
+<hr />
+<a name="type-exotic"></a>
+<h2><a class="i" href="exotic.htm">Exotic spaceships</a></h2>
+<p><ul>
+    <li><b>Orthogonal spaceships by velocity:</b>
+	<a class="i" href="exotic.htm#ss-o2"><i>c</i>/2</a>,
+	<a class="i" href="exotic.htm#ss-3o7">3<i>c</i>/7 (almost)</a>,
+	<a class="i" href="exotic.htm#ss-2o5">2<i>c</i>/5</a>,
+	<a class="i" href="exotic.htm#ss-17o45">17<i>c</i>/45</a>,
+	<a class="i" href="exotic.htm#ss-o3"><i>c</i>/3</a>,
+	<a class="i" href="exotic.htm#ss-2o7">2<i>c</i>/7</a>,
+	<a class="i" href="exotic.htm#ss-o4"><i>c</i>/4</a>,
+	<a class="i" href="exotic.htm#ss-o5"><i>c</i>/5</a>,
+	<a class="i" href="exotic.htm#ss-o6"><i>c</i>/6</a>,
+	<a class="i" href="exotic.htm#ss-o7"><i>c</i>/7</a>.</li>
+    <li><b>Diagonal spaceships by velocity:</b>
+	<a class="i" href="exotic.htm#ss-d4"><i>c</i>/4</a>,
+	<a class="i" href="exotic.htm#ss-d5"><i>c</i>/5</a>,
+	<a class="i" href="exotic.htm#ss-d6"><i>c</i>/6</a>,
+	<a class="i" href="exotic.htm#ss-d7"><i>c</i>/7</a>,
+	<a class="i" href="exotic.htm#ss-d12"><i>c</i>/12</a>.</li>
+    <li><b>Oblique spaceships by velocity:</b>
+	<a class="i" href="exotic.htm#ss-k6">(2,1)<i>c</i>/6 (almost)</a>,
+	<a class="i" href="exotic.htm#ss-gemini">Gemini</a>.</li>
+</ul></p>
+
+<hr />
+<a name="type-flot"></a>
+<h2><a class="i" href="flotilla.htm">Spaceships Flotillae</a></h2>
+<p><ul>
+    <li><b>Two-spaceship flotillae:</b>
+	<a class="i" href="flotilla.htm#ss-2">2-spaceship</a>,
+	<a class="i" href="flotilla.htm#ss-2s">Schick ships</a>,
+	<a class="i" href="flotilla.htm#ss-2a">A-draggers</a>.</li>
+    <li><b><a class="i" href="flotilla.htm#ss-3">
+	Three-spaceship flotillae</a>:</b>
+	<a class="i" href="flotilla.htm#ss-3b">Basic</a>,
+	<a class="i" href="flotilla.htm#ss-3c">Complex</a>,
+	<a class="i" href="flotilla.htm#ss-3s">Schick-ship</a>,
+	<a class="i" href="flotilla.htm#ss-3p">Pre-block-draggers</a>.</li>
+    <li><b><a class="i" href="flotilla.htm#ss-owss">
+	Overweight spaceship flotillae</a>:</b>
+	<a class="i" href="flotilla.htm#ss-7wss">7WSS</a>,
+	<a class="i" href="flotilla.htm#ss-8wss">8WSS</a>,
+	<a class="i" href="flotilla.htm#ss-9wss">9WSS</a>,
+	<a class="i" href="flotilla.htm#ss-10wss">10WSS</a>,
+	<a class="i" href="flotilla.htm#ss-11wss">11WSS</a>,
+	<a class="i" href="flotilla.htm#ss-12wss">12WSS</a>,
+	<a class="i" href="flotilla.htm#ss-13wss">13WSS</a>,
+	<a class="i" href="flotilla.htm#ss-14wss">14WSS</a>.</li>
+    <li><b>Four-spaceship flotillae:</b>
+	<a class="i" href="flotilla.htm#ss-4h">
+	    4-spaceship hive-nudgers</a>.</li>
+</ul></p>
+
+<hr />
+<a name="type-puff"></a>
+<h2><a class="i" href="puff.htm">Puffer Trains (Puffers)</a></h2>
+<p><ul>
+    <li><b><a class="i" href="puff.htm">Puffer trains (puffers)</a></b></li>
+</ul></p>
+
+<hr />
+<a name="type-cons"></a>
+<h2><a class="i" href="cons.htm">Constellations</a></h2>
+<p><ul>
+    <li><b><a class="i" href="cons.htm">Some constellations</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	2 <a class="i" href="cons.htm#cons-6">6-bit</a>,
+	2 <a class="i" href="cons.htm#cons-8">8-bit</a>,
+	2 <a class="i" href="cons.htm#cons-9">9-bit</a>,
+	3 <a class="i" href="cons.htm#cons-10">10-bit</a>,
+	6 <a class="i" href="cons.htm#cons-12">12-bit</a>,
+	1 <a class="i" href="cons.htm#cons-15">15-bit</a>,
+	2 <a class="i" href="cons.htm#cons-16">16-bit</a>,
+	2 <a class="i" href="cons.htm#cons-17">17-bit</a>,
+	4 <a class="i" href="cons.htm#cons-18">18-bit</a>,
+	1 <a class="i" href="cons.htm#cons-20">20-bit</a>,
+	4 <a class="i" href="cons.htm#cons-24">24-bit</a>,
+	18 <a class="i" href="cons.htm#cons-lg">26-bit and larger</a>.</li>
+    <li><b><a class="i" href="cons.htm">Some constellations</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	the 11 <a class="i" href="cons.htm#g2-cons">from 2 gliders</a>,
+	13 <a class="i" href="cons.htm#g3-cons">from 3 gliders</a>,
+	8 <a class="i" href="cons.htm#g4-cons">from 4 gliders</a>,
+	5 <a class="i" href="cons.htm#g6-cons">from 6 gliders</a>.</li>
+</ul></p>
+
+<hr />
+<a name="type-meth"></a>
+<h2><a class="i" href="meth.htm">Methuselahs</a></h2>
+<p><ul>
+    <li><b><a class="i" href="meth.htm">Some methuselahs</a>
+	by <a class="i" href="objsize.htm">size</a>:</b>
+	the 2 <a class="i" href="meth.htm#meth-5">5-bit</a>,
+	7 <a class="i" href="meth.htm#meth-6">6-bit</a>,
+	4 <a class="i" href="meth.htm#meth-7">7-bit</a>,
+	6 <a class="i" href="meth.htm#meth-8">8-bit</a>,
+	1 <a class="i" href="meth.htm#meth-9">9-bit</a>,
+	1 <a class="i" href="meth.htm#meth-10">10-bit</a>.</li>
+    <li><b><a class="i" href="meth.htm">Some methuselahs</a>
+	by <a class="i" href="objcost.htm">cost in gliders</a>:</b><br />
+	the 5 <a class="i" href="meth.htm#g2-meth">from 2 gliders</a>,
+	7 <a class="i" href="meth.htm#g3-meth">from 3 gliders</a>,
+	5 <a class="i" href="meth.htm#g4-meth">from 4 gliders</a>,
+	2 <a class="i" href="meth.htm#g5-meth">from 5 gliders</a>,
+	1 <a class="i" href="meth.htm#g6-meth">from 6 gliders</a>.</li>
+</ul></p>
+
+<a name="type-nat"></a>
+<h2><a class="i" href="natural.htm">Naturally-Occurring Objects</a></h2>
+<p><ul>
+    <li><b><a class="i" href="natural.htm">Naturally-occurring objects</a> by
+	type:</b>
+	the 100 <a class="i" href="natural.htm#nat-obj">Objects</a>,
+	the 92 <a class="i" href="natural.htm#nat-p1">Still-lifes</a>,
+	the 61 <a class="i" href="natural.htm#nat-p1">Oscillators</a>.</li>
+    <li><b><a class="i" href="natural.htm#nat-osc">Naturally-occurring
+	oscillators</a> by <a class="i" href="period.htm">period</a>:</b>
+	the 41 <a class="i" href="natural.htm#nat-p2">P2</a>,
+	the 7 <a class="i" href="natural.htm#nat-p3">P3</a>,
+	the 3 <a class="i" href="natural.htm#nat-p4">P4</a>,
+	the 1 <a class="i" href="natural.htm#nat-p5">P5</a>,
+	the 1 <a class="i" href="natural.htm#nat-p6">P6</a>,
+	the 3 <a class="i" href="natural.htm#nat-p8">P8</a>,
+	the 1 <a class="i" href="natural.htm#nat-p14">P14</a>,
+	the 1 <a class="i" href="natural.htm#nat-p15">P15</a>,
+	the 3 <a class="i" href="natural.htm#nat-p30">P30</a>.</li>
+    <li><b><a class="i" href="natural.htm">Naturally-occurring objects</a> by
+	<a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	the 7 <a class="i" href="natural.htm#g2-nat">from 2 gliders</a>,
+	the 15 <a class="i" href="natural.htm#g3-nat">from 3 gliders</a>,
+	the 113 <a class="i" href="natural.htm#g4-nat">from 4 gliders</a>,
+	the 16 <a class="i" href="natural.htm#g5-nat">from 5 gliders</a>,
+	the 22 <a class="i" href="natural.htm#g6-nat">from 6 gliders</a>,
+	the 31 <a class="i" href="natural.htm#g7-nat">from &gt;6 gliders</a>,
+	the 1 <a class="i" href="natural.htm#gg-nat">from
+	&gt;1 glider/bit</a>.</li>
+</ul></p>
+
+<hr /><hr />
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or type.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

@@ -1,0 +1,2595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Still-Lifes</title>
+<meta name="description"
+content="Conway's Game of Life: Still-life lists and glider syntheses" />
+<meta name="keywords" content="conway game life still life list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Still-Lifes</h1>
+
+<p align="center">
+	<b><a class="j" href="#p1-intro">Introduction</a></b><br />
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p1-0">0</a> |
+	  <a class="j" href="#p1-4">4</a> |
+	  <a class="j" href="#p1-5">5</a> |
+	  <a class="j" href="#p1-6">6</a> |
+	  <a class="j" href="#p1-7">7</a> |
+	  <a class="j" href="#p1-8">8</a> |
+	  <a class="j" href="#p1-9">9</a> |
+	  <a class="j" href="#p1-10">10</a> |
+	  <a class="j" href="#p1-11">11</a> |
+	  <a class="j" href="#p1-12">12</a> |
+	  <a class="j" href="#p1-13">13</a> |
+	  <a class="j" href="#p1-14">14</a> |
+	  <a class="j" href="#p1-15">15</a> |
+	  <a class="j" href="#p1-16">16</a> |
+	  <a class="j" href="#p1-17">17</a> |
+	  <a class="j" href="#p1-18">18</a> |
+	  <a class="j" href="#p1-19">19</a> |
+	  <a class="j" href="#p1-20">20</a> |
+	  <a class="j" href="#p1-21">21</a> |
+	  <a class="j" href="#p1-22">22</a> |
+	  <a class="j" href="#p1-23">23</a> |
+	  <a class="j" href="#p1-24">24</a> |
+	  <a class="j" href="#p1-25">25</a> |
+	  <a class="j" href="#p1-26">26</a> |
+	  <a class="j" href="#p1-27">27</a> |
+	  <a class="j" href="#p1-28">28</a> |
+	  <a class="j" href="#p1-29">29</a> |
+	  <a class="j" href="#p1-lg">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g2-p1">2</a> |
+	  <a class="j" href="#g3-p1">3</a> |
+	  <a class="j" href="#g4-p1">4</a> |
+	  <a class="j" href="#g5-p1">5</a> |
+	  <a class="j" href="#g6-p1">6</a> |
+	  <a class="j" href="#ge-p1">1 glider/bit</a> |
+	  <a class="j" href="#gg-p1">&gt;1 glider/bit</a><br />
+	<b><a class="j" href="#nat-p1">Frequency of occurrence</a></b> |
+	<b><a class="j" href="#meth-p1">Methuselahs with P1 censuses</a></b> |
+	<b><a class="j" href="#p1-bad">Not quite still-lifes</a></b>
+</p>
+
+<hr /><hr />
+<a name="p1-intro"></a>
+<h2>Introduction</h2>
+<p>Of all objects to be synthesized from gliders, still-lifes are usually the
+easiest to synthesize. Most of the smaller objects naturally fall out of
+random collisions of a few gliders, while most larger objects can be assembled
+incrementally from smaller and simpler objects. This process is somewhat
+similar to sculpting in a solid medium, or to chemical synthesis of stable
+compounds.</p>
+
+<p>In fact, all of the 2431 still-lifes up to 14 bits have been explicitly
+synthesized, and all from 15-17 bits either have explicit syntheses, or have
+been proven to have syntheses. A computer search has verified that around 96%
+of still-lifes from 18-24 bits can be trivially synthesized from smaller
+ones.</p>
+
+<p>In the early 1990s,
+<a class="i" href="lifecred.htm#buckingham">David Buckingham</a> synthesized all
+still-lifes up to 14 bits, that had not been previously synthesized.</p>
+
+<p>In the late 1990s,
+<a class="i" href="lifecred.htm#niemiec">Mark Niemiec</a> synthesized most
+15-bit still-lifes, leaving only three unsolved. He later wrote an expert system
+that proved that all could be synthesized trivially except around a dozen, all
+of which already had explicit syntheses except for the same three. He later
+solved one of these three in 2010, with the final two being solved in 2013 by
+<a class="i" href="lifecred.htm#grant">Martin Grant</a>.</p>
+
+<p>The expert system determined that all 16-bit still-lifes could be synthesized
+except for around a hundred. In the fall of 2013, a group of Lifenthusiasts on
+the <a class="x" target="_blank" href="http://conwaylife.com/forums">Life community forums</a>
+(<a class="i" href="lifecred.htm#grant">Martin Grant</a>,
+<a class="i" href="lifecred.htm#merzenich">Matthias Merzenich</a> and
+<a class="i" href="lifecred.htm#niemiec">Mark Niemiec</a>, with the help of a few others)
+synthesized all of these remaining hundred.</p>
+
+<p>Similarly, the system determined that all 17-bit still-lifes could be
+synthesized except for around three hundred. From January to May 2014, the
+same group solved all of these.</p>
+
+<p>(There are currently around 700 18-bit still-lifes without syntheses, plus
+several others that can be trivially derived from these.)</p>
+
+<hr />
+<hr />
+<a name="p1-0"></a>
+<h2>The 1 zero-bit still-life</h2>
+<p><a class="p" href="stamp/p1-0.rle"><img src="map/p1-0.png"
+ alt="0b P1" width="81" height="61" usemap="#p1-0" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/0death.rle">Death [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p1-0.zip" />
+	<area coords="61,41,80,60" href="stamp/p1-0.rle" />
+	<area coords="0,0,80,60" href="0/0death.rle" />
+</map>
+
+<p>Although not generally considered a still-life, the empty field (i.e. death)
+technically fulfills all the criteria, and it occurs sufficiently frequently to
+warrant being mentioned.
+For example, it is the most common result of two gliders colliding.</p>
+
+<hr />
+<a name="p1-4"></a>
+<h2>The 2 <a class="i" href="bits-4.htm">four-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-4.rle"><img src="map/p1-4.png"
+ alt="4-bit still" width="141" height="61" usemap="#p1-4" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/4bk.rle">Block [2]</a></td>
+	<td><a class="p" href="0/4tb.rle">Tub; Diamond [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p1-4.zip" />
+	<area coords="121,41,140,60" href="stamp/p1-4.rle" />
+	<area coords="0,0,69,60" href="0/4bk.rle" />
+	<area coords="70,0,140,60" href="0/4tb.rle" />
+</map>
+
+<p>Blocks can can eat
+<a class="j" href="#p1-6">beehives</a>
+and similar objects with protruding points. This makes them extremely useful
+in stabilizing <a class="i" href="p30.htm#p30-20">Queen bees</a>
+and other related oscillators. They can also stabilize many other kinds of
+<a class="i" href="osc.htm">oscillators</a> as well, including
+<a class="i" href="period.htm#p46">B heptomino shuttle-based ones</a>.</p>
+
+<p>Tubs can eat half of a forming
+<a class="i" href="p3.htm#p3-lg">pulsar</a></p>
+
+<hr />
+<a name="p1-5"></a>
+<h2>The 1 <a class="i" href="bits-5.htm">five-bit</a>
+still-life</h2>
+<p><a class="p" href="stamp/p1-5.rle"><img src="map/p1-5.png"
+ alt="5b P1" width="81" height="61" usemap="#p1-5" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/5bt.rle">Boat [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p1-5.zip" />
+	<area coords="61,41,80,60" href="stamp/p1-5.rle" />
+	<area coords="0,0,80,60" href="0/5bt.rle" />
+</map>
+
+<hr />
+<a name="p1-6"></a>
+<h2>The 5 <a class="i" href="bits-6.htm">six-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-6.rle"><img src="map/p1-6.png"
+ alt="6-bit still-lifes" width="321" height="61" usemap="#p1-6" /></a><br />
+    <table width="325">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6sn.rle">
+	    Snake [4]</a></td>
+	<td><a class="p" href="0/6sh.rle">
+	    Ship [3]</a></td>
+	<td><a class="p" href="0/6hv.rle">
+	    Beehive [2]</a></td>
+	<td><a class="p" href="0/6ac.rle">
+	    Aircraft carrier; Carrier [4]</a></td>
+	<td><a class="p" href="0/6bg.rle">
+	    Barge [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/p1-6.zip" />
+	<area coords="301,41,320,60" href="stamp/p1-5.rle" />
+	<area coords="0,0,69,60" href="0/6sn.rle" />
+	<area coords="70,0,129,60" href="0/6sh.rle" />
+	<area coords="130,0,189,60" href="0/6hv.rle" />
+	<area coords="190,0,249,60" href="0/6ac.rle" />
+	<area coords="250,0,320,60" href="0/6bg.rle" />
+</map>
+
+<hr />
+<a name="p1-7"></a>
+<h2>The 4 <a class="i" href="bits-7.htm">seven-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-7.rle"><img src="map/p1-7.png"
+ alt="7-bit still-lifes" width="261" height="61" usemap="#p1-7" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/7ls.rle">
+	    Long snake; Python [4]</a></td>
+	<td><a class="p" href="0/7lf.rle">
+	    Loaf; Burloaf [2]</a></td>
+	<td><a class="p" href="0/7et.rle">
+	    Eater; Eater-1; Fishhook [2]</a></td>
+	<td><a class="p" href="0/7lb.rle">
+	    Long boat [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p1-7.zip" />
+	<area coords="241,41,260,60" href="stamp/p1-7.rle" />
+	<area coords="0,0,69,60" href="0/7ls.rle" />
+	<area coords="70,0,129,60" href="0/7lf.rle" />
+	<area coords="130,0,189,60" href="0/7et.rle" />
+	<area coords="190,0,260,60" href="0/7lb.rle" />
+</map>
+
+<p>Very early on, it was discovered that the fishhook can safely eat a wide
+variety of things. As a result, it has been subsequently known as the Eater.
+Since then, other kinds of eaters have been discovered, but the eater (now
+also known as Eater-1 to distinguish it from other kinds of eaters), is the
+smallest and easiest to synthesize. It is used to stablize many
+<a class="i" href="osc.htm">oscillators</a>. Because it has a 3-generation
+reset time, two of them form a simple
+<a class="p" href="14/14eet.rle">period 3 oscillator</a>.</p>
+
+<hr />
+<a name="p1-8"></a>
+<h2>The 9 <a class="i" href="bits-8.htm">eight-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-8.rle"><img src="map/p1-8.png"
+ alt="8-bit still-lifes" width="561" height="61" usemap="#p1-8" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/8sl.rle">
+	    Shil- lelagh [4]</a></td>
+	<td><a class="p" href="0/8pd.rle">
+	    Pond [2]</a></td>
+	<td><a class="p" href="0/8lp.rle">
+	    Long ship [4]</a></td>
+	<td><a class="p" href="0/8cg.rle">
+	    8.3; Mango; Cigar [3]</a></td>
+	<td><a class="p" href="0/8ht.rle">
+	    8.4; Hook w/ tail; Snake eater [4]</a></td>
+	<td><a class="p" href="0/8vs.rle">
+	    8.1; Very long snake [4]</a></td>
+	<td><a class="p" href="0/8lg.rle">
+	    Long barge [3]</a></td>
+	<td><a class="p" href="0/8tt.rle">
+	    Tub w/ tail; Twit [4]</a></td>
+	<td><a class="p" href="0/8cs.rle">
+	    8.2; Canoe; Sinking ship; Cis snake [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p1-8.zip" />
+	<area coords="541,41,560,60" href="stamp/p1-8.rle" />
+	<area coords="0,0,69,60" href="0/8sl.rle" />
+	<area coords="70,0,129,60" href="0/8pd.rle" />
+	<area coords="130,0,189,60" href="0/8lp.rle" />
+	<area coords="190,0,249,60" href="0/8cg.rle" />
+	<area coords="250,0,309,60" href="0/8ht.rle" />
+	<area coords="310,0,369,60" href="0/8vs.rle" />
+	<area coords="370,0,429,60" href="0/8lg.rle" />
+	<area coords="430,0,489,60" href="0/8tt.rle" />
+	<area coords="490,0,560,60" href="0/8cs.rle" />
+</map>
+
+<p>The Pond can eat the same way an <a class="p" href="0/7et.rle">eater</a>
+can, as long as it eats from two adjacent sides simultaneously. The simplest
+example is in the P3 oscillator
+<a class="p" href="22/22et2pd.rle">Biting off more than they can chew</a>,
+where both sides of the pond are eaten by eaters.</p>
+
+<hr />
+<a name="p1-9"></a>
+<h2>The 10 <a class="i" href="bits-9.htm">nine-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-9.rle"><img src="map/p1-9.png"
+ alt="9-bit still-lifes" width="621" height="61" usemap="#p1-9" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/9-1.rle">
+	    9.1; Very long boat [3]</a></td>
+	<td><a class="p" href="0/9-2.rle">
+	    9.2; Extra long snake [6]</a></td>
+	<td><a class="p" href="0/9-3.rle">
+	    9.3; Long canoe; Long sinking ship [4]</a></td>
+	<td><a class="p" href="0/9-4.rle">
+	    9.4; Integral; Integral sign [4]</a></td>
+	<td><a class="p" href="0/9-5.rle">
+	    9.5; Up boat w/ tail; Trans- boat w/ tail [4]</a></td>
+	<td><a class="p" href="0/9-6.rle">
+	    9.6; Down boat w/ tail; Cis- boat w/ tail [4]</a></td>
+	<td><a class="p" href="0/9-7.rle">
+	    9.7; Long shil- lelagh [5]</a></td>
+	<td><a class="p" href="0/9-8.rle">
+	    9.8; Long hook w/ tail [5]</a></td>
+	<td><a class="p" href="0/9-9.rle">
+	    9.9; Tub w/ long tail; Shil- lelagh w/ tub [4]</a></td>
+	<td><a class="p" href="0/9-10.rle">
+	    9.10; Hat [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-9">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-9.zip" />
+	<area coords="601,41,620,60" href="stamp/p1-9.rle" />
+	<area coords="0,0,69,60" href="0/9-1.rle" />
+	<area coords="70,0,129,60" href="0/9-2.rle" />
+	<area coords="130,0,189,60" href="0/9-3.rle" />
+	<area coords="190,0,249,60" href="0/9-4.rle" />
+	<area coords="250,0,309,60" href="0/9-5.rle" />
+	<area coords="310,0,369,60" href="0/9-6.rle" />
+	<area coords="370,0,429,60" href="0/9-7.rle" />
+	<area coords="430,0,489,60" href="0/9-8.rle" />
+	<area coords="490,0,549,60" href="0/9-9.rle" />
+	<area coords="550,0,620,60" href="0/9-10.rle" />
+</map>
+
+<hr />
+<a name="p1-10"></a>
+<h2>The 25 <a class="i" href="bits-10.htm">ten-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-10.rle"><img src="map/p1-10.png"
+ alt="10-bit still-lifes" width="621" height="141" usemap="#p1-10" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="10/10-1.rle">
+	    10.1; Very long barge [5]</a></td>
+	<td><a class="p" href="10/10-2.rle">
+	    10.2; Very long ship [4]</a></td>
+	<td><a class="p" href="10/10-3.rle">
+	    10.3; Loaf siamese barge [9]</a></td>
+	<td><a class="p" href="10/10-4.rle">
+	    10.4; Loop; Curl; Long hat; Hook w/ hooked tail [4]</a></td>
+	<td><a class="p" href="10/10-5.rle">
+	    10.5; Up barge w/ tail; Trans-barge w/ tail [4]</a></td>
+	<td><a class="p" href="10/10-6.rle">
+	    10.6; Down barge w/ tail [5]</a></td>
+	<td><a class="p" href="10/10-7.rle">
+	    10.7; Beehive w/ tail [4]</a></td>
+	<td><a class="p" href="10/10-8.rle">
+	    10.8; Snake siamese snake [6]</a></td>
+	<td><a class="p" href="10/10-9.rle">
+	    10.9; Carrier siamese snake [5]</a></td>
+	<td><a class="p" href="10/10-10.rle">
+	    10.10; Carrier siamese carrier [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="10/10-11.rle">
+	    10.11; Very long canoe [4]</a></td>
+	<td><a class="p" href="10/10-12.rle">
+	    10.12; Extra extra long snake [6]</a></td>
+	<td><a class="p" href="10/10-13.rle">
+	    10.13; Integral w/ hook [5]</a></td>
+	<td><a class="p" href="10/10-14.rle">
+	    10.14; Fuse w/ two tails [6]</a></td>
+	<td><a class="p" href="10/10-15.rle">
+	    10.15; Very long hook w/ tail [7]</a></td>
+	<td><a class="p" href="10/10-16.rle">
+	    10.16; Cis hook w/ tail [8]</a></td>
+	<td><a class="p" href="10/10-17.rle">
+	    10.17; Integral w/ tub; Tub w/ nine [4]</a></td>
+	<td><a class="p" href="10/10-18.rle">
+	    10.18; Claw w/ tail; Great snake eater [4]</a></td>
+	<td><a class="p" href="10/10-19.rle">
+	    10.19; Long integral; S-ten [5]</a></td>
+	<td><a class="p" href="10/10-20.rle">
+	    10.20; Cis shillelagh [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="10/10-21.rle">
+	    10.21; Very long shillelagh [4]</a></td>
+	<td><a class="p" href="10/10-22.rle">
+	    10.22; Tub w/ very long tail [7]</a></td>
+	<td><a class="p" href="10/10-23.rle">
+	    10.23; Boat w/ long tail [5]</a></td>
+	<td><a class="p" href="10/10-24.rle">
+	    10.24; Boat tie boat; Boat on boat [4]</a></td>
+	<td><a class="p" href="10/10-25.rle">
+	    10.25; Block on table; Block and table [4]</a></td>
+	<td colspan="5" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-10">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-10.zip" />
+	<area coords="601,121,620,140" href="stamp/p1-10.rle" />
+	<area coords="0,0,69,49" href="10/10-1.rle" />
+	<area coords="70,0,129,49" href="10/10-2.rle" />
+	<area coords="130,0,189,49" href="10/10-3.rle" />
+	<area coords="190,0,249,49" href="10/10-4.rle" />
+	<area coords="250,0,309,49" href="10/10-5.rle" />
+	<area coords="310,0,369,49" href="10/10-6.rle" />
+	<area coords="370,0,429,49" href="10/10-7.rle" />
+	<area coords="430,0,489,49" href="10/10-8.rle" />
+	<area coords="490,0,549,49" href="10/10-9.rle" />
+	<area coords="550,0,620,49" href="10/10-10.rle" />
+	<area coords="0,50,69,89" href="10/10-11.rle" />
+	<area coords="70,50,129,89" href="10/10-12.rle" />
+	<area coords="130,50,189,89" href="10/10-13.rle" />
+	<area coords="190,50,249,89" href="10/10-14.rle" />
+	<area coords="250,50,309,89" href="10/10-15.rle" />
+	<area coords="310,50,369,89" href="10/10-16.rle" />
+	<area coords="370,50,429,89" href="10/10-17.rle" />
+	<area coords="430,50,489,89" href="10/10-18.rle" />
+	<area coords="490,50,549,89" href="10/10-19.rle" />
+	<area coords="550,50,620,89" href="10/10-20.rle" />
+	<area coords="0,90,69,140" href="10/10-21.rle" />
+	<area coords="70,90,129,140" href="10/10-22.rle" />
+	<area coords="130,90,189,140" href="10/10-23.rle" />
+	<area coords="190,90,249,140" href="10/10-24.rle" />
+	<area coords="250,90,309,140" href="10/10-25.rle" />
+	<area coords="310,90,620,140" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p1-11"></a>
+<h2>The 46 <a class="i" href="bits-11.htm">eleven-bit</a>
+ still-lifes</h2>
+<p><a class="p" href="stamp/p1-11.rle"><img src="map/p1-11.png"
+ alt="11-bit still-lifes" width="621" height="221" usemap="#p1-11" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="11/11-1.rle">
+	    11.1; Extra long boat [4]</a></td>
+	<td><a class="p" href="11/11-2.rle">
+	    11.2; Up long boat w/ tail [5]</a></td>
+	<td><a class="p" href="11/11-3.rle">
+	    11.3; Down long boat w/ tail [7]</a></td>
+	<td><a class="p" href="11/11-4.rle">
+	    11.4; Down loaf w/ tail; Trans- loaf w/ tail [4]</a></td>
+	<td><a class="p" href="11/11-5.rle">
+	    11.5; Up loaf a/ tail; Cis- loaf w/ tail [4]</a></td>
+	<td><a class="p" href="11/11-6.rle">
+	    11.6; Python siamese snake [7]</a></td>
+	<td><a class="p" href="11/11-7.rle">
+	    11.7; Python siamese carrier [8]</a></td>
+	<td><a class="p" href="11/11-8.rle">
+	    11.8; Extra long canoe [7]</a></td>
+	<td><a class="p" href="11/11-9.rle">
+	    11.9; 11-bit snake [6]</a></td>
+	<td><a class="p" href="11/11-10.rle">
+	    11.10; Integral w/ long hook [7]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-11.rle">
+	    11.11; Integral w/ up boat; Trans- boat w/ nine [4]</a></td>
+	<td><a class="p" href="11/11-12.rle">
+	    11.12; Integral w/ down boat [5]</a></td>
+	<td><a class="p" href="11/11-13.rle">
+	    11.13; Extra long hook w/ tail [7]</a></td>
+	<td><a class="p" href="11/11-14.rle">
+	    11.14; Long cis hook w/ tail [7]</a></td>
+	<td><a class="p" href="11/11-15.rle">
+	    11.15; Integral w/ two hooks [8]</a></td>
+	<td><a class="p" href="11/11-16.rle">
+	    11.16; Long fuse w/ two tails [7]</a></td>
+	<td><a class="p" href="11/11-17.rle">
+	    11.17; Long claw w/ tail [4]</a></td>
+	<td><a class="p" href="11/11-18.rle">
+	    11.18; Integral w/ two tubs [6]</a></td>
+	<td><a class="p" href="11/11-19.rle">
+	    11.19; Long cis shil- lelagh [6]</a></td>
+	<td><a class="p" href="11/11-20.rle">
+	    11.20; Very long integral [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-21.rle">
+	    11.21; Extra long shil- lelagh [6]</a></td>
+	<td><a class="p" href="11/11-22.rle">
+	    11.22; Tub w/ extra long tail [6]</a></td>
+	<td><a class="p" href="11/11-23.rle">
+	    11.23; Boat w/ very long tail [8]</a></td>
+	<td><a class="p" href="11/11-24.rle">
+	    11.24; Barge w/ long tail [6]</a></td>
+	<td><a class="p" href="11/11-25.rle">
+	    11.25; Tub w/ cis tail [8]</a></td>
+	<td><a class="p" href="11/11-26.rle">
+	    11.26; Long integral w/ tub [8]</a></td>
+	<td><a class="p" href="11/11-27.rle">
+	    11.27; Claw w/ tub w/ tail [6]</a></td>
+	<td><a class="p" href="11/11-28.rle">
+	    11.28; Fuse w/ tail and long tail [7]</a></td>
+	<td><a class="p" href="11/11-29.rle">
+	    11.29; Eater head siamese snake [8]</a></td>
+	<td><a class="p" href="11/11-30.rle">
+	    11.30; Ship tie boat; Ship on boat [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-31.rle">
+	    11.31; Snake tie boat [6]</a></td>
+	<td><a class="p" href="11/11-32.rle">
+	    11.32; Carrier tie boat [5]</a></td>
+	<td><a class="p" href="11/11-33.rle">
+	    11.33; Very long hat; Eleven- loop [4]</a></td>
+	<td><a class="p" href="11/11-34.rle">
+	    11.34; Boat w/ hooked tail; Long hat siamese boat [5]</a></td>
+	<td><a class="p" href="11/11-35.rle">
+	    11.35; Integral w/ tail [4]</a></td>
+	<td><a class="p" href="11/11-36.rle">
+	    11.36; Down boat on table; Trans- boat and table [6]</a></td>
+	<td><a class="p" href="11/11-37.rle">
+	    11.37; Up boat on table; Cis- boat and table [4]</a></td>
+	<td><a class="p" href="11/11-38.rle">
+	    11.38; Gull; Elevener; Intensionless [4]</a></td>
+	<td><a class="p" href="11/11-39.rle">
+	    11.39; Integral w/ tub and hook [6]</a></td>
+	<td><a class="p" href="11/11-40.rle">
+	    11.40; Eater head siamese carrier [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-41.rle">
+	    11.41; Eater tail siamese snake [6]</a></td>
+	<td><a class="p" href="11/11-42.rle">
+	    11.42; Eater tail siamese carrier [5]</a></td>
+	<td><a class="p" href="11/11-43.rle">
+	    11.43; Loaf siamese loaf [4]</a></td>
+	<td><a class="p" href="11/11-44.rle">
+	    11.44; Eater w/ cape [5]</a></td>
+	<td><a class="p" href="11/11-45.rle">
+	    11.45; Snake w/ feather [6]</a></td>
+	<td><a class="p" href="11/11-46.rle">
+	    11.46; Carrier w/ feather [6]</a></td>
+	<td colspan="4" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-11.zip" />
+	<area coords="601,201,620,220" href="stamp/p1-11.rle" />
+	<area coords="0,0,69,49" href="11/11-1.rle" />
+	<area coords="70,0,129,49" href="11/11-2.rle" />
+	<area coords="130,0,189,49" href="11/11-3.rle" />
+	<area coords="190,0,249,49" href="11/11-4.rle" />
+	<area coords="250,0,309,49" href="11/11-5.rle" />
+	<area coords="310,0,369,49" href="11/11-6.rle" />
+	<area coords="370,0,429,49" href="11/11-7.rle" />
+	<area coords="430,0,489,49" href="11/11-8.rle" />
+	<area coords="490,0,549,49" href="11/11-9.rle" />
+	<area coords="550,0,620,49" href="11/11-10.rle" />
+	<area coords="0,50,69,89" href="11/11-11.rle" />
+	<area coords="70,50,129,89" href="11/11-12.rle" />
+	<area coords="130,50,189,89" href="11/11-13.rle" />
+	<area coords="190,50,249,89" href="11/11-14.rle" />
+	<area coords="250,50,309,89" href="11/11-15.rle" />
+	<area coords="310,50,369,89" href="11/11-16.rle" />
+	<area coords="370,50,429,89" href="11/11-17.rle" />
+	<area coords="430,50,489,89" href="11/11-18.rle" />
+	<area coords="490,50,549,89" href="11/11-19.rle" />
+	<area coords="550,50,620,89" href="11/11-20.rle" />
+	<area coords="0,90,69,129" href="11/11-21.rle" />
+	<area coords="70,90,129,129" href="11/11-22.rle" />
+	<area coords="130,90,189,129" href="11/11-23.rle" />
+	<area coords="190,90,249,129" href="11/11-24.rle" />
+	<area coords="250,90,309,129" href="11/11-25.rle" />
+	<area coords="310,90,369,129" href="11/11-26.rle" />
+	<area coords="370,90,429,129" href="11/11-27.rle" />
+	<area coords="430,90,489,129" href="11/11-28.rle" />
+	<area coords="490,90,549,129" href="11/11-29.rle" />
+	<area coords="550,90,620,129" href="11/11-30.rle" />
+	<area coords="0,130,69,169" href="11/11-31.rle" />
+	<area coords="70,130,129,169" href="11/11-32.rle" />
+	<area coords="130,130,189,169" href="11/11-33.rle" />
+	<area coords="190,130,249,169" href="11/11-34.rle" />
+	<area coords="250,130,309,169" href="11/11-35.rle" />
+	<area coords="310,130,369,169" href="11/11-36.rle" />
+	<area coords="370,130,429,169" href="11/11-37.rle" />
+	<area coords="430,130,489,169" href="11/11-38.rle" />
+	<area coords="490,130,549,169" href="11/11-39.rle" />
+	<area coords="550,130,620,169" href="11/11-40.rle" />
+	<area coords="0,170,69,220" href="11/11-41.rle" />
+	<area coords="70,170,129,220" href="11/11-42.rle" />
+	<area coords="130,170,189,220" href="11/11-43.rle" />
+	<area coords="190,170,249,220" href="11/11-44.rle" />
+	<area coords="250,170,309,220" href="11/11-45.rle" />
+	<area coords="310,170,369,220" href="11/11-46.rle" />
+	<area coords="370,170,620,220" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p1-12"></a>
+<h2>The 121 <a class="i" href="bits-12.htm">twelve-bit</a>
+still-lifes</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p1-12.htm">separate page</a>.</p>
+
+<hr />
+<a name="p1-13"></a>
+<h2>The 240 <a class="i" href="bits-13.htm">thirteen-bit</a>
+still-lifes</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p1-13.htm">separate page</a>.</p>
+
+<hr />
+<a name="p1-14"></a>
+<h2>The 619 <a class="i" href="bits-14.htm">fourteen-bit</a>
+still-lifes</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p1-14.htm">separate page</a>.</p>
+
+<hr />
+<a name="p1-15"></a>
+<h2>The 1353 <a class="i" href="p1-15.htm">fifteen-bit</a>
+still-lifes</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p1-15.htm">separate page</a>.</p>
+
+<hr />
+<a name="p1-16"></a>
+<h2>The 3286 <a class="i" href="bits-16.htm">sixteen-bit</a>
+still-lifes</h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p1-16.htm">separate page</a>,
+with syntheses for 338 of them.</p>
+
+<hr />
+<a name="p1-17"></a>
+<h2>The 7773 <a class="i" href="bits-17.htm">seventeen-bit</a>
+still-lifes</h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p1-17.htm">separate page</a>,
+with syntheses for 445 of them.</p>
+<hr />
+<a name="p1-18"></a>
+<h2>The 19044 <a class="i" href="bits-18.htm">eighteen-bit</a>
+still-lifes</h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p1-18.htm">separate page</a>,
+with syntheses for 130 of them.</p>
+<hr />
+<a name="p1-19"></a>
+<h2>The 45759 <a class="i" href="bits-19.htm">nineteen-bit</a>
+still-lifes</h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 73 of these are shown.</p>
+<p><a class="p" href="stamp/p1-19.rle"><img src="map/p1-19.png"
+ alt="19-bit still-lifes" width="621" height="421" usemap="#p1-19" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19-398.rle">19.398 [6]</a></td>
+	<td><a class="p" href="19/19-991.rle">19.991 [9]</a></td>
+	<td><a class="p" href="19/19-1637.rle">19.1637 [7]</a></td>
+	<td><a class="p" href="19/19-2964.rle">19.2964 [9]</a></td>
+	<td><a class="p" href="19/19-3087.rle">19.3087 [10]</a></td>
+	<td><a class="p" href="19/19-3100.rle">19.3100 [10]</a></td>
+	<td><a class="p" href="19/19-3128.rle">19.3128 [13]</a></td>
+	<td><a class="p" href="19/19-3146.rle">19.3146 [4]</a></td>
+	<td class="y"><a class="p" href="19/19-3161.rle">19.3161 [24]</a></td>
+	<td><a class="p" href="19/19-3523.rle">19.3523 [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-3528.rle">19.3528 [7]</a></td>
+	<td><a class="p" href="19/19-3529.rle">19.3529 [10]</a></td>
+	<td><a class="p" href="19/19-3549.rle">19.3549 [6]</a></td>
+	<td><a class="p" href="19/19-3754.rle">19.3754 [13]</a></td>
+	<td><a class="p" href="19/19-3779.rle">19.3779 [8]</a></td>
+	<td><a class="p" href="19/19-3780.rle">19.3780 [11]</a></td>
+	<td><a class="p" href="19/19-3930.rle">19.3930 [9]</a></td>
+	<td><a class="p" href="19/19-4044.rle">19.4044 [8]</a></td>
+	<td><a class="p" href="19/19-4199.rle">19.4199; Longhorn [9]</a></td>
+	<td><a class="p" href="19/19-4304.rle">19.4304 [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-5226.rle">19.5226 [12]</a></td>
+	<td><a class="p" href="19/19-5231.rle">19.5231 [9]</a></td>
+	<td><a class="p" href="19/19-5390.rle">19.5390 [6]</a></td>
+	<td class="y"><a class="p" href="19/19-7470.rle">19.7470 [27]</a></td>
+	<td><a class="p" href="19/19-11332.rle">19. 11332 [9]</a></td>
+	<td><a class="p" href="19/19-11445.rle">19. 11445 [13]</a></td>
+	<td><a class="p" href="19/19-11570.rle">19. 11570 [9]</a></td>
+	<td><a class="p" href="19/19-11611.rle">19. 11611 [6]</a></td>
+	<td><a class="p" href="19/19-11763.rle">19. 11753; Eater-2 [16]</a></td>
+	<td><a class="p" href="19/19-11785.rle">
+	    19. 11785; Cheap eater-2 [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-11903.rle">19. 11903 [7]</a></td>
+	<td class="y"><a class="p" href="19/19-11990.rle">
+	    19. 11990 [27]</a></td>
+	<td><a class="p" href="19/19-12471.rle">19. 12471 [18]</a></td>
+	<td><a class="p" href="19/19-12707.rle">19. 12707 [13]</a></td>
+	<td><a class="p" href="19/19-12709.rle">19. 12709 [7]</a></td>
+	<td><a class="p" href="19/19-12824.rle">19. 12834 [11]</a></td>
+	<td><a class="p" href="19/19-12839.rle">19. 12839 [15]</a></td>
+	<td><a class="p" href="19/19-12841.rle">19. 12841 [14]</a></td>
+	<td><a class="p" href="19/19-13260.rle">19. 13260 [8]</a></td>
+	<td><a class="p" href="19/19-13783.rle">19. 13783 [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-13790.rle">19. 13790 [9]</a></td>
+	<td><a class="p" href="19/19-13942.rle">19. 13942 [11]</a></td>
+	<td><a class="p" href="19/19-14090.rle">19. 14090 [6]</a></td>
+	<td><a class="p" href="19/19-14219.rle">19. 14219 [10]</a></td>
+	<td><a class="p" href="19/19-14258.rle">19. 14258 [12]</a></td>
+	<td><a class="p" href="19/19-14663.rle">19. 14663 [12]</a></td>
+	<td><a class="p" href="19/19-15187.rle">19. 15187 [12]</a></td>
+	<td class="y"><a class="p" href="19/19-15406.rle">
+	    19. 15406 [64]</a></td>
+	<td><a class="p" href="19/19-16598.rle">19. 16598 [8]</a></td>
+	<td><a class="p" href="19/19-16888.rle">19. 16888 [16]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-16895.rle">19. 16895 [13]</a></td>
+	<td><a class="p" href="19/19-16896.rle">19. 16896 [13]</a></td>
+	<td><a class="p" href="19/19-17579.rle">19. 17579 [8]</a></td>
+	<td class="y"><a class="p" href="19/19-17763.rle">
+	    19. 17763 [30]</a></td>
+	<td><a class="p" href="19/19-17797.rle">19. 17797 [17]</a></td>
+	<td class="y"><a class="p" href="19/19-18222.rle">
+	    19. 18222 [20]</a></td>
+	<td><a class="p" href="19/19-19119.rle">19. 19119 [13]</a></td>
+	<td class="y"><a class="p" href="19/19-19181.rle">
+	    19. 19181 [20]</a></td>
+	<td><a class="p" href="19/19-27262.rle">19. 27262 [11]</a></td>
+	<td><a class="p" href="19/19-28022.rle">19. 28022 [18]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="19/19-28047.rle">19. 28047 [5]</a></td>
+	<td><a class="p" href="19/19-29154.rle">19. 29154 [6]</a></td>
+	<td><a class="p" href="19/19-30501.rle">19. 30501 [5]</a></td>
+	<td><a class="p" href="19/19-30862.rle">19. 30862 [8]</a></td>
+	<td><a class="p" href="19/19-31541.rle">19. 31541 [16]</a></td>
+	<td><a class="p" href="19/19-33198.rle">19. 33198 [16]</a></td>
+	<td><a class="p" href="19/19-33912.rle">19. 33912 [16]</a></td>
+	<td><a class="p" href="19/19-34133.rle">19. 34133 [13]</a></td>
+	<td class="g"><a class="p" href="19/19-35478.rle">
+	    19. 35478 [19]</a></td>
+	<td><a class="p" href="19/19-38169.rle">19. 38169 [12]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="19/19-39872.rle">
+	    19. 39872 [26]</a></td>
+	<td><a class="p" href="19/19-40007.rle">19. 40007 [17]</a></td>
+	<td><a class="p" href="19/19-42206.rle">19. 42206 [6]</a></td>
+	<td colspan="7" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-19.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-19.rle" />
+	<area coords="0,0,69,57" href="19/19-398.rle" />
+	<area coords="70,0,129,57" href="19/19-991.rle" />
+	<area coords="130,0,189,57" href="19/19-1637.rle" />
+	<area coords="190,0,249,57" href="19/19-2964.rle" />
+	<area coords="250,0,309,57" href="19/19-3087.rle" />
+	<area coords="310,0,369,57" href="19/19-3100.rle" />
+	<area coords="370,0,429,57" href="19/19-3128.rle" />
+	<area coords="430,0,489,57" href="19/19-3146.rle" />
+	<area coords="490,0,549,57" href="19/19-3161.rle" />
+	<area coords="550,0,620,57" href="19/19-3523.rle" />
+	<area coords="0,58,69,105" href="19/19-3528.rle" />
+	<area coords="70,58,129,105" href="19/19-3529.rle" />
+	<area coords="130,58,189,105" href="19/19-3549.rle" />
+	<area coords="190,58,249,105" href="19/19-3754.rle" />
+	<area coords="250,58,309,105" href="19/19-3779.rle" />
+	<area coords="310,58,369,105" href="19/19-3780.rle" />
+	<area coords="370,58,429,105" href="19/19-3930.rle" />
+	<area coords="430,58,489,105" href="19/19-4044.rle" />
+	<area coords="490,58,549,105" href="19/19-4199.rle" />
+	<area coords="550,58,620,105" href="19/19-4304.rle" />
+	<area coords="0,106,69,153" href="19/19-5226.rle" />
+	<area coords="70,106,129,153" href="19/19-5231.rle" />
+	<area coords="130,106,189,153" href="19/19-5390.rle" />
+	<area coords="190,106,249,153" href="19/19-7470.rle" />
+	<area coords="250,106,309,153" href="19/19-11332.rle" />
+	<area coords="310,106,369,153" href="19/19-11445.rle" />
+	<area coords="370,106,429,153" href="19/19-11570.rle" />
+	<area coords="430,106,489,153" href="19/19-11611.rle" />
+	<area coords="490,106,549,153" href="19/19-11763.rle" />
+	<area coords="550,106,620,153" href="19/19-11785.rle" />
+	<area coords="0,154,69,201" href="19/19-11903.rle" />
+	<area coords="70,154,129,201" href="19/19-11990.rle" />
+	<area coords="130,154,189,201" href="19/19-12471.rle" />
+	<area coords="190,154,249,201" href="19/19-12707.rle" />
+	<area coords="250,154,309,201" href="19/19-12709.rle" />
+	<area coords="310,154,369,201" href="19/19-12824.rle" />
+	<area coords="370,154,429,201" href="19/19-12839.rle" />
+	<area coords="430,154,489,201" href="19/19-12841.rle" />
+	<area coords="490,154,549,201" href="19/19-13260.rle" />
+	<area coords="550,154,620,201" href="19/19-13783.rle" />
+	<area coords="0,202,69,249" href="19/19-13790.rle" />
+	<area coords="70,202,129,249" href="19/19-13942.rle" />
+	<area coords="130,202,189,249" href="19/19-14090.rle" />
+	<area coords="190,202,249,249" href="19/19-14219.rle" />
+	<area coords="250,202,309,249" href="19/19-14258.rle" />
+	<area coords="310,202,369,249" href="19/19-14663.rle" />
+	<area coords="370,202,429,249" href="19/19-15187.rle" />
+	<area coords="430,202,489,249" href="19/19-15406.rle" />
+	<area coords="490,202,549,249" href="19/19-16598.rle" />
+	<area coords="550,202,620,249" href="19/19-16888.rle" />
+	<area coords="0,250,69,297" href="19/19-16895.rle" />
+	<area coords="70,250,129,297" href="19/19-16896.rle" />
+	<area coords="130,250,189,297" href="19/19-17579.rle" />
+	<area coords="190,250,249,297" href="19/19-17763.rle" />
+	<area coords="250,250,309,297" href="19/19-17797.rle" />
+	<area coords="310,250,369,297" href="19/19-18222.rle" />
+	<area coords="370,250,429,297" href="19/19-19119.rle" />
+	<area coords="430,250,489,297" href="19/19-19181.rle" />
+	<area coords="490,250,549,297" href="19/19-27262.rle" />
+	<area coords="550,250,620,297" href="19/19-28022.rle" />
+	<area coords="0,298,69,345" href="19/19-28047.rle" />
+	<area coords="70,298,129,345" href="19/19-29154.rle" />
+	<area coords="130,298,189,345" href="19/19-30501.rle" />
+	<area coords="190,298,249,345" href="19/19-30862.rle" />
+	<area coords="250,298,309,345" href="19/19-31541.rle" />
+	<area coords="310,298,369,345" href="19/19-33198.rle" />
+	<area coords="370,298,429,345" href="19/19-33912.rle" />
+	<area coords="430,298,489,345" href="19/19-34133.rle" />
+	<area coords="490,298,549,345" href="19/19-35478.rle" />
+	<area coords="550,298,620,345" href="19/19-38169.rle" />
+	<area coords="0,346,69,420" href="19/19-39872.rle" />
+	<area coords="70,346,129,420" href="19/19-40007.rle" />
+	<area coords="130,346,189,420" href="19/19-42206.rle" />
+	<area coords="190,346,620,420" nohref="nohref" />
+</map>
+
+<p>Eater-2 is an eater that can eat most things the
+<a class="p" href="0/7et.rle">Eater-1</a> can eat. However, because it has a
+6-generation reset time compared to the Eater's 3, it can eat many things the
+Eater can't. Furthermore, because its active area is on a diagonal axis of
+symmetry, it can eat things from either side, while the Eater can eat only
+one.</p>
+
+<hr />
+<a name="p1-20"></a>
+<h2>The 112243 <a class="i" href="bits-20.htm">twenty-bit</a>
+still-lifes</h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 81 of these are shown.</p>
+<p><a class="p" href="stamp/p1-20.rle"><img src="map/p1-20.png"
+ alt="20-bit still-lifes" width="621" height="441" usemap="#p1-20" /></a><br />
+    <table width="625">
+    <colgroup><col width="79" /><col span="7" width="68" /><col width="68" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20-631.rle">20.631 [16]</a></td>
+	<td><a class="p" href="20/20-639.rle">20.639 [16]</a></td>
+	<td><a class="p" href="20/20-682.rle">20.682 [9]</a></td>
+	<td><a class="p" href="20/20-703.rle">20.703 [4]</a></td>
+	<td><a class="p" href="20/20-1292.rle">20.1292 [5]</a></td>
+	<td><a class="p" href="20/20-5318.rle">20.5318 [8]</a></td>
+	<td><a class="p" href="20/20-5320.rle">
+	    20.5320; Cis dock on dock; Mirrored dock [4]</a></td>
+	<td class="y"><a class="p" href="20/20-5445.rle">20.5445 [25]</a></td>
+	<td><a class="p" href="20/20-5655.rle">20.5655 [18]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-6019.rle">20.6019 [15]</a></td>
+	<td><a class="p" href="20/20-6034.rle">20.6034 [11]</a></td>
+	<td><a class="p" href="20/20-6039.rle">20.6039 [14]</a></td>
+	<td><a class="p" href="20/20-6274.rle">20.6274 [15]</a></td>
+	<td class="y"><a class="p" href="20/20-6281.rle">20.6281 [36]</a></td>
+	<td class="y"><a class="p" href="20/20-6282.rle">20.6282 [44]</a></td>
+	<td><a class="p" href="20/20-6406.rle">20.6406 [14]</a></td>
+	<td><a class="p" href="20/20-6717.rle">20.6717 [14]</a></td>
+	<td><a class="p" href="20/20-6770.rle">20.6770 [7]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20-6861.rle">20.6861 [39]</a></td>
+	<td><a class="p" href="20/20-7353.rle">20.7353 [12]</a></td>
+	<td><a class="p" href="20/20-8351.rle">20.8351 [6]</a></td>
+	<td><a class="p" href="20/20-8920.rle">20.8920 [6]</a></td>
+	<td><a class="p" href="20/20-8995.rle">20.8995 [4]</a></td>
+	<td><a class="p" href="20/20-9442.rle">20.9442 [10]</a></td>
+	<td><a class="p" href="20/20-10484.rle">20. 10484 [10]</a></td>
+	<td class="y"><a class="p" href="20/20-11763.rle">20. 11763 [27]</a></td>
+	<td><a class="p" href="20/20-21877.rle">
+	    20. 21877; Shuriken [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-21908.rle">20. 21908 [10]</a></td>
+	<td><a class="p" href="20/20-22049.rle">20. 22049; Spiral [10]</a></td>
+	<td><a class="p" href="20/20-22428.rle">20. 22428 [10]</a></td>
+	<td><a class="p" href="20/20-22629.rle">20. 22629 [4]</a></td>
+	<td class="y"><a class="p" href="20/20-22811.rle">
+	    20. 22811 [87]</a></td>
+	<td><a class="p" href="20/20-23540.rle">20. 23540 [8]</a></td>
+	<td><a class="p" href="20/20-23572.rle">20. 23572 [14]</a></td>
+	<td><a class="p" href="20/20-24041.rle">20. 24041 [7]</a></td>
+	<td><a class="p" href="20/20-24642.rle">20. 24642 [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-24653.rle">20. 24653 [11]</a></td>
+	<td><a class="p" href="20/20-25181.rle">
+	    20. 25181; Century eater w/ cis snake [18]</a></td>
+	<td class="y"><a class="p" href="20/20-25327.rle">
+	    20. 25327 [27]</a></td>
+	<td><a class="p" href="20/20-25886.rle">20. 25886 [8]</a></td>
+	<td><a class="p" href="20/20-26999.rle">20. 26999 [16]</a></td>
+	<td class="y"><a class="p" href="20/20-27001.rle">
+	    20. 27001 [86]</a></td>
+	<td class="g"><a class="p" href="20/20-27105.rle">
+	    20. 27105 [20]</a></td>
+	<td><a class="p" href="20/20-28209.rle">20. 28209 [9]</a></td>
+	<td><a class="p" href="20/20-28487.rle">
+	    20.28487; Up bookend on long beehive siamese loaf [7]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-29610.rle">20. 29610 [8]</a></td>
+	<td><a class="p" href="20/20-29799.rle">20. 29799 [5]</a></td>
+	<td><a class="p" href="20/20-32207.rle">20. 32207 [7]</a></td>
+	<td><a class="p" href="20/20-32475.rle">20. 32475 [18]</a></td>
+	<td><a class="p" href="20/20-33054.rle">20. 33054 [13]</a></td>
+	<td><a class="p" href="20/20-33812.rle">20. 33812 [14]</a></td>
+	<td><a class="p" href="20/20-35364.rle">20. 35364 [5]</a></td>
+	<td><a class="p" href="20/20-38322.rle">20. 38322 [9]</a></td>
+	<td><a class="p" href="20/20-43936.rle">20. 43936 [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-54418.rle">20. 54418 [12]</a></td>
+	<td><a class="p" href="20/20-55058.rle">20. 55058 [15]</a></td>
+	<td><a class="p" href="20/20-55063.rle">
+	    20. 55063; Buckle [14]</a></td>
+	<td class="y"><a class="p" href="20/20-55084.rle">
+	    20. 55084; Fuse w/ four tails [21]</a></td>
+	<td><a class="p" href="20/20-55512.rle">20. 55512 [11]</a></td>
+	<td><a class="p" href="20/20-58843.rle">20. 58843 [7]</a></td>
+	<td class="y"><a class="p" href="20/20-59202.rle">
+	    20. 59202 [45]</a></td>
+	<td><a class="p" href="20/20-59274.rle">20. 59274 [10]</a></td>
+	<td><a class="p" href="20/20-59595.rle">20. 59595 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-59596.rle">20. 59596 [5]</a></td>
+	<td><a class="p" href="20/20-63771.rle">20. 63771 [11]</a></td>
+	<td><a class="p" href="20/20-68602.rle">
+	    20. 68602; Century eater w/ beehive [9]</a></td>
+	<td class="y"><a class="p" href="20/20-72141.rle">
+	    20. 72141 [25]</a></td>
+	<td><a class="p" href="20/20-74326.rle">20. 74326 [8]</a></td>
+	<td><a class="p" href="20/20-88034.rle">20. 88034 [10]</a></td>
+	<td><a class="p" href="20/20-88078.rle">20. 88078 [11]</a></td>
+	<td><a class="p" href="20/20-90076.rle">20. 90076 [18]</a></td>
+	<td><a class="p" href="20/20-90659.rle">20. 90659 [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20-91980.rle">20. 91980 [10]</a></td>
+	<td><a class="p" href="20/20-94776.rle">20. 94776 [6]</a></td>
+	<td><a class="p" href="20/20-95176.rle">20. 95176 [11]</a></td>
+	<td><a class="p" href="20/20-98447.rle">20. 98447 [10]</a></td>
+	<td><a class="p" href="20/20-a5399.rle">20. 105399 [8]</a></td>
+	<td><a class="p" href="20/20-a6279.rle">20. 106279 [10]</a></td>
+	<td><a class="p" href="20/20-b0232.rle">20. 110232 [8]</a></td>
+	<td><a class="p" href="20/20-b0871.rle">20. 110871 [10]</a></td>
+	<td><a class="p" href="20/20-b1809.rle">20. 111809 [9]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,421,19,440" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-20.zip" />
+	<area coords="601,421,620,440" href="stamp/p1-20.rle" />
+	<area coords="0,0,77,53" href="20/20-631.rle" />
+	<area coords="78,0,145,53" href="20/20-639.rle" />
+	<area coords="146,0,213,53" href="20/20-682.rle" />
+	<area coords="214,0,281,53" href="20/20-703.rle" />
+	<area coords="282,0,349,53" href="20/20-1292.rle" />
+	<area coords="350,0,417,53" href="20/20-5318.rle" />
+	<area coords="418,0,485,53" href="20/20-5320.rle" />
+	<area coords="486,0,553,53" href="20/20-5445.rle" />
+	<area coords="554,0,620,53" href="20/20-5655.rle" />
+	<area coords="0,54,77,97" href="20/20-6019.rle" />
+	<area coords="78,54,145,97" href="20/20-6034.rle" />
+	<area coords="146,54,213,97" href="20/20-6039.rle" />
+	<area coords="214,54,281,97" href="20/20-6274.rle" />
+	<area coords="282,54,349,97" href="20/20-6281.rle" />
+	<area coords="350,54,417,97" href="20/20-6282.rle" />
+	<area coords="418,54,485,97" href="20/20-6406.rle" />
+	<area coords="486,54,553,97" href="20/20-6717.rle" />
+	<area coords="554,54,620,97" href="20/20-6770.rle" />
+	<area coords="0,98,77,141" href="20/20-6861.rle" />
+	<area coords="78,98,145,141" href="20/20-7353.rle" />
+	<area coords="146,98,213,141" href="20/20-8351.rle" />
+	<area coords="214,98,281,141" href="20/20-8920.rle" />
+	<area coords="282,98,349,141" href="20/20-8995.rle" />
+	<area coords="350,98,417,141" href="20/20-9442.rle" />
+	<area coords="418,98,485,141" href="20/20-10484.rle" />
+	<area coords="486,98,553,141" href="20/20-11763.rle" />
+	<area coords="554,98,620,141" href="20/20-21877.rle" />
+	<area coords="0,142,77,185" href="20/20-21908.rle" />
+	<area coords="78,142,145,185" href="20/20-22049.rle" />
+	<area coords="146,142,213,185" href="20/20-22428.rle" />
+	<area coords="214,142,281,185" href="20/20-22629.rle" />
+	<area coords="282,142,349,185" href="20/20-22811.rle" />
+	<area coords="350,142,417,185" href="20/20-23540.rle" />
+	<area coords="418,142,485,185" href="20/20-23572.rle" />
+	<area coords="486,142,553,185" href="20/20-24041.rle" />
+	<area coords="554,142,620,185" href="20/20-24642.rle" />
+	<area coords="0,186,77,229" href="20/20-24653.rle" />
+	<area coords="78,186,145,229" href="20/20-25181.rle" />
+	<area coords="146,186,213,229" href="20/20-25327.rle" />
+	<area coords="214,186,281,229" href="20/20-25886.rle" />
+	<area coords="282,186,349,229" href="20/20-26999.rle" />
+	<area coords="350,186,417,229" href="20/20-27001.rle" />
+	<area coords="418,186,485,229" href="20/20-27105.rle" />
+	<area coords="486,186,553,229" href="20/20-28209.rle" />
+	<area coords="554,186,620,229" href="20/20-28487.rle" />
+	<area coords="0,230,77,273" href="20/20-29610.rle" />
+	<area coords="78,230,145,273" href="20/20-29799.rle" />
+	<area coords="146,230,213,273" href="20/20-32207.rle" />
+	<area coords="214,230,281,273" href="20/20-32475.rle" />
+	<area coords="282,230,349,273" href="20/20-33054.rle" />
+	<area coords="350,230,417,273" href="20/20-33812.rle" />
+	<area coords="418,230,485,273" href="20/20-35364.rle" />
+	<area coords="486,230,553,273" href="20/20-38322.rle" />
+	<area coords="554,230,620,273" href="20/20-43936.rle" />
+	<area coords="0,274,77,317" href="20/20-54418.rle" />
+	<area coords="78,274,145,317" href="20/20-55058.rle" />
+	<area coords="146,274,213,317" href="20/20-55063.rle" />
+	<area coords="214,274,281,317" href="20/20-55084.rle" />
+	<area coords="282,274,349,317" href="20/20-55512.rle" />
+	<area coords="350,274,417,317" href="20/20-58843.rle" />
+	<area coords="418,274,485,317" href="20/20-59202.rle" />
+	<area coords="486,274,553,317" href="20/20-59274.rle" />
+	<area coords="554,274,620,317" href="20/20-59595.rle" />
+	<area coords="0,318,77,361" href="20/20-59596.rle" />
+	<area coords="78,318,145,361" href="20/20-63771.rle" />
+	<area coords="146,318,213,361" href="20/20-68602.rle" />
+	<area coords="214,318,281,361" href="20/20-72141.rle" />
+	<area coords="282,318,349,361" href="20/20-74326.rle" />
+	<area coords="350,318,417,361" href="20/20-88034.rle" />
+	<area coords="418,318,485,361" href="20/20-88078.rle" />
+	<area coords="486,318,553,361" href="20/20-90076.rle" />
+	<area coords="554,318,620,361" href="20/20-90659.rle" />
+	<area coords="0,362,77,440" href="20/20-91980.rle" />
+	<area coords="78,362,145,440" href="20/20-94776.rle" />
+	<area coords="146,362,213,440" href="20/20-95176.rle" />
+	<area coords="214,362,281,440" href="20/20-98447.rle" />
+	<area coords="282,362,349,440" href="20/20-a5399.rle" />
+	<area coords="350,362,417,440" href="20/20-a6279.rle" />
+	<area coords="418,362,485,440" href="20/20-b0232.rle" />
+	<area coords="486,362,553,440" href="20/20-b0871.rle" />
+	<area coords="554,362,620,440" href="20/20-b1809.rle" />
+</map>
+
+<p>The Century eater is specifically designed to eat a
+<a class="p" href="0/6be.rle">century</a>.</p>
+
+<hr />
+<a name="p1-21"></a>
+<h2>The 273188 <a class="i" href="bits-21.htm">21-bit</a>
+still-lifes</h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 47 of these are shown.</p>
+<p><a class="p" href="stamp/p1-21.rle"><img src="map/p1-21.png"
+ alt="21-bit still-lifes" width="621" height="321" usemap="#p1-21" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21-1409.rle">
+	    21.1409 [9]</a></td>
+	<td><a class="p" href="21/21-9556.rle">
+	    21.9556 [20]</a></td>
+	<td><a class="p" href="21/21-9734.rle">
+	    21.9734 [19]</a></td>
+	<td><a class="p" href="21/21-9735.rle">
+	    21.9735 [19]</a></td>
+	<td><a class="p" href="21/21-12138.rle">
+	    21.12138 [9]</a></td>
+	<td><a class="p" href="21/21-16612.rle">
+	    21. 16612 [9]</a></td>
+	<td><a class="p" href="21/21-16659.rle">
+	    21. 16659 [9]</a></td>
+	<td><a class="p" href="21/21-18937.rle">
+	    21. 18937 [11]</a></td>
+	<td><a class="p" href="21/21-19110.rle">
+	    21. 19110 [11]</a></td>
+	<td><a class="p" href="21/21-22391.rle">
+	    21. 22391 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21-40881.rle">
+	    21. 40881 [10]</a></td>
+	<td><a class="p" href="21/21-40996.rle">
+	    21. 40996 [7]</a></td>
+	<td><a class="p" href="21/21-41351.rle">
+	    21. 41351 [6]</a></td>
+	<td><a class="p" href="21/21-41458.rle">
+	    21. 41458 [11]</a></td>
+	<td><a class="p" href="21/21-43296.rle">
+	    21. 43296 [19]</a></td>
+	<td><a class="p" href="21/21-44222.rle">
+	    21. 44222 [6]</a></td>
+	<td><a class="p" href="21/21-46394.rle">
+	    21. 46394 [7]</a></td>
+	<td><a class="p" href="21/21-47007.rle">
+	    21. 47007 [17]</a></td>
+	<td><a class="p" href="21/21-47034.rle">
+	    21. 47034 [14]</a></td>
+	<td><a class="p" href="21/21-47643.rle">
+	    21. 47643 [16]</a></td>
+    </tr>
+
+    <tr>
+	<td class="g"><a class="p" href="21/21-47708.rle">
+	    21. 47708 [21]</a></td>
+	<td><a class="p" href="21/21-51514.rle">
+	    21. 51514 [13]</a></td>
+	<td class="y"><a class="p" href="21/21-51763.rle">
+	    21. 51763 [26]</a></td>
+	<td><a class="p" href="21/21-52368.rle">
+	    21. 52368 [11]</a></td>
+	<td><a class="p" href="21/21-56578.rle">
+	    21. 56578 [15]</a></td>
+	<td><a class="p" href="21/21-58260.rle">
+	    21. 58260 [9]</a></td>
+	<td><a class="p" href="21/21-67201.rle">
+	    21. 67201 [17]</a></td>
+	<td><a class="p" href="21/21-67406.rle">
+	    21. 67406 [6]</a></td>
+	<td><a class="p" href="21/21-67612.rle">
+	    21. 67612 [9]</a></td>
+	<td><a class="p" href="21/21-74005.rle">
+	    21. 74005 [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21-75446.rle">
+	    21. 75446 [16]</a></td>
+	<td><a class="p" href="21/21-88720.rle">
+	    21. 88720 [9]</a></td>
+	<td><a class="p" href="21/21-b5231.rle">
+	    21. 115231; Century eater w/ down cis bookend [9]</a></td>
+	<td><a class="p" href="21/21-b5270.rle">
+	    21. 115270; Century eater w/ up cis bookend [9]</a></td>
+	<td><a class="p" href="21/21-b8465.rle">
+	    21. 118465 [7]</a></td>
+	<td><a class="p" href="21/21-c5951.rle">
+	    21. 125951 [10]</a></td>
+	<td><a class="p" href="21/21-d0813.rle">
+	    21. 130813 [8]</a></td>
+	<td><a class="p" href="21/21-d3930.rle">
+	    21. 133930 [8]</a></td>
+	<td><a class="p" href="21/21-d5994.rle">
+	    21. 135994 [13]</a></td>
+	<td><a class="p" href="21/21-e9597.rle">
+	    21. 149597 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21-f1850.rle">
+	    21. 151850 [7]</a></td>
+	<td><a class="p" href="21/21-g9733.rle">
+	    21. 169733 [7]</a></td>
+	<td><a class="p" href="21/21-j8031.rle">
+	    21. 198031 [6]</a></td>
+	<td><a class="p" href="21/21-j8605.rle">
+	    21. 198605 [12]</a></td>
+	<td><a class="p" href="21/21-l4663.rle">
+	    21. 214663 [9]</a></td>
+	<td><a class="p" href="21/21-o7593.rle">
+	    21. 247593; Tri- loaf [11]</a></td>
+	<td><a class="p" href="21/21-q5698.rle">
+	    21. 265698 [10]</a></td>
+	<td colspan="3" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-21.zip" />
+	<area coords="601,301,620,320" href="stamp/p1-21.rle" />
+	<area coords="0,0,69,69" href="21/21-1409.rle" />
+	<area coords="70,0,129,69" href="21/21-9556.rle" />
+	<area coords="130,0,189,69" href="21/21-9734.rle" />
+	<area coords="190,0,249,69" href="21/21-9735.rle" />
+	<area coords="250,0,309,69" href="21/21-12138.rle" />
+	<area coords="310,0,369,69" href="21/21-16612.rle" />
+	<area coords="370,0,429,69" href="21/21-18937.rle" />
+	<area coords="430,0,489,69" href="21/21-16659.rle" />
+	<area coords="490,0,549,69" href="21/21-19110.rle" />
+	<area coords="550,0,620,69" href="21/21-22391.rle" />
+	<area coords="0,70,69,129" href="21/21-40881.rle" />
+	<area coords="70,70,129,129" href="21/21-40996.rle" />
+	<area coords="130,70,189,129" href="21/21-41351.rle" />
+	<area coords="190,70,249,129" href="21/21-41458.rle" />
+	<area coords="250,70,309,129" href="21/21-43296.rle" />
+	<area coords="310,70,369,129" href="21/21-44222.rle" />
+	<area coords="370,70,429,129" href="21/21-46394.rle" />
+	<area coords="430,70,489,129" href="21/21-47007.rle" />
+	<area coords="490,70,549,129" href="21/21-47034.rle" />
+	<area coords="550,70,620,129" href="21/21-47643.rle" />
+	<area coords="0,130,69,189" href="21/21-47708.rle" />
+	<area coords="70,130,129,189" href="21/21-51514.rle" />
+	<area coords="130,130,189,189" href="21/21-51763.rle" />
+	<area coords="190,130,249,189" href="21/21-52368.rle" />
+	<area coords="250,130,309,189" href="21/21-56578.rle" />
+	<area coords="310,130,369,189" href="21/21-58260.rle" />
+	<area coords="370,130,429,189" href="21/21-67201.rle" />
+	<area coords="430,130,489,189" href="21/21-67406.rle" />
+	<area coords="490,130,549,189" href="21/21-67612.rle" />
+	<area coords="550,130,620,189" href="21/21-74005.rle" />
+	<area coords="0,190,69,249" href="21/21-75446.rle" />
+	<area coords="70,190,129,249" href="21/21-88720.rle" />
+	<area coords="130,190,189,249" href="21/21-b5231.rle" />
+	<area coords="190,190,249,249" href="21/21-b5270.rle" />
+	<area coords="250,190,309,249" href="21/21-b8465.rle" />
+	<area coords="310,190,369,249" href="21/21-c5951.rle" />
+	<area coords="370,190,429,249" href="21/21-d0813.rle" />
+	<area coords="430,190,489,249" href="21/21-d3930.rle" />
+	<area coords="490,190,549,249" href="21/21-d5994.rle" />
+	<area coords="550,190,620,249" href="21/21-e9597.rle" />
+	<area coords="0,250,69,320" href="21/21-f1850.rle" />
+	<area coords="70,250,129,320" href="21/21-g9733.rle" />
+	<area coords="130,250,189,320" href="21/21-j8031.rle" />
+	<area coords="190,250,249,320" href="21/21-j8605.rle" />
+	<area coords="250,250,309,320" href="21/21-l4663.rle" />
+	<area coords="310,250,369,320" href="21/21-o7593.rle" />
+	<area coords="370,250,429,320" href="21/21-q5698.rle" />
+	<area coords="430,250,620,320" nohref="nohref" />
+</map>
+
+<p>The Century eater is specifically designed to eat a
+<a class="p" href="0/6be.rle">century</a>.</p>
+
+<hr />
+<a name="p1-22"></a>
+<h2>The 672172 <a class="i" href="bits-22.htm">22-bit</a>
+still-lifes</h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 43 of these are shown.</p>
+<p><a class="p" href="stamp/p1-22.rle"><img src="map/p1-22.png"
+ alt="22-bit still-lifes" width="601" height="341" usemap="#p1-22" /></a><br />
+    <table width="605">
+    <colgroup><col width="75" /><col span="7" width="64" /><col width="80" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="22/22-0077b.rle">
+	    22.1915 [6]</a></td>
+	<td><a class="p" href="22/22-00858.rle">
+	    22.2136 [10]</a></td>
+	<td><a class="p" href="22/22-03e5b.rle">
+	    22. 15963 [10]</a></td>
+	<td><a class="p" href="22/22-040aa.rle">
+	    22. 16554 [4]</a></td>
+	<td><a class="p" href="22/22-0665d.rle">
+	    22. 26205 [9]</a></td>
+	<td><a class="p" href="22/22-09260.rle">
+	    22. 37472 [14]</a></td>
+	<td><a class="p" href="22/22-13005.rle">
+	    22. 77829 [9]</a></td>
+	<td><a class="p" href="22/22-14afa.rle">
+	    22. 84730 [21]</a></td>
+	<td class="g"><a class="p" href="22/22-14afb.rle">
+	    22. 84731 [22]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="22/22-14b7e.rle">
+	    22. 84862 [26]</a></td>
+	<td><a class="p" href="22/22-14d05.rle">
+	    22. 85253 [17]</a></td>
+	<td><a class="p" href="22/22-14d0f.rle">
+	    22. 85263 [17]</a></td>
+	<td><a class="p" href="22/22-173be.rle">
+	    22. 95166 [8]</a></td>
+	<td><a class="p" href="22/22-1bcc4.rle">
+	    22. 113860 [12]</a></td>
+	<td><a class="p" href="22/22-1c2a1.rle">
+	    22. 115361 [12]</a></td>
+	<td><a class="p" href="22/22-21660.rle">
+	    22. 136800 [8]</a></td>
+	<td><a class="p" href="22/22-2234a.rle">
+	    22. 140106 [6]</a></td>
+	<td><a class="p" href="22/22-33013.rle">
+	    22. 208915 [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="22/22-34111.rle">
+	    22. 213265 [11]</a></td>
+	<td><a class="p" href="22/22-385c7.rle">
+	    22. 230855 [6]</a></td>
+	<td><a class="p" href="22/22-38609.rle">
+	    22. 230921 [14]</a></td>
+	<td><a class="p" href="22/22-38fba.rle">
+	    22. 233402 [12]</a></td>
+	<td><a class="p" href="22/22-39614.rle">
+	    22. 235028 [9]</a></td>
+	<td><a class="p" href="22/22-3a67a.rle">
+	    22. 239226 [20]</a></td>
+	<td><a class="p" href="22/22-3b59f.rle">
+	    22. 243103 [15]</a></td>
+	<td><a class="p" href="22/22-41870.rle">
+	    22. 268400 [8]</a></td>
+	<td><a class="p" href="22/22-43c5d.rle">
+	    22. 277597 [10]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="22/22-46ae5.rle">
+	    22. 289509 [27]</a></td>
+	<td><a class="p" href="22/22-4e196.rle">
+	    22. 319894 [6]</a></td>
+	<td><a class="p" href="22/22-54f63.rle">
+	    22. 348003 [5]</a></td>
+	<td><a class="p" href="22/22-55465.rle">
+	    22. 349285 [6]</a></td>
+	<td><a class="p" href="22/22-5549e.rle">
+	    22. 349342 [5]</a></td>
+	<td><a class="p" href="22/22-698ce.rle">
+	    22. 432334 [8]</a></td>
+	<td><a class="p" href="22/22-6ab6e.rle">
+	    22. 437102 [11]</a></td>
+	<td><a class="p" href="22/22-74a13.rle">
+	    22. 477715 [8]</a></td>
+	<td><a class="p" href="22/22-9c0d5.rle">
+	    22. 639189 [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="22/22-9d58a.rle">
+	    22. 644490 [15]</a></td>
+	<td><a class="p" href="22/22-9e75e.rle">
+	    22. 649054 [11]</a></td>
+	<td><a class="p" href="22/22-9f070.rle">
+	    22. 651376 [6]</a></td>
+	<td><a class="p" href="22/22-a19d7.rle">
+	    22. 661975 [10]</a></td>
+	<td><a class="p" href="22/22-a3aa6.rle">
+	    22. 670374 [12]</a></td>
+	<td><a class="p" href="22/22-a3aab.rle">
+	    22. 670379 [14]</a></td>
+	<td colspan="2"><a class="p" href="22/22-a41ac.rle">
+	    22. 672172 [13]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,321,19,340" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/p1-22.zip" />
+	<area coords="581,321,600,340" href="stamp/p1-22.rle" />
+	<area coords="0,0,73,69" href="22/22-0077b.rle" />
+	<area coords="74,0,137,69" href="22/22-00858.rle" />
+	<area coords="138,0,201,69" href="22/22-03e5b.rle" />
+	<area coords="202,0,265,69" href="22/22-040aa.rle" />
+	<area coords="266,0,329,69" href="22/22-0665d.rle" />
+	<area coords="330,0,393,69" href="22/22-09260.rle" />
+	<area coords="394,0,457,69" href="22/22-13005.rle" />
+	<area coords="458,0,521,69" href="22/22-14afa.rle" />
+	<area coords="522,0,600,69" href="22/22-14afb.rle" />
+	<area coords="0,70,73,129" href="22/22-14b7e.rle" />
+	<area coords="74,70,137,129" href="22/22-14d05.rle" />
+	<area coords="138,70,201,129" href="22/22-14d0f.rle" />
+	<area coords="202,70,265,129" href="22/22-173be.rle" />
+	<area coords="266,70,329,129" href="22/22-1bcc4.rle" />
+	<area coords="330,70,393,129" href="22/22-1c2a1.rle" />
+	<area coords="394,70,457,129" href="22/22-21660.rle" />
+	<area coords="458,70,521,129" href="22/22-2234a.rle" />
+	<area coords="522,70,600,129" href="22/22-33013.rle" />
+	<area coords="0,130,73,189" href="22/22-34111.rle" />
+	<area coords="74,130,137,189" href="22/22-385c7.rle" />
+	<area coords="138,130,201,189" href="22/22-38609.rle" />
+	<area coords="202,130,265,189" href="22/22-38fba.rle" />
+	<area coords="266,130,329,189" href="22/22-39614.rle" />
+	<area coords="330,130,393,189" href="22/22-3a67a.rle" />
+	<area coords="394,130,457,189" href="22/22-3b59f.rle" />
+	<area coords="458,130,521,189" href="22/22-41870.rle" />
+	<area coords="522,130,600,189" href="22/22-43c5d.rle" />
+	<area coords="0,190,73,249" href="22/22-46ae5.rle" />
+	<area coords="74,190,137,249" href="22/22-4e196.rle" />
+	<area coords="138,190,201,249" href="22/22-54f63.rle" />
+	<area coords="202,190,265,249" href="22/22-55465.rle" />
+	<area coords="266,190,329,249" href="22/22-5549e.rle" />
+	<area coords="330,190,393,249" href="22/22-698ce.rle" />
+	<area coords="394,190,457,249" href="22/22-6ab6e.rle" />
+	<area coords="458,190,521,249" href="22/22-74a13.rle" />
+	<area coords="522,190,600,249" href="22/22-9c0d5.rle" />
+	<area coords="0,250,73,340" href="22/22-9d58a.rle" />
+	<area coords="74,250,137,340" href="22/22-9e75e.rle" />
+	<area coords="138,250,201,340" href="22/22-9f070.rle" />
+	<area coords="202,250,265,340" href="22/22-a19d7.rle" />
+	<area coords="266,250,329,340" href="22/22-a3aa6.rle" />
+	<area coords="330,250,393,340" href="22/22-a3aab.rle" />
+	<area coords="394,250,521,340" href="22/22-a41ac.rle" />
+	<area coords="522,250,600,340" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p1-23"></a>
+<h2>The 1646147 <a class="i" href="bits-23.htm">23-bit</a>
+still-lifes</h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 23 of these are shown.</p>
+<p><a class="p" href="stamp/p1-23.rle"><img src="map/p1-23.png"
+ alt="23-bit still-lifes" width="501" height="201" usemap="#p1-23" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23-00c8c.rle">23. 3212 [6]</a></td>
+	<td><a class="p" href="23/23-091fc.rle">23. 37372 [13]</a></td>
+	<td><a class="p" href="23/23-11714.rle">23. 71444 [13]</a></td>
+	<td><a class="p" href="23/23-23931.rle">23. 145713 [9]</a></td>
+	<td><a class="p" href="23/23-2503d.rle">23. 151613 [8]</a></td>
+	<td><a class="p" href="23/23-250d2.rle">23. 151762 [14]</a></td>
+	<td class="y"><a class="p" href="23/23-25ba9.rle">
+	    23. 154537 [34]</a></td>
+	<td><a class="p" href="23/23-3a6db.rle">23. 239323 [15]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="23/23-3e1e3.rle">
+	    23. 254435 [67]</a></td>
+	<td><a class="p" href="23/23-70bdd.rle">
+	    23. 461789; Century eater w/ cis house [8]</a></td>
+	<td><a class="p" href="23/23-791dc.rle">23. 496092 [14]</a></td>
+	<td><a class="p" href="23/23-8b8e6.rle">23. 571622 [5]</a></td>
+	<td><a class="p" href="23/23-9d14c.rle">23. 643404 [14]</a></td>
+	<td><a class="p" href="23/23-9d26e.rle">23. 643694 [5]</a></td>
+	<td><a class="p" href="23/23-ccb59.rle">23. 838489 [11]</a></td>
+	<td><a class="p" href="23/23-e3b18.rle">23. 932632 [13]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23-e3f8c.rle">23. 933772 [13]</a></td>
+	<td><a class="p" href="23/23-ec8d2.rle">23. 968914 [10]</a></td>
+	<td><a class="p" href="23/23130c9f.rle">23. 1248415 [13]</a></td>
+	<td><a class="p" href="23/2314ecab.rle">23. 1371307 [14]</a></td>
+	<td><a class="p" href="23/23152167.rle">23. 1384807 [5]</a></td>
+	<td><a class="p" href="23/231655c7.rle">23. 1463751 [13]</a></td>
+	<td><a class="p" href="23/2316b11c.rle">23. 1487132 [11]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p1-23.zip" />
+	<area coords="481,181,500,200" href="stamp/p1-23.rle" />
+	<area coords="0,0,69,69" href="23/23-00c8c.rle" />
+	<area coords="70,0,129,69" href="23/23-091fc.rle" />
+	<area coords="130,0,189,69" href="23/23-11714.rle" />
+	<area coords="190,0,249,69" href="23/23-23931.rle" />
+	<area coords="250,0,309,69" href="23/23-2503d.rle" />
+	<area coords="310,0,369,69" href="23/23-250d2.rle" />
+	<area coords="370,0,429,69" href="23/23-25ba9.rle" />
+	<area coords="430,0,500,69" href="23/23-3a6db.rle" />
+	<area coords="0,70,69,129" href="23/23-3e1e3.rle" />
+	<area coords="70,70,129,129" href="23/23-70bdd.rle" />
+	<area coords="130,70,189,129" href="23/23-791dc.rle" />
+	<area coords="190,70,249,129" href="23/23-8b8e6.rle" />
+	<area coords="250,70,309,129" href="23/23-9d14c.rle" />
+	<area coords="310,70,369,129" href="23/23-9d26e.rle" />
+	<area coords="370,70,429,129" href="23/23-ccb59.rle" />
+	<area coords="430,70,500,129" href="23/23-e3b18.rle" />
+	<area coords="0,130,69,200" href="23/23-e3f8c.rle" />
+	<area coords="70,130,129,200" href="23/23-ec8d2.rle" />
+	<area coords="130,130,189,200" href="23/23130c9f.rle" />
+	<area coords="190,130,249,200" href="23/2314ecab.rle" />
+	<area coords="250,130,309,200" href="23/23152167.rle" />
+	<area coords="310,130,369,200" href="23/231655c7.rle" />
+	<area coords="370,130,429,200" href="23/2316b11c.rle" />
+	<area coords="430,130,500,200" nohref="nohref" />
+</map>
+
+<p>The Century eater is specifically designed to eat a
+<a class="p" href="0/6be.rle">century</a>.</p>
+
+<hr />
+<a name="p1-24"></a>
+<h2>The 4051726 <a class="i" href="bits-24.htm">24-bit</a>
+still-lifes</h2>
+<p>Unfortunately, due to space limitations, these cannot be shown.</p>
+
+<p>Syntheses for 26 of these are shown.</p>
+<p><a class="p" href="stamp/p1-24.rle"><img src="map/p1-24.png"
+ alt="24-bit still-lifes" width="561" height="201" usemap="#p1-24" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="24/24-0b561.rle">
+	    24. 46433 [9]</a></td>
+	<td><a class="p" href="24/24-0b563.rle">
+	    24. 46435 [6]</a></td>
+	<td><a class="p" href="24/24-0b591.rle">
+	    24. 46481 [9]</a></td>
+	<td><a class="p" href="24/24-42f0c.rle">
+	    24. 274188 [10]</a></td>
+	<td><a class="p" href="24/24-42f13.rle">
+	    24. 274195 [14]</a></td>
+	<td><a class="p" href="24/24-42f94.rle">
+	    24. 274324 [5]</a></td>
+	<td><a class="p" href="24/24-430dd.rle">
+	    24. 274653 [10]</a></td>
+	<td><a class="p" href="24/24-445e6.rle">
+	    24. 280038 [8]</a></td>
+	<td><a class="p" href="24/24-4b709.rle">
+	    24. 309001 [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24-7aeb7.rle">
+	    24. 503479 [11]</a></td>
+	<td><a class="p" href="24/24-98d6f.rle">
+	    24. 626031 [8]</a></td>
+	<td><a class="p" href="24/24-e013d.rle">
+	    24. 917821 [10]</a></td>
+	<td><a class="p" href="24/24-e1277.rle">
+	    24. 922231; B1 catalyst [20]</a></td>
+	<td><a class="p" href="24/24-ecac5.rle">
+	    24. 969413 [9]</a></td>
+	<td><a class="p" href="24/24-ee99b.rle">
+	    24. 977307 [8]</a></td>
+	<td><a class="p" href="24/241526a4.rle">
+	    24. 1386148 [17]</a></td>
+	<td><a class="p" href="24/241d9169.rle">
+	    24. 1937769 [18]</a></td>
+	<td><a class="p" href="24/241d928c.rle">
+	    24. 1938060 [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/241d949c.rle">
+	    24. 1938588 [16]</a></td>
+	<td><a class="p" href="24/241db673.rle">
+	    24. 1947251 [11]</a></td>
+	<td><a class="p" href="24/24254335.rle">
+	    24. 2442037 [9]</a></td>
+	<td><a class="p" href="24/242e2261.rle">
+	    24. 3023457 [10]</a></td>
+	<td><a class="p" href="24/242e2293.rle">
+	    24. 3023507 [11]</a></td>
+	<td><a class="p" href="24/242f9dcc.rle">
+	    24. 3120588 [13]</a></td>
+	<td><a class="p" href="24/24384291.rle">
+	    24. 3687057 [14]</a></td>
+	<td><a class="p" href="24/243c1b70.rle">
+	    24. 3939184 [12]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p1-24.zip" />
+	<area coords="541,181,560,200" href="stamp/p1-24.rle" />
+	<area coords="0,0,69,69" href="24/24-0b561.rle" />
+	<area coords="70,0,129,69" href="24/24-0b563.rle" />
+	<area coords="130,0,189,69" href="24/24-0b591.rle" />
+	<area coords="190,0,249,69" href="24/24-42f0c.rle" />
+	<area coords="250,0,309,69" href="24/24-42f13.rle" />
+	<area coords="310,0,369,69" href="24/24-42f94.rle" />
+	<area coords="370,0,429,69" href="24/24-430dd.rle" />
+	<area coords="430,0,489,69" href="24/24-445e6.rle" />
+	<area coords="490,0,560,69" href="24/24-4b709.rle" />
+	<area coords="0,70,69,129" href="24/24-7aeb7.rle" />
+	<area coords="70,70,129,129" href="24/24-98d6f.rle" />
+	<area coords="130,70,189,129" href="24/24-e013d.rle" />
+	<area coords="190,70,249,129" href="24/24-e1277.rle" />
+	<area coords="250,70,309,129" href="24/24-ecac5.rle" />
+	<area coords="310,70,369,129" href="24/24-ee99b.rle" />
+	<area coords="370,70,429,129" href="24/241526a4.rle" />
+	<area coords="430,70,489,129" href="24/241d9169.rle" />
+	<area coords="490,70,560,129" href="24/241d928c.rle" />
+	<area coords="0,130,69,200" href="24/241d949c.rle" />
+	<area coords="70,130,129,200" href="24/241db673.rle" />
+	<area coords="130,130,189,200" href="24/24254335.rle" />
+	<area coords="190,130,249,200" href="24/242e2261.rle" />
+	<area coords="250,130,309,200" href="24/242e2293.rle" />
+	<area coords="310,130,369,200" href="24/242f9dcc.rle" />
+	<area coords="370,130,429,200" href="24/24384291.rle" />
+	<area coords="430,130,489,200" href="24/243c1b70.rle" />
+	<area coords="490,130,560,200" nohref="nohref" />
+</map>
+
+<p>Bellman One (B1) is a specific eater found using Mike Playle's Bellman
+search program. (Actually, the name refers to the mechanism, rather than the
+form; the forms shown are the smallest currently known). It consists of a
+still-life and an eater, and is specifically designed to eat traffic-lights.
+A slight variant of it eats gliders instead.</p>
+<hr />
+<a name="p1-25"></a>
+<h2>10 <a class="i" href="bits-25.htm">25-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-25.rle"><img src="map/p1-25.png"
+ alt="25-bit still-lifes" width="621" height="81" usemap="#p1-25" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="25/25bkpzpc.rle">
+	    Block and pre-block on Z on paperclip [10]</a></td>
+	<td><a class="p" href="25/25b1gl.rle">
+	    B1 glider eater [21]</a></td>
+	<td><a class="p" href="25/25b1clf.rle">
+	    B1 catalyst w/ loaf [20]</a></td>
+	<td><a class="p" href="25/25bdkchn.rle">
+	    Block on dock w/ curl and hand [10]</a></td>
+	<td><a class="p" href="25/25stetbe.rle">
+	    Snake bridge tet on bookend [11]</a></td>
+	<td><a class="p" href="25/25atetbe.rle">
+	    Carrier bridge tet on bookend [11]</a></td>
+	<td><a class="p" href="25/25pcinvs.rle">
+	    Paperclip w/ integral siamese very long snake [8]</a></td>
+	<td class="y"><a class="p" href="25/25-2.rle">
+	    25-bit still- life #2 [42]</a></td>
+	<td><a class="p" href="25/25hshset.rle">
+	    House on house bridge eater [7]</a></td>
+	<td><a class="p" href="25/25-1.rle">
+	    25-bit still- life #1 [9]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-25.zip" />
+	<area coords="601,61,620,80" href="stamp/p1-25.rle" />
+	<area coords="0,0,69,80" href="25/25bkpzpc.rle" />
+	<area coords="70,0,129,80" href="25/25b1gl.rle" />
+	<area coords="130,0,189,80" href="25/25b1clf.rle" />
+	<area coords="190,0,249,80" href="25/25bdkchn.rle" />
+	<area coords="250,0,309,80" href="25/25stetbe.rle" />
+	<area coords="310,0,369,80" href="25/25atetbe.rle" />
+	<area coords="370,0,429,80" href="25/25pcinvs.rle" />
+	<area coords="430,0,489,80" href="25/25-2.rle" />
+	<area coords="490,0,549,80" href="25/25hshset.rle" />
+	<area coords="550,0,620,80" href="25/25-1.rle" />
+</map>
+
+<p>Bellman One (B1) is a specific eater found using Mike Playle's Bellman
+search program. (Actually, the name refers to the mechanism, rather than the
+form; the forms shown are the smallest currently known). It consists of a
+still-life and an eater, and is specifically designed to eat traffic-lights.
+A slight variant of it eats gliders instead.</p>
+<hr />
+<a name="p1-26"></a>
+<h2>23 <a class="i" href="bits-lg.htm">26-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-26.rle"><img src="map/p1-26.png"
+ alt="26-bit still" width="561" height="201" usemap="#p1-26" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/26-1.rle">
+	    26-bit still- life #1 [8]</a></td>
+	<td><a class="p" href="lg/26lhands.rle">
+	    Long hands [10]</a></td>
+	<td><a class="p" href="lg/26bubu.rle">
+	    Buckles [16]</a></td>
+	<td><a class="p" href="lg/26bkpzcp.rle">
+	    Cover and block on pre-blocks on Z [10]</a></td>
+	<td><a class="p" href="lg/26hlmhs1.rle">
+	    House on LOM on house [17]</a></td>
+	<td><a class="p" href="lg/26ships.rle">
+	    Four ships and domino [8]</a></td>
+	<td><a class="p" href="lg/26beetle.rle">
+	    Beetle on house [8]</a></td>
+	<td><a class="p" href="lg/26-2.rle">
+	    26-bit still- life #2 [7]</a></td>
+	<td><a class="p" href="lg/26mickey.rle">
+	    Mickey [11]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/26rmbnhs.rle">
+	    House on ram w/ bun [8]</a></td>
+	<td><a class="p" href="lg/26hhscgc.rle">
+	    House on house w/ claw and mango [8]</a></td>
+	<td><a class="p" href="lg/26ppcppc.rle">
+	    Two pseudo- paper- clips [8]</a></td>
+	<td><a class="p" href="lg/26etetbe.rle">
+	    Eater bridge tet on bookend [9]</a></td>
+	<td><a class="p" href="lg/26bblesb.rle">Two blocks on long bookend
+	    siamese long bookend on block [10]</a></td>
+	<td class="y"><a class="p" href="lg/26grate.rle">
+	    Trans blocks on grate [28]</a></td>
+	<td><a class="p" href="lg/26vspzpb.rle">
+	    Block and very long snake on pre- blocks on Z [10]</a></td>
+	<td rowspan="2" colspan="2"><a class="p" href="lg/26canoe.rle">
+	    26-bit canoe [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/26b1ccg.rle">
+	    B1 catalyst w/ mango [23]</a></td>
+	<td class="y"><a class="p" href="lg/26-3.rle">
+	    26-bit still- life #3 [36]</a></td>
+	<td><a class="p" href="lg/26snbes1.rle">
+	    Up snakes on tied bookends [12]</a></td>
+	<td><a class="p" href="lg/26snbes2.rle">
+	    Up and down snakes on tied bookends [12]</a></td>
+	<td><a class="p" href="lg/26snbes3.rle">
+	    Down snakes on tied bookends [12]</a></td>
+	<td><a class="p" href="lg/26bleshv.rle">
+	    Block and beehive on tied down long bookends [13]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-26">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p1-26.zip" />
+	<area coords="541,181,560,200" href="stamp/p1-26.rle" />
+	<area coords="0,0,69,69" href="lg/26-1.rle" />
+	<area coords="70,0,129,69" href="lg/26lhands.rle" />
+	<area coords="130,0,189,69" href="lg/26bubu.rle" />
+	<area coords="190,0,249,69" href="lg/26bkpzcp.rle" />
+	<area coords="250,0,309,69" href="lg/26hlmhs1.rle" />
+	<area coords="310,0,369,69" href="lg/26ships.rle" />
+	<area coords="370,0,429,69" href="lg/26beetle.rle" />
+	<area coords="430,0,489,69" href="lg/26-2.rle" />
+	<area coords="490,0,560,69" href="lg/26mickey.rle" />
+	<area coords="0,70,69,129" href="lg/26rmbnhs.rle" />
+	<area coords="70,70,129,129" href="lg/26hhscgc.rle" />
+	<area coords="130,70,189,129" href="lg/26ppcppc.rle" />
+	<area coords="190,70,249,129" href="lg/26etetbe.rle" />
+	<area coords="250,70,309,129" href="lg/26bblesb.rle" />
+	<area coords="310,70,369,129" href="lg/26grate.rle" />
+	<area coords="370,70,429,129" href="lg/26vspzpb.rle" />
+	<area coords="430,70,560,200" href="lg/26canoe.rle" />
+	<area coords="0,130,69,200" href="lg/26b1ccg.rle" />
+	<area coords="70,130,129,200" href="lg/26-3.rle" />
+	<area coords="130,130,189,200" href="lg/26snbes1.rle" />
+	<area coords="190,130,249,200" href="lg/26snbes2.rle" />
+	<area coords="250,130,309,200" href="lg/26snbes3.rle" />
+	<area coords="310,130,369,200" href="lg/26bleshv.rle" />
+	<area coords="370,130,429,200" nohref="nohref" />
+</map>
+
+<p>Bellman One (B1) is a specific eater found using Mike Playle's Bellman
+search program. (Actually, the name refers to the mechanism, rather than the
+form; the forms shown are the smallest currently known). It consists of a
+still-life and an eater, and is specifically designed to eat traffic-lights.
+A slight variant of it eats gliders instead.</p>
+<hr />
+<a name="p1-27"></a>
+<h2>7 <a class="i" href="bits-lg.htm">27-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-27.rle"><img src="map/p1-27.png"
+ alt="27-bit still-lifes" width="581" height="81" usemap="#p1-27" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/27bnbuhs.rle">
+	    Bun on buckle on house [12]</a></td>
+	<td class="y"><a class="p" href="lg/27-3.rle">
+	    27-bit still- life #3 [56]</a></td>
+	<td><a class="p" href="lg/27htalfs.rle">
+	    House on tables siamese loaves [13]</a></td>
+	<td><a class="p" href="lg/27-1.rle">
+	    27-bit still- life #1 [13]</a></td>
+	<td><a class="p" href="lg/27vaseha.rle">
+	    Vase siamese hat [15]</a></td>
+	<td class="y"><a class="p" href="lg/27-2.rle">
+	    27-bit still- life #2 [44]</a></td>
+	<td><a class="p" href="lg/27-4.rle">
+	    27-bit still- life #4 [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-27">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p1-27.zip" />
+	<area coords="561,61,580,80" href="stamp/p1-27.rle" />
+	<area coords="0,0,89,80" href="lg/27bnbuhs.rle" />
+	<area coords="90,0,169,80" href="lg/27-3.rle" />
+	<area coords="170,0,249,80" href="lg/27htalfs.rle" />
+	<area coords="250,0,329,80" href="lg/27-1.rle" />
+	<area coords="330,0,409,80" href="lg/27vaseha.rle" />
+	<area coords="410,0,489,80" href="lg/27-2.rle" />
+	<area coords="490,0,580,80" href="lg/27-4.rle" />
+</map>
+
+<hr />
+<a name="p1-28"></a>
+<h2>20 <a class="i" href="bits-lg.htm">28 bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-28.rle"><img src="map/p1-28.png"
+ alt="28-bit still-lifes" width="421" height="281" usemap="#p1-28" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/28-1.rle">
+	    28-bit still- life #1 [12]</a></td>
+	<td><a class="p" href="lg/28pczpc.rle">
+	    Two paper- clips on Z [10]</a></td>
+	<td><a class="p" href="lg/28bklhfs.rle">
+	    Blocks on large honey- farms [9]</a></td>
+	<td><a class="p" href="lg/28qlf-z.rle">
+	    Z quad- loaf [8]</a></td>
+	<td><a class="p" href="lg/28hi.rle">
+	    Blocks on extra extra extra long tables [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/28xhstas.rle">
+	    Extra long houses w/ tails [10]</a></td>
+	<td><a class="p" href="lg/28-2.rle">
+	    28-bit still- life #2 [12]</a></td>
+	<td><a class="p" href="lg/28clxtas.rle">
+	    Claw on tied tables siamese tables [10]</a></td>
+	<td><a class="p" href="lg/28-4.rle">
+	    28-bit still-life #4 [9]</a></td>
+	<td><a class="p" href="lg/28hsfly1.rle">
+	    House on fly [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/28-3.rle">
+	    28-bit still- life #3 [11]</a></td>
+	<td><a class="p" href="lg/28qlf-o.rle">
+	    Quad- loaf, O quad- loaf [6]</a></td>
+	<td><a class="p" href="lg/28sqbk4.rle">
+	    Four blocks on square [16]</a></td>
+	<td><a class="p" href="lg/28llfgbn.rle">
+	    Two down buns on large loaf siamese long barge [11]</a></td>
+	<td><a class="p" href="lg/28qlf-l.rle">
+	    L quad- loaf [13]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/28vcrab.rle">
+	    Very long crab [12]</a></td>
+	<td><a class="p" href="lg/28hlebeb.rle">
+	    Beehive on down long bookend tie up bookend on bun [13]</a></td>
+	<td><a class="p" href="lg/28hvles.rle">
+	    Beehives on tied down long bookends [12]</a></td>
+	<td><a class="p" href="lg/28bdks.rle">
+	    Block on dock tie dock on block [14]</a></td>
+	<td><a class="p" href="lg/28hbitbs.rle">
+	    Half bakery w/ integrals w/ tubs [16]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-28">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,261,19,280" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p1-28.zip" />
+	<area coords="401,261,420,280" href="stamp/p1-28.rle" />
+	<area coords="0,0,89,65" href="lg/28-1.rle" />
+	<area coords="90,0,169,65" href="lg/28pczpc.rle" />
+	<area coords="170,0,249,65" href="lg/28bklhfs.rle" />
+	<area coords="250,0,329,65" href="lg/28qlf-z.rle" />
+	<area coords="330,0,420,65" href="lg/28hi.rle" />
+	<area coords="0,66,89,121" href="lg/28xhstas.rle" />
+	<area coords="90,66,169,121" href="lg/28-2.rle" />
+	<area coords="170,66,249,121" href="lg/28clxtas.rle" />
+	<area coords="250,66,329,121" href="lg/28-4.rle" />
+	<area coords="330,66,420,121" href="lg/28hsfly1.rle" />
+	<area coords="0,122,89,177" href="lg/28-3.rle" />
+	<area coords="90,122,169,177" href="lg/28qlf-o.rle" />
+	<area coords="170,122,249,177" href="lg/28sqbk4.rle" />
+	<area coords="250,122,329,177" href="lg/28llfgbn.rle" />
+	<area coords="330,122,420,177" href="lg/28qlf-l.rle" />
+	<area coords="0,178,89,280" href="lg/28vcrab.rle" />
+	<area coords="90,178,169,280" href="lg/28hlebeb.rle" />
+	<area coords="170,178,249,280" href="lg/28hvles.rle" />
+	<area coords="250,178,329,280" href="lg/28bdks.rle" />
+	<area coords="330,178,420,280" href="lg/28hbitbs.rle" />
+</map>
+
+<hr />
+<a name="p1-29"></a>
+<h2>3 <a class="i" href="bits-lg.htm">29-bit</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-29.rle"><img src="map/p1-29.png"
+ alt="29-bit still-lifes" width="261" height="81" usemap="#p1-29" /></a><br />
+    <table width="265">
+    <colgroup><col width="91" /><col width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/29cpbzpc.rle">
+	    Cover on pre-block on Z on paperclip [10]</a></td>
+	<td><a class="p" href="lg/29-1.rle">
+	    29-bit still- life #1 [6]</a></td>
+	<td><a class="p" href="lg/29vspzpc.rle">
+	    Long snake and pre-block on Z on paperclip [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-29">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p1-29.zip" />
+	<area coords="241,61,260,80" href="stamp/p1-29.rle" />
+	<area coords="0,0,89,80" href="lg/29cpbzpc.rle" />
+	<area coords="90,0,169,80" href="lg/29-1.rle" />
+	<area coords="170,0,260,80" href="lg/29vspzpc.rle" />
+</map>
+
+<hr />
+<a name="p1-lg"></a>
+<h2>41 still-lifes
+<a class="i" href="bits-lg.htm">30 bits and larger</a></h2>
+<p><a class="p" href="stamp/p1-lg.rle"><img src="map/p1-lg.png"
+ alt="larger still" width="581" height="461" usemap="#p1-lg" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/30swsw3.rle">
+	    Joined down sidewalks [7]</a></td>
+	<td><a class="p" href="lg/30cpbzcp.rle">
+	    Covers on pre-blocks on Z [10]</a></td>
+	<td><a class="p" href="lg/30-1.rle">
+	    30-bit still- life #1 [9]</a></td>
+	<td><a class="p" href="lg/30clips.rle">
+	    Clips; Induct- ing docks w/ curls [8]</a></td>
+	<td><a class="p" href="lg/30swsw2.rle">
+	    Joined up and down side- walks [6]</a></td>
+	<td><a class="p" href="lg/30swsw1.rle">
+	    Joined up side- walks [6]</a></td>
+	<td><a class="p" href="lg/30vspzcp.rle">
+	    Cover and very long snake on pre-blocks on Z [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/30sqhvb3.rle">
+	    Three blocks and beehive on square [16]</a></td>
+	<td><a class="p" href="lg/30e3c.rle">
+	    Eater-3 catalyst [70]</a></td>
+	<td class="y"><a class="p" href="lg/31blotl1.rle">
+	    Block on up large omega w/ curly tail [7]</a></td>
+	<td><a class="p" href="lg/31blotl2.rle">
+	    Block on down large omega w/ curly tail [7]</a></td>
+	<td><a class="p" href="lg/31-1.rle">
+	    31-bit still- life #1 [7]</a></td>
+	<td class="y"><a class="p" href="lg/31snark.rle">
+	    Snark still- life [42]</a></td>
+	<td><a class="p" href="lg/32-2.rle">
+	    32-bit still- life #2 [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/32sombr.rle">
+	    Sombreros [7]</a></td>
+	<td><a class="p" href="lg/32-1.rle">
+	    32-bit still- life #1 [10]</a></td>
+	<td><a class="p" href="lg/32ohi.rle">
+	    Ohi; Block and pond on extra extra extra long tables [8]</a></td>
+	<td><a class="p" href="lg/32bf4.rle">
+	    Four butterflies; Light cross [7]</a></td>
+	<td><a class="p" href="lg/32vasebe.rle">
+	    Vase siamese bookends [11]</a></td>
+	<td class="y"><a class="p" href="lg/32ve3c.rle">
+	    Variant eater-3 catalyst [39]</a></td>
+	<td><a class="p" href="lg/32hsshfs.rle">
+	    Houses on siamese honey- farms [8]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="lg/33-1.rle">
+	    33-bit still- life #1 [38]</a></td>
+	<td><a class="p" href="lg/34crown1.rle">
+	    Crowns [7]</a></td>
+	<td><a class="p" href="lg/34crown2.rle">
+	    Skewed crowns [8]</a></td>
+	<td><a class="p" href="lg/36ohio.rle">
+	    Ohio; Ponds on extra extra extra long tables [7]</a></td>
+	<td class="g"><a class="p" href="lg/36co4.rle">
+	    Four corner; Heavy cross [36]</a></td>
+	<td><a class="p" href="lg/36talf4.rle">
+	    Four tables siamese loaves [30]</a></td>
+	<td><a class="p" href="lg/36blt3sh.rle">
+	    Three tied boats w/ tail tie ship [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/35plf-p.rle">
+	    P penta- loaf [14]</a></td>
+	<td><a class="p" href="lg/39-1.rle">
+	    39-bit still-life #1 [10]</a></td>
+	<td><a class="p" href="lg/40-1.rle">
+	    40-bit still-life #1 [5]</a></td>
+	<td><a class="p" href="lg/40-2.rle">
+	    40-bit still-life #2 [14]</a></td>
+	<td><a class="p" href="lg/40blt4.rle">
+	    Four tied boats w/ tail [11]</a></td>
+	<td><a class="p" href="lg/40-3.rle">
+	    40-bit still-life #3 [10]</a></td>
+	<td><a class="p" href="lg/40hhsbts.rle">
+	    Houses on tied houses w/ boats [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/42hlf2.rle">
+	    Hexa-loaf #2 [24]</a></td>
+	<td><a class="p" href="lg/42hlf1.rle">
+	    Hexa-loaf #1 [24]</a></td>
+	<td><a class="p" href="lg/42hlf3.rle">
+	    Hexa-loaf #3 [24]</a></td>
+	<td><a class="p" href="lg/44ltalf4.rle">
+	    Large tables siamese loaves [17]</a></td>
+	<td><a class="p" href="lg/44-1.rle">
+	    44-bit still-life #1 [17]</a></td>
+	<td><a class="p" href="lg/60-1.rle">
+	    60-bit still-life #1 [20]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,441,19,460" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p1-lg.zip" />
+	<area coords="561,441,580,460" href="stamp/p1-lg.rle" />
+	<area coords="0,0,89,69" href="lg/30swsw3.rle" />
+	<area coords="90,0,169,69" href="lg/30cpbzcp.rle" />
+	<area coords="170,0,249,69" href="lg/30-1.rle" />
+	<area coords="250,0,329,69" href="lg/30clips.rle" />
+	<area coords="330,0,409,69" href="lg/30swsw2.rle" />
+	<area coords="410,0,489,69" href="lg/30swsw1.rle" />
+	<area coords="490,0,580,69" href="lg/30vspzcp.rle" />
+	<area coords="0,70,89,149" href="lg/30sqhvb3.rle" />
+	<area coords="90,70,169,149" href="lg/30e3c.rle" />
+	<area coords="170,70,249,149" href="lg/31blotl1.rle" />
+	<area coords="250,70,329,149" href="lg/31blotl2.rle" />
+	<area coords="330,70,409,149" href="lg/31-1.rle" />
+	<area coords="410,70,489,149" href="lg/31snark.rle" />
+	<area coords="490,70,580,149" href="lg/32-2.rle" />
+	<area coords="0,150,89,229" href="lg/32sombr.rle" />
+	<area coords="90,150,169,229" href="lg/32-1.rle" />
+	<area coords="170,150,249,229" href="lg/32ohi.rle" />
+	<area coords="250,150,329,229" href="lg/32bf4.rle" />
+	<area coords="330,150,409,229" href="lg/32vasebe.rle" />
+	<area coords="410,150,489,229" href="lg/32ve3c.rle" />
+	<area coords="490,150,580,229" href="lg/32hsshfs.rle" />
+	<area coords="0,230,89,309" href="lg/33-1.rle" />
+	<area coords="90,230,169,309" href="lg/34crown1.rle" />
+	<area coords="170,230,249,309" href="lg/34crown2.rle" />
+	<area coords="250,230,329,309" href="lg/36ohio.rle" />
+	<area coords="330,230,409,309" href="lg/36co4.rle" />
+	<area coords="410,230,489,309" href="lg/36talf4.rle" />
+	<area coords="490,230,580,309" href="lg/36blt3sh.rle" />
+	<area coords="0,310,89,389" href="lg/35plf-p.rle" />
+	<area coords="90,310,169,389" href="lg/39-1.rle" />
+	<area coords="170,310,249,389" href="lg/40-1.rle" />
+	<area coords="250,310,329,389" href="lg/40-2.rle" />
+	<area coords="330,310,409,389" href="lg/40blt4.rle" />
+	<area coords="410,310,489,389" href="lg/40-3.rle" />
+	<area coords="490,310,580,389" href="lg/40hhsbts.rle" />
+	<area coords="0,390,89,460" href="lg/42hlf2.rle" />
+	<area coords="90,390,169,460" href="lg/42hlf1.rle" />
+	<area coords="170,390,249,460" href="lg/42hlf3.rle" />
+	<area coords="250,390,349,460" href="lg/44ltalf4.rle" />
+	<area coords="350,390,429,460" href="lg/44-1.rle" />
+	<area coords="430,390,529,460" href="lg/60-1.rle" />
+	<area coords="530,390,580,460" nohref="nohref" />
+</map>
+
+<hr />
+<hr />
+<a name="g2-p1"></a>
+<h2>The 6 still-lifes
+<a class="i" href="glider-2.htm">buildable from 2 gliders</a></h2>
+<p><a class="p" href="stamp/g2-p1.rle"><img src="map/g2-p1.png"
+ alt="2-glider still-lifes" width="381" height="61" usemap="#g2-p1" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/4bk.rle">Block [2]</a></td>
+	<td><a class="p" href="0/5bt.rle">Boat [2]</a></td>
+	<td><a class="p" href="0/6hv.rle">Beehive [2]</a></td>
+	<td><a class="p" href="0/7lf.rle">Loaf; Burloaf [2]</a></td>
+	<td><a class="p" href="0/7et.rle">Eater; Eater-1; Fishhook [2]</a></td>
+	<td><a class="p" href="0/8pd.rle">Pond [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="g2-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/g2-p1.zip" />
+	<area coords="361,41,380,60" href="stamp/g2-p1.rle" />
+	<area coords="0,0,69,60" href="0/4bk.rle" />
+	<area coords="70,0,129,60" href="0/5bt.rle" />
+	<area coords="130,0,189,60" href="0/6hv.rle" />
+	<area coords="190,0,249,60" href="0/7lf.rle" />
+	<area coords="250,0,309,60" href="0/7et.rle" />
+	<area coords="310,0,380,60" href="0/8pd.rle" />
+</map>
+
+<hr />
+<a name="g3-p1"></a>
+0<h2>The 10 still-lifes
+<a class="i" href="glider-3.htm">buildable from 3 gliders</a></h2>
+<p><a class="p" href="stamp/g3-p1.rle"><img src="map/g3-p1.png"
+ alt="3-glider still-lifes"
+ width="381" height="121" usemap="#g3-p1" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/4tb.rle">Tub; Diamond [3]</a></td>
+	<td><a class="p" href="0/6sh.rle">Ship [3]</a></td>
+	<td><a class="p" href="0/6bg.rle">Barge [3]</a></td>
+	<td><a class="p" href="0/7lb.rle">Long boat [3]</a></td>
+	<td><a class="p" href="0/8cg.rle">8.3; Mango; Cigar [3]</a></td>
+	<td><a class="p" href="0/8lg.rle">Long barge [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/9-10.rle">9.10; Hat [3]</a></td>
+	<td><a class="p" href="0/9-1.rle">9.1; Very long boat [3]</a></td>
+	<td><a class="p" href="14/14-79.rle">14.30; Paper- clip [3]</a></td>
+	<td><a class="p" href="14/14-30.rle">
+	    14.79; Half bakery; Loaf on loaf [3]</a></td>
+	<td><a class="p" href="16/16-1749.rle">
+	    16.1749; Bi-pond; Pond tie pond [3]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g3-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/g3-p1.zip" />
+	<area coords="361,101,380,120" href="stamp/g3-p1.rle" />
+	<area coords="0,0,69,69" href="0/4tb.rle" />
+	<area coords="70,0,129,69" href="0/6sh.rle" />
+	<area coords="130,0,189,69" href="0/6bg.rle" />
+	<area coords="190,0,249,69" href="0/7lb.rle" />
+	<area coords="250,0,309,69" href="0/8cg.rle" />
+	<area coords="310,0,380,69" href="0/8lg.rle" />
+	<area coords="0,70,69,120" href="0/9-10.rle" />
+	<area coords="70,70,129,120" href="0/9-1.rle" />
+	<area coords="130,70,189,120" href="14/14-79.rle" />
+	<area coords="190,70,249,120" href="14/14-30.rle" />
+	<area coords="250,70,309,120" href="16/16-1749.rle" />
+	<area coords="310,70,380,120" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g4-p1"></a>
+<h2>111 still-lifes
+<a class="i" href="glider-4.htm">buildable from 4 gliders</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="g4-p1.htm">separate page</a>.</p>
+
+<hr />
+<a name="g5-p1"></a>
+<h2>114 still-lifes
+<a class="i" href="glider-5.htm">buildable from 5 gliders</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="g5-p1.htm">separate page</a>.</p>
+
+<hr />
+<a name="g6-p1"></a>
+<h2>217 still-lifes
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="g6-p1.htm">separate page</a>.</p>
+
+<hr />
+<a name="ge-p1"></a>
+<h2>The 11 still-lifes up to 14 bits
+<a class="i" href="glider-e.htm">costing 1 glider/bit</a></h2>
+
+<p><a class="p" href="stamp/ge-p1.rle"><img src="map/ge-p1.png"
+ alt="1 glider/bit still-lifes"
+ width="381" height="101" usemap="#ge-p1" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="g"><a class="p" href="14/14-100.rle">
+	    Tub w/ very long tail siamese snake (14.100) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-618.rle">
+	    Snake bridge domino bridge trans snake (14.618) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-528.rle">
+	    Mango w/ bit tie boat (14.528) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-97.rle">
+	    Integral w/ tub siamese claw (14.97) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-480.rle">
+	    Eater siamese curl (14.480) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-398.rle">
+	    Snake siamese cis hook w/ tail (14.398) [14]</a></td>
+    </tr>
+
+    <tr>
+	<td class="g"><a class="p" href="14/14-191.rle">
+	    Block on snake siamese cis carrier (14.191) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-239.rle">
+	    Cis hook w/ tail siamese bun siamese tub (14.239) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-598.rle">
+	    Snake siamese beehive w/ hook (14.598) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-558.rle">
+	    Tub on table siamese snake (14.558) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-552.rle">
+	    Cis hook w/ tail siamese snake (14.552) [14]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="ge-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/ge-p1.zip" />
+	<area coords="361,81,380,100" href="stamp/ge-p1.rle" />
+	<area coords="0,0,69,49" href="14/14-100.rle" />
+	<area coords="70,0,129,49" href="14/14-618.rle" />
+	<area coords="130,0,189,49" href="14/14-528.rle" />
+	<area coords="190,0,249,49" href="14/14-97.rle" />
+	<area coords="250,0,309,49" href="14/14-480.rle" />
+	<area coords="310,0,380,49" href="14/14-398.rle" />
+	<area coords="0,50,69,100" href="14/14-191.rle" />
+	<area coords="70,50,129,100" href="14/14-239.rle" />
+	<area coords="130,50,189,100" href="14/14-598.rle" />
+	<area coords="190,50,249,100" href="14/14-558.rle" />
+	<area coords="250,50,309,100" href="14/14-552.rle" />
+	<area coords="310,50,380,100" nohref="nohref" />
+</map>
+
+<p>(NOTE: As the syntheses of the 15-bit still-lifes have not yet been
+completed, they are not yet included in this list.)</p>
+
+<hr />
+<a name="gg-p1"></a>
+<h2>1 still-life up to 14 bits
+<a class="i" href="glider-g.htm">costing &gt; 1 glider/bit</a></h2>
+<p><a class="i" href="lifecred.htm#buckingham">Buckingham</a> completed the
+monumental task of synthesizing all objects up to 14 bits in the 1980s,
+and also reduced the costs of all still-lifes
+to <a class="i" href="glider-e.htm">no more than one glider per bit</a>.
+In the 1990s, he further reduced these to strictly less than one glider per
+per bit (except 15 <a class="i" href="p1-14.htm">14-bit ones</a>, of which
+<a class="i" href="glider-e.htm#ge-p1">only 12 still remain</a>.)</p>
+
+<p>Due to a bookkeeping oversight, one
+<a class="i" href="p1-14.htm">14-bit still-life</a>
+still requires one glider too many.</p>
+<p><a class="p" href="stamp/gg-p1.rle"><img src="map/gg-p1.png"
+ alt="S gt.1g/b" width="81" height="61" usemap="#gg-p1" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="14/14-352.rle">
+	    Tub on table siamese cis carrier (14.352) [15]</a></td>
+    </tr>
+</table></p>
+
+<map name="gg-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/gg-p1.zip" />
+	<area coords="61,41,80,60" href="stamp/gg-p1.rle" />
+	<area coords="0,0,80,60" href="14/14-352.rle" />
+</map>
+
+<p>(NOTE: As the syntheses of the 15-bit still-lifes have not yet been
+completed, they are not yet included in this list.)</p>
+
+<hr />
+<hr />
+<a name="nat-p1"></a>
+<h2>The top 92 <a class="i" href="natural.htm">naturally-occurring</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/nat-p1.rle"><img src="map/nat-p1.png"
+ alt="naturally-occurring still-lifes"
+ width="621" height="441" usemap="#nat-p1" /></a></p>
+
+<map name="nat-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,421,19,440" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/nat-p1.zip" />
+	<area coords="601,421,620,440" href="stamp/nat-p1.rle" />
+	<area coords="0,0,69,49" href="0/4bk.rle" />
+	<area coords="70,0,129,49" href="0/6hv.rle" />
+	<area coords="130,0,189,49" href="0/7lf.rle" />
+	<area coords="190,0,249,49" href="0/5bt.rle" />
+	<area coords="250,0,309,49" href="0/4tb.rle" />
+	<area coords="310,0,369,49" href="0/8pd.rle" />
+	<area coords="370,0,429,49" href="0/6sh.rle" />
+	<area coords="430,0,489,49" href="0/7lb.rle" />
+	<area coords="490,0,549,49" href="12/12-3.rle" />
+	<area coords="550,0,620,49" href="0/6bg.rle" />
+	<area coords="0,50,69,89" href="14/14-30.rle" />
+	<area coords="70,50,129,89" href="0/8cg.rle" />
+	<area coords="130,50,189,89" href="0/7et.rle" />
+	<area coords="190,50,249,89" href="0/8lg.rle" />
+	<area coords="250,50,309,89" href="0/6ac.rle" />
+	<area coords="310,50,369,89" href="14/14-79.rle" />
+	<area coords="370,50,429,89" href="0/8lp.rle" />
+	<area coords="430,50,489,89" href="0/8sl.rle" />
+	<area coords="490,50,549,89" href="0/9-4.rle" />
+	<area coords="550,50,620,89" href="10/10-24.rle" />
+	<area coords="0,90,69,129" href="0/6sn.rle" />
+	<area coords="70,90,129,129" href="14/14-36.rle" />
+	<area coords="130,90,189,129" href="16/16-1749.rle" />
+	<area coords="190,90,249,129" href="0/9-5.rle" />
+	<area coords="250,90,309,129" href="0/9-10.rle" />
+	<area coords="310,90,369,129" href="11/11-30.rle" />
+	<area coords="370,90,429,129" href="0/9-1.rle" />
+	<area coords="430,90,489,129" href="0/8tt.rle" />
+	<area coords="490,90,549,129" href="10/10-2.rle" />
+	<area coords="550,90,620,129" href="12/12-25.rle" />
+	<area coords="0,130,69,169" href="0/8cs.rle" />
+	<area coords="70,130,129,169" href="14/14-55.rle" />
+	<area coords="130,130,189,169" href="15/15-243.rle" />
+	<area coords="190,130,249,169" href="10/10-25.rle" />
+	<area coords="250,130,309,169" href="14/14-89.rle" />
+	<area coords="310,130,369,169" href="17/17-242.rle" />
+	<area coords="370,130,429,169" href="16/16-737.rle" />
+	<area coords="430,130,489,169" href="10/10-7.rle" />
+	<area coords="490,130,549,169" href="16/16-644.rle" />
+	<area coords="550,130,620,169" href="10/10-4.rle" />
+	<area coords="0,170,69,209" href="14/14-39.rle" />
+	<area coords="70,170,129,209" href="0/9-6.rle" />
+	<area coords="130,170,189,209" href="0/7ls.rle" />
+	<area coords="190,170,249,209" href="14/14-13.rle" />
+	<area coords="250,170,309,209" href="18/18-287.rle" />
+	<area coords="310,170,369,209" href="14/14-590.rle" />
+	<area coords="370,170,429,209" href="11/11-38.rle" />
+	<area coords="430,170,489,209" href="12/12-27.rle" />
+	<area coords="490,170,549,209" href="11/11-4.rle" />
+	<area coords="550,170,620,209" href="14/14-87.rle" />
+	<area coords="0,210,69,249" href="12/12-29.rle" />
+	<area coords="70,210,129,249" href="10/10-20.rle" />
+	<area coords="130,210,189,249" href="20/20-5320.rle" />
+	<area coords="190,210,249,249" href="10/10-9.rle" />
+	<area coords="250,210,309,249" href="14/14-589.rle" />
+	<area coords="310,210,369,249" href="12/12-111.rle" />
+	<area coords="370,210,429,249" href="15/15-462.rle" />
+	<area coords="430,210,489,249" href="12/12-85.rle" />
+	<area coords="490,210,549,249" href="12/12-28.rle" />
+	<area coords="550,210,620,249" href="0/8vs.rle" />
+	<area coords="0,250,69,289" href="10/10-17.rle" />
+	<area coords="70,250,129,289" href="0/9-7.rle" />
+	<area coords="130,250,189,289" href="15/15-114.rle" />
+	<area coords="190,250,249,289" href="10/10-23.rle" />
+	<area coords="250,250,309,289" href="14/14-591.rle" />
+	<area coords="310,250,369,289" href="13/13-154.rle" />
+	<area coords="370,250,429,289" href="0/9-9.rle" />
+	<area coords="430,250,489,289" href="11/11-43.rle" />
+	<area coords="490,250,549,289" href="0/8ht.rle" />
+	<area coords="550,250,620,289" href="10/10-19.rle" />
+	<area coords="0,290,69,329" href="11/11-33.rle" />
+	<area coords="70,290,129,329" href="10/10-18.rle" />
+	<area coords="130,290,189,329" href="16/16-129.rle" />
+	<area coords="190,290,249,329" href="11/11-5.rle" />
+	<area coords="250,290,309,329" href="15/15-360.rle" />
+	<area coords="310,290,369,329" href="14/14-15.rle" />
+	<area coords="370,290,429,329" href="0/9-3.rle" />
+	<area coords="430,290,489,329" href="15/15-472.rle" />
+	<area coords="490,290,549,329" href="12/12-7.rle" />
+	<area coords="550,290,620,329" href="13/13-224.rle" />
+	<area coords="0,330,69,369" href="11/11-37.rle" />
+	<area coords="70,330,129,369" href="12/12-18.rle" />
+	<area coords="130,330,189,369" href="12/12-113.rle" />
+	<area coords="190,330,249,369" href="10/10-5.rle" />
+	<area coords="250,330,309,369" href="14/14-50.rle" />
+	<area coords="310,330,369,369" href="11/11-11.rle" />
+	<area coords="370,330,429,369" href="13/13-27.rle" />
+	<area coords="430,330,489,369" href="12/12-112.rle" />
+	<area coords="490,330,549,369" href="12/12-73.rle" />
+	<area coords="550,330,620,369" href="15/15-8.rle" />
+	<area coords="0,370,69,440" href="13/13-10.rle" />
+	<area coords="70,370,129,440" href="12/12-104.rle" />
+	<area coords="130,370,620,440" nohref="nohref" />
+</map>
+
+<hr />
+<hr />
+<a name="meth-p1"></a>
+<h2>2 <a class="i" href="meth.htm">methuselahs</a> whose censuses are
+period 1</h2>
+<p><a class="p" href="stamp/meth-p1.rle"><img src="map/meth-p1.png"
+ alt="still methuselahs"
+ width="181" height="61" usemap="#meth-p1" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6lm.rle">
+	    Handshake (@5); Lumps of muck (LOM) (@7) [2]</a></td>
+	<td><a class="p" href="0/8dh.rle">Die hard [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16lm.rle">
+	    Blockade (4 blocks) (@67)</a></td>
+	<td><a class="p" href="0/8dh.rle">Death (@118)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/meth-p1.zip" />
+	<area coords="161,41,180,60" href="stamp/meth-p1.rle" />
+	<area coords="0,0,89,60" href="0/6lm.rle" />
+	<area coords="90,0,180,60" href="0/8dh.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="p1-bad"></a>
+<h2>5 <a class="i" href="bits-bad.htm">Not quite</a>
+still-lifes</h2>
+<p><a class="p" href="stamp/p1-bad.rle"><img src="map/p1-bad.png"
+ alt="not quite still" width="321" height="61" usemap="#p1-bad" /></a><br />
+    <table width="325">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/9scsl.rle">
+	    Short cis shillelagh [5]</a></td>
+	<td><a class="p" href="11/11hvlt.rle">
+	    Beehive w/ long tail [8]</a></td>
+	<td><a class="p" href="13/13slbt.rle">
+	    Shil- lelagh head bridge boat [5]</a></td>
+	<td class="g"><a class="p" href="14/14bkxe.rle">
+	    Block on extra long bookend [14]</a></td>
+	<td><a class="p" href="15/15sllta1.rle">
+	    Up long table on shillelagh [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/p1-bad.zip" />
+	<area coords="301,41,320,60" href="stamp/p1-bad.rle" />
+	<area coords="0,0,69,60" href="0/9scsl.rle" />
+	<area coords="70,0,129,60" href="11/11hvlt.rle" />
+	<area coords="130,0,189,60" href="13/13slbt.rle" />
+	<area coords="190,0,249,60" href="14/14bkxe.rle" />
+	<area coords="250,0,320,60" href="15/15sllta1.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="color.htm#c-p1">still-lifes in multi-color Life</a>.</p>
+
+<p><b>Other types:</b>
+	still-lifes,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

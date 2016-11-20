@@ -1,0 +1,35 @@
+#N 21bjmbk.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:04:34 2015
+x = 164, y = 206, rule = B3/S23
+101bo$100bo$100b3o$98bo$99bo$97b3o19bxx18boo18bxx$119bxx18boo18bxx$59b
+o35bo$59bobo17bxx12bobo3boo18bxx18boo18bxx$55b3oboo17bxbbx12boobbobbo
+13bxxbxbbx13boobobbo13bxxbxbbx$57bo20bxbx10boo5bobo14bxxbxbx14boobobo
+8bobo3bxxbxbxbbx$56bo22bx10bobo6bo19bx19bo9boo8bx3bx$92bo57bo12bx$160b
+x$147boo12bxx$146boo$143bo4bo$141boo$142boo$$146b3o$146bo$147bo3$145b
+3o$145bo$146bo13$141bo$140bo$140b3o$138bo$139bo$137b3o19bxx$159bxx$59b
+o75bo$59bobo17bxx18boo18bxx12bobo3boo18bxx$55b3oboo17bxbbx16bobbo16bx
+bbx12boobbobbo13bxxbxbbx$57bo20bxbx17bobo8bobo6bxbxbbx7boo5bobobbo11b
+xxbxbxbbx$56bo22bx19bo9boo8bx3bx6bobo6bo3bo15bx3bx$110bo12bx8bo10bo19b
+x$120bx19bo19bx$107boo12bxx18boo18bxx$106boo$103bo4bo$101boo$102boo$$
+106b3o$106bo$107bo3$105b3o$105bo$106bo6$112bo$113bo$111b3o7$42bo$41bo$
+41b3o$59bxx18boo18bxx38boo18bxx$37bo21bxx18boo18bxx38boo18bxx$38bo$36b
+3o20bxx18boo18bxx38boo18bxx$32b3o23bxbbx16bobbo16bxbbx26boobboo4bobbo
+13bxxbxbbx$34bo23bxbx17bobo8bobo6bxbxbbx23boboboo5bobobbo11bxxbxbxbbx$
+33bo25bx19bo9boo8bx3bx25bo3bo5bo3bo15bx3bx$90bo12bx39bo19bx$100bx39bo
+19bx$87boo12bxx38boo18bxx$86boo$83bo4bo$81boo$82boo$$86b3o$86bo$87bo3$
+85b3o$85bo$86bo4$125bo$123bobo$124boo14$140bo$139bo$139b3o$$140bo$39bo
+99boo$39bobo97bobo$39boo$159bxx$38bo120bxx$36bobo$37boo20bxx18boo28bxx
+28boo18bxx$55bxxbxbbx13boobobbo23bxxbxbbx23boobobbo13bxxbxbbx$55bxxbxb
+x14boobobo8bobo13bxxbxbxbbx21boobobobbo11bxxbxbxbbx$33boo24bx19bo9boo
+18bx3bx25bo3bo15bx3bx$32bobo55bo22bx29bo19bx$34bo75bx29bo19bx$87boo22b
+xx28boo18bxx$86boo$83bo4bo$81boo$82boo$$86b3o$86bo$87bo3$85b3o$85bo$
+86bo7$9bo$7bobo19bxx18boo18bxx18boo18bxx18boo28bxx$8boo19bxx18boo18bxx
+18boo18bxx18boo28bxx$5boo77bo$4bobo38bo23bxx14bo3boo18bxx18boo28bxx$6b
+o39boo20bxbx12b3obbobo14bxxbxbbx13boobobbo23bxxbxbbx$45boo22bx19bo15b
+xxbxbx14boobobo8bobo13bxxbxbxbbx$50boo41bo15bx19bo9boo18bx3bx$49bobobo
+26b3o8boo47bo22bx$51bobobo26bo5boobboo66bx$53boo26bo6bobo46boo22bxx$
+88bo47boo$133bo4bo$131boo$132boo$$136b3o$136bo$137bo3$135b3o$135bo$
+136bo3$92bo$92bobo$92boo$89bo$87bobo$48bobo18bxx17boo19bxx$49boo18bxx
+38bxx$49bo$5bo63bxx18bo3b3o13bxx$3bobo19bxx18boo5bo15bxbx14boobobobbo
+11bxxbxbbx$4boo19bxx18boo4bo17bx15booboo4bo10bxxbxbx$boo48b3o38bo16bx$
+obo89boo$bbo49b3o36bobo$54bo$53bo!

@@ -1,0 +1,2025 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Search For Pattern</title>
+<meta name="description"
+content="John Horton Conway's Game of Life pattern search" />
+<meta name="keywords"
+content="cellular automata conway game life pattern search" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body onload="Body()">
+
+<h1>Search For Pattern</h1>
+<p align="center">
+	<a class="j" href="#search">Search</a>
+</p>
+
+<hr /><hr />
+<a name="search"></a>
+<h2>Search</h2>
+
+<noscript><p>JavaScript must be enabled to use this page.</p></noscript>
+
+<p id="viewnj">Loading data tables. This may take a few seconds....
+    <progress id="progload" value="0" max="100"></progress></p>
+
+<div id="viewj" style="display:none;">
+<form id="inform" name="inform" onsubmit="return false">
+
+<p>
+    <table width="641">
+    <colgroup><col width="241" /><col width="160" /><col width="238" />
+	</colgroup>
+    <tr>
+	<td onmouseover="Over(event,'types')" onmouseout="Out()">
+	    <b>Search type:</b>
+	    <select id="intypes" name="intypes" onchange="Criteria(1)">
+		<option value="T_IMAGE" selected="selected">Image</option>
+		<option value="T_SIMPLE">Simple</option>
+		<option value="T_ADV">Advanced</option>
+		<option value="T_DET">Detailed</option>
+		<option value="T_ULT">Ultimate</option>
+	    </select></td>
+	<td onmouseover="Over(event,'rules')" onmouseout="Out()">
+	    <b id="colrule">Rule:</b>
+	    <select id="inrules" name="inrules" onchange="Criteria(0)">
+		<option value="R_ANY">Any</option>
+		<option value="R_LIFE" selected="selected">Life</option>
+		<option value="R_B2S2">B2/S2</option>
+		<option value="R_B34S34">B34/S34</option>
+		<option value="R_NIEMIEC0">Niemiec's rule 0</option>
+		<option value="R_NIEMIEC1">Niemiec's rule 1</option>
+	    </select></td>
+	<td id="colexp" onmouseover="Over(event,'exp')" onmouseout="Out()">
+	    <span id="viewexp">
+		<input type="checkbox" id="inexp" name="inexp" checked="checked"
+		  onchange="Criteria(0)" />Include expanded object lists
+	    </span></td>
+    </tr>
+
+    <tr id="viewsels">
+	<td colspan="3" onmouseover="Over(event,'names')" onmouseout="Out()">
+	    <b id="viewsimp">Pattern name:</b>
+	    <span id="viewadv">
+		<select id="innames" name="innames">
+		    <option value="N_PATTERN" selected="selected">
+		       Pattern</option>
+		    <option value="N_FILE">File</option>
+		</select>
+		<b id="colname">Name:</b>
+		<select id="inwilds" name="inwilds" onchange="Criteria(0)">
+		    <option value="W_ANY" selected="selected">Any</option>
+		    <option value="W_IS">Is</option>
+		    <option value="W_BEGINS">Begins with</option>
+		    <option value="W_ENDS">Ends with</option>
+		    <option value="W_CONTAINS">Contains</option>
+		    <option value="W_NOT+W_IS">Isn't</option>
+		    <option value="W_NOT+W_BEGINS">Doesn't begin with</option>
+		    <option value="W_NOT+W_ENDS">Doesn't end with</option>
+		    <option value="W_NOT+W_CONTAINS">Doesn't contain</option>
+		</select>
+	    </span>
+	    <input type="text" id="intext" name="intext" size="56" /></td>
+    </tr>
+
+    <tr id="viewadvs"><td colspan="3" class="z"></td></tr>
+
+    <tr id="viewminpscats">
+	<td onmouseover="Over(event,'minps')" onmouseout="Out()">
+	    <b id="colminp">Population:</b>
+	    <input type="text" id="inminpxt" name="inminpxt" size="3" />
+	    <select id="inminps" name="inminps" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inminpya">Any</span>
+	    <input type="text" id="inminpyt" name="inminpyt" size="3" /></td>
+	<td colspan="2" onmouseover="Over(event,'cats')" onmouseout="Out()">
+	    <b id="colcat">Category:</b><select id="incats" name="incats"
+	      onchange="Criteria(0)">
+		<option value="O_ANY" selected="selected">Any</option>
+		<option value="O_STILL">Still-life</option>
+		<option value="O_DIFF">Still-life (difficult only)</option>
+		<option value="O_PSTILL">Pseudo-still-life</option>
+		<option value="O_OSC">Oscillator</option>
+		<option value="O_POSC">Pseudo-oscillator</option>
+		<option value="O_SS">Spaceship</option>
+		<option value="O_WS">Wick stretcher</option>
+		<option value="O_PUFF">Puffer</option>
+		<option value="O_GUN">Gun</option>
+		<option value="O_BR">Breeder</option>
+		<option value="O_CONS">Constellation</option>
+		<option value="O_METH">Methuselah</option>
+		<option value="O_BAD">Not quite stable pattern</option>
+		<option value="O_NAMES">Patterns with multiple names</option>
+		<option value="O_FILES">
+		  Patterns with multiple synthesis files</option>
+		<option value="O_COLOR">
+		  Patterns with multi-color syntheses</option>
+	    </select></td>
+    </tr>
+
+    <tr id="viewmaxpsrpops">
+	<td onmouseover="Over(event,'maxps')" onmouseout="Out()">
+	    <b id="colmaxp">Max. pop.:</b>
+	    <input type="text" id="inmaxpxt" name="inmaxpxt" size="3" />
+	    <select id="inmaxps" name="inmaxps" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_INF">&#8734;</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inmaxpya">Any</span>
+	    <input type="text" id="inmaxpyt" name="inmaxpyt" size="3" /></td>
+	<td colspan="2" onmouseover="Over(event,'rpops')" onmouseout="Out()">
+	    <b id="colrpop">Min/Max:</b>
+	    <input type="text" id="inrpopxt" name="inrpopxt" size="3" />
+	    <select id="inrpops" name="inrpops" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inrpopya">Any</span>
+	    <input type="text" id="inrpopyt" name="inrpopyt" size="3" /></td>
+    </tr>
+
+    <tr id="viewavgpsglss">
+	<td id="colavgps" onmouseover="Over(event,'avgps')" onmouseout="Out()">
+	    <span id="viewavgps">
+		<b id="colavgp">Avg. pop.:</b>
+		<input id="inavgpxt" type="text" name="inavgpxt" size="3" />
+		<select id="inavgps" name="inavgps" onchange="Criteria(0)">
+		    <option value="M_ANY" selected="selected"></option>
+		    <option value="M_EQ">=</option>
+		    <option value="M_NE">&ne;</option>
+		    <option value="M_LT">&lt;</option>
+		    <option value="M_LE">&le;</option>
+		    <option value="M_GT">&gt;</option>
+		    <option value="M_GE">&ge;</option>
+		    <option value="M_IN">&ndash;</option>
+		    <option value="M_OUT">~</option>
+		    <option value="M_INF">&#8734;</option>
+		    <option value="M_NAN">?</option>
+		</select>
+		<span id="inavgpya">Any</span>
+		<input type="text" id="inavgpyt" name="inavgpyt" size="3" />
+	    </span>
+	    <span id="viewrar1s">
+		<select id="colrar1" name="colrar1">
+		    <option value="0" selected="selected">Freq.</option>
+		    <option value="1">Rarity</option>
+		</select>
+		<input type="text" id="inrar1xt" name="inrar1xt" size="3" />
+		<select id="inrar1s" name="inrar1s" onchange="Criteria(0)">
+		    <option value="M_ANY" selected="selected"></option>
+		    <option value="M_EQ">=</option>
+		    <option value="M_NE">&ne;</option>
+		    <option value="M_LT">&lt;</option>
+		    <option value="M_LE">&le;</option>
+		    <option value="M_GT">&gt;</option>
+		    <option value="M_GE">&ge;</option>
+		    <option value="M_IN">&ndash;</option>
+		    <option value="M_OUT">~</option>
+		    <option value="M_INF">?</option>
+		    <option value="M_NAN">N/A</option>
+		</select>
+		<span id="inrar1ya">Any</span>
+		<input type="text" id="inrar1yt" name="inrar1yt" size="3" />
+	    </span></td>
+	<td colspan="2" onmouseover="Over(event,'glss')" onmouseout="Out()">
+	    <b id="colgls">Gliders:</b>
+	    <input type="text" id="inglsxt" name="inglsxt" size="2" />
+	    <select id="inglss" name="inglss" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_KNOWN">Known</option>
+		<option value="M_UNKNOWN">Unknown</option>
+		<option value="M_PARTIAL">Partial</option>
+		<option value="M_TBD">TBD</option>
+	    </select>
+	    <span id="inglsya">Any</span>
+	    <input type="text" id="inglsyt" name="inglsyt" size="2" />
+	    <span id="viewglsa">and</span>
+	    <select id="inrglss" name="inrglss" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected">Any</option>
+		<option value="M_EQ">= 1 glider/bit</option>
+		<option value="M_NE">&ne; 1 glider/bit</option>
+		<option value="M_LT">&lt; 1 glider/bit</option>
+		<option value="M_LE">&le; 1 glider/bit</option>
+		<option value="M_GT">&gt; 1 glider/bit</option>
+		<option value="M_GE">&ge; 1 glider/bit</option>
+	    </select>
+	    <input type="checkbox" id="inglr" name="inglr"
+		onchange="Criteria(0)" />Range</td>
+    </tr>
+
+    <tr id="viewpersmods">
+	<td onmouseover="Over(event,'pers')" onmouseout="Out()">
+	    <b id="colper">Period:</b>
+	    <input type="text" id="inperxt" name="inperxt" size="3" />
+	    <select id="inpers" name="inpers" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inperya">Any</span>
+	    <input type="text" id="inperyt" name="inperyt" size="3" /></td>
+	<td colspan="2" onmouseover="Over(event,'mods')" onmouseout="Out()">
+	    <b id="colmod">Modulus:</b>
+	    <input type="text" id="inmodxt" name="inmodxt" size="3" />
+	    <select id="inmods" name="inmods" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inmodya">Any</span>
+	    <input type="text" id="inmodyt" name="inmodyt" size="3" />
+	    <span id="colres">and</span>
+	    <select id="inrmods" name="inrmods" onchange="Criteria(0)">
+		<option value="7" selected="selected">Any</option>
+		<option value="1">= period</option>
+		<option value="2">= period/2</option>
+		<option value="4">= period/4</option>
+		<option value="6">&lt; period</option>
+	    </select></td>
+    </tr>
+
+    <tr id="viewrarsvels">
+	<td id="colrars" onmouseover="Over(event,'rars')" onmouseout="Out()">
+	    <span id="viewrar2s">
+		<select id="colrar2" name="colrar2">
+		    <option value="0" selected="selected">Freq.</option>
+		    <option value="1">Rarity</option>
+		</select>
+		<input type="text" id="inrar2xt" name="inrar2xt" size="3" />
+		<select id="inrar2s" name="inrar2s" onchange="Criteria(0)">
+		    <option value="M_ANY" selected="selected"></option>
+		    <option value="M_EQ">=</option>
+		    <option value="M_NE">&ne;</option>
+		    <option value="M_LT">&lt;</option>
+		    <option value="M_LE">&le;</option>
+		    <option value="M_GT">&gt;</option>
+		    <option value="M_GE">&ge;</option>
+		    <option value="M_IN">&ndash;</option>
+		    <option value="M_OUT">~</option>
+		    <option value="M_INF">?</option>
+		    <option value="M_NAN">N/A</option>
+		</select>
+		<span id="inrar2ya">Any</span>
+		<input type="text" id="inrar2yt" name="inrar2yt" size="3" />
+	    </span></td>
+	<td id="colvels" colspan="2"
+	  onmouseover="Over(event,'vels')" onmouseout="Out()">
+	    <span id="viewvels">
+		<b id="colvel">Velocity:</b>
+		<input type="text" id="invelxt" name="invelxt" size="1" />
+		<select id="invels" name="invels" onchange="Criteria(0)">
+		    <option value="M_ANY" selected="selected"></option>
+		    <option value="M_EQ">=</option>
+		    <option value="M_NE">&ne;</option>
+		    <option value="M_LT">&lt;</option>
+		    <option value="M_LE">&le;</option>
+		    <option value="M_GT">&gt;</option>
+		    <option value="M_GE">&ge;</option>
+		    <option value="M_IN">&ndash;</option>
+		    <option value="M_OUT">~</option>
+		</select>
+		<span id="invelya">Any</span>
+		<input type="text" id="invelyt" name="invelyt" size="1" />
+		<select id="invelo" name="invelo">
+		    <option value="D_ANY" selected="selected">Any</option>
+		    <option value="D_ORTHO">Orthogonal</option>
+		    <option value="D_DIAG">Diagonal</option>
+		    <option value="D_OBLIQUE">Oblique</option>
+		</select>
+	    </span></td>
+    </tr>
+
+    <tr id="viewdets"><td colspan="3" class="z"></td></tr>
+
+    <tr id="viewttsef">
+	<td id="colttss" onmouseover="Over(event,'ttss')" onmouseout="Out()">
+	    <span id="viewtts2s">
+		<b id="coltts">T.T.S.:</b>
+		<input type="text" id="inttsxt" name="inttsxt" size="3" />
+		<select id="inttss" name="inttss" onchange="Criteria(0)">
+		    <option value="M_ANY" selected="selected"></option>
+		    <option value="M_EQ">=</option>
+		    <option value="M_NE">&ne;</option>
+		    <option value="M_LT">&lt;</option>
+		    <option value="M_LE">&le;</option>
+		    <option value="M_GT">&gt;</option>
+		    <option value="M_GE">&ge;</option>
+		    <option value="M_IN">&ndash;</option>
+		    <option value="M_OUT">~</option>
+		    <option value="M_NAN">?</option>
+		</select>
+		<span id="inttsya">Any</span>
+		<input type="text" id="inttsyt" name="inttsyt" size="3" />
+	    </span></td>
+	<td id="colefs" colspan="2"
+	  onmouseover="Over(event,'efs')" onmouseout="Out()">
+	    <span id="viewefs">
+		<b id="colef">E.F.:</b>
+		<input type="text" id="inefxt" name="inefxt" size="1" />
+		<select id="inefs" name="inefs" onchange="Criteria(0)">
+		    <option value="M_ANY" selected="selected"></option>
+		    <option value="M_EQ">=</option>
+		    <option value="M_NE">&ne;</option>
+		    <option value="M_LT">&lt;</option>
+		    <option value="M_LE">&le;</option>
+		    <option value="M_GT">&gt;</option>
+		    <option value="M_GE">&ge;</option>
+		    <option value="M_IN">&ndash;</option>
+		    <option value="M_OUT">~</option>
+		    <option value="M_NAN">?</option>
+		</select>
+		<span id="inefya">Any</span>
+		<input type="text" id="inefyt" name="inefyt" size="1" />
+	    </span></td>
+    </tr>
+
+    <tr id="viewinfsdens">
+	<td onmouseover="Over(event,'infs')" onmouseout="Out()">
+	    <b id="colinf">Influence:</b>
+	    <input type="text" id="ininfxt" name="ininfxt" size="3" />
+	    <select id="ininfs" name="ininfs" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_INF">&#8734;</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="ininfya">Any</span>
+	    <input type="text" id="ininfyt" name="ininfyt" size="3" /></td>
+	<td colspan="2" onmouseover="Over(event,'dens')" onmouseout="Out()">
+	    <b id="colden">Min. Den.:</b>
+	    <input type="text" id="indenxt" name="indenxt" size="3" />
+	    <select id="indens" name="indens" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="indenya">Any</span>
+	    <input type="text" id="indenyt" name="indenyt" size="3" /></td>
+    </tr>
+
+    <tr id="viewadensmdens">
+	<td onmouseover="Over(event,'adens')" onmouseout="Out()">
+	    <b id="coladen">Avg. Den.:</b>
+	    <input type="text" id="inadenxt" name="inadenxt" size="3" />
+	    <select id="inadens" name="inadens" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inadenya">Any</span>
+	    <input type="text" id="inadenyt" name="inadenyt" size="3" /></td>
+	<td colspan="2" onmouseover="Over(event,'mdens')" onmouseout="Out()">
+	    <b id="colmden">Max. Den.:</b>
+	    <input type="text" id="inmdenxt" name="inmdenxt" size="3" />
+	    <select id="inmdens" name="inmdens" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inmdenya">Any</span>
+	    <input type="text" id="inmdenyt" name="inmdenyt" size="3" /></td>
+    </tr>
+
+    <tr id="viewheatstemps">
+	<td onmouseover="Over(event,'heats')" onmouseout="Out()">
+	    <b id="colheat">Heat:</b>
+	    <input type="text" id="inheatxt" name="inheatxt" size="3" />
+	    <select id="inheats" name="inheats" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_INF">&#8734;</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inheatya">Any</span>
+	    <input type="text" id="inheatyt" name="inheatyt" size="3" /></td>
+	<td colspan="2" onmouseover="Over(event,'temps')" onmouseout="Out()">
+	    <b id="coltemp">Temperature:</b>
+	    <input type="text" id="intempxt" name="intempxt" size="3" />
+	    <select id="intemps" name="intemps" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="intempya">Any</span>
+	    <input type="text" id="intempyt" name="intempyt" size="3" /></td>
+    </tr>
+
+    <tr id="viewvolssvols">
+	<td onmouseover="Over(event,'vols')" onmouseout="Out()">
+	    <b id="colvol">Volatility:</b>
+	    <input type="text" id="involxt" name="involxt" size="3" />
+	    <select id="invols" name="invols" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+	    </select>
+	    <span id="involya">Any</span>
+	    <input type="text" id="involyt" name="involyt" size="3" /></td>
+	<td colspan="2" onmouseover="Over(event,'svols')" onmouseout="Out()">
+	    <b id="colsvol">Strict volatility:</b>
+	    <input type="text" id="insvolxt" name="insvolxt" size="3" />
+	    <select id="insvols" name="insvols" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+	    </select>
+	    <span id="insvolya">Any</span>
+	    <input type="text" id="insvolyt" name="insvolyt" size="3" />
+	    <span id="colrvol">and</span>
+	    <select id="inrvols" name="inrvols" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected">Any</option>
+		<option value="M_EQ">= volatility</option>
+		<option value="M_LT">&lt; volatility</option>
+	    </select></td>
+    </tr>
+
+    <tr id="viewboxs">
+	<td onmouseover="Over(event,'sqbs')" onmouseout="Out()">
+	    <b id="colsqb">Squareness:</b>
+	    <input type="text" id="insqbxt" name="insqbxt" size="3" />
+	    <select id="insqbs" name="insqbs" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="insqbya">Any</span>
+	    <input type="text" id="insqbyt" name="insqbyt" size="3" /></td>
+	<td colspan="2" onmouseover="Over(event,'boxs')" onmouseout="Out()">
+	    <b id="colbox">Smallest box:</b>
+	    <span id="viewboxx">
+		<input type="text" id="inboxwxt" name="inboxwxt" size="3" />
+		<input type="text" id="inboxhxt" name="inboxhxt" size="3" />
+	    </span>
+	    <select id="inboxs" name="inboxs" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inboxya">Any x Any</span>
+	    <span id="viewboxy">
+		<input type="text" id="inboxwyt" name="inboxwyt" size="3" />
+		<input type="text" id="inboxhyt" name="inboxhyt" size="3" />
+	    </span></td>
+    </tr>
+
+    <tr id="viewhulls">
+	<td onmouseover="Over(event,'sqhs')" onmouseout="Out()">
+	    <b id="colsqh">Squareness:</b>
+	    <input type="text" id="insqhxt" name="insqhxt" size="3" />
+	    <select id="insqhs" name="insqhs" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <input type="text" id="insqhyt" name="insqhyt" size="3" />
+	    <span id="insqhya">Any</span></td>
+	<td colspan="2" onmouseover="Over(event,'hulls')" onmouseout="Out()">
+	    <b id="colhull">Largest box:</b>
+	    <span id="viewhullx">
+		<input type="text" id="inhullwxt" name="inhullwxt" size="3" /> x
+		<input type="text" id="inhullhxt" name="inhullhxt" size="3" />
+	    </span>
+	    <select id="inhulls" name="inhulls" onchange="Criteria(0)">
+		<option value="M_ANY" selected="selected"></option>
+		<option value="M_EQ">=</option>
+		<option value="M_NE">&ne;</option>
+		<option value="M_LT">&lt;</option>
+		<option value="M_LE">&le;</option>
+		<option value="M_GT">&gt;</option>
+		<option value="M_GE">&ge;</option>
+		<option value="M_IN">&ndash;</option>
+		<option value="M_OUT">~</option>
+		<option value="M_INF">&#8734;</option>
+		<option value="M_NAN">?</option>
+	    </select>
+	    <span id="inhullya">Any x Any</span>
+	    <span id="viewhully">
+		<input type="text" id="inhullwyt" name="inhullwyt" size="3" /> x
+		<input type="text" id="inhullhyt" name="inhullhyt" size="3" />
+	    </span></td>
+    </tr>
+
+    <tr id="viewsymms">
+	<td id="colglides" onmouseover="Over(event,'glides')" onmouseout="Out()">
+	    <span id="viewglides">
+		<b id="colglide">Glide:</b>
+		<select id="inglides" name="inglides" onchange="Criteria(0)">
+		    <option value="Y_ANY" selected="selected">Any</option>
+		    <option value="Y_N">. (none)</option>
+		    <option value="Y_O">&ndash; (orthogonal reflection)</option>
+		    <option value="Y_D">/ (diagonal reflection)</option>
+		    <option value="Y_R">~ (180&deg; rotation)</option>
+		    <option value="Y_RR">@ (90&deg; rotation)</option>
+		    <option value="Y_ANYR">Includes ~ (~ @)</option>
+		    <option value="Y_M">Single reflection (- /)</option>
+		    <option value="Y_ANYS">Any symmetry (- / ~ @)</option>
+		</select>
+	    </span></td>
+	<td colspan="2" onmouseover="Over(event,'symms')" onmouseout="Out()">
+	    <b id="colsymm">Symmetry:</b>
+	    <select id="insymms" name="insymms" onchange="Criteria(0)">
+		<option value="Y_ANY" selected="selected">Any</option>
+		<option value="Y_N">. (none)</option>
+		<option value="Y_O">&ndash; (orthogonal reflection)</option>
+		<option value="Y_D">/ (diagonal reflection)</option>
+		<option value="Y_R">~ (180&deg; rotation)</option>
+		<option value="Y_OO">+ (two orthogonal reflections)</option>
+		<option value="Y_DD">x (two diagonal reflections)</option>
+		<option value="Y_RR">@ (90&deg; rotation)</option>
+		<option value="Y_OD">* (8-way symmetry)</option>
+		<option value="Y_ANYO">Includes - (- + *)</option>
+		<option value="Y_ANYD">Includes / (/ x *)</option>
+		<option value="Y_ANYR">Includes ~ (~ + x @ *)</option>
+		<option value="Y_ANYOO">Includes + (+ *)</option>
+		<option value="Y_ANYDD">Includes x (x *)</option>
+		<option value="Y_ANYRR">Includes @ (@ *)</option>
+		<option value="Y_M">Single reflection (- /)</option>
+		<option value="Y_ANYM">Any reflection (- / + x *)</option>
+		<option value="Y_ANYS">Any symmetry (- / ~ + x @ *)</option>
+	    </select></td>
+    </tr>
+
+    <tr id="viewoscs">
+	<td id="colphxs" onmouseover="Over(event,'phxs')" onmouseout="Out()">
+	    <span id="viewphxs">
+		<select id="inphxs" name="inphxs" onchange="Criteria(0)">
+		    <option value="P_ANY" selected="selected">Any</option>
+		    <option value="P_PHX">Phoenix</option>
+		</select>
+	    </span></td>
+	<td id="colffs" onmouseover="Over(event,'ffs')" onmouseout="Out()">
+	    <span id="viewffs">
+		<select id="inffs" name="inffs" onchange="Criteria(0)">
+		    <option value="H_ANY" selected="selected">Any</option>
+		    <option value="H_FF">Flip-flop</option>
+		    <option value="H_OO">On-off</option>
+		</select>
+	    </span></td>
+	<td id="colbbs" onmouseover="Over(event,'bbs')" onmouseout="Out()">
+	    <span id="viewbbs">
+		<select id="inbbs" name="inbbs" onchange="Criteria(0)">
+		    <option value="B_ANY" selected="selected">Any</option>
+		    <option value="B_BB">Babbling brook</option>
+		    <option value="B_MM">Muttering moat</option>
+		</select>
+	    </span></td>
+    </tr>
+
+    <tr id="viewults"><td colspan="3" class="z"></td></tr>
+
+    <tr id="viewmulti">
+	<td colspan="3" onmouseover="Over(event,'multi')" onmouseout="Out()">
+	    <textarea id="inmulti" name="inmulti"
+	      style="font-family:'Lucida Console',monospace;;font-size:12px;"
+	      cols="86" rows="10" ></textarea></td>
+    </tr>
+
+    <tr><td colspan="3" class="z"></td></tr>
+    <tr>
+	<td id="colby" onmouseover="Over(event,'views')" onmouseout="Out()">
+	    <span id="viewby">
+		<b>Show results by</b>
+		<select id="inviews" name="inviews" onchange="SelView(0)">
+		    <option value="V_LIST" selected="selected">List</option>
+		    <option value="V_STAMP">Stamp page</option>
+		</select>
+	    </span></td>
+	<td onmouseover="Over(event,'tip')" onmouseout="Out()">
+	    <input type="checkbox" id="intip" name="intip" />
+	      Show tool tips</td>
+	<td onmouseover="Over(event,'nums')" onmouseout="Out()">
+	    <b>Show numbers as</b>
+	    <select id="innums" name="innums" onchange="SelView(0)">
+		<option value="Q_REAL" selected="selected">Real</option>
+		<option value="Q_RAT">Rational</option>
+	    </select></td>
+    </tr>
+
+    <tr id="viewres">
+	<td id="colmax" onmouseover="Over(event,'max')" onmouseout="Out()">
+	    <span id="viewmax">
+		<b>Maximum results:</b><input type="text" id="inmax" name="inmax"
+		  size="5" value="20" onchange="SelView(0)" />
+	    </span></td>
+	<td colspan="2" onmouseover="Over(event,'sorts')" onmouseout="Out()">
+	    <b>Sort results by</b>
+	    <select id="indirs" name="indirs" onchange="SelView(0)">
+		<option value="1" selected="selected">Ascending</option>
+		<option value="-1">Descending</option>
+	    </select>
+	    <select id="insorts" name="insorts" onchange="SelSort(2)">
+		<option value="S_CAT">Category</option>
+		<option value="S_FREQ">Frequency</option>
+		<option value="S_GLS">Gliders</option>
+		<option value="S_RGLS">Gliders/bit</option>
+		<option value="S_MOD">Modulus</option>
+		<option value="S_NAME">Pattern name</option>
+		<option value="S_RMOD">Period/modulus</option>
+		<option value="S_PER">Period</option>
+		<option value="S_MINP" selected="selected">Population (minimum)</option>
+		<option value="S_AVGP">Population (average)</option>
+		<option value="S_MAXP">Population (maximum)</option>
+		<option value="S_RPOP">Min/Max population</option>
+		<option value="S_RAR">Rarity</option>
+		<option value="S_VEL">Velocity</option>
+	    </select>
+	    <select id="insortu" name="insortu" onchange="SelSort(3)">
+		<option value="S_CAT">Category</option>
+		<option value="S_FREQ">Frequency</option>
+		<option value="S_GLS">Gliders</option>
+		<option value="S_RGLS">Gliders/bit</option>
+		<option value="S_MOD">Modulus</option>
+		<option value="S_NAME">Pattern name</option>
+		<option value="S_RMOD">Period/modulus</option>
+		<option value="S_PER">Period</option>
+		<option value="S_MINP" selected="selected">Population (minimum)</option>
+		<option value="S_AVGP">Population (average)</option>
+		<option value="S_MAXP">Population (maximum)</option>
+		<option value="S_RPOP">Min/Max population</option>
+		<option value="S_RAR">Rarity</option>
+		<option value="S_VEL">Velocity</option>
+		<option value="S_BOX">Smallest box</option>
+		<option value="S_SQB">Smallest box squareness</option>
+		<option value="S_DEN">Density (minimum)</option>
+		<option value="S_ADEN">Density (average)</option>
+		<option value="S_MDEN">Density (maximum)</option>
+		<option value="S_EF">Evolutionary factor</option>
+		<option value="S_FILE">File name</option>
+		<option value="S_GLIDE">Glide symmetry</option>
+		<option value="S_HEAT">Heat</option>
+		<option value="S_IMG">Image</option>
+		<option value="S_INF">Influence</option>
+		<option value="S_HULL">Largest box</option>
+		<option value="S_SQH">Largest box squareness</option>
+		<option value="S_RVOL">Relative volatility</option>
+		<option value="S_SVOL">Strict volatility</option>
+		<option value="S_SYMM">Symmetry</option>
+		<option value="S_TEMP">Temperature</option>
+		<option value="S_TTS">Time to stabilize</option>
+		<option value="S_VOL">Volatility</option>
+	    </select></td>
+    </tr>
+  </table>
+
+    <p>
+	<input type="button" id="insearch" name="insearch" value="Search"
+	  onclick="Search()"
+	  onmouseover="Over(event,'search')" onmouseout="Out()" />
+	<input type="button" name="inreset" value="Reset" onclick="Clear()"
+	  onmouseover="Over(event,'reset')" onmouseout="Out()" />
+	<input type="button" id="inpaste" name="inpaste" value="Paste"
+	  onclick="Paste()"
+	  onmouseover="Over(event,'paste')" onmouseout="Out()" />
+	<span id="colpaste"
+	  onmouseover="Over(event,'pastes')" onmouseout="Out()">
+	    Paste as <select id="inpastes" name="inpastes">
+		<option value="X_RLE" selected="selected">RLE</option>
+		<option value="X_CELLS">Cells</option>
+		<option value="X_LIFE105">Life 1.05</option>
+		<option value="X_LIFE106">Life 1.06</option>
+	</select></span>
+	<input type="button" name="inhelp" value="Help" onclick="Help()"
+	  onmouseover="Over(event,'help')" onmouseout="Out()" /><br />
+	<div id="vieweval">
+	    <input type="text" id="inexpr" name="inexpr" size="80"
+	  onmouseover="Over(event,'expr')" onmouseout="Out()" />
+	    <input type="button" name="ineval" value="Eval" onclick="Eval()"
+	  onmouseover="Over(event,'eval')" onmouseout="Out()" />
+	</div>
+    </p>
+</p>
+
+<p id="txtstatus" onmouseover="Over(event,'status')" onmouseout="Out()">?
+    <progress id="progsearch" value="0" max="100"></progress></p>
+
+<p><div id="viewscroll">
+    <input type="button" id="inhome" name="inhome" value="<<" onclick="Home()"
+      onmouseover="Over(event,'home')" onmouseout="Out()" />
+    <input type="button" id="inpgup" name="inpgup" value="<" onclick="PgUp()"
+      onmouseover="Over(event,'pgup')" onmouseout="Out()" />
+    Page
+    <input type="text" id="inpaget" name="inpaget" size="3" onchange="Paget(0)"
+      onmouseover="Over(event,'paget')" onmouseout="Out()" />
+    <select id="inpages" name="inpages" onchange="Pages(0)"
+      onmouseover="Over(event,'pages')" onmouseout="Out()">
+    </select>
+    <span id="inpagen">?</span>
+    <input type="button" id="inpgdn" name="inpgdn" value=">" onclick="PgDn()"
+      onmouseover="Over(event,'pgdn')" onmouseout="Out()" />
+    <input type="button" id="inend" name="inend" value=">>" onclick="End()"
+      onmouseover="Over(event,'end')" onmouseout="Out()" />
+</div></p>
+
+<p id="viewstamp"><canvas id="canstamp" width="640" height="480"
+  style="border:1px solid black;" onclick="Click(event)"
+  onmouseover="Over(event,'stamp')" onmouseout="Out()"></canvas></p>
+
+<p><div id="viewtab" onmouseover="Over(event,'tab')" onmouseout="Out()">
+<table id="tablist" width="641"></table></div></p>
+
+<p><div id="viewscroll2">
+    <input type="button" id="inhome2" name="inhome2" value="<<" onclick="Home()"
+      onmouseover="Over(event,'home')" onmouseout="Out()" />
+    <input type="button" id="inpgup2" name="inpgup2" value="<" onclick="PgUp()"
+      onmouseover="Over(event,'pgup')" onmouseout="Out()" />
+    Page
+    <input type="text" id="inpaget2" name="inpaget2" size="3" onchange="Paget(1)"
+      onmouseover="Over(event,'paget')" onmouseout="Out()" />
+    <select id="inpages2" name="inpages2" onchange="Pages(1)"
+      onmouseover="Over(event,'pages')" onmouseout="Out()">
+    </select>
+    <span id="inpagen2">?</span>
+    <input type="button" id="inpgdn2" name="inpgdn2" value=">" onclick="PgDn()"
+      onmouseover="Over(event,'pgdn')" onmouseout="Out()" />
+    <input type="button" id="inend2" name="inend2" value=">>" onclick="End()"
+      onmouseover="Over(event,'end')" onmouseout="Out()" />
+</div></p>
+
+<p><div id="viewprop">
+    <table width="641">
+    <colgroup><col width="101" /><col width="538" /></colgroup>
+    <tr>
+	<td class="h"><b>Property</b></td>
+	<td class="h"><b>Value</b></td>
+    </tr>
+
+    <tr onmouseover="Over(event,'rule')" onmouseout="Out()">
+	<td><a class="i" target="_blank" href="liferule.htm">Rule</a></td>
+	<td><a id="gorule" class="i" target="_blank" href="#">?</a>
+	    <span id="txtunk">?</span></td>
+    </tr>
+
+    <tr id="viewsize" onmouseover="Over(event,'size')" onmouseout="Out()">
+	<td><a class="i" target="_blank" href="objsize.htm">Population</a></td>
+	<td><a id="gobits" class="i" target="_blank" href="#">?</a>
+	    <span id="txtpop">?</span> <span id="txtmaxp">?</span>
+	    <span id="txtdiff">(<a class="i" target="_blank" id="godiff">difficult objects</a>)</span>
+	    </td>
+    </tr>
+
+    <tr id="viewinf" onmouseover="Over(event,'inf')" onmouseout="Out()">
+	<td>Influence</td>
+	<td><span id="txtinf">?</span></td>
+    </tr>
+
+    <tr id="viewden" onmouseover="Over(event,'den')" onmouseout="Out()">
+	<td>Density</td>
+	<td><span id="txtden">?</span></td>
+    </tr>
+
+    <tr id="viewbox" onmouseover="Over(event,'box')" onmouseout="Out()">
+	<td>Smallest box</td>
+	<td><span id="txtbox">?</span></td>
+    </tr>
+
+    <tr id="viewhull" onmouseover="Over(event,'hull')" onmouseout="Out()">
+	<td>Largest box</td>
+	<td><span id="txthull">?</span></td>
+    </tr>
+
+    <tr id="viewsymm" onmouseover="Over(event,'symm')" onmouseout="Out()">
+	<td>Symmetry</td>
+	<td><span id="txtsymm">?</span></td>
+    </tr>
+
+    <tr id="viewbar"><td colspan="2" class="z"></td></tr>
+
+    <tr id="viewname" onmouseover="Over(event,'name')" onmouseout="Out()">
+	<td><a class="i" target="_blank" href="objname.htm">Name(s)</a></td>
+	<td><a id="gorle" class="p" href="#">?</a>
+	    <span id="txtwip">?</span></td>
+    </tr>
+
+    <tr id="viewalt" onmouseover="Over(event,'alt')" onmouseout="Out()">
+	<td>&nbsp;</td>
+	<td><a id="goalt" class="p" href="#">?</a></td>
+    </tr>
+
+    <tr id="viewcol" onmouseover="Over(event,'col')" onmouseout="Out()">
+	<td><a id="gocol" class="i" target="_blank" href="#">
+	    Multi-color</a></td>
+	<td><a id="gocrle" class="p" href="#">
+	    View multi-color synthesis</a></td>
+    </tr>
+
+    <tr id="viewcat" onmouseover="Over(event,'cat')" onmouseout="Out()">
+	<td><a class="i" target="_blank" href="objtype.htm">Category</a></td>
+	<td><a id="gocat" class="i" target="_blank" href="#">?</a>
+	    <span id="txtcat">?</span> <span id="txtosc">?</span></td>
+    </tr>
+
+    <tr id="viewrar" onmouseover="Over(event,'rar')" onmouseout="Out()">
+	<td><a class="i" target="_blank" href="natural.htm">Frequency</a></td>
+	<td><a id="gorar" class="i" target="_blank" href="#">?</a></td>
+    </tr>
+
+    <tr id="viewtts" onmouseover="Over(event,'tts')" onmouseout="Out()">
+	<td>T.T.S.</td>
+	<td id="gotts">?</td>
+    </tr>
+
+    <tr id="viewgls" onmouseover="Over(event,'gls')" onmouseout="Out()">
+	<td><a class="i" target="_blank" href="objcost.htm">Gliders</a></td>
+	<td id="colgl">
+	    <a id="gogl" class="i" target="_blank" href="#">?</a>
+	    <span id="txtg">?</span></td>
+    </tr>
+
+    <tr id="viewheat" onmouseover="Over(event,'heat')" onmouseout="Out()">
+	<td>Heat</td>
+	<td><span id="txtheat">?</span></td>
+    </tr>
+
+    <tr id="viewper" onmouseover="Over(event,'per')" onmouseout="Out()">
+	<td><a class="i" target="_blank" href="period.htm">Period</a></td>
+	<td><span id="txtper">?</span></td>
+    </tr>
+
+    <tr id="viewtemp" onmouseover="Over(event,'temp')" onmouseout="Out()">
+	<td>Temperature</td>
+	<td><span id="txttemp">?</span></td>
+    </tr>
+
+    <tr id="viewvel" onmouseover="Over(event,'vel')" onmouseout="Out()">
+	<td><a class="i" target="_blank" href="exotic.htm">Velocity</a></td>
+	<td><span id="txtvel">?</span></td>
+    </tr>
+
+    <tr id="viewvol" onmouseover="Over(event,'vol')" onmouseout="Out()">
+	<td>Volatility</td>
+	<td><span id="txtvol">?</span></td>
+    </tr>
+</table></div></p>
+
+<p>
+    <div id="viewimg"  onmouseover="Over(event,'img')" onmouseout="Out()">
+	<table id="tabimg"></table></div>
+    <canvas id="canimg" width="640" height="640"
+      style="border:1px solid black;" onclick="Launch()"
+      onmouseover="Over(event,'can')" onmouseout="Out()"></canvas>
+</p>
+
+</form></div>
+
+<div id="tooltip"
+  style="position:absolute;border:1px black solid;width:480px;background-color:#FFFFE0;display:none;left:0px;top:0px">
+<div style="padding:5px;">
+<div id="tiptypes" style="display:none;">
+    <p>This selects the type of search you want to perform:</p>
+    <p><ul>
+	<li><b>Image</b> lets you enter a pattern image, in any of several
+	    different formats, find the pattern that matches that image. The
+	    position and orientation of the pattern is not important. For
+	    oscillators and spaceships, you can enter any phase.</li>
+	<li><b>Simple</b> lets you search a pattern by name.</li>
+	<li><b>Advanced</b> lets you search a pattern by name and/or
+	    certain common properties.</li>
+	<li><b>Detailed</b> is like Advanced, but also includes
+	    less common properties.</li>
+	<li><b>Ultimate</b> is like Detailed, but also includes an image.</li>
+    </ul></p>
+</div>
+
+<div id="tiprules" style="display:none;">
+    <p>This selects the cellular automata rule that contains the pattern(s)
+    being searched for. This is normally Life, but you can also select one of several other rules:</p>
+    <p><ul>
+	<li><b>Any</b> searches all rules simultaneously.</li>
+	<li><b>Life</b> is Conway's Game of Life, the default rule.</li>
+	<li><b>B2/S2</b> is an extremely explosive rule.</li>
+	<li><b>B34/S34</b> is an interesting rule, once considered a viable
+	    alternative to Life, but that has since been determined to be
+	    too explosive to be very useful.</li>
+	<li><b>Niemiec's rule 1</b> is a rule that features several natural
+	    spaceships that move at different velocities and directions.</li>
+	<li><b>Niemiec's rule 0</b> is a less interesting rule, but it includes
+	    two additional unusual spaceships.</li>
+    </ul></p>
+</div>
+
+<div id="tipexp" style="display:none;">
+    <p>This selects whether expanded object list is loaded:</p>
+    <p><ul>
+	<li>When this is unchecked, this behaves identically to the normal
+	    search function, where around 10,000 items (most with syntheses)
+	    can be searched.</li>
+	<li>When this is checked, an approximately 100,000 additional items
+	    (without syntheses) can also be searched. Searching takes longer,
+	    but can at least identify obscure items.</li>
+    </ul></p>
+</div>
+
+<div id="tipnames" style="display:none;">
+    <div id="tippat"><p>
+	<p>The leftmost selection box selects what kind of name you want to
+	search by:</p>
+	<p><ul>
+	    <li><b>Pattern</b> searches by pattern name(s).</li>
+	    <li><b>File</b> searches by the file name(s) that contain a
+		pattern's synthesis. Leading path name and trailing extension
+		are ignored. Unlike pattern names, hyphens are significant, but
+		periods are ignored.</li>
+	</ul></p>
+	<p>The middle selection box selects how you want the name to be matched.
+	For example, if "block" is entered:</p>
+	<p><ul>
+	    <li><b>Any</b> matches all patterns, regardless of name.</li>
+	    <li><b>Is</b> matches "block" and nothing else.</li>
+	    <li><b>Begins with</b> matches "block", "block on ship", "blockade",
+		etc.</li>
+	    <li><b>Ends with</b> matches "block" and "Up boat on Z on
+		pre-block", etc.</li>
+	    <li><b>Contains</b> matches all of the above, and "beehive on block
+		on ship", etc.</li>
+	    <li><b>Is not</b> matches everything except "block".</li>
+	    <li><b>Does not begin with</b> matches everything that does not
+		begin with "block".</li>
+	    <li><b>Does not end with</b> matches everything that does not end
+		with "block".</li>
+	    <li><b>Does not contain</b> matches everything that does not contain
+		"block".</li>
+	</ul></p>
+    </p></div>
+    <p>Select the name you want to search for. Case is not important.
+    Only letters, digits, and periods are important. Other characters that
+    may be used in names (e.g. spaces, -, #, $) are ignored (e.g. "preblock"
+    matches the name "pre-block").</p>
+    <p>A * anywhere in the name matches zero or more characters, e.g. "*block"
+    matches anything that begins with "block", "block*" matches anything that
+    ends with "block", and "*block*" matches anything that contains "block".
+    These behave just like the selections in the Advanced Search selection box.
+    But you can also specify more complicated behavior, e.g. "block*ship"
+    matches anything that begins with "block" and ends with "ship", and
+    "*block*block*" matches anything that contains "block" twice.</p>
+    <p>The ~ character can be used to separate multiple names, and means
+    "and not". For example, "~*block*" means anything that doesn't contain
+    "block", while "*ship*~*block*~*boat*" means anything that contains "ship"
+    but not "block" or "boat".</p>
+    <p>The ; character can be used to separate multiple names, and means "or".
+    For example, "*block*block*;*ship*" means anything that contains "block" at
+    least twice, or "ship" at least once.</p>
+</div>
+
+<div id="tipcats" style="display:none;">
+    <p>This selects what category of pattern you want to search for:</p>
+    <p><ul>
+	<li><b>Any</b> matches all patterns, regardless of category.</li>
+	<li><b>Still-life</b> matches objects that repeat, and have a period of
+	    1, i.e. no births and deaths.</li>
+	<li><b>Still-life (difficult only)</b> matches only those still-lifes
+	    from 15 to 17 bits that were on the list of difficult-to-synthesize
+	    ones that were the last for which syntheses were developed.</li>
+	<li><b>Pseudo-still-life</b> matches pseudo-objects that repeat, and
+	    have a period of 1.</li>
+	<li><b>Oscillator</b> matches objects that repeat, and have a period of
+	    more than 1.</li>
+	<li><b>Pseudo-oscillator</b> matches pseudo-objects that repeat, and
+	    have a period of more than 1.</li>
+	<li><b>Spaceship</b> matches spaceships: objects that repeat, but are translated in space when
+	    they do so. This also includes pseudo-spaceships (pseudo-objects
+	    that behave similarly), and flotillae (groups of two or more
+	    traveling in tandem).</li>
+	<li><b>Wick stretcher</b> matches wick stretchers: spaceships that
+	    leave output behind them that consists of an fixed number of
+	    ever-growing objects, and constantly increase in population.</li>
+	<li><b>Puffer</b> matches puffer trains: spaceships that leave output
+	    behind them that consists of an ever-increasing number
+	    of objects, and constantly increase in population.</li>
+	<li><b>Gun</b> matches spaceship guns: oscillators that produce
+	    spaceships that escape, and constantly increase in population.</li>
+	<li><b>Breeder</b> matches breeders: patterns whose population increases
+	    quadratically with time.</li>
+	<li><b>Constellation</b> matches collections of two or more stable,
+	    oscillating, and/or moving objects and/or pseudo-objects.</li>
+	<li><b>Methuselah</b> matches small patterns that are not stable, but
+	    that run for a long time before stabilizing.</li>
+	<li><b>Not quite stable pattern</b> matches patterns that aren't quite
+	    stable, but that closely resemble other patterns that are.</li>
+	<li><b>Patterns with multiple names</b> matches any pattern that has
+	    two or more listed names. This frequently happens for larger
+	    still-lifes that have descriptive names as well as their numeric
+	    designations. It also happens frequently for common objects that
+	    are independently discovered or named by different people.</li>
+	<li><b>Patterns with multiple synthesis files</b> matches any pattern
+	    that has two or more synthesis files. This can happen in one of
+	    three circumstances. Some very large (or difficult to synthesize)
+	    objects may have multiple syntheses separated into different files.
+	    Many methuselahs that produce large results, especially those that
+	    release multiple gliders, have one file showing multiple syntheses,
+	    and another containing only one, that allows the methuselah to be
+	    run to completion without multiple copies interfering with each
+	    other. Finally, some patterns have additional properties that are
+	    best illustrated in a separate file (e.g. the Queen bee's ability to
+	    eat gliders in many different ways).</li>
+	<li><b>Patterns with multi-color syntheses</b> matches any pattern that
+	    has syntheses in multi-color Life.</li>
+    </ul></p>
+    <p>Each pattern appears in only one category, except the last four, that
+    all include patterns from other categories.</p>
+</div>
+
+<div id="tipminps" style="display:none;">
+    <p>This selects the base population of a pattern, which is the population
+    in its minimum phase.</p>
+</div>
+
+<div id="tipmaxps" style="display:none;">
+    <p>This selects the maximum population of a pattern. This can be infinite
+    for infinitely expanding patterns. For methuselahs, this
+    is the maximum population of its final census.</p>
+</div>
+
+<div id="tiprpops" style="display:none;">
+    <p>This selects the ratio of minimum to maximum population. This is at
+    most 1, but may be zero for infinitely expanding patterns.</p>
+</div>
+
+<div id="tipavgps" style="display:none;">
+    <p>This selects the average population of all phases of a pattern. This
+    can be infinite for infinitely expanding patterns. For methuselahs, this
+    is the average population of all phases of its final census.</p>
+</div>
+
+<div id="tipglss" style="display:none;">
+    <p>This selects the number of gliders needed to synthesize an object. It can
+    be a number, or one of these:</p>
+    <p><ul>
+	<li><b>Known</b> describes patterns for which it has been shown that
+	    they can definitely be synthesized, but for which no synthesis has
+	    yet been attempted. This can currently includes 15- and 16-bit
+	    still-lifes, 17-bit pseudo-still-lifes, and period-2
+	    pseudo-oscillators from 17 to 19 bits.</li>
+	<li><b>Unknown</b> describes patterns for which no synthesis is yet
+	    known. Such patterns are listed with glider counts of <i>x</i> in
+	    pattern lists. This is actually equivalent to &ge; <i>x</i> and also
+	    includes partial syntheses.</li>
+	<li><b>Partial</b> describes patterns for which a partial synthesis
+	    exists, based on a predecessor that does not yet have a synthesis.
+	    This is equivalent to &gt; <i>x</i>.</li>
+	<li><b>TBD</b> describes patterns for which no synthesis has yet been
+	    attempted. It is not known whether syntheses exist using currently
+	    known techniques.</li>
+    </ul></p>
+    <p>You can also selects the number of gliders required to synthesize a
+    pattern, relative to its population. It is used to qualify how expensive a
+    synthesis is.</p>
+    <p>If the <b>Range</b> check box is checked, only syntheses that have a range
+    of different values are matched. Otherwise, ranges match the lowest value
+    within the range.</p>
+</div>
+
+<div id="tippers" style="display:none;">
+    <p>This selects the period of a pattern. This is the number of generations
+    it takes to return to its original state (possibly translated). For patterns
+    with multiple components, this is the GCD of all components taken together.
+    For infinitely expanding patterns, this includes both the generator (i.e.
+    gun or puffer) and the resulting output. This can be infinite for patterns
+    that expand infinitely in an irregular fashion.</p>
+</div>
+
+<div id="tipmods" style="display:none;">
+    <p>This selects the modulus of a pattern. This is the number of generations
+    that it takes for the pattern to return to its original state, regardless
+    of rotation or reflection. This is the period for most patterns, but can
+    also be period/2 for patterns with glide symmetry, or even period/4 for
+    asymmetrical patterns that rotate 90 degrees four times each period.</p>
+</div>
+
+<div id="tiprars" style="display:none;">
+    <p>This selects the frequency or rarity of a still-life or oscillator.
+    Frequency is always a small real number for the 152 measured objects,
+    while rarity (its inverse) is a large real number. It is listed as Unknown
+    for all others. This is irrelevant for all other object categories, and is
+    N/A for those.</p>
+</div>
+
+<div id="tipvels" style="display:none;">
+    <p>This selects the velocity of a pattern, e.g. how far it moves in each
+    period, divided by the period. This is zero for most pattern categories,
+    and a non-zero number between 0 and <i>c</i> for spaceships and puffers.
+    In most rules, this cannot exceed <i>c</i>/2 for orthogonal movement
+    (although it can reach <i>c</i> in B2/S2). In most rules, this cannot
+    exceed <i>c</i>/3 for diagonal movement (and it cannot exceed
+    <i>c</i>/4 in Life).</p>
+    <p>You can also select the direction of movement. This can be one of:</p>
+    <p><ul>
+	<li><b>Any</b> matches patterns that move in any direction.</li>
+	<li><b>Orthogonal</b> is for patterns for which movement in in one axis
+	    only.</li>
+	<li><b>Diagonal</b> is for patterns for which movement is by the same
+	    same amount in both axes.</li>
+	<li><b>Oblique</b> is for other patterns, i.e. those that move in both
+	    axes, but a different amount in each. These are extremely rare.</li>
+    </ul></p>
+    <p>(Velocity is always along the major axis of movement; e.g. an oblique
+    (2,1)<i>c</i>/6 spaceship would be indicated by 2<i>c</i>/6, or more simply,
+    <i>c</i>/3.)</p>
+</div>
+
+<div id="tipttss" style="display:none;">
+    <p>This selects the T.T.S. (time to stabilize) of a pattern. It is zero for
+    all periodic patterns, and non-zero for methuselahs. It is infinite for
+    patterns that expand without limit without ever reaching periodicity.</p>
+</div>
+
+<div id="tipefs" style="display:none;">
+    <p>This selects the E.F. (evolutionary factor) of a pattern. This is the
+    time to stabilize divided by the initial population. It is zero for all
+    periodic patterns, and non-zero for methuselahs. It is infinite for
+    patterns that expand without limit without ever reaching periodicity.</p>
+</div>
+
+<div id="tipinf" style="display:none;">
+    <p>This selects the Influence of a pattern. This is the number of cells
+    whose neighborhoods are ever affected by the pattern, i.e. all cells that
+    are ever alive, or that are dead but adjacent to other cells that are ever
+    alive.</p>
+</div>
+
+<div id="tipden" style="display:none;">
+    <p>This selects the Minimum Density of a pattern. This is minimum population
+    divided by the influence. This is always a value between 0 and 1. In Life,
+    this must be less than &frac12; for still-lifes and period-2 oscillators.
+    It can equal &frac12; for agars of these, but this program does not show
+    such infinite patterns. It can also be <i>unknown</i> for some large
+    patterns whose exact populations have not yet been recorded.</p>
+    <p>For patterns whose population changes, average and maximum densities
+    (i.e. average and maximum populations divided by influence) are also shown.
+    Average density for period-2 oscillators cannot exceed &frac12; but
+    maximum density can.</p>
+</div>
+
+<div id="tipheats" style="display:none;">
+    <p>This selects the heat of a pattern. This is defined as the average
+    number of unstable cells in each generation. This is zero for still-lifes
+    and pseudo-still-lifes. It can be infinite for infinitely-expanding
+    patterns, such as guns, and puffers that leave non-still objects.
+    It is unknown for a few large spaceships. For methuselahs, this is the
+    heat of the final census</p>
+</div>
+
+<div id="tiptemps" style="display:none;">
+    <p>This selects the temperature of a pattern. This is defined as the heat
+    divided by the population, or total number of unstable cells in all
+    generations, divided by the total populations of all generations.
+    This is a similar measure to heat, but scales with population, so it is
+    possible to define it meaningfully even for infinitely-expanding patterns.
+    (This is similar to the corresponding measures from physics; doubling the
+    size of an object doubles its heat, but does not alter its temperature).</p>
+</div>
+
+<div id="tipvols" style="display:none;">
+    <p>This selects the volatility of a pattern. This is defined as the
+    number of rotor cells divided by the number of rotor plus stator cells.
+    This is zero for still-lifes and pseudo-still-lifes. It is a non-zero
+    number between 0 and 1 for for oscillators and pseudo-oscillators. It is
+    always 1 for spaceships. For infinitely-expanding patterns, this value is
+    dominated by that of the expanding output. For methuselahs, this is the
+    volatility of the final census.</p>
+</div>
+
+<div id="tipsvols" style="display:none;">
+    <p>This selects the strict volatility of a pattern. This is similar to
+    volatility, but only considers the cells that oscillate at the full
+    oscillator or spaceship period, rather than all rotor cells. It is defined
+    as the number of full-period cells divided by the number of rotor plus
+    stator cells. This is equal to volatility for still-lifes and
+    pseudo-still-lifes (for which it is also zero), for all oscillators
+    and spaceships with prime periods, and for totally volatile oscillators
+    of other periods.</p>
+    <p>You can also select the ratio of strict volatility and volatility.
+    This also always varies between 0 and 1.</p>
+</div>
+
+<div id="tipsqbs" style="display:none;">
+    <p>This selects the squareness of the smallest bounding box, which is the
+    ratio between its height and its width. This is always 1 or smaller.</p>
+</div>
+
+<div id="tipboxs" style="display:none;">
+    <p>This selects the smallest bounding box of the pattern. This may be
+    smaller than the bounding box of the phase with the smallest population.</p>
+</div>
+
+<div id="tipsqhs" style="display:none;">
+    <p>This selects the squareness of the largest bounding box, which is the
+    ratio between its height and its width. This is always 1 or smaller, and
+    may be 0 for patterns that expand infinitely in one dimension.
+    It is defined properly for patterns that expand infinitely in two
+    dimensions, because they may expand at different rates (for example, the
+    B heptomino releases two gliders escaping at right angles, expanding twice
+    as fast in their common direction, so its squareness is &frac12;.)</p>
+</div>
+
+<div id="tiphulls" style="display:none;">
+    <p>This selects the largest bounding box of the pattern. For methuselahs,
+    this is the largest bounding box of the final census. One or both
+    dimensions may be infinite for infinitely expanding patterns.</p>
+</div>
+
+<div id="tipsymms" style="display:none;">
+    <p>This selects the symmetry class of patterns. For convenience (and brevity
+    for inclusion in the results table), each symmetry class is described by a
+    single letter that embodies. This can be one of:</p>
+    <p><ul>
+	<li><b>. (none)</b> is for asymmetrical patterns.</li>
+	<li><b>- (orthogonal reflection)</b> is for patterns with D1 symmetry,
+	    that are unchanged when reflected in a horizontal or vertical mirror
+	    (| or &ndash;).</li>
+	<li><b>/ (diagonal reflection)</b> is for patterns with D1 symmetry,
+	    that are unchanged when reflected in a diagonal mirror
+	    (/ or \).</li>
+	<li><b>~ (180&deg; rotation)</b> is for stationary patterns with C2
+	    symmetry, that are unchanged when rotated 180 degrees about a
+	    point.</li>
+	<li><b>+ (two orthogonal reflections)</b> is for stationary patterns with
+	    D2 symmetry, that are unchanged when reflected in either horizontal
+	    or vertical mirrors.</li>
+	<li><b>x (two diagonal reflections)</b> is for stationary patterns with
+	    D2 symmetry, that are unchanged when reflected in either kind of
+	    diagonal mirror.</li>
+	<li><b>@ (90&deg; rotation)</b> is for stationary patterns with C4
+	    symmetry, that are unchanged when rotated 90 degrees about a
+	    point.</li>
+	<li><b>* (8-way symmetry)</b> is for stationary patterns that possess
+	    with eight-way D4 symmetry, that are unchanged when reflected in any
+	    kind of mirror, or rotated 90 or 180 degrees.</li>
+    </ul></p>
+</div>
+
+<div id="tipglides" style="display:none;">
+    <p>This selects the glide symmetry class of periodic patterns that may
+    reform rotated or reflected multiple times during their periods. The same
+    notation is used as for symmetry:</p>
+    <p><ul>
+	<li><b>. (none)</b> is for patterns without glide symmetry. Modulus is
+	    the same as period. This can apply to patterns with any kind of
+	    symmetry.</li>
+	<li><b>&ndash; (orthogonal reflection)</b> is for patterns with D1 glide
+	    symmetry, that reflect themselves horizontally or vertically.
+	    Modulus is period/2. This can apply to asymmetrical patterns or
+	    patterns with orthogonal reflection or 180&deg; rotation
+	    symmetry.</li>
+	<li><b>/ (diagonal reflection)</b> is for patterns with D1 glide
+	    symmetry, that reflect themselves diagonally. Modulus is period/2.
+	    This can apply to asymmetrical patterns or patterns with diagonal
+	    reflection symmetry. (For patterns with 180&deg; rotation
+	    symmetry, this is equivalent to T.)</li>
+	<li><b>~ (180&deg; rotation)</b> is for stationary patterns with C2
+	    glide symmetry, that rotate themselves 180 degrees about a point.
+	    Modulus is period/2. This can apply to asymmetrical patterns.
+	    (For patterns with reflection symmetry, this is equivalent to
+	    their symmetry.)</li>
+	<li><b>@ (90&deg; rotation)</b> is for stationary patterns with D4 glide
+	    symmetry, that are rotate themselves 180 degrees about a point.
+	    This can apply to asymmetrical patterns, in which case modulus is
+	    period/4. It can also apply to patterns with 180 degree reflection
+	    symmetry, in which case modulus is period/2.</li>
+    </ul></p>
+</div>
+
+<div id="tipphxs" style="display:none;">
+    <p>This selects a sub-class of oscillator or spaceship:</p>
+    <p><ul>
+	<li><b>Any</b> matches everything.</li>
+	<li><b>Phoenix</b> matches patterns that have no cells that survive
+	    in any generation
+	    (i.e. for oscillators, there are no stator cells).</li>
+    </ul></p>
+</div>
+
+<div id="tipffs" style="display:none;">
+    <p>This selects a sub-class of oscillator:</p>
+    <p><ul>
+	<li><b>Any</b> matches everything.</li>
+	<li><b>Flip-flop</b> matches patterns whose rotor cells die only from
+	    under-population.</li>
+	<li><b>On-off</b> matches patterns whose rotor cells die only from
+	    over-population.</li>
+    </ul></p>
+</div>
+
+<div id="tipbbs" style="display:none;">
+    <p>This selects a sub-class of oscillator:</p>
+    <p><ul>
+	<li><b>Any</b> matches everything.</li>
+	<li><b>Babbling brook</b> matches oscillators whose rotor consists
+	    entirely of an open chain of two or more cells, each with exactly
+	    two rotor neighbors, except the end cells that have only one
+	    neighbor each (e.g. beacon, test-tube baby).</li>
+	<li><b>Muttering moat</b> matches oscillators whose rotor consists
+	    entirely of a closed chain of two or more cells, each with exactly
+	    two rotor neighbors (e.g. blinker, clock, bipole).</li>
+    </ul></p>
+</div>
+
+<div id="tipmulti" style="display:none;">
+    <p>This is where you enter the pattern to match. You can enter the pattern
+    in one of two ways:</p>
+    <p><ul>
+	<li>As an image of dead and living cells. This is typically done with
+	    . and o characters, but all punctuation and line-drawing characters
+	    are treated as dead cells (. , : ; - | +) and all others are treated
+	    as living cells. Comment lines at the start beginning with # or !
+	    are ignored. The pattern cannot include any ! characters.</li>
+	<li>A text life file exported from another program like Golly.
+	    Formats currently supported are RLE, Cells, Life 1.05, and Life
+	    1.06. The format is fairly forgiving (for example, comments can
+	    begin with # or ! regardless of format; RLE files can omit the
+	    header line or trailing ! character, although one or the other must
+	    be to identify this as RLE format.)</li>
+	<li>Results from the Paste button are also displayed here.</li>
+    </ul></p>
+    <p>Cells entered as ? are treated as wildcards, and match both living and
+    dead cells. These are useful when searching for parts of patterns.</p>
+</div>
+
+<div id="tipviews" style="display:none;">
+    <p>This selects how search results are displayed:</p>
+    <p><ul>
+	<li><b>List</b> displays the results in a text table, with each row
+	    indicating one matched pattern. The pattern's name(s), period,
+	    population, and number of gliders required to synthesize it are
+	    displayed. Additional columns may also be present if other
+	    properties are used as search constraints, or as sort order.</li>
+	<li><b>Stamp page</b> displays the results as a stamp page image, in
+	    the same format as other pages on this site. Each matched pattern's
+	    image is displayed, as well as the number of gliders required to
+	    synthesize it. Rarity may also be displayed if frequency or rarity
+	    is used as a search constraint or sort order. Typically up to 110
+	    patterns can be displayed on each page, although this number may be
+	    smaller if any larger patterns occur in the search result list.</li>
+    </ul></p>
+</div>
+
+<div id="tiptip" style="display:none;">
+    <p>If this is checked, tool tips are displayed whenever you hover your
+    mouse for several seconds over any control, input field, or displayed
+    results. If you find tool tips unnecessary or annoying, uncheck this.</p>
+</div>
+
+<div id="tipnums" style="display:none;">
+    <p>This selects how numbers should be displayed:</p>
+    <p><ul>
+	<li><b>Real</b> displays numbers with decimal places, e.g.
+	    1.25. Very large and very small numbers are displayed in scientific
+	    notation, e.g. 1.25e10.</li>
+	<li><b>Rational</b> displays numbers as fractions, e.g. 5/4.</li>
+	<li>Integers are always just displayed as integers, e.g. 42.</li>
+	<li>Numbers too large to display in the result list view are always
+	    shown in scientific notation.</li>
+    </ul></p>
+</div>
+
+<div id="tipmax" style="display:none;">
+    <p>This selects the maximum number of results to show in the search result
+    table.</p>
+    <p id="canmax">This is not used in the stamp page view, where the number of
+    displayed results depends on the size of the patterns displayed.</p>
+</div>
+
+<div id="tipsorts" style="display:none;">
+    <p>This selects the order in which search results are displayed. This
+    selects the primary sorting order. If multiple patterns have the same
+    value, they are then sorted by period, population, and then name.</p>
+    <p id="cansorts">In the stamp page view, the secondary sorting order is by
+    period, population, and then pattern image, as in the rest of this site.</p>
+</div>
+
+<div id="tipsearch" style="display:none;">
+    <p>Press this button to begin a new search, based on the criteria entered
+    in the table above.</p>
+</div>
+
+<div id="tipreset" style="display:none;">
+    <p>Press this button to reset all fields in the above form to their initial
+    values.</p>
+</div>
+
+<div id="tippaste" style="display:none;">
+    <p>Press this button to paste the pattern image at the bottom of this page
+    into the above text box in human-readable text format.</p>
+</div>
+
+<div id="tippastes" style="display:none;">
+    <p>This selects the format of data pasted by the Paste button:</p>
+    <p><ul>
+	<li><b>RLE</b> displays the pattern in RLE format. This consists of an
+	    optional comment block, a header line, and the pattern stored in
+	    run-length encoded text format, which is ideal for copying to modern
+	    programs like Golly, and for text interchange, e.g. email. Most
+	    pattern files on this site are in RLE format. This is ideal for
+	    moderate to large patterns with dimensions up to around 1000x1000
+	    (and is much more compact than plain text for such patterns), but
+	    becomes unwieldy for huge patterns like Gemini and Caterpillar,
+	    with populations in the millions.</li>
+	<li><b>Cells</b> displays the pattern in human-readable format, as an
+	    array of . (dead) and O (living) cells. It may be preceded by a
+	    block of comments beginning with ! characters.</li>
+	<li><b>Life 1.05</b> displays the pattern in the format used by the Life
+	    1.05 program. It consists of a header comment block, followed by
+	    the pattern stored in plain text as an array of . (dead) and *
+	    (living) cells.</li>
+	<li><b>Life 1.06</b> displays the pattern in the format used by the Life
+	    1.06 program. It consists of a header comment block, followed by
+	    the pattern stored as a set of coordinate points for each living
+	    cell, one per line. While this can be more compact than plain text,
+	    it is less compact than RLE,</li>
+    </ul></p>
+</div>
+
+<div id="tiphelp" style="display:none;">
+    <p>Press this button to open the search help page in another window.</p>
+</div>
+
+<div id="tipexpr" style="display:none;">
+    <p>Enter the expression to be evaluated here.</p>
+</div>
+
+<div id="tipeval" style="display:none;">
+    <p>Press this button to evaluate the JavaScript expression on the left
+    and display the results in the text box above.</p>
+</div>
+
+<div id="tipstatus" style="display:none;">
+    <p>This indicates the status of the search, and when the search is
+    completed, how many results were found, if any.</p>
+</div>
+
+<div id="tiphome" style="display:none;">
+    <p>Press this button to select the first page of multiple-page results.</p>
+</div>
+
+<div id="tippgup" style="display:none;">
+    <p>Press this button to select the previous page of multiple-page results.</p>
+</div>
+
+<div id="tippgdn" style="display:none;">
+    <p>Press this button to select the next page of multiple-page results.</p>
+</div>
+
+<div id="tipend" style="display:none;">
+    <p>Press this button to select the last page of multiple-page results.</p>
+</div>
+
+<div id="tippaget" style="display:none;">
+    <p>This shows which page is displayed from multiple-page results. You
+    can jump to a particular page by entering its number.</p>
+</div>
+
+<div id="tippages" style="display:none;">
+    <p>This shows which page is displayed from multiple-page results. You
+    can jump to a particular page by selecting its number.</p>
+</div>
+
+<div id="tipstamp" style="display:none;">
+    <p>This is the stamp page of results of the search. Clicking on it has the
+    following effects:</p>
+    <p><ul>
+	<li>Clicking on a pattern's image selects that pattern, and displays its
+	    properties in the table below.</li>
+	<li>Clicking on the top left corner of the stamp page scrolls to the
+	    previous page, if multiple pages are available. This is the same
+	    as the &lt; button.</li>
+	<li>Clicking on the bottom left corner of the stamp page scrolls to the
+	    next page, if multiple pages are available. This is the same
+	    as the &gt; button.</li>
+	<li>Clicking on the bottom right corner of the stamp page selects the
+	    entire stamp page as a single pattern. This is useful for pasting
+	    it as a whole into another program.</li>
+    </ul></p>
+</div>
+
+<div id="tiptab" style="display:none;">
+    <p>This is the list of results of the search. Clicking on it has the
+    following effects:</p>
+    <p><ul>
+	<li>Clicking on one of the column headers selects that property as
+	    the primary sort order, displays it in green, and sorts by that
+	    property in ascending order. Clicking on the same column again
+	    displays it in red and sorts in reverse order. This is the same as
+	    the "Sort results by" selection box.</li>
+	<li>Clicking on a pattern name selects that pattern, and displays its
+	    properties in the table below.</li>
+    </ul></p>
+</div>
+
+<div id="tiprule" style="display:none;">
+    <p>This shows the cellular automata rule for the pattern being
+    displayed:</p>
+    <p><ul>
+	<li><b>Life</b> is Conway's Game of Life, the default rule.</li>
+	<li><b>B2/S2</b> is an extremely explosive rule.</li>
+	<li><b>B34/S34</b> is an interesting rule, once considered a viable
+	    alternative to Life, but that has since been determined to be
+	    too explosive to be very useful.</li>
+	<li><b>Niemiec's rule 1</b> is a rule that features several natural
+	    spaceships that move at different velocities and directions.</li>
+	<li><b>Niemiec's rule 0</b> is a less interesting rule, but it includes
+	    two additional unusual spaceships.</li>
+	<li>Other rules may appear here when searching for an RLE file from a
+	    rule that is not supported by this site. This can only appear for
+	    patterns being searched, as such patterns can never be found.</li>
+	<li><b>Unknown</b> is shown when an image search doesn't specify a
+	    rule, and doesn't yield any results.</li>
+    </ul></p>
+    <p>Click on the rule name to open up the page for that specific rule.</p>
+    <p>Click on "Rule" to open up the page for selecting rules.</p>
+</div>
+
+<div id="tipname" style="display:none;">
+    <p>This shows the pattern's name (or multiple names separated by semicolons,
+    if the pattern has more than one).</p>
+    <p>Click on the name(s) to open up synthesis file for the pattern.</p>
+    <p>Click on "Names(s)" to open up the page for selecting patterns by
+    name.</p>
+</div>
+
+<div id="tipalt" style="display:none;">
+    <p>This only appears for patterns that have multiple synthesis files.
+    This can happen in one of three circumstances:</p>
+    <p><ul>
+	<li>Some very large (or difficult to synthesize) objects may have
+	    multiple syntheses separated into different files.</li>
+	<li>Many methuselahs that produce large results, especially those that
+	    release multiple gliders, have one file showing multiple syntheses,
+	    and another containing only one image, that allows the methuselah
+	    to be run to completion without multiple copies interfering with
+	    each other.</li>
+	<li>Finally, some patterns have additional properties that are best
+	    illustrated in a separate file (e.g. the Queen bee's ability to
+	    eat gliders in many different ways).</li>
+    </ul></p>
+    <p>Click on "Run methuselah" or "View alternate synthesis" to open up
+    the alternate synthesis file for the pattern.</p>
+</div>
+
+<div id="tipcol" style="display:none;">
+    <p>This only appears for patterns that have syntheses in multi-color
+    Life.</p>
+    <p>Click on "View multi-color synthesis" to open up multi-color synthesis
+    file for the pattern.</p>
+    <p>Click on "Multi-color" to open up the page for all multi-color
+    syntheses.</p>
+</div>
+
+<div id="tipsize" style="display:none;">
+    <p>This shows a pattern's population in its minimum phase. If the population
+    has a different maximum or average population, these are also shown
+    in parentheses.</p>
+    <p>Click on the population to open up the page for that population, focused
+    on the sub-category where the pattern is listed.</p>
+    <p>Click on "Population" to open up the page for selecting patterns by
+    size.</p>
+    <p>For still-lifes from 16 to 17 bits, if this object was on the list of
+    difficult-to-synthesize ones that were the last for which syntheses were
+    developed, click on "Difficult objects" to see it within the context of
+    that list.</p>
+</div>
+
+<div id="tipbox" style="display:none;">
+    <p>This shows a pattern's smallest bounding box. "Smallest" is determined
+    in terms of area (or, when areas are the same, by perimiter). In parentheses
+    is shown the "squareness" of this box (i.e. ratio of height to width).
+    This is 1 for square patterns, and smaller for rectangular ones.</p>
+</div>
+
+<div id="tiphull" style="display:none;">
+    <p>This shows a pattern's largest bounding box. "Largest" is determined
+    in terms of area (or, when areas are the same, by perimiter). In parentheses
+    is shown the "squareness" of this box (i.e. ratio of height to width).
+    This is 1 for square patterns, and smaller for rectangular ones. This can
+    be 0 for patterns that expand infinitely in one dimension.
+    It is defined properly for patterns that expand infinitely in two
+    dimensions, because they may expand at different rates (for example, the
+    B heptomino releases two gliders escaping at right angles, expanding twice
+    as fast in their common direction, so its ratio is &frac12;.)</p>
+</div>
+
+<div id="tipsymm" style="display:none;">
+    <p>This shows the symmetry class of patterns. For convenience (and brevity
+    for inclusion in the results table), each symmetry class is described by a
+    single letter that embodies. This can be one of:</p>
+    <p><ul>
+	<li><b>. (none)</b> is for asymmetrical patterns.</li>
+	<li><b>&ndash; (orthogonal reflection)</b> is for patterns with D1 symmetry,
+	    that are unchanged when reflected in a horizontal or vertical mirror
+	    (| or &ndash;).</li>
+	<li><b>/ (diagonal reflection)</b> is for patterns with D1 symmetry,
+	    that are unchanged when reflected in a diagonal mirror
+	    (/ or \).</li>
+	<li><b>~ (180&deg; rotation)</b> is for stationary patterns with C2
+	    symmetry, that are unchanged when rotated 180 degrees about a
+	    point.</li>
+	<li><b>+ (two orthogonal reflections)</b> is for stationary patterns with
+	    D2 symmetry, that are unchanged when reflected in either horizontal
+	    or vertical mirrors.</li>
+	<li><b>x (two diagonal reflections)</b> is for stationary patterns with
+	    D2 symmetry, that are unchanged when reflected in either kind of
+	    diagonal mirror.</li>
+	<li><b>@ (90&deg; rotation)</b> is for stationary patterns with C4
+	    symmetry, that are unchanged when rotated 90 degrees about a
+	    point.</li>
+	<li><b>* (8-way symmetry)</b> is for stationary patterns that possess
+	    with eight-way symmetry, that are unchanged when reflected in any
+	    kind of mirror, or rotated 90 or 180 degrees.</li>
+    </ul></p>
+    <p>If the pattern has glide symmetry, its glide symmetry class is also
+    shown. It uses the same notation as used for symmetry:</p>
+    <p><ul>
+	<li><b>&ndash; (orthogonal reflection)</b> is for patterns with D1 glide
+	    symmetry, that reflect themselves horizontally or vertically.
+	    Modulus is period/2. This can apply to asymmetrical patterns or
+	    patterns with orthogonal reflection or 180&deg; rotation
+	    symmetry.</li>
+	<li><b>/ (diagonal reflection)</b> is for patterns with D1 glide
+	    symmetry, that reflect themselves diagonally. Modulus is period/2.
+	    This can apply to asymmetrical patterns or patterns with diagonal
+	    reflection symmetry. (For patterns with 180&deg; rotation
+	    symmetry, this is equivalent to T.)</li>
+	<li><b>~ (180&deg; rotation)</b> is for stationary patterns with C2
+	    glide symmetry, that rotate themselves 180 degrees about a point.
+	    Modulus is period/2. This can apply to asymmetrical patterns.
+	    (For patterns with reflection symmetry, this is equivalent to
+	    their symmetry.)</li>
+	<li><b>@ (90&deg; rotation)</b> is for stationary patterns with C4 glide
+	    symmetry, that are rotate themselves 180 degrees about a point.
+	    This can apply to asymmetrical patterns, in which case modulus is
+	    period/4. It can also apply to patterns with 180 degree reflection
+	    symmetry, in which case modulus is period/2.</li>
+    </ul></p>
+</div>
+
+<div id="tipcat" style="display:none;">
+    <p>This shows the object category of the pattern, along with its
+    sub-category (which is typically based on its population):</p>
+    <p><ul>
+	<li><b>Still-life</b> describes objects that repeat, and have a period
+	    of 1, i.e. no births and deaths.</li>
+	<li><b>Pseudo-still-life</b> describes pseudo-objects that repeat, and
+	    have a period of 1.</li>
+	<li><b>Oscillator</b> describes objects that repeat, and have a period
+	    of more than 1.</li>
+	<li><b>Pseudo-oscillator</b> describes pseudo-objects that repeat, and
+	    have a period of more than 1.</li>
+	<li><b>Spaceship</b> describes objects that repeat, but are translated in space when
+	    they do so. This also includes pseudo-spaceships (pseudo-objects
+	    that behave similarly), and flotillae (two or more traveling in
+	    tandem). Some flotillae form large categories that have special
+	    names (e.g. A-draggers, hive-nudgers, etc.)</li>
+	<li><b>Wick stretcher</b> describes wick stretchers: spaceships that
+	    leave output behind them that consists of an fixed number of
+	    ever-growing objects, and constantly increase in population.</li>
+	<li><b>Puffer</b> describes puffer trains: spaceships that leave output
+	    behind them that consists of an ever-increasing number
+	    of objects, and constantly increase in population.</li>
+	<li><b>Gun</b> describes spaceship guns: oscillators that produce
+	    spaceships that escape, and constantly increase in population.</li>
+	<li><b>Breeder</b> describes breeders: patterns whose population
+	    increases quadratically with time.</li>
+	<li><b>Constellation</b> describes collections of two or more stable,
+	    oscillating, and/or moving objects and/or pseudo-objects.</li>
+	<li><b>Methuselah</b> describes small patterns that are not stable, but
+	    that run for a long time before stabilizing.</li>
+	<li><b>Not quite stable pattern</b> describes patterns that aren't
+	    quite stable, but that closely objects that are. These are always
+	    listed here, rather than under the categories they resemble.</li>
+    </ul></p>
+    <p>Click on the category name to open up the page for that specific
+    category, focused on the sub-category where the pattern is listed.</p>
+    <p>Click on "Category" to open up the page for selecting patterns by
+    category.</p>
+</div>
+
+<div id="tipgls" style="display:none;">
+    <p>This describes the number of gliders needed to synthesize an object.
+    It can be a number, or one of these:</p>
+    <p><ul>
+	<li><b>Known</b> describes patterns for which it has been shown that
+	    they can definitely be synthesized, but for which no synthesis has
+	    yet been attempted. This can currently includes 15- and 16-bit
+	    still-lifes, 17-bit pseudo-still-lifes, and period-2
+	    pseudo-oscillators from 17 to 19 bits.</li>
+	<li><b>x</b> describes patterns for which no synthesis is yet
+	    known.</li>
+	<li><b>x+<i>number</i></b> describes patterns for which a partial
+	    synthesis exists, based on a predecessor that does not yet have a
+	    synthesis.</li>
+	<li><b>TBD</b> describes patterns for which no synthesis has yet been
+	    attempted. It is not known whether syntheses exist using currently
+	    known techniques.</li>
+    </ul></p>
+    <p>In addition, the relative number of gliders may be noted in parentheses
+    if it is equal to or greater than the population.</p>
+    <p>Click on the number to open up the page for that specific number of
+    gliders, if it is available. (This is only available for Life, and is
+    provided for 2-6 gliders for all objects, and Unknown, Partial, and
+    =1 and &gt;1 gliders per bit for selected objects.)</p>
+    <p>Click on "Gliders" to open up the page for selecting patterns by cost
+    in gliders.</p>
+</div>
+
+<div id="tipheat" style="display:none;">
+    <p>This describes the heat of a pattern. This is defined as the average
+    number of unstable cells in each generation. This is zero for still-lifes
+    and pseudo-still-lifes. It can be infinite for infinitely-expanding
+    patterns, such as guns, and puffers that leave non-still objects.
+    It is unknown for a few large spaceships. For methuselahs, this is the
+    heat of the final census</p>
+</div>
+
+<div id="tipper" style="display:none;">
+    <p>This describes the period of a pattern. This is the number of generations
+    it takes to return to its original state (possibly translated). For patterns
+    with multiple components, this is the GCD of all components taken together.
+    For infinitely expanding patterns, this includes both the generator (i.e.
+    gun or puffer) and the resulting output. This can be infinite for patterns
+    that expand infinitely in an irregular fashion.</p>
+    <p>If it differs from the period, the modulus is shown in parentheses.
+    This is the number of generations that it takes for the pattern to return
+    to its original state, regardless of rotation or reflection. This is the
+    period for most patterns, but can also be period/2 for patterns with glide
+    symmetry, or even period/4 for asymmetrical patterns that rotate 90 degrees
+    four times each period.</p>
+</div>
+
+<div id="tiprar" style="display:none;">
+    <p>This describes the frequency and rarity of a still-life or oscillator.
+    Frequency is always a large real number for the 152 measured objects,
+    while rarity (its inverse) is a large real number. It is not shown for
+    other objects (for which it is Unknown), or for other object categories
+    (for which it is N/A).</p>
+    <p>Click on the number to open up the page for that specific category of
+    objects sorted by rarity.</p>
+    <p>Click on "Frequency" to open up the page for viewing all
+    naturally-occurring objects in order of frequency.</p>
+</div>
+
+<div id="tiptts" style="display:none;">
+    <p>This describes the T.T.S. (time to stabilize) of a pattern. It is zero for
+    all periodic patterns, and non-zero for methuselahs. It is infinite for
+    patterns that expand without limit without ever reaching periodicity.
+    The E.F. (evolutionary factor) is also shown in parentheses; this is the
+    T.T.S. divided by the initial population.</p>
+</div>
+
+<div id="tiptemp" style="display:none;">
+    <p>This describes the temperature of a pattern. This is defined as the heat
+    divided by the population, or total number of unstable cells in all
+    generations, divided by the total populations of all generations.
+    This is a similar measure to heat, but scales with population, so it is
+    possible to define it meaningfully even for infinitely-expanding patterns.
+    (This is similar to the corresponding measures from physics; doubling the
+    size of an object doubles its heat, but does not alter its temperature).</p>
+</div>
+
+<div id="tipvel" style="display:none;">
+    <p>This describes the velocity of a moving pattern, e.g. how far it moves
+    in each period, divided by the period. This is zero for most pattern
+    categories, and is not shown for those, and a non-zero number between 0 and
+    <i>c</i> for spaceships and puffers. It is shown as a direction and a rational
+    multiple of <i>c</i>. In most rules, this cannot exceed <i>c</i>/2
+    for orthogonal movement (although it can reach <i>c</i> in B2/S2).
+    In most rules, this cannot exceed <i>c</i>/3 for diagonal movement
+    (and it cannot exceed <i>c</i>/4 in Life).</p>
+    <p>The direction can be one of:</p>
+    <p><ul>
+	<li><b>Orthogonal</b> for patterns for which movement in in one axis
+	    only.</li>
+	<li><b>Diagonal</b> for patterns for which movement is by the same
+	    same amount in both axes.</li>
+	<li><b>Oblique</b> for other patterns, i.e. those that move in both
+	    axes, but a different amount in each. These are extremely rare.</li>
+    </ul></p>
+</div>
+
+<div id="tipvol" style="display:none;">
+    <p>This describes the volatility of the pattern. This is defined as the
+    number of rotor cells divided by the number of rotor plus stator cells.
+    This is zero for still-lifes and pseudo-still-lifes. It is a non-zero
+    number between 0 and 1 for for oscillators and pseudo-oscillators. It is
+    always 1 for spaceships. For infinitely-expanding patterns, this value is
+    dominated by that of the expanding output. For methuselahs, this is the
+    volatility of the final census.</p>
+    <p>This also describes the strict volatility of the pattern in parentheses,
+    if it differs from the volatility. This is similar to volatility, but only
+    considers the cells that oscillate at the full oscillator or spaceship
+    period, rather than all rotor cells. It is defined as the number of
+    full-period cells divided by the number of rotor plus stator cells. This is
+    equal to volatility for still-lifes and pseudo-still-lifes (for which it is
+    also zero), for all oscillators and spaceships with prime periods, and for
+    totally volatile oscillators of other periods.</p>
+    <p>If strict volatility is shown, the ratio of strict volatility and
+    volatility is also shown. This always varies between 0 and 1.</p>
+</div>
+
+<div id="tipimg" style="display:none;">
+    <p>This is the image of the selected pattern.</p>
+    <p id="tipcan">Click on the image to open up synthesis file for the pattern.
+    (This is only available for patterns found as the result of a search.)</p>
+</div>
+</div></div>
+
+<img id="imgfont" style="display:none;" width="200" height="104"
+  src="images/lifefont.png" />
+
+<script type="text/javascript" src="lifesrch.js"></script>
+
+<script type="text/javascript" src="srchlife.js"></script>
+
+
+<script type="text/javascript"><!--
+N (R_ANY);
+// -->
+</script>
+
+<hr /><hr />
+<p>Related:
+    <a class="i" href="lifxsrch.htm">expanded pattern search</a>,
+    <a class="i" target="srchhelp" href="srchhelp.htm">search help</a></p>
+
+<p><b>See also:</b>
+	<a class="i" href="lifeterm.htm">definitions</a>,
+	<a class="i" href="lifestr.htm">structure</a>,
+	<a class="i" href="lifemeth.htm">search methodologies</a>,
+	<a class="i" href="liferule.htm">other rules</a>,
+	<a class="i" href="lifenews.htm">news</a>,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

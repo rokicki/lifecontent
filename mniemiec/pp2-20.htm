@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Twenty-Bit Period-2 Pseudo-Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: twenty-bit period 2 pseudo oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life twenty-bit period 2 pseudo oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Twenty-Bit Period-2 Pseudo-Oscillators</h1>
+
+<p align="center">
+	<a class="j" href="#pp2-20">Syntheses</a><br />
+	<a class="j" href="#pp2-20-0">First 1000</a> |
+	<a class="j" href="#pp2-20-1">Second 1000</a> |
+	<a class="j" href="#pp2-20-2">Third 1000</a> |
+	<a class="j" href="#pp2-20-3">Fourth 1000</a> |
+	<a class="j" href="#pp2-20-4">Fifth 1000</a> |
+	<a class="j" href="#pp2-20-5">Sixth 1000</a> |
+	<a class="j" href="#pp2-20-6">Seventh 1000</a> |
+	<a class="j" href="#pp2-20-7">Eighth 1000</a> |
+	<a class="j" href="#pp2-20-8">Ninth 1000</a> |
+	<a class="j" href="#pp2-20-9">Last 460</a>
+</p>
+
+<hr /><hr />
+<a name="pp2-20"></a>
+<h2>Syntheses of 12 of the 9460 <a class="i" href="bits-20.htm">twenty-bit</a>
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+
+<p>All of these can be synthesized using the same techniques that are used for
+smaller pseudo-oscillators and pseudo-still-lifes, except 26 trivial ones that
+involve adding a small simple still-life to a large complex period 2 oscillator
+that does not yet have a synthesis (i.e. 8 with a boat on a
+<a class="i" href="glider-u.htm#gu-p2">15-bit oscillators</a>,
+and 18 with a block on a
+<a class="i" href="glider-u.htm#gu-p2">16-bit</a>).
+These are not included in the list below.</p>
+<p><a class="p" href="stamp/pp2-20.rle"><img src="map/pp2-20.png"
+ alt="20-bit pseudo-P2"
+ width="501" height="141" usemap="#pp2-20" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="20/20bpcltc.rle">
+	    Up bipole below claw siamese claw w/ cape [26]</a></td>
+	<td class="y"><a class="p" href="20/20bpilt3.rle">
+	    Up bipole below integral w/ long tail [23]</a></td>
+	<td class="y"><a class="p" href="20/20bpbct1.rle">
+	    Up bipole on boat w/ cis tail [22]</a></td>
+	<td><a class="p" href="20/20tpbvt6.rle">
+	    Down tripole below boat w/ very long tail [14]</a></td>
+	<td class="y"><a class="p" href="20/20bclssf.rle">
+	    Beacon between up cis snakes [52]</a></td>
+	<td class="y"><a class="p" href="20/20bcvci1.rle">
+	    Up beacon on very long cis integral [27]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20snsnbp.rle">
+	    Bipole on snake tie snake [44]</a></td>
+	<td><a class="p" href="20/20bplse9.rle">
+	    Up bipole before long snake siamese eater [11]</a></td>
+	<td><a class="p" href="20/20tpdlft.rle">
+	    Up tripole on down loaf w/ tail [11]</a></td>
+	<td class="g"><a class="p" href="20/20bpas4.rle">
+	    Down bipole below carrier bridge snake [20]</a></td>
+	<td><a class="p" href="20/20tpidb6.rle">
+	    Down tripole below integral w/ down boat [13]</a></td>
+	<td><a class="p" href="20/20tpiub6.rle">
+	    Down tripole below integral w/ up boat [14]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp2-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp2-20.zip" />
+	<area coords="481,121,500,140" href="stamp/pp2-20.rle" />
+	<area coords="0,0,89,69" href="20/20bpcltc.rle" />
+	<area coords="90,0,169,69" href="20/20bpilt3.rle" />
+	<area coords="170,0,249,69" href="20/20bpbct1.rle" />
+	<area coords="250,0,329,69" href="20/20tpbvt6.rle" />
+	<area coords="330,0,409,69" href="20/20bclssf.rle" />
+	<area coords="410,0,500,69" href="20/20bcvci1.rle" />
+	<area coords="0,70,89,140" href="20/20snsnbp.rle" />
+	<area coords="90,70,169,140" href="20/20bplse9.rle" />
+	<area coords="170,70,249,140" href="20/20tpdlft.rle" />
+	<area coords="250,70,329,140" href="20/20bpas4.rle" />
+	<area coords="330,70,409,140" href="20/20tpidb6.rle" />
+	<area coords="410,70,500,140" href="20/20tpiub6.rle" />
+</map>
+
+<hr /><hr />
+<a name="pp2-20-0"></a>
+<h2>The 9460 <a class="i" href="bits-20.htm">twenty-bit</a>
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<h3>The first 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-0.rle"><img src="map/pp2-20-0.png"
+ alt="20-bit period 2 pseudo-oscillators 1-1000"
+ width="621" height="439" usemap="#pp2-20-0" /></a></p>
+
+<map name="pp2-20-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-0.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-1"></a>
+<h3>The second 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-1.rle"><img src="map/pp2-20-1.png"
+ alt="20-bit period 2 pseudo-oscillators 1001-2000"
+ width="621" height="439" usemap="#pp2-20-1" /></a></p>
+
+<map name="pp2-20-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-1.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-2"></a>
+<h3>The third 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-2.rle"><img src="map/pp2-20-2.png"
+ alt="20-bit period 2 pseudo-oscillators 2001-3000"
+ width="621" height="439" usemap="#pp2-20-2" /></a></p>
+
+<map name="pp2-20-2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-2.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-3"></a>
+<h3>The fourth 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-3.rle"><img src="map/pp2-20-3.png"
+ alt="20-bit period 2 pseudo-oscillators 3001-4000"
+ width="621" height="439" usemap="#pp2-20-3" /></a></p>
+
+<map name="pp2-20-3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-3.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-4"></a>
+<h3>The fifth 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-4.rle"><img src="map/pp2-20-4.png"
+ alt="20-bit period 2 pseudo-oscillators 4001-5000"
+ width="621" height="439" usemap="#pp2-20-4" /></a></p>
+
+<map name="pp2-20-4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-4.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-5"></a>
+<h3>The sixth 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-5.rle"><img src="map/pp2-20-5.png"
+ alt="20-bit period 2 pseudo-oscillators 5001-6000"
+ width="621" height="439" usemap="#pp2-20-5" /></a></p>
+
+<map name="pp2-20-5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-5.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-6"></a>
+<h3>The seventh 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-6.rle"><img src="map/pp2-20-6.png"
+ alt="20-bit period 2 pseudo-oscillators 6001-7000"
+ width="621" height="439" usemap="#pp2-20-6" /></a></p>
+
+<map name="pp2-20-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-6.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-7"></a>
+<h3>The eighth 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-7.rle"><img src="map/pp2-20-7.png"
+ alt="20-bit period 2 pseudo-oscillators 7001-8000"
+ width="621" height="439" usemap="#pp2-20-7" /></a></p>
+
+<map name="pp2-20-7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-7.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-8"></a>
+<h3>The ninth 1000 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-8.rle"><img src="map/pp2-20-8.png"
+ alt="20-bit period 2 pseudo-oscillators 8001-9000"
+ width="621" height="439" usemap="#pp2-20-8" /></a></p>
+
+<map name="pp2-20-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/pp2-20-8.rle" />
+</map>
+
+<hr />
+<a name="pp2-20-9"></a>
+<h3>The last 460 20-bit period 2 pseudo-oscillators</h3>
+<p><a class="p" href="stamp/pp2-20-9.rle"><img src="map/pp2-20-9.png"
+ alt="20-bit period 2 pseudo-oscillators 9001-9460"
+ width="621" height="223" usemap="#pp2-20-9" /></a></p>
+
+<map name="pp2-20-9">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,203,19,222" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,222" href="stamp/pp2-20-9.rle" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-20.htm">20-bit objects</a>:</b>
+	<a class="i" href="bits-20.htm#p1-20">still-lifes</a>,
+	<a class="i" href="bits-20.htm#pp1-20">pseudo-still-lifes</a>,
+	<a class="i" href="p2-20.htm">P2 oscillators</a>,
+	P2 pseudo-oscillators,
+	<a class="i" href="p3-20.htm">P3 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp3-20">P3 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#p4-20">P4 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp4-20">P4 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#p5-20">P5 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp5-20">P5 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#p6-20">P6 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp6-20">P6 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#pp8-20">P8 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#pp15-20">P15 pseudo-oscillators</a>,
+	<a class="i" href="bits-20.htm#p30-20">P30 oscillators</a>,
+	<a class="i" href="bits-20.htm#pp30-20">P30 pseudo-oscillator</a>,
+	<a class="i" href="bits-20.htm#ss-20">spaceships</a>,
+	<a class="i" href="bits-20.htm#cons-20">constellation</a>.</p>
+
+<p><b>Other <a class="i" href="pp2.htm">period 2 pseudo-oscillators</a>:</b>
+	<a class="i" href="pp2.htm#pp2-10">10-bit</a>,
+	<a class="i" href="pp2.htm#pp2-11">11-bit</a>,
+	<a class="i" href="pp2.htm#pp2-12">12-bit</a>,
+	<a class="i" href="pp2.htm#pp2-13">13-bit</a>,
+	<a class="i" href="pp2.htm#pp2-14">14-bit</a>,
+	<a class="i" href="pp2.htm#pp2-15">15-bit</a>,
+	<a class="i" href="pp2-16.htm">16-bit</a>,
+	<a class="i" href="pp2-17.htm">17-bit</a>,
+	<a class="i" href="pp2-18.htm">18-bit</a>,
+	<a class="i" href="pp2-19.htm">19-bit</a>,
+	20-bit,
+	<a class="i" href="pp2-21.htm">21-bit</a>,
+	<a class="i" href="pp2.htm#pp2-22">22-bit</a>,
+	<a class="i" href="pp2.htm#pp2-23">23-bit</a>,
+	<a class="i" href="pp2.htm#pp2-24">24-bit</a>,
+	<a class="i" href="pp2.htm#pp2-24">25-bit</a>,
+	<a class="i" href="pp2.htm#pp2-lg">26-bit and larger</a>.</p>
+
+<p><b>Other
+<a class="i" href="posc.htm">pseudo-oscillators</a> by period:</b>
+	<a class="i" href="pp2.htm">2</a>,
+	<a class="i" href="pp3.htm">3</a>,
+	<a class="i" href="pp4.htm">4</a>,
+	<a class="i" href="pp5.htm">5</a>,
+	<a class="i" href="pp6.htm">6</a>,
+	<a class="i" href="pp8.htm">8</a>,
+	<a class="i" href="pp10.htm">10</a>,
+	<a class="i" href="pp12.htm">12</a>,
+	<a class="i" href="pp15.htm">15</a>,
+	<a class="i" href="pp30.htm">30</a>,
+	<a class="i" href="pp60.htm">60</a>,
+	<a class="i" href="pperiod.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

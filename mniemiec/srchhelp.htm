@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Search Help</title>
+<meta name="description"
+content="John Horton Conway's Game of Life pattern search help" />
+<meta name="keywords"
+content="cellular automata conway game life pattern search help" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body onload="Body();">
+
+<h1>Search Help</h1>
+
+<p align="center">
+	<a class="j" href="#instr">Instructions</a> |
+	<a class="j" href="#tips">Tips</a> |
+	<a class="j" href="#issues">Known issues</a> |
+	<a class="j" href="#browser">Browser issues</a> |
+	<a class="j" href="#privacy">Privacy policy</a>
+</p>
+
+<hr /><hr />
+<a name="instr"></a>
+<h2>Instructions</h2>
+<p>To search for a specific pattern, perform the following steps:</p>
+<p><ul>
+    <li>Select an appropriate <i>Rule</i>. (This is not required when entering
+	images in RLE format that include a rule specification, as these
+	override the specified rule). "Life" is the default rule. If you are
+	not sure which rule is appropriate, select "Any", and all rules will be
+	searched.</li>
+    <li>Choose the kind of search you want from the <i>Search type</i> list:
+	<ul>
+	    <li><b>Image</b>:
+		This allows search for a pattern that exactly matches its
+		image of living and dead cells. Pattern orientation is not
+		important. Phase is not important for oscillators or spaceships.
+		Extra spaces outside pattern are ignored. The exact pattern must
+		be specified (i.e. oscillators and spaceships with their
+		sparks).
+		<ul>
+		    <li>Enter the pattern graphically in your favorite Life
+			program (e.g. Golly).</li>
+		    <li>Select the pattern, and <i>Copy</i> it to the
+			clipboard.</li>
+		    <li><i>Paste</i> it into the text box below. (Use your
+			browser's <i>Paste</i> function, not the page's
+			<i>Paste</i> button.)</li>
+		    <li>Several different file formats are recognized (Cells
+			(plain text), RLE, Life 1.05, and Life 1.06).</li>
+		    <li>Or, enter image manually. Spaces, punctuation and
+			line-drawing characters are treated as dead cells, and
+			all others as living cells. Avoid using # characters at
+			at the start of a line, or ! character anywhere, as these
+			may cause the pattern to be interpreted as one of the
+			special file formats.</li>
+		</ul>
+		When using Cells, RLE, or Life 1.05 formats (but not Life 1.06),
+		the ? character has special meaning. Cells indicated by ? are
+		wildcards - they match either living or dead cells. This allows
+		one to search for specific pieces of patterns (e.g. patterns
+		with an eater tail on one side, patterns with mold rotors, etc.)
+		(Note, however, that using wildcards to match pattern images is
+		extremely time-consuming. It is generally faster to combine such
+		wildcards with other constraints, using Ultimate search,
+		especially when searching for oscillators or spaceships.)</li>
+	    <li><b>Simple</b>:
+		This is the simplest kind of search, and requires you to specify
+		the least amount of detail.
+		<ul>
+		    <li>Enter pattern name to find. Case is ignored. Spaces,
+			and punctuation except periods are also ignored.
+			<i>with</i> is treated as equivalent to <i>w</i>.
+			If a pattern has multiple names, any one of the names
+			may be specified. You can specify multiple names
+			separated by semicolons, in which a pattern matching
+			any of the names will be matched.</li>
+		    <li>This normally searches for an exact name match, but you
+			can also include one or more * wildcards. One at the end
+			of the name is equivalent to a <i>Begins with</i> search.
+			One at the beginning of the name is equivalent to an
+			<i>Ends with</i> search. Both used together are
+			equivalent to a <i>Contains</i> search.</li>
+		</ul></li>
+	    <li><b>Advanced</b>:
+		This is the most general kind of search, and allows patterns to
+		be searched by name and/or other commonly-used qualifiers.
+		<ul>
+		    <li>Select whether search is for <i>Pattern name</i> or
+			<i>File name</i>. Pattern name is the default.</li>
+		    <li>Qualify name search by selecting <i>Any</i> to find all
+			patterns irrespective of name, <i>Is</i> to match the
+			name exactly, or <i>Starts with</i>, <i>Ends with</i> or
+			<i>Contains</i> to match part of a name. You can also
+			search for all patterns except one of these.</li>
+		    <li>Enter name to find. This is the same as in the simple
+			search. You may also supply one or more * wildcards.
+			You can also supply a ~ wildcard at the start to
+			invert the sense of the search; e.g. <i>Is '~*jam*'</i>
+			is the same as <i>Doesn't contain 'jam'</i>, and
+			<i>Contains 'snake~block~boat'</i> is means <i>Contains
+			'snake' but not 'block' or 'boat'</i>.
+			(If searching for file names, the path, and any extension
+			following a period are ignored, but hyphens are
+			not.)</li>
+		    <li>Select <i>Category</i> to search only patterns from
+			that category, rather than all patterns.</li>
+		    <li>Select <i>Min. Pop</i> to qualify by a minimum
+			population or range of populations that should be
+			matched. If a pattern has multiple phases with different
+			populations, the lowest population is used for search
+			purposes, and is also the criterion used on the rest of
+			this site for categorizing objects by population.)</li>
+		    <li>Select <i>Max. Pop</i> to qualify by a maximum
+			population or range of populations that should be
+			matched. Infinitely expanding objects like guns, puffers
+			and breeders may have infinite maximum populations.</li>
+		    <li>Select <i>Min/Max</i> to qualify by the ratio of minimum
+			to maximum population, or range of ratios. This will be
+			0 for infinitely expanding patterns, and 1 for the empty
+			field.</li>
+		    <li>Select <i>Avg. Pop</i> to qualify by an average
+			population or range of populations that should be
+			matched. If a pattern has multiple phases with different
+			populations, this is the average over all phases.</li>
+		    <li>Select <i>Velocity</i> to qualify by a specific velocity
+			or range of velocities. This applies to spaceships,
+			puffers and wick-stretchers; all other categories have
+			a velocity of 0. It is always a rational fraction of
+			<i>c</i>. You can select a specific direction, or search
+			all directions. (Velocity is always measured along the
+			major axis of movement; e.g. an oblique (2,1)<i>c</i>/6
+			spaceship would be indicated by 2<i>c</i>/6, or more
+			simply, <i>c</i>/3.)</li>
+		    <li>Select <i>Period</i> to qualify by a period or
+			range of periods that should be matched. This applies to
+			all categories except still-lifes and pseudo-still-lifes
+			(that always have periods of 1). Methuselahs are
+			unstable and aren't periodic, so they have no periods.
+			For search purposes, however, measurements of their
+			period and other oscillating properties (such as
+			modulus, heat, volatility, bounding box, etc.) are
+			measurements of those properties for their final
+			census.</li>
+		    <li>Select <i>Modulus</i> to qualify by a modulus or
+			range of moduli that should be matched. This is usually
+			the same as period, but may be period/2 for objects with
+			glide symmetry, and may also be period/4 for asymmetric
+			objects with 90-degree rotational glide symmetry.
+			You can also qualify by modulus compared to period.</li>
+		    <li>Select <i>Freq.</i> to qualify by a frequency of
+			occurrence or range of frequencies to be matched. (If
+			you prefer, you can change this to <i>Rarity</i> to
+			qualify by rarity (i.e. 1/frequency) instead.) Except
+			for a small number of common objects, most objects have
+			frequencies of 0, or infinite rarity. This only applies
+			to still-lifes and oscillators in the Life rule; all
+			other categories are considered to have frequencies or
+			rarities of <i>N/A</i> for search purposes.</li>
+		    <li>Select <i>Gliders</i> to qualify by the specific number
+			of gliders needed to synthesize the pattern. You can
+			also select <i>Unknown</i> for patterns with no known
+			syntheses, <i>Partial</i> for patterns with simple
+			syntheses based on an as-yet-unsynthesized predecessors,
+			and <i>TBD</i> for patterns for which syntheses are
+			planned, but have not yet been attempted, so their
+			synthesis status is not yet known. You can also select
+			<i>Known</i> for patterns for which syntheses have not
+			yet been attempted, but it has been proven that
+			syntheses definitely exist using standard techniques.
+			(If a pattern is listed as needing a range rather than
+			a single number, the lower number is used for search
+			purposes.) You can also qualify a pattern by its
+			relative cost in gliders compared to 1 glider/bit.
+			Finally, if you check the 'Range' check-box, only
+			patterns that have have multiple syntheses for several
+			related objects with different costs has in gliders
+			are selected.</li>
+		</ul>
+		Most search criteria let you qualify the search by constraining
+		a specific numeric property (such as population) in one of
+		several ways:
+		<ul>
+		    <li>= <i>y</i>: The property must be exactly equal to
+			number <i>y</i>.</li>
+		    <li>&ne; <i>y</i>: The property must not be exactly equal to
+			number <i>y</i>.</li>
+		    <li>&lt; <i>y</i>: The property must be less than but not
+			equal to number <i>y</i>.</li>
+		    <li>&le; <i>y</i>: The property must be less than or
+			equal to number <i>y</i>.</li>
+		    <li>&gt; <i>y</i>: The property must be more than but not
+			equal to number <i>y</i>.</li>
+		    <li>&ge; <i>y</i>: The property must be more than or
+			equal to number <i>y</i>.</li>
+		    <li><i>x</i> &mdash; <i>y</i>: The property must lie within
+			the range bracketed by numbers <i>x</i> and <i>y</i>
+			(e.g. <i>x</i> &le; property &le; <i>y</i>).</li>
+		    <li><i>x</i> ~ <i>y</i>: The property must lie outside
+			the range bracketed by numbers <i>x</i> and <i>y</i>
+			(e.g. property &lt; <i>x</i> or <i>y</i> &lt; property).</li>
+		    <li>In cases where special values like &#8734; or
+			<i>Unknown</i> (?) or <i>TBD</i> can occur,
+			these can be directly selected from the selection list
+			without having to type them in.</li>
+		</ul>
+		Any field where you need to enter a number gives you great
+		flexibility in entering one. You may enter any of the following:
+		<ul>
+		    <li>An empty field is treated as the default value (which is
+			usually zero, except for some mathematical operators
+			like multiplication and division).</li>
+		    <li>Integers (e.g. 1), real numbers (e.g. 1.5), or
+			scientific notation (e.g. 1.5e6).</li>
+		    <li>Special fractions &frac14; &frac12; and
+			&frac34; mixed numbers like 1&frac12;).</li>
+		    <li>Infinity, by typing _ or &#8734; or <i>infinity</i>.</li>
+		    <li>Some mathematical constants (<i>e</i>, &#960;,
+			&#964;, &#981;).</li>
+		    <li>For unknown values, such as gliders for objects without
+			synthesis, frequency or rarity for uncommon objects,
+			or heat for extremely large spaceships, enter ? or <i>x</i>
+			or <i>unknown</i>. (Partial syntheses can be
+			specified by forms like <i>x</i>+2.)</li>
+		    <li>Some simple algebra (e.g. <i>x</i>+2, 1e6-1,
+			2&#960; or 2*&#960; or 2&times;&#960;, 2/3, 3&divide;4,
+			&#960;^2, or &#960;&sup2;, &#8730;2, 3&#8730;10, 3!).</li>
+		    <li>You can also enter multiple numbers separated by
+			semicolons. With = the numbers are joined with <i>or</i>
+			(e.g. <i>= 1;2;4</i> means <i>is 1 or 2 or 4</i>). With
+			any other comparison type, the numbers are joined with
+			<i>and</i> (e.g. <i>&ne; 1;2;4</i> means
+			<i>is not 1, and is not 2, and is not 4</i>).
+			Specifying multiple numbers for anything other than =
+			or &ne; is not likely to be useful (e.g.
+			<i>&lt; 1;2;3</i> is the same as <i>&lt; 1</i>).</li>
+		</ul></li>
+	    <li><b>Detailed</b>:
+		For when even the advanced search isn't enough, this option is
+		similar, but provides many more less common options, such as
+		the following:
+		<ul>
+		    <li>Select <i>E.F.</i> to qualify by evolutionary factor
+			(i.e. the time to stabilize divided by minimum
+			population) or or range of evolutionary factors that
+			should. This is non-zero only for unstable patterns
+			(e.g. methuselahs).</li>
+		    <li>Select <i>T.T.S.</i> to qualify by time-to-stabilize
+			(i.e. the number of generations it takes the pattern to
+			reach a periodic form. This is non-zero only for
+			unstable patterns (e.g. methuselahs) and is measured
+			from their smallest form.</li>
+		    <li>Select <i>Heat</i> to qualify by heat (i.e. the
+			average number of unstable cells) or range of heats
+			that should be matched. It can be infinite for
+			expanding patterns like guns, puffers and breeders.</li>
+		    <li>Select <i>Temperature</i> to qualify by temperature
+			(i.e. the heat divided by average population) or range
+			of temperatures that should be matched. Unlike heat,
+			this value is a meaningful finite value for guns,
+			puffers and breeders.</li>
+		    <li>Select <i>Volatility</i> to qualify by volatility
+			(i.e. the number of rotor cells divided by the
+			population) or range of volatilities that should be
+			matched. This always varies between 0 for still-lifes
+			and 1 for phoenixes. This is also 1 for moving and
+			expanding patterns.</li>
+		    <li>Select <i>Strict volatility</i> to qualify by strict
+			volatility or range of strict volatilities that should
+			be matched. This is similar to normal volatility,
+			except it only considers cells as rotors if their
+			period is the full period of the oscillator, and not
+			some fraction. You can also qualify by how strict
+			volatility compares to volatility.</li>
+		    <li>Select <i>Smallest box</i> to qualify by the smallest
+			bounding box that contains the pattern. You must specify
+			two numbers (in either order), and both numbers must
+			match appropriately (e.g. <i>&lt; 6x4</i> accepts 4x4
+			but not 5x5). For patterns with multiple generations
+			(e.g. oscillators), this may not necessarily be the size
+			of the box in the first generation.</li>
+		    <li>Similarly, select <i>Largest box</i> to qualify by the
+			largest bounding box. For expanding patterns (e.g. guns,
+			puffers, and methuselahs that release gliders), this can
+			be infinite.</li>
+		    <li>For both of the above, you can select <i>Squareness</i>
+			to measure the ratio of height to width. This varies
+			from 1 from totally square objects, to almost 0 for very
+			long and thin ones, and can be 0 for objects that expand
+			infinitely in a straight line.</li>
+		    <li>Select <i>Symmetry</i> to qualify by the kind of
+			symmetry possessed by the pattern. Select the symbol
+			whose symmetry matches that of the pattern.</li>
+		    <li>Select <i>Glide</i> to qualify by the kind of glide
+			symmetry for oscillating and moving objects that
+			re-appear translated or rotated part way through their
+			period.</li>
+		    <li>Select <i>Phoenix</i> to show only oscillators or
+			spaceships that have no cells that survive (i.e. for
+			oscillators, there are no stator cells).</li>
+		    <li>Select <i>Flip-flop</i> to show only oscillators whose
+			rotor cells die only from under-population (or
+			<i>On-off</i>, from over-population).</li>
+		    <li>Select <i>Babbling brook</i> to show only oscillators
+			whose rotors consist entirely of an open-ended chain
+			of cells (or <i>Muttering moat</i>, for a closed-ended
+			chain).</li>
+		</ul></li>
+	    <li><b>Ultimate</b>:
+		This is like Detailed, but also allows image searching.
+		This is most useful when using image wildcards (e.g. search for
+		all still-lifes from 18-20 bits with a protruding eater tail,
+		or all oscillators with a mold rotor that aren't period 4).</li>
+	</ul></li>
+    <li>Choose how you would like the search results displayed:
+	<ul>
+	    <li id="by">Select <i>Show results by</i> to show results by
+		List, or by Stamp page. The stamp view is similar to the image
+		stamps used elsewhere on this site, and is more readable, but
+		the list view provides much more information, and can show
+		more results at once, especially for large objects.</li>
+	    <li>Select <i>Show numbers as</i> to determine how numbers are
+		displayed. <i>Real</i> displays numbers with decimal places,
+		e.g. 1.25. Very large and very small numbers are displayed in
+		scientific notation, e.g. 1.25e10. <i>Rational</i> displays
+		numbers as fractions, e.g. 5/4. Integers are always just
+		displayed as integers, e.g. 42. Numbers too large to display
+		in the result list view are always shown in scientific
+		notation. Velocity is always shown as rational.</li>
+	    <li>Normally, up to 20 results are shown in the list view, but this
+		number can be changed by by setting the <i>Maximum results</i>
+		field. <span id="fixed">(The stamp view always shows stamps of a
+		fixed size, typically 110 to a page, although this may be reduced
+		if larger objects are found.)</span></li>
+	    <li>Results are normally shown in order of increasing population,
+		then period, then name. This can be altered by selecting a
+		different value from the <i>Sort results by</i> field. (Items
+		with the same modulus or velocity are also sorted by period.)
+		The sort direction can be <i>Ascending</i> or
+		<i>Descending</i>.</li>
+	</ul>
+	(Altering any of these fields after a search has been performed will
+	immediately re-display the current search results using the new
+	display parameters.)</li>
+    <li>Press <i>Search</i> to display all patterns that match your search
+	criteria.</li>
+    <li>The search normally takes one or two seconds. If you specify a
+	particularly generic search that can find thousands of matches (e.g.
+	<i>Name: Contains e</i>, to find all patterns that contain the letter
+	"e"), the search can take considerably longer, and may trigger a browser
+	warning about a slow or unresponsive script. Please be patient.</li>
+    <li>The search results are displayed as a list of
+	patterns<span id="res"> or a stamp page showing images of
+	patterns</span>. Clicking on a pattern's name
+	<span id="click">or image</span> selects it and displays detailed
+	information about it. If the search finds exactly one result (which
+	usually happens when one enters an image, or a pattern by name with no
+	wildcards), that result is automatically selected.</li>
+    <li>In the List view, clicking on a column heading changes the sort order,
+	and clicking on a second time reverses the sort direction. If results
+	from multiple rules are shown, clicking on a rule's heading collapses
+	the results for that rule, allowing access to results from other rules
+	(especially if a large number of results have been found). Clicking on
+	it a second time re-displays the hidden results.</li>
+    <li id="stamp">In the Stamp view, clicking on the top or bottom left
+	corners of the stamp behave respectively as Page Up or Page Down to
+	scroll through multiple results. Clicking on the bottom right corner
+	opens an RLE file of the stamp page itself. If there are multiple result
+	pages, one can also scan through them using the navigation buttons above
+	the stamp image.</li>
+    <li>Once a pattern is selected, information about it is displayed below.
+	Select one of the links in the table to view it in the appropriate
+	context. For convenience, all links open in new windows, keeping the
+	search page up. All patterns may be viewed on pages by category (and
+	also size, if using the Life rule), and their synthesis files may be
+	viewed directly. Some patterns may have additional options.</li>
+    <li>The pattern is displayed graphically below its information. Huge
+	patterns are not displayed, to avoid very long browser delays. (The
+	only patterns currently affected are the
+	<a class="i" href="exotic.htm#ss-17o45">Caterpillar</a> and
+	<a class="i" href="exotic.htm#ss-gemini">Gemini</a> spaceships and the
+	<a class="i" href="puff.htm#puff-geminoid">Geminoid
+	replicators</a><span id="tab">,
+	and also the <a class="i" href="rulemn.htm#mn-br">P280 breeder</a> in
+	<a class="i" href="rulemn.htm">Niemiec's rule</a></span>.)
+	The pattern is shown in a canonical representation (i.e. initial
+	generation and specific orientation), which may differ from what was
+	originally entered, if the search was by image.</li>
+    <li id="launch">Clicking on a pattern that is the result of a successful
+	search will open the pattern's synthesis file, in the same way as
+	clicking on a pattern link elsewhere on this site.</li>
+    <li>The <i>Paste</i> button will paste the pattern, once found, back into
+	the image box. The format pasted depends on the <i>Paste as</i>
+	selection box: plain text, RLE, Life 1.05, or Life 1.06. These can then
+	be copied and pasted into other applications, if desired.</li>
+    <li>The <i>Help</i> button brings up this help page.</li>
+</ul></p>
+
+<hr />
+<a name="tips"></a>
+<h2>Tips</h2>
+<p>Some helpful search tips:</p>
+<p><ul>
+    <li>Normally, the list of patterns searched include all patterns on this
+	site that occur in detailed object lists, currently around 10000 items.
+	You can also optionally search through around 90000 additional items
+	that appear on expanded object stamp pages (i.e. those that include
+	2000 or more patterns, without syntheses, 1000 per page). To avoid
+	long delays during page loads, this option is on a separate page,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">Expanded search</a>.
+	On that version of the search page, the inclusion of these additional
+	patterns can be enabled by checking the check-box <i>Include expanded
+	object lists</i>. If this is disabled, the search will be as limited
+	(and as fast) as the regular search.
+	<ul>
+	    <li>Normal search includes all still-lifes up to 15 bits,
+		pseudo-still-lifes up to 16 bits, and period 2 oscillators and
+		pseudo-oscillators up to 18 bits.</li>
+	    <li>Expanded search includes all still-lifes and pseudo-still-lifes
+		up to 18 bits, and period 2 oscillators and
+		pseudo-oscillators up to 21 bits.</li>
+	    <li>Expanded search also includes all symmetric still-lifes and
+		pseudo-still-lifes up to 24 bits.</li>
+	</ul></li>
+    <li>If you get too many results, try to narrow down the search. When
+	searching by name, use multiple wildcards. (For example, when looking
+	for snakes on candelfrobras, try <i>*snake*frob*</i> rather than just
+	<i>*frob*</i>. It can also be helpful to narrow the search by
+	specifying a population range.</li>
+    <li>If you get too few results, or none at all, try removing one search
+	parameter at a time until some results are found.</li>
+    <li>Four properties (period, population, gliders, name) are always displayed
+	in the search results table. Other properties are only displayed if you
+	supply search qualifiers for them, or if you specifically sort based
+	on those properties. To include other properties in the table without
+	actually constraining them, for most properties it is sufficient to
+	just specify &ge; 0 (or even just &ge; alone, as 0 is assumed). This
+	will match most things (except non-numeric values like ?, <i>x</i>,
+	<i>TBD</i>, and <i>N/A</i>).</li>
+    <li>Search speed is increased if you specify specific rules, categories,
+	populations, periods, or velocities, as these criteria automatically
+	reject entire groups of items without needing to examine each item
+	separately. Note that searching by pattern image implicitly selects by
+	<i>Max. pop. &ge; (population of the entered image)</i>. (If wildcards
+	are used in the image, it also implicitly selects by <i>Population &le;
+	(population of the entered image, assuming wildcards are alive)</i>.)
+	The fastest search is to search by name for one specific still-life,
+	e.g. 12.121; such searches should be virtually instantaneous.</li>
+</ul></p>
+
+<p>Sometimes, results can be correct, although they may seem confusing or
+counter-intuitive:</p>
+<p><ul>
+    <li>When entering numeric expressions, the * for multiplication can
+	sometimes be omitted, but not always; omitting it can sometimes yield
+	unexpected results. It can always be omitted before
+	&#960;, &#964; and &#981; (e.g. 2&#960; is 2*&#960;).
+	It can be omitted before <i>e</i> (e.g. 3e^2 is 3*<i>e</i>&sup2;), but
+	not if it's followed by + or - (e.g. 4e-2 = 0.04, not 4*<i>e</i>-2).
+	It can never be omitted with &#8730;
+	(e.g. 4&#8730;2 = fourth root of 2, not 4*&#8730;2). It may also never
+	be omitted in any other cases not mentioned here.</li>
+    <li>In numeric expressions, implicit multiplication has a higher binding
+	precedence than exponentiation. Thus, 4&#960;&sup2; and 4&#960;^2
+	are (4*&#960;)&sup2; rather than 4*(&#960;&sup2;). This is
+	counter-intuitive (and is, in fact, incorrect) but it is not likely to
+	be fixed soon.</li>
+    <li>The displayed form of an object is the base canonical form that
+	included in the object database. This may differ from what is entered
+	via image search. Also, directional objects like spaceships and puffers
+	have arbitrary directions and orientations, unlike the images on other
+	pages on this site, where they typically move upwards an/or to the
+	left.</li>
+    <li>Adding additional constraints can sometimes produce <i>more</i>
+	results rather than less. This often happens when one constraint
+	renders another meaningless, causing it to be ignored. For example,
+	when searching for objects with velocity &gt; 0, there are hundreds
+	of objects (spaceships and puffers), yet when the search is restricted
+	to only still-lifes, there are thousands of results. This is because
+	velocity is meaningless for still-lifes, so it is ignored, and all
+	still-lifes are found.</li>
+    <li>All breeders, constellations and methuselahs in this pattern collection
+	are stationary, so they are assumed to have a velocity of 0. While this
+	is not always true of such patterns in general, it is sufficient for
+	searches here, although this could change in the future as new
+	patterns are added to the collection.</li>
+    <li>Many properties (such as heat and volatility) are formally defined only
+	for periodic patterns, such as oscillators (and, implicitly, still-lifes
+	that have heat and volatility zero). Here, these definitions are treated
+	asymptotically, as limits as time goes to infinity (e.g.
+	lim<sub><i>x</i>&#8592;&#8734;</sub> (statistics from generations
+	<i>xp</i> ... 2<i>xp</i>-1, where <i>p</i> is the object's period, or 1
+	if the period is not regular). This allows the definitions to be
+	seamlessly extended to many other classes of objects:
+	<ul>
+	    <li>Spaceships are completely volatile (e.g. heat is finite, and
+		volatility and strict volatility are 1).</li>
+	    <li>Heat and volatility of guns are dominated by their outputs
+		(e.g. heat is infinite; volatility is that of their
+		outputs, e.g. 1).</li>
+	    <li>Heat and volatility of puffers and wick-stretchers are dominated
+		by their outputs (e.g. heat is that of the puffer if output is
+		all still-lifes, and infinite otherwise; volatility is that of
+		the output).</li>
+	    <li>Similarly, heat and volatility of breeders are dominated by
+		their guns or puffers and they in turn by their outputs.
+		(e.g. heat is always infinite (e.g. &#8734; for MMS breeders,
+		and &#8734;&sup2; for all others).</li>
+	    <li>Temperature for infinitely-expanding patterns can be meaningful
+		even if heat is not (e.g. for guns, puffers, and breeders, it
+		will be that of their dominating outputs.)</li>
+	    <li>Methuselahs are dominated by their final census.</li>
+	    <li>Irregular infinitely-expanding patterns (typically in rules
+		other than Life) have infinite heat and volatility, zero
+		strict volatility, and indeterminate temperature.</li>
+	</ul></li>
+</ul></p>
+
+<hr />
+<a name="issues"></a>
+<h2>Known issues</h2>
+<p><ul>
+    <li>Heat and volatility may be incorrect for some objects in these
+	categories: methuselahs, puffers, not quite stable objects.</li>
+    <li>Most periodic patterns can be found by image search in any phase.
+	However, some large patterns are only listed by their main phases. These
+	include expanding patterns (methuselahs, guns, puffers, wick-stretchers
+	and breeders), and also the four oscillators with periods 300 and
+	higher.</li>
+    <li>Huge patterns frequently lack accurate information about certain
+	statistics, such as pattern image, average and maximum population, heat,
+	large bounding box, etc. (The only patterns currently affected are
+	the <a class="i" href="exotic.htm#ss-17o45">Caterpillar</a> and
+	<a class="i" href="exotic.htm#ss-gemini">Gemini</a> spaceships and the
+	<a class="i" href="puff.htm#puff-geminoid">Geminoid
+	replicators</a>.)</li>
+    <li>Wildcard image searches may take an extremely long time, especially if
+	the image being searched for is fairly large, and there are no other
+	constraints. It is best to use Ultimate Search to apply other
+	constraints to narrow the search first.</li>
+</ul></p>
+
+<hr />
+<a name="browser"></a>
+<h2>Browser issues</h2>
+<p><ul>
+    <li>Some browsers display text more widely than others. Sometimes selecting
+	search criteria with ranges (&mdash; or ~) causes lines to wrap around.
+	For example, with Chrome, this happens with all criteria relating to
+	population or boxes, while with Internet Explorer, this happens only
+	with squareness. Firefox, Safari and Opera appear to be unaffected.</li>
+    <li id="opera">Opera version 9 does not resize the pattern image properly.
+	Also, in the list view, when a large number of results are found (for
+	example, around 3000 or more), the sort order can be unpredictable.</li>
+    <li id="nocan">Older browsers (such as this one) that lack support for HTML
+	canvases do not support the stamp view of search results. They also
+	display the pattern image using boxes within tables, which is adequate
+	but not as nice looking. Also, one cannot click on the pattern image to
+	open the pattern file.</li>
+    <li>On some browsers, re-loading the page resets all form data. On some
+	others, form data is preserved. In any case, search results are not
+	preserved.</li>
+</ul></p>
+
+<hr /><hr />
+<a name="privacy"></a>
+<h2>Privacy policy</h2>
+<p>All searching is performed entirely in the browser; no information is sent
+to any server, so no data is collected for any purpose whatsoever. (Not that it
+likely that anyone would consider Life patterns to be highly sensitive personal
+information anyway.)</p>
+
+<canvas id="can" style="display:none;" width="1" height="1"></canvas>
+
+<script type="text/javascript"><!--
+function Id (n) { return document.getElementById (n); }
+function Hide (n) { Id (n).style.display = 'none'; }
+function Body () {
+    if (Id ('can').getContext) {	// HTML5 canvas support
+	Hide ('tab'); Hide ('nocan');
+    } else {				// No canvas: stamp view not available
+	Hide ('by'); Hide ('res'); Hide ('click'); Hide ('fixed');
+	Hide ('stamp'); Hide ('launch'); Hide ('opera');
+    }
+}
+// -->
+</script>
+
+<hr /><hr />
+<p>Related:
+    <a class="i" target="lifesrch" href="lifesrch.htm">Normal search</a>,
+    <a class="i" target="lifesrch" href="lifxsrch.htm">Expanded search</a>.</p>
+
+<p><b>See also:</b>
+	<a class="i" href="lifeterm.htm">definitions</a>,
+	<a class="i" href="lifestr.htm">structure</a>,
+	<a class="i" href="lifemeth.htm">search methodologies</a>,
+	<a class="i" href="liferule.htm">other rules</a>,
+	<a class="i" href="lifenews.htm">news</a>,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

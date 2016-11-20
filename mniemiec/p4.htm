@@ -1,0 +1,1379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-4 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-4 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 4 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-4 Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p4-12">12</a> |
+	  <a class="j" href="#p4-18">18</a> |
+	  <a class="j" href="#p4-19">19</a> |
+	  <a class="j" href="#p4-20">20</a> |
+	  <a class="j" href="#p4-20">21</a> |
+	  <a class="j" href="#p4-22">22</a> |
+	  <a class="j" href="#p4-23">23</a> |
+	  <a class="j" href="#p4-24">24</a> |
+	  <a class="j" href="#p4-25">25</a> |
+	  <a class="j" href="#p4-lg">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g5-p4">5</a> |
+	  <a class="j" href="#ge-p4">1 glider/bit</a> |
+	  <a class="j" href="#gg-p4">&gt;1 glider/bit</a> |
+	  <a class="j" href="#gu-p4">unknown</a><br />
+	<b><a class="j" href="#nat-p4">Frequency of occurrence</a></b> |
+	<b><a class="j" href="#meth-p4">Methuselahs with P2 censuses</a></b>
+</p>
+
+<hr /><hr />
+<p>Because <a class="p" href="12/12md.rle">Mold</a> is the smallest period-4 oscillator,
+and its rotor can grow on any object with a loaf-like bonding site, most
+period-4 oscillators are mold-based. In fact, these alone comprise around 94%
+of all such oscillators up to 25 bits. The next two easily-expandible
+period-4 oscillators occur at 20 bits:
+<a class="p" href="20/20ce.rle">Confused eaters</a> and
+<a class="p" href="20/20eebf.rle">Eater block frob</a>. Variants of these each comprise
+around 2.5% of period-4 oscillators up to 25 bits, with less than 1% remaining
+that do not belong to one of these three categories.</p>
+
+<hr />
+<hr />
+<a name="p4-12"></a>
+<h2>The 2 <a class="i" href="bits-12.htm">twelve-bit</a>
+period 4 oscillators</h2>
+<p><a class="p" href="stamp/p4-12.rle"><img src="map/p4-12.png"
+ alt="12-bit P4" width="141" height="81" usemap="#p4-12" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12md.rle">
+	    Mold [5]</a></td>
+	<td><a class="p" href="12/12mz.rle">
+	    Mazing [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="p4-12">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p4-12.zip" />
+	<area coords="121,61,140,80" href="stamp/p4-12.rle" />
+	<area coords="0,0,69,80" href="12/12md.rle" />
+	<area coords="70,0,140,80" href="12/12mz.rle" />
+</map>
+
+<p>Mold is the smallest oscillator that produces a period 4
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.
+Also, mold forms on most still-lifes that have a bonding surface like the
+long diagonal side of a <a class="p" href="0/7lf.rle">loaf</a>
+(from which its name was inspired), so it forms the basis for many larger
+period 4 oscillators
+(and many with periods that are multiples of 4, such as
+<a class="i" href="p12.htm">period 12</a>).</p>
+
+<hr />
+<a name="p4-18"></a>
+<h2>The 3 <a class="i" href="bits-18.htm">eighteen-bit</a>
+period 4 oscillators</h2>
+<p><a class="p" href="stamp/p4-18.rle"><img src="map/p4-18.png"
+ alt="18-bit period 4"
+ width="201" height="81" usemap="#p4-18" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="18/18mg.rle">
+	    Mono- gram; Initials; JHC [15]</a></td>
+	<td><a class="p" href="18/18mdta1.rle">
+	    Up mold on table [10]</a></td>
+	<td><a class="p" href="18/18mdta2.rle">
+	    Down mold on table [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="p4-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p4-18.zip" />
+	<area coords="181,61,200,80" href="stamp/p4-18.rle" />
+	<area coords="0,0,69,80" href="18/18mg.rle" />
+	<area coords="70,0,129,80" href="18/18mdta1.rle" />
+	<area coords="130,0,200,80" href="18/18mdta2.rle" />
+</map>
+
+<p>Monogram (whose name is derived from the fact that it resembles the
+letters JHC, the initials of John Horton Conway, the inventor of Life),
+while it has no sparks, can be used as a
+<a class="i" href="lifeterm.htm#spark">sparker</a>
+oscillator in some circumstances, because it can delete
+<a class="p" href="0/3bl.rle">blinkers</a>.</p>
+
+<hr />
+<a name="p4-19"></a>
+<h2>The 7 <a class="i" href="bits-19.htm">nineteen-bit</a>
+period 4 oscillators</h2>
+<p><a class="p" href="stamp/p4-19.rle"><img src="map/p4-19.png"
+ alt="19-bit period 4 oscillators"
+ width="441" height="81" usemap="#p4-19" /></a><br />
+    <table width="445">
+    <colgroup><col width="71" /><col span="5" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19mdbn1.rle">
+	    Mold tie up bun [17]</a></td>
+	<td><a class="p" href="19/19mdbe1.rle">
+	    Mold tie up bookend [18]</a></td>
+	<td><a class="p" href="19/19mdlf.rle">
+	    Mold tie loaf [12]</a></td>
+	<td><a class="p" href="19/19mdbn2.rle">
+	    Mold tie down bun [12]</a></td>
+	<td><a class="p" href="19/19mdbe2.rle">
+	    Mold tie down bookend [14]</a></td>
+	<td class="y"><a class="p" href="19/19mdcht.rle">
+	    Mold siamese cis hook w/ tail [21]</a></td>
+	<td class="y"><a class="p" href="19/19mdha.rle">
+	    Mold siamese hat [20]</a></td>
+    </tr>
+</table></p>
+
+<map name="p4-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="421,0,440,19" href="zip/p4-19.zip" />
+	<area coords="421,61,440,80" href="stamp/p4-19.rle" />
+	<area coords="0,0,69,80" href="19/19mdbn1.rle" />
+	<area coords="70,0,129,80" href="19/19mdbe1.rle" />
+	<area coords="130,0,189,80" href="19/19mdlf.rle" />
+	<area coords="190,0,249,80" href="19/19mdbn2.rle" />
+	<area coords="250,0,309,80" href="19/19mdbe2.rle" />
+	<area coords="310,0,369,80" href="19/19mdcht.rle" />
+	<area coords="370,0,440,80" href="19/19mdha.rle" />
+</map>
+
+<hr />
+<a name="p4-20"></a>
+<h2>The 23 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 4 oscillators</h2>
+<p><a class="p" href="stamp/p4-20.rle"><img src="map/p4-20.png"
+ alt="20-bit period 4 oscillators"
+ width="501" height="201" usemap="#p4-20" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20mdct1.rle">
+	    Up mold on cap [10]</a></td>
+	<td><a class="p" href="20/20mdle1.rle">
+	    Up mold on up long bookend [12]</a></td>
+	<td><a class="p" href="20/20mdle4.rle">
+	    Down mold on down long bookend [10]</a></td>
+	<td><a class="p" href="20/20mdle3.rle">
+	    Up mold on down long bookend [10]</a></td>
+	<td><a class="p" href="20/20mdwg1.rle">
+	    Up mold tie wing [16]</a></td>
+	<td><a class="p" href="20/20mdct2.rle">
+	    Down mold on cap [10]</a></td>
+	<td class="y"><a class="p" href="20/20mdlha1.rle">
+	    Mold siamese up long hat [22]</a></td>
+	<td class="y"><a class="p" href="20/20mdht.rle">
+	    Mold tie hook w/ tail [25]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20mdcslh.rle">
+	    Mold siamese short cis hook w/ tail [71]</a></td>
+	<td class="y"><a class="p" href="20/20mdlha2.rle">
+	    Mold siamese down long hat [22]</a></td>
+	<td class="y"><a class="p" href="20/20mdbet1.rle">
+	    Mold tie up bookend w/ tub [21]</a></td>
+	<td><a class="p" href="20/20mdle2.rle">
+	    Down mold on up long bookend [12]</a></td>
+	<td class="y"><a class="p" href="20/20p4-1.rle">
+	    20-bit P4 #1 [24]</a></td>
+	<td class="y"><a class="p" href="20/20mdcftt.rle">
+	    Mold siamese cis fuse w/ two tails [30]</a></td>
+	<td class="y"><a class="p" href="20/20smdsn.rle">
+	    Snake siamese mold siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="20/20amdsn.rle">
+	    Carrier siamese mold siamese snake [33]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20amdac.rle">
+	    Carrier siamese mold siamese carrier [39]</a></td>
+	<td><a class="p" href="20/20mdpd.rle">
+	    Mold tie pond [14]</a></td>
+	<td class="y"><a class="p" href="20/20mdblf.rle">
+	    Mold bit tie loaf [26]</a></td>
+	<td><a class="p" href="20/20mdwg2.rle">
+	    Down mold tie wing [15]</a></td>
+	<td class="g"><a class="p" href="20/20mdbet2.rle">
+	    Down mold tie bookend w/ tub [20]</a></td>
+	<td><a class="p" href="20/20eebf.rle">
+	    Eater block frob; Eater and block eating loaf w/ tail [12]</a></td>
+	<td class="g"><a class="p" href="20/20ce.rle">
+	    Con- fused eaters [20]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p4-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p4-20.zip" />
+	<area coords="481,181,500,200" href="stamp/p4-20.rle" />
+	<area coords="0,0,69,69" href="20/20mdct1.rle" />
+	<area coords="70,0,129,69" href="20/20mdle1.rle" />
+	<area coords="130,0,189,69" href="20/20mdle3.rle" />
+	<area coords="190,0,249,69" href="20/20mdle4.rle" />
+	<area coords="250,0,309,69" href="20/20mdwg1.rle" />
+	<area coords="310,0,369,69" href="20/20mdct2.rle" />
+	<area coords="370,0,429,69" href="20/20mdlha1.rle" />
+	<area coords="430,0,500,69" href="20/20mdht.rle" />
+	<area coords="0,70,69,129" href="20/20mdcslh.rle" />
+	<area coords="70,70,129,129" href="20/20mdlha2.rle" />
+	<area coords="130,70,189,129" href="20/20mdbet1.rle" />
+	<area coords="190,70,249,129" href="20/20mdle2.rle" />
+	<area coords="250,70,309,129" href="20/20p4-1.rle" />
+	<area coords="310,70,369,129" href="20/20mdcftt.rle" />
+	<area coords="370,70,429,129" href="20/20smdsn.rle" />
+	<area coords="430,70,500,129" href="20/20amdsn.rle" />
+	<area coords="0,130,69,200" href="20/20amdac.rle" />
+	<area coords="70,130,129,200" href="20/20mdpd.rle" />
+	<area coords="130,130,189,200" href="20/20mdblf.rle" />
+	<area coords="190,130,249,200" href="20/20mdwg2.rle" />
+	<area coords="250,130,309,200" href="20/20mdbet2.rle" />
+	<area coords="310,130,369,200" href="20/20eebf.rle" />
+	<area coords="370,130,429,200" href="20/20ce.rle" />
+	<area coords="430,130,500,200" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p4-21"></a>
+<h2>The 34 <a class="i" href="bits-21.htm">21-bit</a>
+period 4 oscillators</h2>
+<p><a class="p" href="stamp/p4-21.rle"><img src="map/p4-21.png"
+ alt="21-bit period 4 oscillators"
+ width="561" height="261" usemap="#p4-21" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="21/21mdtlb2.rle">
+	    Down boat on mold sharing tail [52]</a></td>
+	<td><a class="p" href="21/21mdleh1.rle">
+	    Up mold on up long bookend w/ hook [15]</a></td>
+	<td><a class="p" href="21/21mdleh4.rle">
+	    Down mold on down long bookend w/ hook[13]</a></td>
+	<td class="y"><a class="p" href="21/21mdzpb1.rle">
+	    Up mold tie Z w/ pre-block [23]</a></td>
+	<td><a class="p" href="21/21mdlet1.rle">
+	    Up mold on up long bookend w/ tub [15]</a></td>
+	<td><a class="p" href="21/21mdleh3.rle">
+	    Up mold on down long bookend w/ hook [13]</a></td>
+	<td><a class="p" href="21/21mdlet3.rle">
+	    Up mold on down long bookend w/ tub [13]</a></td>
+	<td><a class="p" href="21/21mdlet4.rle">
+	    Down mold on down long bookend w/ tub [13]</a></td>
+	<td class="r"><a class="p" href="21/21p4-1.rle">
+	    21-bit P4 oscillator #1 [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21mdhlt.rle">
+	    Mold tie hook w/ long tail [34]</a></td>
+	<td><a class="p" href="21/21mddv1.rle">
+	    Up mold tie dove [18]</a></td>
+	<td class="y"><a class="p" href="21/21mdtlb1.rle">
+	    Up boat on mold sharing tail [41]</a></td>
+	<td class="y"><a class="p" href="21/21mddbt.rle">
+	    Mold tie down boat w/ tail [27]</a></td>
+	<td class="y"><a class="p" href="21/21mdvha1.rle">
+	    Up mold siamese very long hat [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdvha2.rle">
+	    Down mold siamese very long hat [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdbeb1.rle">
+	    Up mold tie bookend w/ boat [23]</a></td>
+	<td><a class="p" href="21/21mdleh2.rle">
+	    Down mold on up long bookend w/ hook [15]</a></td>
+	<td class="y"><a class="p" href="21/21mdbtta.rle">
+	    Mold siamese boat on table [23]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21emdsn.rle">
+	    Eater siamese mold siamese snake [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdblsd.rle">
+	    Mold w/bit tie long side [44]</a></td>
+	<td class="y"><a class="p" href="21/21mdlhab.rle">
+	    Mold siamese long hat siamese boat [24]</a></td>
+	<td class="y"><a class="p" href="21/21smdet.rle">
+	    Snake siamese mold siamese eater [29]</a></td>
+	<td class="y"><a class="p" href="21/21mdacbt.rle">
+	    Mold siamese boat below carrier [27]</a></td>
+	<td class="y"><a class="p" href="21/21amdet.rle">
+	    Carrier siamese mold siamese eater [35]</a></td>
+	<td class="y"><a class="p" href="21/21emdac.rle">
+	    Eater siamese mold siamese carrier [28]</a></td>
+	<td><a class="p" href="21/21mdzpb2.rle">
+	    Down mold tie Z w/ pre-block [20]</a></td>
+	<td class="y"><a class="p" href="21/21mdbcs.rle">
+	    Mold w/ bit tie canoe [30]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21smdls.rle">
+	    Snake siamese mold siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="21/21amdls.rle">
+	    Carrier siamese mold siamese snake [33]</a></td>
+	<td class="y"><a class="p" href="21/21mdbcg.rle">
+	    Mold w/ bit tie mango [40]</a></td>
+	<td><a class="p" href="21/21mdlet2.rle">
+	    Down mold on up long bookend w/ tub [15]</a></td>
+	<td><a class="p" href="21/21mddv2.rle">
+	    Up mold tie dove [17]</a></td>
+	<td class="y"><a class="p" href="21/21mdbeb2.rle">
+	    Down mold tie bookend w/ boat [22]</a></td>
+	<td><a class="p" href="21/21cetb.rle">
+	    Con- fused eaters w/ tub [20]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p4-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p4-21.zip" />
+	<area coords="541,241,560,260" href="stamp/p4-21.rle" />
+	<area coords="0,0,69,69" href="21/21mdtlb2.rle" />
+	<area coords="70,0,129,69" href="21/21mdleh1.rle" />
+	<area coords="130,0,189,69" href="21/21mdleh4.rle" />
+	<area coords="190,0,249,69" href="21/21mdzpb1.rle" />
+	<area coords="250,0,309,69" href="21/21mdlet1.rle" />
+	<area coords="310,0,369,69" href="21/21mdleh3.rle" />
+	<area coords="370,0,429,69" href="21/21mdlet3.rle" />
+	<area coords="430,0,489,69" href="21/21mdlet4.rle" />
+	<area coords="490,0,549,69" href="21/21p4-1.rle" />
+	<area coords="550,0,560,69" nohref="nohref" />
+	<area coords="0,70,69,129" href="21/21mdhlt.rle" />
+	<area coords="70,70,129,129" href="21/21mddv1.rle" />
+	<area coords="130,70,189,129" href="21/21mdtlb1.rle" />
+	<area coords="190,70,249,129" href="21/21mddbt.rle" />
+	<area coords="250,70,309,129" href="21/21mdvha1.rle" />
+	<area coords="310,70,369,129" href="21/21mdvha2.rle" />
+	<area coords="370,70,429,129" href="21/21mdbeb1.rle" />
+	<area coords="430,70,489,129" href="21/21mdleh2.rle" />
+	<area coords="490,70,549,129" href="21/21mdbtta.rle" />
+	<area coords="550,70,560,129" nohref="nohref" />
+	<area coords="0,130,69,189" href="21/21emdsn.rle" />
+	<area coords="70,130,129,189" href="21/21mdblsd.rle" />
+	<area coords="130,130,189,189" href="21/21mdlhab.rle" />
+	<area coords="190,130,249,189" href="21/21smdet.rle" />
+	<area coords="250,130,309,189" href="21/21mdacbt.rle" />
+	<area coords="310,130,369,189" href="21/21amdet.rle" />
+	<area coords="370,130,429,189" href="21/21emdac.rle" />
+	<area coords="430,130,489,189" href="21/21mdzpb2.rle" />
+	<area coords="490,130,549,189" href="21/21mdbcs.rle" />
+	<area coords="550,130,560,189" nohref="nohref" />
+	<area coords="0,190,69,260" href="21/21smdls.rle" />
+	<area coords="70,190,129,260" href="21/21amdls.rle" />
+	<area coords="130,190,189,260" href="21/21mdbcg.rle" />
+	<area coords="190,190,249,260" href="21/21mdlet2.rle" />
+	<area coords="250,190,309,260" href="21/21mddv2.rle" />
+	<area coords="310,190,369,260" href="21/21mdbeb2.rle" />
+	<area coords="370,190,429,260" href="21/21cetb.rle" />
+	<area coords="430,190,560,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p4-22"></a>
+<h2>The 120 <a class="i" href="bits-22.htm">22-bit</a>
+period 4 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>111 Expanded molds on 17-bit still-lifes (not shown).</li>
+    <li>2 Expanded confused eaters (shown).</li>
+    <li>2 Expanded eater block frobs (shown).</li>
+    <li>5 Miscellaneous oscillators (shown; 2 without syntheses).</li>
+</ul></p>
+
+<p>The ones based on mold on a still-life are too numerous to show, but all are
+are easy to synthesize using standard techniques. The others are shown.</p>
+<p><a class="p" href="stamp/p4-22.rle"><img src="map/p4-22.png"
+ alt="22-bit period-4 oscillators"
+ width="421" height="141" usemap="#p4-22" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="22/22p4-1.rle">
+	    22-bit P4 oscillator #1 [16]</a></td>
+	<td class="y"><a class="p" href="22/22p4-3.rle">
+	    22-bit P4 oscillator #3 [27]</a></td>
+	<td class="y"><a class="p" href="22/22p4-2.rle">
+	    22-bit P4 oscillator #2 [34]</a></td>
+	<td class="r"><a class="p" href="22/22p4-4.rle">
+	    22-bit P4 oscillator #4 [x]</a></td>
+	<td class="r"><a class="p" href="22/22p4-5.rle">
+	    22-bit P4 oscillator #5 [x]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="22/22eibf.rle">
+	    Eater and block eating integral w/ loaf [12]</a></td>
+	<td><a class="p" href="22/22cebt.rle">
+	    Confused eaters w/ boat [21]</a></td>
+	<td><a class="p" href="22/22iebf.rle">
+	    Integral and block eating loaf w/ tail [15]</a></td>
+	<td class="y"><a class="p" href="22/22cein.rle">
+	    Confused eaters w/ integral [23]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p4-22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p4-22.zip" />
+	<area coords="401,121,420,140" href="stamp/p4-22.rle" />
+	<area coords="0,0,89,69" href="22/22p4-1.rle" />
+	<area coords="90,0,169,69" href="22/22p4-3.rle" />
+	<area coords="170,0,249,69" href="22/22p4-2.rle" />
+	<area coords="250,0,329,69" href="22/22p4-4.rle" />
+	<area coords="330,0,420,69" href="22/22p4-5.rle" />
+	<area coords="0,70,89,140" href="22/22eibf.rle" />
+	<area coords="90,70,169,140" href="22/22cebt.rle" />
+	<area coords="170,70,249,140" href="22/22iebf.rle" />
+	<area coords="250,70,329,140" href="22/22cein.rle" />
+	<area coords="330,70,420,140" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p4-23"></a>
+<h2>The 239 <a class="i" href="bits-23.htm">23-bit</a>
+period 4 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>229 Expanded molds on 18-bit still-lifes (not shown).</li>
+    <li>4 Expanded confused eaters (shown).</li>
+    <li>4 Expanded eater block frobs (shown).</li>
+    <li>2 Mold on griddle (shown).</li>
+</ul></p>
+
+<p>The ones based on mold on a still-life are too numerous to show, but all are
+are easy to synthesize using standard techniques. The others are shown.</p>
+<p><a class="p" href="stamp/p4-23.rle"><img src="map/p4-23.png"
+ alt="23-bit period-4 oscillators"
+ width="421" height="161" usemap="#p4-23" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="23/23mddt1.rle">
+	    Up mold on griddle [21]</a></td>
+	<td><a class="p" href="23/23mddt2.rle">
+	    Down mold on griddle [21]</a></td>
+	<td><a class="p" href="23/23eihbf.rle">
+	    Eater and block eating integral w/ loaf and hook [15]</a></td>
+	<td><a class="p" href="23/23cebg.rle">
+	    Confused eaters w/ barge [21]</a></td>
+	<td><a class="p" href="23/23eitbf.rle">
+	    Eater and block eating integral w/ loaf and tub [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="23/23ihebf.rle">
+	    Integral w/ hook and block eating loaf w/ tail [18]</a></td>
+	<td><a class="p" href="23/23itebf.rle">
+	    Integral w/ tub and block eating loaf w/ tail [18]</a></td>
+	<td class="g"><a class="p" href="23/23ceintb.rle">
+	    Confused eaters w/ tub and integral [23]</a></td>
+	<td class="y"><a class="p" href="23/23ceih.rle">
+	    Confused eaters w/ integral w/ hook [26]</a></td>
+	<td class="y"><a class="p" href="23/23ceit.rle">
+	    Confused eaters w/ integral w/ tub [26]</a></td>
+    </tr>
+</table></p>
+
+<map name="p4-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p4-23.zip" />
+	<area coords="401,141,420,160" href="stamp/p4-23.rle" />
+	<area coords="0,0,89,69" href="23/23mddt2.rle" />
+	<area coords="90,0,169,69" href="23/23mddt1.rle" />
+	<area coords="170,0,249,69" href="23/23eihbf.rle" />
+	<area coords="250,0,329,69" href="23/23cebg.rle" />
+	<area coords="330,0,420,69" href="23/23eitbf.rle" />
+	<area coords="0,70,89,160" href="23/23ihebf.rle" />
+	<area coords="90,70,169,160" href="23/23itebf.rle" />
+	<area coords="170,70,249,160" href="23/23ceintb.rle" />
+	<area coords="250,70,329,160" href="23/23ceih.rle" />
+	<area coords="330,70,420,160" href="23/23ceit.rle" />
+</map>
+
+<hr />
+<a name="p4-24"></a>
+<h2>The 571 <a class="i" href="bits-24.htm">24-bit</a>
+period 4 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>531 Expanded molds on 19-bit still-lifes (not shown).</li>
+    <li>13 Expanded confused eaters (shown).</li>
+    <li>17 Expanded eater block frobs (shown).</li>
+    <li>4 Dual molds (shown; 1 without synthesis).</li>
+    <li>6 Miscellaneous oscillators (shown; 3 without syntheses).</li>
+</ul></p>
+
+<p>The ones based on mold on a still-life are too numerous to show, but most are
+are easy to synthesize using standard techniques, except some that are based
+on 19-bit still-lifes that do not yet have syntheses. The others are shown.</p>
+<p><a class="p" href="stamp/p4-24.rle"><img src="map/p4-24.png"
+ alt="24-bit period-4 oscillators"
+ width="581" height="401" usemap="#p4-24" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="24/24p4-1.rle">
+	    24-bit P4 oscillator #1 [x]</a></td>
+	<td class="r"><a class="p" href="24/24p4-2.rle">
+	    24-bit P4 oscillator #2 [x]</a></td>
+	<td class="r"><a class="p" href="24/24p4-3.rle">
+	    24-bit P4 oscillator #3 [x]</a></td>
+	<td><a class="p" href="24/24p4-4.rle">
+	    24-bit P4 oscillator #4 [19]</a></td>
+	<td class="y"><a class="p" href="24/24qj2.rle">
+	    Quarter jack w/ carrier [61]</a></td>
+	<td class="y"><a class="p" href="24/24qj1.rle">
+	    Quarter jack w/ curl [32]</a></td>
+	<td><a class="p" href="24/24mdmd4.rle">
+	    Trans molds sharing sparks [10]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="24/24mdmd3.rle">
+	    Cis molds sharing sparks [x]</a></td>
+	<td><a class="p" href="24/24eecpbf.rle">
+	    Eater and block eating loaf w/ tail w/ cape [20]</a></td>
+	<td><a class="p" href="24/24ecpebf.rle">
+	    Eater w/ cape and block eating loaf w/ tail [20]</a></td>
+	<td><a class="p" href="24/24aeebf.rle">
+	    Carrier siamese eater and block eating loaf w/tail [17]</a></td>
+	<td><a class="p" href="24/24seebf.rle">
+	    Snake siamese eater and block eating loaf w/tail [18]</a></td>
+	<td><a class="p" href="24/24eaebf.rle">
+	    Eater and block eating loaf w/ tail siamese carrier [16]</a></td>
+	<td><a class="p" href="24/24esebf.rle">
+	    Eater and block eating loaf w/ tail siamese snake [15]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24eitlbf.rle">
+	    Eater and block eating integral w/ loaf and tail [16]</a></td>
+	<td class="y"><a class="p" href="24/24mdmd2.rle">
+	    Down mold tie mold [20]</a></td>
+	<td><a class="p" href="24/24mdmd1.rle">
+	    Up mold tie mold [20]</a></td>
+	<td><a class="p" href="24/24celb.rle">
+	    Confused eaters w/ long boat [21]</a></td>
+	<td><a class="p" href="24/24eilhbf.rle">
+	    Eater and block eating integral w/ loaf and long hook [16]</a></td>
+	<td><a class="p" href="24/24itlebf.rle">
+	    Integral w/ tail and block eating loaf w/ tail [19]</a></td>
+	<td><a class="p" href="24/24eidbbf.rle">
+	    Eater and block eating integral w/ loaf and down boat [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24iibf.rle">
+	    Integral and block eating integral w/ loaf [15]</a></td>
+	<td><a class="p" href="24/24egubf.rle">
+	    Eater and block eating gull w/ loaf [14]</a></td>
+	<td><a class="p" href="24/24eiubbf.rle">
+	    Eater and block eating integral w/ loaf and up boat [15]</a></td>
+	<td><a class="p" href="24/24ilhebf.rle">
+	    Integral w/ down boat and block eating loaf w/ tail [19]</a></td>
+	<td class="y"><a class="p" href="24/24ceecp.rle">
+	    Confused eaters w/ eater w/ cape [28]</a></td>
+	<td class="y"><a class="p" href="24/24cese.rle">
+	    Confused eaters w/ snake siamese eater [26]</a></td>
+	<td class="y"><a class="p" href="24/24ceae.rle">
+	    Confused eaters w/ carrier siamese eater [25]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24idbebf.rle">
+	    Integral w/ down boat and block eating loaf w/ tail [17]</a></td>
+	<td class="g"><a class="p" href="24/24ceinbt.rle">
+	    Confused eaters w/ boat and integral [24]</a></td>
+	<td><a class="p" href="24/24guebf.rle">
+	    Gull and block eating loaf w/ tail [14]</a></td>
+	<td><a class="p" href="24/24iubebf.rle">
+	    Integral w/ up boat and block eating loaf w/ tail [18]</a></td>
+	<td class="y"><a class="p" href="24/24ceitl.rle">
+	    Confused eaters w/ integral w/ tail [27]</a></td>
+	<td class="y"><a class="p" href="24/24ceihtb.rle">
+	    Confused eaters w/ tub and integral w/ hook [26]</a></td>
+	<td class="y"><a class="p" href="24/24ceilh.rle">
+	    Confused eaters w/ integral w/ long hook [27]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="24/24ceidb.rle">
+	    Confused eaters w/ integral w/ down boat [25]</a></td>
+	<td class="y"><a class="p" href="24/24ceittb.rle">
+	    Confused eaters w/ tub and integral w/ tub [26]</a></td>
+	<td class="y"><a class="p" href="24/24ceii.rle">
+	    Confused eaters w/ two integrals [26]</a></td>
+	<td><a class="p" href="24/24cegu.rle">
+	    Confused eaters w/ gull [22]</a></td>
+	<td class="y"><a class="p" href="24/24ceiub.rle">
+	    Confused eaters w/ integral w/ up boat [26]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p4-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,381,19,400" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p4-24.zip" />
+	<area coords="561,381,580,400" href="stamp/p4-24.rle" />
+	<area coords="0,0,89,69" href="24/24p4-1.rle" />
+	<area coords="90,0,169,69" href="24/24p4-2.rle" />
+	<area coords="170,0,249,69" href="24/24p4-3.rle" />
+	<area coords="250,0,329,69" href="24/24p4-4.rle" />
+	<area coords="330,0,409,69" href="24/24qj2.rle" />
+	<area coords="410,0,489,69" href="24/24qj1.rle" />
+	<area coords="490,0,580,69" href="24/24mdmd4.rle" />
+	<area coords="0,70,89,129" href="24/24mdmd3.rle" />
+	<area coords="90,70,169,129" href="24/24eecpbf.rle" />
+	<area coords="170,70,249,129" href="24/24ecpebf.rle" />
+	<area coords="250,70,329,129" href="24/24aeebf.rle" />
+	<area coords="330,70,409,129" href="24/24seebf.rle" />
+	<area coords="410,70,489,129" href="24/24eaebf.rle" />
+	<area coords="490,70,580,129" href="24/24esebf.rle" />
+	<area coords="0,130,89,189" href="24/24eitlbf.rle" />
+	<area coords="90,130,169,189" href="24/24mdmd2.rle" />
+	<area coords="170,130,249,189" href="24/24mdmd1.rle" />
+	<area coords="250,130,329,189" href="24/24celb.rle" />
+	<area coords="330,130,409,189" href="24/24eilhbf.rle" />
+	<area coords="410,130,489,189" href="24/24itlebf.rle" />
+	<area coords="490,130,580,189" href="24/24eidbbf.rle" />
+	<area coords="0,190,89,249" href="24/24iibf.rle" />
+	<area coords="90,190,169,249" href="24/24egubf.rle" />
+	<area coords="170,190,249,249" href="24/24eiubbf.rle" />
+	<area coords="250,190,329,249" href="24/24ilhebf.rle" />
+	<area coords="330,190,409,249" href="24/24ceecp.rle" />
+	<area coords="410,190,489,249" href="24/24cese.rle" />
+	<area coords="490,190,580,249" href="24/24ceae.rle" />
+	<area coords="0,250,89,309" href="24/24idbebf.rle" />
+	<area coords="90,250,169,309" href="24/24ceinbt.rle" />
+	<area coords="170,250,249,309" href="24/24guebf.rle" />
+	<area coords="250,250,329,309" href="24/24iubebf.rle" />
+	<area coords="330,250,409,309" href="24/24ceitl.rle" />
+	<area coords="410,250,489,309" href="24/24ceihtb.rle" />
+	<area coords="490,250,580,309" href="24/24ceilh.rle" />
+	<area coords="0,310,89,400" href="24/24ceidb.rle" />
+	<area coords="90,310,169,400" href="24/24ceittb.rle" />
+	<area coords="170,310,249,400" href="24/24ceii.rle" />
+	<area coords="250,310,329,400" href="24/24cegu.rle" />
+	<area coords="330,310,409,400" href="24/24ceiub.rle" />
+	<area coords="410,310,580,400" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p4-25"></a>
+<h2>The 1343 <a class="i" href="bits-25.htm">25-bit</a>
+period 4 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>1268 Expanded molds on 20-bit still-lifes (not shown).</li>
+    <li>34 Expanded confused eaters (shown).</li>
+    <li>38 Expanded eater block frobs (shown; one without synthesis).</li>
+    <li>3 Miscellaneous oscillators (shown; 2 without syntheses).</li>
+</ul></p>
+
+<p>The ones based on mold on a still-life are too numerous to show, but most are
+are easy to synthesize using standard techniques, except some that are based
+on 20-bit still-lifes that do not yet have syntheses. The others 75 are
+shown.</p>
+<p><a class="p" href="stamp/p4-25.rle"><img src="map/p4-25.png"
+ alt="25-bit period-4 oscillators"
+ width="637" height="477" usemap="#p4-25" /></a></p>
+
+<map name="p4-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,457,19,476" href="#bottom" />
+	<area coords="617,0,636,19" href="zip/p4-25.zip" />
+	<area coords="617,457,636,476" href="stamp/p4-25.rle" />
+	<area coords="0,0,77,49" href="25/25p41234.rle" />
+	<area coords="78,0,145,49" href="25/25p4-2.rle" />
+	<area coords="146,0,213,49" href="25/25p4-1.rle" />
+	<area coords="214,0,281,49" href="25/25bteebf.rle" />
+	<area coords="282,0,349,49" href="25/25ee1ebf.rle" />
+	<area coords="350,0,417,49" href="25/25eebtbf.rle" />
+	<area coords="418,0,485,49" href="25/25eee1bf.rle" />
+	<area coords="486,0,553,49" href="25/25eeftbf.rle" />
+	<area coords="554,0,636,49" href="25/25lseebf.rle" />
+	<area coords="0,50,77,97" href="25/25elsebf.rle" />
+	<area coords="78,50,145,97" href="25/25edblbf.rle" />
+	<area coords="146,50,213,97" href="25/25eiltbf.rle" />
+	<area coords="214,50,281,97" href="25/25cett.rle" />
+	<area coords="282,50,349,97" href="25/25cebt.rle" />
+	<area coords="350,50,417,97" href="25/25celg.rle" />
+	<area coords="418,50,485,97" href="25/25eichbf.rle" />
+	<area coords="486,50,553,97" href="25/25eublbf.rle" />
+	<area coords="554,50,636,97" href="25/25dblebf.rle" />
+	<area coords="0,98,77,145" href="25/25iltebf.rle" />
+	<area coords="78,98,145,145" href="25/25iihbf.rle" />
+	<area coords="146,98,213,145" href="25/25ublebf.rle" />
+	<area coords="214,98,281,145" href="25/25eivhbf.rle" />
+	<area coords="282,98,349,145" href="25/25ichebf.rle" />
+	<area coords="350,98,417,145" href="25/25eftebf.rle" />
+	<area coords="418,98,485,145" href="25/25ceecpt.rle" />
+	<area coords="486,98,553,145" href="25/25ihibf.rle" />
+	<area coords="554,98,636,145" href="25/25eguhbf.rle" />
+	<area coords="0,146,77,201" href="25/25eee2bf.rle" />
+	<area coords="78,146,145,201" href="25/25iitbf.rle" />
+	<area coords="146,146,213,201" href="25/25ivhebf.rle" />
+	<area coords="214,146,281,201" href="25/25ceet1.rle" />
+	<area coords="282,146,349,201" href="25/25ceebt.rle" />
+	<area coords="350,146,417,201" href="25/25cesetb.rle" />
+	<area coords="418,146,485,201" href="25/25ceaetb.rle" />
+	<area coords="486,146,553,201" href="25/25celse.rle" />
+	<area coords="554,146,636,201" href="25/25eidgbf.rle" />
+	<area coords="0,202,77,253" href="25/25eihvbf.rle" />
+	<area coords="78,202,145,253" href="25/25eiclbf.rle" />
+	<area coords="146,202,213,253" href="25/25ceinbg.rle" />
+	<area coords="214,202,281,253" href="25/25idgebf.rle" />
+	<area coords="282,202,349,253" href="25/25itibf.rle" />
+	<area coords="350,202,417,253" href="25/25egutbf.rle" />
+	<area coords="418,202,485,253" href="25/25eiugbf.rle" />
+	<area coords="486,202,553,253" href="25/25ihvebf.rle" />
+	<area coords="554,202,636,253" href="25/25ceilt.rle" />
+	<area coords="0,254,77,305" href="25/25celeb2.rle" />
+	<area coords="78,254,145,305" href="25/25ceitlt.rle" />
+	<area coords="146,254,213,305" href="25/25eiftbf.rle" />
+	<area coords="214,254,281,305" href="25/25ceihbt.rle" />
+	<area coords="282,254,349,305" href="25/25guhebf.rle" />
+	<area coords="350,254,417,305" href="25/25ee2ebf.rle" />
+	<area coords="418,254,485,305" href="25/25iclebf.rle" />
+	<area coords="486,254,553,305" href="25/25celeb1.rle" />
+	<area coords="554,254,636,305" href="25/25ceich.rle" />
+	<area coords="0,306,77,357" href="25/25ceilht.rle" />
+	<area coords="78,306,145,357" href="25/25ceeft.rle" />
+	<area coords="146,306,213,357" href="25/25ceivh.rle" />
+	<area coords="214,306,281,357" href="25/25gutebf.rle" />
+	<area coords="282,306,349,357" href="25/25iugebf.rle" />
+	<area coords="350,306,417,357" href="25/25iftebf.rle" />
+	<area coords="418,306,485,357" href="25/25ceidbt.rle" />
+	<area coords="486,306,553,357" href="25/25ceitbt.rle" />
+	<area coords="554,306,636,357" href="25/25ceiitb.rle" />
+	<area coords="0,358,77,409" href="25/25cegutb.rle" />
+	<area coords="78,358,145,409" href="25/25ceiubt.rle" />
+	<area coords="146,358,213,409" href="25/25ceihv.rle" />
+	<area coords="214,358,281,409" href="25/25ceidg.rle" />
+	<area coords="282,358,349,409" href="25/25ceguh.rle" />
+	<area coords="350,358,417,409" href="25/25ceiih.rle" />
+	<area coords="418,358,485,409" href="25/25ceet2.rle" />
+	<area coords="486,358,553,409" href="25/25ceicl.rle" />
+	<area coords="554,358,636,409" href="25/25ceift.rle" />
+	<area coords="0,410,77,476" href="25/25ceiug.rle" />
+	<area coords="78,410,145,476" href="25/25cegut.rle" />
+	<area coords="146,410,213,476" href="25/25ceiit.rle" />
+	<area coords="214,410,636,476" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p4-lg"></a>
+<h2>22 period 4 oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/p4-lg.rle"><img src="map/p4-lg.png"
+ alt="larger period 4 oscillators"
+ width="581" height="261" usemap="#p4-lg" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/28p41234.rle">
+	    1-2-3-4 w/ tub [29]</a></td>
+	<td><a class="p" href="lg/29p41234.rle">
+	    1-2-3-4 w/ tub and tail [27-29]</a></td>
+	<td class="y"><a class="p" href="lg/30p4-1.rle">
+	    30-bit P4 #1 [44]</a></td>
+	<td class="y"><a class="p" href="lg/30p4le.rle">
+	    Light- weight emulator [111]</a></td>
+	<td><a class="p" href="lg/32p4me.rle">
+	    Middle- weight emulator [20]</a></td>
+	<td><a class="p" href="lg/34p4he.rle">
+	    Heavy- weight emulator [28]</a></td>
+	<td><a class="p" href="lg/34bnt2e2.rle">
+	    Two buns w/ tail hassled by eaters [22]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="lg/36hj1.rle">
+	    Half jack [46]</a></td>
+	<td class="y"><a class="p" href="lg/36hj2.rle">
+	    Skewed half jack [50]</a></td>
+	<td><a class="p" href="lg/40clover.rle">
+	    Cloverleaf; Dual 1-2-3-4; Flammen- kamp's P4 [7]</a></td>
+	<td><a class="p" href="lg/40p4-1.rle">
+	    40-bit period 4 oscillator #1 [20]</a></td>
+	<td><a class="p" href="lg/40p4sp2.rle">
+	    Snake pit w/ beehives [32]</a></td>
+	<td><a class="p" href="lg/40p4sp1.rle">
+	    Snake pit w/ claws [24]</a></td>
+	<td><a class="p" href="lg/40oc4bk4.rle">
+	    4 Blocks on Octagon IV [34]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="lg/26p4gc.rle">
+	    Gray counter [30-32]</a></td>
+	<td><a class="p" href="lg/42jack1.rle">
+	    Jack [34]</a></td>
+	<td class="y"><a class="p" href="lg/42jack2.rle">
+	    Skewed Jack [54]</a></td>
+	<td class="y"><a class="p" href="lg/42p4huii.rle">
+	    Hustler II [155]</a></td>
+	<td><a class="p" href="lg/48p4gc2.rle">
+	    Dual Gray counter [24]</a></td>
+	<td><a class="p" href="lg/48p4pw.rle">
+	    Pinwheel [24]</a></td>
+	<td><a class="p" href="lg/56p4sp3.rle">
+	    Snake pit w/ curls [22]</a></td>
+    </tr>
+</table></p>
+
+<map name="p4-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p4-lg.zip" />
+	<area coords="561,241,580,260" href="stamp/p4-lg.rle" />
+	<area coords="0,0,89,89" href="lg/28p41234.rle" />
+	<area coords="90,0,169,89" href="lg/29p41234.rle" />
+	<area coords="170,0,249,89" href="lg/30p4-1.rle" />
+	<area coords="250,0,329,89" href="lg/30p4le.rle" />
+	<area coords="330,0,409,89" href="lg/32p4me.rle" />
+	<area coords="410,0,489,89" href="lg/34p4he.rle" />
+	<area coords="490,0,580,89" href="lg/34bnt2e2.rle" />
+	<area coords="0,90,89,169" href="lg/36hj1.rle" />
+	<area coords="90,90,169,169" href="lg/36hj2.rle" />
+	<area coords="170,90,249,169" href="lg/40clover.rle" />
+	<area coords="250,90,329,169" href="lg/40p4-1.rle" />
+	<area coords="330,90,409,169" href="lg/40p4sp2.rle" />
+	<area coords="410,90,489,169" href="lg/40p4sp1.rle" />
+	<area coords="490,90,580,169" href="lg/40oc4bk4.rle" />
+	<area coords="0,170,89,260" href="lg/26p4gc.rle" />
+	<area coords="90,170,169,260" href="lg/42jack1.rle" />
+	<area coords="170,170,249,260" href="lg/42jack2.rle" />
+	<area coords="250,170,329,260" href="lg/42p4huii.rle" />
+	<area coords="330,170,409,260" href="lg/48p4gc2.rle" />
+	<area coords="410,170,489,260" href="lg/48p4pw.rle" />
+	<area coords="490,170,580,260" href="lg/56p4sp3.rle" />
+</map>
+
+<p>The three spaceship emulators produce
+<a class="i" href="lifeterm.htm#spark">edge-sparks</a> like the
+correspondingly-named spaceships. Because it is so large, the larger,
+original synthesis of the light-weight emulator is included in a
+<a class="p" href="lg/30p4le2.rle">separate file</a>.</p>
+
+<p>There are five basic versions of Jack: two shown here, offset by 0
+generations and 0 or 2 spaces vertically, two offset by 2 generations and 0
+or 2 spaces vertically, and one offset by 1 generation and one space vertically.
+Only the first two currently have syntheses.</p>
+
+<hr />
+<hr />
+<a name="g5-p4"></a>
+<h2>2  period 4 oscillators
+<a class="i" href="glider-5.htm">buildable from 5 gliders</a></h2>
+<p><a class="p" href="stamp/g5-p4.rle"><img src="map/g5-p4.png" alt="5g P4"
+ width="141" height="61" usemap="#g5-p4" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12md.rle">Mold [5]</a></td>
+	<td><a class="p" href="12/12mz.rle">Mazing [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="g5-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/g5-p4.zip" />
+	<area coords="121,41,140,60" href="stamp/g5-p4.rle" />
+	<area coords="0,0,69,60" href="12/12md.rle" />
+	<area coords="70,0,140,60" href="12/12mz.rle" />
+</map>
+
+<p>Mold is the smallest oscillator that produces a period 4
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.
+Also, mold forms on most still-lifes that have a bonding surface like the
+long diagonal side of a <a class="p" href="0/7lf.rle">loaf</a>
+(from which its name was inspired), so it forms the basis for many larger
+period 4 oscillators
+(and many with periods that are multiples of 4, such as
+<a class="i" href="p12.htm">period 12</a>).</p>
+
+
+<hr />
+<a name="ge-p4"></a>
+<h2>The 2 period 4 oscillators up to 21 bits
+<a class="i" href="glider-e.htm">costing 1 glider/bit</a></h2>
+<p><a class="p" href="stamp/ge-p4.rle"><img src="map/ge-p4.png"
+ alt="1 glider/bit P4" width="141" height="81" usemap="#ge-p4" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td class="g"><a class="p" href="20/20mdbet2.rle">
+	    Down mold tie bookend w/ tub [20]</a></td>
+	<td class="g"><a class="p" href="20/20ce.rle">
+	    Confused eaters [20]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/ge-p4.zip" />
+	<area coords="121,61,140,80" href="stamp/ge-p4.rle" />
+	<area coords="0,0,69,80" href="20/20mdbet2.rle" />
+	<area coords="70,0,140,80" href="20/20ce.rle" />
+</map>
+
+<hr />
+<a name="gg-p4"></a>
+<h2>The 34 period 4 oscillators up to 21 bits
+<a class="i" href="glider-g.htm">costing &gt;1 glider/bit</a></h2>
+<p><a class="p" href="stamp/gg-p4.rle"><img src="map/gg-p4.png"
+ alt="gt. 1 glider/bit p4 oscillators"
+ width="561" height="261" usemap="#gg-p4" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="19/19mdcht.rle">
+	    Mold siamese cis hook w/ tail [21]</a></td>
+	<td class="y"><a class="p" href="19/19mdha.rle">
+	    Mold siamese hat [20]</a></td>
+	<td class="y"><a class="p" href="20/20mdlha1.rle">
+	    Mold siamese up long hat [22]</a></td>
+	<td class="y"><a class="p" href="20/20mdht.rle">
+	    Mold tie hook w/ tail [25]</a></td>
+	<td class="y"><a class="p" href="20/20mdcslh.rle">
+	    Mold siamese short cis hook w/ tail [71]</a></td>
+	<td class="y"><a class="p" href="20/20mdlha2.rle">
+	    Mold siamese down long hat [22]</a></td>
+	<td class="y"><a class="p" href="20/20mdbet1.rle">
+	    Mold tie up bookend w/ tub [21]</a></td>
+	<td class="y"><a class="p" href="20/20p4-1.rle">
+	    20-bit P4 #1 [24]</a></td>
+	<td class="y"><a class="p" href="20/20mdcftt.rle">
+	    Mold siamese cis fuse w/ two tails [30]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20smdsn.rle">
+	    Snake siamese mold siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="20/20amdsn.rle">
+	    Carrier siamese mold siamese snake [32]</a></td>
+	<td class="y"><a class="p" href="20/20amdac.rle">
+	    Carrier siamese mold siamese carrier [39]</a></td>
+	<td class="y"><a class="p" href="20/20mdblf.rle">
+	    Mold bit tie loaf [26]</a></td>
+	<td class="y"><a class="p" href="21/21mdtlb2.rle">
+	    Down boat on mold sharing tail [52]</a></td>
+	<td class="y"><a class="p" href="21/21mdzpb1.rle">
+	    Up mold tie Z w/ pre-block [23]</a></td>
+	<td class="y"><a class="p" href="21/21mdhlt.rle">
+	    Mold tie hook w/ long tail [34]</a></td>
+	<td class="y"><a class="p" href="21/21mdtlb1.rle">
+	    Up boat on mold sharing tail [41]</a></td>
+	<td class="y"><a class="p" href="21/21mddbt.rle">
+	    Mold tie down boat w/ tail [27]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21mdvha1.rle">
+	    Up mold siamese very long hat [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdvha2.rle">
+	    Down mold siamese very long hat [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdbeb1.rle">
+	    Up mold tie bookend w/ boat [23]</a></td>
+	<td class="y"><a class="p" href="21/21mdbtta.rle">
+	    Mold siamese boat on table [23]</a></td>
+	<td class="y"><a class="p" href="21/21emdsn.rle">
+	    Eater siamese mold siamese snake [22]</a></td>
+	<td class="y"><a class="p" href="21/21mdblsd.rle">
+	    Mold w/ bit tie long side [44]</a></td>
+	<td class="y"><a class="p" href="21/21mdlhab.rle">
+	    Mold siamese long hat siamese boat [24]</a></td>
+	<td class="y"><a class="p" href="21/21smdet.rle">
+	    Snake siamese mold siamese eater [29]</a></td>
+	<td class="y"><a class="p" href="21/21mdacbt.rle">
+	    Mold siamese boat below carrier [27]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21amdet.rle">
+	    Carrier siamese mold siamese eater [35]</a></td>
+	<td class="y"><a class="p" href="21/21emdac.rle">
+	    Eater siamese mold siamese carrier [28]</a></td>
+	<td class="y"><a class="p" href="21/21mdbcs.rle">
+	    Mold w/ bit tie canoe [30]</a></td>
+	<td class="y"><a class="p" href="21/21smdls.rle">
+	    Snake siamese mold siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="21/21amdls.rle">
+	    Carrier siamese mold siamese snake [33]</a></td>
+	<td class="y"><a class="p" href="21/21mdbcg.rle">
+	    Mold w/ bit tie mango [40]</a></td>
+	<td class="y"><a class="p" href="21/21mdbeb2.rle">
+	    Down mold tie bookend w/ boat [22]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="gg-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/gg-p4.zip" />
+	<area coords="541,241,560,260" href="stamp/gg-p4.rle" />
+	<area coords="0,0,69,69" href="19/19mdcht.rle" />
+	<area coords="70,0,129,69" href="19/19mdha.rle" />
+	<area coords="130,0,189,69" href="20/20mdlha1.rle" />
+	<area coords="190,0,249,69" href="20/20mdht.rle" />
+	<area coords="250,0,309,69" href="20/20mdcslh.rle" />
+	<area coords="310,0,369,69" href="20/20mdlha2.rle" />
+	<area coords="370,0,429,69" href="20/20mdbet1.rle" />
+	<area coords="430,0,489,69" href="20/20p4-1.rle" />
+	<area coords="490,0,560,69" href="20/20mdcftt.rle" />
+	<area coords="0,70,69,129" href="20/20smdsn.rle" />
+	<area coords="70,70,129,129" href="20/20amdsn.rle" />
+	<area coords="130,70,189,129" href="20/20amdac.rle" />
+	<area coords="190,70,249,129" href="20/20mdblf.rle" />
+	<area coords="250,70,309,129" href="21/21mdtlb2.rle" />
+	<area coords="310,70,369,129" href="21/21mdzpb1.rle" />
+	<area coords="370,70,429,129" href="21/21mdhlt.rle" />
+	<area coords="430,70,489,129" href="21/21mdtlb1.rle" />
+	<area coords="490,70,560,129" href="21/21mddbt.rle" />
+	<area coords="0,130,69,189" href="21/21mdvha1.rle" />
+	<area coords="70,130,129,189" href="21/21mdvha2.rle" />
+	<area coords="130,130,189,189" href="21/21mdbeb1.rle" />
+	<area coords="190,130,249,189" href="21/21mdbtta.rle" />
+	<area coords="250,130,309,189" href="21/21emdsn.rle" />
+	<area coords="310,130,369,189" href="21/21mdblsd.rle" />
+	<area coords="370,130,429,189" href="21/21mdlhab.rle" />
+	<area coords="430,130,489,189" href="21/21smdet.rle" />
+	<area coords="490,130,560,189" href="21/21mdacbt.rle" />
+	<area coords="0,190,69,260" href="21/21amdet.rle" />
+	<area coords="70,190,129,260" href="21/21emdac.rle" />
+	<area coords="130,190,189,260" href="21/21mdbcs.rle" />
+	<area coords="190,190,249,260" href="21/21smdls.rle" />
+	<area coords="250,190,309,260" href="21/21amdls.rle" />
+	<area coords="310,190,369,260" href="21/21mdbcg.rle" />
+	<area coords="370,190,429,260" href="21/21mdbeb2.rle" />
+	<area coords="430,190,560,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="gu-p4"></a>
+<h2>10 period 4 oscillators up to 25 bits
+<a class="i" href="glider-u.htm">without any known syntheses</a></h2>
+<p>(NOTE: this excludes many mold-based oscillators from 24-25 bits that are
+based on still-lifes from 19-20 bits that do not yet have syntheses.)</p>
+
+<p><a class="p" href="stamp/gu-p4.rle"><img src="map/gu-p4.png"
+ alt="unknown P4 oscillators"
+ width="421" height="161" usemap="#gu-p4" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="21/21p4-1.rle">
+	    21-bit P4 oscillator #1 [x]</a></td>
+	<td class="r"><a class="p" href="24/24p4-1.rle">
+	    24-bit P4 oscillator #1 [x]</a></td>
+	<td class="r"><a class="p" href="24/24p4-2.rle">
+	    24-bit P4 oscillator #2 [x]</a></td>
+	<td class="r"><a class="p" href="24/24p4-3.rle">
+	    24-bit P4 oscillator #3 [x]</a></td>
+	<td class="r"><a class="p" href="24/24mdmd3.rle">
+	    Cis molds sharing sparks [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="22/22p4-4.rle">
+	    22-bit P4 oscillator #4 [x]</a></td>
+	<td class="r"><a class="p" href="22/22p4-5.rle">
+	    22-bit P4 oscillator #5 [x]</a></td>
+	<td class="r"><a class="p" href="25/25p4-2.rle">
+	    25-bit P4 oscillator #2 [x]</a></td>
+	<td class="r"><a class="p" href="25/25p4-1.rle">
+	    25-bit P4 oscillator #1 [x]</a></td>
+	<td class="r"><a class="p" href="25/25eichbf.rle">
+	    Eater and block eating integral w/loaf and cis hook [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/gu-p4.zip" />
+	<area coords="401,141,420,160" href="stamp/gu-p4.rle" />
+	<area coords="0,0,89,89" href="21/21p4-1.rle" />
+	<area coords="90,0,169,89" href="24/24p4-1.rle" />
+	<area coords="170,0,249,89" href="24/24p4-2.rle" />
+	<area coords="250,0,329,89" href="24/24p4-3.rle" />
+	<area coords="330,0,420,89" href="24/24mdmd3.rle" />
+	<area coords="0,90,89,160" href="22/22p4-4.rle" />
+	<area coords="90,90,169,160" href="22/22p4-5.rle" />
+	<area coords="170,90,249,160" href="25/25p4-2.rle" />
+	<area coords="250,90,329,160" href="25/25p4-1.rle" />
+	<area coords="330,90,420,160" href="25/25eichbf.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="nat-p4"></a>
+<h2>The top 3 <a class="i" href="natural.htm">naturally-occurring</a>
+period 4 oscillators</h2>
+<p><a class="p" href="stamp/nat-p4.rle"><img src="map/nat-p4.png"
+ alt="natural P4"
+ width="321" height="81" usemap="#nat-p4" /></a><br />
+    <table width="325">
+    <colgroup><col width="111" /><col width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="12/12md.rle">
+	    Mold [5] (4.6e7)</a></td>
+	<td><a class="p" href="12/12mz.rle">
+	    Mazing [5] (2.2e8) </a></td>
+	<td><a class="p" href="lg/40clover.rle">
+	    Cloverleaf; Dual 1-2-3-4; Flammen- kamp's P4 [7] (1.0e9)</a></td>
+    </tr>
+</table></p>
+
+<map name="nat-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/nat-p4.zip" />
+	<area coords="301,61,320,80" href="stamp/nat-p4.rle" />
+	<area coords="0,0,109,80" href="12/12md.rle" />
+	<area coords="110,0,209,80" href="12/12mz.rle" />
+	<area coords="210,0,320,80" href="lg/40clover.rle" />
+</map>
+
+<p>Mold is the smallest oscillator that produces a period 4
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.
+Also, mold forms on most still-lifes that have a bonding surface like the
+long diagonal side of a <a class="p" href="0/7lf.rle">loaf</a>
+(from which its name was inspired), so it forms the basis for many larger
+period 4 oscillators
+(and many with periods that are multiples of 4, such as
+<a class="i" href="p12.htm">period 12</a>).</p>
+
+<hr />
+<hr />
+<a name="meth-p4"></a>
+<h2>11 <a class="i" href="meth.htm">methuselahs</a> whose censuses are
+period 4</h2>
+<p><a class="p" href="stamp/meth-p4.rle"><img src="map/meth-p4.png"
+ alt="P4 methuselahs"
+ width="501" height="121" usemap="#meth-p4" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/5rp.rle">
+	    R pent- omino (@2) [3]</a></td>
+	<td><a class="p" href="0/6bh.rle">B Hept- omino (@1) [2]</a></td>
+	<td><a class="p" href="0/6wg.rle">
+	    Block and glider; Wing (@2); R-loaf (@2) [3]</a></td>
+	<td><a class="p" href="0/6h.rle">
+	    Herschel parent; Herschel (@1) [3]</a></td>
+	<td><a class="p" href="0/7ak.rle">Acorn [4]</a></td>
+	<td><a class="p" href="0/7mp.rle">Multum in parvo [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/116rp.rle">Loaf, ship,
+	    4 beehives, boat, 8 blocks, 4 blinkers, 6 gliders (@1105)</a></td>
+	<td><a class="p" href="lg/28bh.rle">
+	    Ship, 3 blocks, 2 gliders (@149)</a></td>
+	<td><a class="p" href="0/9bkgl.rle">
+	    Block and glider (@106)</a></td>
+	<td><a class="p" href="23/23h.rle">
+	    Ship, 2 blocks, glider (@128)</a></td>
+	<td><a class="p" href="lg/633ak.rle">
+	    Oak: Mango, 2 ponds, 5 loaves, 2 barges, 2 ships, 30 beehives, 3
+	    ships, 8 boats, 34 blocks, 41 blinkers, 13 gliders (@5206)</a></td>
+	<td><a class="p" href="lg/633mp.rle">
+	    Block on beehive, pond, 6 loaves, toad, 28 beehives, 6 ships,
+	    8 boats, 2 tubs, 40 blocks, 36 blinkers, 13 gliders (@3933)</a></td>
+    </tr>
+
+    <tr>
+	<td rowspan="2" class="s">&nbsp;</td>
+	<td><a class="p" href="0/8gd.rle">
+	    Gliders by the dozen, Gliders- omino (@-1) [3]</a></td>
+	<td><a class="p" href="0/8j.rle">
+	    J (@6) [3]</a></td>
+	<td><a class="p" href="0/8sw.rle">
+	    Un- stabil- ized switch engine [4]</a></td>
+	<td><a class="p" href="0/9jd.rle">Jaydot (@-1) [4]</a></td>
+	<td><a class="p" href="0/9ra.rle">Bunnies; Rabbits (@1) [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/124gd.rle">
+	    4 Beehives, 4 blocks, 4 blinkers, 12 gliders (@184)</a></td>
+	<td><a class="p" href="0/8j.rle">Fleet, loaf, ship,
+	    2 beehives, 2 boats, 8 blocks, blinker, 2 gliders (@556)</a></td>
+	<td><a class="p" href="lg/842sw.rle">
+	    2 Ponds, 2 long boats, 11 loaves, 33 beehives, 4 ships, 11 boats,
+	    2 tubs, 60 blocks, 50 blinkers, 12 gliders (@3911)</a></td>
+	<td><a class="p" href="lg/1124jd.rle">
+	    1 Fleet, 1 pond, 13 loaves, 1 toad, 5 ships, 9 boats, 5 tubs,
+	    68 blocks, 66 blinkers, 26 gliders (@6929)</a></td>
+	<td><a class="p" href="lg/1744ra.rle">
+	    3 Ponds, 18 loaves, 2 toads, 65 beehives, 7 ships, 18 boats, 4 tubs,
+	    109 blocks, 136 blinkers, 40 gliders (@17332)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/meth-p4.zip" />
+	<area coords="481,101,500,120" href="stamp/meth-p4.rle" />
+	<area coords="0,0,89,69" href="0/5rp.rle" />
+	<area coords="90,0,169,69" href="0/6bh.rle" />
+	<area coords="170,0,249,69" href="0/6wg.rle" />
+	<area coords="250,0,329,69" href="0/6h.rle" />
+	<area coords="330,0,409,69" href="0/7ak.rle" />
+	<area coords="410,0,500,69" href="0/7mp.rle" />
+	<area coords="0,70,89,120" nohref="nohref" />
+	<area coords="90,70,169,120" href="0/8gd.rle" />
+	<area coords="170,70,249,120" href="0/8j.rle" />
+	<area coords="250,70,329,120" href="0/8sw.rle" />
+	<area coords="330,70,409,120" href="0/9jd.rle" />
+	<area coords="410,70,500,120" href="0/9ra.rle" />
+</map>
+
+<p>These all have a period of 4 because of gliders.</p>
+
+<p>Note that the minimum sizes of Acorn and Multum in parvo are the same size
+(7 bits), their censuses are the same size (633 bits), and both release 13
+gliders, but they are totally unrelated in any other way.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="pp4.htm">period-4 pseudo-oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	4,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

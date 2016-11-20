@@ -1,0 +1,13 @@
+#N 13-48.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:07 2015
+x = 150, y = 50, rule = B3/S23
+97bo$97bobo15bo$92boo3boo17boo3bo$92bobo13bxx5boobboo7boo18bxx$82bo9bo
+14bxbx10boo5bobo17bxbx$81bo6b3o15bx19bo19bx$81b3o6bo14bx19bo14bxx3bx$
+79bo9bo12bxbx12bobobbobo16bxbbx$77bobo22bxx14boobboo17bxbx$73boo3boo
+38bo23bx$72bobo$74bo44b3o$119bo$120bo18$47bobo$47boo44bo$48bo39bo3bo
+15bxx18boo18bxx$89boob3o12bxbbx16bobbo16bxbx$49boo37boo17bxbbx16bobbo
+15bx$20bxx18boo6boo10bxx18boo18bxx6bxx10boo6boo10bxx3bx$21bx19bo8bo10b
+xbbxx15bobboo15bxbbxx15bobboo15bxbbx$oo19bxbx17bobo17bxbxbx15bobobo15b
+xbxbx15bobobo11bo3bxbx$boo19bxx18boo18bx19bo19bx19bo13boo4bx$o3boo130b
+obo$4bobo38boo$4bo41boo$45bo3boo$49bobo72boo$49bo75boo6boo$124bo7boo$
+128b3o3bo$130bo$129bo!

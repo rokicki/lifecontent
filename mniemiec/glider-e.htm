@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Buildable With &gt;1 Glider/Bit</title>
+<meta name="description"
+content="Conway's Game of Life: Syntheses of objects requiring 1 glider/bit" />
+<meta name="keywords" content="conway game life glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Objects Buildable With 1 Glider/Bit</h1>
+
+<p align="center">
+	<a class="j" href="#ge-p1">Still-lifes</a> |
+	<a class="j" href="#ge-pp1">Pseudo-still-lifes</a> |
+	<a class="j" href="#ge-p2">P2 oscillators</a> |
+	<a class="j" href="#ge-pp2">P2 pseudo-oscillators</a> |
+	<a class="j" href="#ge-p3">P3 oscillators</a> |
+	<a class="j" href="#ge-p4">P4 oscillators</a> |
+	<a class="j" href="#ge-p4">P5 oscillators</a> |
+	<a class="j" href="#ge-pp5">P5 pseudo-oscillators</a> |
+	<a class="j" href="#ge-p6">P6 oscillator</a>
+	<a class="j" href="#ge-pp10">P10 pseudo-oscillators</a> |
+</p>
+
+<hr />
+<hr />
+<a name="ge-p1"></a>
+<h2>The 11 <a class="i" href="p1.htm">still-lifes</a> up to 14 bits
+costing 1 glider/bit</h2>
+
+<p><a class="p" href="stamp/ge-p1.rle"><img src="map/ge-p1.png"
+ alt="1 glider/bit still-lifes"
+ width="381" height="101" usemap="#ge-p1" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="g"><a class="p" href="14/14-100.rle">
+	    Tub w/ very long tail siamese snake (14.100) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-618.rle">
+	    Snake bridge domino bridge trans snake (14.618) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-528.rle">
+	    Mango w/ bit tie boat (14.528) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-97.rle">
+	    Integral w/ tub siamese claw (14.97) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-480.rle">
+	    Eater siamese curl (14.480) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-398.rle">
+	    Snake siamese cis hook w/ tail (14.398) [14]</a></td>
+    </tr>
+
+    <tr>
+	<td class="g"><a class="p" href="14/14-191.rle">
+	    Block on snake siamese cis carrier (14.191) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-239.rle">
+	    Cis hook w/ tail siamese bun siamese tub (14.239) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-598.rle">
+	    Snake siamese beehive w/ hook (14.598) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-558.rle">
+	    Tub on table siamese snake (14.558) [14]</a></td>
+	<td class="g"><a class="p" href="14/14-552.rle">
+	    Cis hook w/ tail siamese snake (14.552) [14]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="ge-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/ge-p1.zip" />
+	<area coords="361,81,380,100" href="stamp/ge-p1.rle" />
+	<area coords="0,0,69,49" href="14/14-100.rle" />
+	<area coords="70,0,129,49" href="14/14-618.rle" />
+	<area coords="130,0,189,49" href="14/14-528.rle" />
+	<area coords="190,0,249,49" href="14/14-97.rle" />
+	<area coords="250,0,309,49" href="14/14-480.rle" />
+	<area coords="310,0,380,49" href="14/14-398.rle" />
+	<area coords="0,50,69,100" href="14/14-191.rle" />
+	<area coords="70,50,129,100" href="14/14-239.rle" />
+	<area coords="130,50,189,100" href="14/14-598.rle" />
+	<area coords="190,50,249,100" href="14/14-558.rle" />
+	<area coords="250,50,309,100" href="14/14-552.rle" />
+	<area coords="310,50,380,100" nohref="nohref" />
+</map>
+
+<p>(NOTE: As the syntheses of the 15-bit still-lifes have not yet been
+completed, they are not yet included in this list.)</p>
+
+<hr />
+<a name="ge-pp1"></a>
+<h2>The 9 <a class="i" href="pp1.htm">pseudo-still-lifes</a> up to 16 bits
+costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-pp1.rle"><img src="map/ge-pp1.png"
+ alt="1 glider/bit pseudo-still-lifes"
+ width="561" height="61" usemap="#ge-pp1" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="g"><a class="p" href="13/13lssn2.rle">
+	    Down snake on python [13]</a></td>
+	<td class="g"><a class="p" href="14/14htac6.rle">
+	    Down cis carrier on hook w/ tail [14]</a></td>
+	<td class="g"><a class="p" href="14/14lsls2.rle">
+	    Down trans python on python [14]</a></td>
+	<td class="g"><a class="p" href="16/16chtac9.rle">
+	    Up cis carrier below cis hook w/ tail [16]</a></td>
+	<td class="g"><a class="p" href="16/16xsls1.rle">
+	    Up trans python on extra long snake [16]</a></td>
+	<td class="g"><a class="p" href="16/16bltsn7.rle">
+	    Up snake behind boat w/ long tail [16]</a></td>
+	<td class="g"><a class="p" href="16/16llls1.rle">
+	    Up trans python on long shil- lelagh [16]</a></td>
+	<td class="g"><a class="p" href="16/16xsls2.rle">
+	    Down trans python on extra long snake [16]</a></td>
+	<td class="g"><a class="p" href="16/16chtaca.rle">
+	    Down cis carrier below cis hook w/ tail [16]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-pp1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/ge-pp1.zip" />
+	<area coords="541,41,560,60" href="stamp/ge-pp1.rle" />
+	<area coords="0,0,69,60" href="13/13lssn2.rle" />
+	<area coords="70,0,129,60" href="14/14htac6.rle" />
+	<area coords="130,0,189,60" href="14/14lsls2.rle" />
+	<area coords="190,0,249,60" href="16/16chtac9.rle" />
+	<area coords="250,0,309,60" href="16/16xsls1.rle" />
+	<area coords="310,0,369,60" href="16/16bltsn7.rle" />
+	<area coords="370,0,429,60" href="16/16llls1.rle" />
+	<area coords="430,0,489,60" href="16/16xsls2.rle" />
+	<area coords="490,0,560,60" href="16/16chtaca.rle" />
+</map>
+
+<hr />
+<a name="ge-p2"></a>
+<h2>The 16 <a class="i" href="p2.htm">period 2 oscillators</a> up to 17 bits
+costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-p2.rle"><img src="map/ge-p2.png"
+ alt="1 glider/bit p2 oscillators"
+ width="561" height="141" usemap="#ge-p2" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="g"><a class="p" href="12/12fx.rle">
+	    Fox; Gnome [12]</a></td>
+	<td class="g"><a class="p" href="12/12hp.rle">
+	    Hexa- pole [12]</a></td>
+	<td class="g"><a class="p" href="15/15tpac.rle">
+	    Tripole tie carrier [15]</a></td>
+	<td class="g"><a class="p" href="16/16qd.rle">
+	    Quad; Square quad; Barber- pole inter- section [16]</a></td>
+	<td class="g"><a class="p" href="16/16bcss2.rle">
+	    Down beacon on snake siamese snake [16]</a></td>
+	<td class="g"><a class="p" href="16/16bpht2.rle">
+	    Bipole tie hook w/ tail [16]</a></td>
+	<td class="g"><a class="p" href="16/16bptt.rle">
+	    Bipole tie tub w/ tail [16]</a></td>
+	<td class="g"><a class="p" href="16/16tpet2.rle">
+	    Tripole tie eater tail [16]</a></td>
+	<td class="g"><a class="p" href="16/16tpls.rle">
+	    Tripole tie python [16]</a></td>
+    </tr>
+
+    <tr>
+	<td class="g"><a class="p" href="17/17bczft1.rle">
+	    Up beacon on Z w/ feather [17]</a></td>
+	<td class="g"><a class="p" href="17/17bces1.rle">
+	    Up beacon on up bookend siamese snake [17]</a></td>
+	<td class="g"><a class="p" href="17/17bczft2.rle">
+	    Down beacon on Z w/ feather [17]</a></td>
+	<td class="g"><a class="p" href="17/17bcbes2.rle">
+	    Down beacon on bookend siamese snake [17]</a></td>
+	<td class="g"><a class="p" href="17/17bcsls2.rle">
+	    Down beacon on snake siamese python [17]</a></td>
+	<td class="g"><a class="p" href="17/17tpht1.rle">
+	    Tripole tie hook w/ tail [17]</a></td>
+	<td class="g"><a class="p" href="17/17tpcs.rle">
+	    Tripole tie canoe [17]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="ge-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/ge-p2.zip" />
+	<area coords="541,121,560,140" href="stamp/ge-p2.rle" />
+	<area coords="0,0,69,69" href="12/12fx.rle" />
+	<area coords="70,0,129,69" href="12/12hp.rle" />
+	<area coords="130,0,189,69" href="15/15tpac.rle" />
+	<area coords="190,0,249,69" href="16/16qd.rle" />
+	<area coords="250,0,309,69" href="16/16bcss2.rle" />
+	<area coords="310,0,369,69" href="16/16bpht2.rle" />
+	<area coords="370,0,429,69" href="16/16bptt.rle" />
+	<area coords="430,0,489,69" href="16/16tpet2.rle" />
+	<area coords="490,0,560,69" href="16/16tpls.rle" />
+	<area coords="0,70,69,140" href="17/17bczft1.rle" />
+	<area coords="70,70,129,140" href="17/17bcbes1.rle" />
+	<area coords="130,70,189,140" href="17/17bczft2.rle" />
+	<area coords="190,70,249,140" href="17/17bcbes2.rle" />
+	<area coords="250,70,309,140" href="17/17bcsls2.rle" />
+	<area coords="310,70,369,140" href="17/17tpht1.rle" />
+	<area coords="370,70,429,140" href="17/17tpcs.rle" />
+	<area coords="430,70,560,140" nohref="nohref" />
+</map>
+
+<hr />
+<a name="ge-pp2"></a>
+<h2>The 11 <a class="i" href="pp2.htm">period 2 pseudo-oscillators</a> up to
+17 bits costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-pp2.rle"><img src="map/ge-pp2.png"
+ alt="1 glider/bit pseudo-p2"
+ width="501" height="121" usemap="#ge-pp2" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="g"><a class="p" href="15/15bpls1.rle">
+	    Up bipole on python [15]</a></td>
+	<td class="g"><a class="p" href="16/16tpls2.rle">
+	    Down trans python on tripole [16]</a></td>
+	<td class="g"><a class="p" href="16/16bccht5.rle">
+	    Up beacon above cis hook w/ tail [16]</a></td>
+	<td class="g"><a class="p" href="17/17bptlt2.rle">
+	    Down bipole above tub w/ long tail [17]</a></td>
+	<td class="g"><a class="p" href="17/17bcxht1.rle">
+	    Up boat on extra long hook w/ tail [17]</a></td>
+	<td class="g"><a class="p" href="17/17tpht6.rle">
+	    Down tripole above hook w/ tail [17]</a></td>
+    </tr>
+
+    <tr>
+	<td class="g"><a class="p" href="17/17tpsl8.rle">
+	    Down tripole above shillelagh [17]</a></td>
+	<td class="g"><a class="p" href="17/17tptt2.rle">
+	    Down tripole above tub w/ tail [17]</a></td>
+	<td class="g"><a class="p" href="17/17bcxht2.rle">
+	    Down beacon on extra long hook w/ tail [17]</a></td>
+	<td class="g"><a class="p" href="17/17bcvi5.rle">
+	    Up beacon behind very long integral [17]</a></td>
+	<td class="g"><a class="p" href="17/17bcvi2.rle">
+	    Down beacon on very long integral [17]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="ge-pp2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/ge-pp2.zip" />
+	<area coords="481,101,500,120" href="stamp/ge-pp2.rle" />
+	<area coords="0,0,89,69" href="15/15bpls1.rle" />
+	<area coords="90,0,169,69" href="16/16tpls2.rle" />
+	<area coords="170,0,249,69" href="16/16bccht5.rle" />
+	<area coords="250,0,329,69" href="17/17bptlt2.rle" />
+	<area coords="330,0,409,69" href="17/17bcxht1.rle" />
+	<area coords="410,0,500,69" href="17/17tpht6.rle" />
+	<area coords="0,70,89,120" href="17/17tpsl8.rle" />
+	<area coords="90,70,169,120" href="17/17tptt2.rle" />
+	<area coords="170,70,249,120" href="17/17bcxht2.rle" />
+	<area coords="250,70,329,120" href="17/17bcvi5.rle" />
+	<area coords="330,70,409,120" href="17/17bcvi2.rle" />
+	<area coords="410,70,500,120" nohref="nohref" />
+</map>
+
+<hr />
+<a name="ge-p3"></a>
+<h2>The 3 <a class="i" href="p3.htm">period 3 oscillators</a> up to 20 bits
+costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-p3.rle"><img src="map/ge-p3.png"
+ alt="1 glider/bit P3" width="201" height="81" usemap="#ge-p3" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td class="g"><a class="p" href="20/20cfht9.rle">
+	    Up hook w/ tail above up candel- frobra [20]</a></td>
+	<td class="g"><a class="p" href="20/20cfli.rle">
+	    Candel- frobra siamese long integral [20]</a></td>
+	<td class="g"><a class="p" href="20/20nblf.rle">
+	    Belu- chenko's Eater eating thing w/ loaf [20]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-p3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/ge-p3.zip" />
+	<area coords="181,61,200,80" href="stamp/ge-p3.rle" />
+	<area coords="0,0,69,80" href="20/20cfht9.rle" />
+	<area coords="70,0,129,80" href="20/20cfli.rle" />
+	<area coords="130,0,200,80" href="20/20nblf.rle" />
+</map>
+
+
+<hr />
+<a name="ge-p4"></a>
+<h2>The 2 <a class="i" href="p4.htm">period 4 oscillators</a> up to 21 bits
+costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-p4.rle"><img src="map/ge-p4.png"
+ alt="1 glider/bit P4" width="141" height="81" usemap="#ge-p4" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td class="g"><a class="p" href="20/20mdbet2.rle">
+	    Down mold tie bookend w/ tub [20]</a></td>
+	<td class="g"><a class="p" href="20/20ce.rle">
+	    Confused eaters [20]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/ge-p4.zip" />
+	<area coords="121,61,140,80" href="stamp/ge-p4.rle" />
+	<area coords="0,0,69,80" href="20/20mdbet2.rle" />
+	<area coords="70,0,140,80" href="20/20ce.rle" />
+</map>
+
+<hr />
+<a name="ge-p5"></a>
+<h2>The 3 <a class="i" href="p5.htm">period 5 oscillators</a> up to 21 bits
+costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-p5.rle"><img src="map/ge-p5.png"
+ alt="1 glider/bit p5 oscillators"
+ width="261" height="81" usemap="#ge-p5" /></a><br />
+    <table width="265">
+    <colgroup><col width="91" /><col width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td class="g"><a class="p" href="20/20svlc.rle">
+	    Silver's P5 above long canoe [20]</a></td>
+	<td class="g"><a class="p" href="20/20svxs.rle">
+	    Silver's P5 above extra long snake [20]</a></td>
+	<td class="g"><a class="p" href="21/21svlha1.rle">
+	    Silver's P5 on up long hat [21]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/ge-p5.zip" />
+	<area coords="241,61,260,80" href="stamp/ge-p5.rle" />
+	<area coords="0,0,89,80" href="20/20svlc.rle" />
+	<area coords="90,0,169,80" href="20/20svxs.rle" />
+	<area coords="170,0,260,80" href="21/21svlha1.rle" />
+</map>
+
+<hr />
+<a name="ge-pp5"></a>
+<h2>The 4 <a class="i" href="pp5.htm">period 5 pseudo-oscillators</a> up to
+21 bits costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-pp5.rle"><img src="map/ge-pp5.png"
+ alt="1 glider/bit pseudo-p5"
+ width="341" height="81" usemap="#ge-pp5" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="g"><a class="p" href="21/21svsnbk.rle">
+	    Silver's P5 on snake on block [21]</a></td>
+	<td class="g"><a class="p" href="21/21bsvsn2.rle">
+	    Block on Silver's P5 on snake [21]</a></td>
+	<td class="g"><a class="p" href="21/21bsvsn1.rle">
+	    Block above Silver's P5 on snake [21]</a></td>
+	<td class="g"><a class="p" href="21/21bsvsn3.rle">
+	    Block below Silver's P5 on snake [21]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-pp5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/ge-pp5.zip" />
+	<area coords="321,61,340,80" href="stamp/ge-pp5.rle" />
+	<area coords="0,0,89,80" href="21/21svsnbk.rle" />
+	<area coords="90,0,169,80" href="21/21bsvsn2.rle" />
+	<area coords="170,0,249,80" href="21/21bsvsn1.rle" />
+	<area coords="250,0,340,80" href="21/21bsvsn3.rle" />
+</map>
+
+<hr />
+<a name="ge-p6"></a>
+<h2>The 1 <a class="i" href="p6.htm">period 6 oscillator</a> up to 21 bits
+costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-p6.rle"><img src="map/ge-p6.png"
+ alt="1g/b P6" width="81" height="81" usemap="#ge-p6" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td class="g"><a class="p" href="21/21cptbc1.rle">
+	    Up beacon on cuphook w/ pre-block [21]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ge-p6.zip" />
+	<area coords="61,61,80,80" href="stamp/ge-p6.rle" />
+	<area coords="0,0,80,80" href="21/21cptbc1.rle" />
+</map>
+
+<p>This has a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="ge-pp10"></a>
+<h2>The 1 <a class="i" href="pp10.htm">period 10 pseudo-oscillator</a> up to
+23 bits costing 1 glider/bit</h2>
+<p><a class="p" href="stamp/ge-pp10.rle"><img src="map/ge-pp10.png"
+ alt="gt. 1 g/b PP10" width="101" height="81" usemap="#ge-pp10" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td class="g"><a class="p" href="23/23svabc6.rle">
+	    Silver's P5 above carrier on down beacon [23]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-pp10">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/ge-pp10.zip" />
+	<area coords="81,61,100,80" href="stamp/ge-pp10.rle" />
+	<area coords="0,0,100,80" href="23/23svabc6.rle" />
+</map>
+
+<p>This has a pseudo-period of 10, a composite of 2 and 5.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other costs:</b>
+	<a class="i" href="glider-2.htm">2 gliders</a>,
+	<a class="i" href="glider-3.htm">3 gliders</a>,
+	<a class="i" href="glider-4.htm">4 gliders</a>,
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	<a class="i" href="glider-6.htm">6 gliders</a>,
+	1 glider/bit,
+	<a class="i" href="glider-g.htm">&gt;1 glider/bit</a>,
+	<a class="i" href="glider-u.htm">unknown</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

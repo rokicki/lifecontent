@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-15 Pseudo-Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-15 pseudo-oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 15 pseudo oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-15 Pseudo-Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#pp15-16">16</a> |
+	  <a class="j" href="#pp15-17">17</a> |
+	  <a class="j" href="#pp15-18">18</a> |
+	  <a class="j" href="#pp15-19">19</a> |
+	  <a class="j" href="#pp15-20">20</a> |
+	  <a class="j" href="#pp15-21">21</a> |
+	  <a class="j" href="#pp15-22">22</a> |
+	  <a class="j" href="#pp15-23">23</a> |
+	  <a class="j" href="#pp15-24">24</a> |
+	  <a class="j" href="#pp15-24">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g5-pp15">5</a> |
+	  <a class="j" href="#g6-pp15">6</a>
+</p>
+
+<hr />
+<hr />
+<a name="pp15-16"></a>
+<h2>The 1 <a class="i" href="bits-16.htm">sixteen-bit</a>
+period 15 pseudo-oscillator</h2>
+<p><a class="p" href="stamp/pp15-16.rle"><img src="map/pp15-16.png"
+ alt="16b PP15" width="101" height="81" usemap="#pp15-16" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16pcbk.rle">
+	    Block on penta- decathlon [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-16">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp15-16.zip" />
+	<area coords="81,61,100,80" href="stamp/pp15-16.rle" />
+	<area coords="0,0,100,80" href="16/16pcbk.rle" />
+</map>
+
+<hr />
+<a name="pp15-17"></a>
+<h2>The 1 <a class="i" href="bits-17.htm">seventeen-bit</a>
+period 15 pseudo-oscillator</h2>
+<p><a class="p" href="stamp/pp15-17.rle"><img src="map/pp15-17.png"
+ alt="17b PP15" width="101" height="81" usemap="#pp15-17" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="17/17pcbt.rle">
+	    Boat on penta- decathlon [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp15-17.zip" />
+	<area coords="81,61,100,80" href="stamp/pp15-17.rle" />
+	<area coords="0,0,100,80" href="17/17pcbt.rle" />
+</map>
+
+<hr />
+<a name="pp15-18"></a>
+<h2>The 5 <a class="i" href="bits-18.htm">eighteen-bit</a>
+period 15 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp15-18.rle"><img src="map/pp15-18.png"
+ alt="18-bit period 15 pseudo-oscillators"
+ width="421" height="81" usemap="#pp15-18" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18pchv.rle">
+	    Beehive on penta- decathlon [5]</a></td>
+	<td><a class="p" href="18/18pcsh.rle">
+	    Ship on penta- decathlon [6]</a></td>
+	<td><a class="p" href="18/18pcac2.rle">
+	    Cis carrier on penta- decathlon [8]</a></td>
+	<td><a class="p" href="18/18pcsn.rle">
+	    Snake on penta- decathlon [7]</a></td>
+	<td><a class="p" href="18/18pcac1.rle">
+	    Trans carrier on penta- decathlon [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/pp15-18.zip" />
+	<area coords="401,61,420,80" href="stamp/pp15-18.rle" />
+	<area coords="0,0,89,80" href="18/18pchv.rle" />
+	<area coords="90,0,169,80" href="18/18pcsh.rle" />
+	<area coords="170,0,249,80" href="18/18pcac2.rle" />
+	<area coords="250,0,329,80" href="18/18pcsn.rle" />
+	<area coords="330,0,420,80" href="18/18pcac1.rle" />
+</map>
+
+<hr />
+<a name="pp15-19"></a>
+<h2>The 7 <a class="i" href="bits-19.htm">nineteen-bit</a>
+period 15 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp15-19.rle"><img src="map/pp15-19.png"
+ alt="19-bit period 15 pseudo-oscillators"
+ width="581" height="81" usemap="#pp15-19" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19pcls2.rle">
+	    Cis python on penta- decathlon [8]</a></td>
+	<td><a class="p" href="19/19pclf.rle">
+	    Loaf on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pcet2.rle">
+	    Eater chin on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pclb.rle">
+	    Long boat on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pcet3.rle">
+	    Eater tail on penta- decathlon [5]</a></td>
+	<td><a class="p" href="19/19pcet1.rle">
+	    Eater head on penta- decathlon [5]</a></td>
+	<td><a class="p" href="19/19pcls1.rle">
+	    Trans python on penta- decathlon [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/pp15-19.zip" />
+	<area coords="561,61,580,80" href="stamp/pp15-16.rle" />
+	<area coords="0,0,89,80" href="19/19pcls2.rle" />
+	<area coords="90,0,169,80" href="19/19pclf.rle" />
+	<area coords="170,0,249,80" href="19/19pcet2.rle" />
+	<area coords="250,0,329,80" href="19/19pclb.rle" />
+	<area coords="330,0,409,80" href="19/19pcet3.rle" />
+	<area coords="410,0,489,80" href="19/19pcet1.rle" />
+	<area coords="490,0,580,80" href="19/19pcls1.rle" />
+</map>
+
+<hr />
+<a name="pp15-20"></a>
+<h2>The 15 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 15 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp15-20.rle"><img src="map/pp15-20.png"
+ alt="20-bit period 15 pseudo-oscillators"
+ width="421" height="261" usemap="#pp15-20" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20pcsl1.rle">
+	    Shillelagh head on penta- decathlon [7]</a></td>
+	<td><a class="p" href="20/20pcpd.rle">
+	    Pond on penta- decathlon [5]</a></td>
+	<td><a class="p" href="20/20pccg.rle">
+	    Mango on penta- decathlon [6]</a></td>
+	<td><a class="p" href="20/20pclp.rle">
+	    Long ship on penta- decathlon [7]</a></td>
+	<td><a class="p" href="20/20pcht2.rle">
+	    Hook w/ tail tail on penta- decathlon [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20pcvs2.rle">
+	    Trans very long snake on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pcbbk.rle">
+	    Block on block on penta- decathlon [5]</a></td>
+	<td><a class="p" href="20/20pcsl3.rle">
+	    Shillelagh tail on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pcsl2.rle">
+	    Shillelagh chin on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pcht1.rle">
+	    Hook w/ tail head on penta- decathlon [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20pctt.rle">
+	    Tub w/ tail on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pccs1.rle">
+	    Trans canoe on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pccs2.rle">
+	    Cis canoe on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20pcvs1.rle">
+	    Trans very long snake on penta- decathlon [8]</a></td>
+	<td><a class="p" href="20/20bpcbk.rle">
+	    Block on penta- decathlon on block [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/pp15-20.zip" />
+	<area coords="401,241,420,260" href="stamp/pp15-20.rle" />
+	<area coords="0,0,89,89" href="20/20pcsl1.rle" />
+	<area coords="90,0,169,89" href="20/20pcpd.rle" />
+	<area coords="170,0,249,89" href="20/20pccg.rle" />
+	<area coords="250,0,329,89" href="20/20pclp.rle" />
+	<area coords="330,0,420,89" href="20/20pcht2.rle" />
+	<area coords="0,90,89,169" href="20/20pcvs2.rle" />
+	<area coords="90,90,169,169" href="20/20pcbbk.rle" />
+	<area coords="170,90,249,169" href="20/20pcsl3.rle" />
+	<area coords="250,90,329,169" href="20/20pcsl2.rle" />
+	<area coords="330,90,420,169" href="20/20pcht1.rle" />
+	<area coords="0,170,89,260" href="20/20pctt.rle" />
+	<area coords="90,170,169,260" href="20/20pccs1.rle" />
+	<area coords="170,170,249,260" href="20/20pccs2.rle" />
+	<area coords="250,170,329,260" href="20/20pcvs1.rle" />
+	<area coords="330,170,420,260" href="20/20bpcbk.rle" />
+</map>
+
+<hr />
+<a name="pp15-21"></a>
+<h2>The 22 <a class="i" href="bits-21.htm">21-bit</a>
+period 15 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp15-21.rle"><img src="map/pp15-21.png"
+ alt="21-bit period 15 pseudo-oscillators"
+ width="501" height="341" usemap="#pp15-21" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21pcll3.rle">
+	    Penta- decathlon behind long shillelagh [9]</a></td>
+	<td><a class="p" href="21/21pcll1.rle">
+	    Penta- decathlon on long shillelagh [10]</a></td>
+	<td><a class="p" href="21/21pcll5.rle">
+	    Penta- decathlon before long shillelagh [10]</a></td>
+	<td><a class="p" href="21/21pclht2.rle">
+	    Penta- decathlon above long hook w/ tail [9]</a></td>
+	<td><a class="p" href="21/21pcdbt1.rle">
+	    Penta- decathlon on down boat 2/tail [8]</a></td>
+	<td><a class="p" href="21/21pcubt2.rle">
+	    Penta- decathlon below up boat 2/tail [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21pcvb.rle">
+	    Very long boat on penta- decathlon [7]</a></td>
+	<td><a class="p" href="21/21pcin2.rle">
+	    Cis integral on penta- decathlon [7]</a></td>
+	<td><a class="p" href="21/21pcubt1.rle">
+	    Penta- decathlon on up boat w/ tail [8]</a></td>
+	<td><a class="p" href="21/21pcubt3.rle">
+	    Penta- decathlon above up boat 2/tail [8]</a></td>
+	<td><a class="p" href="21/21pcin1.rle">
+	    Trans integral on penta- decathlon [8]</a></td>
+	<td><a class="p" href="21/21pcdbt2.rle">
+	    Penta- decathlon above down boat 2/tail [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21pcll2.rle">
+	    Penta- decathlon below long shillelagh [9]</a></td>
+	<td><a class="p" href="21/21pcbbt.rle">
+	    Boat on block on penta- decathlon [6]</a></td>
+	<td><a class="p" href="21/21pclht1.rle">
+	    Penta- decathlon on long hook w/ tail [9]</a></td>
+	<td><a class="p" href="21/21pcll4.rle">
+	    Penta- decathlon above long shillelagh [9]</a></td>
+	<td><a class="p" href="21/21pctlt.rle">
+	    Tub w/ long tail on penta- decathlon [8]</a></td>
+	<td><a class="p" href="21/21pclc1.rle">
+	    Trans long canoe on penta- decathlon [8]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21pclc2.rle">
+	    Cis long canoe on penta- decathlon [7]</a></td>
+	<td><a class="p" href="21/21pcxs1.rle">
+	    Trans extra long snake on penta- decathlon [10]</a></td>
+	<td><a class="p" href="21/21bpcbt.rle">
+	    Block on penta- decathlon on boat [7]</a></td>
+	<td><a class="p" href="21/21pcxs2.rle">
+	    Cis extra long snake on penta- decathlon [9]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="pp15-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,321,19,340" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp15-21.zip" />
+	<area coords="481,321,500,340" href="stamp/pp15-21.rle" />
+	<area coords="0,0,89,89" href="21/21pcll3.rle" />
+	<area coords="90,0,169,89" href="21/21pcll1.rle" />
+	<area coords="170,0,249,89" href="21/21pcll5.rle" />
+	<area coords="250,0,329,89" href="21/21pclht2.rle" />
+	<area coords="330,0,409,89" href="21/21pcdbt1.rle" />
+	<area coords="410,0,500,89" href="21/21pcubt2.rle" />
+	<area coords="0,90,89,169" href="21/21pcvb.rle" />
+	<area coords="90,90,169,169" href="21/21pcin2.rle" />
+	<area coords="170,90,249,169" href="21/21pcubt1.rle" />
+	<area coords="250,90,329,169" href="21/21pcubt3.rle" />
+	<area coords="330,90,409,169" href="21/21pcin1.rle" />
+	<area coords="410,90,500,169" href="21/21pcdbt2.rle" />
+	<area coords="0,170,89,249" href="21/21pcll2.rle" />
+	<area coords="90,170,169,249" href="21/21pcbbt.rle" />
+	<area coords="170,170,249,249" href="21/21pclht1.rle" />
+	<area coords="250,170,329,249" href="21/21pcll4.rle" />
+	<area coords="330,170,409,249" href="21/21pctlt.rle" />
+	<area coords="410,170,500,249" href="21/21pclc1.rle" />
+	<area coords="0,250,89,340" href="21/21pclc2.rle" />
+	<area coords="90,250,169,340" href="21/21pcxs1.rle" />
+	<area coords="170,250,249,340" href="21/21bpcbt.rle" />
+	<area coords="250,250,329,340" href="21/21pcxs2.rle" />
+	<area coords="330,250,500,340" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp15-22"></a>
+<h2>The 68 <a class="i" href="bits-22.htm">22-bit</a>
+period 15 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>50 10-bit still-life on pentadecathlon.</li>
+    <li>16 6-bit still-life and block on pentadecathlon.</li>
+    <li>2 Two boats on pentadecathlon.</li>
+</ul></p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+<hr />
+<a name="pp15-23"></a>
+<h2>The 151 <a class="i" href="bits-23.htm">23-bit</a>
+period 15 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>107 11-bit still-life on pentadecathlon.</li>
+    <li>22 7-bit still-life and block on pentadecathlon.</li>
+    <li>20 6-bit still-life and boat on pentadecathlon.</li>
+    <li>2 Block on eater eating pentadecathlon.</li>
+</ul></p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+
+<hr />
+<a name="pp15-24"></a>
+<h2>The 460 <a class="i" href="bits-24.htm">24-bit</a>
+period 15 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>285 12-bit still-life on pentadecathlon.</li>
+    <li>46 8-bit still-life or two blocks and block on pentadecathlon.</li>
+    <li>30 7-bit still-life and boat on pentadecathlon.</li>
+    <li>94 Two 6-bit still-lifes on pentadecathlon.</li>
+    <li>4 Boat on eater eating pentadecathlon.</li>
+    <li>1 Pentadecathlon on pentadecathlon (see below).</li>
+</ul></p>
+
+<p>Synthesis for 1 of these is shown; all are easy to synthesize using
+standard techniques.</p>
+<p><a class="p" href="stamp/pp15-24.rle"><img src="map/pp15-24.png"
+ alt="24b PP15" width="101" height="81" usemap="#pp15-24" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="24/24pcpc3.rle">
+	    Penta- decathlon on penta- decathlon #3 [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/pp15-24.zip" />
+	<area coords="81,61,100,80" href="stamp/pp15-24.rle" />
+	<area coords="0,0,100,80" href="24/24pcpc3.rle" />
+</map>
+
+<hr />
+<a name="pp15-lg"></a>
+<h2>2 period 15 pseudo-oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/pp15-lg.rle"><img src="map/pp15-lg.png"
+ alt="larger PP15" width="221" height="81" usemap="#pp15-lg" /></a><br />
+    <table width="225">
+    <colgroup><col width="111" /><col width="112" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/30pcpc11.rle">
+	    Penta- decathlon on penta- decathlon #11 [8]</a></td>
+	<td><a class="p" href="lg/34pcpc9.rle">
+	    Penta- decathlon on penta- decathlon #9 [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp15-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="201,0,220,19" href="zip/pp15-lg.zip" />
+	<area coords="201,61,220,80" href="stamp/pp15-lg.rle" />
+	<area coords="0,0,109,80" href="lg/30pcpc11.rle" />
+	<area coords="110,0,220,80" href="lg/34pcpc9.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="g5-pp15"></a>
+<h2>7 period 15 pseudo-oscillators
+<a class="i" href="glider-5.htm">buildable from 5 gliders</a></h2>
+<p><a class="p" href="stamp/g5-pp15.rle"><img src="map/g5-pp15.png"
+ alt="5-glider P15 pseudo-oscillators"
+ width="581" height="81" usemap="#g5-pp15" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="16/16pcbk.rle">
+	    Block on penta- decathlon [5]</a></td>
+	<td><a class="p" href="17/17pcbt.rle">
+	    Boat on penta- decathlon [5]</a></td>
+	<td><a class="p" href="18/18pchv.rle">
+	    Beehive on penta- decathlon [5]</a></td>
+	<td><a class="p" href="19/19pcet3.rle">
+	    Penta- decathlon above eater [5]</a></td>
+	<td><a class="p" href="19/19pcet1.rle">
+	    Penta- decathlon on eater [5]</a></td>
+	<td><a class="p" href="20/20pcpd.rle">
+	    Pond on penta- decathlon [5]</a></td>
+	<td><a class="p" href="20/20pcbbk.rle">
+	    Block on block on penta- decathlon [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="g5-pp15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/g5-pp15.zip" />
+	<area coords="561,61,580,80" href="stamp/g5-pp15.rle" />
+	<area coords="0,0,89,80" href="16/16pcbk.rle" />
+	<area coords="90,0,169,80" href="17/17pcbt.rle" />
+	<area coords="170,0,249,80" href="18/18pchv.rle" />
+	<area coords="250,0,329,80" href="19/19pcet3.rle" />
+	<area coords="330,0,409,80" href="19/19pcet1.rle" />
+	<area coords="410,0,489,80" href="20/20pcpd.rle" />
+	<area coords="490,0,580,80" href="20/20pcbbk.rle" />
+</map>
+
+<hr />
+<a name="g6-pp15"></a>
+<h2>6 period 15 pseudo-oscillators
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-pp15.rle"><img src="map/g6-pp15.png"
+ alt="6-glider P15 pseudo-oscillators"
+ width="501" height="81" usemap="#g6-pp15" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18pcsh.rle">
+	    Ship on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pclf.rle">
+	    Loaf on penta- decathlon [6]</a></td>
+	<td><a class="p" href="19/19pcet2.rle">
+	    Penta- decathlon below eater [6]</a></td>
+	<td><a class="p" href="19/19pclb.rle">
+	    long boat on penta- decathlon [6]</a></td>
+	<td><a class="p" href="20/20pccg.rle">
+	    Mango on penta- decathlon [6]</a></td>
+	<td><a class="p" href="21/21pcbbt.rle">
+	    Boat on block on penta- decathlon [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-pp15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/g6-pp15.zip" />
+	<area coords="481,61,500,80" href="stamp/g6-pp15.rle" />
+	<area coords="0,0,89,80" href="18/18pcsh.rle" />
+	<area coords="90,0,169,80" href="19/19pclf.rle" />
+	<area coords="170,0,249,80" href="19/19pcet2.rle" />
+	<area coords="250,0,329,80" href="19/19pclb.rle" />
+	<area coords="330,0,409,80" href="20/20pccg.rle" />
+	<area coords="410,0,500,80" href="21/21pcbbt.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="p15.htm">period-15 oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="posc.htm">pseudo-oscillators</a> by period:</b>
+	<a class="i" href="pp2.htm">2</a>,
+	<a class="i" href="pp3.htm">3</a>,
+	<a class="i" href="pp4.htm">4</a>,
+	<a class="i" href="pp5.htm">5</a>,
+	<a class="i" href="pp6.htm">6</a>,
+	<a class="i" href="pp8.htm">8</a>,
+	<a class="i" href="pp10.htm">10</a>,
+	<a class="i" href="pp12.htm">12</a>,
+	15,
+	<a class="i" href="pp30.htm">30</a>,
+	<a class="i" href="pp60.htm">60</a>,
+	<a class="i" href="pperiod.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

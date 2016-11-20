@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Mark D. Niemiec's Life Page</title>
+<meta name="description"
+content="John Horton Conway's Game of Life, including complete lists and glider syntheses of smaller still-lifes, oscillators, and spaceships" />
+<meta name="keywords"
+content="cellular automata conway game life pseudo still life oscillator spaceship glider gun puffer object list enumeration glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life Pages Changes</h1>
+
+<p align="center">
+	<a class="j" href="#news-breaking">Breaking news</a> |
+	<a class="j" href="#news-feat">Features</a> |
+	<a class="j" href="#news-def">Deficiencies</a> |
+	<a class="j" href="#news-bug">Bugs</a> |
+	<a class="j" href="#news-change">Recent changes</a>
+</p>
+
+<hr /><hr />
+<a name="news-breaking"></a>
+<h2>Breaking news</h2>
+<p>The latter half of 2014 has seen a major explosion in the object synthesis
+area, so there has not been time to update these pages to keep up with them.
+This is a list of some of these discoveries, which will be added here as time
+permits:</p>
+
+<p><ul>
+    <li>Many oscillators and syntheses have improved syntheses.</li>
+    <li>All still-lifes up to 18 bits are proven to have syntheses.</li>
+    <li>All flotillae of gliders with arbitrary spacings are proven to have
+	syntheses, which makes all the syntheses on these pages involving
+	multiple gliders arriving from the same direction robust. (Syntheses
+	involving other kinds of spaceships flying in parallel already explicitly
+	show syntheses of those spaceships.)</li>
+    <li>Syntheses of many exotic spaceships, such as Crab, Dart, Weekender,
+	and X66.</li>
+    <li>A new fundamental puffer, the Pufferfish, that can be synthesized, and
+	can also be turned into a pure spaceship by adding two escort HWSS.</li>
+    <li>New Geminoid spaceships</li>
+</ul></p>
+
+<hr /><hr />
+<a name="news-feat"></a>
+<h2>Features</h2>
+<p>These are some of the main features of these pages:</p>
+<p><ul>
+    <li>Complete <a class="i" href="objcount.htm">counts</a> of Life objects up to 21
+	bits, with some up to 25 bits.</li>
+    <li>Complete lists of most of the above objects.</li>
+    <li>Syntheses for most objects up to 21 bits (15 for still-lifes, 16 for
+	pseudo-still-lifes, 18 for period 2 oscillators, 17 for period 2
+	pseudo-oscillators), and some up to 25 bits, plus selected larger
+	objects.</li>
+    <li>Above lists are arranged by
+	<a class="i" href="objtype.htm">object type</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>, and
+	<a class="i" href="natural.htm">frequency of occurrence</a>, and also by
+	<a class="i" href="objname.htm">name</a> for common objects.</li>
+    <li>Similar object and synthesis data for several
+	<a class="i" href="liferule.htm">cellular automata rules</a> other than Life.</li>
+    <li>All objects in the above lists can be directly
+	<a class="i" target="lifesrch" href="lifesrch.htm">
+	searched</a> by pattern image, name, and/or criteria such as
+	population, period, velocity, cost in gliders, and many others.</li>
+    <li>All synthesis files for any given stamp image can be downloaded in a
+	single zip file, for convenience.</li>
+</ul></p>
+
+<hr />
+<a name="news-def"></a>
+<h2>Deficiencies</h2>
+<p>The following are known deficiencies and limitations with these pages:</p>
+<p><ul>
+    <li>While most object lists have syntheses for most objects on those lists,
+	there are a small number of objects for which syntheses have been
+	attempted, but no suitable synthesis methods have yet been found. These
+	await better technology, inspiration, or blind luck.</li>
+    <li>Syntheses are only partially complete for
+	<a class="i" href="p1-15.htm">15-bit still-lifes</a> and
+	<a class="i" href="p2-18.htm">18-bit period 2 oscillators</a>.</li>
+    <li>Object list and syntheses are only partially complete for
+	<a class="i" href="p3-21.htm">21-bit period 3 oscillators</a>.</li>
+    <li>Many lists of objects from 22-25 bits have been counted, but specific
+	object lists have not yet been assembled, nor syntheses attempted for
+	most of the objects, other than a superficial examination to determine
+	which objects would be easy to synthesize using standard methods,
+	and which ones would require special treatment, or not have syntheses
+	at all.</li>
+    <li>Overweight spaceship flotillae have been counted, but not
+	explicitly listed nor synthesized. Syntheses have been developed for
+	most of them from one side or other, and most of these can be combined
+	in pairs, like building blocks, to create the full overweight spaceship
+	flotillae, but this has not been done yet.</li>
+    <li>Large lists (typically those involving between 1000 and 10000 objects)
+	have large stamps of 1000 objects per page, but one cannot click on
+	individual objects to see them in detail. These include
+	<a class="i" href="p1.htm">still-lifes</a>
+	(of <a class="i" href="p1-16.htm">16</a>,
+	<a class="i" href="p1-17.htm">17</a> bits) and
+	<a class="i" href="p1-18.htm">18</a> bits),
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>
+	(of <a class="i" href="p1-17.htm">17</a> and
+	<a class="i" href="p1-18.htm">18</a> bits),
+	<a class="i" href="p2.htm">period 2 oscillators</a>
+	(of <a class="i" href="p2-19.htm">19</a>,
+	<a class="i" href="p2-20.htm">20</a> and
+	<a class="i" href="p2-21.htm">21</a> bits),
+	<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a>
+	(of <a class="i" href="pp2-18.htm">18</a>,
+	<a class="i" href="pp2-19.htm">19</a>,
+	<a class="i" href="pp2-20.htm">20</a> and
+	<a class="i" href="pp2-21.htm">21</a> bits).</li>
+    <li>Some lists consist entirely (or almost entirely) of a large number of
+	objects for which syntheses are unknown, and are extremely unlikely to
+	ever be found. Such lists sometimes omit clickable object files for
+	objects without syntheses, especially if these objects occur in only
+	that one list and nowhere else. These include several lists for the
+	<a class="i" href="rule22.htm">B2/S2 rule</a>
+	(<a class="i" href="rule22.htm#22-p1">still-lifes</a>,
+	<a class="i" href="rule22.htm#22-p2">period 2 oscillators</a> and
+	<a class="i" href="rule22.htm#22-btc">billiard tables</a>).
+	This does not apply to most explicit list of
+	<a class="i" href="glider-u.htm">objects without syntheses</a>
+	as these contain objects that already exist on other lists.)</li>
+</ul></p>
+
+<hr />
+<a name="news-bug"></a>
+<h2>Bugs</h2>
+<p>The following are known bugs on these pages. These are specifically things
+that are proper HTML, and rendered correctly in most browsers, especially
+Chrome, Firefox and Safari, but which displayed incorrectly in Internet Explorer
+versions at least up to 10:</p>
+<p><ul>
+    <li>Sometimes, in tables with objects of different widths, Internet
+	Explorer displays incorrect widths for some objects. The objects are
+	in the correct relative positions, but the shapes of their boxes may
+	be distorted.</li>
+    <li>Internet Explorer sometimes displays boxes for some exotic but valid
+	Unicode characters. This affects some mathematical symbols on the
+	<a class="i" href="onag.htm">Surreal Numbers and Games page</a>, and its
+	related <a class="i" href="onagcalc.htm">calculator page</a>.</li>
+</ul></p>
+
+<hr />
+<a name="news-change"></a>
+<h2>Recent changes to these pages</h2>
+<p>This is a list of major changes in these pages. Minor fixes,
+such as fixed typos, re-worded descriptions, or slightly-improved syntheses
+(usually as a result of improved bookkeeping) are not listed:</p>
+
+<p>
+<i>2015-02-19</i>
+Major site overhaul, including the following, among others:</p>
+<p><ul>
+    <li><b>Total pages:</b> The total number of distinct web pages has almost
+	doubled from 65 to 128.</li>
+    <li><b>Total stamps:</b> The total number of pattern stamp collections has
+	almost tripled from 259 to 736.</li>
+    <li><b>Total files:</b> The total number of separate files on the site (most
+	of which are synthesis file) has tripled from 3804 to over 12000,
+	which includes over 10000 object synthesis .RLE files.</li>
+    <li><b>Renamed files:</b> Some existing page and pattern files have been
+	renamed, for the sake of simplicity and consistency.</li>
+    <li><b>Renamed patterns:</b> Some existing patterns have been renamed, to
+	conform to popular usage.</li>
+    <li><b>Removed pages:</b> Three pages have been removed, with their contents
+	included directly in their parent pages:
+	<a class="i" href="bits-13.htm#pp1-13">13-bit pseudo-still-lifes</a>,
+	<a class="i" href="bits-15.htm#pp2-15">15-bit P2 pseudo-oscillators</a>,
+	<a class="i" href="bits-16.htm#p2-16">16-bit P2 oscillators</a>.</li>
+    <li><b>Added pages:</b>
+	Changes (this page),
+	<a class="i" href="lifemeth.htm">Search methodologies</a>,
+	<a class="i" href="lifemap.htm">Site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">
+	Search for pattern</a> (and <a class="i" target="srchhelp"
+	href="srchhelp.htm">search help</a>),
+	<a class="i" href="lifelink.htm">Links and other resources</a>,
+	<a class="i" href="gun.htm">Guns</a>,
+	<a class="i" href="color.htm">Multi-colored Life</a>,
+	<a class="i" href="liferule.htm">Alternate rules</a>
+	(including <a class="i" href="rule22.htm">2/2 Life</a>,
+	<a class="i" href="rule34.htm">3/4 Life</a>, and
+	<a class="i" href="rulemn.htm">Niemiec's rules</a>),
+	<a class="i" href="onag.htm">Surreal Numbers and Games</a>
+	(plus an <a class="i" href="onagcalc.htm">interactive calculator</a>
+	for them).</li>
+    <li><b>All object lists:</b> Stamps are in color, and font used to display
+	cost in gliders improved. Many lists have additional objects. Color is
+	used to categorize objects by ease of synthesis. Most stamps have object
+	periods indicated in the top right corner, populations in the bottom
+	left corner, and velocity (for moving patterns) or final population
+	(for methuselahs) or page number (for large lists) in the bottom
+	right corner. If objects of multiple periods, populations or
+	velocities appear on one page, they are usually divided into sections
+	by period, population, and/or velocity, and have similar indicators
+	on each section.</li>
+    <li><b>All object pages:</b> Many additional syntheses have been added;
+	many existing syntheses have been improved or expanded; several
+	incorrect syntheses have been fixed.</li>
+    <li><b><a class="i" href="objcount.htm">Object counts</a>:</b> Counts of
+	24-bit <a class="i" href="p1.htm">still-lifes</a> and
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a> have been fixed
+	(a few new items found). New computer search counts for for
+	<a class="i" href="p2-21.htm">21-bit period 2 oscillators</a> and
+	<a class="i" href="pp2.htm">pseudo-oscillators</a>.
+	Computer verified search for
+	<a class="i" href="p3-20.htm">20-bit period 3 oscillators</a> and
+	<a class="i" href="pp3.htm#pp3-20">pseudo-oscillators</a>.
+	All oscillators and pseudo-oscillators expanded to 21 bits
+	(25 bits for periods 4 and higher,
+	24 bits for period 5 and 6 oscillators and period 15 pseudo-oscillators,
+	and 22 bits for period 3 and 4 pseudo-oscillators).</li>
+    <li><b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	Added new pages for objects constructible from
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	<a class="i" href="glider-6.htm">6 gliders</a> and
+	<a class="i" href="glider-e.htm">1 glider/bit</a>, as well as
+	<a class="i" href="natural.htm">naturally-occurring objects</a>.</li>
+    <li><b><a class="i" href="objsize.htm">Objects sorted by size</a>:</b>
+	Added new pages for objects of <a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	and <a class="i" href="bits-25.htm">25</a> bits,
+	one for <a class="i" href="bits-lg.htm">larger objects</a>, and one for
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</li>
+    <li><b><a class="i" href="objtype.htm">Objects sorted by type</a>:</b>
+	Most sub-pages include new sub-sections for objects from 21-25 bits,
+	larger objects, and <a class="i" href="objcost.htm">costs in gliders</a>.</li>
+    <li><b><a class="i" href="p1.htm">Still-lifes</a>:</b>
+	Added syntheses for all <a class="i" href="p1-14.htm">14-bit</a>
+	and <a class="i" href="p1-15.htm">15-bit</a>* still-lifes,
+	plus many larger ones. All still-lifes up to 17 bits can be synthesized.
+	Added a huge list of all
+	<a class="i" href="pp1-18.htm">18-bit</a> ones.</li>
+    <li><b><a class="i" href="pp1.htm">Pseudo-still-lifes</a>:</b>
+	Added syntheses for all <a class="i" href="pp1-16.htm">16-bit</a>
+	ones, and many larger ones. All pseudo-still-lifes up to 17 bits can be
+	synthesized, as can most <a class="i" href="pp1-18.htm">18-bit</a> and
+	<a class="i" href="pp1.htm#pp1-19">19-bit</a> ones.
+	Added huge lists of all
+	<a class="i" href="pp1-17.htm">17-bit</a> and
+	<a class="i" href="pp1-18.htm">18 -bit</a> ones.</li>
+    <li><b><a class="i" href="p2.htm">Period-2 oscillators</a>:</b>
+	Added syntheses of all <a class="i" href="p2-18.htm">18-bit</a>* ones,
+	and huge lists of all <a class="i" href="p2-19.htm">19-bit</a>,
+	<a class="i" href="p2-20.htm">20-bit</a>, and
+	<a class="i" href="p2-21.htm">21-bit</a> ones.</li>
+    <li><b><a class="i" href="pp2.htm">Period-2 pseudo-oscillators</a>:</b>
+	Added syntheses for all <a class="i" href="pp2-17.htm">17-bit</a>
+	ones, and huge lists of all
+	<a class="i" href="pp2-18.htm">18-bit</a>,
+	<a class="i" href="pp2-19.htm">19-bit</a>,
+	<a class="i" href="pp2-20.htm">20-bit</a>, and
+	<a class="i" href="pp2-21.htm">21-bit</a> ones.</li>
+    <li><b><a class="i" href="period.htm">Oscillators by period</a>:</b> Added
+	many new oscillator periods. Split out
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>
+	into a separate page.</li>
+    <li><b><a class="i" href="osc.htm">Oscillators</a></b> and
+	<b><a class="i" href="posc.htm">Pseudo-oscillators</a>:</b> These are now
+	separated from oscillators by period. Individual periods now use one
+	page for oscillators and a separate page for pseudo-oscillators. All
+	oscillators and pseudo-oscillators are synthesized up to 21 bits*
+	(and 25 bits for oscillators of period 8 and higher).</li>
+    <li><b><a class="i" href="osc.htm">Oscillators</a>:</b> New sub-pages for periods
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p36.htm">36</a>, and
+	<a class="i" href="p60.htm">60</a>.</li>
+    <li><b><a class="i" href="posc.htm">Pseudo-oscillators</a>:</b> New sub-pages for
+	periods <a class="i" href="pp10.htm">10</a>,
+	<a class="i" href="pp12.htm">12</a> and
+	<a class="i" href="pp60.htm">60</a>.</li>
+    <li><b><a class="i" href="ss.htm">Spaceships</a>:</b> Added more
+	spaceship velocities; separated
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">flotillae</a> and
+	<a class="i" href="puff.htm">puffers</a> (including wick-stretchers) into
+	separate pages.</li>
+    <li><b><a class="i" href="cons.htm">Constellations</a>:</b>
+	Now include several useful artificial constellations, such as
+	specialized eaters and reflectors.</li>
+    <li><b><a class="i" href="meth.htm">Methuselahs</a>:</b>
+	Now include final censuses, and pattern files to run methuselahs to
+	completion.</li>
+</ul></p>
+
+<p>(* NOTE: syntheses for 15-bit still-lifes, 18-bit period 2 oscillators, and
+21-bit period 3 oscillators are currently incomplete, and are works in
+progress.)</p>
+
+<p><i>2013-04-01</i> Previous version of these pages went down.</p>
+<p><i>1999-11-20</i> Previous version of these pages.</p>
+<p><i>1997-11-19</i> Pages first created.</p>
+
+<hr /><hr />
+<p><b>See also:</b>
+	<a class="i" href="lifeterm.htm">definitions</a>,
+	<a class="i" href="lifestr.htm">structure</a>,
+	<a class="i" href="lifemeth.htm">search methodologies</a>,
+	<a class="i" href="liferule.htm">other rules</a>,
+	news,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

@@ -1,0 +1,5 @@
+#N 34-cons.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 01:58:35 2015
+x = 50, y = 20, rule = B34/S34
+3$bbo14bo5b4o5bo11b4o$$6bo3bo9bo5bo9bo$5boo3boo8bobobobo10boo$7bobo10b
+o5bo8b3o$37bo$41bo$39b3o$40bobo$40bo6$bboo28boo$29bo!

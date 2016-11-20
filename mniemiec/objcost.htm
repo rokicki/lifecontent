@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Sorted by Cost in Gliders</title>
+<meta name="description"
+content="Conway's Game of Life: Object lists and syntheses sorted by cost" />
+<meta name="keywords"
+content="conway game life object list cost glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life Objects Sorted by Cost in Gliders</h1>
+
+<p align="center">
+	<a class="j" href="#cost-intro">Introduction</a> |
+	<a class="j" href="#cost-g2">2 gliders</a> |
+	<a class="j" href="#cost-g3">3 gliders</a> |
+	<a class="j" href="#cost-g4">4 gliders</a> |
+	<a class="j" href="#cost-g5">5 gliders</a> |
+	<a class="j" href="#cost-g6">6 gliders</a> |
+	<a class="j" href="#cost-ge">1 glider/bit</a>,
+	<a class="j" href="#cost-gg">&gt;1 glider/bit</a>,
+	<a class="j" href="#cost-gu">Unknown </a>
+</p>
+
+<hr /><hr />
+<a name="cost-intro"></a>
+<h2>Introduction</h2>
+<p>This page and its subordinates classify objects, based on the number of
+gliders it takes to synthesize them. Whether or not objects are included
+depends on the list in question:</p>
+<p><ul>
+    <li>Lists of objects that require specific small numbers of gliders (i.e.
+	2-6) include all known objects in these categories, regardless of
+	whether or not they belong to sets of objects for which exhaustive
+	syntheses have been attempted or not. If an exotic object can occur
+	naturally from a small number of gliders, this is significant.</li>
+    <li>Lists of objects that require relative numbers of gliders (i.e. one
+	glider per bit, or more than 1) only include all known objects for
+	which exhaustive syntheses have been attempted. Other, haphazard
+	objects are not included, as very many of them fit these categories,
+	and this is not particularly interesting or useful.</li>
+    <li>Lists of objects that do not yet have any known syntheses are similar
+	to the above. However, there are some groups of objects (for example,
+	<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a> where,
+	although exhaustive syntheses have not been attempted, it has been
+	proven that syntheses exist for all objects with a very small number of
+	exceptions. In such cases, these exceptions may also be noted.</li>
+</ul></p>
+
+<hr /><hr />
+<a name="cost-g2"></a>
+<h2>Objects buildable with <a class="i" href="glider-2.htm">2 gliders</a></h2>
+<p><ul>
+    <li>The table of all 71 <a class="i" href="glider-2.htm#g2-all">
+	collisions of 2 gliders</a>.</li>
+    <li>The 6 <b><a class="i" href="glider-2.htm#g2-p1">
+	still-lifes</a></b>: <a class="p" href="0/4bk.rle">Block</a>,
+	<a class="p" href="0/5bt.rle">Boat</a>,
+	<a class="p" href="0/6hv.rle">Beehive</a>,
+	<a class="p" href="0/7lf.rle">Loaf</a>,
+	<a class="p" href="0/7et.rle">Eater</a>,
+	<a class="p" href="0/8pd.rle">Pond</a>.</li>
+    <li>The 1 <b><a class="i" href="glider-2.htm#g2-pp1">
+	pseudo-still-life</a></b>:
+	<a class="p" href="0/8bkbk.rle">Block on block</a>.</li>
+    <li>The 1
+	<b><a class="i" href="glider-2.htm#g2-p2">period 2 oscillator</a></b>:
+	<a class="p" href="0/3bl.rle">Blinker</a>.</li>
+    <li>The 1 <b><a class="i" href="glider-2.htm#g2-ss">
+	spaceship</a></b>: <a class="p" href="ss/5gl.rle">Glider</a>.</li>
+    <li>The 11 <b><a class="i" href="glider-2.htm#g2-cons">
+	constellations</a></b>.</li>
+    <li>The 5 <b><a class="i" href="glider-2.htm#g2-meth">methuselahs</a></b>:
+	<a class="p" href="0/5ph.rle">Pi heptomino</a>,
+	<a class="p" href="0/6bh.rle">B heptomino</a>,
+	<a class="p" href="0/6lm.rle">Lumps of muck</a>,
+	<a class="p" href="0/7oo.rle">(2 glider) Octomino</a>,
+	<a class="p" href="10/10gm.rle">Two-glider mess</a>.</li>
+    <li>The 7 <b><a class="i" href="glider-2.htm#g2-nat">
+	common objects</a></b>.</li>
+</ul></p>
+
+<hr />
+<a name="cost-g3"></a>
+<h2>Objects buildable with <a class="i" href="glider-3.htm">3 gliders</a></h2>
+<p><ul>
+    <li>The 11 <b><a class="i" href="glider-3.htm#g3-p1">
+	still-lifes</a></b>:<br />
+	<a class="p" href="0/4tb.rle">Tub</a>,
+	<a class="p" href="0/6sh.rle">Ship</a>,
+	<a class="p" href="0/6bg.rle">Barge</a>,
+	<a class="p" href="0/7lb.rle">Long boat</a>,
+	<a class="p" href="0/8cg.rle">Mango (8.3)</a>,
+	<a class="p" href="0/8lg.rle">Long barge</a>,
+	<a class="p" href="0/9-1.rle">Very long boat (9.1)</a>,
+	<a class="p" href="0/9-10.rle">Hat (9.10)</a>,
+	<a class="p" href="14/14-30.rle">Half bakery (14.30)</a>,
+	<a class="p" href="14/14-79.rle">Paperclip (14.79)</a>,
+	<a class="p" href="16/16-1749.rle">Bi-pond (16.1749)</a>.</li>
+    <li>The 11 <b><a class="i" href="glider-3.htm#g3-pp1">
+	pseudo-still-lifes</a></b>:<br />
+	<a class="p" href="0/9btbk.rle">Block on boat</a>,
+	<a class="p" href="10/10shbk.rle">Block on ship</a>,
+	<a class="p" href="10/10btbt1.rle">Up boat on boat</a>,
+	<a class="p" href="10/10hvbk.rle">Block on beehive</a>,
+	<a class="p" href="11/11lfbk.rle">Block on loaf</a>,
+	<a class="p" href="12/12shsh1.rle">Up ship on ship</a>,
+	<a class="p" href="12/12hvhv.rle">Beehive on beehive</a>,
+	<a class="p" href="12/12lfbt1.rle">Up boat on loaf</a>,
+	<a class="p" href="12/12etbt1.rle">Up boat on eater</a>,
+	<a class="p" href="12/12etbt5.rle">Up boat above eater</a>,
+	<a class="p" href="14/14etlf1.rle">Up loaf on eater</a>.</li>
+    <li>The 2 <b><a class="i" href="glider-3.htm#g3-p2">
+	period 2 oscillators</a></b>: <a class="p" href="0/6td.rle">Toad</a>,
+	<a class="p" href="0/6bc.rle">Beacon</a>.</li>
+    <li>The 1 <b><a class="i" href="glider-3.htm#g3-p3">
+	period 3 oscillator</a></b>:
+	<a class="p" href="lg/48pu.rle">Pulsar</a>,
+	<a class="p" href="12/12pc.rle">Pentadecathlon</a>.</li>
+    <li>The 1 <b><a class="i" href="glider-3.htm#g3-p15">
+	period 15 oscillator</a></b>:
+	<a class="p" href="12/12pc.rle">Pentadecathlon</a>.</li>
+    <li>The 3 <b><a class="i" href="glider-3.htm#g3-ss">spaceships</a></b>:
+	<a class="p" href="ss/9lw.rle">Light-weight spaceship (LWSS)</a>,
+	<a class="p" href="ss/11mw.rle">Middle-weight spaceship (MWSS)</a>,
+	<a class="p" href="ss/13hw.rle">Heavy-weight spaceship (HWSS)</a>.</li>
+    <li>13 <b><a class="i" href="glider-3.htm#g3-cons">
+	constellations</a></b>.</li>
+    <li>8 <b><a class="i" href="glider-3.htm#g3-meth">methuselahs</a></b>:
+	<a class="p" href="0/5rp.rle">R pentomino</a>,
+	<a class="p" href="0/6be.rle">Bookend</a>,
+	<a class="p" href="0/6wg.rle">Wing (R-loaf)</a>,
+	<a class="p" href="0/6h.rle">Herschel</a>,
+	<a class="p" href="0/7dv.rle">Dove (R-mango)</a>,
+	<a class="p" href="0/8gd.rle">Gliders by the dozen</a>,
+	<a class="p" href="0/8j.rle">J</a>,
+	<a class="p" href="0/8pk.rle">Pike</a>.</li>
+    <li>The 15 <b><a class="i" href="glider-3.htm#g3-nat">
+	common objects</a></b>.</li>
+</ul></p>
+
+<hr />
+<a name="cost-g4"></a>
+<h2>Objects buildable with <a class="i" href="glider-4.htm">4 gliders</a></h2>
+<p><ul>
+    <li>111 <b><a class="i" href="glider-4.htm#g4-p1">still-lifes</a></b>.</li>
+    <li>33
+	<b><a class="i" href="glider-4.htm#g4-pp1">pseudo-still-lifes</a></b>.</li>
+    <li>2 <b><a class="i" href="glider-4.htm#g4-p2">
+	period 2 oscillators</a></b>: <a class="p" href="0/6ck.rle">Clock</a>,
+	<a class="p" href="18/18sc.rle">Spark coil</a>.</li>
+    <li>3 <b><a class="i" href="glider-4.htm#g4-pp2">
+	period 2 pseudo-oscillators</a></b>:
+	<a class="p" href="10/10bcbk.rle">Block on beacon</a>,
+	<a class="p" href="11/11bcbt1.rle">Up boat on beacon</a>,
+	<a class="p" href="14/14bbcbk1.rle">
+	Cis block on beacon on block</a>.</li>
+    <li>1 <b><a class="i" href="glider-4.htm#g4-p8">
+	period 8 oscillator</a></b>:
+	<a class="p" href="12/12fg.rle">Figure-8</a>.</li>
+    <li>8 <b><a class="i" href="glider-4.htm#g4-cons">constellations</a></b>.
+	</li>
+    <li>4 <b><a class="i" href="glider-4.htm#g4-meth">
+	methuselahs</a></b>: <a class="p" href="0/6tbd.rle">Thunderbird</a>,
+	<a class="p" href="0/7ak.rle">Acorn</a>,
+	<a class="p" href="0/7mp.rle">Multum in parvo</a>,
+	<a class="p" href="0/8sw.rle">Unstabilized switch-engine</a>,
+	<a class="p" href="0/8cm.rle">Mango mess</a>.</li>
+    <li>The 113 <b><a class="i" href="glider-4.htm#g4-nat">
+	common objects</a></b>.</li>
+</ul></p>
+
+<hr />
+<a name="cost-g5"></a>
+<h2>Objects buildable with <a class="i" href="glider-5.htm">5 gliders</a></h2>
+<p><ul>
+    <li>114 <b><a class="i" href="g5-p1.htm">still-lifes</a></b>.</li>
+    <li>156 <b><a class="i" href="g5-pp1.htm">pseudo-still-lifes</a></b>.</li>
+    <li>3 <b><a class="i" href="glider-5.htm#g5-p2">
+	period 2 oscillators</a></b>: <a class="p" href="0/8bp.rle">Bipole</a>,
+	<a class="p" href="18/18cavtl2.rle">Great on-off</a>,
+	<a class="p" href="23/23scbt.rle">Spark coil tie boat</a>.</li>
+    <li>10 <b><a class="i" href="glider-5.htm#g5-pp2">
+	period 2 pseudo-oscillators</a></b>.</li>
+    <li>2 <b><a class="i" href="glider-5.htm#g5-p4">
+	period 4 oscillators</a></b>: <a class="p" href="12/12md.rle">Mold</a>,
+	<a class="p" href="12/12mz.rle">Mazing</a>.</li>
+    <li>10 <b><a class="i" href="glider-5.htm#g5-pp15">
+	period 15 pseudo-oscillators</a></b>.</li>
+    <li>2 <b><a class="i" href="glider-5.htm#g5-puff">puffers</a></b>:
+	<a class="p" href="ss/12swbk.rle">Block-making switch engine</a>,
+	<a class="p" href="ss/12swgl.rle">Glider-making switch engine</a>.</li>
+    <li>2 <b><a class="i" href="glider-5.htm#g5-meth">methuselahs</a></b>:
+	<a class="p" href="0/8dh.rle">Die hard</a>,
+	<a class="p" href="0/9ra.rle">Rabbits</a>.</li>
+    <li>The 16 <b><a class="i" href="glider-5.htm#g5-nat">
+	common objects</a></b>.</li>
+</ul></p>
+
+<hr />
+<a name="cost-g6"></a>
+<h2>Objects buildable with <a class="i" href="glider-6.htm">6 gliders</a></h2>
+<p><ul>
+    <li>217 <b><a class="i" href="g6-p1.htm">still-lifes</a></b>.</li>
+    <li>253 <b><a class="i" href="g6-pp1.htm">pseudo-still-lifes</a></b>.</li>
+    <li>14 <b><a class="i" href="glider-6.htm#g6-p2">
+	period 2 oscillators</a></b>.</li>
+    <li>30 <b><a class="i" href="glider-6.htm#g6-pp2">
+	period 2 pseudo-oscillators</a></b>.</li>
+    <li>2 <b><a class="i" href="glider-6.htm#g6-p3">
+	period 3 oscillators</a></b>:
+	<a class="p" href="16/16kyky1.rle">Short Keys</a>,
+	<a class="p" href="lg/36p3sd.rle">Snake dance</a>.</li>
+    <li>1 <b><a class="i" href="glider-6.htm#g6-p5">
+	period 5 oscillator</a></b>:
+	<a class="p" href="16/16oc.rle">Octagon II</a>.</li>
+    <li>1 <b><a class="i" href="glider-6.htm#g6-p6">
+	period 6 oscillator</a></b>:
+	<a class="p" href="16/16ux.rle">Unix</a>.</li>
+    <li>1 <b><a class="i" href="glider-6.htm#g6-p8">
+	period 8 oscillator</a></b>:
+	<a class="p" href="15/15br.rle">Blocker</a>.</li>
+    <li>16 <b><a class="i" href="glider-6.htm#g6-p15">
+	period 15 oscillators</a></b>.</li>
+    <li>6 <b><a class="i" href="glider-6.htm#g6-pp15">
+	period 15 pseudo-oscillators</a></b>.</li>
+    <li>6 <b><a class="i" href="glider-6.htm#g6-p30">
+	period 30 oscillators</a></b>.</li>
+    <li>7 <b><a class="i" href="glider-6.htm#g6-pp30">
+	period 30 pseudo-oscillators</a></b>.</li>
+    <li>4 <b><a class="i" href="glider-6.htm#g6-ss">spaceships</a></b>.</li>
+    <li>5 <b><a class="i" href="glider-6.htm#g6-cons">constellations</a></b>.</li>
+    <li>1 <b><a class="i" href="glider-6.htm#g6-meth">methuselah</a></b>:
+	<a class="p" href="0/6tm.rle">Thompson's 6-bit methuselah</a>.</li>
+    <li>The 22 <b><a class="i" href="glider-6.htm#g6-nat">
+	common objects</a></b>.</li>
+</ul></p>
+
+<hr />
+<a name="cost-ge"></a>
+<h2>Objects requiring <a class="i" href="glider-e.htm">1 glider/bit</a></h2>
+<p><ul>
+    <li>11 <b><a class="i" href="glider-e.htm#ge-p1">
+	still-lifes</a></b> up to 14 bits.</li>
+    <li>9 <b><a class="i" href="glider-e.htm#ge-pp1">
+	pseudo-still-lifes</a></b> up to 16 bits:
+	<a class="p" href="13/13lssn2.rle">Down snake on python [13]</a>,
+	<a class="p" href="14/14htac6.rle">
+	Down cis carrier on hook w/tail [14]</a>,
+	<a class="p" href="14/14lsls2.rle">
+	Down trans python on python [14]</a>.</li>
+    <li>14 <b><a class="i" href="glider-e.htm#ge-p2">
+	period 2 oscillators</a></b> up to 17 bits.</li>
+    <li>30 <b><a class="i" href="glider-e.htm#ge-pp2">
+	period 2 pseudo-oscillators</a></b> up to 17 bits.</li>
+    <li>3 <b><a class="i" href="glider-e.htm#ge-p3">
+	period 3 oscillators</a></b> up to 20 bits:
+	<a class="p" href="20/20cfht9.rle">
+	Up hook w/tail above up candelfrobra [20]</a>,
+	<a class="p" href="20/20cfli.rle">
+	Candelfrobra siamese long integral [20]</a>
+	<a class="p" href="20/20nblf.rle">
+	Beluchenko's Eater eating thing w/loaf [20]</a>.</li>
+    <li>2 <b><a class="i" href="glider-e.htm#ge-p4">
+	period 4 oscillators</a></b> up to 21 bits:
+	<a class="p" href="20/20mdbet2.rle">
+	Down mold tie bookend w/tub [20]</a>,
+	<a class="p" href="20/20ce.rle">Confused Eaters [20]</a>.</li>
+    <li>3 <b><a class="i" href="glider-e.htm#ge-p5">
+	period 5 oscillators</a></b> up to 21 bits:
+	<a class="p" href="20/20svlc.rle">Silver's P5 above long canoe [20]</a>,
+	<a class="p" href="20/20svxs.rle">
+	Silver's P5 above extra long snake [20]</a>,
+	<a class="p" href="21/21svlha1.rle">
+	Silver's P5 on up long hat [21]</a>.</li>
+    <li>4 <b><a class="i" href="glider-e.htm#ge-pp5">
+	period 5 pseudo-oscillators</a></b> up to 21 bits:
+	<a class="p" href="21/21svsnbk.rle">
+	Silver's P5 on snake on block [21]</a>,
+	<a class="p" href="21/21bsvsn2.rle">
+	Block on Silver's P5 on snake [21]</a>,
+	<a class="p" href="21/21bsvsn1.rle">
+	Block above Silver's P5 on snake [21]</a>,
+	<a class="p" href="21/21bsvsn3.rle">
+	Block below Silver's P5 on snake [21]</a>.</li>
+    <li>1 <b><a class="i" href="glider-e.htm#ge-p6">
+	period 6 oscillator</a></b> up to 21 bits:
+	<a class="p" href="21/21cptbc1.rle">
+	Up beacon on cuphook w/pre-block [21]</a>.</li>
+    <li>1 <b><a class="i" href="glider-e.htm#ge-pp10">
+	period 10 pseudo-oscillator</a></b> up to 23 bits:
+	<a class="p" href="23/23svabc6.rle">
+	Silver's P5 above carrier on down beacon [23]</a>.</li>
+</ul></p>
+
+<hr />
+<a name="cost-gg"></a>
+<h2>Objects requiring
+<a class="i" href="glider-g.htm">&gt;1 glider/bit</a></h2>
+<p><ul>
+    <li>1 <b><a class="i" href="glider-g.htm#gg-p1">still-life</a></b>
+	up to 14 bits: <a class="p" href="14/14-352.rle">14.352 [15]</a>.</li>
+    <li>10 <b><a class="i" href="glider-g.htm#gg-pp1">
+	pseudo-still-lifes</a></b> up to 16 bits.</li>
+    <li>54 <b><a class="i" href="glider-g.htm#gg-p2">
+	period 2 oscillators</a></b> up to 17 bits.</li>
+    <li>12 <b><a class="i" href="glider-g.htm#gg-pp2">
+	period 2 pseudo-oscillators</a></b> up to 17 bits.</li>
+    <li>27 <b><a class="i" href="glider-g.htm#gg-p3">
+	period 3 oscillators</a></b> up to 20 bits.</li>
+    <li>4 <b><a class="i" href="glider-g.htm#gg-pp3">period 3
+	pseudo-oscillators</a></b> up to 21 bits.</li>
+    <li>34 <b><a class="i" href="glider-g.htm#gg-p4">
+	period 4 oscillators</a></b> up to 21 bits.</li>
+    <li>38 <b><a class="i" href="glider-g.htm#gg-p5">
+	period 5 oscillators</a></b> up to 21 bits.</li>
+    <li>24 <b><a class="i" href="glider-g.htm#gg-pp5">
+	period 5 pseudo-oscillators</a></b> up to 21 bits.</li>
+    <li>1 <b><a class="i" href="glider-g.htm#gg-p6">
+	period 6 oscillators</a></b> up to 25 bits:
+	<a class="p" href="20/20blonkr.rle">Blonker [25]</a>.</li>
+    <li>1 <b><a class="i" href="glider-g.htm#gg-p8">
+	period 8 oscillator</a></b> up to 25 bits:
+	<a class="p" href="17/17sm.rle">Smiley [28]</a>.</li>
+    <li>7 <b><a class="i" href="glider-g.htm#gg-p10">
+	period 10 oscillators</a></b> up to 25 bits.</li>
+    <li>18 <b><a class="i" href="glider-g.htm#gg-pp10">
+	period 10 pseudo-oscillators</a></b> up to 23 bits.</li>
+    <li>The 1 <b><a class="i" href="glider-g.htm#gg-nat">
+	common object</a></b>:<a class="p" href="18/18pvtatt.rle">Pre-block on
+	very long table w/tail siamese tail [29]</a>.</li>
+</ul></p>
+
+<hr />
+<a name="cost-gu"></a>
+<h2>Objects with <a class="i" href="glider-u.htm">no known synthesis</a></h2>
+<p><ul>
+    <li>0 <b><a class="i" href="p1.htm">
+	still-lifes</a></b> up to 18 bits.</li>
+    <li>0 <b><a class="i" href="pp1.htm">
+	pseudo-still-life</a></b> up to 19 bits.</li>
+    <li>48 <b><a class="i" href="glider-u.htm#gu-p2">
+	period 2 oscillators</a></b> up to 17 bits.</li>
+    <li>201 <b><a class="i" href="glider-u.htm#gu-pp2">
+	period 2 pseudo-oscillators</a></b> up to 21 bits (3 non-trivial ones,
+	plus many trivial 4-6-bit objects on as-yet-unsynthesized
+	15-17-bit P2s).</li>
+    <li>12 <b><a class="i" href="glider-u.htm#gu-p3">
+	period 3 oscillators</a></b> up to 21 bits.</li>
+    <li>158 <b><a class="i" href="glider-u.htm#gu-pp3">period 3
+	pseudo-oscillators</a></b> up to 25 bits.</li>
+    <li>10+ <b><a class="i" href="glider-u.htm#gu-p4">
+	period 4 oscillators</a></b> up to 25 bits.</li>
+    <li>2 <b><a class="i" href="glider-u.htm#gu-pp4">
+	period 4 pseudo-oscillators</a></b> up to 25 bits.</li>
+    <li>2 <b><a class="i" href="glider-u.htm#gu-p5">
+	period 5 oscillators</a></b> up to 22 bits.</li>
+    <li>0 <b><a class="i" href="pp5.htm">
+	period 5 pseudo-oscillators</a></b> up to 25 bits.</li>
+    <li>9 <b><a class="i" href="glider-u.htm#gu-p6">
+	period 6 oscillators</a></b> up to 25 bits.</li>
+    <li>12 <b><a class="i" href="glider-u.htm#gu-pp6">
+	period 6 pseudo-oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p8.htm">
+	period 8 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="pp8.htm">
+	period 8 pseudo-oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p10.htm">
+	period 10 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="pp10.htm">
+	period 10 pseudo-oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p12.htm">
+	period 12 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="pp12.htm">
+	period 15 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p14.htm">
+	period 14 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p15.htm">
+	period 15 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="pp15.htm">
+	period 15 pseudo-oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p24.htm">
+	period 24 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p30.htm">
+	period 30 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="pp30.htm">
+	period 30 pseudo-oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p36.htm">
+	period 36 oscillators</a></b> up to 25 bits.</li>
+    <li>0 <b><a class="i" href="p60.htm">
+	period 60 oscillators</a></b> up to 25 bits.</li>
+    <li>3 <b><a class="i" href="glider-u.htm#gu-ss">
+	spaceships</a></b> up to 25 bits.</li>
+</ul></p>
+
+<hr /><hr />
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	cost in gliders,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

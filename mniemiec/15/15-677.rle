@@ -1,0 +1,30 @@
+#N 15-677.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:44 2015
+x = 116, y = 186, rule = B3/S23
+94bo$95bo$18bo74b3o$19boo$18boo76bobo$96boo$97bo$$114bx$33bxx18boo18b
+xx18boo4b3o11bxbx$30bx3bx15bo3bo15bx3bx15bo3bo4bo10bx3bx$11boo17b4x16b
+4o16b4x16b4o6bo9b4x$12boo10boo$11bo11boo7bxx18boo18bxx18boo18bxx$25bo
+7bx19bo19bx19bo19bx$31bx19bo19bx19bo19bx$31bxx18boo18bxx18boo18bxx$$
+35byy18boo$8boo24bybby16bobbo$8bobo24byy18boo$8bo49b3o$4b3o51bo$6bo52b
+o$5bo7b3o$13bo$14bo7$91bobo$51bo39boo$52bo39bo$50b3o$54bo32bo$53bo34b
+oo$53b3o17bxx12boo4boo18bxx$73bxx9boo7boo15bx3bx$13bobb3o64bobo24b4x$
+14bobo68bo$12b3obbo14bxx18boo18bxx18boo18bxx$33bx19bo19bx19bo19bx$31bx
+19bo19bx19bo19bx$7bobb3o18bxx18boo18bxx18boo18bxx$8bobo$6b3obbo15$49bo
+$48bo$48b3o7bo$9bo3bo44bobo$10bobo45boo$8b3ob3o14bxxbxx15booboo20bx19b
+o19bx$29bxxbxx15booboo8boo9bxbx17bobo17bxbx$61boo7bx3bx15bo3bo15bx3bx$
+63bo6b4x16b4o16b4x$$72bxx18boo18bxx$72bxx12bobo3boo19bx$49boo36boo22bx
+$46bobbobo3boo15bxx13bo4boo17bxx$44bobobbo4boo16bxx18boo$45boo9bo27boo
+$85boo$84bo7b3o$92bo$93bo$89b3o$91bo$90bo7$50bobo$50boo9bo$51bo7boo$
+60boo$9bo3bo$10bobo$8b3ob3o14bxxbxx15booboo20bx19bo19bx$29bxxbxx15boob
+oo19bxbx17bobo17bxbx$70bx3bx15bo3bo15bx3bx$63b3o4b4x16b4o16b4x$63bo$
+64bo7bxx18boo18bxx$55bo16bxx18boo18bxx$45b3o6boo$47bobboobbobo55bxx$
+46bo4boo59bxx$50bo$92bobo$92boo$93bo$$92b3o$92bo$93bo14$77boo$76bobo$
+78bo5$12bo3bo$13boobobo73bo7bo$12boobboo16bx19bo19bx15bobo5bobo13bx$
+33bxbx12bo4bobo17bxbx15boo6boo12bxbx$18b3o13bx14bo4bo19bx39bx$18bo28b
+3o21b3x24bo12b3x$19bo51bx16boo7boo12bx$89boo6bobo$44bo43bo$42bobo6boo$
+43boo7boo$46boo3bo$47boo$46bo17$83b3o$85bo3bo$14bo19bx19bo19bx9bobboo
+5bo19bx$13bobo17bxbx17bobo17bxbx12boo3bobo17bxbx$14bo19bx19bo19bx19bo
+15bx3bx$o10b3o17b3x17b3o17b3x17b3o16b4x$boo8bo18bx19bo19bx19bo$oo18bob
+o8b3x17b3o17b3x17b3o18bxx$20boo11bx5byy12bo5boo12bx13bo5bo18bxx$21bo
+17byy18boo26boo$62b3o21bobo23bxx$7boo9boo42bo49bxx$6bobo8boo44bo29b3o$
+8bo10bo73bo$10b3o81bo$10bo77b3o$11bo78bo$23bo65bo$22boo$22bobo!

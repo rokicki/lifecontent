@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Buildable With 3 Gliders</title>
+<meta name="description"
+content="Conway's Game of Life: Syntheses of objects from 3 gliders" />
+<meta name="keywords" content="conway game life three 3 glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Objects Buildable With 3 Gliders</h1>
+
+<p align="center">
+	<a class="j" href="#g3-p1">Still-lifes</a> |
+	<a class="j" href="#g3-pp1">Pseudo-still-lifes</a> |
+	<a class="j" href="#g3-p2">P2 oscillators</a> |
+	<a class="j" href="#g3-p3">P3 oscillator</a> |
+	<a class="j" href="#g3-p15">P15 oscillator</a> |
+	<a class="j" href="#g3-ss">Spaceships</a> |
+	<a class="j" href="#g3-cons">Constellations</a> |
+	<a class="j" href="#g3-meth">Methuselahs</a> |
+	<a class="j" href="#g3-nat">Naturally-occurring objects</a>
+</p>
+
+<hr /><hr />
+<p>Although most of the 3-glider collisions have been explored, they have not
+been verified by exhaustive computer search, and it is remotely possible that
+some 3-glider syntheses have been missed, especially pseudo-still-lifes.
+Also, there has been no attempt to include all 3-glider constellations,
+as there are an infinite number of them.</p>
+
+<hr />
+<hr />
+<a name="g3-p1"></a>
+0<h2>The 10 <a class="i" href="p1.htm">still-lifes</a>
+buildable from 3 gliders</h2>
+<p><a class="p" href="stamp/g3-p1.rle"><img src="map/g3-p1.png"
+ alt="3-glider still-lifes"
+ width="381" height="121" usemap="#g3-p1" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/4tb.rle">Tub; Diamond [3]</a></td>
+	<td><a class="p" href="0/6sh.rle">Ship [3]</a></td>
+	<td><a class="p" href="0/6bg.rle">Barge [3]</a></td>
+	<td><a class="p" href="0/7lb.rle">Long boat [3]</a></td>
+	<td><a class="p" href="0/8cg.rle">8.3; Mango; Cigar [3]</a></td>
+	<td><a class="p" href="0/8lg.rle">Long barge [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/9-10.rle">9.10; Hat [3]</a></td>
+	<td><a class="p" href="0/9-1.rle">9.1; Very long boat [3]</a></td>
+	<td><a class="p" href="14/14-79.rle">14.30; Paper- clip [3]</a></td>
+	<td><a class="p" href="14/14-30.rle">
+	    14.79; Half bakery; Loaf on loaf [3]</a></td>
+	<td><a class="p" href="16/16-1749.rle">
+	    16.1749; Bi-pond; Pond tie pond [3]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g3-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/g3-p1.zip" />
+	<area coords="361,101,380,120" href="stamp/g3-p1.rle" />
+	<area coords="0,0,69,69" href="0/4tb.rle" />
+	<area coords="70,0,129,69" href="0/6sh.rle" />
+	<area coords="130,0,189,69" href="0/6bg.rle" />
+	<area coords="190,0,249,69" href="0/7lb.rle" />
+	<area coords="250,0,309,69" href="0/8cg.rle" />
+	<area coords="310,0,380,69" href="0/8lg.rle" />
+	<area coords="0,70,69,120" href="0/9-10.rle" />
+	<area coords="70,70,129,120" href="0/9-1.rle" />
+	<area coords="130,70,189,120" href="14/14-79.rle" />
+	<area coords="190,70,249,120" href="14/14-30.rle" />
+	<area coords="250,70,309,120" href="16/16-1749.rle" />
+	<area coords="310,70,380,120" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g3-pp1"></a>
+<h2>The 11 <a class="i" href="pp1.htm">pseudo-still-lifes</a>
+buildable from 3 gliders</h2>
+<p><a class="p" href="stamp/g3-pp1.rle"><img src="map/g3-pp1.png"
+ alt="3-glider pseudo-still-lifes"
+ width="381" height="101" usemap="#g3-pp1" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/9btbk.rle">Block on boat [3]</a></td>
+	<td><a class="p" href="10/10shbk.rle">Block on ship [3]</a></td>
+	<td><a class="p" href="10/10btbt1.rle">Up boat on boat [3]</a></td>
+	<td><a class="p" href="10/10hvbk.rle">Block on beehive [3]</a></td>
+	<td><a class="p" href="11/11lfbk.rle">Block on loaf [3]</a></td>
+	<td><a class="p" href="12/12shsh1.rle">Up ship on ship [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="12/12hvhv.rle">Beehive on beehive [3]</a></td>
+	<td><a class="p" href="12/12lfbt1.rle">Up boat on loaf [3]</a></td>
+	<td><a class="p" href="12/12etbt1.rle">Up boat on eater [3]</a></td>
+	<td><a class="p" href="12/12etbt5.rle">Up boat above eater [3]</a></td>
+	<td><a class="p" href="14/14etlf1.rle">Up loaf on eater [3]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g3-pp1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/g3-pp1.zip" />
+	<area coords="361,81,380,100" href="stamp/g3-pp1.rle" />
+	<area coords="0,0,69,49" href="0/9btbk.rle" />
+	<area coords="70,0,129,49" href="10/10shbk.rle" />
+	<area coords="130,0,189,49" href="10/10btbt1.rle" />
+	<area coords="190,0,249,49" href="10/10hvbk.rle" />
+	<area coords="250,0,309,49" href="11/11lfbk.rle" />
+	<area coords="310,0,380,49" href="12/12shsh1.rle" />
+	<area coords="0,50,69,100" href="12/12hvhv.rle" />
+	<area coords="70,50,129,100" href="12/12lfbt1.rle" />
+	<area coords="130,50,189,100" href="12/12etbt1.rle" />
+	<area coords="190,50,249,100" href="12/12etbt5.rle" />
+	<area coords="250,50,309,100" href="14/14etlf1.rle" />
+	<area coords="310,50,380,100" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g3-p2"></a>
+<h2>The 2 <a class="i" href="p2.htm">period 2 oscillators</a>
+buildable from 3 gliders</h2>
+<p><a class="p" href="stamp/g3-p2.rle"><img src="map/g3-p2.png"
+ alt="3g P2" width="141" height="61" usemap="#g3-p2" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6td.rle">Toad [3]</a></td>
+	<td><a class="p" href="0/6bc.rle">Beacon [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/g3-p2.zip" />
+	<area coords="121,41,140,60" href="stamp/g3-p2.rle" />
+	<area coords="0,0,69,60" href="0/6td.rle" />
+	<area coords="70,0,140,60" href="0/6bc.rle" />
+</map>
+
+<p>Toads have no stable surfaces, but one side vacillates between one and two
+bits, making it possible to form pseudo-objects with other toads or similar
+oscillators, or with even-period oscillators that create
+<a class="i" href="lifeterm.htm#spark">domino sparks</a>, like the
+<a class="p" href="12/12fg.rle">Figure-8</a>.</p>
+
+<p>Their other sides can also be placed between pairs of domino sparks in
+several ways, resulting in two reactions: <i>toad-flipping</i>, where the toad
+is reflected, and <i>toad-sucking</i>, where the toad is moved sideways one
+position. Since each step must occur twice to return the toad to the original
+period, this usually results in an oscillator of double the original period (or
+quadruple, if the original period is odd). Several examples are shown in the
+<a class="i" href="period.htm#p60">period 60</a> versions of a toad between
+two <a class="p" href="12/12pc.rle">pentadecathlons</a>. Several additional
+<a class="i" href="p8.htm#p8-lg">period 8</a> versions using
+<a class="p" href="12/12fg.rle">Figure-8s</a> do <i>not</i> double the period,
+because the Figure-8's domino sparks have an extra bit-spark that produces a
+second domino hassling the toad twice in immediate succession each cycle.
+Toad-sucking can also occur be done by pairs of
+<a class="i" href="exotic.htm#ss-o4"><i>c</i>/4</a> or
+<a class="i" href="exotic.htm#ss-o6"><i>c</i>/6</a> orthogonal spaceships
+that produce domino sparks each time they advance. This could theoretically
+also work with spaceships of any slower even base period that move one step each
+period and produce one domino spark each period.</p>
+
+<p>Pairs of toads, known as
+<a class="p" href="12/12kt.rle">killer toads</a>, can also eat expanding
+objects like <a class="p" href="ss/11mw.rle">middle-weight</a> and
+<a class="p" href="ss/13hw.rle">heavy-weight</a> spaceships, and forming
+<a class="p" href="0/9tqtl.rle">3/4 traffic light</a>. These are most useful for eating
+spaceship streams whose period is a multiple of 2. For those whose period is a
+multiple of 3, <a class="p" href="lg/32kcf.rle">killer candelfrobras</a> are more
+appropriate.</p>
+
+<hr />
+<a name="g3-p3"></a>
+<h2>The 1 <a class="i" href="p3.htm">period 3 oscillator</a>
+buildable from 3 gliders</h2>
+<p><a class="p" href="stamp/g3-p3.rle"><img src="map/g3-p3.png"
+ alt="3g P3" width="101" height="101" usemap="#g3-p3" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/48pu.rle">
+	    Pulsar; Pulsar CP 48-54-72 [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-p3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/g3-p3.zip" />
+	<area coords="81,81,100,100" href="stamp/g3-p3.rle" />
+	<area coords="0,0,100,100" href="lg/48pu.rle" />
+</map>
+
+<p>The Pulsar consists of four inducting Traffic light predecessors. Its
+predecessors are used in many other oscillators (as described under
+<a class="i" href="bits-12.htm#cons-12">Traffic light</a>). Pulsars are also
+infinitely extensible, by arranging multiple quadrants in a closed
+loop. The Pulsar, consisting of four quadrants, is the smallest such
+arrangement. The <a class="p" href="lg/144qu.rle">Quasar</a>, consisting of twelve
+quadrants, is the next largest.</p>
+
+<hr />
+<a name="g3-p15"></a>
+<h2>The 1 <a class="i" href="p15.htm">period 15 oscillator</a>
+buildable from 3 gliders</h2>
+<p><a class="p" href="stamp/g3-p15.rle"><img src="map/g3-p15.png"
+ alt="3g P15" width="81" height="61" usemap="#g3-p15" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12pc.rle">Penta- decathlon [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-p15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g3-p15.zip" />
+	<area coords="61,41,80,60" href="stamp/g3-p15.rle" />
+	<area coords="0,0,80,60" href="12/12pc.rle" />
+</map>
+
+<p>The pentadecathlon consists of two forming
+<a class="p" href="12/12tl.rle">Traffic light</a> predecessors.
+It produces a useful <a class="i" href="lifeterm.htm#spark">domino spark</a>,
+making it useful in hassler oscillators of many periods, including
+<a class="i" href="p15.htm#p15-lg">15</a>,
+<a class="i" href="p30.htm#p30-lg">30</a>,
+<a class="i" href="period.htm#p45">45</a> and
+<a class="i" href="p60.htm#p60-lg">60</a>.
+Both its end and side sparks can eat gliders and the three simple spaceships in
+many different ways. Its end spark is also useful for reflecting gliders,
+and is used in glider shuttles of many periods, including
+<a class="i" href="period.htm#p45">45</a>,
+<a class="i" href="p60.htm#p60-lg">60</a> and
+<a class="i" href="period.htm#p75">75</a>.</p>
+
+<p>Its phase can also be altered (as described under the notes for
+<a class="i" href="bits-12.htm#cons-12">Traffic light</a>).</p>
+
+<hr />
+<a name="g3-ss"></a>
+<h2>The 3 <a class="i" href="ss.htm">spaceships</a>
+buildable from 3 gliders</h2>
+<p><a class="p" href="stamp/g3-ss.rle"><img src="map/g3-ss.png"
+ alt="3-glider spaceships"
+ width="241" height="81" usemap="#g3-ss" /></a><br />
+    <table width="245">
+    <colgroup><col width="81" /><col width="80" /><col width="82" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/9lw.rle">
+	    Light- weight space- ship; LWSS; Small fish [3]</a></td>
+	<td><a class="p" href="ss/11mw.rle">
+	    Middle- weight space- ship; MWSS; Medium fish [3]</a></td>
+	<td><a class="p" href="ss/13hw.rle">
+	    Heavy- weight spaceship; HWSS; Big fish [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="221,0,240,19" href="zip/g3-ss.zip" />
+	<area coords="221,61,240,80" href="stamp/g3-ss.rle" />
+	<area coords="0,0,89,80" href="ss/9lw.rle" />
+	<area coords="90,0,169,80" href="ss/11mw.rle" />
+	<area coords="170,0,240,80" href="ss/13hw.rle" />
+</map>
+
+<p>These all have a period of 4 and an orthogonal velocity of <i>c</i>/2.
+They move one cell up and flip from side to side every two generations,
+effectively moving two cells up every 4 generations.
+Except for the <a class="p" href="ss/5gl.rle">glider</a>, these are the only
+common natural <a class="i" href="ss.htm">spaceships</a> in Life,
+and are used in some syntheses.</p>
+
+<hr />
+<a name="g3-cons"></a>
+<h2>13 small <a class="i" href="cons.htm">constellations</a>
+buildable from 3 gliders</h2>
+<p>There are an infinite number of 3-glider constellations;
+these are some of the most common.</p>
+<p><a class="p" href="stamp/g3-cons.rle"><img src="map/g3-cons.png"
+ alt="3-glider constellations"
+ width="601" height="221" usemap="#g3-cons" /></a><br />
+    <table width="605">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="10/10btbt3.rle">
+	    Two point- to- point boats [3]</a></td>
+	<td><a class="p" href="12/12hhf.rle">
+	    Half honey- farm [3]</a></td>
+	<td><a class="p" href="12/12bf.rle">
+	    Butterfly [3]</a></td>
+	<td><a class="p" href="18/18tqhf.rle">
+	    3/4 honey- farm [3]</a></td>
+	<td><a class="p" href="24/24fl.rle">
+	    Fleet [3]</a></td>
+	<td><a class="p" href="lg/28by.rle">
+	    Bakery [3]</a></td>
+	<td colspan="2"><a class="p" href="0/9bkgl.rle">
+	    Block and glider (via Wing) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/6blbl04.rle">
+	    Two blinkers offset (4, 0) [3]</a></td>
+	<td><a class="p" href="0/6htl.rle">
+	    Half traffic light [3]</a></td>
+	<td rowspan="2" colspan="2"><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (via Bookend) [3]</a></td>
+	<td rowspan="2" ><a class="p" href="20/20shb2b2.rle">
+	    Ship and two blocks and two blinkers [3]</a></td>
+	<td rowspan="2" colspan="2"><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (via Dove) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/9tqtl.rle">
+	    3/4 traffic light [3]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g3-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/g3-cons.zip" />
+	<area coords="581,201,600,220" href="stamp/g3-cons.rle" />
+	<area coords="0,0,89,89" href="10/10btbt3.rle" />
+	<area coords="90,0,169,89" href="12/12hhf.rle" />
+	<area coords="170,0,249,89" href="12/12bf.rle" />
+	<area coords="250,0,329,89" href="18/18tqhf.rle" />
+	<area coords="330,0,409,89" href="24/24fl.rle" />
+	<area coords="410,0,489,89" href="lg/28by.rle" />
+	<area coords="490,0,600,89" href="0/9bkgl.rle" />
+	<area coords="0,90,89,149" href="0/6blbl04.rle" />
+	<area coords="90,90,169,149" href="0/6htl.rle" />
+	<area coords="170,90,329,220" href="15/15be.rle" />
+	<area coords="330,90,409,220" href="20/20shb2b2.rle" />
+	<area coords="410,90,600,220" href="18/18dv.rle" />
+	<area coords="0,150,89,220" href="0/9tqtl.rle" />
+	<area coords="90,150,169,220" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g3-meth"></a>
+<h2>8 <a class="i" href="meth.htm">methuselahs</a>
+buildable from 3 gliders</h2>
+<p><a class="p" href="stamp/g3-meth.rle"><img src="map/g3-meth.png"
+ alt="3-glider methuselahs"
+ width="621" height="61" usemap="#g3-meth" /></a><br />
+    <table width="625">
+    <colgroup><col width="87" /><col span="6" width="76" /><col width="80" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6be.rle">
+	    Century (@1); Bookend (@2); Hook (@2); Kidney (@2) [3]</a></td>
+	<td><a class="p" href="0/7dv.rle">
+	    Dove (@1); R-mango (@1) [3]</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Pike; Pi heptomino and block (@3) [3]</a></td>
+	<td><a class="p" href="0/5rp.rle">
+	    R pentomino (@2) [3]</a></td>
+	<td><a class="p" href="0/6wg.rle">
+	    Block and glider; Wing (@2); R-loaf (@2) [3]</a></td>
+	<td><a class="p" href="0/6h.rle">
+	    Herschel parent; Herschel (@1) [3]</a></td>
+	<td><a class="p" href="0/8gd.rle">
+	    Gliders by the dozen, Gliders- omino (@-1) [3]</a></td>
+	<td><a class="p" href="0/8j.rle">
+	    J (@6) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (@103)</a></td>
+	<td><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (@201)</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Toad, 9 beehives, 2 boats, 7 blocks, 9 blinkers (@991)</a></td>
+	<td><a class="p" href="lg/116rp.rle">Loaf, ship,
+	    4 beehives, boat, 8 blocks, 4 blinkers, 6 gliders (@1105)</a></td>
+	<td><a class="p" href="0/9bkgl.rle">
+	    Block and glider (@106)</a></td>
+	<td><a class="p" href="23/23h.rle">
+	    Ship, 2 blocks, glider (@128)</a></td>
+	<td><a class="p" href="lg/124gd.rle">
+	    4 Beehives, 4 blocks, 4 blinkers, 12 gliders (@184)</a></td>
+	<td><a class="p" href="0/8j.rle">Fleet, loaf, ship,
+	    2 beehives, 2 boats, 8 blocks, blinker, 2 gliders (@556)</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/g3-meth.zip" />
+	<area coords="601,41,620,60" href="stamp/g3-meth.rle" />
+	<area coords="0,0,85,60" href="0/6be.rle" />
+	<area coords="86,0,161,60" href="0/7dv.rle" />
+	<area coords="162,0,237,60" href="0/8pk.rle" />
+	<area coords="238,0,313,60" href="0/5rp.rle" />
+	<area coords="314,0,389,60" href="0/6wg.rle" />
+	<area coords="390,0,465,60" href="0/6h.rle" />
+	<area coords="466,0,541,60" href="0/8gd.rle" />
+	<area coords="542,0,620,60" href="0/8j.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="g3-nat"></a>
+<h2>The top 15 <a class="i" href="natural.htm">naturally-occurring</a> objects
+buildable from 3 gliders</h2>
+<p><a class="p" href="stamp/g3-nat.rle"><img src="map/g3-nat.png"
+ alt="3-glider natural objects"
+ width="521" height="121" usemap="#g3-nat" /></a><br />
+    <table width="525">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/4tb.rle">
+	    Tub [3] (81.71)</a></td>
+	<td><a class="p" href="0/6sh.rle">
+	    Ship [3] (132.9)</a></td>
+	<td><a class="p" href="0/7lb.rle">
+	    Long boat [3] (279.7)</a></td>
+	<td><a class="p" href="0/6td.rle">
+	    Toad [3] (373.6)</a></td>
+	<td><a class="p" href="0/6bc.rle">
+	    Beacon [3] (1221)</a></td>
+	<td><a class="p" href="0/6bg.rle">
+	    Barge [3] (1234)</a></td>
+	<td><a class="p" href="14/14-30.rle">
+	    14.30; Half- bakery [3] (1943)</a></td>
+	<td><a class="p" href="0/8cg.rle">
+	    8.3; Mango; Cigar [3] (3148)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/8lg.rle">
+	    Long barge [3] (8116)</a></td>
+	<td colspan="2"><a class="p" href="lg/48pu.rle">
+	    Pulsar [3] (19584)</a></td>
+	<td><a class="p" href="14/14-79.rle">
+	    14.79; Paper clip [3] (20597)</a></td>
+	<td><a class="p" href="16/16-1749.rle">
+	    16.1749; Bi-pond [3] (49455)</a></td>
+	<td><a class="p" href="0/9-10.rle">
+	    9.10; Hat [3] (90686)</a></td>
+	<td><a class="p" href="0/9-1.rle">
+	    9.1; Very long boat [3] (128043)</a></td>
+	<td><a class="p" href="12/12pc.rle">
+	    Penta- decathlon [3] (1631317)</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-nat">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/g3-nat.zip" />
+	<area coords="501,101,520,120" href="stamp/g3-nat.rle" />
+	<area coords="0,0,69,53" href="0/4tb.rle" />
+	<area coords="70,0,129,53" href="0/6sh.rle" />
+	<area coords="130,0,189,53" href="0/7lb.rle" />
+	<area coords="190,0,249,53" href="0/6td.rle" />
+	<area coords="250,0,309,53" href="0/6bc.rle" />
+	<area coords="310,0,369,53" href="0/6bg.rle" />
+	<area coords="370,0,429,53" href="14/14-30.rle" />
+	<area coords="430,0,520,53" href="0/8cg.rle" />
+	<area coords="0,54,69,120" href="0/8lg.rle" />
+	<area coords="70,54,189,120" href="lg/48pu.rle" />
+	<area coords="190,54,249,120" href="14/14-79.rle" />
+	<area coords="250,54,309,120" href="16/16-1749.rle" />
+	<area coords="310,54,369,120" href="0/9-10.rle" />
+	<area coords="370,54,429,120" href="0/9-1.rle" />
+	<area coords="430,54,520,120" href="12/12pc.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other costs:</b>
+	<a class="i" href="glider-2.htm">2 gliders</a>,
+	3 gliders,
+	<a class="i" href="glider-4.htm">4 gliders</a>,
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	<a class="i" href="glider-6.htm">6 gliders</a>,
+	<a class="i" href="glider-e.htm">1 glider/bit</a>,
+	<a class="i" href="glider-g.htm">&gt;1 glider/bit</a>,
+	<a class="i" href="glider-u.htm">unknown</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

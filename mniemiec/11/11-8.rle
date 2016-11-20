@@ -1,0 +1,14 @@
+#N 11-8.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:01 2015
+x = 121, y = 99, rule = B3/S23
+91bo$84bobo5bo$85boo3b3o$85bo14bo$100bobo$100boo$113bxx$113bxbx$116bx$
+104bo12bx$102boo14bx$103boo14bx$120bx$119bxx6$95bobo$95boo$96bo$$95boo
+$94bobo$96bo$$99boo$99bobo$99bo14$49bobo$50boo$50bo$73bxx18boo18bxx$
+73bxbx17bobo17bxbx$76bx19bo19bx$52bobo22bx19bo19bx$53boo23bx19bo19bx$
+53bo25bx19bo19bx$78bxx18boo20bx$54b3o62bxx$56bo4boo42bobo$55bo4boo43b
+oo$62bo43bo$$91b3o12boo$93bo12bobo$92bo9bo3bo$102boo$101bobo20$94bo$
+92boo$bbo90boo$obo$boo8bo11bxx18boo18bxx18boo28bxx$11bobo9bxbxbx15bobo
+bo15bxbxbx15bobobo3boo20bxbx$11boo13bxx18boo18bxx18boobboo24bx$8boo82b
+o24bx$bboo3boo109bx$bobo5bo58bxx12bo5boo29bx$3bo44boo17bxbbx12bo3bobbo
+29bx$43b3oboo18bxbbx10b3o3bobbo28bxx$45bo3bo18bxx18boo$44bo$87bo$87boo
+$86bobo!

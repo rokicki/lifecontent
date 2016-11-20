@@ -1,0 +1,1899 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-2 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-2 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 2 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-2 Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p2-3">3</a> |
+	  <a class="j" href="#p2-6">6</a> |
+	  <a class="j" href="#p2-8">8</a> |
+	  <a class="j" href="#p2-9">9</a> |
+	  <a class="j" href="#p2-10">10</a> |
+	  <a class="j" href="#p2-11">11</a> |
+	  <a class="j" href="#p2-12">12</a> |
+	  <a class="j" href="#p2-13">13</a> |
+	  <a class="j" href="#p2-14">14</a> |
+	  <a class="j" href="#p2-15">15</a> |
+	  <a class="j" href="#p2-16">16</a> |
+	  <a class="j" href="#p2-17">17</a> |
+	  <a class="j" href="#p2-18">18</a> |
+	  <a class="j" href="#p2-19">19</a> |
+	  <a class="j" href="#p2-20">20</a> |
+	  <a class="j" href="#p2-21">21</a> |
+	  <a class="j" href="#p2-22">22</a> |
+	  <a class="j" href="#p2-23">23</a> |
+	  <a class="j" href="#p2-24">24</a> |
+	  <a class="j" href="#p2-25">25</a> |
+	  <a class="j" href="#p2-lg">Larger</a> |
+	  <a class="j" href="#p2-sc">Scrubbers</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g2-p2">2</a> |
+	  <a class="j" href="#g3-p2">3</a> |
+	  <a class="j" href="#g4-p2">4</a> |
+	  <a class="j" href="#g5-p2">5</a> |
+	  <a class="j" href="#g6-p2">6</a> |
+	  <a class="j" href="#ge-p2">1 glider/bit</a> |
+	  <a class="j" href="#gg-p2">&gt;1 glider/bit</a> |
+	  <a class="j" href="#gu-p2">unknown</a><br />
+	<b><a class="j" href="#nat-p2">Frequency of occurrence</a></b> |
+	<b><a class="j" href="#meth-p2">Methuselahs with P2 censuses</a></b> |
+	<b><a class="j" href="#p2-bad">Not quite oscillators</a></b>
+</p>
+
+<hr />
+<hr />
+<a name="p2-3"></a>
+<h2>The 1 <a class="i" href="bits-3.htm">three-bit</a>
+period 2 oscillator</h2>
+<p><a class="p" href="stamp/p2-3.rle"><img src="map/p2-3.png"
+ alt="3b P2" width="81" height="61" usemap="#p2-3" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/3bl.rle">Blinker [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-3.zip" />
+	<area coords="61,41,80,60" href="stamp/p2-3.rle" />
+	<area coords="0,0,80,60" href="0/3bl.rle" />
+</map>
+
+<hr />
+<a name="p2-6"></a>
+<h2>The 3 <a class="i" href="bits-6.htm">six-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-6.rle"><img src="map/p2-6.png"
+ alt="6-bit P2" width="201" height="61" usemap="#p2-6" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6td.rle">Toad [3]</a></td>
+	<td><a class="p" href="0/6ck.rle">Clock [4]</a></td>
+	<td><a class="p" href="0/6bc.rle">Beacon [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p2-6.zip" />
+	<area coords="181,41,200,60" href="stamp/p2-6.rle" />
+	<area coords="0,0,69,60" href="0/6td.rle" />
+	<area coords="70,0,129,60" href="0/6ck.rle" />
+	<area coords="130,0,200,60" href="0/6bc.rle" />
+</map>
+
+<p>Clocks have thumbs that can sometimes be used to suppress
+<a class="i" href="lifeterm.htm#spark">diagonal bit-sparks</a>,
+allowing clocks to be used as
+<a class="i" href="lifeterm.htm#rock">rocks</a> to stabilize some larger
+<a class="i" href="osc.htm">oscillators</a>.</p>
+
+<p>Toads have no stable surfaces, but one side vacillates between one and two
+bits, making it possible to form pseudo-objects with other toads or similar
+oscillators, or with even-period oscillators that create
+<a class="i" href="lifeterm.htm#spark">domino sparks</a>, like the
+<a class="p" href="12/12fg.rle">Figure-8</a>.</p>
+
+<p>Their other sides can also be placed between pairs of domino sparks in
+several ways, resulting in two reactions: <i>toad-flipping</i>, where the toad
+is reflected, and <i>toad-sucking</i>, where the toad is moved sideways one
+position. Since each step must occur twice to return the toad to the original
+period, this usually results in an oscillator of double the original period (or
+quadruple, if the original period is odd). Several examples are shown in the
+<a class="i" href="period.htm#p60">period 60</a> versions of a toad between
+two <a class="p" href="12/12pc.rle">pentadecathlons</a>. Several additional
+<a class="i" href="p8.htm#p8-lg">period 8</a> versions using
+<a class="p" href="12/12fg.rle">Figure-8s</a> do <i>not</i> double the period,
+because the Figure-8's domino sparks have an extra bit-spark that produces a
+second domino hassling the toad twice in immediate succession each cycle.
+Toad-sucking can also occur be done by pairs of
+<a class="i" href="exotic.htm#ss-o4"><i>c</i>/4</a> or
+<a class="i" href="exotic.htm#ss-o6"><i>c</i>/6</a> orthogonal spaceships
+that produce domino sparks each time they advance. This could theoretically
+also work with spaceships of any slower even base period that move one step each
+period and produce one domino spark each period.</p>
+
+<p>Pairs of toads, known as
+<a class="p" href="12/12kt.rle">killer toads</a>, can also eat expanding
+objects like <a class="p" href="ss/11mw.rle">middle-weight</a> and
+<a class="p" href="ss/13hw.rle">heavy-weight</a> spaceships, and forming
+<a class="p" href="0/9tqtl.rle">3/4 traffic light</a>. These are most useful for eating
+spaceship streams whose period is a multiple of 2. For those whose period is a
+multiple of 3, <a class="p" href="lg/32kcf.rle">killer candelfrobras</a> are more
+appropriate.</p>
+
+<hr />
+<a name="p2-8"></a>
+<h2>The 1 <a class="i" href="bits-8.htm">eight-bit</a>
+period 2 oscillator</h2>
+<p><a class="p" href="stamp/p2-8.rle"><img src="map/p2-8.png"
+ alt="8b P2" width="81" height="61" usemap="#p2-8" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8bp.rle">Bipole [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-8.zip" />
+	<area coords="61,41,80,60" href="stamp/p2-8.rle" />
+	<area coords="0,0,80,60" href="0/8bp.rle" />
+</map>
+
+<hr />
+<a name="p2-9"></a>
+<h2>The 1 <a class="i" href="bits-9.htm">nine-bit</a>
+period 2 oscillator</h2>
+<p><a class="p" href="stamp/p2-9.rle"><img src="map/p2-9.png"
+ alt="9b P2" width="81" height="61" usemap="#p2-9" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/9tp.rle">Tripole [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-9">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-9.zip" />
+	<area coords="61,41,80,60" href="stamp/p2-9.rle" />
+	<area coords="0,0,80,60" href="0/9tp.rle" />
+</map>
+
+<hr />
+<a name="p2-10"></a>
+<h2>The 1 <a class="i" href="bits-10.htm">ten-bit</a>
+period 2 oscillator</h2>
+<p><a class="p" href="stamp/p2-10.rle"><img src="map/p2-10.png"
+ alt="10b P2" width="81" height="81" usemap="#p2-10" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="10/10qp.rle">Quadpole [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-10">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-10.zip" />
+	<area coords="61,61,80,80" href="stamp/p2-10.rle" />
+	<area coords="0,0,80,80" href="10/10qp.rle" />
+</map>
+
+<hr />
+<a name="p2-11"></a>
+<h2>The 1 <a class="i" href="bits-11.htm">eleven-bit</a>
+period 2 oscillator</h2>
+<p><a class="p" href="stamp/p2-11.rle"><img src="map/p2-11.png"
+ alt="11b P2" width="81" height="81" usemap="#p2-11" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="11/11pp.rle">Pentapole [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-11.zip" />
+	<area coords="61,61,80,80" href="stamp/p2-11.rle" />
+	<area coords="0,0,80,80" href="11/11pp.rle" />
+</map>
+
+<hr />
+<a name="p2-12"></a>
+<h2>The 6 <a class="i" href="bits-12.htm">twelve-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-12.rle"><img src="map/p2-12.png"
+ alt="12-bit period 2 oscillators"
+ width="381" height="81" usemap="#p2-12" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="12/12bcta1.rle">
+	    Up beacon on table; Cis- beacon and table [6]</a></td>
+	<td class="y"><a class="p" href="12/12ff1.rle">
+	    12-bit P2 #1 [18]</a></td>
+	<td class="g"><a class="p" href="12/12fx.rle">
+	    Fox; Gnome [12]</a></td>
+	<td><a class="p" href="12/12bcta2.rle">
+	    Down beacon on table; Trans- beacon and table [6]</a></td>
+	<td><a class="p" href="12/12px.rle">
+	    Phoenix [10]</a></td>
+	<td class="g"><a class="p" href="12/12hp.rle">
+	    Hexapole [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-12">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/p2-12.zip" />
+	<area coords="361,61,380,80" href="stamp/p2-12.rle" />
+	<area coords="0,0,69,80" href="12/12bcta1.rle" />
+	<area coords="70,0,129,80" href="12/12ff1.rle" />
+	<area coords="130,0,189,80" href="12/12fx.rle" />
+	<area coords="190,0,249,80" href="12/12bcta2.rle" />
+	<area coords="250,0,309,80" href="12/12px.rle" />
+	<area coords="310,0,380,80" href="12/12hp.rle" />
+</map>
+
+<hr />
+<a name="p2-13"></a>
+<h2>The 3 <a class="i" href="bits-13.htm">thirteen-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-13.rle"><img src="map/p2-13.png"
+ alt="13-bit P2" width="201" height="81" usemap="#p2-13" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="13/13ydtsy.rle">
+	    Byflops; Butterfly; Griddles on two Ys [21]</a></td>
+	<td><a class="p" href="13/13bpbt.rle">
+	    Bipole tie boat [8]</a></td>
+	<td class="y"><a class="p" href="13/13ep.rle">
+	    Heptapole [16]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-13">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p2-13.zip" />
+	<area coords="181,61,200,80" href="stamp/p2-13.rle" />
+	<area coords="0,0,69,80" href="13/13ydtsy.rle" />
+	<area coords="70,0,129,80" href="13/13bpbt.rle" />
+	<area coords="130,0,200,80" href="13/13ep.rle" />
+</map>
+
+<hr />
+<a name="p2-14"></a>
+<h2>The 20 <a class="i" href="bits-14.htm">fourteen-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-14.rle"><img src="map/p2-14.png"
+ alt="14-bit period 2 oscillators"
+ width="621" height="141" usemap="#p2-14" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="14/14bcct1.rle">
+	    Up beacon on cap; Cis-beacon and cap [6]</a></td>
+	<td class="y"><a class="p" href="14/14ff1.rle">
+	    14-bit P2 #1 [28]</a></td>
+	<td><a class="p" href="14/14bcle1.rle">Up beacon on up long bookend;
+	    Cis-beacon up and long hook [6]</a></td>
+	<td><a class="p" href="14/14ttb.rle">
+	    Test tube baby [6]</a></td>
+	<td><a class="p" href="14/14bcle3.rle">Up beacon on down long bookend;
+	    Cis-beacon down and long hook [6]</a></td>
+	<td><a class="p" href="14/14bpta1.rle">
+	    Up bipole on table [8]</a></td>
+	<td><a class="p" href="14/14bcct2.rle">
+	    Down beacon on cap; Trans-beacon and cap [8]</a></td>
+	<td><a class="p" href="14/14bcle4.rle">Down beacon on down long bookend;
+	    Trans-beacon up and long hook [6]</a></td>
+	<td class="y"><a class="p" href="14/14tdtsy.rle">
+	    Why not; Griddles on tub and Y [24]</a></td>
+	<td><a class="p" href="14/14bccv.rle">
+	    Beacon w/ cover; Beacon and two tails [9]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="14/14ff3.rle">
+	    14-bit P2 #3 [17]</a></td>
+	<td class="r"><a class="p" href="14/14ff4.rle">
+	    14-bit P2 #4 [x]</a></td>
+	<td><a class="p" href="14/14bpta2.rle">
+	    Down bipole on table [9]</a></td>
+	<td><a class="p" href="14/14bcle2.rle">Down beacon on up long bookend;
+	    Trans-beacon down and long hook [6]</a></td>
+	<td><a class="p" href="14/14bpsn.rle">
+	    Bipole tie snake [8]</a></td>
+	<td><a class="p" href="14/14cav.rle">
+	    Cavity; Eater plug [8]</a></td>
+	<td><a class="p" href="14/14bpsh.rle">
+	    Bipole tie ship; Bipole on ship [8]</a></td>
+	<td><a class="p" href="14/14bpac.rle">
+	    Bipole tie carrier [12]</a></td>
+	<td><a class="p" href="14/14tpbt.rle">
+	    Tripole tie boat [13]</a></td>
+	<td class="y"><a class="p" href="14/14op.rle">
+	    Octopole [20]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-14">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-14.zip" />
+	<area coords="601,121,620,140" href="stamp/p2-14.rle" />
+	<area coords="0,0,69,69" href="14/14bcct1.rle" />
+	<area coords="70,0,129,69" href="14/14ff1.rle" />
+	<area coords="130,0,189,69" href="14/14bcle1.rle" />
+	<area coords="190,0,249,69" href="14/14ttb.rle" />
+	<area coords="250,0,309,69" href="14/14bcle3.rle" />
+	<area coords="310,0,369,69" href="14/14bpta1.rle" />
+	<area coords="370,0,429,69" href="14/14bcct2.rle" />
+	<area coords="430,0,489,69" href="14/14bcle4.rle" />
+	<area coords="490,0,549,69" href="14/14tdtsy.rle" />
+	<area coords="550,0,620,69" href="14/14bccv.rle" />
+	<area coords="0,70,69,140" href="14/14ff3.rle" />
+	<area coords="70,70,129,140" href="14/14ff4.rle" />
+	<area coords="130,70,189,140" href="14/14bpta2.rle" />
+	<area coords="190,70,249,140" href="14/14bcle2.rle" />
+	<area coords="250,70,309,140" href="14/14bpsn.rle" />
+	<area coords="310,70,369,140" href="14/14cav.rle" />
+	<area coords="370,70,429,140" href="14/14bpsh.rle" />
+	<area coords="430,70,489,140" href="14/14bpac.rle" />
+	<area coords="490,70,549,140" href="14/14tpbt.rle" />
+	<area coords="550,70,620,140" href="14/14op.rle" />
+</map>
+
+<hr />
+<a name="p2-15"></a>
+<h2>The 29 <a class="i" href="bits-15.htm">fifteen-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-15.rle"><img src="map/p2-15.png"
+ alt="15-bit period 2 oscillators"
+ width="621" height="201" usemap="#p2-15" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="15/15ff1.rle">
+	    15-bit P2 #1 [x]</a></td>
+	<td><a class="p" href="15/15bcleh2.rle">
+	    Down beacon on up long bookend w/ hook [9]</a></td>
+	<td><a class="p" href="15/15ttbhk.rle">
+	    Test tube baby w/ hook [9]</a></td>
+	<td><a class="p" href="15/15bcleh3.rle">
+	    Up beacon on down long bookend w/ hook [9]</a></td>
+	<td><a class="p" href="15/15dtbk.rle">Block on griddle;
+	    Griddle and block; Singular flip- flop [11]</a></td>
+	<td class="r"><a class="p" href="15/15ff2.rle">
+	    Blinkers bit pole [x]</a></td>
+	<td class="y"><a class="p" href="15/15ff3.rle">
+	    15-bit P2 #3 [34]</a></td>
+	<td><a class="p" href="15/15bclet2.rle">
+	    Down beacon on up long bookend w/ tub [9]</a></td>
+	<td><a class="p" href="15/15ttbtb.rle">
+	    Test tube baby w/ tub; Odd test tube baby [9]</a></td>
+	<td><a class="p" href="15/15bcleh4.rle">
+	    Down beacon on down long bookend w/ hook [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="15/15bclet4.rle">
+	    Down beacon on down long bookend w/ tub [9]</a></td>
+	<td><a class="p" href="15/15bclet3.rle">
+	    Up beacon on down long bookend w/ tub [9]</a></td>
+	<td><a class="p" href="15/15tpta1.rle">
+	    Up tripole on table [10]</a></td>
+	<td class="r"><a class="p" href="15/15ff5.rle">
+	    Mutter- ing moat 1 [x]</a></td>
+	<td class="y"><a class="p" href="15/15ff6.rle">
+	    15-bit P2 #6 [21]</a></td>
+	<td class="y"><a class="p" href="15/15ff7.rle">
+	    15-bit P2 #7 [23]</a></td>
+	<td><a class="p" href="15/15bcleh1.rle">
+	    Up beacon on up long bookend w/ hook [9]</a></td>
+	<td><a class="p" href="15/15bpet2.rle">
+	    Bipole tie eater tail [13]</a></td>
+	<td><a class="p" href="15/15pxcav.rle">
+	    Phoenix w/ cavity [11]</a></td>
+	<td><a class="p" href="15/15bclet1.rle">
+	    Up beacon on up long bookend w/ tub [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="15/15tpta2.rle">
+	    Down tripole on table [9]</a></td>
+	<td><a class="p" href="15/15bpls.rle">
+	    Bipole tie python [12]</a></td>
+	<td><a class="p" href="15/15tpsn.rle">
+	    Tripole tie snake [12]</a></td>
+	<td><a class="p" href="15/15tpsh.rle">
+	    Tripole tie ship [12]</a></td>
+	<td><a class="p" href="15/15bpet1.rle">
+	    Bipole tie eater head [12]</a></td>
+	<td><a class="p" href="15/15bplb.rle">
+	    Bipole tie long boat [10]</a></td>
+	<td class="g"><a class="p" href="15/15tpac.rle">
+	    Tripole tie carrier [15]</a></td>
+	<td><a class="p" href="15/15qpbt.rle">
+	    Quad- pole tie boat; Quad- pole on boat [7]</a></td>
+	<td class="y"><a class="p" href="15/15np.rle">
+	    Nono- pole [24]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p2-15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-15.zip" />
+	<area coords="601,181,620,200" href="stamp/p2-15.rle" />
+	<area coords="0,0,69,69" href="15/15ff1.rle" />
+	<area coords="70,0,129,69" href="15/15bcleh2.rle" />
+	<area coords="130,0,189,69" href="15/15ttbhk.rle" />
+	<area coords="190,0,249,69" href="15/15bcleh3.rle" />
+	<area coords="250,0,309,69" href="15/15dtbk.rle" />
+	<area coords="310,0,369,69" href="15/15ff2.rle" />
+	<area coords="370,0,429,69" href="15/15ff3.rle" />
+	<area coords="430,0,489,69" href="15/15bclet2.rle" />
+	<area coords="490,0,549,69" href="15/15ttbtb.rle" />
+	<area coords="550,0,620,69" href="15/15bcleh4.rle" />
+	<area coords="0,70,69,129" href="15/15bclet4.rle" />
+	<area coords="70,70,129,129" href="15/15bclet3.rle" />
+	<area coords="130,70,189,129" href="15/15tpta1.rle" />
+	<area coords="190,70,249,129" href="15/15ff5.rle" />
+	<area coords="250,70,309,129" href="15/15ff6.rle" />
+	<area coords="310,70,369,129" href="15/15ff7.rle" />
+	<area coords="370,70,429,129" href="15/15bcleh1.rle" />
+	<area coords="430,70,489,129" href="15/15bpet2.rle" />
+	<area coords="490,70,549,129" href="15/15pxcav.rle" />
+	<area coords="550,70,620,129" href="15/15bclet1.rle" />
+	<area coords="0,130,69,200" href="15/15tpta2.rle" />
+	<area coords="70,130,129,200" href="15/15bpls.rle" />
+	<area coords="130,130,189,200" href="15/15tpsn.rle" />
+	<area coords="190,130,249,200" href="15/15tpsh.rle" />
+	<area coords="250,130,309,200" href="15/15bpet1.rle" />
+	<area coords="310,130,369,200" href="15/15bplb.rle" />
+	<area coords="370,130,429,200" href="15/15tpac.rle" />
+	<area coords="430,130,489,200" href="15/15qpbt.rle" />
+	<area coords="490,130,549,200" href="15/15np.rle" />
+	<area coords="550,130,620,200" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p2-16"></a>
+<h2>The 98 <a class="i" href="bits-16.htm">sixteen-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-16.rle"><img src="map/p2-16.png"
+ alt="16-bit period 2 oscillators"
+ width="621" height="441" usemap="#p2-16" /></a></p>
+
+<map name="p2-16">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,421,19,440" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-16.zip" />
+	<area coords="601,421,620,440" href="stamp/p2-16.rle" />
+	<area coords="0,0,69,49" href="16/16ff9.rle" />
+	<area coords="70,0,129,49" href="16/16ff15.rle" />
+	<area coords="130,0,189,49" href="16/16bczpb1.rle" />
+	<area coords="190,0,249,49" href="16/16bpct1.rle" />
+	<area coords="250,0,309,49" href="16/16bple1.rle" />
+	<area coords="310,0,369,49" href="16/16ttbtl.rle" />
+	<area coords="370,0,429,49" href="16/16bcllh1.rle" />
+	<area coords="430,0,489,49" href="16/16ttbhh.rle" />
+	<area coords="490,0,549,49" href="16/16ttblh.rle" />
+	<area coords="550,0,620,49" href="16/16bcllh3.rle" />
+	<area coords="0,50,69,89" href="16/16qd.rle" />
+	<area coords="70,50,129,89" href="16/16chacha.rle" />
+	<area coords="130,50,189,89" href="16/16ydtycv.rle" />
+	<area coords="190,50,249,89" href="16/16dtbt.rle" />
+	<area coords="250,50,309,89" href="16/16ff7.rle" />
+	<area coords="310,50,369,89" href="16/16ff6.rle" />
+	<area coords="370,50,429,89" href="16/16bcdk1.rle" />
+	<area coords="430,50,489,89" href="16/16ff8.rle" />
+	<area coords="490,50,549,89" href="16/16ff18.rle" />
+	<area coords="550,50,620,89" href="16/16ff17.rle" />
+	<area coords="0,90,69,129" href="16/16bcldb1.rle" />
+	<area coords="70,90,129,129" href="16/16ttbdb.rle" />
+	<area coords="130,90,189,129" href="16/16bctag1.rle" />
+	<area coords="190,90,249,129" href="16/16bcas3.rle" />
+	<area coords="250,90,309,129" href="16/16bclub1.rle" />
+	<area coords="310,90,369,129" href="16/16bclub3.rle" />
+	<area coords="370,90,429,129" href="16/16ttbub.rle" />
+	<area coords="430,90,489,129" href="16/16bple3.rle" />
+	<area coords="490,90,549,129" href="16/16bcldb4.rle" />
+	<area coords="550,90,620,129" href="16/16bctag4.rle" />
+	<area coords="0,130,69,173" href="16/16bclub4.rle" />
+	<area coords="70,130,129,173" href="16/16bcldb3.rle" />
+	<area coords="130,130,189,173" href="16/16bctag3.rle" />
+	<area coords="190,130,249,173" href="16/16ttbth.rle" />
+	<area coords="250,130,309,173" href="16/16ttbtt.rle" />
+	<area coords="310,130,369,173" href="16/16bcllh4.rle" />
+	<area coords="370,130,429,173" href="16/16dttbft.rle" />
+	<area coords="430,130,489,173" href="16/16dttbtl.rle" />
+	<area coords="490,130,549,173" href="16/16pvtatl.rle" />
+	<area coords="550,130,620,173" href="16/16pvtaft.rle" />
+	<area coords="0,174,69,213" href="16/16sq.rle" />
+	<area coords="70,174,129,213" href="16/16ff14.rle" />
+	<area coords="130,174,189,213" href="16/16bcss1.rle" />
+	<area coords="190,174,249,213" href="16/16bctaa1.rle" />
+	<area coords="250,174,309,213" href="16/16bctas1.rle" />
+	<area coords="310,174,369,213" href="16/16tdtst1.rle" />
+	<area coords="370,174,429,213" href="16/16tdtst2.rle" />
+	<area coords="430,174,489,213" href="16/16bcas1.rle" />
+	<area coords="490,174,549,213" href="16/16ff16.rle" />
+	<area coords="550,174,620,213" href="16/16bccvhd.rle" />
+	<area coords="0,214,69,253" href="16/16bcdk2.rle" />
+	<area coords="70,214,129,253" href="16/16ff19.rle" />
+	<area coords="130,214,189,253" href="16/16bcss2.rle" />
+	<area coords="190,214,249,253" href="16/16cavtl.rle" />
+	<area coords="250,214,309,253" href="16/16bctas2.rle" />
+	<area coords="310,214,369,253" href="16/16bctaa2.rle" />
+	<area coords="370,214,429,253" href="16/16bczpb2.rle" />
+	<area coords="430,214,489,253" href="16/16bpct2.rle" />
+	<area coords="490,214,549,253" href="16/16bpht2.rle" />
+	<area coords="550,214,620,253" href="16/16bple4.rle" />
+	<area coords="0,254,69,293" href="16/16bcas4.rle" />
+	<area coords="70,254,129,293" href="16/16ff20.rle" />
+	<area coords="130,254,189,293" href="16/16ff25.rle" />
+	<area coords="190,254,249,293" href="16/16ff21.rle" />
+	<area coords="250,254,309,293" href="16/16bcllh2.rle" />
+	<area coords="310,254,369,293" href="16/16bpsl2.rle" />
+	<area coords="370,254,429,293" href="16/16bpht1.rle" />
+	<area coords="430,254,489,293" href="16/16bptt.rle" />
+	<area coords="490,254,549,293" href="16/16qpta1.rle" />
+	<area coords="550,254,620,293" href="16/16hg.rle" />
+	<area coords="0,294,69,333" href="16/16pxbe.rle" />
+	<area coords="70,294,129,333" href="16/16bcas2.rle" />
+	<area coords="130,294,189,333" href="16/16bpcv.rle" />
+	<area coords="190,294,249,333" href="16/16ff24.rle" />
+	<area coords="250,294,309,333" href="16/16ff23.rle" />
+	<area coords="310,294,369,333" href="16/16bcldb2.rle" />
+	<area coords="370,294,429,333" href="16/16bctag2.rle" />
+	<area coords="430,294,489,333" href="16/16bple2.rle" />
+	<area coords="490,294,549,333" href="16/16bclub2.rle" />
+	<area coords="550,294,620,333" href="16/16ff27.rle" />
+	<area coords="0,334,69,373" href="16/16ff26.rle" />
+	<area coords="70,334,129,373" href="16/16tpet2.rle" />
+	<area coords="130,334,189,373" href="16/16bpsl1.rle" />
+	<area coords="190,334,249,373" href="16/16cavhd.rle" />
+	<area coords="250,334,309,373" href="16/16bplp.rle" />
+	<area coords="310,334,369,373" href="16/16qpta2.rle" />
+	<area coords="370,334,429,373" href="16/16bpvs.rle" />
+	<area coords="430,334,489,373" href="16/16tpls.rle" />
+	<area coords="490,334,549,373" href="16/16qpsn.rle" />
+	<area coords="550,334,620,373" href="16/16tpet1.rle" />
+	<area coords="0,374,69,440" href="16/16tplb.rle" />
+	<area coords="70,374,129,440" href="16/16bpbp1.rle" />
+	<area coords="130,374,189,440" href="16/16bpbp2.rle" />
+	<area coords="190,374,249,440" href="16/16bpcs.rle" />
+	<area coords="250,374,309,440" href="16/16qpsh.rle" />
+	<area coords="310,374,369,440" href="16/16qpac.rle" />
+	<area coords="370,374,429,440" href="16/16ppbt.rle" />
+	<area coords="430,374,489,440" href="16/16dp.rle" />
+	<area coords="490,374,620,440" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p2-17"></a>
+<h2>The 199 <a class="i" href="bits-17.htm">seventeen-bit</a>
+period 2 oscillators</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p2-17.htm">separate page</a>.</p>
+
+<hr />
+<a name="p2-18"></a>
+<h2>The 484 <a class="i" href="bits-18.htm">eighteen-bit</a>
+period 2 oscillators</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p2-18.htm">separate page</a>.</p>
+
+<hr />
+<a name="p2-19"></a>
+<h2>The 1083 <a class="i" href="bits-19.htm">nineteen-bit</a>
+period 2 oscillators</h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p2-19.htm">separate page</a>.
+Syntheses for 9 of them are shown here.</p>
+<p><a class="p" href="stamp/p2-19.rle"><img src="map/p2-19.png"
+ alt="19-bit P2" width="561" height="81" usemap="#p2-19" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+   <tr>
+	<td class="y"><a class="p" href="19/19dtbkbk.rle">
+	    Two blocks on griddle [34]</a></td>
+	<td><a class="p" href="19/19dtpd.rle">
+	    Pond on griddle [12]</a></td>
+	<td class="y"><a class="p" href="19/19ttbcvb.rle">
+	    Test tube baby siamese cover on block [22]</a></td>
+	<td><a class="p" href="19/19bcan1.rle">
+	    Up beacon on up anvil; Cis- beacon and anvil [7]</a></td>
+	<td class="y"><a class="p" href="19/19ff2.rle">
+	    19-bit P2 #2 [59]</a></td>
+	<td><a class="p" href="19/19sctb.rle">
+	    Spark coil w/ tub [6]</a></td>
+	<td><a class="p" href="19/19acbcbn.rle">
+	    Bun on beacon beside carrier [11]</a></td>
+	<td><a class="p" href="19/19snbcbn.rle">
+	    Bun on beacon beside snake [11]</a></td>
+	<td class="y"><a class="p" href="19/19ff1.rle">
+	    19-bit P2 #1 [59]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p2-19.zip" />
+	<area coords="541,61,560,80" href="stamp/p2-19.rle" />
+	<area coords="0,0,69,80" href="19/19dtbkbk.rle" />
+	<area coords="70,0,129,80" href="19/19dtpd.rle" />
+	<area coords="130,0,189,80" href="19/19ttbcvb.rle" />
+	<area coords="190,0,249,80" href="19/19sctb.rle" />
+	<area coords="250,0,309,80" href="19/19ff2.rle" />
+	<area coords="310,0,369,80" href="19/19snbcbn.rle" />
+	<area coords="370,0,429,80" href="19/19acbcbn.rle" />
+	<area coords="430,0,489,80" href="19/19acbcbn.rle" />
+	<area coords="490,0,560,80" href="19/19ff1.rle" />
+</map>
+
+
+<hr />
+<a name="p2-20"></a>
+<h2>The 2722 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 2 oscillators</h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p2-20.htm">separate page</a>.
+Syntheses for 8 of them are shown here.</p>
+<p><a class="p" href="stamp/p2-20.rle"><img src="map/p2-20.png"
+ alt="20-bit period 2"
+ width="561" height="81" usemap="#p2-20" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20sctbs1.rle">
+	    Spark Coil w/ cis tubs [10]</a></td>
+	<td class="y"><a class="p" href="20/20zsntd.rle">
+	    Toad and snake on Z [31]</a></td>
+	<td><a class="p" href="20/20pvtatc.rle">
+	    Pre- block on very long table w/ tail and curl [10]</a></td>
+	<td><a class="p" href="20/20pvtafc.rle">
+	    Pre- block on very long table w/ feather and curl [9]</a></td>
+	<td class="y"><a class="p" href="20/20dttbht.rle">
+	    Hook w/ tail on griddle w/ tub [40]</a></td>
+	<td class="g"><a class="p" href="20/20bptacs.rle">
+	    Up bipole on table siamese canoe [20]</a></td>
+	<td><a class="p" href="20/20bcbebe.rle">
+	    Two tied book- ends on beacon [10]</a></td>
+	<td class="y"><a class="p" href="20/20bfsn2.rle">
+	    Two snakes on butter- fly [26]</a></td>
+	<td><a class="p" href="20/20cavtb2.rle">
+	    Cavity w/ two tubs [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p2-20.zip" />
+	<area coords="541,61,560,80" href="stamp/p1-20.rle" />
+	<area coords="0,0,69,80" href="20/20sctbs1.rle" />
+	<area coords="70,0,129,80" href="20/20zsntd.rle" />
+	<area coords="130,0,189,80" href="20/20pvtatc.rle" />
+	<area coords="190,0,249,80" href="20/20pvtafc.rle" />
+	<area coords="250,0,309,80" href="20/20dttbht.rle" />
+	<area coords="310,0,369,80" href="20/20bptacs.rle" />
+	<area coords="370,0,429,80" href="20/20bcbebe.rle" />
+	<area coords="430,0,489,80" href="20/20bfsn2.rle" />
+	<area coords="490,0,560,80" href="20/20cavtb2.rle" />
+</map>
+
+<hr />
+<a name="p2-21"></a>
+<h2>The 6596 <a class="i" href="bits-21.htm">21-bit</a>
+period 2 oscillators</h2>
+<p>Due to space limitations, these are shown without syntheses on a
+<a class="i" href="p2-21.htm">separate page</a>.
+Syntheses for 2 of them are shown here.</p>
+<p><a class="p" href="stamp/p2-21.rle"><img src="map/p2-21.png"
+ alt="21b P2" width="141" height="81" usemap="#p2-21" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="21/21bcbeli.rle">
+	    Beacon on bookend siamese long integral [12]</a></td>
+	<td><a class="p" href="21/21bcdkcg.rle">
+	    Up beacon on down dock w/ down mango [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p2-21.zip" />
+	<area coords="121,61,140,80" href="stamp/p2-21.rle" />
+	<area coords="0,0,69,80" href="21/21bcbeli.rle" />
+	<area coords="70,0,140,80" href="21/21bcdkcg.rle" />
+</map>
+
+<hr />
+<a name="p2-22"></a>
+<h2>4 <a class="i" href="bits-22.htm">22-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-22.rle"><img src="map/p2-22.png"
+ alt="22-bit period 2 oscillators"
+ width="261" height="81" usemap="#p2-22" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="22/22ttbss1.rle">
+	    Test tube baby between cis snakes [30]</a></td>
+	<td class="y"><a class="p" href="22/22ttbss2.rle">
+	    Test tube baby between trans snakes [30]</a></td>
+	<td><a class="p" href="22/22barbk1.rle">
+	    Two blocks on armpit [10]</a></td>
+	<td><a class="p" href="22/22bfee3.rle">
+	    Two eater tails on butterfly [15]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p2-22.zip" />
+	<area coords="241,61,260,80" href="stamp/p2-22.rle" />
+	<area coords="0,0,89,80" href="22/22ttbss1.rle" />
+	<area coords="90,0,169,80" href="22/22ttbss2.rle" />
+	<area coords="170,0,249,80" href="22/22barbk1.rle" />
+	<area coords="250,0,260,80" href="22/22bfee3.rle" />
+</map>
+
+<hr />
+<a name="p2-23"></a>
+<h2>6 <a class="i" href="bits-23.htm">23-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-23.rle"><img src="map/p2-23.png"
+ alt="23-bit period 2 oscillators"
+ width="381" height="81" usemap="#p2-23" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="23/23pi.rle">
+	    Piston [46]</a></td>
+	<td><a class="p" href="23/23tbdhs.rle">
+	    Spark coil from tub on D on house [12]</a></td>
+	<td><a class="p" href="23/23pbtdhs.rle">
+	    Spark coil from pre- block on D w/ tub on house [21]</a></td>
+	<td class="y"><a class="p" href="23/23lgtsn.rle">
+	    Light bulb*; Snake on light bulb [30]</a></td>
+	<td><a class="p" href="23/23scbt.rle">
+	    Spark coil tie boat; Boat on spark coil [5]</a></td>
+	<td><a class="p" href="23/23barbt2.rle">
+	    Block and down boat on armpit [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/p2-23.zip" />
+	<area coords="361,61,380,80" href="stamp/p2-23.rle" />
+	<area coords="0,0,89,80" href="23/23pi.rle" />
+	<area coords="90,0,169,80" href="23/23tbdhs.rle" />
+	<area coords="170,0,249,80" href="23/23pbtdhs.rle" />
+	<area coords="250,0,329,80" href="23/23lgtsn.rle" />
+	<area coords="330,0,380,80" href="23/23scbt.rle" />
+</map>
+
+<p>(* <i>Q: How many gliders does it take to screw in a light bulb?<br />
+A: 11-30, depending on the socket.)</i></p>
+
+<hr />
+<a name="p2-24"></a>
+<h2>11 <a class="i" href="bits-24.htm">24-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-24.rle"><img src="map/p2-24.png"
+ alt="24-bit period 2 oscillators"
+ width="381" height="141" usemap="#p2-24" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="24/24btdhs.rle">
+	    Spark coil from boat on D on house [10]</a></td>
+	<td><a class="p" href="24/24ttbbe1.rle">
+	    Test tube baby between up bookends [13]</a></td>
+	<td><a class="p" href="24/24tets1.rle">
+	    Cis sparking tets [7]</a></td>
+	<td><a class="p" href="24/24wm.rle">
+	    Washing machine [8]</a></td>
+	<td><a class="p" href="24/24fb.rle">
+	    Fore and back; Complem- entary blinker [20]</a></td>
+	<td class="y"><a class="p" href="24/24ttw.rle">
+	    Test tube twins [25]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="24/24tets2.rle">
+	    Trans sparking tets [8]</a></td>
+	<td><a class="p" href="24/24lgtbe.rle">
+	    Bookend on light bulb [12]</a></td>
+	<td><a class="p" href="24/24lf2bt2.rle">
+	    Two boats on two loaves [15]</a></td>
+	<td class="y"><a class="p" href="24/24sndlsn.rle">
+	    Diagonal light bulb on two snakes [65]</a></td>
+	<td colspan="2" class="y"><a class="p" href="24/24px22.rle">
+	    2x2 Phoenix [29]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/p2-24.zip" />
+	<area coords="361,121,380,140" href="stamp/p2-24.rle" />
+	<area coords="0,0,69,69" href="24/24btdhs.rle" />
+	<area coords="70,0,129,69" href="24/24ttbbe1.rle" />
+	<area coords="130,0,189,69" href="24/24tets1.rle" />
+	<area coords="190,0,249,69" href="24/24wm.rle" />
+	<area coords="250,0,309,69" href="24/24fb.rle" />
+	<area coords="310,0,380,69" href="24/24ttw.rle" />
+	<area coords="0,70,69,140" href="24/24tets2.rle" />
+	<area coords="70,70,129,140" href="24/24lgtbe.rle" />
+	<area coords="130,70,189,140" href="24/24lf2bt2.rle" />
+	<area coords="190,70,249,140" href="24/24sndlsn.rle" />
+	<area coords="250,70,380,140" href="24/24px22.rle" />
+</map>
+
+<hr />
+<a name="p2-25"></a>
+<h2>2 <a class="i" href="bits-25.htm">25-bit</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/p2-25.rle"><img src="map/p2-25.png"
+ alt="larger period 2 oscillators"
+ width="141" height="81" usemap="#p2-25" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="25/25ttbsnh.rle">
+	    Test tube baby between snake and house [11]</a></td>
+	<td><a class="p" href="25/25barlb2.rle">
+	    Block and down long boat on armpit [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p2-25.zip" />
+	<area coords="121,61,140,80" href="stamp/p2-25.rle" />
+	<area coords="0,0,69,80" href="25/25ttbsnh.rle" />
+	<area coords="70,0,140,80" href="25/25barlb2.rle" />
+</map>
+
+<hr />
+<a name="p2-lg"></a>
+<h2>34 period 2 oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/p2-lg.rle"><img src="map/p2-lg.png"
+ alt="larger period 2 oscillators"
+ width="637" height="421" usemap="#p2-lg" /></a><br />
+    <table width="641">
+    <colgroup><col width="91" /><col span="12" width="40" /><col width="68" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/26pi2.rle">
+	    Double piston; Long piston [10]</a></td>
+	<td colspan="2"><a class="p" href="lg/26lgths.rle">
+	    House on light bulb [11]</a></td>
+	<td colspan="2"><a class="p" href="lg/26pd2bt2.rle">
+	    Two boats on two ponds [16]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/26etdlet.rle">
+	    Diagonal light bulb on two eater tails [58]</a></td>
+	<td colspan="2"><a class="p" href="lg/26ppc2.rle">
+	    Two tied paper- clips [9]</a></td>
+	<td colspan="2"><a class="p" href="lg/27lgthst.rle">
+	    House w/ tub on light bulb [14]</a></td>
+	<td colspan="2"><a class="p" href="lg/27barvb2.rle">
+	    Block and down very long boat on armpit [12]</a></td>
+	<td><a class="p" href="lg/32dsc.rle">
+	    Double spark coil [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/28ttbhs1.rle">
+	    Test tube baby between houses [9]</a></td>
+	<td colspan="2"><a class="p" href="lg/28ttwcu2.rle">
+	    Test tube twins w/ 2 curls [16]</a></td>
+	<td colspan="2"><a class="p" href="lg/28ttbhs3.rle">
+	    Test tube baby between cis skewed houses [8]</a></td>
+	<td colspan="2"><a class="p" href="lg/28ttbhs2.rle">
+	    Test tube baby between house and skewed house [8]</a></td>
+	<td colspan="2"><a class="p" href="lg/28scbts1.rle">
+	    Spark coil tied to two boats (up) [6]</a></td>
+	<td colspan="2"><a class="p" href="lg/28ttbhs4.rle">
+	    Test tube baby between trans skewed houses [8]</a></td>
+	<td colspan="2"><a class="p" href="lg/28scbts2.rle">
+	    Spark coil tied to two boats (down) [6]</a></td>
+	<td rowspan="3" class="s">&nbsp;</td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/29pd2bcb.rle">
+	    Beacon and boat on two ponds [13]</a></td>
+	<td colspan="2"><a class="p" href="lg/30ttwbe2.rle">
+	    Test tube twins between down bookend [16]</a></td>
+	<td colspan="2"><a class="p" href="lg/30ttwbe1.rle">
+	    Test tube twins between up bookend [16]</a></td>
+	<td colspan="2"><a class="p" href="lg/30hpj.rle">
+	    Half pseudo- jack [25]</a></td>
+	<td colspan="2"><a class="p" href="lg/30scbg4.rle">
+	    Spark coil w/ 4 barges [8]</a></td>
+	<td colspan="2"><a class="p" href="lg/30pd2bc2.rle">
+	    Semifore; Two beacons on two ponds [14]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/31pi3.rle">
+	    Triple piston [48]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/34pi4.rle">
+	    Quadruple piston [18]</a></td>
+	<td colspan="2"><a class="p" href="lg/34ttwhs2.rle">
+	    Test tube twins between trans houses [11]</a></td>
+	<td colspan="2"><a class="p" href="lg/34ttwhs1.rle">
+	    Test tube twins between cis houses [12]</a></td>
+	<td colspan="2"><a class="p" href="lg/36p2-1.rle">
+	    36-bit P2 #1 [14]</a></td>
+	<td colspan="2"><a class="p" href="lg/40dkiss.rle">
+	    Double kiss [14]</a></td>
+	<td colspan="3"><a class="p" href="lg/42pi6.rle">
+	    Sextuple piston [30]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2" class="y"><a class="p" href="lg/39pi5.rle">
+	    Quintuple piston [60]</a></td>
+	<td colspan="2"><a class="p" href="lg/39ttwhbb.rle">
+	    Test tube twins between house and two bookends [17]</a></td>
+	<td colspan="2"><a class="p" href="lg/43ttthbb.rle">
+	    Test tube triplets between house and two bookends [20]</a></td>
+	<td colspan="2"><a class="p" href="lg/48tttbb2.rle">
+	    Test tube triplets between pairs of two bookends [26]</a></td>
+	<td colspan="2"><a class="p" href="lg/54ttqbb2.rle">
+	    Test tube quadruplets between pairs of two bookends [29]</a></td>
+	<td colspan="2"><a class="p" href="lg/56ar4.rle">
+	    Four armpits [23]</a></td>
+	<td colspan="2"><a class="p" href="lg/60p2-1.rle">
+	    60-bit P2 #1 [20]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="617,0,636,19" href="zip/p2-lg.zip" />
+	<area coords="617,401,636,420" href="stamp/p2-lg.rle" />
+	<area coords="0,0,89,89" href="lg/26pi2.rle" />
+	<area coords="90,0,169,89" href="lg/26lgths.rle" />
+	<area coords="170,0,249,89" href="lg/26pd2bt2.rle" />
+	<area coords="250,0,329,89" href="lg/26etdlet.rle" />
+	<area coords="330,0,409,89" href="lg/26ppc2.rle" />
+	<area coords="410,0,489,89" href="lg/27lgthst.rle" />
+	<area coords="490,0,569,89" href="lg/27barvb2.rle" />
+	<area coords="570,0,636,89" href="lg/32dsc.rle" />
+	<area coords="0,90,89,169" href="lg/28ttbhs1.rle" />
+	<area coords="90,90,169,169" href="lg/28ttwcu2.rle" />
+	<area coords="170,90,249,169" href="lg/28ttbhs3.rle" />
+	<area coords="250,90,329,169" href="lg/28ttbhs2.rle" />
+	<area coords="330,90,409,169" href="lg/28scbts1.rle" />
+	<area coords="410,90,489,169" href="lg/28ttbhs4.rle" />
+	<area coords="490,90,569,169" href="lg/28scbts2.rle" />
+	<area coords="570,90,636,169" nohref="nohref" />
+	<area coords="0,170,89,249" href="lg/29pd2bcb.rle" />
+	<area coords="90,170,169,249" href="lg/30ttwbe2.rle" />
+	<area coords="170,170,249,249" href="lg/30ttwbe1.rle" />
+	<area coords="250,170,329,249" href="lg/30hpj.rle" />
+	<area coords="330,170,409,249" href="lg/30scbg4.rle" />
+	<area coords="410,170,489,249" href="lg/30pd2bc2.rle" />
+	<area coords="490,170,569,249" href="lg/31pi3.rle" />
+	<area coords="570,170,636,249" nohref="nohref" />
+	<area coords="0,250,129,329" href="lg/34pi4.rle" />
+	<area coords="130,250,209,329" href="lg/34ttwhs2.rle" />
+	<area coords="210,250,289,329" href="lg/34ttwhs1.rle" />
+	<area coords="290,250,369,329" href="lg/36p2-1.rle" />
+	<area coords="370,250,449,329" href="lg/40dkiss.rle" />
+	<area coords="450,250,609,329" href="lg/42pi6.rle" />
+	<area coords="610,250,636,329" nohref="nohref" />
+	<area coords="0,330,129,420" href="lg/39pi5.rle" />
+	<area coords="130,330,209,420" href="lg/39ttwhbb.rle" />
+	<area coords="210,330,289,420" href="lg/43ttthbb.rle" />
+	<area coords="290,330,369,420" href="lg/48tttbb2.rle" />
+	<area coords="370,330,449,420" href="lg/54ttqbb2.rle" />
+	<area coords="450,330,529,420" href="lg/56ar4.rle" />
+	<area coords="530,330,636,420" href="lg/60p2-1.rle" />
+</map>
+
+<p>Pistons are infinitely extensible. Pistons of any even length can be made by
+starting with the double piston synthesis, and adding as many additional
+copies of down-beacon-on-table as necessary for the desired length. (The first
+one is easiest, e.g. the quadruple piston; all others can use the method to
+extend this to the sextuple piston). Pistons of any odd length can be made by
+shortening an even-length piston by one unit, e.g. the triple and quintuple
+pistons.</p>
+
+<p>NOTE: Because there are so many <a class="j" href="#p2-sc">scrubbers</a>,
+they are omitted from this list, and shown in the next section.</p>
+
+<hr />
+<a name="p2-sc"></a>
+<h2>18 period 2 Scrubbers</h2>
+<p>The Scrubber is a billiard table oscillator consisting of a traffic light
+predecessor surrounded by induction coils. There are many different ways to
+stabilize the exterior sides. Here are several synthesizable variations.</p>
+
+<p><a class="p" href="stamp/p2-sc.rle"><img src="map/p2-sc.png"
+ alt="larger period 2 scrubbers"
+ width="621" height="321" usemap="#p2-sc" /></a><br />
+    <table width="625">
+    <colgroup><col width="111" /><col width="20" /><col width="60" />
+	<col span="2" width="40" /><col width="60" /><col width="20" />
+	<col width="80" /><col width="40" /><col width="60" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/28sc11a.rle">
+	    1x1 Scrubber #1 [10]</a></td>
+	<td colspan="2"><a class="p" href="lg/36sc11b.rle">
+	    1x1 Scrubber #3 [16]</a></td>
+	<td colspan="2"><a class="p" href="lg/37sc11c.rle">
+	    1x1 Scrubber #2 [13]</a></td>
+	<td colspan="2"><a class="p" href="lg/37sc11d.rle">
+	    1x1 Scrubber #4 [13]</a></td>
+	<td><a class="p" href="lg/44sc11e.rle">
+	    1x1 Scrubber #5 [23]</a></td>
+	<td colspan="2"><a class="p" href="lg/48sc11f.rle">
+	    1x1 Scrubber #6 [10]</a></td>
+	<td><a class="p" href="lg/40scpi.rle">
+	    Scrubber piston [12]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/56sc12a.rle">
+	    2x1 Scrubbers #1 [23]</a></td>
+	<td colspan="2"><a class="p" href="lg/56sc12b.rle">
+	    2x1 Scrubbers #2 [24]</a></td>
+	<td colspan="2"><a class="p" href="lg/58sc12c.rle">
+	    2x1 Scrubbers #3 [17]</a></td>
+	<td colspan="2"><a class="p" href="lg/58sc12d.rle">
+	    2x1 Scrubbers #4 [18]</a></td>
+	<td colspan="2"><a class="p" href="lg/58sc12e.rle">
+	    2x1 Scrubbers #5 [18]</a></td>
+	<td><a class="p" href="lg/60gs12.rle">
+	    2x1 Glasses [17]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/80sc22a.rle">
+	    2x2 Scrubbers #1 [23]</a></td>
+	<td colspan="2"><a class="p" href="lg/80sc22b.rle">
+	    2x2 Scrubbers #2 [24]</a></td>
+	<td colspan="2"><a class="p" href="lg/80sc22c.rle">
+	    2x2 Scrubbers #3 [28]</a></td>
+	<td colspan="3"><a class="p" href="lg/122sc23a.rle">
+	    3x2 Scrubbers [37]</a></td>
+	<td colspan="2"><a class="p" href="lg/164sc24a.rle">
+	    4x2 Scrubbers [55]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-sc">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-sc.zip" />
+	<area coords="601,301,620,320" href="stamp/p2-sc.rle" />
+	<area coords="0,0,89,109" href="lg/28sc11a.rle" />
+	<area coords="90,0,169,109" href="lg/36sc11b.rle" />
+	<area coords="170,0,249,109" href="lg/37sc11c.rle" />
+	<area coords="250,0,329,109" href="lg/37sc11d.rle" />
+	<area coords="330,0,409,109" href="lg/44sc11e.rle" />
+	<area coords="410,0,509,109" href="lg/48sc11f.rle" />
+	<area coords="510,0,620,109" href="lg/40scpi.rle" />
+	<area coords="0,110,109,209" href="lg/56sc12a.rle" />
+	<area coords="110,110,209,209" href="lg/56sc12b.rle" />
+	<area coords="210,110,309,209" href="lg/58sc12c.rle" />
+	<area coords="310,110,409,209" href="lg/58sc12d.rle" />
+	<area coords="410,110,509,209" href="lg/58sc12e.rle" />
+	<area coords="510,110,620,209" href="lg/60gs12.rle" />
+	<area coords="0,210,109,320" href="lg/80sc22a.rle" />
+	<area coords="110,210,209,320" href="lg/80sc22b.rle" />
+	<area coords="210,210,309,320" href="lg/80sc22c.rle" />
+	<area coords="310,210,449,320" href="lg/122sc23a.rle" />
+	<area coords="450,210,620,320" href="lg/164sc24a.rle" />
+</map>
+
+<p>Glasses are pairs of scrubbers with out-of-phase spark coils between
+them.</p>
+
+<hr />
+<hr />
+<a name="g2-p2"></a>
+<h2>The 1 period 2 oscillator
+<a class="i" href="glider-2.htm">buildable from 2 gliders</a></h2>
+<p><a class="p" href="stamp/g2-p2.rle"><img src="map/g2-p2.png" alt="2gl osc"
+ width="81" height="61" usemap="#g2-p2" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/3bl.rle">Blinker [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="g2-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g2-p2.zip" />
+	<area coords="61,41,80,60" href="stamp/g2-p2.rle" />
+	<area coords="0,0,80,60" href="0/3bl.rle" />
+</map>
+
+<hr />
+<a name="g3-p2"></a>
+<h2>The 2 period 2 oscillators
+<a class="i" href="glider-3.htm">buildable from 3 gliders</a></h2>
+<p><a class="p" href="stamp/g3-p2.rle"><img src="map/g3-p2.png"
+ alt="3g P2" width="141" height="61" usemap="#g3-p2" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6td.rle">Toad [3]</a></td>
+	<td><a class="p" href="0/6bc.rle">Beacon [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/g3-p2.zip" />
+	<area coords="121,41,140,60" href="stamp/g3-p2.rle" />
+	<area coords="0,0,69,60" href="0/6td.rle" />
+	<area coords="70,0,140,60" href="0/6bc.rle" />
+</map>
+
+<p>Toads have no stable surfaces, but one side vacillates between one and two
+bits, making it possible to form pseudo-objects with other toads or similar
+oscillators, or with even-period oscillators that create
+<a class="i" href="lifeterm.htm#spark">domino sparks</a>, like the
+<a class="p" href="12/12fg.rle">Figure-8</a>.</p>
+
+<p>Their other sides can also be placed between pairs of domino sparks in
+several ways, resulting in two reactions: <i>toad-flipping</i>, where the toad
+is reflected, and <i>toad-sucking</i>, where the toad is moved sideways one
+position. Since each step must occur twice to return the toad to the original
+period, this usually results in an oscillator of double the original period (or
+quadruple, if the original period is odd). Several examples are shown in the
+<a class="i" href="period.htm#p60">period 60</a> versions of a toad between
+two <a class="p" href="12/12pc.rle">pentadecathlons</a>. Several additional
+<a class="i" href="p8.htm#p8-lg">period 8</a> versions using
+<a class="p" href="12/12fg.rle">Figure-8s</a> do <i>not</i> double the period,
+because the Figure-8's domino sparks have an extra bit-spark that produces a
+second domino hassling the toad twice in immediate succession each cycle.
+Toad-sucking can also occur be done by pairs of
+<a class="i" href="exotic.htm#ss-o4"><i>c</i>/4</a> or
+<a class="i" href="exotic.htm#ss-o6"><i>c</i>/6</a> orthogonal spaceships
+that produce domino sparks each time they advance. This could theoretically
+also work with spaceships of any slower even base period that move one step each
+period and produce one domino spark each period.</p>
+
+<p>Pairs of toads, known as
+<a class="p" href="12/12kt.rle">killer toads</a>, can also eat expanding
+objects like <a class="p" href="ss/11mw.rle">middle-weight</a> and
+<a class="p" href="ss/13hw.rle">heavy-weight</a> spaceships, and forming
+<a class="p" href="0/9tqtl.rle">3/4 traffic light</a>. These are most useful for eating
+spaceship streams whose period is a multiple of 2. For those whose period is a
+multiple of 3, <a class="p" href="lg/32kcf.rle">killer candelfrobras</a> are more
+appropriate.</p>
+
+<hr />
+<a name="g4-p2"></a>
+<h2>2  period 2 oscillators
+<a class="i" href="glider-4.htm">buildable from 4 gliders</a></h2>
+<p><a class="p" href="stamp/g4-p2.rle"><img src="map/g4-p2.png"
+ alt="4g P2" width="141" height="61" usemap="#g4-p2" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6ck.rle">Clock [4]</a></td>
+	<td><a class="p" href="18/18sc.rle">Spark coil [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/g4-p2.zip" />
+	<area coords="121,41,140,60" href="stamp/g4-p2.rle" />
+	<area coords="0,0,69,60" href="0/6ck.rle" />
+	<area coords="70,0,140,60" href="18/18sc.rle" />
+</map>
+
+<p>Clocks have thumbs that can sometimes be used to suppress
+<a class="i" href="lifeterm.htm#spark">diagonal bit-sparks</a>,
+allowing clocks to be used as
+<a class="i" href="lifeterm.htm#rock">rocks</a> to stabilize some larger
+<a class="i" href="osc.htm">oscillators</a>.</p>
+
+<hr />
+<a name="g5-p2"></a>
+<h2>3 period 2 oscillators
+<a class="i" href="glider-5.htm">buildable from 5 gliders</a></h2>
+<p><a class="p" href="stamp/g5-p2.rle"><img src="map/g5-p2.png"
+ alt="5g P2" width="201" height="61" usemap="#g5-p2" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8bp.rle">Bipole [5]</a></td>
+	<td><a class="p" href="18/18cavtl2.rle">
+	    Great on-off; Pincers [5]</a></td>
+	<td><a class="p" href="23/23scbt.rle">
+	    Spark coil tie boat; Boat on spark coil [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="g5-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/g5-p2.zip" />
+	<area coords="181,41,200,60" href="stamp/g5-p2.rle" />
+	<area coords="0,0,69,60" href="0/8bp.rle" />
+	<area coords="70,0,129,60" href="18/18cavtl2.rle" />
+	<area coords="130,0,200,60" href="23/23scbt.rle" />
+</map>
+
+<hr />
+<a name="g6-p2"></a>
+<h2>14 period 2 oscillators
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-p2.rle"><img src="map/g6-p2.png"
+ alt="6-glider period 2 oscillators"
+ width="581" height="141" usemap="#g6-p2" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="10/10qp.rle">
+	    Quadpole [6]</a></td>
+	<td><a class="p" href="14/14bcct1.rle">
+	    Up beacon on cap; Cis- beacon and cap [6]</a></td>
+	<td><a class="p" href="14/14bcle1.rle">Up beacon on up long bookend;
+	    Cis- beacon up and long hook [6]</a></td>
+	<td><a class="p" href="14/14ttb.rle">
+	    Test tube baby [6]</a></td>
+	<td><a class="p" href="14/14bcle3.rle">Up beacon on down long bookend;
+	    Cis- beacon down and long hook [6]</a></td>
+	<td><a class="p" href="14/14bcle4.rle">Down beacon on down long bookend;
+	    Trans- beacon up and long hook [6]</a></td>
+	<td><a class="p" href="14/14bcle2.rle">Down beacon on up long bookend;
+	    Trans- beacon down and long hook [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="12/12bcta1.rle">
+	    Up beacon on table; Cis- beacon and table [6]</a></td>
+	<td><a class="p" href="12/12bcta2.rle">
+	    Down beacon on table; Trans- beacon and table [6]</a></td>
+	<td><a class="p" href="19/19sctb.rle">
+	    Spark coil w/ tub [6]</a></td>
+	<td><a class="p" href="21/21bcdkcg.rle">
+	    Up beacon on down dock w/ down mango [6]</a></td>
+	<td><a class="p" href="lg/28scbts1.rle">
+	    Spark coil tie cis boats [6]</a></td>
+	<td><a class="p" href="lg/28scbts2.rle">
+	    Spark coil tie trans boats [6]</a></td>
+	<td><a class="p" href="lg/32dsc.rle">
+	    Double spark coil [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/g6-p2.zip" />
+	<area coords="561,121,580,140" href="stamp/g6-p2.rle" />
+	<area coords="0,0,89,69" href="10/10qp.rle" />
+	<area coords="90,0,169,69" href="14/14bcct1.rle" />
+	<area coords="170,0,249,69" href="14/14bcle1.rle" />
+	<area coords="250,0,329,69" href="14/14ttb.rle" />
+	<area coords="330,0,409,69" href="14/14bcle3.rle" />
+	<area coords="410,0,489,69" href="14/14bcle4.rle" />
+	<area coords="490,0,580,69" href="14/14bcle2.rle" />
+	<area coords="0,70,89,140" href="12/12bcta1.rle" />
+	<area coords="90,70,169,140" href="12/12bcta2.rle" />
+	<area coords="170,70,249,140" href="19/19sctb.rle" />
+	<area coords="250,70,329,140" href="21/21bcdkcg.rle" />
+	<area coords="330,70,409,140" href="lg/28scbts1.rle" />
+	<area coords="410,70,489,140" href="lg/28scbts2.rle" />
+	<area coords="490,70,580,140" href="lg/32dsc.rle" />
+</map>
+
+<hr />
+<a name="ge-p2"></a>
+<h2>The 16 period 2 oscillators up to 17 bits
+<a class="i" href="glider-e.htm">costing 1 glider/bit</a></h2>
+<p><a class="p" href="stamp/ge-p2.rle"><img src="map/ge-p2.png"
+ alt="1 glider/bit p2 oscillators"
+ width="561" height="141" usemap="#ge-p2" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="g"><a class="p" href="12/12fx.rle">
+	    Fox; Gnome [12]</a></td>
+	<td class="g"><a class="p" href="12/12hp.rle">
+	    Hexa- pole [12]</a></td>
+	<td class="g"><a class="p" href="15/15tpac.rle">
+	    Tripole tie carrier [15]</a></td>
+	<td class="g"><a class="p" href="16/16qd.rle">
+	    Quad; Square quad; Barber- pole inter- section [16]</a></td>
+	<td class="g"><a class="p" href="16/16bcss2.rle">
+	    Down beacon on snake siamese snake [16]</a></td>
+	<td class="g"><a class="p" href="16/16bpht2.rle">
+	    Bipole tie hook w/ tail [16]</a></td>
+	<td class="g"><a class="p" href="16/16bptt.rle">
+	    Bipole tie tub w/ tail [16]</a></td>
+	<td class="g"><a class="p" href="16/16tpet2.rle">
+	    Tripole tie eater tail [16]</a></td>
+	<td class="g"><a class="p" href="16/16tpls.rle">
+	    Tripole tie python [16]</a></td>
+    </tr>
+
+    <tr>
+	<td class="g"><a class="p" href="17/17bczft1.rle">
+	    Up beacon on Z w/ feather [17]</a></td>
+	<td class="g"><a class="p" href="17/17bces1.rle">
+	    Up beacon on up bookend siamese snake [17]</a></td>
+	<td class="g"><a class="p" href="17/17bczft2.rle">
+	    Down beacon on Z w/ feather [17]</a></td>
+	<td class="g"><a class="p" href="17/17bcbes2.rle">
+	    Down beacon on bookend siamese snake [17]</a></td>
+	<td class="g"><a class="p" href="17/17bcsls2.rle">
+	    Down beacon on snake siamese python [17]</a></td>
+	<td class="g"><a class="p" href="17/17tpht1.rle">
+	    Tripole tie hook w/ tail [17]</a></td>
+	<td class="g"><a class="p" href="17/17tpcs.rle">
+	    Tripole tie canoe [17]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="ge-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/ge-p2.zip" />
+	<area coords="541,121,560,140" href="stamp/ge-p2.rle" />
+	<area coords="0,0,69,69" href="12/12fx.rle" />
+	<area coords="70,0,129,69" href="12/12hp.rle" />
+	<area coords="130,0,189,69" href="15/15tpac.rle" />
+	<area coords="190,0,249,69" href="16/16qd.rle" />
+	<area coords="250,0,309,69" href="16/16bcss2.rle" />
+	<area coords="310,0,369,69" href="16/16bpht2.rle" />
+	<area coords="370,0,429,69" href="16/16bptt.rle" />
+	<area coords="430,0,489,69" href="16/16tpet2.rle" />
+	<area coords="490,0,560,69" href="16/16tpls.rle" />
+	<area coords="0,70,69,140" href="17/17bczft1.rle" />
+	<area coords="70,70,129,140" href="17/17bcbes1.rle" />
+	<area coords="130,70,189,140" href="17/17bczft2.rle" />
+	<area coords="190,70,249,140" href="17/17bcbes2.rle" />
+	<area coords="250,70,309,140" href="17/17bcsls2.rle" />
+	<area coords="310,70,369,140" href="17/17tpht1.rle" />
+	<area coords="370,70,429,140" href="17/17tpcs.rle" />
+	<area coords="430,70,560,140" nohref="nohref" />
+</map>
+
+<hr />
+<a name="gg-p2"></a>
+<h2>The 54 period 2 oscillators up to 17 bits
+<a class="i" href="glider-g.htm">costing &gt;1 glider/bit</a></h2>
+<p><a class="p" href="stamp/gg-p2.rle"><img src="map/gg-p2.png"
+ alt="gt. 1 glider/bit p2 oscillators"
+ width="621" height="421" usemap="#gg-p2" /></a></p>
+
+<map name="gg-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/gg-p2.zip" />
+	<area coords="601,401,620,420" href="stamp/gg-p2.rle" />
+	<area coords="0,0,69,89" href="13/13ydtsy.rle" />
+	<area coords="70,0,129,89" href="13/13ep.rle" />
+	<area coords="130,0,189,89" href="14/14ff1.rle" />
+	<area coords="190,0,249,89" href="14/14tdtsy.rle" />
+	<area coords="250,0,309,89" href="14/14ff3.rle" />
+	<area coords="310,0,369,89" href="14/14op.rle" />
+	<area coords="370,0,429,89" href="15/15ff3.rle" />
+	<area coords="430,0,489,89" href="15/15ff6.rle" />
+	<area coords="490,0,549,89" href="15/15ff7.rle" />
+	<area coords="550,0,620,89" href="15/15np.rle" />
+	<area coords="0,90,69,149" href="12/12ff1.rle" />
+	<area coords="70,90,129,149" href="16/16chacha.rle" />
+	<area coords="130,90,189,149" href="16/16dttbft.rle" />
+	<area coords="190,90,249,149" href="16/16dttbtl.rle" />
+	<area coords="250,90,309,149" href="16/16pvtaft.rle" />
+	<area coords="310,90,369,149" href="16/16tdtst1.rle" />
+	<area coords="370,90,429,149" href="16/16tdtst2.rle" />
+	<area coords="430,90,489,149" href="16/16bcas1.rle" />
+	<area coords="490,90,549,149" href="16/16ff16.rle" />
+	<area coords="550,90,620,149" href="16/16cavtl.rle" />
+	<area coords="0,150,69,229" href="16/16ff20.rle" />
+	<area coords="70,150,129,229" href="16/16ff25.rle" />
+	<area coords="130,150,189,229" href="16/16bcas2.rle" />
+	<area coords="190,150,249,229" href="16/16ff24.rle" />
+	<area coords="250,150,309,229" href="16/16ff27.rle" />
+	<area coords="310,150,369,229" href="16/16ff26.rle" />
+	<area coords="370,150,429,229" href="16/16bpbp2.rle" />
+	<area coords="430,150,489,229" href="16/16dp.rle" />
+	<area coords="490,150,549,229" href="17/17dtsn2.rle" />
+	<area coords="550,150,620,229" href="17/17hvdthv.rle" />
+	<area coords="0,230,69,289" href="17/17bcztl1.rle" />
+	<area coords="70,230,129,289" href="17/17dtac1.rle" />
+	<area coords="130,230,189,289" href="17/17bcbea7.rle" />
+	<area coords="190,230,249,289" href="17/17bcbea5.rle" />
+	<area coords="250,230,309,289" href="17/17bcvta1.rle" />
+	<area coords="310,230,369,289" href="17/17ff1.rle" />
+	<area coords="370,230,429,289" href="17/17bctaf1.rle" />
+	<area coords="430,230,489,289" href="17/17bcbea1.rle" />
+	<area coords="490,230,549,289" href="17/17bcbea3.rle" />
+	<area coords="550,230,620,289" href="17/17bcztl2.rle" />
+	<area coords="0,290,69,349" href="17/17bcbea8.rle" />
+	<area coords="70,290,129,349" href="17/17bpftft.rle" />
+	<area coords="130,290,189,349" href="17/17bcbea4.rle" />
+	<area coords="190,290,249,349" href="17/17bpll3.rle" />
+	<area coords="250,290,309,349" href="17/17bpcgb.rle" />
+	<area coords="310,290,369,349" href="17/17ff24.rle" />
+	<area coords="370,290,429,349" href="17/17ff27.rle" />
+	<area coords="430,290,489,349" href="17/17tpht2.rle" />
+	<area coords="490,290,549,349" href="17/17ff28.rle" />
+	<area coords="550,290,620,349" href="17/17ff34.rle" />
+	<area coords="0,350,69,420" href="17/17tptt.rle" />
+	<area coords="70,350,129,420" href="17/17ff33.rle" />
+	<area coords="130,350,189,420" href="17/17ff36.rle" />
+	<area coords="190,350,249,420" href="17/17ff35.rle" />
+	<area coords="250,350,309,420" href="17/17tpbp2.rle" />
+	<area coords="310,350,369,420" href="17/17up.rle" />
+	<area coords="370,350,620,420" nohref="nohref" />
+</map>
+
+<hr />
+<a name="gu-p2"></a>
+<h2>The 48 period 2 oscillators up to 17 bits
+<a class="i" href="glider-u.htm">without any known syntheses</a></h2>
+<p>At present, the technology for synthesis of oscillators containing
+large number of disconnected bits is sorely lacking.</p>
+<p><a class="p" href="stamp/gu-p2.rle"><img src="map/gu-p2.png"
+ alt="unknown period 2 oscillators"
+ width="621" height="321" usemap="#gu-p2" /></a></p>
+
+<map name="gu-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/gu-p2.zip" />
+	<area coords="601,301,620,320" href="stamp/gu-p2.rle" />
+	<area coords="0,0,69,69" href="14/14ff4.rle" />
+	<area coords="70,0,129,69" href="15/15ff1.rle" />
+	<area coords="130,0,189,69" href="15/15ff2.rle" />
+	<area coords="190,0,249,69" href="15/15ff5.rle" />
+	<area coords="250,0,309,69" href="16/16ff9.rle" />
+	<area coords="310,0,369,69" href="16/16ff15.rle" />
+	<area coords="370,0,429,69" href="16/16ydtycv.rle" />
+	<area coords="430,0,489,69" href="16/16ff7.rle" />
+	<area coords="490,0,549,69" href="16/16ff6.rle" />
+	<area coords="550,0,620,69" href="16/16ff8.rle" />
+	<area coords="0,70,69,129" href="16/16ff18.rle" />
+	<area coords="70,70,129,129" href="16/16ff17.rle" />
+	<area coords="130,70,189,129" href="16/16ff14.rle" />
+	<area coords="190,70,249,129" href="16/16ff19.rle" />
+	<area coords="250,70,309,129" href="16/16ff21.rle" />
+	<area coords="310,70,369,129" href="16/16pxbe.rle" />
+	<area coords="370,70,429,129" href="16/16ff23.rle" />
+	<area coords="430,70,489,129" href="17/17ff3.rle" />
+	<area coords="490,70,549,129" href="17/17ff6.rle" />
+	<area coords="550,70,620,129" href="17/17ff7.rle" />
+	<area coords="0,130,69,189" href="17/17ff10.rle" />
+	<area coords="70,130,129,189" href="17/17ff5.rle" />
+	<area coords="130,130,189,189" href="17/17ff2.rle" />
+	<area coords="190,130,249,189" href="17/17lqd.rle" />
+	<area coords="250,130,309,189" href="17/17ff12.rle" />
+	<area coords="310,130,369,189" href="17/17ff20.rle" />
+	<area coords="370,130,429,189" href="17/17ff4.rle" />
+	<area coords="430,130,489,189" href="17/17ff9.rle" />
+	<area coords="490,130,549,189" href="17/17ff8.rle" />
+	<area coords="550,130,620,189" href="17/17ff11.rle" />
+	<area coords="0,190,69,249" href="17/17ff17.rle" />
+	<area coords="70,190,129,249" href="17/17ff22.rle" />
+	<area coords="130,190,189,249" href="17/17ff16.rle" />
+	<area coords="190,190,249,249" href="17/17ff21.rle" />
+	<area coords="250,190,309,249" href="17/17ff25.rle" />
+	<area coords="310,190,369,249" href="17/17ff13.rle" />
+	<area coords="370,190,429,249" href="17/17ff14.rle" />
+	<area coords="430,190,489,249" href="17/17ff18.rle" />
+	<area coords="490,190,549,249" href="17/17ff15.rle" />
+	<area coords="550,190,620,249" href="17/17ff19.rle" />
+	<area coords="0,250,69,320" href="17/17ff23.rle" />
+	<area coords="70,250,129,320" href="17/17ff26.rle" />
+	<area coords="130,250,189,320" href="17/17ff29.rle" />
+	<area coords="190,250,249,320" href="17/17ff30.rle" />
+	<area coords="250,250,309,320" href="17/17ff32.rle" />
+	<area coords="310,250,369,320" href="17/17ff31.rle" />
+	<area coords="370,250,620,320" nohref="nohref" />
+</map>
+
+<hr />
+<hr />
+<a name="nat-p2"></a>
+<h2>The top 41 <a class="i" href="natural.htm">naturally-occurring</a>
+period 2 oscillators</h2>
+<p><a class="p" href="stamp/nat-p2.rle"><img src="map/nat-p2.png"
+ alt="natural period 2 oscillators"
+ width="561" height="321" usemap="#nat-p2" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/3bl.rle">
+	    Blinker [2] (3.038)</a></td>
+	<td><a class="p" href="0/6td.rle">
+	    Toad [3] (373.6)</a></td>
+	<td><a class="p" href="0/6bc.rle">
+	    Beacon [3] (1221)</a></td>
+	<td><a class="p" href="0/6ck.rle">
+	    Clock [4] (1.7e6)</a></td>
+	<td><a class="p" href="0/8bp.rle">
+	    Bipole [5] (7.5e6)</a></td>
+	<td><a class="p" href="10/10qp.rle">
+	    Quad- pole [6] (8.2e6)</a></td>
+	<td><a class="p" href="18/18cavtl2.rle">
+	    Great on-off [5] (1.2e7)</a></td>
+	<td><a class="p" href="18/18sc.rle">
+	    Spark coil [4] (3.6e7)</a></td>
+	<td><a class="p" href="16/16qpsh.rle">
+	    Quadpole tie ship [7] (1.1e8)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/9tp.rle">
+	    Tripole [7] (2.1e8)</a></td>
+	<td><a class="p" href="16/16bcdk1.rle">
+	    Up beacon on dock; Cis- beacon and dock [7] (7.0e8)</a></td>
+	<td><a class="p" href="12/12bcta1.rle">
+	    Up beacon on table; Cis- beacon and table [6] (9.0e8)</a></td>
+	<td><a class="p" href="12/12bcta2.rle">
+	    Down beacon on table; Trans- beacon and table [6] (9.3e8)</a></td>
+	<td><a class="p" href="19/19bcan1.rle">
+	    Up beacon on up anvil; Cis- beacon and anvil [7] (1.1e9)</a></td>
+	<td><a class="p" href="14/14ttb.rle">
+	    Test tube baby [6] (1.3e9)</a></td>
+	<td><a class="p" href="16/16ttbtt.rle">
+	    Test tube baby w/ two tubs; Tub test tube baby [8] (2.4e9)</a></td>
+	<td><a class="p" href="16/16bcdk2.rle">
+	    Down beacon on dock; Trans- beacon and dock [7] (2.5e9)</a></td>
+	<td><a class="p" href="14/14bcle1.rle">Up beacon on up long bookend;
+	    Cis- beacon up and long hook [6] (3.0e9)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="14/14bcct1.rle">
+	    Up beacon on cap; Cis- beacon and cap [6] (3.3e9)</a></td>
+	<td><a class="p" href="18/18pvtatf.rle">
+	    1beacon [10] (3.3e9)</a></td>
+	<td><a class="p" href="21/21bcdkcg.rle">
+	    Up beacon on down dock w/ down mango [6] (3.6e9)</a></td>
+	<td><a class="p" href="14/14bcle3.rle">Up beacon on down long bookend;
+	    Cis- beacon down and long hook [6] (3.9e9)</a></td>
+	<td><a class="p" href="15/15dtbk.rle">Block on griddle;
+	    Griddle and block; Singular flip- flop [12] (7.2e9)</a></td>
+	<td><a class="p" href="23/23scbt.rle">
+	    Spark coil tie boat; Boat on spark coil [5] (7.2e9)</a></td>
+	<td><a class="p" href="16/16pvtatl.rle">
+	    Pre- block on very long table w/ tail [11] (8.4e9)</a></td>
+	<td><a class="p" href="24/24fb.rle">
+	    Fore and back; Complem- entary blinker [20] (8.4e9)</a></td>
+	<td><a class="p" href="14/14bcle2.rle">Down beacon on up long bookend;
+	    Trans- beacon up and long hook [6] (1.0e10)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="17/17dthv.rle">Beehive on griddle;
+	    Griddle and beehive [10] (1.3e10)</a></td>
+	<td><a class="p" href="14/14bpsh.rle">
+	    Bipole tie ship; Bipole on ship [8] (1.7e10)</a></td>
+	<td><a class="p" href="15/15qpbt.rle">
+	    Quad- pole tie boat; Quad- pole on boat [7] (1.7e10)</a></td>
+	<td><a class="p" href="17/17bcbta2.rle">
+	    Down beacon on up bookend siamese table [10] (1.7e10)</a></td>
+	<td><a class="p" href="20/20pvtatc.rle">Pre- block
+	    on very long table w/ tail and curl [10] (1.7e10)</a></td>
+	<td><a class="p" href="14/14bcct2.rle">
+	    Down beacon on cap; Trans- beacon and cap [8] (2.5e10)</a></td>
+	<td><a class="p" href="14/14bcle4.rle">Down beacon on down long bookend;
+	    Trans- beacon down and long hook [6] (2.5e10)</a></td>
+	<td><a class="p" href="14/14bccv.rle">
+	    Beacon w/ cover [9] (2.5e10)</a></td>
+	<td><a class="p" href="14/14cav.rle">
+	    Cavity; Eater plug [8] (2.5e10)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="15/15ttbtb.rle">
+	    Test tube baby w/ tub; Odd test tube baby [9] (2.5e10)</a></td>
+	<td><a class="p" href="16/16dtbt.rle">
+	    Boat on griddle; Griddle and boat [13] (2.5e10)</a></td>
+	<td class="y"><a class="p" href="18/18pvtatt.rle">Pre- block
+	    on very long table w/ tail siamese tail [29] (2.5e10)</a></td>
+	<td><a class="p" href="18/18pvtath.rle">Pre- block
+	    on very long table w/ tail and head [14] (2.5e10)</a></td>
+	<td><a class="p" href="20/20pvtafc.rle">Pre- block
+	    on very long table w/ feather and curl [9] (2.5e10)</a></td>
+	<td colspan="4" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="nat-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/nat-p2.zip" />
+	<area coords="541,301,560,320" href="stamp/nat-p2.rle" />
+	<area coords="0,0,69,69" href="0/3bl.rle" />
+	<area coords="70,0,129,69" href="0/6td.rle" />
+	<area coords="130,0,189,69" href="0/6bc.rle" />
+	<area coords="190,0,249,69" href="0/6ck.rle" />
+	<area coords="250,0,309,69" href="0/8bp.rle" />
+	<area coords="310,0,369,69" href="10/10qp.rle" />
+	<area coords="370,0,429,69" href="18/18cavtl2.rle" />
+	<area coords="430,0,489,69" href="18/18sc.rle" />
+	<area coords="490,0,560,69" href="16/16qpsh.rle" />
+	<area coords="0,70,69,129" href="0/9tp.rle" />
+	<area coords="70,70,129,129" href="16/16bcdk1.rle" />
+	<area coords="130,70,189,129" href="12/12bcta1.rle" />
+	<area coords="190,70,249,129" href="12/12bcta2.rle" />
+	<area coords="250,70,309,129" href="19/19bcan1.rle" />
+	<area coords="310,70,369,129" href="14/14ttb.rle" />
+	<area coords="370,70,429,129" href="16/16ttbtt.rle" />
+	<area coords="430,70,489,129" href="16/16bcdk2.rle" />
+	<area coords="490,70,560,129" href="14/14bcle1.rle" />
+	<area coords="0,130,69,189" href="14/14bcct1.rle" />
+	<area coords="70,130,129,189" href="18/18pvtatf.rle" />
+	<area coords="130,130,189,189" href="21/21bcdkcg.rle" />
+	<area coords="190,130,249,189" href="14/14bcle3.rle" />
+	<area coords="250,130,309,189" href="15/15dtbk.rle" />
+	<area coords="310,130,369,189" href="23/23scbt.rle" />
+	<area coords="370,130,429,189" href="16/16pvtatl.rle" />
+	<area coords="430,130,489,189" href="24/24fb.rle" />
+	<area coords="490,130,560,189" href="14/14bcle2.rle" />
+	<area coords="0,190,69,249" href="17/17dthv.rle" />
+	<area coords="70,190,129,249" href="14/14bpsh.rle" />
+	<area coords="130,190,189,249" href="15/15qpbt.rle" />
+	<area coords="190,190,249,249" href="17/17bcbta2.rle" />
+	<area coords="250,190,309,249" href="20/20pvtatc.rle" />
+	<area coords="310,190,369,249" href="14/14bcct2.rle" />
+	<area coords="370,190,429,249" href="14/14bcle4.rle" />
+	<area coords="430,190,489,249" href="14/14bccv.rle" />
+	<area coords="490,190,560,249" href="14/14cav.rle" />
+	<area coords="0,250,69,320" href="15/15ttbtb.rle" />
+	<area coords="70,250,129,320" href="16/16dtbt.rle" />
+	<area coords="130,250,189,320" href="18/18pvtatt.rle" />
+	<area coords="190,250,249,320" href="18/18pvtath.rle" />
+	<area coords="250,250,309,320" href="20/20pvtafc.rle" />
+	<area coords="310,250,560,320" nohref="nohref" />
+</map>
+
+<hr />
+<hr />
+<a name="meth-p2"></a>
+<h2>8 <a class="i" href="meth.htm">methuselahs</a> whose censuses are
+period 2</h2>
+<p><a class="p" href="stamp/meth-p2.rle"><img src="map/meth-p2.png"
+ alt="P2 methuselahs"
+ width="621" height="61" usemap="#meth-p2" /></a><br />
+    <table width="625">
+    <colgroup><col width="87" /><col span="6" width="76" /><col width="80" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/5ph.rle">Pi Heptomino (@2);
+	    Blasting cap (@2); House (@5) [2]</a></td>
+	<td><a class="p" href="0/6tm.rle">
+	    Thompson's 6-bit methuselah [6]</a></td>
+	<td><a class="p" href="0/6be.rle">
+	    Century (@1); Bookend (@2); Hook (@2); Kidney (@2) [3]</a></td>
+	<td><a class="p" href="0/6tbd.rle">Thunder- bird (@1) [4]</a></td>
+	<td><a class="p" href="0/7oo.rle">(2 glider) Octomino (@4) [2]</a></td>
+	<td><a class="p" href="0/7dv.rle">
+	    Dove (@1); R-mango (@1) [3]</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Pike; Pi heptomino and block (@3) [3]</a></td>
+	<td><a class="p" href="10/10gm.rle">Two-glider mess [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/55ph.rle">
+	    2 Ponds, 6 blocks, 5 blinkers (@175)</a></td>
+	<td><a class="p" href="0/6tm.rle">
+	    Loaf, 6 blocks and 12 blinkers (@608)</a></td>
+	<td><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (@103)</a></td>
+	<td><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (@244)</a></td>
+	<td><a class="p" href="lg/48oo.rle">
+	    2 Traffic lights and 4 beehives (@388)</a></td>
+	<td><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (@201)</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Toad, 9 beehives, 2 boats, 7 blocks, 9 blinkers (@991)</a></td>
+	<td><a class="p" href="10/10gm.rle">
+	    Ship, beehive, 4 blocks, 8 blinkers, 4 gliders (@530)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/meth-p2.zip" />
+	<area coords="601,41,620,60" href="stamp/meth-p2.rle" />
+	<area coords="0,0,85,60" href="0/5ph.rle" />
+	<area coords="86,0,161,60" href="0/6tm.rle" />
+	<area coords="162,0,237,60" href="0/6be.rle" />
+	<area coords="238,0,313,60" href="0/6tbd.rle" />
+	<area coords="314,0,389,60" href="0/7oo.rle" />
+	<area coords="390,0,465,60" href="0/7dv.rle" />
+	<area coords="466,0,541,60" href="0/8pk.rle" />
+	<area coords="542,0,620,60" href="10/10gm.rle" />
+</map>
+
+<p>These all have a period of 2 because of blinkers (and also, in Pike, a toad).</p>
+<hr />
+<hr />
+<a name="p2-bad"></a>
+<h2>1 <a class="i" href="bits-bad.htm">Not quite</a>
+period 2 oscillator</h2>
+<p><a class="p" href="stamp/p2-bad.rle"><img src="map/p2-bad.png"
+ alt="bad P2" width="81" height="61" usemap="#p2-bad" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="13/13bcet.rle">
+	    Eater tie beacon [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-bad.zip" />
+	<area coords="61,41,80,60" href="stamp/p2-bad.rle" />
+	<area coords="0,0,80,60" href="13/13bcet.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="pp2.htm">period-2 pseudo-oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	2,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

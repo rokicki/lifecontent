@@ -1,0 +1,30 @@
+#N 15-54.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:31 2015
+x = 159, y = 132, rule = B3/S23
+95bobo$95boo$86bo9bo42bo$87boo50bobo$86boo51boo$135bobo$136boo$136bo7b
+o$72bxx18boo18bxx18boo8boo8bxx3bxx$73bx19bo8bo6bxbxbx15bobobo5boobboo
+4bxbxbxbbxbx$52boo19bxbx17bobo5bo7bxxbbxbxx12boobboboobbobo7bxxbbxbx$
+53boo19bxx18boo5b3o9bxxbx16boobobbo13bxx$52bo3boo27boo$56bobo27boo10b
+3o$56bo28bo12bo$99bo5$133bo$131bobobbo$132boobbobo$136boo$49bo90b3o$
+47bobo5bo84bo$48boo3boo86bo15bxx$54boo102bx$57boo13bxx18boo18bxxbxx15b
+ooboo15bxxb3x$57bobo9bxbxbx15bobobobboo11bxbxbxbxbx11bobobobobo11bxbxb
+xbx$47boo8bo11bxx18boo4boo12bxx5bx12boo5bo5bo6bxx$46bobo48bo43boo$48bo
+92bobo6$126bo$127bo$125b3o7bo$129bo4bo$129bobobb3o$129boo$$43bo$37boo
+4bobo$38bo4boo92bo$32boob3o24bxxbxx15booboo15bxxbxx15booboo9boo14bxx$
+29bobobobo23bxbxbxbx13bobobobo13bxbxbxbx13bobobobo10bobo10bxbxbx$29boo
+15bo12bxxbbxbx13boobbobo13bxxbbxbx13boobbobo23bxxbbxbxx$46bobo14bxx18b
+oo18bxx18boo28bxxbx$46boo85b3o$43boo88bo$37boo3boo61bxx18boo7bo$37bobo
+4bo40b3o17bxx18boo$37bo47bo$86bo$30boo50b3o$31boo51bo48b3o$30bo52bo49b
+o$134bo$$123boo$124boo$123bo4$136bo$134boo$135boo$$129bo$122bo4bobo$7b
+obo113boo3boo$8boo112boo$8bo64bobo43boo$27bxx10bo7boo18bxx5boo11boo18b
+xx9bobo16boo13bxx3bxx$26bxbx11boo4bobo11bx5bxbx5bo5bo5bobo17bxbx11bo
+15bobo12bxbxbbxbx$23bxbx13boobbobo13bxbxbxbx13bobobobo15bxbxbx25bobobo
+15bxbxbx$23bxx18boo15bxxbxx15booboo14b3xbxx24b3oboo15bxxbxx$98bx23boo
+4bo$75bo22bxx21bobo4boo$9boobboo61bo46bo$8boboboo60b3o$10bo3bo64boo$
+78bobobboo$80bobbobo$83bo$$boo$obo$bbo11$83bo$81boo$82boo$$72bo$33bo
+39bo$32bo38b3o$32b3o89bo$30bo91bobo$31bo91boo$29b3o18bxx28boo$50bxx20b
+o7boo$73bo$71b3o$32boo3boo13bxx3bxx23boo3boo11bxbxx3bxx21boboo3boo13b
+xx3bxx$31bobobbobo12bxbxbbxbx22bobobbobo11bxxbxbbxbx21boobobbobo10bxbx
+bxbbxbx$31bobobo15bxbxbx12bobo10bobobo17bxbx27bobo13bxxbbxbx$30booboo
+15bxxbxx14boo9booboo18bxx15bo12boo18bxx$69bo51boo$120boo$$127boo$76boo
+44b3oboo$70b3obbobo46bo3bo$72bo4bo45bo$71bo7b3o$79bo$80bo!

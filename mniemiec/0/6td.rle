@@ -1,0 +1,40 @@
+#N 6td.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:03:01 2015
+x = 193, y = 222, rule = B3/S23
+169bo$167bobo$128bo39boo$126bobo$127boo41bo$170bobo$170boo$48bo$6bo22b
+3x14bobo20b3x15bobo19b3x12bo24b3x37b3x$7bo22b3x14boo21b3x15boobboo16b
+3x12bo24b3x37b3x$5b3o3boo38bo36bo3bobo28b3obboo40bo$10boo37boo41bo34bo
+bo40boo$12bo37boo33b3o41bo39bobo$5boo78bo$4bobo43boo34bo$6bo44boo$50bo
+7$87bo$88boo41bo$87boo40boo$10bo119boo$8bobo40bo73bobo$5boobboobb3o13b
+3x18bo18b3x13b3o21b3x14boo21b3x37b3x$4bobo6bo16b3x17b3o17b3x14bo22b3x
+13bo23b3x16bo20b3x$6bo7bo30bo40bo82bobo$43boo91boo31boo$44boo89boo$
+137bo28bobo$82boo83boo$43b3o35bobo78boo3bo$43bo39bo77bobo$44bo118bo4$
+165bo$165bobo$165boo$163bo$164bo$45bo39bo39bo36b3o$o3bo40boobboo34boo
+bboo34boobboo$boobobo22b3x12bobobbobo17b3x12bobobbobo17b3x12bobobbobo
+17b3x13bobo21b3x$oobboo24b3x16bo20b3x16bo20b3x16bo20b3x12boo23b3x$17bo
+148bo$16boo$16bobo6$46bo39boo48boo$46boo37bobo48bobo$45bobo39bo48bo$
+21bobo$21boo$22bo$4bo125bo36bo$bboo85bo38bobo37bobbo$3boo84bobo37boo
+35b3obbobo$51bo37boo35bo44boo$29b3x17boo18b3x22bo14b3x14boo6bobo12b3x
+37b3x$bboo26b3x17boo18b3x14boo3boo16b3x12bobo6boo14b3x37b3x$boo83bobo
+4boo40bo33boo$3bo42boo40bo42boo35bobobb3o$45bobo83bobo36bobbo$47bo3bo
+79bo42bo$49boo$50boo5$132bo$133bo$131b3o$$131bo$131boo$130bobo$168b4o$
+29b3x37b3x37b3x37b3x15bo3bo4bo12b3x$30b3x37b3x37b3x37b3x18bobboo14b3x$
+167bobbo4boo$9bo39bo39bo$8bo39bo39bo$8b3o37b3o37b3o$$6boo38boo38boo$5b
+obo37bobo37bobo51boo$7bo39bo39bo50boo$140bo5$79boo49bo$78bobo50boo$41b
+oo37bo49boo$42boo$13bo27bo91bo34b4o$12boo118b3o14b3x15bo3bo17b3x$12bob
+o116boobo15b3x18bobboo14b3x$131b3o33bobbo3boo$131b3o$131b3o$132boo7$
+129bo43bo$89bo40boo39boo$52bo37bo38boo41boo$52bobo33b3o42bo35bo$52boo
+78bo37bo$49bo41bobo38b3o33b3o$50boo39boo$49boo41bo$29b3x37b3x37b3x37b
+3x37b3x$30b3x37b3x37b3x37b3x37b3x$89bo$9bo79boo$8bo79bobo36b3o41b3o$8b
+3o118bo41bo$91b3o34bo43bo$6boo83bo39boo35boo$5bobo84bo37boo37boo$7bo
+124bo35bo6$43bo$43boo$42bobo$10b3o$10bo$11bo5$126bo$126bobo$126boo$
+166bo$167boo4bo$166boo6bo$106boo64b3o$102boobbobo$71bo29bobobbo54bo5bo
+$72bo19bx10bo28bo19bx9boo4bo3bo5bo$70b3o18bxbx37bobo17bxbx7boo3b3obbob
+obboo$27bo63bxbx37bobo17bxbx17bobo3boo$28bo38b3o22bx39bo11bx7bx4boo5bo
+7bo$26b3o40bo73bxbx12boo3bobo$68bo74bxbbx10bo5bobbo$24boo118bxx18boo
+23b3x$23bobo24b3x17b3o17b3x37b3o17b3x17b3o17b3x$25bo$163boo$162bobo$
+164bo3$161boo$160bobo$162bo11$174bo$173bo$133boo38b3o$132boo$128bobo3b
+o16byy18boo$129boo20byy18boo$129bo12bo$142bobo$142boo8$92bobo$93boo48b
+obo$93bo49boo$95bo13bxxbx16boobo11bo4b3x17b3o17b3x$90boobbo14bxbxx16bo
+boo17b3x17b3o17b3x$89boo3b3o$91bo$86boo$87boo$86bo$$138bo$137boo$137bo
+bo$129boo$130boo$129bo!

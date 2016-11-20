@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-60 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-60 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 60 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-60 Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p60-24">24</a> |
+	  <a class="j" href="#p60-lg">Larger</a><br />
+	<b><a class="j" href="#meth-p60">Methuselahs with P60 censuses</a></b>
+</p>
+
+<hr />
+<hr />
+<a name="p60-24"></a>
+<h2>The 1 <a class="i" href="bits-24.htm">24-bit</a>
+period 60 oscillator</h2>
+<p><a class="p" href="stamp/p60-24.rle"><img src="map/p60-24.png"
+ alt="24-bit P60"
+ width="101" height="81" usemap="#p60-24" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="24/24pcmd.rle">
+	    Penta- decathlon and mold sharing sparks [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p60-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/p60-24.zip" />
+	<area coords="81,61,100,80" href="stamp/p60-24.rle" />
+	<area coords="0,0,100,80" href="24/24pcmd.rle" />
+</map>
+
+<hr />
+<a name="p60-lg"></a>
+<h2>7 period 60 oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/p60-lg.rle"><img src="map/p60-lg.png"
+ alt="period 60 oscillators"
+ width="581" height="221" usemap="#p60-lg" /></a><br />
+    <table width="585">
+    <colgroup><col width="171" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/29pc2gl.rle">
+	    Two pentadecathlons shuttling glider [7]</a></td>
+	<td><a class="p" href="lg/30pc2td1.rle">
+	    Toad flipped by 2 penta- decathlons #1 [10]</a></td>
+	<td><a class="p" href="lg/30pc2td3.rle">
+	    Toad sucked by 2 penta- decathlons #1 [10]</a></td>
+	<td><a class="p" href="lg/30pc2td4.rle">
+	    Toad sucked by 2 penta- decathlons #2 [10]</a></td>
+	<td><a class="p" href="lg/30pc2td2.rle">
+	    Toad flipped by 2 penta- decathlons #2 [10]</a></td>
+	<td><a class="p" href="lg/30pc2td5.rle">
+	    Toad sucked by 2 penta- decathlons #3 [10]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/56td8pu.rle">
+	    Twirling T-tetsons; 8 toads spinning a pulsar [40]</a></td>
+	<td colspan="5" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p60-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p60-lg.zip" />
+	<area coords="561,201,580,220" href="stamp/p60-lg.rle" />
+	<area coords="0,0,169,89" href="lg/29pc2gl.rle" />
+	<area coords="170,0,249,89" href="lg/30pc2td1.rle" />
+	<area coords="250,0,329,89" href="lg/30pc2td3.rle" />
+	<area coords="330,0,409,89" href="lg/30pc2td4.rle" />
+	<area coords="410,0,489,89" href="lg/30pc2td2.rle" />
+	<area coords="490,0,580,89" href="lg/30pc2td5.rle" />
+	<area coords="0,90,169,220" href="lg/56td8pu.rle" />
+	<area coords="170,90,580,220" nohref="nohref" />
+</map>
+
+<p>(See notes under <a class="i" href="p2.htm#p2-6">Toad</a>
+for details about toad-flipper and toad-sucker oscillators.)</p>
+
+<hr />
+<hr />
+<a name="meth-p60"></a>
+<h2>1 <a class="i" href="meth.htm">methuselah</a> whose census is
+period 60</h2>
+<p><a class="p" href="stamp/meth-p60.rle"><img src="map/meth-p60.png"
+ alt="P60 methuselah"
+ width="121" height="61" usemap="#meth-p60" /></a><br />
+    <table width="125">
+    <colgroup><col width="123" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8cm.rle">
+	    Glider- mango collision (@-4), Glider- mango mess, Pi heptomino and
+	    block (@3) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/440cm.rle">
+	    Penta- decathlon, pond, 6 loaves, toad, 18 beehives, ship, 12 boats,
+	    tub, 30 blocks, 18 blinkers, 4 gliders (@2585)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-p60">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="101,0,120,19" href="zip/meth-p60.zip" />
+	<area coords="101,41,120,60" href="stamp/meth-p60.rle" />
+	<area coords="0,0,120,60" href="0/8cm.rle" />
+</map>
+
+<p>This has a pseudo-period of 60, a composite of 4 and 15, because of gliders
+and a pentadecathlon.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="pp60.htm">period-60 pseudo-oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	60,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

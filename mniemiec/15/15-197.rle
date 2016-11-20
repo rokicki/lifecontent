@@ -1,0 +1,31 @@
+#N 15-197.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:37 2015
+x = 153, y = 144, rule = B3/S23
+93bo$92bo$92b3o5bo$98boo$89bo9boo$87boo$85bobboo$83bobo$84boo25bx19bo
+19bx$110bxbx17bobo17bxbx$110bxx18boo18bxx$81bo13bobo10bxx18boo18bxx$
+82boo11boo5b3o4bx19bo19bx$81boo13bo5bo5bx19bo19bx$103bo4bxbx17bobo17bx
+bx$109bxbx17bobo17bxbx$110bx19bo19bxx$$136boo$132bobboo$132boo3bo$85b
+oo44bobo$84bobo$86bo14$122bo$123bo$121b3o3bo$46bobo76boo$46boo70b3o5b
+oo20bxx$47bo40bo3bobo25bo28bx$8bobo34bo23bx19booboo15bx9bo9bo18bx$9boo
+19bx15bo3bo17bxbx17boo3bo14bxbx17bobo17bxbx$9bo19bxbx12b3obbobo17bxbx
+37bxbx17bobo17bxbx$30bxx18boo18bxx19boo17bxx18boo18bxx$9b3o78bobo$9bo
+82bo$10bo13$98bo$4bo92bo$3bo93b3o$3b3o$96bo$obo84bobo5boo$boo5bo74bo3b
+oo6bobo13bx19bo19bx$bo6bobo35bo36boo3bo21bxbx17bobo17bxbx$8boo34bobo
+35bobo25bxx18boo18bxx$45boo3bo41b3o9byybbxx14boobboo18bxx$bbobo22bxx
+19boo17bxx18boo3bo10byby3bx13bobo3bo19bx$3boo23bx20boo4boo11bx13bo5bo
+4bo10by3bx15bo3bo19bx$3bo6bo17bxbx24bobo10bxbx11boo4bobo17bxbx10boo5bo
+bo17bxbx$9bobo17bxbx23bo13bxbx9bobo5bobo17bxbx8bobo6bobo17bxbx$10boo
+18bxx38bxx18boo18bxx10bo7boo18bxx$52bo$51boo$51bobo3$44bo$45boo$44boo
+$$50bo$50bobo$50boo$47bo$48boo$12bo34boo$12bobo$12boo31bo$46bo8bo$4bob
+o37b3o6boo$5boo47boo$5bo85bobo27bo$10bo60bx19boo18bx10boo7bo19bx$8bobo
+59bxbx19bo17bxbx8boo7bobo17bxbx$9boo59bxx38bxx18boo6bo11bxx$12bo15bxx
+11bo6boo18bxx20b3o44bo10bxx$12bobo14bx11boo6bo7boo10bx22bo44b3o7bxbx$
+12boo14bx11bobo5bo7boo10bx22bo49b3o4bx$17bo10bxbx17bobo7bo9bxbx70bo$
+16boo11bxbx17bobo17bxbx52boo16bo$16bobo11bxx18boo18bxx53boo6b3o$124bo
+8bo$134bo$$131boo$130boo$132bo$128boo$127bobo$129bo3boo$132boo$134bo
+11$11bo19bx19bo19bx19bo19bx$10bobo17bxbx11bo5bobo17bxbx17bobo17bxbx$
+10boo18bxx10bobo5boo18bxx18boo18bxx$8boo18bxx13boo3boo18bxx18boo18bxx$
+7bobo17bxbx17bobo19bx19bo19bx$8bo17bxbx17bobo19bx19bo19bx$3bo23bx19bo
+20bxx18boo18bxbx$4boo44bobo30bo13bo11bxbx$3boobboo41boo32boo6boobbo13b
+x$6bobo42bo31boo6boo3b3o$8bo84bo6b3o$52boo31bo14bo$51bobo31boo8boo4bo$
+53bo30bobo4boobbobo$92boobo$91bo!

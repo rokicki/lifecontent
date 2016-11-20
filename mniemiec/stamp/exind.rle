@@ -1,0 +1,9 @@
+#N exind.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 01:57:56 2015
+x = 140, y = 20, rule = B3/S23
+5$5bxx13bxx13bxxbx11bxxboo13bxx13bx14bxx10bxx15bxx$5bx15bx13bxbxx11bxx
+bo14bx13bxbx13bxx10bxx15bxx$8bx11bx32bo16bx12bx$7bxx11bxx14b3o11b3o12b
+xxbbxx25b4o10b4o11b4o$23boo10bobbo11bo14bxbbx12b5o9bo4bo9bo3bo10bo3bo$
+5b4o11b3obo10boo30bxxb3o7bobbobbo8boo3bo12boo13bo$5bobbo11bo49bobbo6b
+oo3boo12bo28bo$70bobbo26b3o12boo10bo$71boo29bo12bo10bobo$116b3o8bo$
+118bo!

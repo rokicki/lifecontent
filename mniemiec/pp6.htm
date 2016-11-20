@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-6 Pseudo-Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-6 pseudo-oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 6 pseudo oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-6 Pseudo-Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#pp6-19">19</a> |
+	  <a class="j" href="#pp6-20">20</a> |
+	  <a class="j" href="#pp6-21">21</a> |
+	  <a class="j" href="#pp6-22">22</a> |
+	  <a class="j" href="#pp6-23">23</a> |
+	  <a class="j" href="#pp6-24">24</a> |
+	  <a class="j" href="#pp6-25">25</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#gu-pp6">unknown</a>
+</p>
+
+<hr />
+<hr />
+<a name="pp6-19"></a>
+<h2>The 4 <a class="i" href="bits-19.htm">nineteen-bit</a>
+period 6 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp6-19.rle"><img src="map/pp6-19.png"
+ alt="19-bit P6 pseudo-oscillators"
+ width="341" height="81" usemap="#pp6-19" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19jmbc1.rle">
+	    Up beacon on jam [11]</a></td>
+	<td><a class="p" href="19/19jmbc3.rle">
+	    Up beacon below jam [11]</a></td>
+	<td><a class="p" href="19/19jmbc2.rle">
+	    Down beacon on jam [11]</a></td>
+	<td><a class="p" href="19/19jmbc4.rle">
+	    Down beacon below jam [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp6-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/pp6-19.zip" />
+	<area coords="321,61,340,80" href="stamp/pp6-19.rle" />
+	<area coords="0,0,89,80" href="19/19jmbc1.rle" />
+	<area coords="90,0,169,80" href="19/19jmbc3.rle" />
+	<area coords="170,0,249,80" href="19/19jmbc2.rle" />
+	<area coords="250,0,340,80" href="19/19jmbc4.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="pp6-20"></a>
+<h2>The 3 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 6 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp6-20.rle"><img src="map/pp6-20.png"
+ alt="20-bit pseudo-P6" width="261" height="81" usemap="#pp6-20" /></a><br />
+    <table width="265">
+    <colgroup><col width="91" /><col width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20uxbk.rle">
+	    Block on unix [7]</a></td>
+	<td><a class="p" href="20/20eetbc2.rle">
+	    Down beacon on eater eating eater [12]</a></td>
+	<td><a class="p" href="20/20eetbc1.rle">
+	    Up beacon on eater eating eater [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp6-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/pp6-20.zip" />
+	<area coords="241,61,260,80" href="stamp/pp6-20.rle" />
+	<area coords="0,0,89,80" href="20/20uxbk.rle" />
+	<area coords="90,0,169,80" href="20/20eetbc2.rle" />
+	<area coords="170,0,260,80" href="20/20eetbc1.rle" />
+</map>
+
+<p>All of these except block on unix have a pseudo-period of 6, a composite
+of 2 and 3.</p>
+
+<hr />
+<a name="pp6-21"></a>
+<h2>The 6 <a class="i" href="bits-21.htm">21-bit</a>
+period 6 pseudo-oscillators</h2>
+<p><a class="p" href="stamp/pp6-21.rle"><img src="map/pp6-21.png"
+ alt="21-bit pseudo-P6" width="501" height="81" usemap="#pp6-21" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21jmbp1.rle">
+	    Up bipole on jam [13]</a></td>
+	<td><a class="p" href="21/21jmbp3.rle">
+	    Up bipole below jam [13]</a></td>
+	<td><a class="p" href="21/21uxbt2.rle">
+	    Down boat on unix [8]</a></td>
+	<td><a class="p" href="21/21uxbt1.rle">
+	    Up boat on unix [8]</a></td>
+	<td><a class="p" href="21/21jmbp2.rle">
+	    Down bipole on jam [13]</a></td>
+	<td><a class="p" href="21/21jmbp4.rle">
+	    Down bipole below jam [13]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp6-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp6-21.zip" />
+	<area coords="481,61,500,80" href="stamp/pp1-21.rle" />
+	<area coords="0,0,89,80" href="21/21jmbp1.rle" />
+	<area coords="90,0,169,80" href="21/21jmbp3.rle" />
+	<area coords="170,0,249,80" href="21/21uxbt2.rle" />
+	<area coords="250,0,329,80" href="21/21uxbt1.rle" />
+	<area coords="330,0,409,80" href="21/21jmbp2.rle" />
+	<area coords="410,0,500,80" href="21/21jmbp4.rle" />
+</map>
+
+<p>All of these except the two variants of boat on unix have a pseudo-period of
+6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="pp6-22"></a>
+<h2>The 41 <a class="i" href="bits-22.htm">22-bit</a>
+period 6 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>11 Unix on 6-bit still-life or beacon.</li>
+    <li>16 Beacon and block on candelfrobra.</li>
+    <li>6 Eater eating eater on bipole.</li>
+    <li>2 Eater eating integral on beacon.</li>
+    <li>4 Tripole on jam.</li>
+    <li>2 Beacon on trice tongs.</li>
+</ul></p>
+
+<p>All of these except those involving unix have a pseudo-period of 6,
+a composite of 2 and 3.</p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+<hr />
+<a name="pp6-23"></a>
+<h2>The 74 <a class="i" href="bits-23.htm">23-bit</a>
+period 6 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>14 7-bit still-life on unix.</li>
+    <li>24 Beacon and boat on candelfrobra.</li>
+    <li>8 Period-2 oscillator on eater eating eater (or similar).</li>
+    <li>20 Quadpole or beacon and block on jam.</li>
+    <li>8 Beacon on key on skewed poles.</li>
+</ul></p>
+
+<p>All of these except still-life on unix have a pseudo-period of 6, a composite
+of 2 and 3.</p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+
+<hr />
+<a name="pp6-24"></a>
+<h2>The 336 <a class="i" href="bits-24.htm">24-bit</a>
+period 6 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>33 Unix on 8-bit still-life, bipole or two blocks.</li>
+    <li>210 Bipole and block, beacon and beacon, or beacon and 6-bit
+	still-life on candelfrobra.</li>
+    <li>12 Beacon and block on cuphook.</li>
+    <li>20 Beacon and block on cuphook w/tail.</li>
+    <li>78 10-bit period-2 oscillator on eater eating eater (or similar).</li>
+    <li>28 Pentapole or boat and beacon on jam.</li>
+    <li>2 Bipole on trice tongs.</li>
+    <li>1 Block on blonker.</li>
+    <li>2 Beacon on French kiss.</li>
+    <li>8 Beacon on trans skewed poles (4 with no syntheses).</li>
+</ul></p>
+
+<p>All of these except those involving unix or blonker have a pseudo-period of
+6, a composite of 2 and 3.</p>
+
+<p>All of these are easy to synthesize using standard techniques, except these
+4, for which syntheses are also trivial, but that rely on
+<a class="i" href="glider-u.htm#gu-p6">a predecessor</a>
+for which no synthesis yet exists.</p>
+<p><a class="p" href="stamp/pp6-24.rle"><img src="map/pp6-24.png"
+ alt="24-bit pseudo-P6" width="341" height="81" usemap="#pp6-24" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="24/24spsbc5.rle">
+	    Up beacon on down skewed poles [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc7.rle">
+	    Up beacon below down skewed poles [x+7]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc6.rle">
+	    Down beacon on down skewed poles [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc7.rle">
+	    Down beacon below down skewed poles [x+6]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp6-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/pp6-24.zip" />
+	<area coords="321,61,340,80" href="stamp/pp1-24.rle" />
+	<area coords="0,0,89,80" href="24/24spsbc5.rle" />
+	<area coords="90,0,169,80" href="24/24spsbc7.rle" />
+	<area coords="170,0,249,80" href="24/24spsbc6.rle" />
+	<area coords="250,0,340,80" href="24/24spsbc8.rle" />
+</map>
+
+<hr />
+<a name="pp6-25"></a>
+<h2>The 734 <a class="i" href="bits-25.htm">25-bit</a>
+period 6 pseudo-oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>14 Eater eating eater on pentapole or beacon and boat.</li>
+    <li>4 Eater eating test tube baby on block.</li>
+    <li>14 Eater eating long bookend on block on beacon.</li>
+    <li>6 Eater eating integral w/tub or hook on bipole.</li>
+    <li>76 Eater eating 12-bit still-life on beacon.</li>
+    <li>10 Integral eating integral w/tub or hook on beacon.</li>
+    <li>49 Unix on 9-bit still-life, tripole or block and boat.</li>
+    <li>212 Jam on beacon and six-bit still-lifes, table or beacon.</li>
+    <li>16 Jam on block and bipole.</li>
+    <li>248 Tripole and block, bipole and boat or beacon and 7-bit still-life on
+	candelfrobra.</li>
+    <li>10 Beacon on unusual candelfrobra.</li>
+    <li>10 Beacon and boat on cuphook.</li>
+    <li>16 Beacon and boat on cuphook w/tail.</li>
+    <li>11 Beacon and block on cuphook w/tub.</li>
+    <li>16 Beacon and block on cuphook w/tub and tail.</li>
+    <li>2 Tripole on trice tongs.</li>
+    <li>2 Beacon on trice tongs siamese loaf.</li>
+    <li>8 Bipole on key and skewed pole.</li>
+    <li>2 Boat on blonker.</li>
+    <li>8 Beacon on bowed caterer or fire-spitting (no syntheses).</li>
+</ul></p>
+
+<p>All of these except boat on blonker, and 9-bit still-life or tripole or block
+on boat on unix have a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<p>All of these are easy to synthesize using standard techniques, except these
+8, for which syntheses are also trivial, but that rely on
+<a class="i" href="glider-u.htm#gu-p6">two predecessors</a>
+for which syntheses do not yet exist.</p>
+<p><a class="p" href="stamp/pp6-25.rle"><img src="map/pp6-25.png"
+ alt="25-bit pseudo-P6" width="341" height="141" usemap="#pp6-25" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="25/25bwbc1.rle">
+	    Up beacon on bowed caterer [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc1.rle">
+	    Up beacon on fire spitting [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc2.rle">
+	    Down beacon on bowed caterer [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc3.rle">
+	    Up beacon below bowed caterer [x+12]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="25/25fsbc3.rle">
+	    Up beacon below fire spitting [x+7]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc2.rle">
+	    Down beacon on fire spitting [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc4.rle">
+	    Down beacon below bowed caterer [x+8]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc4.rle">
+	    Down beacon below fire spitting [x+6]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp6-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/pp6-25.zip" />
+	<area coords="321,121,340,140" href="stamp/pp1-25.rle" />
+	<area coords="0,0,89,69" href="25/25bwbc1.rle" />
+	<area coords="90,0,169,69" href="25/25fsbc1.rle" />
+	<area coords="170,0,249,69" href="25/25bwbc2.rle" />
+	<area coords="250,0,340,69" href="25/25bwbc3.rle" />
+	<area coords="0,70,89,140" href="25/25fsbc3.rle" />
+	<area coords="90,70,169,140" href="25/25fsbc2.rle" />
+	<area coords="170,70,249,140" href="25/25bwbc4.rle" />
+	<area coords="250,70,340,140" href="25/25fsbc4.rle" />
+</map>
+
+<hr />
+<a name="gu-pp6"></a>
+<h2>The 12 period 6 pseudo-oscillators up to 25 bits
+<a class="i" href="glider-u.htm">without any known syntheses</a></h2>
+<p>These are all easy to synthesize, but are based on
+<a class="i" href="glider-u.htm#gu-p3">three predecessors</a>
+that do not yet have syntheses.</p>
+<p><a class="p" href="stamp/gu-pp6.rle"><img src="map/gu-pp6.png"
+ alt="unknown P6 pseudo-oscillators"
+ width="501" height="161" usemap="#gu-pp6" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="24/24spsbc5.rle">
+	    Up beacon on down skewed poles [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc7.rle">
+	    Up beacon below down skewed poles [x+7]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc6.rle">
+	    Down beacon on down skewed poles [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24spsbc7.rle">
+	    Down beacon below down skewed poles [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc1.rle">
+	    Up beacon on bowed caterer [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc1.rle">
+	    Up beacon on fire spitting [x+6]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="25/25bwbc2.rle">
+	    Down beacon on bowed caterer [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc3.rle">
+	    Up beacon below bowed caterer [x+12]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc3.rle">
+	    Up beacon below fire spitting [x+7]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc2.rle">
+	    Down beacon on fire spitting [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25bwbc4.rle">
+	    Down beacon below bowed caterer [x+8]</a></td>
+	<td class="r"><a class="p" href="25/25fsbc4.rle">
+	    Down beacon below fire spitting [x+6]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-pp6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/gu-pp6.zip" />
+	<area coords="481,141,500,160" href="stamp/gu-pp6.rle" />
+	<area coords="0,0,89,89" href="24/24spsbc5.rle" />
+	<area coords="90,0,169,89" href="24/24spsbc7.rle" />
+	<area coords="170,0,249,89" href="24/24spsbc6.rle" />
+	<area coords="250,0,329,89" href="24/24spsbc8.rle" />
+	<area coords="330,0,409,89" href="25/25bwbc1.rle" />
+	<area coords="410,0,500,89" href="25/25fsbc1.rle" />
+	<area coords="0,90,89,160" href="25/25bwbc2.rle" />
+	<area coords="90,90,169,160" href="25/25bwbc3.rle" />
+	<area coords="170,90,249,160" href="25/25fsbc3.rle" />
+	<area coords="250,90,329,160" href="25/25fsbc2.rle" />
+	<area coords="330,90,409,160" href="25/25bwbc4.rle" />
+	<area coords="410,90,500,160" href="25/25fsbc4.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="p6.htm">period-6 oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="posc.htm">pseudo-oscillators</a> by period:</b>
+	<a class="i" href="pp2.htm">2</a>,
+	<a class="i" href="pp3.htm">3</a>,
+	<a class="i" href="pp4.htm">4</a>,
+	<a class="i" href="pp5.htm">5</a>,
+	6,
+	<a class="i" href="pp8.htm">8</a>,
+	<a class="i" href="pp10.htm">10</a>,
+	<a class="i" href="pp12.htm">12</a>,
+	<a class="i" href="pp15.htm">15</a>,
+	<a class="i" href="pp30.htm">30</a>,
+	<a class="i" href="pp60.htm">60</a>,
+	<a class="i" href="pperiod.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

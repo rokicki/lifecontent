@@ -1,0 +1,31 @@
+#N 20csl2-o.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:02:54 2015
+x = 141, y = 158, rule = B3/S23
+48bo$49bo33bo$47b3o8bo23bo$59bo22b3o$57b3o4$45bo$43bobo$44boo$$46b3o$
+48bo50bxx18boo18bxx$47bo50bxbx17bobo17bxbx$91bxx4bx13boo4bo13bxx4bx$
+91bxbbxbx14bobbobo14bxbbxbx$42boo49bxxbxbx14boobobo14bxxbxbx$41bobo44b
+y8bxx9bo8boo18bxx$43bo43byby17bobo$87byby17bobo$88by19bo$105boo$104bob
+o$106bo$50boo$51boo$50bo18b3o$69bo$70bo9$60bo46bobo$59bo48boo$59b3o46b
+o4bo$25bo85boo$26boo84boo$25boo22bxx9b3o6boo18bxx13bo14boo18bxx$48bxbx
+11bo5bobo17bxbx11bobo13bobo17bxbx$31bobo13bx13bo5bo19bx15boo12bo13bxx
+4bx$32boo3bo8bx19bo13bxxbxxbx19boobbooboobo14bxbbxbx$32bobboo9bxbx17bo
+bo11bxxbxxbxbx16bobobbooboobobo14bxxbxbx$36boo9bxx11bo6boo18bxx18bo9b
+oo18bxx$60boo$35bo23bobo$34boo$34bobo7$102bo$103bo$101b3o$121bo$96bobo
+21bo$97boo14bo6b3o$97bo13bobo$112boo$$58bobo53bobo$59boo53boo$59bo55bo
+$$57boo72bxx$58boo9boo9bxx7bxx19boo7boo9bxbx6bxx$57bo10bobo9bx7bxbx19b
+o7bobo9bx7bxbx$61boo4bo13bx5bx13boo8bo5bo13bx5bx$61bobbobo15bxbxbx13bo
+bo9bobobo15bxbxbx$63boobobo14bxxbxbx13bo10boobobo14bxxbxbx$67boo18bxx
+28boo18bxx20$38bobo$38boo$39bo77bo$117bobo$40boo9bxx18boo18bxx18boo4b
+oo12bxx$36bobboo9bxbx17bobo5bo4bo6bxbx17bobo17bxbx$36boo3bo8bx19bo5bob
+o4bobo4bx7bx11bo7bo11bx7bx$35bobo13bx19bo5boo4boo6bx5bxbx11bo5bobo11bx
+5bxbx$52bxbx17bobo5boo10bxbxbxbx13bobobobo4boo7bxbxbxbbx$29boo22bxx18b
+oo4boo12bxxbxx15booboo4boo9bxxbxbx$30boo49bo42bo12bx$29bo$77b3o$79bo$
+78bo9$46bo$45bo$41bo3b3o$42boo7bo58bobo$41boo6boo59boo$50boo59bo5$59bo
+bbo26bxx18boo$boo18bxx18boo15bo22bxx7bx10boo7bo4bobo13bxx$obo17bxbx17b
+obo15bo3bo17bxbx6bx10bobo6bo5boo13bxbx6bxx$o7bo11bx7bx11bo7bo9b4o18bx
+7bx11bo7bo7bo13bx7bxbx$bo5bobo11bx5bxbx11bo5bobo31bx5bx13bo5bo23bx5bx$
+bbobobobbo12bxbxbxbbx12bobobobbo32bxbxbx15bobobo11bo13bxbxbx$3boobobo
+14bxxbxbx14boobobo34bxxbxbx14boobobo9bobo12bxxbxbx$7bo19bx19bo39bxx18b
+oo9boo17bxx$$27bx19bo69bo$27bx19bo68boo$27bx19bo68bobo$$10boo39b3o3b3o
+$10bobo37bobbo3bo$10bo42bo4bo$6b3o40bo3bo$8bo40bo3bo$7bo45bo$50bobo5b
+oo$58bobo$58bo3$68boo$67boo$69bo!

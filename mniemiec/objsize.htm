@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Sorted by Size</title>
+<meta name="description"
+content="Conway's Game of Life: Object lists and syntheses sorted by size" />
+<meta name="keywords"
+content="conway game life object list size glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life Objects Sorted by Size</h1>
+
+<p align="center">
+	<a class="j" href="#size">Size</a>
+</p>
+
+<hr /><hr />
+<a name="size"></a>
+<h2>Objects sorted by size</h2>
+<p><ul>
+    <li><b>0-bit: </b><a class="p" href="0/0death.rle">Death</a>.</li>
+    <li><b><a class="i" href="bits-3.htm">3-bit:</a></b>
+	the 1 <a class="i" href="bits-3.htm#p2-3">P2 oscillator</a>.</li>
+    <li><b><a class="i" href="bits-4.htm">4-bit:</a></b>
+	the 2 <a class="i" href="bits-4.htm#p1-4">still-lifes</a>.</li>
+    <li><b><a class="i" href="bits-5.htm">5-bit:</a></b>
+	the 1 <a class="i" href="bits-5.htm#p1-5">still-life</a>,
+	the 1 <a class="i" href="bits-5.htm#ss-5">spaceship</a>,
+	the 4 <a class="i" href="bits-5.htm#meth-5">methuselahs</a>.</li>
+    <li><b><a class="i" href="bits-6.htm">6-bit:</a></b>
+	the 5 <a class="i" href="bits-6.htm#p1-6">still-lifes</a>,
+	the 3 <a class="i" href="bits-6.htm#p2-6">P2 oscillators</a>,
+	2 <a class="i" href="bits-6.htm#cons-6">constellations</a>,
+	7 <a class="i" href="bits-6.htm#meth-6">methuselahs</a>.</li>
+    <li><b><a class="i" href="bits-7.htm">7-bit:</a></b>
+	the 4 <a class="i" href="bits-7.htm#p1-7">still-lifes</a>,
+	4 <a class="i" href="bits-7.htm#meth-7">methuselahs</a>.</li>
+    <li><b><a class="i" href="bits-8.htm">8-bit:</a></b>
+	the 9 <a class="i" href="bits-8.htm#p1-8">still-lifes</a>,
+	the 1 <a class="i" href="bits-8.htm#pp1-8">pseudo-still-life</a>,
+	the 1 <a class="i" href="bits-8.htm#p2-8">P2 oscillator</a>,
+	2 <a class="i" href="bits-8.htm#cons-8">constellations</a>,
+	6 <a class="i" href="bits-8.htm#meth-8">methuselahs</a>.</li>
+    <li><b><a class="i" href="bits-9.htm">9-bit:</a></b>
+	the 10 <a class="i" href="bits-9.htm#p1-9">still-lifes</a>,
+	the 1 <a class="i" href="bits-9.htm#pp1-9">pseudo-still-life</a>,
+	the 1 <a class="i" href="bits-9.htm#p2-9">P2 oscillator</a>,
+	the 1 <a class="i" href="bits-9.htm#ss-9">spaceship</a>,
+	2 <a class="i" href="bits-9.htm#cons-9">constellations</a>,
+	16 <a class="i" href="bits-9.htm#meth-9">methuselah</a>.</li>
+    <li><b><a class="i" href="bits-10.htm">10-bit:</a></b>
+	the 25 <a class="i" href="bits-10.htm#p1-10">still-lifes</a>,
+	the 7 <a class="i" href="bits-10.htm#pp1-10">pseudo-still-lifes</a>,
+	the 1 <a class="i" href="bits-10.htm#p2-10">P2 oscillator</a>,
+	the 1 <a class="i" href="bits-10.htm#pp2-10">P2 pseudo-oscillator</a>,
+	3 <a class="i" href="bits-10.htm#cons-10">constellations</a>,
+	1 <a class="i" href="bits-10.htm#meth-10">methuselah</a>.</li>
+    <li><b><a class="i" href="bits-11.htm">11-bit:</a></b>
+	the 46 <a class="i" href="bits-11.htm#p1-11">still-lifes</a>,
+	the 16 <a class="i" href="bits-11.htm#pp1-11">pseudo-still-lifes</a>,
+	the 1 <a class="i" href="bits-11.htm#p2-11">P2 oscillator</a>,
+	the 2 <a class="i" href="bits-11.htm#pp2-11">P2 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-11.htm#ss-11">spaceship</a>.</li>
+    <li><b><a class="i" href="bits-12.htm">12-bit:</a></b>
+	the 121 <a class="i" href="p1-12.htm">still-lifes</a>,
+	the 55 <a class="i" href="bits-12.htm#pp1-12">pseudo-still-lifes</a>,
+	the 6 <a class="i" href="bits-12.htm#p2-12">P2 oscillators</a>,
+	the 14 <a class="i" href="bits-12.htm#pp2-12">P2 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-12.htm#p3-12">P3 oscillator</a>,
+	the 2 <a class="i" href="bits-12.htm#p4-12">P4 oscillators</a>,
+	the 1 <a class="i" href="bits-12.htm#p8-12">P8 oscillator</a>,
+	the 1 <a class="i" href="bits-12.htm#p15-12">P15 oscillator</a>,
+	6 <a class="i" href="bits-12.htm#cons-12">constellations</a>.</li>
+    <li><b><a class="i" href="bits-13.htm">13-bit:</a></b>
+	the 240 <a class="i" href="p1-13.htm">still-lifes</a>,
+	the 110 <a class="i" href="bits-13.htm#pp1-13">pseudo-still-lifes</a>,
+	the 3 <a class="i" href="bits-13.htm#p2-13">P2 oscillators</a>,
+	the 17 <a class="i" href="bits-13.htm#pp2-13">P2 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-13.htm#p3-13">P3 oscillator</a>,
+	the 1 <a class="i" href="bits-13.htm#ss-13">spaceship</a>.</li>
+    <li><b><a class="i" href="bits-14.htm">14-bit:</a></b>
+	the 619 <a class="i" href="p1-14.htm">still-lifes</a>,
+	the 279 <a class="i" href="pp1-14.htm">pseudo-still-lifes</a>,
+	the 20 <a class="i" href="bits-14.htm#p2-14">P2 oscillators</a>,
+	the 46 <a class="i" href="bits-14.htm#pp2-14">P2 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-14.htm#p3-14">P3 oscillator</a>.</li>
+    <li><b><a class="i" href="bits-15.htm">15-bit:</a></b>
+	the 1353 <a class="i" href="p1-15.htm">still-lifes</a>,
+	the 620 <a class="i" href="pp1-15.htm">pseudo-still-lifes</a>,
+	the 29 <a class="i" href="bits-15.htm#p2-15">P2 oscillators</a>,
+	the 78 <a class="i" href="bits-15.htm#pp2-15">P2 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-15.htm#p5-15">P5 oscillator</a>,
+	the 1 <a class="i" href="bits-15.htm#p8-15">P8 oscillator</a>,
+	1 <a class="i" href="bits-15.htm#cons-15">constellation</a>.</li>
+    <li><b><a class="i" href="bits-16.htm">16-bit:</a></b>
+	the 3286 <a class="i" href="p1-16.htm">still-lifes</a>,
+	the 1645 <a class="i" href="pp1-16.htm">pseudo-still-lifes</a>,
+	the 98 <a class="i" href="bits-16.htm#p2-16">P2 oscillators</a>,
+	the 225 <a class="i" href="pp2-16.htm">P2 pseudo-oscillators</a>,
+	the 7 <a class="i" href="bits-16.htm#p3-16">P3 oscillators</a>,
+	the 1 <a class="i" href="bits-16.htm#pp4-16">P4 pseudo-oscillator</a>,
+	the 1 <a class="i" href="bits-16.htm#p5-16">P5 oscillator</a>,
+	the 1 <a class="i" href="bits-16.htm#p6-16">P6 oscillator</a>,
+	the 1 <a class="i" href="bits-16.htm#p14-16">P14 oscillator</a>,
+	the 1 <a class="i" href="bits-16.htm#pp15-16">P15 pseudo-oscillator</a>,
+	2 <a class="i" href="bits-16.htm#cons-16">constellations</a>.</li>
+    <li><b><a class="i" href="bits-17.htm">17-bit:</a></b>
+	7773 <a class="i" href="p1-17.htm">still-lifes</a>,
+	4067 <a class="i" href="pp1-17.htm">pseudo-still-lifes</a>,
+	the 199 <a class="i" href="p2-17.htm">P2 oscillators</a>,
+	the 484 <a class="i" href="pp2-17.htm">P2 pseudo-oscillators</a>,
+	the 8 <a class="i" href="bits-17.htm#p3-17">P3 oscillators</a>,
+	the 2 <a class="i" href="bits-17.htm#pp3-17">P3 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-17.htm#pp4-17">P4 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-17.htm#p5-17">P5 oscillators</a>,
+	the 2 <a class="i" href="bits-17.htm#p8-17">P8 oscillators</a>,
+	the 1 <a class="i" href="bits-17.htm#pp15-17">P15 pseudo-oscillator</a>,
+	2 <a class="i" href="bits-17.htm#cons-17">constellation</a>.</li>
+    <li><b><a class="i" href="bits-18.htm">18-bit:</a></b>
+	19044 <a class="i" href="p1-18.htm">still-lifes</a>,
+	10843 <a class="i" href="pp1-18.htm">pseudo-still-lifes</a>,
+	the 484 <a class="i" href="p2-18.htm">P2 oscillators</a>,
+	the 1519 <a class="i" href="pp2-18.htm">P2 pseudo-oscillators</a>,
+	the 39 <a class="i" href="bits-18.htm#p3-18">P3 oscillators</a>,
+	the 5 <a class="i" href="bits-18.htm#pp3-18">P3 pseudo-oscillators</a>,
+	the 3 <a class="i" href="bits-18.htm#p4-18">P4 oscillators</a>,
+	the 11 <a class="i" href="bits-18.htm#pp4-18">P4 pseudo-oscillators</a>,
+	the 4 <a class="i" href="bits-18.htm#p5-18">P5 oscillators</a>,
+	the 4 <a class="i" href="bits-18.htm#p6-18">P6 oscillators</a>,
+	the 1 <a class="i" href="bits-18.htm#p8-18">P8 oscillator</a>,
+	the 2 <a class="i" href="bits-18.htm#pp8-18">P8 pseudo-oscillators</a>,
+	the 5 <a class="i" href="bits-18.htm#pp15-18">P15 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-18.htm#pp30-18">P30 pseudo-oscillator</a>,
+	the 1 <a class="i" href="bits-18.htm#ss-18">pseudo-spaceship</a>,
+	4 <a class="i" href="bits-18.htm#cons-18">constellations</a>.</li>
+    <li><b><a class="i" href="bits-19.htm">19-bit:</a></b>
+	<a class="i" href="bits-19.htm#p1-19">73</a> of the 45759 still-lifes,
+	<a class="i" href="bits-19.htm#pp1-19">84</a>
+	of the 27250 pseudo-still-lifes,
+	the 1083 <a class="i" href="p2-19.htm">P2 oscillators</a>,
+	the 3350 <a class="i" href="pp2-19.htm">P2 pseudo-oscillators</a>,
+	the 66 <a class="i" href="bits-19.htm#p3-19">P3 oscillators</a>,
+	the 20 <a class="i" href="bits-19.htm#pp3-19">P3 pseudo-oscillators</a>,
+	the 7 <a class="i" href="bits-19.htm#p4-19">P4 oscillators</a>,
+	the 14 <a class="i" href="bits-19.htm#pp4-19">P4 pseudo-oscillators</a>,
+	the 8 <a class="i" href="bits-19.htm#p5-19">P5 oscillators</a>,
+	the 2 <a class="i" href="bits-19.htm#pp5-19">P5 pseudo-oscillators</a>,
+	the 4 <a class="i" href="bits-19.htm#pp6-19">P6 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-19.htm#pp6-19">P8 pseudo-oscillator</a>,
+	the 1 <a class="i" href="bits-19.htm#p15-19">P15 oscillator</a>,
+	the 7 <a class="i" href="bits-19.htm#pp15-19">
+	P15 pseudo-oscillators</a>.</li>
+    <li><b><a class="i" href="bits-20.htm">20-bit:</a></b>
+	<a class="i" href="bits-20.htm#p1-20">81</a> of the 112243 still-lifes,
+	<a class="i" href="bits-20.htm#pp1-20">74</a> of the
+	70637 pseudo-still-lifes,
+	the 2722 <a class="i" href="p2-20.htm">P2 oscillators</a>,
+	the 9460 <a class="i" href="pp2-20.htm">P2 pseudo-oscillators</a>,
+	the 216 <a class="i" href="p3-20.htm">P3 oscillators</a>,
+	the 44 <a class="i" href="bits-20.htm#pp3-20">P3 pseudo-oscillators</a>,
+	the 23 <a class="i" href="bits-20.htm#p4-20">P4 oscillators</a>,
+	the 33 <a class="i" href="bits-20.htm#pp4-20">P4 pseudo-oscillators</a>,
+	the 16 <a class="i" href="bits-20.htm#p5-20">P5 oscillators</a>,
+	the 4 <a class="i" href="bits-20.htm#pp5-20">P5 pseudo-oscillators</a>,
+	the 11 <a class="i" href="bits-20.htm#p6-20">P6 oscillators</a>,
+	the 3 <a class="i" href="bits-20.htm#pp6-20">P6 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-20.htm#pp8-20">P8 pseudo-oscillators</a>,
+	the 15
+	<a class="i" href="bits-20.htm#pp8-20">P15 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-20.htm#p30-20">P30 oscillators</a>,
+	the 1 <a class="i" href="bits-20.htm#pp30-20">P30 pseudo-oscillator</a>,
+	the 6 <a class="i" href="bits-20.htm#ss-20">spaceships</a>,
+	1 <a class="i" href="bits-20.htm#cons-20">constellation</a>.</li>
+    <li><b><a class="i" href="bits-21.htm">21-bit:</a></b>
+	<a class="i" href="p1.htm#p1-21">47</a> of the 273188 still-lifes,
+	<a class="i" href="pp1.htm#pp1-21">30</a> of the
+	179011 pseudo-still-lifes,
+	the 6596 <a class="i" href="p2-21.htm">P2 oscillators</a>, 11
+	the 22134 <a class="i" href="pp2-21.htm">P2 pseudo-oscillators</a>,
+	218 of the 420 <a class="i" href="p3-21.htm">P3 oscillators</a>,
+	the 90 <a class="i" href="bits-21.htm#pp3-21">P3 pseudo-oscillators</a>,
+	the 34 <a class="i" href="bits-21.htm#p4-21">P4 oscillators</a>,
+	the 50 <a class="i" href="bits-21.htm#pp4-21">P4 pseudo-oscillators</a>,
+	the 42 <a class="i" href="bits-21.htm#p5-21">P5 oscillators</a>,
+	the 28 <a class="i" href="bits-21.htm#pp5-21">P5 pseudo-oscillators</a>,
+	the 15 <a class="i" href="bits-21.htm#p6-21">P6 oscillators</a>,
+	the 6 <a class="i" href="bits-21.htm#pp6-21">P6 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-21.htm#p8-21">P8 oscillators</a>,
+	the 12 <a class="i" href="bits-21.htm#pp8-21">P8 pseudo-oscillators</a>,
+	the 4 <a class="i" href="bits-21.htm#pp10-21">P10 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-21.htm#p15-21">P15 oscillator</a>,
+	the 22
+	<a class="i" href="bits-21.htm#pp15-21">P15 pseudo-oscillators</a>,
+	the 1
+	<a class="i" href="bits-21.htm#pp30-21">P30 pseudo-oscillator</a>.</li>
+    <li><b><a class="i" href="bits-22.htm">22-bit:</a></b>
+	<a class="i" href="p1.htm#p1-22">43</a> of the 672172 still-lifes,
+	<a class="i" href="pp1.htm#pp1-22">42</a> of the
+	462086 pseudo-still-lifes,
+	4 <a class="i" href="bits-22.htm#p2-22">P2 oscillators</a>,
+	2 <a class="i" href="bits-22.htm#pp2-22">P2 pseudo-oscillator</a>,
+	5 <a class="i" href="bits-22.htm#p3-22">P3 oscillators</a>,
+	0 of the 265
+	<a class="i" href="bits-22.htm#pp3-22">P3 pseudo-oscillators</a>,
+	9 of the 120 <a class="i" href="bits-22.htm#p4-22">P4 oscillators</a>,
+	0 of the 154
+	<a class="i" href="bits-22.htm#pp4-22">P4 pseudo-oscillators</a>,
+	7 of the 76 <a class="i" href="bits-22.htm#p5-22">P5 oscillators</a>,
+	0 of the 55
+	<a class="i" href="bits-22.htm#pp5-22">P5 pseudo-oscillators</a>,
+	0 of the 43
+	<a class="i" href="bits-22.htm#p6-22">P6 oscillators</a>,
+	0 of the 41
+	<a class="i" href="bits-22.htm#pp6-22">P6 pseudo-oscillators</a>,
+	the 18 <a class="i" href="bits-22.htm#pp8-22">P8 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-22.htm#p15-22">P15 oscillators</a>,
+	0 of the 68
+	<a class="i" href="bits-22.htm#p15-22">P15 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-22.htm#p30-22">P30 oscillators</a>,
+	the 5
+	<a class="i" href="bits-22.htm#pp30-22">P30 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-22.htm#p36-22">P36 oscillators</a>,
+	the 9 <a class="i" href="bits-22.htm#ss-22">spaceships</a>.</li>
+    <li><b><a class="i" href="bits-23.htm">23-bit:</a></b>
+	<a class="i" href="p1.htm#p1-23">23</a> of the 1646147 still-lifes,
+	<a class="i" href="pp1.htm#pp1-23">11</a> of the
+	1184882 pseudo-still-lifes,
+	6 <a class="i" href="bits-23.htm#p2-23">P2 oscillators</a>,
+	0 <a class="i" href="bits-23.htm#p3-23">P3 oscillator</a>,
+	10 of the 239 <a class="i" href="bits-23.htm#p4-23">P4 oscillators</a>,
+	2 of the 210 <a class="i" href="bits-23.htm#p5-23">P5 oscillators</a>,
+	0 of the 220
+	<a class="i" href="bits-23.htm#pp5-23">P5 pseudo-oscillators</a>,
+	2 of the 71 <a class="i" href="bits-23.htm#p6-23">P6 oscillators</a>,
+	0 of the 74
+	<a class="i" href="bits-23.htm#pp6-23">P6 pseudo-oscillators</a>,
+	the 8 <a class="i" href="bits-23.htm#p8-23">P8 oscillators</a>,
+	0 of the 44
+	<a class="i" href="bits-23.htm#pp8-23">P8 pseudo-oscillators</a>,
+	the 5 <a class="i" href="bits-23.htm#p10-23">P10 oscillators</a>, the 24
+	<a class="i" href="bits-23.htm#pp10-23">P10 pseudo-oscillators</a>,
+	the 8 <a class="i" href="bits-23.htm#p15-23">P15 oscillators</a>,
+	0 of the 151
+	<a class="i" href="bits-23.htm#pp15-23">P15 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-23.htm#p30-23">P30 oscillators</a>,
+	the 7
+	<a class="i" href="bits-23.htm#pp30-23">P30 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-23.htm#ss-23">spaceships</a>.</li>
+    <li><b><a class="i" href="bits-24.htm">24-bit:</a></b>
+	<a class="i" href="p1.htm#p1-24">26</a> of the 4051726 still-lifes,
+	<a class="i" href="pp1.htm#pp1-24">12</a> of the the
+	3069134 pseudo-still-lifes,
+	11 <a class="i" href="bits-24.htm#p2-24">P2 oscillators</a>,
+	2 <a class="i" href="bits-24.htm#p3-24">P3 oscillators</a>,
+	40 of the 569 <a class="i" href="bits-24.htm#p4-24">P4 oscillators</a>,
+	4 of the 419 <a class="i" href="bits-24.htm#p5-24">P5 oscillators</a>,
+	0 of the 490
+	<a class="i" href="bits-24.htm#pp5-24">P5 pseudo-oscillators</a>,
+	3 of the 186 <a class="i" href="bits-24.htm#p6-24">P6 oscillators</a>,
+	4 of the 394
+	<a class="i" href="bits-24.htm#pp6-24">P6 pseudo-oscillators</a>,
+	the 12 <a class="i" href="bits-24.htm#p8-24">P8 oscillators</a>,
+	2 of the 78
+	<a class="i" href="bits-24.htm#pp8-24">P8 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-24.htm#p10-24">P10 oscillators</a>,
+	0 of the 37
+	<a class="i" href="bits-24.htm#pp10-24">P10 pseudo-oscillators</a>,
+	the 4 <a class="i" href="bits-24.htm#p12-24">P12 oscillators</a>,
+	the 24 <a class="i" href="bits-24.htm#p15-24">P15 oscillators</a>,
+	1 of the 410
+	<a class="i" href="bits-24.htm#pp15-24">P15 pseudo-oscillators</a>,
+	the 4 <a class="i" href="bits-24.htm#p24-24">P24 oscillators</a>,
+	the 2 <a class="i" href="bits-24.htm#p30-24">P30 oscillators</a>,
+	0 of the 61
+	<a class="i" href="bits-24.htm#pp30-24">P30 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-24.htm#p36-24">P36 oscillators</a>,
+	the 1 <a class="i" href="bits-24.htm#p60-24">P60 oscillator</a>,
+	the 1 <a class="i" href="bits-24.htm#pp60-24">P60 pseudo-oscillator</a>,
+	the 7 <a class="i" href="bits-24.htm#ss-24">spaceships</a>,
+	4 <a class="i" href="bits-24.htm#cons-24">constellations</a>.</li>
+    <li><b><a class="i" href="bits-25.htm">25-bit:</a></b>
+	10 <a class="i" href="bits-25.htm#p1-25">still-lifes</a>,
+	2 <a class="i" href="bits-25.htm#pp1-25">pseudo-still-lifes</a>,
+	2 <a class="i" href="bits-25.htm#p2-25">P2 oscillators</a>,
+	2 <a class="i" href="bits-25.htm#p3-25">P3 oscillators</a>,
+	75 of the 1343 <a class="i" href="bits-25.htm#p4-25">P4 oscillators</a>,
+	2 <a class="i" href="bits-25.htm#pp4-25">P4 pseudo-oscillators</a>,
+	0 of the 1370
+	<a class="i" href="bits-25.htm#pp5-25">P5 pseudo-oscillators</a>,
+	8 <a class="i" href="bits-25.htm#p6-25">P6 oscillators</a>,
+	8 of the 734
+	<a class="i" href="bits-25.htm#pp6-25">P6 pseudo-oscillators</a>,
+	the 18 <a class="i" href="bits-25.htm#p8-25">P8 oscillators</a>,
+	0 of the 176
+	<a class="i" href="bits-25.htm#pp8-25">P8 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-25.htm#p10-25">P10 oscillator</a>,
+	0 of the 89
+	<a class="i" href="bits-25.htm#pp10-25">P10 pseudo-oscillators</a>,
+	the 1 <a class="i" href="bits-25.htm#p12-25">P12 oscillator</a>, the 4
+	<a class="i" href="bits-25.htm#pp12-25">P12 pseudo-oscillators</a>,
+	3 of the 40
+	<a class="i" href="bits-25.htm#p15-25">P15 oscillators</a>,
+	the 4 <a class="i" href="bits-25.htm#p24-25">P24 oscillators</a>,
+	the 8 <a class="i" href="bits-25.htm#p30-25">P30 oscillators</a>,
+	0 of the 82
+	<a class="i" href="bits-25.htm#pp30-25">P30 pseudo-oscillators</a>,
+	the 2 <a class="i" href="bits-25.htm#p36-25">P36 oscillators</a>,
+	the 5 <a class="i" href="bits-25.htm#ss-25">spaceships</a>,
+	the 1 <a class="i" href="bits-25.htm#ss-25">pseudo-spaceship</a>.</li>
+    <li><b><a class="i" href="bits-lg.htm">26-bit and larger:</a></b>
+	23 <a class="i" href="bits-lg.htm#p1-26">26-bit still-lifes</a>,
+	7 <a class="i" href="bits-lg.htm#p1-27">27-bit still-lifes</a>,
+	20 <a class="i" href="bits-lg.htm#p1-28">28-bit still-lifes</a>,
+	3 <a class="i" href="bits-lg.htm#p1-29">29-bit still-lifes</a>,
+	41 <a class="i" href="bits-lg.htm#p1-lg">30-bit and larger
+	still-lifes</a>,
+	29 <a class="i" href="bits-lg.htm#pp1-lg">pseudo-still-lifes</a>,
+	34 <a class="i" href="bits-lg.htm#p2-lg">P2 oscillators</a>,
+	18 <a class="i" href="bits-lg.htm#p2-sc">scrubbers</a>,
+	2 <a class="i" href="bits-lg.htm#pp2-lg">P2 pseudo-oscillators</a>,
+	15 <a class="i" href="bits-lg.htm#p3-lg">P3 oscillators</a>,
+	22 <a class="i" href="bits-lg.htm#p4-lg">P4 oscillators</a>,
+	6 <a class="i" href="bits-lg.htm#p5-lg">P5 oscillators</a>,
+	21 <a class="i" href="bits-lg.htm#p6-lg">P6 oscillators</a>,
+	20 <a class="i" href="bits-lg.htm#p8-lg">P8 oscillators</a>,
+	2 <a class="i" href="bits-lg.htm#p10-lg">P10 oscillators</a>,
+	4 <a class="i" href="bits-lg.htm#p12-lg">P12 oscillators</a>,
+	1 <a class="i" href="bits-lg.htm#p14-lg">P14 oscillators</a>,
+	7 <a class="i" href="bits-lg.htm#p15-lg">P15 oscillators</a>,
+	24 <a class="i" href="bits-lg.htm#p15-pc">pentadecathlon pairs</a>.
+	2 <a class="i" href="bits-lg.htm#pp15-lg">P15 pseudo-oscillators</a>,
+	1 <a class="i" href="bits-lg.htm#p24-lg">P24 oscillator</a>,
+	7 <a class="i" href="bits-lg.htm#p30-lg">P30 oscillators</a>,
+	1 <a class="i" href="bits-lg.htm#p36-lg">P36 oscillator</a>,
+	7 <a class="i" href="bits-lg.htm#p60-lg">P60 oscillators</a>,
+	18 <a class="i" href="bits-lg.htm#cons-lg">constellations</a>.</li>
+    <li><b><a class="i" href="bits-lg.htm">26-bit and larger</a>
+	<a class="i" href="period.htm">oscillators by period</a>:</b>
+	<a class="i" href="bits-lg.htm#p2-lg">2</a>,
+	<a class="i" href="bits-lg.htm#p3-lg">3</a>,
+	<a class="i" href="bits-lg.htm#p4-lg">4</a>,
+	<a class="i" href="bits-lg.htm#p5-lg">5</a>,
+	<a class="i" href="bits-lg.htm#p6-lg">6</a>,
+	<a class="i" href="period.htm#p7">7</a>,
+	<a class="i" href="bits-lg.htm#p8-lg">8</a>,
+	<a class="i" href="period.htm#p9">9</a>,
+	<a class="i" href="bits-lg.htm#p10-lg">10</a>,
+	<a class="i" href="period.htm#p11">11</a>,
+	<a class="i" href="bits-lg.htm#p12-lg">12</a>,
+	<a class="i" href="period.htm#p13">13</a>,
+	<a class="i" href="bits-lg.htm#p14-lg">14</a>,
+	<a class="i" href="bits-lg.htm#p15-lg">15</a>,
+	<a class="i" href="period.htm#p16">16</a>,
+	<a class="i" href="period.htm#p18">18</a>,
+	<a class="i" href="period.htm#p21">20</a>,
+	<a class="i" href="period.htm#p21">21</a>,
+	<a class="i" href="period.htm#p22">22</a>,
+	<a class="i" href="bits-lg.htm#p24-lg">24</a>,
+	<a class="i" href="period.htm#p25">25</a>,
+	<a class="i" href="period.htm#p26">26</a>,
+	<a class="i" href="period.htm#p27">27</a>,
+	<a class="i" href="period.htm#p28">28</a>,
+	<a class="i" href="period.htm#p29">29</a>,
+	<a class="i" href="bits-lg.htm#p30-lg">30</a>,
+	<a class="i" href="period.htm#p31">31</a>,
+	<a class="i" href="period.htm#p32">32</a>,
+	<a class="i" href="period.htm#p33">33</a>,
+	<a class="i" href="period.htm#p35">35</a>,
+	<a class="i" href="bits-lg.htm#p36-lg">36</a>,
+	<a class="i" href="period.htm#p37">37</a>,
+	<a class="i" href="period.htm#p39">39</a>,
+	<a class="i" href="period.htm#p40">40</a>,
+	<a class="i" href="period.htm#p42">42</a>,
+	<a class="i" href="period.htm#p44">44</a>,
+	<a class="i" href="period.htm#p45">45</a>,
+	<a class="i" href="period.htm#p46">46</a>,
+	<a class="i" href="period.htm#p47">47</a>,
+	<a class="i" href="period.htm#p50">50</a>,
+	<a class="i" href="period.htm#p51">51</a>,
+	<a class="i" href="period.htm#p52">52</a>,
+	<a class="i" href="period.htm#p54">54</a>,
+	<a class="i" href="period.htm#p55">55</a>,
+	<a class="i" href="period.htm#p56">56</a>,
+	<a class="i" href="bits-lg.htm#p60-lg">60</a>,
+	<a class="i" href="period.htm#p63">63</a>,
+	<a class="i" href="period.htm#p64">64</a>,
+	<a class="i" href="period.htm#p70">70</a>,
+	<a class="i" href="period.htm#p72">72</a>,
+	<a class="i" href="period.htm#p75">75</a>,
+	<a class="i" href="period.htm#p88">88</a>,
+	<a class="i" href="period.htm#p100">100</a>,
+	<a class="i" href="period.htm#p120">120</a>,
+	<a class="i" href="period.htm#p138">138</a>,
+	<a class="i" href="period.htm#p144">144</a>,
+	<a class="i" href="period.htm#p156">156</a>,
+	<a class="i" href="period.htm#p177">177</a>,
+	<a class="i" href="period.htm#p256">256</a>,
+	<a class="i" href="period.htm#p276">276</a>,
+	<a class="i" href="period.htm#p300">300</a>,
+	<a class="i" href="period.htm#p312">312</a>.</li>
+    <li><b><a class="i" href="bits-lg.htm">26-bit and larger</a>
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>:</b>
+	<a class="i" href="bits-lg.htm#pp2-lg">2</a>,
+	<a class="i" href="bits-lg.htm#pp15-lg">15</a>.</li>
+    <li><b><a class="i" href="bits-bad.htm">Not quite stable objects:</a></b>
+	5 <a class="i" href="bits-bad.htm#p1-bad">still-lifes</a>,
+	4 <a class="i" href="bits-bad.htm#pp1-bad">pseudo-still-lifes</a>,
+	1 <a class="i" href="bits-bad.htm#p2-bad">P2 oscillator</a>,
+	2 <a class="i" href="bits-bad.htm#p3-bad">P3 oscillators</a>,
+	2 <a class="i" href="bits-bad.htm#p30-bad">P30 oscillators</a>,
+	5 <a class="i" href="bits-bad.htm#ss-bad">spaceships</a>,
+	2 <a class="i" href="bits-bad.htm#gun-bad">guns</a>.</li>
+</ul></p>
+
+<hr /><hr />
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	size in bits,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

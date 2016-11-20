@@ -1,0 +1,32 @@
+#N 8cs.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 01:59:59 2015
+x = 193, y = 168, rule = B3/S23
+124bo37bobo$3bobo39bo39bo36bobo38boo$4boo37bobo37bobo37boo38bo$4bo39b
+oo38boo$$28bxx38bxx38bxx38bxx38bxx$28bxbx37bxbx37bxbx37bxbx37bxbx$31bx
+39bx39bx17bo21bx39bx$32bx39bx39bx17bo21bx39bx$31bxx38bxx38bxx15b3o20b
+xx24bo13bxx$8bo123boo42bo$8boo123boo41b3o$7bobo3bo36bobo37bobo30bobo6b
+o39b3o$11boo37boo38boo32boo46bo$boo9boo37bo39bo32bo48bo$obo79b3o$bbo
+47boo32bo5boo$49bobo4boo25bo5bobo$51bo3boo34bo71bo$57bo105boo$162bobo
+8$123bo$124bo$4bo117b3o$5bo37bobo$3b3o38boo$44bo$$28bxx38bxx78bxx$28bx
+bx37bxbx77bxbx$31bx39bx79bx$10bo21bx16bo22bx59bo19bx$8bobo20bxx17boo
+19bxx57boo19bxx$9boo5bo32boo4bo50b3x17b3obboo$14boo38bo32bo$8bo6boo31b
+o5b3o28bobo16bx5bx13bo5bo$8boo38boo32boobboo16bx5bx13bo5bo$7bobo37bobo
+31bobo20bx5bx13bo5bo$83bo$106b3x17b3o11$127bo$127bobo$3bo123boo$4bo$bb
+3o$86bo$45bobo39bo$46boo37b3o$28bxx16bo21bxx38bxx18bo14byy3bxx$28bxbx
+37bxbx37bxbx17bobo11bybbybbxbx$31bx22bo16bx39bx16boo13byy6bx$12bo19bx
+19boo18bx39bx39bx$11bo19bxx15bo4boo16bxx38bxx12bobo23bxx$11b3o34boo6b
+oo26bo41boo$47bobo6bobo26boo39bo$56bo27boo3bo$10boo75boo46b3o$11boo75b
+oo32bo12bo$10bo3boo106boo12bo$14bobo104bobo$14bo$92boo$92bobo$92bo12$
+9bo$9bobo$9boo$28bxx18boo18bxx18boo18bxx18boo18bxx$9bo18bxbx17bobo17bx
+bx17bobo17bxbx11bobo3bobo17bxbx$4bo3boo19bxbx17bobo17bxbx17bobo19bx11b
+oo4bobo19bx$bbobo3bobo19bxbx17bobo17bxbx17bobo19bx10bo6bobo19bx$3boo
+26bx19bo19bxx14boobboo18bxx13bo4boo18bxx$86bobo37boo$57boo29bo36bobo$
+53bobboo32boo$53boo3bo31bobo35b3o$52bobo35bo37bo$129bo15$86bo$42bobo
+41bobo$3bobo37boo3bo37boo$3boo38bobboo$4bo42boo38boo$9bobo56bxx16bobo
+19bxx18boo18bxx$5boobboo57bxbx17bobbo16bxbbx16bobbo16bxbx$4bobo3bo18b
+xx18boo20bx19bobo16bxx18boo19bx$6bo21bxbx17bobo21bx18boo42bo16bx$28bxx
+18boo3bobo15bxx60boo16bxx$53boo37boo40boo$54bo36bobo$93bo39bo$55boo75b
+oo$54boo76bobo$56bo6$39bo$40boo$39boo$$72byy$72byy3$74bxx$30bobo41bx$
+31boo42bx$31bo12bobo29bxbx$44boo18byy11bxx$45bo18byy15byy$68bxx11byy$
+43boo10bo12bxbx$42boo10boo15bx$44bo9bobo15bx$71bxx3$73byy$73byy$$46boo
+$45boo$47bo!

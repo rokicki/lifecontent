@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Mark D. Niemiec's Life Page</title>
+<meta name="description"
+content="John Horton Conway's Game of Life, including complete lists and glider syntheses of smaller still-lifes, oscillators, and spaceships" />
+<meta name="keywords"
+content="cellular automata conway game life pseudo still life oscillator spaceship glider gun puffer object list enumeration glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Mark D. Niemiec's Life Page</h1>
+
+<p align="center">
+	<a class="j" href="#life-format">Format</a> |
+	<a class="j" href="#life-objects">Objects and Syntheses</a> |
+	<a class="j" href="#life-changes">Recent changes to these pages</a> |
+	<a class="j" href="#life-about">About</a> |
+	<a class="j" href="#copyright">Copyright</a>
+</p>
+
+<hr /><hr />
+<p>This page and its subordinate pages contain information about
+<a class="i" href="lifeterm.htm#life">John Horton Conway's Game of Life</a>.</p>
+
+<hr />
+<a name="life-format"></a>
+<h2>Format of the Life pages</h2>
+<p><ul>
+    <li><a class="i" href="lifestr.htm">
+	General structure of these pages</a>. <b>(Read this first!)</b></li>
+    <li><a class="i" href="lifeterm.htm">
+	Definitions of Life terms</a>.</li>
+    <li><a class="i" href="lifemeth.htm">
+	Search methodologies</a>.</li>
+    <li><a class="i" href="liferule.htm">
+	Other cellular automata rules</a>.</li>
+    <li><a class="i" href="lifenews.htm">
+	Recent changes to these pages</a>.</li>
+    <li><a class="i" href="lifecred.htm">
+	Giving credit where credit is due</a>.</li>
+    <li><a class="i" href="lifelink.htm">
+	Links and other references</a>.</li>
+    <li><a class="i" href="lifemap.htm">
+	Site map</a>.</li>
+    <li><a class="i" target="lifesrch" href="lifesrch.htm">Search for
+	pattern</a> (also <a class="i" target="lifesrch" href="lifxsrch.htm">
+	expanded search</a> and <a class="i" target="srchhelp"
+	href="srchhelp.htm">search help</a>).</li>
+    <li><a class="i" href="download.htm">
+	Download software</a>.</li>
+</ul></p>
+
+<hr />
+<a name="life-objects"></a>
+<h2>Object lists, and syntheses of most objects from gliders</h2>
+<p><ul>
+    <li><b>Object <a class="i" href="objcount.htm">counts</a></b>:
+	<a class="i" href="objcount.htm#count-search">Computer Searches</a>,
+	<a class="i" href="objcount.htm#count-obj">Objects</a>,
+	<a class="i" href="objcount.htm#count-pobj">Pseudo-objects</a>,
+	<a class="i" href="objcount.htm#count-ss">Spaceships</a>.</li>
+
+    <li><b>Object lists and syntheses sorted by cost in
+	<a class="i" href="objcost.htm">gliders</a>:</b><br />
+	<a class="i" href="glider-2.htm">2 gliders</a>,
+	<a class="i" href="glider-3.htm">3 gliders</a>,
+	<a class="i" href="glider-4.htm">4 gliders</a>,
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	<a class="i" href="glider-6.htm">6 gliders</a>,
+	<a class="i" href="glider-e.htm">1 glider/bit</a>,
+	<a class="i" href="glider-g.htm">&gt;1 glider/bit</a>,
+	<a class="i" href="glider-u.htm">unknown</a>.</li>
+
+    <li><b>Object lists and syntheses sorted by
+	<a class="i" href="objname.htm">name</a>:</b><br />
+	<a class="i" href="objname.htm#symbol">Symbols</a>,
+	<a class="i" href="objname.htm#a">A</a>,
+	<a class="i" href="objname.htm#b">B</a>,
+	<a class="i" href="objname.htm#c">C</a>,
+	<a class="i" href="objname.htm#d">D</a>,
+	<a class="i" href="objname.htm#e">E</a>,
+	<a class="i" href="objname.htm#f">F</a>,
+	<a class="i" href="objname.htm#g">G</a>,
+	<a class="i" href="objname.htm#h">H</a>,
+	<a class="i" href="objname.htm#i">I</a>,
+	<a class="i" href="objname.htm#j">J</a>,
+	<a class="i" href="objname.htm#k">K</a>,
+	<a class="i" href="objname.htm#l">L</a>,
+	<a class="i" href="objname.htm#m">M</a>,
+	<a class="i" href="objname.htm#n">N</a>,
+	<a class="i" href="objname.htm#o">O</a>,
+	<a class="i" href="objname.htm#p">P</a>,
+	<a class="i" href="objname.htm#q">Q</a>,
+	<a class="i" href="objname.htm#r">R</a>,
+	<a class="i" href="objname.htm#s">S</a>,
+	<a class="i" href="objname.htm#t">T</a>,
+	<a class="i" href="objname.htm#u">U</a>,
+	<a class="i" href="objname.htm#v">V</a>,
+	<a class="i" href="objname.htm#w">W</a>,
+	<a class="i" href="objname.htm#x">X</a>,
+	<a class="i" href="objname.htm#y">Y</a>,
+	<a class="i" href="objname.htm#z">Z</a>.</li>
+
+    <li><b>Object lists and syntheses sorted by
+	<a class="i" href="objsize.htm">size in bits</a>:</b><br />
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>.</li>
+
+    <li><b>Object lists and syntheses sorted by
+	<a class="i" href="objtype.htm">type</a>:</b><br />
+	<b>Stationary:</b> <a class="i" href="p1.htm">Still-lifes</a>,
+	<a class="i" href="pp1.htm">Pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">Oscillators</a>,
+	<a class="i" href="posc.htm">Pseudo-oscillators</a>,
+	<a class="i" href="gun.htm">Guns</a>.<br />
+	<b>Moving:</b> <a class="i" href="ss.htm">
+	    Basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">Exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">Flotillae</a>,
+	<a class="i" href="puff.htm">Puffers and wick-stretchers</a>.<br />
+	<b>Miscellaneous:</b> <a class="i" href="cons.htm">Constellations</a>,
+	<a class="i" href="meth.htm">Methuselahs</a>,
+	<a class="i" href="bits-bad.htm">Not quite stable objects</a>,
+	<a class="i" href="color.htm">Multi-colored Life</a>.</li>
+
+    <li><b>Oscillators, sorted by period:</b><br />
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</li>
+
+    <li><b>Pseudo-oscillators, sorted by period:</b><br />
+	<a class="i" href="pp2.htm">2</a>,
+	<a class="i" href="pp3.htm">3</a>,
+	<a class="i" href="pp4.htm">4</a>,
+	<a class="i" href="pp5.htm">5</a>,
+	<a class="i" href="pp6.htm">6</a>,
+	<a class="i" href="pp8.htm">8</a>,
+	<a class="i" href="pp10.htm">10</a>,
+	<a class="i" href="pp12.htm">12</a>,
+	<a class="i" href="pp15.htm">15</a>,
+	<a class="i" href="pp30.htm">30</a>,
+	<a class="i" href="pp60.htm">60</a>,
+	<a class="i" href="pperiod.htm">other</a>.</li>
+
+    <li><b>Lists of <a class="i" href="natural.htm">naturally-occurring
+	objects</a></b> sorted by type, then in order of decreasing
+	frequency of occurrence.</li>
+</ul></p>
+
+<p>Object sizes are determined by the number of bits in the smallest generation.
+Lists of still-lifes and pseudo-still-lifes up to 24 bits, period 2 oscillators
+and pseudo-oscillators up to 21 bits, and period 3 oscillators and
+pseudo-oscillators up to 20 bits have been generated or verified by computer
+search. Lists of higher-period oscillators and spaceships have also been
+generated up to 21-25 bits, compiled and extrapolated from many sources, and
+tabulated by hand. Lists of larger-period pseudo-oscillators and
+pseudo-spaceships have been extrapolated from the above.</p>
+
+<p>Lists of the 19- through 24-bit still-lifes and pseudo-still-lifes are
+omitted for lack of space. Any application that has need of this data would
+find it more useful in other forms. Also, explicit syntheses have only been
+attempted for still-lifes up to 15 bits, pseudo-still-lifes up to 16 bits,
+period 2 oscillators up to 18 bits, period 2 pseudo-oscillators up to 17 bits,
+and other oscillators and pseudo-oscillators up to 21 bits (with some up to 25
+bits). Many syntheses for larger objects also exist, but are arranged in an
+ad-hoc, rather than systematic fashion.</p>
+
+<hr />
+<a name="life-changes"></a>
+<h2>Recent changes to these pages</h2>
+<p>The history of major changes to these pages is listed on a
+<a class="i" href="lifenews.htm">separate page</a>.</p>
+
+<hr /><hr />
+<a name="life-about"></a>
+<h2>About these Web pages</h2>
+
+<p>These pages were last updated on
+<i>2015-02-19</i>.
+</p>
+
+<p>The information herein has been compiled by me,
+but is largely based on the work of many others.
+<a class="i" href="lifecred.htm">Attribution information</a> is provided in
+general, but time and space do not currently permit individual
+attributions for the discovery and synthesis of each individual object. When
+I become aware of more information, I will try to add it to this site.</p>
+
+<p>Most Life patterns here are stored in RLE format, which supports additional
+comment information, but the database from which these patterns are derived is
+currently in a different format that does not support comments. I hope to
+eventually convert this the database to natively use RLE format, which will
+make it possible to add attribution information and other comments to each of
+the individual patterns themselves.</p>
+
+<p>I accept no responsibility for errors or omissions on these pages.
+While I have attempted to be as accurate as possible, errors and omissions
+do occasionally occur. Rely on the accuracy of the information contained
+herein at your own risk. Except for completeness of object lists, most of the
+technical information on these patterns is capable of self-verification.</p>
+
+<p>Synthesis files can be verified by running them in any Life program, seeing
+that the "before" and "after" images end up the same, and seeing that the inputs
+from any steps, other than gliders and basic spaceships, are supplied by
+previous steps. Costs in gliders can be verified by counting the numbers of
+gliders and other spaceships used (with each other spaceship being weighted by
+the cost in gliders of creating that kind of spaceship). The appropriateness of
+any object in a stamp page can be verified by running the stamp page itself,
+and making sure the object in question has the specific population, period,
+and/or other properties indicated.</p>
+
+<p>Of course, syntheses here only provide proof of existence of syntheses, not
+optimality of those syntheses. Except for those requiring 2 gliders (which have
+been studied to exhaustion) and those requiring 3 gliders (which are provably
+minimal, as they don't take 2), all other syntheses represent the best
+approximation of the "state of the art", and it likely that many will be
+subsequently improved, and many marked "unknown" will indeed have syntheses.
+Even those syntheses requiring 4 gliders, although most likely minimal, are not
+provably so; in fact, several decades after it was believed that the results of
+all 3-glider collisions had been explored to exhaustion,
+<a class="i" href="lifecred.htm#koenig">H. Koenig</a> found a 3-glider collision to make
+a pentadecathlon, an object that had previously required 4 gliders.</p>
+
+<p><a class="i" href="lifecred.htm#buckingham">Buckingham</a> spent several decades doing
+extensive work on optimizing syntheses of all objects up to 14 bits, but even
+so, a few improvements to some of these syntheses have subsequently been
+discovered.</p>
+
+<script type="text/javascript"><!--
+function M(){
+var m='',a=new Array(12,13,1,17,5,7,4,15,2,6,0,16,10,8,11,14,9,3);
+for(var i=0;i<18;++i)m+='mi@memgiloi.mnccae'.charAt(a[i]);
+document.getElementById('txtme').childNodes[0].nodeValue=m;
+document.getElementById('gome').href='mai'+('lto:'+m);}//-->
+</script>
+
+<p>Comments, suggestions, corrections, and improvements are greatly appreciated,
+and can be sent to:
+<a id="gome" class="x" href="#" onfocus="javascript:M()"
+onmouseover="javascript:M()"><address id="txtme">me</address></a></p>
+
+
+<hr />
+<a name="copyright"></a>
+<p>This page and subordinate pages are
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark D. Niemiec.
+All rights reserved.</p>
+<p>Permission is hereby granted to make use of any information in these pages
+for non-commercial purposes.</p>
+
+<p>The object lists and pattern syntheses themselves include much work by many
+others, and represent verifiable mathematical facts. As such, they are free of
+copyright restrictions.</p>
+
+<p>(In other words, feel free to copy the information, but please don't
+create clones of the site itself without asking first.)</p>
+
+<p>If you create a permanent link to this page, please send me e-mail,
+so I can keep you apprised of any major changes.
+Also, if you have a relevant page, I could add a link to it here.
+(Please do not create book-marks or links to sub-pages or image files,
+as these are liable to change without notice.)</p>
+
+<hr /><hr />
+<p><a class="i" href="index.htm">Home page</a></p>
+<p><a class="j" href="#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

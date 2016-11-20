@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Eighteen-Bit Period-2 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: eighteen-bit period 2 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life eighteen-bit period 2 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Eighteen-Bit Period-2 Oscillators</h1>
+
+<p align="center">
+	<a class="j" href="#p2-18-0">First 90</a> |
+	<a class="j" href="#p2-18-1">Second 90</a> |
+	<a class="j" href="#p2-18-2">Third 90</a> |
+	<a class="j" href="#p2-18-3">Fourth 80</a> |
+	<a class="j" href="#p2-18-4">Fifth 80</a> |
+	<a class="j" href="#p2-18-5">Last 54</a>
+</p>
+
+<hr /><hr />
+<p>Due to the recent creation of this list, time has not yet permitted the
+syntheses of all these objects. About 40% of them have been synthesized so far.
+Objects with numbers above them in the stamp images have syntheses. Syntheses
+for the others have not yet been attempted, but will be added to this list as
+they are completed. These currently consist of two groups:</p>
+<p><ul>
+    <li>141 beacon-on-inductor, all of which can be synthesized (using the same
+	techniques that are used for smaller oscillators and still-lifes;
+	e.g. if nothing else, all can be built from the corresponding 16-bit
+	still-lifes block-on-same-inductor, and all 16-bit still-lifes can be
+	synthesized.)</li>
+    <li>150 miscellaneous oscillators that don't fit into any other category.
+	Most can be synthesized (using the same techniques that are used for
+	smaller oscillators and still-lifes). 97 could be built from smaller
+	oscillators or still-lifes (that may not yet themselves have known
+	syntheses), and only 45 defy existing technology.</li>
+</ul></p>
+<hr /><hr />
+<a name="p2-18-0"></a>
+<h2>The 484 <a class="i" href="bits-18.htm">eighteen-bit</a>
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<h3>The first 90 18-bit period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-18-0.rle"><img src="map/p2-18-0.png"
+ alt="18-bit period 2 oscillators 1-90"
+ width="621" height="421" usemap="#p2-18-0" /></a></p>
+
+<map name="p2-18-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-18.zip" />
+	<area coords="601,401,620,420" href="stamp/p2-18-0.rle" />
+	<area coords="0,0,69,53" href="18/18bctas4.rle" />
+	<area coords="70,0,129,53" href="18/18sc.rle" />
+	<area coords="130,0,189,53" href="18/18bcomb1.rle" />
+	<area coords="190,0,249,53" href="18/18bcomb3.rle" />
+	<area coords="250,0,309,53" href="18/18ttbtls.rle" />
+	<area coords="310,0,369,53" href="18/18bczbt1.rle" />
+	<area coords="370,0,429,53" href="18/18ttbhlt.rle" />
+	<area coords="430,0,489,53" href="18/18ttbltb.rle" />
+	<area coords="490,0,549,53" href="18/18bpzpb1.rle" />
+	<area coords="550,0,620,53" href="18/18ttbin.rle" />
+	<area coords="0,54,69,97" nohref="nohref" />
+	<area coords="70,54,129,97" href="18/18ttblht.rle" />
+	<area coords="130,54,189,97" href="18/18bpllh1.rle" />
+	<area coords="190,54,249,97" href="18/18ttbhch.rle" />
+	<area coords="250,54,369,97" nohref="nohref" />
+	<area coords="370,54,429,97" href="18/18ttblcl.rle" />
+	<area coords="430,54,549,97" nohref="nohref" />
+	<area coords="550,54,620,97" href="18/18ttbsn.rle" />
+	<area coords="0,98,69,141" href="18/18ttblhs.rle" />
+	<area coords="70,98,129,141" href="18/18ttbhvh.rle" />
+	<area coords="130,98,189,141" href="18/18ttbxh.rle" />
+	<area coords="190,98,369,141" nohref="nohref" />
+	<area coords="370,98,429,141" href="18/18ztltd.rle" />
+	<area coords="430,98,489,141" href="18/18zfttd.rle" />
+	<area coords="490,98,549,141" href="18/18dtlf.rle" />
+	<area coords="550,98,620,141" href="18/18ttbvt.rle" />
+	<area coords="0,142,69,185" href="18/18dtlb.rle" />
+	<area coords="70,142,249,185" nohref="nohref" />
+	<area coords="250,142,309,185" href="18/18lfdthv.rle" />
+	<area coords="310,142,369,185" href="18/18bcsa1.rle" />
+	<area coords="370,142,429,185" href="18/18dtet2.rle" />
+	<area coords="430,142,489,185" nohref="nohref" />
+	<area coords="490,142,549,185" href="18/18bcomb4.rle" />
+	<area coords="550,142,620,185" nohref="nohref" />
+	<area coords="0,186,129,229" nohref="nohref" />
+	<area coords="130,186,189,229" href="18/18bcsa4.rle" />
+	<area coords="190,186,249,229" href="18/18ftdthv.rle" />
+	<area coords="250,186,309,229" href="18/18bpdk1.rle" />
+	<area coords="310,186,369,229" nohref="nohref" />
+	<area coords="370,186,429,229" href="18/18dtet1.rle" />
+	<area coords="430,186,489,229" href="18/18bcsa3.rle" />
+	<area coords="490,186,549,229" href="18/18dtet3.rle" />
+	<area coords="550,186,620,229" href="18/18ztbtd.rle" />
+	<area coords="0,230,69,273" href="18/18ttbdlb.rle" />
+	<area coords="70,230,129,273" href="18/18dtls1.rle" />
+	<area coords="130,230,189,273" nohref="nohref" />
+	<area coords="190,230,249,273" href="18/18bpldb1.rle" />
+	<area coords="250,230,309,273" href="18/18ttbdbt.rle" />
+	<area coords="310,230,369,273" href="18/18ttbtlt.rle" />
+	<area coords="370,230,429,273" href="18/18bczbt2.rle" />
+	<area coords="430,230,489,273" href="18/18ttbdbs.rle" />
+	<area coords="490,230,549,273" nohref="nohref" />
+	<area coords="550,230,620,273" href="18/18ttbulf.rle" />
+	<area coords="0,274,69,317" nohref="nohref" />
+	<area coords="70,274,129,317" href="18/18bptag1.rle" />
+	<area coords="130,274,189,317" nohref="nohref" />
+	<area coords="190,274,249,317" href="18/18bplub1.rle" />
+	<area coords="250,274,309,317" href="18/18ttbubt.rle" />
+	<area coords="310,274,369,317" href="18/18ttbubd.rle" />
+	<area coords="370,274,429,317" href="18/18ttbubs.rle" />
+	<area coords="430,274,620,317" nohref="nohref" />
+	<area coords="0,318,129,361" nohref="nohref" />
+	<area coords="130,318,189,361" href="18/18bctas5.rle" />
+	<area coords="190,318,249,361" href="18/18ttbhdg.rle" />
+	<area coords="250,318,309,361" nohref="nohref" />
+	<area coords="310,318,369,361" href="18/18ttblhd.rle" />
+	<area coords="370,318,429,361" href="18/18ttbtdg.rle" />
+	<area coords="430,318,489,361" href="18/18ttbhhv.rle" />
+	<area coords="490,318,549,361" href="18/18ttbthv.rle" />
+	<area coords="550,318,620,361" nohref="nohref" />
+	<area coords="0,362,69,420" nohref="nohref" />
+	<area coords="70,362,129,420" href="18/18ttblft.rle" />
+	<area coords="130,362,369,420" nohref="nohref" />
+	<area coords="370,362,429,420" href="18/18ttbhcl.rle" />
+	<area coords="430,362,489,420" nohref="nohref" />
+	<area coords="490,362,549,420" href="18/18ttbac.rle" />
+	<area coords="550,362,620,420" href="18/18tpleh1.rle" />
+</map>
+
+<hr />
+<a name="p2-18-1"></a>
+<h3>The second 90 18-bit period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-18-1.rle"><img src="map/p2-18-1.png"
+ alt="18-bit period 2 oscillators 91-180"
+ width="621" height="421" usemap="#p2-18-1" /></a></p>
+
+<map name="p2-18-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-18.zip" />
+	<area coords="601,401,620,420" href="stamp/p2-18-1.rle" />
+	<area coords="0,0,69,53" href="18/18ttblhu.rle" />
+	<area coords="70,0,129,53" href="18/18bpllh3.rle" />
+	<area coords="130,0,189,53" href="18/18ttbtcl.rle" />
+	<area coords="190,0,249,53" href="18/18tplet1.rle" />
+	<area coords="250,0,489,53" nohref="nohref" />
+	<area coords="490,0,549,53" href="18/18ttblch.rle" />
+	<area coords="550,0,620,53" nohref="nohref" />
+	<area coords="0,54,189,97" nohref="nohref" />
+	<area coords="190,54,249,97" href="18/18ttbtch.rle" />
+	<area coords="250,54,309,97" href="18/18ttbtvh.rle" />
+	<area coords="310,54,369,97" nohref="nohref" />
+	<area coords="370,54,429,97" href="18/18pvtatt.rle" />
+	<area coords="430,54,489,97" nohref="nohref" />
+	<area coords="490,54,549,97" href="18/18pvtatf.rle" />
+	<area coords="550,54,620,97" nohref="nohref" />
+	<area coords="0,98,69,141" nohref="nohref" />
+	<area coords="70,98,129,141" href="18/18bctas1.rle" />
+	<area coords="130,98,189,141" nohref="nohref" />
+	<area coords="190,98,249,141" href="18/18hvdtbk.rle" />
+	<area coords="250,98,309,141" href="18/18pvtath.rle" />
+	<area coords="310,98,369,141" nohref="nohref" />
+	<area coords="370,98,429,141" href="18/18tdtttl.rle" />
+	<area coords="430,98,620,141" nohref="nohref" />
+	<area coords="0,142,249,185" nohref="nohref" />
+	<area coords="250,142,309,185" href="18/18bcbnlt.rle" />
+	<area coords="310,142,369,185" nohref="nohref" />
+	<area coords="370,142,429,185" href="18/18dtls2.rle" />
+	<area coords="430,142,620,185" nohref="nohref" />
+	<area coords="0,186,249,229" nohref="nohref" />
+	<area coords="250,186,549,229" nohref="nohref" />
+	<area coords="550,186,620,229" href="18/18dttltp.rle" />
+	<area coords="0,230,69,273" nohref="nohref" />
+	<area coords="70,230,129,273" href="18/18dttbsn.rle" />
+	<area coords="130,230,489,273" nohref="nohref" />
+	<area coords="490,230,549,273" href="18/18bctas7.rle" />
+	<area coords="550,230,620,273" nohref="nohref" />
+	<area coords="0,274,429,317" nohref="nohref" />
+	<area coords="430,274,489,317" href="18/18bcomb2.rle" />
+	<area coords="490,274,620,317" nohref="nohref" />
+	<area coords="0,318,620,361" nohref="nohref" />
+	<area coords="0,362,69,420" nohref="nohref" />
+	<area coords="70,362,129,420" href="18/18bptabk.rle" />
+	<area coords="130,362,620,420" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p2-18-2"></a>
+<h3>The third 90 18-bit period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-18-2.rle"><img src="map/p2-18-2.png"
+ alt="18-bit period 2 oscillators 181-270"
+ width="621" height="421" usemap="#p2-18-2" /></a></p>
+
+<map name="p2-18-2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-18.zip" />
+	<area coords="601,401,620,420" href="stamp/p2-18-2.rle" />
+	<area coords="0,0,249,53" nohref="nohref" />
+	<area coords="250,0,489,53" nohref="nohref" />
+	<area coords="490,0,549,53" href="18/18bctas9.rle" />
+	<area coords="550,0,620,53" href="18/18bctas2.rle" />
+	<area coords="0,54,69,97" nohref="nohref" />
+	<area coords="70,54,129,97" href="18/18ttbdlf.rle" />
+	<area coords="130,54,429,97" nohref="nohref" />
+	<area coords="430,54,489,97" href="18/18cavtli.rle" />
+	<area coords="490,54,620,97" nohref="nohref" />
+	<area coords="0,98,129,141" nohref="nohref" />
+	<area coords="130,98,189,141" href="18/18bczbt3.rle" />
+	<area coords="190,98,429,141" nohref="nohref" />
+	<area coords="430,98,489,141" href="18/18ttbulb.rle" />
+	<area coords="490,98,549,141" href="18/18bphvt.rle" />
+	<area coords="550,98,620,141" href="18/18bpldb4.rle" />
+	<area coords="0,142,69,185" href="18/18bptag4.rle" />
+	<area coords="70,142,129,185" href="18/18bpclt2.rle" />
+	<area coords="130,142,189,185" href="18/18bplub4.rle" />
+	<area coords="190,142,309,185" nohref="nohref" />
+	<area coords="310,142,369,185" href="18/18bplub3.rle" />
+	<area coords="370,142,429,185" href="18/18bpldb3.rle" />
+	<area coords="430,142,489,185" href="18/18bptag3.rle" />
+	<area coords="490,142,620,185" nohref="nohref" />
+	<area coords="0,186,249,229" nohref="nohref" />
+	<area coords="250,186,489,229" nohref="nohref" />
+	<area coords="490,186,549,229" href="18/18ttbclt.rle" />
+	<area coords="550,186,620,229" href="18/18ttbhug.rle" />
+	<area coords="0,230,69,273" href="18/18ttbtug.rle" />
+	<area coords="70,230,129,273" nohref="nohref" />
+	<area coords="130,230,189,273" href="18/18ttbhft.rle" />
+	<area coords="190,230,249,273" href="18/18ttbtft.rle" />
+	<area coords="250,230,429,273" nohref="nohref" />
+	<area coords="430,230,489,273" href="18/18bpblt2.rle" />
+	<area coords="490,230,549,273" href="18/18qpct1.rle" />
+	<area coords="550,230,620,273" href="18/18qple1.rle" />
+	<area coords="0,274,69,317" href="18/18bpih1.rle" />
+	<area coords="70,274,129,317" href="18/18bpllh4.rle" />
+	<area coords="130,274,189,317" href="18/18tpleh3.rle" />
+	<area coords="190,274,249,317" href="18/18bpftt.rle" />
+	<area coords="250,274,309,317" href="18/18bpugt.rle" />
+	<area coords="310,274,549,317" nohref="nohref" />
+	<area coords="550,274,620,317" href="18/18bpss.rle" />
+	<area coords="0,318,69,361" href="18/18cavtl2.rle" />
+	<area coords="70,318,620,361" nohref="nohref" />
+	<area coords="0,362,620,420" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p2-18-3"></a>
+<h3>The fourth 80 18-bit period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-18-3.rle"><img src="map/p2-18-3.png"
+ alt="18-bit period 2 oscillators 271-350"
+ width="621" height="421" usemap="#p2-18-3" /></a></p>
+
+<map name="p2-18-3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-18.zip" />
+	<area coords="601,401,620,420" href="stamp/p2-18-3.rle" />
+	<area coords="0,0,309,57" nohref="nohref" />
+	<area coords="310,0,369,57" href="18/18ttbflt.rle" />
+	<area coords="370,0,549,57" nohref="nohref" />
+	<area coords="550,0,620,57" href="18/18bcsa2.rle" />
+	<area coords="0,58,429,105" nohref="nohref" />
+	<area coords="430,58,489,105" href="18/18bpcvhd.rle" />
+	<area coords="490,58,549,105" nohref="nohref" />
+	<area coords="550,58,620,105" href="18/18bpdk2.rle" />
+	<area coords="0,106,620,153" nohref="nohref" />
+	<area coords="0,154,189,201" nohref="nohref" />
+	<area coords="190,154,249,201" href="18/18pxcav2.rle" />
+	<area coords="250,154,620,201" nohref="nohref" />
+	<area coords="0,202,69,249" href="18/18bctas6.rle" />
+	<area coords="70,202,129,249" href="18/18bczbt4.rle" />
+	<area coords="130,202,489,249" nohref="nohref" />
+	<area coords="490,202,549,249" href="18/18bpzpb2.rle" />
+	<area coords="550,202,620,249" nohref="nohref" />
+	<area coords="0,250,249,297" nohref="nohref" />
+	<area coords="250,250,309,297" href="18/18cavhdt.rle" />
+	<area coords="310,250,620,297" nohref="nohref" />
+	<area coords="0,298,620,345" nohref="nohref" />
+	<area coords="0,346,249,420" nohref="nohref" />
+	<area coords="250,346,309,420" href="18/18tpubt2.rle" />
+	<area coords="310,346,369,420" href="18/18bpcsl1.rle" />
+	<area coords="370,346,429,420" href="18/18tpleh4.rle" />
+	<area coords="430,346,489,420" href="18/18tpdbt2.rle" />
+	<area coords="490,346,549,420" href="18/18bpllh2.rle" />
+	<area coords="550,346,620,420" href="18/18tplet4.rle" />
+</map>
+
+<hr />
+<a name="p2-18-4"></a>
+<h3>The fifth 80 18-bit period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-18-4.rle"><img src="map/p2-18-4.png"
+ alt="18-bit period 2 oscillators 351-430"
+ width="621" height="421" usemap="#p2-18-4" /></a></p>
+
+<map name="p2-18-4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-18.zip" />
+	<area coords="601,401,620,420" href="stamp/p2-18-4.rle" />
+	<area coords="0,0,69,57" href="18/18tplet3.rle" />
+	<area coords="70,0,129,57" nohref="nohref" />
+	<area coords="130,0,189,57" href="18/18qple3.rle" />
+	<area coords="190,0,249,57" href="18/18tptlt.rle" />
+	<area coords="250,0,309,57" href="18/18bpsa.rle" />
+	<area coords="310,0,369,57" href="18/18bptvt1.rle" />
+	<area coords="370,0,429,57" href="18/18bpvl1.rle" />
+	<area coords="430,0,489,57" href="18/18bpas.rle" />
+	<area coords="490,0,620,57" nohref="nohref" />
+	<area coords="0,58,129,105" nohref="nohref" />
+	<area coords="130,58,189,105" href="18/18bctas3.rle" />
+	<area coords="190,58,249,105" href="18/18bctas8.rle" />
+	<area coords="250,58,489,105" nohref="nohref" />
+	<area coords="490,58,549,105" href="18/18bptvt2.rle" />
+	<area coords="550,58,620,105" nohref="nohref" />
+	<area coords="0,106,249,153" nohref="nohref" />
+	<area coords="250,106,309,153" href="18/18tpll3.rle" />
+	<area coords="310,106,620,153" nohref="nohref" />
+	<area coords="0,154,620,201" nohref="nohref" />
+	<area coords="0,202,69,249" nohref="nohref" />
+	<area coords="70,202,129,249" href="18/18bpldb2.rle" />
+	<area coords="130,202,189,249" href="18/18bptag2.rle" />
+	<area coords="190,202,249,249" href="18/18ff2.rle" />
+	<area coords="250,202,620,249" nohref="nohref" />
+	<area coords="0,250,69,297" href="18/18bplub2.rle" />
+	<area coords="70,250,249,297" nohref="nohref" />
+	<area coords="250,250,309,297" href="18/18ff1.rle" />
+	<area coords="310,250,489,297" nohref="nohref" />
+	<area coords="490,250,549,297" href="18/18cavlh.rle" />
+	<area coords="550,250,620,297" nohref="nohref" />
+	<area coords="0,298,69,345" href="18/18qpct2.rle" />
+	<area coords="70,298,129,345" href="18/18qpht2.rle" />
+	<area coords="130,298,189,345" href="18/18qple4.rle" />
+	<area coords="190,298,249,345" href="18/18tpdbt1.rle" />
+	<area coords="250,298,309,345" href="18/18tpleh2.rle" />
+	<area coords="310,298,369,345" href="18/18bpli.rle" />
+	<area coords="370,298,429,345" href="18/18bpblt1.rle" />
+	<area coords="430,298,620,345" nohref="nohref" />
+	<area coords="0,346,129,420" nohref="nohref" />
+	<area coords="130,346,189,420" href="18/18qpsl2.rle" />
+	<area coords="190,346,249,420" href="18/18qpht1.rle" />
+	<area coords="250,346,309,420" href="18/18qptt.rle" />
+	<area coords="310,346,369,420" href="18/18tpll1.rle" />
+	<area coords="370,346,429,420" href="18/18tpll2.rle" />
+	<area coords="430,346,489,420" href="18/18tplht.rle" />
+	<area coords="490,346,549,420" href="18/18bpaa.rle" />
+	<area coords="550,346,620,420" href="18/18bpvl2.rle" />
+</map>
+
+<hr />
+<a name="p2-18-5"></a>
+<h3>The last 54 period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-18-5.rle"><img src="map/p2-18-5.png"
+ alt="18-bit period 2 oscillators 431-484"
+ width="621" height="421" usemap="#p2-18-5" /></a></p>
+
+<map name="p2-18-5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-18.zip" />
+	<area coords="601,401,620,420" href="stamp/p2-18-5.rle" />
+	<area coords="0,0,69,73" href="18/18bpvht.rle" />
+	<area coords="70,0,129,73" href="18/18hpta1.rle" />
+	<area coords="130,0,189,73" href="18/18cavdb.rle" />
+	<area coords="190,0,249,73" nohref="nohref" />
+	<area coords="250,0,309,73" href="18/18qpcv.rle" />
+	<area coords="310,0,369,73" nohref="nohref" />
+	<area coords="370,0,429,73" href="18/18cavhd2.rle" />
+	<area coords="430,0,489,73" href="18/18cavgu.rle" />
+	<area coords="490,0,549,73" href="18/18cavub.rle" />
+	<area coords="550,0,620,73" href="18/18bpvp.rle" />
+	<area coords="0,74,249,137" nohref="nohref" />
+	<area coords="250,74,309,137" href="18/18tplet2.rle" />
+	<area coords="310,74,369,137" href="18/18bpcsl2.rle" />
+	<area coords="370,74,429,137" href="18/18bpcht.rle" />
+	<area coords="430,74,489,137" href="18/18bpclt1.rle" />
+	<area coords="490,74,549,137" href="18/18bpih2.rle" />
+	<area coords="550,74,620,137" nohref="nohref" />
+	<area coords="0,138,69,201" nohref="nohref" />
+	<area coords="70,138,129,201" href="18/18qple2.rle" />
+	<area coords="130,138,189,201" href="18/18px21.rle" />
+	<area coords="190,138,249,201" href="18/18ppet2.rle" />
+	<area coords="250,138,309,201" href="18/18qpsl1.rle" />
+	<area coords="310,138,549,201" nohref="nohref" />
+	<area coords="550,138,620,201" href="18/18btbpbt.rle" />
+	<area coords="0,202,69,265" href="18/18tpubt1.rle" />
+	<area coords="70,202,129,265" href="18/18tpvb.rle" />
+	<area coords="130,202,189,265" href="18/18bpit.rle" />
+	<area coords="190,202,249,265" href="18/18tpin.rle" />
+	<area coords="250,202,309,265" nohref="nohref" />
+	<area coords="310,202,369,265" href="18/18hpta2.rle" />
+	<area coords="370,202,429,265" href="18/18bpys.rle" />
+	<area coords="430,202,489,265" href="18/18tpxs.rle" />
+	<area coords="490,202,549,265" href="18/18qpvs.rle" />
+	<area coords="550,202,620,265" href="18/18ppls.rle" />
+	<area coords="0,266,69,329" href="18/18hpsn.rle" />
+	<area coords="70,266,129,329" href="18/18ppet1.rle" />
+	<area coords="130,266,189,329" href="18/18pplb.rle" />
+	<area coords="190,266,249,329" href="18/18tptp2.rle" />
+	<area coords="250,266,309,329" href="18/18tptp1.rle" />
+	<area coords="310,266,369,329" href="18/18qpbp1.rle" />
+	<area coords="370,266,429,329" href="18/18qpbp2.rle" />
+	<area coords="430,266,489,329" href="18/18bpvc.rle" />
+	<area coords="490,266,549,329" href="18/18tplc.rle" />
+	<area coords="550,266,620,329" href="18/18qpcs.rle" />
+	<area coords="0,330,69,420" href="18/18hpsh.rle" />
+	<area coords="70,330,129,420" href="18/18hpac.rle" />
+	<area coords="130,330,189,420" href="18/18epbt.rle" />
+	<area coords="190,330,249,420" href="18/18ddp.rle" />
+	<area coords="250,330,620,420" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-18.htm">18-bit objects</a>:</b>
+	<a class="i" href="p1-18.htm">still-lifes</a>,
+	<a class="i" href="pp1-18.htm">pseudo-still-lifes</a>,
+	P2 oscillators,
+	<a class="i" href="pp2-18.htm">P2 pseudo-oscillators</a>,
+	<a class="i" href="bits-18.htm#p3-18">P3 oscillators</a>,
+	<a class="i" href="bits-18.htm#pp3-18">P3 pseudo-oscillators</a>,
+	<a class="i" href="bits-18.htm#p4-18">P4 oscillators</a>,
+	<a class="i" href="bits-18.htm#pp4-18">P4 pseudo-oscillators</a>,
+	<a class="i" href="bits-18.htm#p5-18">P5 oscillator</a>,
+	<a class="i" href="bits-18.htm#p6-18">P6 oscillators</a>,
+	<a class="i" href="bits-18.htm#p8-18">P8 oscillator</a>,
+	<a class="i" href="bits-18.htm#pp8-18">P8 pseudo-oscillators</a>,
+	<a class="i" href="bits-18.htm#pp15-18">P15 pseudo-oscillators</a>,
+	<a class="i" href="bits-18.htm#pp30-18">P30 pseudo-oscillator</a>,
+	<a class="i" href="bits-18.htm#ss-18">pseudo-spaceship</a>,
+	<a class="i" href="bits-18.htm#cons-18">constellations</a>.</p>
+
+<p><b>Other <a class="i" href="p2.htm">period 2 oscillators</a>:</b>
+	<a class="i" href="p2.htm#p2-3">3-bit</a>,
+	<a class="i" href="p2.htm#p2-6">6-bit</a>,
+	<a class="i" href="p2.htm#p2-8">8-bit</a>,
+	<a class="i" href="p2.htm#p2-9">9-bit</a>,
+	<a class="i" href="p2.htm#p2-10">10-bit</a>,
+	<a class="i" href="p2.htm#p2-11">11-bit</a>,
+	<a class="i" href="p2.htm#p2-12">12-bit</a>,
+	<a class="i" href="p2.htm#p2-13">13-bit</a>,
+	<a class="i" href="p2.htm#p2-14">14-bit</a>,
+	<a class="i" href="p2.htm#p2-15">15-bit</a>,
+	<a class="i" href="p2.htm#p2-16">16-bit</a>,
+	<a class="i" href="p2-17.htm">17-bit</a>,
+	18-bit,
+	<a class="i" href="p2-19.htm">19-bit</a>,
+	<a class="i" href="p2-20.htm">20-bit</a>,
+	<a class="i" href="p2-21.htm">21-bit</a>,
+	<a class="i" href="p2.htm#p2-22">22-bit</a>,
+	<a class="i" href="p2.htm#p2-23">23-bit</a>,
+	<a class="i" href="p2.htm#p2-24">24-bit</a>,
+	<a class="i" href="p2.htm#p2-25">25-bit</a>,
+	<a class="i" href="p2.htm#p2-lg">26-bit and larger</a>,
+	<a class="i" href="p2.htm#p2-sc">scrubbers</a>,
+	<a class="i" href="p2.htm#p2-bad">not quite oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

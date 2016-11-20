@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Sixteen-Bit Still-Lifes</title>
+<meta name="description"
+content="Conway's Game of Life: sixteen-bit still-life lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 16 sixteen bit still life object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Sixteen-Bit Still-Lifes</h1>
+
+<p align="center">
+	Syntheses:
+	<a class="j" href="#p1-16-0">First 100</a> |
+	<a class="j" href="#p1-16-1">Second 100</a> |
+	<a class="j" href="#p1-16-2">Third 90</a> |
+	<a class="j" href="#p1-16-3">Last 47</a> |
+	<a class="j" href="#p1-16-a">Difficult syntheses</a><br />
+	Still-lifes:
+	<a class="j" href="#p1-16-00">16.1-16.1000</a> |
+	<a class="j" href="#p1-16-01">16.1001-16.2000</a> |
+	<a class="j" href="#p1-16-02">16.2001-16.3000</a> |
+	<a class="j" href="#p1-16-03">16.3001-16.3286</a>
+</p>
+
+<hr /><hr />
+<a name="p1-16-0"></a>
+<h2>Syntheses for 338 of the 3286
+<a class="i" href="bits-16.htm">sixteen-bit</a>
+<a class="i" href="p1.htm">still-lifes</a></h2>
+
+<p>All the 16-bit still-lifes can be synthesized.</p>
+
+<h3>The first 100 syntheses</h3>
+<p><a class="p" href="stamp/p1-16-0.rle"><img src="map/p1-16-0.png"
+ alt="16-bit still-life syntheses 1-100"
+ width="621" height="421" usemap="#p1-16-0" /></a></p>
+
+<map name="p1-16-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-16-0.rle" />
+	<area coords="0,0,69,49" href="16/16-7.rle" />
+	<area coords="70,0,129,49" href="16/16-9.rle" />
+	<area coords="130,0,189,49" href="16/16-10.rle" />
+	<area coords="190,0,249,49" href="16/16-39.rle" />
+	<area coords="250,0,309,49" href="16/16-67.rle" />
+	<area coords="310,0,369,49" href="16/16-120.rle" />
+	<area coords="370,0,429,49" href="16/16-121.rle" />
+	<area coords="430,0,489,49" href="16/16-122.rle" />
+	<area coords="490,0,549,49" href="16/16-124.rle" />
+	<area coords="550,0,620,49" href="16/16-125.rle" />
+	<area coords="0,50,69,89" href="16/16-126.rle" />
+	<area coords="70,50,129,89" href="16/16-127.rle" />
+	<area coords="130,50,189,89" href="16/16-128.rle" />
+	<area coords="190,50,249,89" href="16/16-129.rle" />
+	<area coords="250,50,309,89" href="16/16-130.rle" />
+	<area coords="310,50,369,89" href="16/16-131.rle" />
+	<area coords="370,50,429,89" href="16/16-133.rle" />
+	<area coords="430,50,489,89" href="16/16-135.rle" />
+	<area coords="490,50,549,89" href="16/16-137.rle" />
+	<area coords="550,50,620,89" href="16/16-138.rle" />
+	<area coords="0,90,69,129" href="16/16-140.rle" />
+	<area coords="70,90,129,129" href="16/16-147.rle" />
+	<area coords="130,90,189,129" href="16/16-148.rle" />
+	<area coords="190,90,249,129" href="16/16-151.rle" />
+	<area coords="250,90,309,129" href="16/16-154.rle" />
+	<area coords="310,90,369,129" href="16/16-155.rle" />
+	<area coords="370,90,429,129" href="16/16-157.rle" />
+	<area coords="430,90,489,129" href="16/16-158.rle" />
+	<area coords="490,90,549,129" href="16/16-159.rle" />
+	<area coords="550,90,620,129" href="16/16-164.rle" />
+	<area coords="0,130,69,169" href="16/16-172.rle" />
+	<area coords="70,130,129,169" href="16/16-175.rle" />
+	<area coords="130,130,189,169" href="16/16-179.rle" />
+	<area coords="190,130,249,169" href="16/16-183.rle" />
+	<area coords="250,130,309,169" href="16/16-185.rle" />
+	<area coords="310,130,369,169" href="16/16-189.rle" />
+	<area coords="370,130,429,169" href="16/16-197.rle" />
+	<area coords="430,130,489,169" href="16/16-203.rle" />
+	<area coords="490,130,549,169" href="16/16-207.rle" />
+	<area coords="550,130,620,169" href="16/16-211.rle" />
+	<area coords="0,170,69,209" href="16/16-215.rle" />
+	<area coords="70,170,129,209" href="16/16-216.rle" />
+	<area coords="130,170,189,209" href="16/16-217.rle" />
+	<area coords="190,170,249,209" href="16/16-218.rle" />
+	<area coords="250,170,309,209" href="16/16-220.rle" />
+	<area coords="310,170,369,209" href="16/16-233.rle" />
+	<area coords="370,170,429,209" href="16/16-235.rle" />
+	<area coords="430,170,489,209" href="16/16-244.rle" />
+	<area coords="490,170,549,209" href="16/16-250.rle" />
+	<area coords="550,170,620,209" href="16/16-256.rle" />
+	<area coords="0,210,69,249" href="16/16-258.rle" />
+	<area coords="70,210,129,249" href="16/16-300.rle" />
+	<area coords="130,210,189,249" href="16/16-312.rle" />
+	<area coords="190,210,249,249" href="16/16-313.rle" />
+	<area coords="250,210,309,249" href="16/16-349.rle" />
+	<area coords="310,210,369,249" href="16/16-354.rle" />
+	<area coords="370,210,429,249" href="16/16-393.rle" />
+	<area coords="430,210,489,249" href="16/16-406.rle" />
+	<area coords="490,210,549,249" href="16/16-448.rle" />
+	<area coords="550,210,620,249" href="16/16-616.rle" />
+	<area coords="0,250,69,289" href="16/16-621.rle" />
+	<area coords="70,250,129,289" href="16/16-622.rle" />
+	<area coords="130,250,189,289" href="16/16-623.rle" />
+	<area coords="190,250,249,289" href="16/16-624.rle" />
+	<area coords="250,250,309,289" href="16/16-626.rle" />
+	<area coords="310,250,369,289" href="16/16-628.rle" />
+	<area coords="370,250,429,289" href="16/16-631.rle" />
+	<area coords="430,250,489,289" href="16/16-633.rle" />
+	<area coords="490,250,549,289" href="16/16-635.rle" />
+	<area coords="550,250,620,289" href="16/16-636.rle" />
+	<area coords="0,290,69,329" href="16/16-637.rle" />
+	<area coords="70,290,129,329" href="16/16-638.rle" />
+	<area coords="130,290,189,329" href="16/16-641.rle" />
+	<area coords="190,290,249,329" href="16/16-642.rle" />
+	<area coords="250,290,309,329" href="16/16-644.rle" />
+	<area coords="310,290,369,329" href="16/16-645.rle" />
+	<area coords="370,290,429,329" href="16/16-646.rle" />
+	<area coords="430,290,489,329" href="16/16-649.rle" />
+	<area coords="490,290,549,329" href="16/16-652.rle" />
+	<area coords="550,290,620,329" href="16/16-658.rle" />
+	<area coords="0,330,69,369" href="16/16-659.rle" />
+	<area coords="70,330,129,369" href="16/16-662.rle" />
+	<area coords="130,330,189,369" href="16/16-663.rle" />
+	<area coords="190,330,249,369" href="16/16-664.rle" />
+	<area coords="250,330,309,369" href="16/16-669.rle" />
+	<area coords="310,330,369,369" href="16/16-670.rle" />
+	<area coords="370,330,429,369" href="16/16-675.rle" />
+	<area coords="430,330,489,369" href="16/16-680.rle" />
+	<area coords="490,330,549,369" href="16/16-682.rle" />
+	<area coords="550,330,620,369" href="16/16-685.rle" />
+	<area coords="0,370,69,420" href="16/16-689.rle" />
+	<area coords="70,370,129,420" href="16/16-691.rle" />
+	<area coords="130,370,189,420" href="16/16-695.rle" />
+	<area coords="190,370,249,420" href="16/16-696.rle" />
+	<area coords="250,370,309,420" href="16/16-698.rle" />
+	<area coords="310,370,369,420" href="16/16-701.rle" />
+	<area coords="370,370,429,420" href="16/16-706.rle" />
+	<area coords="430,370,489,420" href="16/16-712.rle" />
+	<area coords="490,370,549,420" href="16/16-713.rle" />
+	<area coords="550,370,620,420" href="16/16-716.rle" />
+</map>
+
+<a name="p1-16-1"></a>
+<h3>The second 100 syntheses</h3>
+<p><a class="p" href="stamp/p1-16-1.rle"><img src="map/p1-16-1.png"
+ alt="16-bit still-life syntheses 101-200"
+ width="621" height="421" usemap="#p1-16-1" /></a></p>
+
+<map name="p1-16-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-16-1.rle" />
+	<area coords="0,0,69,49" href="16/16-717.rle" />
+	<area coords="70,0,129,49" href="16/16-718.rle" />
+	<area coords="130,0,189,49" href="16/16-719.rle" />
+	<area coords="190,0,249,49" href="16/16-720.rle" />
+	<area coords="250,0,309,49" href="16/16-721.rle" />
+	<area coords="310,0,369,49" href="16/16-726.rle" />
+	<area coords="370,0,429,49" href="16/16-728.rle" />
+	<area coords="430,0,489,49" href="16/16-729.rle" />
+	<area coords="490,0,549,49" href="16/16-731.rle" />
+	<area coords="550,0,620,49" href="16/16-736.rle" />
+	<area coords="0,50,69,89" href="16/16-737.rle" />
+	<area coords="70,50,129,89" href="16/16-738.rle" />
+	<area coords="130,50,189,89" href="16/16-745.rle" />
+	<area coords="190,50,249,89" href="16/16-747.rle" />
+	<area coords="250,50,309,89" href="16/16-752.rle" />
+	<area coords="310,50,369,89" href="16/16-757.rle" />
+	<area coords="370,50,429,89" href="16/16-761.rle" />
+	<area coords="430,50,489,89" href="16/16-765.rle" />
+	<area coords="490,50,549,89" href="16/16-773.rle" />
+	<area coords="550,50,620,89" href="16/16-774.rle" />
+	<area coords="0,90,69,129" href="16/16-775.rle" />
+	<area coords="70,90,129,129" href="16/16-777.rle" />
+	<area coords="130,90,189,129" href="16/16-778.rle" />
+	<area coords="190,90,249,129" href="16/16-781.rle" />
+	<area coords="250,90,309,129" href="16/16-786.rle" />
+	<area coords="310,90,369,129" href="16/16-794.rle" />
+	<area coords="370,90,429,129" href="16/16-795.rle" />
+	<area coords="430,90,489,129" href="16/16-799.rle" />
+	<area coords="490,90,549,129" href="16/16-801.rle" />
+	<area coords="550,90,620,129" href="16/16-802.rle" />
+	<area coords="0,130,69,169" href="16/16-803.rle" />
+	<area coords="70,130,129,169" href="16/16-806.rle" />
+	<area coords="130,130,189,169" href="16/16-808.rle" />
+	<area coords="190,130,249,169" href="16/16-811.rle" />
+	<area coords="250,130,309,169" href="16/16-814.rle" />
+	<area coords="310,130,369,169" href="16/16-815.rle" />
+	<area coords="370,130,429,169" href="16/16-817.rle" />
+	<area coords="430,130,489,169" href="16/16-818.rle" />
+	<area coords="490,130,549,169" href="16/16-822.rle" />
+	<area coords="550,130,620,169" href="16/16-823.rle" />
+	<area coords="0,170,69,209" href="16/16-825.rle" />
+	<area coords="70,170,129,209" href="16/16-827.rle" />
+	<area coords="130,170,189,209" href="16/16-828.rle" />
+	<area coords="190,170,249,209" href="16/16-831.rle" />
+	<area coords="250,170,309,209" href="16/16-836.rle" />
+	<area coords="310,170,369,209" href="16/16-839.rle" />
+	<area coords="370,170,429,209" href="16/16-842.rle" />
+	<area coords="430,170,489,209" href="16/16-844.rle" />
+	<area coords="490,170,549,209" href="16/16-846.rle" />
+	<area coords="550,170,620,209" href="16/16-848.rle" />
+	<area coords="0,210,69,249" href="16/16-854.rle" />
+	<area coords="70,210,129,249" href="16/16-871.rle" />
+	<area coords="130,210,189,249" href="16/16-874.rle" />
+	<area coords="190,210,249,249" href="16/16-876.rle" />
+	<area coords="250,210,309,249" href="16/16-878.rle" />
+	<area coords="310,210,369,249" href="16/16-882.rle" />
+	<area coords="370,210,429,249" href="16/16-885.rle" />
+	<area coords="430,210,489,249" href="16/16-889.rle" />
+	<area coords="490,210,549,249" href="16/16-890.rle" />
+	<area coords="550,210,620,249" href="16/16-891.rle" />
+	<area coords="0,250,69,289" href="16/16-897.rle" />
+	<area coords="70,250,129,289" href="16/16-899.rle" />
+	<area coords="130,250,189,289" href="16/16-907.rle" />
+	<area coords="190,250,249,289" href="16/16-913.rle" />
+	<area coords="250,250,309,289" href="16/16-926.rle" />
+	<area coords="310,250,369,289" href="16/16-927.rle" />
+	<area coords="370,250,429,289" href="16/16-928.rle" />
+	<area coords="430,250,489,289" href="16/16-929.rle" />
+	<area coords="490,250,549,289" href="16/16-941.rle" />
+	<area coords="550,250,620,289" href="16/16-948.rle" />
+	<area coords="0,290,69,329" href="16/16-957.rle" />
+	<area coords="70,290,129,329" href="16/16-969.rle" />
+	<area coords="130,290,189,329" href="16/16-975.rle" />
+	<area coords="190,290,249,329" href="16/16-976.rle" />
+	<area coords="250,290,309,329" href="16/16-984.rle" />
+	<area coords="310,290,369,329" href="16/16-996.rle" />
+	<area coords="370,290,429,329" href="16/16-999.rle" />
+	<area coords="430,290,489,329" href="16/16-1002.rle" />
+	<area coords="490,290,549,329" href="16/16-1006.rle" />
+	<area coords="550,290,620,329" href="16/16-1010.rle" />
+	<area coords="0,330,69,369" href="16/16-1011.rle" />
+	<area coords="70,330,129,369" href="16/16-1016.rle" />
+	<area coords="130,330,189,369" href="16/16-1027.rle" />
+	<area coords="190,330,249,369" href="16/16-1042.rle" />
+	<area coords="250,330,309,369" href="16/16-1046.rle" />
+	<area coords="310,330,369,369" href="16/16-1063.rle" />
+	<area coords="370,330,429,369" href="16/16-1078.rle" />
+	<area coords="430,330,489,369" href="16/16-1081.rle" />
+	<area coords="490,330,549,369" href="16/16-1084.rle" />
+	<area coords="550,330,620,369" href="16/16-1085.rle" />
+	<area coords="0,370,69,420" href="16/16-1086.rle" />
+	<area coords="70,370,129,420" href="16/16-1094.rle" />
+	<area coords="130,370,189,420" href="16/16-1095.rle" />
+	<area coords="190,370,249,420" href="16/16-1096.rle" />
+	<area coords="250,370,309,420" href="16/16-1106.rle" />
+	<area coords="310,370,369,420" href="16/16-1107.rle" />
+	<area coords="370,370,429,420" href="16/16-1123.rle" />
+	<area coords="430,370,489,420" href="16/16-1127.rle" />
+	<area coords="490,370,549,420" href="16/16-1140.rle" />
+	<area coords="550,370,620,420" href="16/16-1142.rle" />
+</map>
+
+<a name="p1-16-2"></a>
+<h3>The third 90 syntheses</h3>
+<p><a class="p" href="stamp/p1-16-2.rle"><img src="map/p1-16-2.png"
+ alt="16-bit still-life syntheses 201-290"
+ width="621" height="421" usemap="#p1-16-2" /></a></p>
+
+<map name="p1-16-2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-16.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-16-2.rle" />
+	<area coords="0,0,69,57" href="16/16-1143.rle" />
+	<area coords="70,0,129,57" href="16/16-1145.rle" />
+	<area coords="130,0,189,57" href="16/16-1196.rle" />
+	<area coords="190,0,249,57" href="16/16-1217.rle" />
+	<area coords="250,0,309,57" href="16/16-1273.rle" />
+	<area coords="310,0,369,57" href="16/16-1277.rle" />
+	<area coords="370,0,429,57" href="16/16-1286.rle" />
+	<area coords="430,0,489,57" href="16/16-1292.rle" />
+	<area coords="490,0,549,57" href="16/16-1373.rle" />
+	<area coords="550,0,620,57" href="16/16-1429.rle" />
+	<area coords="0,58,69,105" href="16/16-1480.rle" />
+	<area coords="70,58,129,105" href="16/16-1501.rle" />
+	<area coords="130,58,189,105" href="16/16-1631.rle" />
+	<area coords="190,58,249,105" href="16/16-1672.rle" />
+	<area coords="250,58,309,105" href="16/16-1679.rle" />
+	<area coords="310,58,369,105" href="16/16-1680.rle" />
+	<area coords="370,58,429,105" href="16/16-1682.rle" />
+	<area coords="430,58,489,105" href="16/16-1683.rle" />
+	<area coords="490,58,549,105" href="16/16-1684.rle" />
+	<area coords="550,58,620,105" href="16/16-1685.rle" />
+	<area coords="0,106,69,153" href="16/16-1687.rle" />
+	<area coords="70,106,129,153" href="16/16-1688.rle" />
+	<area coords="130,106,189,153" href="16/16-1689.rle" />
+	<area coords="190,106,249,153" href="16/16-1690.rle" />
+	<area coords="250,106,309,153" href="16/16-1691.rle" />
+	<area coords="310,106,369,153" href="16/16-1692.rle" />
+	<area coords="370,106,429,153" href="16/16-1693.rle" />
+	<area coords="430,106,489,153" href="16/16-1694.rle" />
+	<area coords="490,106,549,153" href="16/16-1697.rle" />
+	<area coords="550,106,620,153" href="16/16-1700.rle" />
+	<area coords="0,154,69,201" href="16/16-1701.rle" />
+	<area coords="70,154,129,201" href="16/16-1703.rle" />
+	<area coords="130,154,189,201" href="16/16-1704.rle" />
+	<area coords="190,154,249,201" href="16/16-1705.rle" />
+	<area coords="250,154,309,201" href="16/16-1707.rle" />
+	<area coords="310,154,369,201" href="16/16-1708.rle" />
+	<area coords="370,154,429,201" href="16/16-1717.rle" />
+	<area coords="430,154,489,201" href="16/16-1718.rle" />
+	<area coords="490,154,549,201" href="16/16-1719.rle" />
+	<area coords="550,154,620,201" href="16/16-1721.rle" />
+	<area coords="0,202,69,249" href="16/16-1736.rle" />
+	<area coords="70,202,129,249" href="16/16-1743.rle" />
+	<area coords="130,202,189,249" href="16/16-1745.rle" />
+	<area coords="190,202,249,249" href="16/16-1749.rle" />
+	<area coords="250,202,309,249" href="16/16-1750.rle" />
+	<area coords="310,202,369,249" href="16/16-1751.rle" />
+	<area coords="370,202,429,249" href="16/16-1752.rle" />
+	<area coords="430,202,489,249" href="16/16-1753.rle" />
+	<area coords="490,202,549,249" href="16/16-1759.rle" />
+	<area coords="550,202,620,249" href="16/16-1769.rle" />
+	<area coords="0,250,69,297" href="16/16-1779.rle" />
+	<area coords="70,250,129,297" href="16/16-1780.rle" />
+	<area coords="130,250,189,297" href="16/16-1787.rle" />
+	<area coords="190,250,249,297" href="16/16-1788.rle" />
+	<area coords="250,250,309,297" href="16/16-1798.rle" />
+	<area coords="310,250,369,297" href="16/16-1801.rle" />
+	<area coords="370,250,429,297" href="16/16-1802.rle" />
+	<area coords="430,250,489,297" href="16/16-1805.rle" />
+	<area coords="490,250,549,297" href="16/16-1806.rle" />
+	<area coords="550,250,620,297" href="16/16-1807.rle" />
+	<area coords="0,298,69,345" href="16/16-1810.rle" />
+	<area coords="70,298,129,345" href="16/16-1811.rle" />
+	<area coords="130,298,189,345" href="16/16-1812.rle" />
+	<area coords="190,298,249,345" href="16/16-1813.rle" />
+	<area coords="250,298,309,345" href="16/16-1821.rle" />
+	<area coords="310,298,369,345" href="16/16-1838.rle" />
+	<area coords="370,298,429,345" href="16/16-1847.rle" />
+	<area coords="430,298,489,345" href="16/16-1848.rle" />
+	<area coords="490,298,549,345" href="16/16-1858.rle" />
+	<area coords="550,298,620,345" href="16/16-1862.rle" />
+	<area coords="0,346,69,393" href="16/16-1884.rle" />
+	<area coords="70,346,129,393" href="16/16-1912.rle" />
+	<area coords="130,346,189,393" href="16/16-1915.rle" />
+	<area coords="190,346,249,393" href="16/16-1926.rle" />
+	<area coords="250,346,309,393" href="16/16-1935.rle" />
+	<area coords="310,346,369,393" href="16/16-1936.rle" />
+	<area coords="370,346,429,393" href="16/16-1940.rle" />
+	<area coords="430,346,489,393" href="16/16-1941.rle" />
+	<area coords="490,346,549,393" href="16/16-1942.rle" />
+	<area coords="550,346,620,393" href="16/16-1943.rle" />
+	<area coords="0,394,69,420" href="16/16-1952.rle" />
+	<area coords="70,394,129,420" href="16/16-1953.rle" />
+	<area coords="130,394,189,420" href="16/16-1962.rle" />
+	<area coords="190,394,249,420" href="16/16-1975.rle" />
+	<area coords="250,394,309,420" href="16/16-1979.rle" />
+	<area coords="310,394,369,420" href="16/16-1988.rle" />
+	<area coords="370,394,429,420" href="16/16-2009.rle" />
+	<area coords="430,394,489,420" href="16/16-2016.rle" />
+	<area coords="490,394,549,420" href="16/16-2017.rle" />
+	<area coords="550,394,620,420" href="16/16-2027.rle" />
+</map>
+
+<a name="p1-16-3"></a>
+<h3>The last 47 syntheses</h3>
+<p><a class="p" href="stamp/p1-16-3.rle"><img src="map/p1-16-3.png"
+ alt="16-bit still-life syntheses 291-336"
+ width="621" height="321" usemap="#p1-16-3" /></a></p>
+
+<map name="p1-16-3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-16.zip" />
+	<area coords="601,301,620,320" href="stamp/p1-16-3.rle" />
+	<area coords="0,0,69,69" href="16/16-2041.rle" />
+	<area coords="70,0,129,69" href="16/16-2044.rle" />
+	<area coords="130,0,189,69" href="16/16-2060.rle" />
+	<area coords="190,0,249,69" href="16/16-2067.rle" />
+	<area coords="250,0,309,69" href="16/16-2075.rle" />
+	<area coords="310,0,369,69" href="16/16-2089.rle" />
+	<area coords="370,0,429,69" href="16/16-2094.rle" />
+	<area coords="430,0,489,69" href="16/16-2096.rle" />
+	<area coords="490,0,549,69" href="16/16-2098.rle" />
+	<area coords="550,0,620,69" href="16/16-2126.rle" />
+	<area coords="0,70,69,129" href="16/16-2131.rle" />
+	<area coords="70,70,129,129" href="16/16-2156.rle" />
+	<area coords="130,70,189,129" href="16/16-2182.rle" />
+	<area coords="190,70,249,129" href="16/16-2196.rle" />
+	<area coords="250,70,309,129" href="16/16-2197.rle" />
+	<area coords="310,70,369,129" href="16/16-2222.rle" />
+	<area coords="370,70,429,129" href="16/16-2232.rle" />
+	<area coords="430,70,489,129" href="16/16-2239.rle" />
+	<area coords="490,70,549,129" href="16/16-2266.rle" />
+	<area coords="550,70,620,129" href="16/16-2297.rle" />
+	<area coords="0,130,69,189" href="16/16-2397.rle" />
+	<area coords="70,130,129,189" href="16/16-2412.rle" />
+	<area coords="130,130,189,189" href="16/16-2441.rle" />
+	<area coords="190,130,249,189" href="16/16-2454.rle" />
+	<area coords="250,130,309,189" href="16/16-2531.rle" />
+	<area coords="310,130,369,189" href="16/16-2540.rle" />
+	<area coords="370,130,429,189" href="16/16-2553.rle" />
+	<area coords="430,130,489,189" href="16/16-2663.rle" />
+	<area coords="490,130,549,189" href="16/16-2737.rle" />
+	<area coords="550,130,620,189" href="16/16-2764.rle" />
+	<area coords="0,190,69,249" href="16/16-2819.rle" />
+	<area coords="70,190,129,249" href="16/16-2843.rle" />
+	<area coords="130,190,189,249" href="16/16-2849.rle" />
+	<area coords="190,190,249,249" href="16/16-2853.rle" />
+	<area coords="250,190,309,249" href="16/16-2854.rle" />
+	<area coords="310,190,369,249" href="16/16-2895.rle" />
+	<area coords="370,190,429,249" href="16/16-2974.rle" />
+	<area coords="430,190,489,249" href="16/16-2975.rle" />
+	<area coords="490,190,549,249" href="16/16-2988.rle" />
+	<area coords="550,190,620,249" href="16/16-3062.rle" />
+	<area coords="0,250,69,320" href="16/16-3079.rle" />
+	<area coords="70,250,129,320" href="16/16-3128.rle" />
+	<area coords="130,250,189,320" href="16/16-3133.rle" />
+	<area coords="190,250,249,320" href="16/16-3134.rle" />
+	<area coords="250,250,309,320" href="16/16-3137.rle" />
+	<area coords="310,250,369,320" href="16/16-3157.rle" />
+	<area coords="370,250,429,320" href="16/16-3206.rle" />
+	<area coords="430,250,489,320" href="16/16-3227.rle" />
+	<area coords="490,250,620,320" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="p1-16-a"></a>
+<h2>Syntheses for 94 difficult
+<a class="i" href="bits-16.htm">sixteen-bit</a>
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p>Except for these 94 still-lifes, all other 16-bit still-lifes can be
+synthesized using standard techniques from smaller still-lifes (or, in a few
+cases, from others on this list).</p>
+
+<p><a class="p" href="stamp/p1-16-a.rle"><img src="map/p1-16-a.png"
+ alt="difficult 16-bit still-life syntheses"
+ width="621" height="441" usemap="#p1-16-a" /></a></p>
+
+<map name="p1-16-a">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,421,19,440" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-16d.zip" />
+	<area coords="601,421,620,440" href="stamp/p1-16-a.rle" />
+	<area coords="0,0,69,53" href="16/16-120.rle" />
+	<area coords="70,0,129,53" href="16/16-124.rle" />
+	<area coords="130,0,189,53" href="16/16-125.rle" />
+	<area coords="190,0,249,53" href="16/16-126.rle" />
+	<area coords="250,0,309,53" href="16/16-128.rle" />
+	<area coords="310,0,369,53" href="16/16-130.rle" />
+	<area coords="370,0,429,53" href="16/16-140.rle" />
+	<area coords="430,0,489,53" href="16/16-147.rle" />
+	<area coords="490,0,549,53" href="16/16-148.rle" />
+	<area coords="550,0,620,53" href="16/16-155.rle" />
+	<area coords="0,54,69,97" href="16/16-157.rle" />
+	<area coords="70,54,129,97" href="16/16-159.rle" />
+	<area coords="130,54,189,97" href="16/16-185.rle" />
+	<area coords="190,54,249,97" href="16/16-218.rle" />
+	<area coords="250,54,309,97" href="16/16-220.rle" />
+	<area coords="310,54,369,97" href="16/16-233.rle" />
+	<area coords="370,54,429,97" href="16/16-312.rle" />
+	<area coords="430,54,489,97" href="16/16-354.rle" />
+	<area coords="490,54,549,97" href="16/16-616.rle" />
+	<area coords="550,54,620,97" href="16/16-621.rle" />
+	<area coords="0,98,69,141" href="16/16-622.rle" />
+	<area coords="70,98,129,141" href="16/16-623.rle" />
+	<area coords="130,98,189,141" href="16/16-628.rle" />
+	<area coords="190,98,249,141" href="16/16-631.rle" />
+	<area coords="250,98,309,141" href="16/16-635.rle" />
+	<area coords="310,98,369,141" href="16/16-636.rle" />
+	<area coords="370,98,429,141" href="16/16-638.rle" />
+	<area coords="430,98,489,141" href="16/16-642.rle" />
+	<area coords="490,98,549,141" href="16/16-649.rle" />
+	<area coords="550,98,620,141" href="16/16-670.rle" />
+	<area coords="0,142,69,185" href="16/16-682.rle" />
+	<area coords="70,142,129,185" href="16/16-695.rle" />
+	<area coords="130,142,189,185" href="16/16-712.rle" />
+	<area coords="190,142,249,185" href="16/16-716.rle" />
+	<area coords="250,142,309,185" href="16/16-717.rle" />
+	<area coords="310,142,369,185" href="16/16-718.rle" />
+	<area coords="370,142,429,185" href="16/16-719.rle" />
+	<area coords="430,142,489,185" href="16/16-731.rle" />
+	<area coords="490,142,549,185" href="16/16-738.rle" />
+	<area coords="550,142,620,185" href="16/16-747.rle" />
+	<area coords="0,186,69,229" href="16/16-757.rle" />
+	<area coords="70,186,129,229" href="16/16-765.rle" />
+	<area coords="130,186,189,229" href="16/16-774.rle" />
+	<area coords="190,186,249,229" href="16/16-775.rle" />
+	<area coords="250,186,309,229" href="16/16-778.rle" />
+	<area coords="310,186,369,229" href="16/16-781.rle" />
+	<area coords="370,186,429,229" href="16/16-786.rle" />
+	<area coords="430,186,489,229" href="16/16-795.rle" />
+	<area coords="490,186,549,229" href="16/16-801.rle" />
+	<area coords="550,186,620,229" href="16/16-808.rle" />
+	<area coords="0,230,69,273" href="16/16-817.rle" />
+	<area coords="70,230,129,273" href="16/16-823.rle" />
+	<area coords="130,230,189,273" href="16/16-825.rle" />
+	<area coords="190,230,249,273" href="16/16-827.rle" />
+	<area coords="250,230,309,273" href="16/16-836.rle" />
+	<area coords="310,230,369,273" href="16/16-839.rle" />
+	<area coords="370,230,429,273" href="16/16-842.rle" />
+	<area coords="430,230,489,273" href="16/16-846.rle" />
+	<area coords="490,230,549,273" href="16/16-848.rle" />
+	<area coords="550,230,620,273" href="16/16-854.rle" />
+	<area coords="0,274,69,317" href="16/16-871.rle" />
+	<area coords="70,274,129,317" href="16/16-897.rle" />
+	<area coords="130,274,189,317" href="16/16-927.rle" />
+	<area coords="190,274,249,317" href="16/16-941.rle" />
+	<area coords="250,274,309,317" href="16/16-1081.rle" />
+	<area coords="310,274,369,317" href="16/16-1084.rle" />
+	<area coords="370,274,429,317" href="16/16-1107.rle" />
+	<area coords="430,274,489,317" href="16/16-1127.rle" />
+	<area coords="490,274,549,317" href="16/16-1142.rle" />
+	<area coords="550,274,620,317" href="16/16-1143.rle" />
+	<area coords="0,318,69,365" href="16/16-1682.rle" />
+	<area coords="70,318,129,365" href="16/16-1683.rle" />
+	<area coords="130,318,189,365" href="16/16-1684.rle" />
+	<area coords="190,318,249,365" href="16/16-1688.rle" />
+	<area coords="250,318,309,365" href="16/16-1689.rle" />
+	<area coords="310,318,369,365" href="16/16-1691.rle" />
+	<area coords="370,318,429,365" href="16/16-1693.rle" />
+	<area coords="430,318,489,365" href="16/16-1694.rle" />
+	<area coords="490,318,549,365" href="16/16-1703.rle" />
+	<area coords="550,318,620,365" href="16/16-1704.rle" />
+	<area coords="0,366,69,413" href="16/16-1721.rle" />
+	<area coords="70,366,129,413" href="16/16-1745.rle" />
+	<area coords="130,366,189,413" href="16/16-1752.rle" />
+	<area coords="190,366,249,413" href="16/16-1753.rle" />
+	<area coords="250,366,309,413" href="16/16-1769.rle" />
+	<area coords="310,366,369,413" href="16/16-1787.rle" />
+	<area coords="370,366,429,413" href="16/16-1801.rle" />
+	<area coords="430,366,489,413" href="16/16-1806.rle" />
+	<area coords="490,366,549,413" href="16/16-1848.rle" />
+	<area coords="550,366,620,413" href="16/16-1940.rle" />
+	<area coords="0,414,69,440" href="16/16-1952.rle" />
+	<area coords="70,414,129,440" href="16/16-1979.rle" />
+	<area coords="130,414,189,440" href="16/16-2182.rle" />
+	<area coords="190,414,249,440" href="16/16-3227.rle" />
+	<area coords="250,414,620,440" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="p1-16-00"></a>
+<h2>The 3286 <a class="i" href="bits-16.htm">sixteen-bit</a>
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<h3>16.1-16.1000</h3>
+<p><a class="p" href="stamp/p1-16-00.rle"><img src="map/p1-16-00.png"
+ alt="16-bit still-lifes 1-1000"
+ width="621" height="439" usemap="#p1-16-00" /></a></p>
+
+<map name="p1-16-00">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/p1-16-00.rle" />
+</map>
+
+<hr />
+<a name="p1-16-01"></a>
+<h3>16.1001-16.2000</h3>
+<p><a class="p" href="stamp/p1-16-01.rle"><img src="map/p1-16-01.png"
+ alt="16-bit still-lifes 1001-2000"
+ width="621" height="439" usemap="#p1-16-01" /></a></p>
+
+<map name="p1-16-01">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/p1-16-01.rle" />
+</map>
+
+<hr />
+<a name="p1-16-02"></a>
+<h3>16.2001-16.3000</h3>
+<p><a class="p" href="stamp/p1-16-02.rle"><img src="map/p1-16-02.png"
+ alt="16-bit still-lifes 2001-3000"
+ width="621" height="439" usemap="#p1-16-02" /></a></p>
+
+<map name="p1-16-02">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,419,19,438" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,438" href="stamp/p1-16-02.rle" />
+</map>
+
+<hr />
+<a name="p1-16-03"></a>
+<h3>16.3001-16.3286</h3>
+<p><a class="p" href="stamp/p1-16-03.rle"><img src="map/p1-16-03.png"
+ alt="16-bit still-lifes 3001-3286"
+ width="621" height="151" usemap="#p1-16-03" /></a></p>
+
+<map name="p1-16-03">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,131,19,150" href="#bottom" />
+	<area coords="601,0,620,19" nohref="nohref" />
+	<area coords="0,0,620,150" href="stamp/p1-16-03.rle" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-16.htm">16-bit objects</a>:</b>
+	still-lifes,
+	<a class="i" href="pp1-16.htm">pseudo-still-lifes</a>,
+	<a class="i" href="bits-16.htm#p2-16">P2 oscillators</a>,
+	<a class="i" href="pp2-16.htm">P2 pseudo-oscillators</a>,
+	<a class="i" href="bits-16.htm#p3-16">P3 oscillators</a>,
+	<a class="i" href="bits-16.htm#pp4-16">P4 pseudo-oscillator</a>,
+	<a class="i" href="bits-16.htm#p5-16">P5 oscillator</a>,
+	<a class="i" href="bits-16.htm#p6-16">P6 oscillator</a>,
+	<a class="i" href="bits-16.htm#p14-16">P14 oscillator</a>,
+	<a class="i" href="bits-16.htm#pp15-16">P15 pseudo-oscillator</a>,
+	<a class="i" href="bits-16.htm#cons-16">constellations</a>.</p>
+
+<p><b>Other <a class="i" href="p1.htm">still-lifes</a>:</b>
+	<a class="i" href="p1.htm#p1-4">4-bit</a>,
+	<a class="i" href="p1.htm#p1-5">5-bit</a>,
+	<a class="i" href="p1.htm#p1-6">6-bit</a>,
+	<a class="i" href="p1.htm#p1-7">7-bit</a>,
+	<a class="i" href="p1.htm#p1-8">8-bit</a>,
+	<a class="i" href="p1.htm#p1-9">9-bit</a>,
+	<a class="i" href="p1.htm#p1-10">10-bit</a>,
+	<a class="i" href="p1.htm#p1-11">11-bit</a>,
+	<a class="i" href="p1-12.htm">12-bit</a>,
+	<a class="i" href="p1-13.htm">13-bit</a>,
+	<a class="i" href="p1-14.htm">14-bit</a>,
+	<a class="i" href="p1-15.htm">15-bit</a>,
+	16-bit,
+	<a class="i" href="p1-17.htm">17-bit</a>,
+	<a class="i" href="p1-18.htm">18-bit</a>,
+	<a class="i" href="p1.htm#p1-19">19-bit</a>,
+	<a class="i" href="p1.htm#p1-20">20-bit</a>,
+	<a class="i" href="p1.htm#p1-21">21-bit</a>,
+	<a class="i" href="p1.htm#p1-22">22-bit</a>,
+	<a class="i" href="p1.htm#p1-23">23-bit</a>,
+	<a class="i" href="p1.htm#p1-24">24-bit</a>,
+	<a class="i" href="p1.htm#p1-25">25-bit</a>,
+	<a class="i" href="p1.htm#p1-26">26-bit</a>,
+	<a class="i" href="p1.htm#p1-27">27-bit</a>,
+	<a class="i" href="p1.htm#p1-28">28-bit</a>,
+	<a class="i" href="p1.htm#p1-29">29-bit</a>,
+	<a class="i" href="p1.htm#p1-lg">30-bit and larger</a>,
+	<a class="i" href="p1.htm#p1-bad">not quite still</a>.</p>
+
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

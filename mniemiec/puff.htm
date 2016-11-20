@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Puffer Trains</title>
+<meta name="description"
+content="Conway's Game of Life: Puffer-train lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life puffer train object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Puffer Trains</h1>
+
+<p align="center">
+	<b>Puffer trains:</b>
+	    <a class="j" href="#puff-o2"><i>c</i>/2 orthogonal</a> |
+	    <a class="j" href="#puff-d12"><i>c</i>/12 diagonal</a> |
+	    <a class="j" href="#puff-geminoid">Geminoids</a><br />
+	<b>Wick-stretchers:</b>
+	<a class="j" href="#ws-d4"><i>c</i>/4 diagonal</a><br />
+	<b><a class="j" href="#g5-puff">Puffers buildable from 5 gliders</a></b>
+</p>
+
+<hr /><hr />
+<a name="puff-o2"></a>
+<h2>Orthogonal <i>c</i>/2 puffer trains</h2>
+<p>These puffers are all based on the common <i>c</i>/2 orthogonal spaceships
+escorting various things.</p>
+
+<p>The Coe and Schick Ship puffers are clean by themselves, but combining them
+produces a dirty puffer. Gosper's B-heptomino-based puffers also produce large
+messy exhaust plumes.</p>
+
+<p>Other puffers can be constructed by adding appropriate escort spaceships
+to clean puffers, such as <a class="i" href="flotilla.htm#ss-2">Coe ships</a> or
+<a class="i" href="flotilla.htm#ss-2s">Schick ships</a> to spark their normally-clean
+plumes to produce different output. Escort ships can also be added to most of
+the puffers shown here to alter their outputs as well. In fact, this is
+frequently done to puffers with large messy exhaust plumes.</p>
+
+<p><a class="p" href="stamp/puff-o2.rle"><img src="map/puff-o2.png"
+ alt="c/2 orthogonal puffer trains"
+ width="501" height="261" usemap="#puff-o2" /></a><br />
+    <table width="505">
+    <colgroup><col width="131" /><col span="2" width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/p48clsl.rle">Schick Ship
+	    behind LWSS and LWSS with Coe engine (P240 exhaust) [15]</a></td>
+	<td><a class="p" href="ss/p48clsh.rle">Schick Ship
+	    behind HWSS and LWSS with Coe engine (P240 exhaust) [16]</a></td>
+	<td><a class="p" href="ss/p8rtwbl.rle">
+	    Wainwright's P8 blinker puffer [10]</a></td>
+	<td rowspan="2"><a class="p" href="ss/p24djbtb.rle">
+	    Buckingham's P24 tub puffer [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="ss/p20rwg1.rle">
+	    Gosper's P20 twin puffers (P180 exhaust) [11]</a></td>
+	<td><a class="p" href="ss/p20rwg2.rle">
+	    Gosper's P20 puffer (P140 exhaust) [9]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="puff-o2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/puff-o2.zip" />
+	<area coords="481,241,500,260" href="stamp/puff-o2.rle" />
+	<area coords="0,0,129,129" href="ss/p48clsl.rle" />
+	<area coords="130,0,249,129" href="ss/p48clsh.rle" />
+	<area coords="250,0,369,129" href="ss/p8rtwbl.rle" />
+	<area coords="370,0,500,129" href="ss/p24djbtb.rle" />
+	<area coords="0,130,129,260" href="ss/p20rwg1.rle" />
+	<area coords="130,130,249,260" href="ss/p20rwg2.rle" />
+</map>
+
+<hr />
+<a name="puff-d12"></a>
+<h2>Diagonal <i>c</i>/12 puffer trains</h2>
+<p>These puffers are all various stabilizations of Corderman's <i>c</i>/12 diagonal
+Switch engine. The Switch engine is a natural puffer that flips and moves
+forward every 48 generations, effectively moving diagonally 4 spaces every
+96 generations, for a net diagonal velocity of <i>c</i>/12. It produces a large
+messy exhaust plume. Unfortunately, moving so slowly, it is easily overcome by
+its own exhaust.</p>
+
+<p>There are two known ways of stabilizing the exhaust by placing a single block
+behind the engine. One of these causes the engine to lay down sets of blocks
+each half-cycle (e.g. the "block-making switch engine"). The other produces a
+larger repeating plume that releases a forward glider (e.g. the "glider-making
+switch engine").</p>
+
+<p>There are several ways that two switch engines moving in tandem can stabilize
+each other's exhausts. The first one found was called Noah's Ark, due to the
+large diversity of objects found in its plume. Subsequently, other arrangements
+have also been found, and these are collectively called Arks, after the first
+one.</p>
+
+<p>It is possible to create "Corderships", i.e.
+<a class="i" href="exotic.htm#ss-d12">clean spaceships</a> with no exhaust, from
+three or more switch engines traveling in tandem.</p>
+
+<p><a class="p" href="stamp/puff-d12.rle"><img src="map/puff-d12.png"
+ alt="c/12 diagonal puffer trains"
+ width="637" height="261" usemap="#puff-d12" /></a><br />
+    <table width="641">
+    <colgroup><col width="251" /><col width="240" /><col width="148" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/12swbk.rle">Corderman's
+	    Block-making switch engine (P288 exhaust) [5]</a></td>
+	<td><a class="p" href="ss/12swgl.rle">Corderman's
+	    Glider-making switch engine (P384 exhaust) [5]</a></td>
+	<td><a class="p" href="ss/16na.rle">
+	    Noah's ark (P1344 exhaust) [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="puff-d12">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="617,0,636,19" href="zip/puff-d12.zip" />
+	<area coords="617,241,636,260" href="stamp/puff-d12.rle" />
+	<area coords="0,0,249,260" href="ss/12swbk.rle" />
+	<area coords="250,0,489,260" href="ss/12swgl.rle" />
+	<area coords="490,0,636,260" href="ss/16na.rle" />
+</map>
+
+<hr />
+<a name="puff-geminoid"></a>
+<h2>Geminoids</h2>
+<p>In November 2013, Dave Greene completed construction of several "Geminoid"
+constructors that work on the same basic principle as the
+<a class="i" href="exotic.htm#ss-gemini">Gemini</a> spaceship, but with many
+technical improvements. In particular, rather than having two constructor arms
+as Gemini does, the Geminoids have only one. They are composed of a general
+constructor at one end (consisting of 39 eaters, 2 beehives, 2 boats, and 24
+blocks), a stable glider reflector at the other (consisting of 13 eaters, 1
+beehive and 7 blocks), and a data stream containing tens of thousands of gliders
+cycling in a loop in pairs, with the data itself encoded entirely in the timing
+of the gliders themselves.</p>
+
+<p>These are instructions to the constructor to fire pairs of gliders in
+specific orientations at a distant simple still-life, oscillator, or
+constellation, to change them into a different still-life, oscillator, or
+constellation. After a sufficiently large number of steps, it is possible to
+place the simple constructor components (eaters, beehives, boats, blocks, and
+gliders) at almost any desired position. The constructor does not need to be
+universal; it only needs to construct these simple components, although
+slow-synthesis recipes currently exist for many other components, and others
+can be developed as the need arises.</p>
+
+<p>Because these Geminoids do not destroy the original after making a copy, they
+are technically puffers whose output consists of copies of themselves, rather
+than true spaceships. However, it would probably not be too difficult to modify
+these to delete the original after making a copy, converting them into true
+spaceships.</p>
+
+<p>The <a class="p" href="ss/Replicator-p237228340.mc.gz">first</a> of these
+begins with a population of 290096 (mostly gliders) in a 14826990x14826908 box.
+After 237228340 generations, the replicator returns to its original state,
+having created a child 256 cells straight up. The child is 277 generations
+delayed from the parent, so if this were to be converted into a spaceship, it
+would have a period of 237228617, and have a velocity of 256<i>c</i>/237228617, or
+approximately <i>c</i>/926674.</p>
+
+<p>(Such slow movement is reminiscent of how plants move. While plants cannot
+move by themselves, a seed can advance slowly by growing into a full
+plant, which drops a seed a small distance from the original, starting the
+whole cycle all over again.)</p>
+
+<p>The <a class="p" href="ss/Replicator-p118614724.mc.gz">second</a> of these
+folds the glider stream in half, so its population is also 290096, but its
+bounding box is only 7413639x7413557. Also, the replication takes half the
+time, so the replicator has a base period of 118614170, and the resulting
+spaceship would have a period of 118614447 and a velocity of 256<i>c</i>/118614447,
+or approximately <i>c</i>/463338.</p>
+
+<p>The <a class="p" href="ss/Replicator-p88965198.mc.gz">third</a> removes half
+of the gliders (ones not containing data), and interleaves the first and second
+halves of the recipe, so its initial population is 145306 in a 3707102x3707020
+bounding box.</p>
+
+<p>Paradoxically, the first, even though the largest, runs fastest in Golly,
+because its gliders are spread so far apart, so they do not confuse the
+HashLife algorithm. The second is slower, and the third much slower.</p>
+
+<hr /><hr />
+<a name="ws-d4"></a>
+<h2>Miscellaneous <i>c</i>/4 diagonal wick-stretchers</h2>
+<p>This is a small sampling of wick-stretchers that grow diagonally at a velocity
+of <i>c</i>/4.</p>
+<p><a class="p" href="stamp/ws-d4.rle"><img src="map/ws-d4.png"
+ alt="c/4 diagonal wick-stretchers"
+ width="581" height="121" usemap="#ws-d4" /></a><br />
+    <table width="585">
+    <colgroup><col width="131" /><col width="120" /><col width="332" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="ss/53swanws.rle">
+	    Swan wick- stretcher [x]</a></td>
+	<td class="r"><a class="p" href="ss/77tire.rle">
+	    Tire Tracks [x]</a></td>
+	<td class="r"><a class="p" href="ss/157d4ws.rle">
+	    157-bit wick-stretcher [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ws-d4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/ws-d4.zip" />
+	<area coords="561,101,580,120" href="stamp/ws-d4.rle" />
+	<area coords="0,0,129,120" href="ss/53swanws.rle" />
+	<area coords="130,0,249,120" href="ss/77tire.rle" />
+	<area coords="250,0,580,120" href="ss/157d4ws.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="g5-puff"></a>
+<h2>2 puffer trains
+<a class="i" href="glider-5.htm">buildable from 5 gliders</a></h2>
+<p><a class="p" href="stamp/g5-puff.rle"><img src="map/g5-puff.png"
+ alt="5-glider puffer trains"
+ width="421" height="261" usemap="#g5-puff" /></a><br />
+    <table width="425">
+    <colgroup><col width="251" /><col width="172" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/12swbk.rle">Corderman's
+	    Block-making switch engine (P288 exhaust) [5]</a></td>
+	<td><a class="p" href="ss/12swgl.rle">Corderman's
+	    Glider-making switch engine (P384 exhaust) [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="g5-puff">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/g5-puff.zip" />
+	<area coords="401,241,420,260" href="stamp/g5-puff.rle" />
+	<area coords="0,0,249,260" href="ss/12swbk.rle" />
+	<area coords="250,0,420,260" href="ss/12swgl.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	puffers,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

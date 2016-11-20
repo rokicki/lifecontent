@@ -1,0 +1,32 @@
+#N 17dthv.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:03:10 2015
+x = 270, y = 206, rule = B3/S23
+236bo$237bo$235b3o$131bo$60bobo68bobo84byy18boo$61boo29bx29bo8boo19bx
+49bo15byy18boo$61bo29bxbx27bobo27bxbx47bobo$13bo16bx19bo29bx11bxx16bo
+11boo7bo8bx11bxx6bxx28bo11boo6boo$12bo16bxbx17bobo9b3o15bxbx27bobo18b
+oo7bxbx17bxbbx26bobobboo13bobbo13bx19bo19bx$9boob3o13bxbbx16bobbo9bo
+16bxbbx26bobbo18bobo5bxbbx17bxbbx25bobbobbobo12bobbo13bxbx17bobo17bxbx
+$8bobo18bxx18boo11bo16bxx28boo28bxx19bxx27boo3bo15boo12bx4bx14bo4bo14b
+x4bx$10bo213b6x14b6o14b6x$$226bxx18boo18bxx$225bxbbx16bobbo16bxbbx$
+226bxx18boo18bxx7$204b3o$204bo$205bo8$173b3o$175bo$174bo12$8bo$9bo3bo
+28bxx6bxx70boo6boo$7b3oboo7bobo18bxbbx4bxbbx68bobbo4bobbo13bx$12boo6b
+oo19bxbbx4bxbbx60bo7bobbo4bobbo13bxbx$bbo18bo20bxx6bxx62bo7boo6boo12bx
+4bx$obo109b3o29b6x$boo18boo$21bobo122bxx$bbo18bo10bxx78boo31bxbbx$bboo
+27bxbbx76bobbo31bxx$bobo27bxbbx76bobbo$32bxx78boo5$31bxx45b3o30boo$boo
+27bxbbx46bo29bobbo$bboob3o22bxbbx45bo30bobbo$bo3bo25bxx78boo$6bo20$
+170bo$169bo7bo$169b3o3boo$176boo8$56bo$56boo$55bobo3$242bo$243bo$241b
+3o$225byy18boo$145bo78bybby16bobbo$144bo80byy18boo$144b3o56bo$204bo$
+145bo50bo5b3o$144boo51boo14bo$144bobo49boo13boo$212boo3$213bo$199boo
+13boo$185bxx11bobo4boo6boo11bx19bo19bx$186b3x11bo5b3o8bobo6bxbx17bobo
+17bxbx$184bx4bx14bo4bo7boo5bx4bx14bo4bo14bx4bx$184b6x14b6o8bo5b6x14b6o
+14b6x$$186bxx18boo18bxx18boo18bxx$185bxbbx16bobbo16bxbbx16bobbo16bxbbx
+$186bxx18boo18bxx18boo18bxx$216b3o$216bo$217bo$$162boo$162bobo$162bo5$
+116boo$115bobo$117bo$$112boo$111bobo64bo$113bo63boo$177bobo3$166boo$
+165boo$167bo$122boo$121bobo$123bo16$167bo$166bo$166b3o$158boo$154bo3bo
+bo$155bobbo$153b3o3$110bo$111bo74bx19bo19bx19bo19bx$109b3o74bxbx17bobo
+17bxbx17bobo17bxbx$184bx4bx14bo4bo14bx4bx14bo4bo14bx4bx$107boo75b6x14b
+6o14b6x14b6o14b6x$106bobo24b3x17b3o$108bo77bxx18boo18bxx18boo18bxx$
+175boo9bxx18boo18bxx18boo17bxbbx$175bobo88bxx$161bo13bo8by19bo38bo$
+161boo20byby17bobo38boo$160bobo21by19bo38boobboo$201boo43bobo$200bobo
+45bo$202bo$162b3o$164bo$163bo6$140boo$139bobo$141bo$164boo$164bobo$
+164bo!

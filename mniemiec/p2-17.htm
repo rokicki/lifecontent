@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Seventeen-Bit Period-2 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: seventeen-bit period 2 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 17 seventeen bit period 2 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Seventeen-Bit Period-2 Oscillators</h1>
+
+<p align="center">
+	<a class="j" href="#p2-17-0">First 70</a> |
+	<a class="j" href="#p2-17-1">Second 70</a> |
+	<a class="j" href="#p2-17-2">Last 59</a>
+</p>
+
+<hr /><hr />
+<a name="p2-17-0"></a>
+<h2>The 199 <a class="i" href="bits-17.htm">seventeen-bit</a>
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<h3>The first 70 17-bit period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-17-0.rle"><img src="map/p2-17-0.png"
+ alt="17-bit period 2 oscillators 1-70"
+ width="621" height="421" usemap="#p2-17-0" /></a></p>
+
+<map name="p2-17-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-17.zip" />
+	<area coords="601,401,620,420" href="stamp/p2-17-0.rle" />
+	<area coords="0,0,69,65" href="17/17ttblt.rle" />
+	<area coords="70,0,129,65" href="17/17bczbk1.rle" />
+	<area coords="130,0,189,65" href="17/17ttbhtl.rle" />
+	<area coords="190,0,249,65" href="17/17bpleh1.rle" />
+	<area coords="250,0,309,65" href="17/17ttbch.rle" />
+	<area coords="310,0,369,65" href="17/17bclvh1.rle" />
+	<area coords="370,0,429,65" href="17/17ttbhlh.rle" />
+	<area coords="430,0,489,65" href="17/17ttbvh.rle" />
+	<area coords="490,0,549,65" href="17/17bclvh3.rle" />
+	<area coords="550,0,620,65" href="17/17dtta.rle" />
+	<area coords="0,66,69,121" href="17/17dtsn2.rle" />
+	<area coords="70,66,129,121" href="17/17dtsh.rle" />
+	<area coords="130,66,189,121" href="17/17dthv.rle" />
+	<area coords="190,66,249,121" href="17/17hvdthv.rle" />
+	<area coords="250,66,309,121" href="17/17dtac2.rle" />
+	<area coords="310,66,369,121" href="17/17bcztl1.rle" />
+	<area coords="370,66,429,121" href="17/17bczft1.rle" />
+	<area coords="430,66,489,121" href="17/17dtsn1.rle" />
+	<area coords="490,66,549,121" href="17/17dtac1.rle" />
+	<area coords="550,66,620,121" href="17/17bcdkh1.rle" />
+	<area coords="0,122,69,177" href="17/17bcdkh3.rle" />
+	<area coords="70,122,129,177" href="17/17bcbea7.rle" />
+	<area coords="130,122,189,177" href="17/17bcbea5.rle" />
+	<area coords="190,122,249,177" href="17/17ff3.rle" />
+	<area coords="250,122,309,177" href="17/17ff6.rle" />
+	<area coords="310,122,369,177" href="17/17ff7.rle" />
+	<area coords="370,122,429,177" href="17/17ff10.rle" />
+	<area coords="430,122,489,177" href="17/17bcvta1.rle" />
+	<area coords="490,122,549,177" href="17/17dtbc1.rle" />
+	<area coords="550,122,620,177" href="17/17bcvta2.rle" />
+	<area coords="0,178,69,233" href="17/17dtbc2.rle" />
+	<area coords="70,178,129,233" href="17/17ff5.rle" />
+	<area coords="130,178,189,233" href="17/17ttbdg.rle" />
+	<area coords="190,178,249,233" href="17/17bplet1.rle" />
+	<area coords="250,178,309,233" href="17/17bcldg1.rle" />
+	<area coords="310,178,369,233" href="17/17ttbttl.rle" />
+	<area coords="370,178,429,233" href="17/17ttbhdb.rle" />
+	<area coords="430,178,489,233" href="17/17ttbtdb.rle" />
+	<area coords="490,178,549,233" href="17/17bclhv1.rle" />
+	<area coords="550,178,620,233" href="17/17ttbhv.rle" />
+	<area coords="0,234,69,289" href="17/17bctat1.rle" />
+	<area coords="70,234,129,289" href="17/17tpct1.rle" />
+	<area coords="130,234,189,289" href="17/17tple1.rle" />
+	<area coords="190,234,249,289" href="17/17bpleh3.rle" />
+	<area coords="250,234,309,289" href="17/17bclec1.rle" />
+	<area coords="310,234,369,289" href="17/17ttbcl.rle" />
+	<area coords="370,234,429,289" href="17/17ttbhub.rle" />
+	<area coords="430,234,489,289" href="17/17ttbtub.rle" />
+	<area coords="490,234,549,289" href="17/17bctat4.rle" />
+	<area coords="550,234,620,289" href="17/17bclec4.rle" />
+	<area coords="0,290,69,345" href="17/17bcldg4.rle" />
+	<area coords="70,290,129,345" href="17/17bclhv4.rle" />
+	<area coords="130,290,189,345" href="17/17bclec3.rle" />
+	<area coords="190,290,249,345" href="17/17bclhv3.rle" />
+	<area coords="250,290,309,345" href="17/17bcldg3.rle" />
+	<area coords="310,290,369,345" href="17/17bctat3.rle" />
+	<area coords="370,290,429,345" href="17/17ttbtlh.rle" />
+	<area coords="430,290,489,345" href="17/17bclvh4.rle" />
+	<area coords="490,290,549,345" href="17/17ff2.rle" />
+	<area coords="550,290,620,345" href="17/17lqd.rle" />
+	<area coords="0,346,69,420" href="17/17bceta1.rle" />
+	<area coords="70,346,129,420" href="17/17ff12.rle" />
+	<area coords="130,346,189,420" href="17/17ff1.rle" />
+	<area coords="190,346,249,420" href="17/17bctaf1.rle" />
+	<area coords="250,346,309,420" href="17/17bctal1.rle" />
+	<area coords="310,346,369,420" href="17/17bcse.rle" />
+	<area coords="370,346,429,420" href="17/17bcbta1.rle" />
+	<area coords="430,346,489,420" href="17/17bcbea1.rle" />
+	<area coords="490,346,549,420" href="17/17bcbes1.rle" />
+	<area coords="550,346,620,420" href="17/17bcbea3.rle" />
+</map>
+
+<hr />
+<a name="p2-17-1"></a>
+<h3>The second 70 17-bit period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-17-1.rle"><img src="map/p2-17-1.png"
+ alt="17-bit period 2 oscillators 71-140"
+ width="621" height="421" usemap="#p2-17-1" /></a></p>
+
+<map name="p2-17-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-17.zip" />
+	<area coords="601,401,620,420" href="stamp/p2-17-1.rle" />
+	<area coords="0,0,69,65" href="17/17bcbea2.rle" />
+	<area coords="70,0,129,65" href="17/17lsq.rle" />
+	<area coords="130,0,189,65" href="17/17bcbta2.rle" />
+	<area coords="190,0,249,65" href="17/17bcdkt3.rle" />
+	<area coords="250,0,309,65" href="17/17bcdkt1.rle" />
+	<area coords="310,0,369,65" href="17/17bces1.rle" />
+	<area coords="370,0,429,65" href="17/17bctgh1.rle" />
+	<area coords="430,0,489,65" href="17/17bctgh4.rle" />
+	<area coords="490,0,549,65" href="17/17bceta2.rle" />
+	<area coords="550,0,620,65" href="17/17bctabt.rle" />
+	<area coords="0,66,69,121" href="17/17ff20.rle" />
+	<area coords="70,66,129,121" href="17/17bcbea6.rle" />
+	<area coords="130,66,189,121" href="17/17ff4.rle" />
+	<area coords="190,66,249,121" href="17/17bczft2.rle" />
+	<area coords="250,66,309,121" href="17/17bcztl2.rle" />
+	<area coords="310,66,369,121" href="17/17bcdkh4.rle" />
+	<area coords="370,66,429,121" href="17/17bccvhk.rle" />
+	<area coords="430,66,489,121" href="17/17bcdkh2.rle" />
+	<area coords="490,66,549,121" href="17/17bcbea8.rle" />
+	<area coords="550,66,620,121" href="17/17ff9.rle" />
+	<area coords="0,122,69,177" href="17/17bctae1.rle" />
+	<area coords="70,122,129,177" href="17/17bctae4.rle" />
+	<area coords="130,122,189,177" href="17/17ff8.rle" />
+	<area coords="190,122,249,177" href="17/17ff11.rle" />
+	<area coords="250,122,309,177" href="17/17bcdkt4.rle" />
+	<area coords="310,122,369,177" href="17/17bccvtb.rle" />
+	<area coords="370,122,429,177" href="17/17bctae3.rle" />
+	<area coords="430,122,489,177" href="17/17bctgh3.rle" />
+	<area coords="490,122,549,177" href="17/17ff17.rle" />
+	<area coords="550,122,620,177" href="17/17bczbk2.rle" />
+	<area coords="0,178,69,233" href="17/17ff22.rle" />
+	<area coords="70,178,129,233" href="17/17ff16.rle" />
+	<area coords="130,178,189,233" href="17/17ff21.rle" />
+	<area coords="190,178,249,233" href="17/17bctgt1.rle" />
+	<area coords="250,178,309,233" href="17/17bclug1.rle" />
+	<area coords="310,178,369,233" href="17/17ttbug.rle" />
+	<area coords="370,178,429,233" href="17/17bctgt4.rle" />
+	<area coords="430,178,489,233" href="17/17bclug4.rle" />
+	<area coords="490,178,549,233" href="17/17bclef1.rle" />
+	<area coords="550,178,620,233" href="17/17ttbft.rle" />
+	<area coords="0,234,69,289" href="17/17bclef4.rle" />
+	<area coords="70,234,129,289" href="17/17bctal2.rle" />
+	<area coords="130,234,189,289" href="17/17bpubt2.rle" />
+	<area coords="190,234,249,289" href="17/17bpleh4.rle" />
+	<area coords="250,234,309,289" href="17/17bpdbt2.rle" />
+	<area coords="310,234,369,289" href="17/17bplet4.rle" />
+	<area coords="370,234,429,289" href="17/17bplet3.rle" />
+	<area coords="430,234,489,289" href="17/17tple3.rle" />
+	<area coords="490,234,549,289" href="17/17bclef3.rle" />
+	<area coords="550,234,620,289" href="17/17bclug3.rle" />
+	<area coords="0,290,69,345" href="17/17bctgt3.rle" />
+	<area coords="70,290,129,345" href="17/17bclvh2.rle" />
+	<area coords="130,290,189,345" href="17/17bptlt.rle" />
+	<area coords="190,290,249,345" href="17/17bcbes2.rle" />
+	<area coords="250,290,309,345" href="17/17ff25.rle" />
+	<area coords="310,290,369,345" href="17/17bpftft.rle" />
+	<area coords="370,290,429,345" href="17/17ff13.rle" />
+	<area coords="430,290,489,345" href="17/17bcsls1.rle" />
+	<area coords="490,290,549,345" href="17/17ff14.rle" />
+	<area coords="550,290,620,345" href="17/17bcbea4.rle" />
+	<area coords="0,346,69,420" href="17/17bpll3.rle" />
+	<area coords="70,346,129,420" href="17/17ff18.rle" />
+	<area coords="130,346,189,420" href="17/17ff15.rle" />
+	<area coords="190,346,249,420" href="17/17bctaf2.rle" />
+	<area coords="250,346,309,420" href="17/17bpcgb.rle" />
+	<area coords="310,346,369,420" href="17/17bcdkt2.rle" />
+	<area coords="370,346,429,420" href="17/17bces2.rle" />
+	<area coords="430,346,489,420" href="17/17ff24.rle" />
+	<area coords="490,346,549,420" href="17/17ff19.rle" />
+	<area coords="550,346,620,420" href="17/17ff23.rle" />
+</map>
+
+<hr />
+<a name="p2-17-2"></a>
+<h3>The last 59 17-bit period 2 oscillators</h3>
+<p><a class="p" href="stamp/p2-17-2.rle"><img src="map/p2-17-2.png"
+ alt="17-bit period 2 oscillators 101-199"
+ width="621" height="381" usemap="#p2-17-2" /></a></p>
+
+<map name="p2-17-2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-17.zip" />
+	<area coords="601,361,620,380" href="stamp/p2-17-2.rle" />
+	<area coords="0,0,69,69" href="17/17bcsls2.rle" />
+	<area coords="70,0,129,69" href="17/17ff26.rle" />
+	<area coords="130,0,189,69" href="17/17ff27.rle" />
+	<area coords="190,0,249,69" href="17/17bclhv2.rle" />
+	<area coords="250,0,309,69" href="17/17bcldg2.rle" />
+	<area coords="310,0,369,69" href="17/17bctat2.rle" />
+	<area coords="370,0,429,69" href="17/17tpct2.rle" />
+	<area coords="430,0,489,69" href="17/17tpht2.rle" />
+	<area coords="490,0,549,69" href="17/17tple4.rle" />
+	<area coords="550,0,620,69" href="17/17bpdbt1.rle" />
+	<area coords="0,70,69,129" href="17/17bpleh2.rle" />
+	<area coords="70,70,129,129" href="17/17bclec2.rle" />
+	<area coords="130,70,189,129" href="17/17ff28.rle" />
+	<area coords="190,70,249,129" href="17/17ff34.rle" />
+	<area coords="250,70,309,129" href="17/17tpsl2.rle" />
+	<area coords="310,70,369,129" href="17/17tpht1.rle" />
+	<area coords="370,70,429,129" href="17/17tptt.rle" />
+	<area coords="430,70,489,129" href="17/17bpll1.rle" />
+	<area coords="490,70,549,129" href="17/17bpll2.rle" />
+	<area coords="550,70,620,129" href="17/17bplht.rle" />
+	<area coords="0,130,69,190" href="17/17ppta1.rle" />
+	<area coords="70,130,129,190" href="17/17ff29.rle" />
+	<area coords="130,130,189,190" href="17/17ff30.rle" />
+	<area coords="190,130,249,190" href="17/17bctgh2.rle" />
+	<area coords="250,130,309,190" href="17/17ff32.rle" />
+	<area coords="310,130,369,190" href="17/17tpcv.rle" />
+	<area coords="370,130,429,190" href="17/17ff31.rle" />
+	<area coords="430,130,489,190" href="17/17bctae2.rle" />
+	<area coords="490,130,549,190" href="17/17ff33.rle" />
+	<area coords="550,130,620,190" href="17/17cavhk.rle" />
+	<area coords="0,191,69,251" href="17/17bclef2.rle" />
+	<area coords="70,191,129,251" href="17/17bclug2.rle" />
+	<area coords="130,191,189,251" href="17/17bctgt2.rle" />
+	<area coords="190,191,249,251" href="17/17bplet2.rle" />
+	<area coords="250,191,309,251" href="17/17ff36.rle" />
+	<area coords="310,191,369,251" href="17/17ff35.rle" />
+	<area coords="370,191,429,251" href="17/17tple2.rle" />
+	<area coords="430,191,489,251" href="17/17qpet2.rle" />
+	<area coords="490,191,549,251" href="17/17tpsl1.rle" />
+	<area coords="550,191,620,251" href="17/17cavtb.rle" />
+	<area coords="0,252,69,313" href="17/17bpubt1.rle" />
+	<area coords="70,252,129,313" href="17/17bpin.rle" />
+	<area coords="130,252,189,313" href="17/17bpvb.rle" />
+	<area coords="190,252,249,313" href="17/17tplp.rle" />
+	<area coords="250,252,309,313" href="17/17ppta2.rle" />
+	<area coords="310,252,369,313" href="17/17bpxs.rle" />
+	<area coords="370,252,429,313" href="17/17tpvs.rle" />
+	<area coords="430,252,489,313" href="17/17qpls.rle" />
+	<area coords="490,252,549,313" href="17/17ppsn.rle" />
+	<area coords="550,252,620,313" href="17/17qpet1.rle" />
+	<area coords="0,314,69,380" href="17/17qplb.rle" />
+	<area coords="70,314,129,380" href="17/17tpbp2.rle" />
+	<area coords="130,314,189,380" href="17/17tpbp1.rle" />
+	<area coords="190,314,249,380" href="17/17bplc.rle" />
+	<area coords="250,314,309,380" href="17/17tpcs.rle" />
+	<area coords="310,314,369,380" href="17/17ppsh.rle" />
+	<area coords="370,314,429,380" href="17/17ppac.rle" />
+	<area coords="430,314,489,380" href="17/17hpbt.rle" />
+	<area coords="490,314,549,380" href="17/17up.rle" />
+	<area coords="550,314,620,380" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-17.htm">17-bit objects</a>:</b>
+	<a class="i" href="p1-17.htm">still-lifes</a>,
+	<a class="i" href="pp1-17.htm">pseudo-still-lifes</a>,
+	P2 oscillators,
+	<a class="i" href="pp2-17.htm">P2 pseudo-oscillators</a>,
+	<a class="i" href="bits-17.htm#p3-17">P3 oscillators</a>,
+	<a class="i" href="bits-17.htm#pp3-17">P3 pseudo-oscillators</a>,
+	<a class="i" href="bits-17.htm#pp4-17">P4 pseudo-oscillators</a>,
+	<a class="i" href="bits-17.htm#p8-17">P8 oscillator</a>,
+	<a class="i" href="bits-17.htm#pp15-17">P15 pseudo-oscillator</a>,
+	<a class="i" href="bits-17.htm#cons-17">constellation</a>.</p>
+
+<p><b>Other <a class="i" href="p2.htm">period 2 oscillators</a>:</b>
+	<a class="i" href="p2.htm#p2-3">3-bit</a>,
+	<a class="i" href="p2.htm#p2-6">6-bit</a>,
+	<a class="i" href="p2.htm#p2-8">8-bit</a>,
+	<a class="i" href="p2.htm#p2-9">9-bit</a>,
+	<a class="i" href="p2.htm#p2-10">10-bit</a>,
+	<a class="i" href="p2.htm#p2-11">11-bit</a>,
+	<a class="i" href="p2.htm#p2-12">12-bit</a>,
+	<a class="i" href="p2.htm#p2-13">13-bit</a>,
+	<a class="i" href="p2.htm#p2-14">14-bit</a>,
+	<a class="i" href="p2.htm#p2-15">15-bit</a>,
+	<a class="i" href="p2.htm#p2-16">16-bit</a>,
+	17-bit,
+	<a class="i" href="p2-18.htm">18-bit</a>,
+	<a class="i" href="p2-19.htm">19-bit</a>,
+	<a class="i" href="p2-20.htm">20-bit</a>,
+	<a class="i" href="p2-21.htm">21-bit</a>,
+	<a class="i" href="p2.htm#p2-22">22-bit</a>,
+	<a class="i" href="p2.htm#p2-23">23-bit</a>,
+	<a class="i" href="p2.htm#p2-24">24-bit</a>,
+	<a class="i" href="p2.htm#p2-25">25-bit</a>,
+	<a class="i" href="p2.htm#p2-lg">26-bit and larger</a>,
+	<a class="i" href="p2.htm#p2-sc">scrubbers</a>,
+	<a class="i" href="p2.htm#p2-bad">not quite oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

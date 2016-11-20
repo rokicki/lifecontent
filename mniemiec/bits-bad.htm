@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Not Quite Stable Objects</title>
+<meta name="description"
+content="Conway's Game of Life: Not quite stable object syntheses" />
+<meta name="keywords" content="conway game not quite stable object pseudo still life oscilltor spaceship gun glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Not Quite Stable Objects</h1>
+
+<p align="center">
+	<b><a class="j" href="#bad-intro">Introduction</a></b><br />
+	<a class="j" href="#p1-bad">Still-lifes </a> |
+	<a class="j" href="#pp1-bad">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-bad">P2 oscillator</a> |
+	<a class="j" href="#p3-bad">P3 oscillator</a> |
+	<a class="j" href="#p30-bad">P30 oscillators</a> |
+	<a class="j" href="#ss-bad">Spaceships</a> |
+	<a class="j" href="#gun-bad">Guns</a>
+</p>
+
+<hr /><hr />
+<a name="bad-intro"></a>
+<h2>Introduction</h2>
+<p>In the process of developing technology to synthesize still-lifes or other
+objects, occasionally syntheses are found for objects that appear deceptively
+similar to still-lifes, pseudo-still-lifes, oscillators, spaceships, etc., but
+that are not, in fact, stable. Many such mechanisms can be rescued by
+appropriate addition of supporting sparks or other mechanisms. A large number of
+syntheses of exotic objects are, in fact, obtained in exactly this manner.</p>
+
+<p>However, there are many such mechanisms that are essentially useless, like
+the ones shown. These are included here solely for your amusement.</p>
+
+<hr />
+<hr />
+<a name="p1-bad"></a>
+<h2>5 Not quite
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p><a class="p" href="stamp/p1-bad.rle"><img src="map/p1-bad.png"
+ alt="not quite still" width="321" height="61" usemap="#p1-bad" /></a><br />
+    <table width="325">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/9scsl.rle">
+	    Short cis shillelagh [5]</a></td>
+	<td><a class="p" href="11/11hvlt.rle">
+	    Beehive w/ long tail [8]</a></td>
+	<td><a class="p" href="13/13slbt.rle">
+	    Shil- lelagh head bridge boat [5]</a></td>
+	<td class="g"><a class="p" href="14/14bkxe.rle">
+	    Block on extra long bookend [14]</a></td>
+	<td><a class="p" href="15/15sllta1.rle">
+	    Up long table on shillelagh [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/p1-bad.zip" />
+	<area coords="301,41,320,60" href="stamp/p1-bad.rle" />
+	<area coords="0,0,69,60" href="0/9scsl.rle" />
+	<area coords="70,0,129,60" href="11/11hvlt.rle" />
+	<area coords="130,0,189,60" href="13/13slbt.rle" />
+	<area coords="190,0,249,60" href="14/14bkxe.rle" />
+	<area coords="250,0,320,60" href="15/15sllta1.rle" />
+</map>
+
+<hr />
+<a name="pp1-bad"></a>
+<h2>4  Not quite
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p><a class="p" href="stamp/pp1-bad.rle"><img src="map/pp1-bad.png"
+ alt="not quite pseudo-still-lifes"
+ width="261" height="61" usemap="#pp1-bad" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="12/12slbk4.rle">
+	    Block before shil- lelagh [3]</a></td>
+	<td><a class="p" href="16/16slsl15.rle">
+	    Two front- to- front shil- lelaghs [6]</a></td>
+	<td><a class="p" href="17/17lcslsn.rle">
+	    Up cis snake on long cis shil- lelagh [8]</a></td>
+	<td><a class="p" href="17/17shftbt.rle">
+	    Down boat on ship bridge fuse w/ tail [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp1-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/pp1-bad.zip" />
+	<area coords="241,41,260,60" href="stamp/pp1-bad.rle" />
+	<area coords="0,0,69,60" href="12/12slbk4.rle" />
+	<area coords="70,0,129,60" href="16/16slsl15.rle" />
+	<area coords="130,0,189,60" href="17/17lcslsn.rle" />
+	<area coords="190,0,260,60" href="17/17shftbt.rle" />
+</map>
+
+<hr />
+<a name="p2-bad"></a>
+<h2>1 Not quite
+<a class="i" href="p2.htm">period 2 oscillator</a></h2>
+<p><a class="p" href="stamp/p2-bad.rle"><img src="map/p2-bad.png"
+ alt="bad P2" width="81" height="61" usemap="#p2-bad" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="13/13bcet.rle">
+	    Eater tie beacon [11]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-bad.zip" />
+	<area coords="61,41,80,60" href="stamp/p2-bad.rle" />
+	<area coords="0,0,80,60" href="13/13bcet.rle" />
+</map>
+
+<hr />
+<a name="p3-bad"></a>
+<h2>2 Not quite
+<a class="i" href="p3.htm">period 3 oscillators</a></h2>
+<p><a class="p" href="stamp/p3-bad.rle"><img src="map/p3-bad.png"
+ alt="not quite P3" width="181" height="101" usemap="#p3-bad" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="lg/48sp.rle">
+	    Skewed pulsar [4]</a></td>
+	<td><a class="p" href="lg/48ssp.rle">
+	    Doubly skewed pulsar [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="p3-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p3-bad.zip" />
+	<area coords="161,81,180,100" href="stamp/p3-bad.rle" />
+	<area coords="0,0,89,100" href="lg/48sp.rle" />
+	<area coords="90,0,180,100" href="lg/48ssp.rle" />
+</map>
+
+<p>The skewed pulsar is not totally useless, as it can sometimes be used when
+two short-lived pulsar-halves are needed. Two examples of their use are in
+syntheses of <a class="p" href="lg/28tb4pu2.rle">Skewed eureka</a>, and
+<a class="p" href="lg/42jack2.rle">Skewed jack</a>.</p>
+
+<hr />
+<a name="p30-bad"></a>
+<h2>2 Not quite
+<a class="i" href="p30.htm">period 30 oscillators</a></h2>
+<p><a class="p" href="stamp/p30-bad.rle"><img src="map/p30-bad.png"
+ alt="not quite P30"
+ width="261" height="81" usemap="#p30-bad" /></a><br />
+    <table width="265">
+    <colgroup><col width="131" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="14/14qbqb1.rle">
+	    Two Queen bee shuttles #1 [4]</a></td>
+	<td><a class="p" href="14/14qbqb2.rle">
+	    Two Queen bee shuttles #2 [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="p30-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p30-bad.zip" />
+	<area coords="241,61,260,80" href="stamp/p30-bad.rle" />
+	<area coords="0,0,129,80" href="14/14qbqb1.rle" />
+	<area coords="130,0,260,80" href="14/14qbqb2.rle" />
+</map>
+
+<hr />
+<a name="ss-bad"></a>
+<h2>5 Not quite
+<a class="i" href="ss.htm">spaceships</a></h2>
+<p><a class="p" href="stamp/ss-bad.rle"><img src="map/ss-bad.png"
+ alt="not quite spaceships"
+ width="341" height="321" usemap="#ss-bad" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col width="120" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="ss/10glgl.rle">
+	    Two gliders [4]</a></td>
+	<td rowspan="3" class="r"><a class="p" href="ss/229mp3c7.rle">
+	    Mike Playle's 3<i>c</i>/7 almost- spaceship [x]</a></td>
+	<td rowspan="3" class="r"><a class="p" href="ss/406pt3c7.rle">
+	    Paul Tooke's 3<i>c</i>/7 almost- spaceship [x]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="ss/14-10wss.rle">
+	    Ten- bit- long space- ship (10WSS) [6]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="ss/66k6.rle">
+	    Eugene Lang- vagen's P6 almost- knight- ship [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/ss-bad.zip" />
+	<area coords="321,301,340,320" href="stamp/ss-bad.rle" />
+	<area coords="0,0,89,89" href="ss/10glgl.rle" />
+	<area coords="90,0,209,320" href="ss/229mp3c7.rle" />
+	<area coords="210,0,340,320" href="ss/406pt3c7.rle" />
+	<area coords="0,90,89,169" href="ss/14-10wss.rle" />
+	<area coords="0,170,89,320" href="ss/66k6.rle" />
+</map>
+
+<p>Because Eugene Langvagen's knight-ship doesn't quite work, and can't be
+made to work per se, it fits into this category of "useless objects". However,
+its discovery is extremely significant, because the very existence of an object
+this close to working (i.e. it reforms 97% correctly) suggests that other
+moderately small, working knight-ships are fairly likely to exist in Life.</p>
+
+<p>The same comments also apply to the 3<i>c</i>/7 almost-spaceships. While no
+working spaceships of this velocity have yet been found, these results strongly
+suggest that such spaceships are likely to exist.</p>
+<hr />
+<a name="gun-bad"></a>
+<h2>2 Not quite
+<a class="i" href="gun.htm">guns</a></h2>
+<p><a class="p" href="stamp/gun-bad.rle"><img src="map/gun-bad.png"
+ alt="not quite guns" width="421" height="81" usemap="#gun-bad" /></a><br />
+    <table width="425">
+    <colgroup><col width="211" /><col width="212" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/g30bad1.rle">
+	    P30 almost glider gun [8]</a></td>
+	<td><a class="p" href="ss/g30bad2.rle">
+	    P30 suicidal gun [8]</a></td>
+    </tr>
+</table></p>
+
+<map name="gun-bad">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/gun-bad.zip" />
+	<area coords="401,61,420,80" href="stamp/gun-bad.rle" />
+	<area coords="0,0,209,80" href="ss/g30bad1.rle" />
+	<area coords="210,0,420,80" href="ss/g30bad2.rle" />
+</map>
+
+<p>There are three interactions between two
+<a class="p" href="20/20bqbbk1.rle">queen bee shuttles</a> that produce natural gliders.
+One of them produces a glider that successfully escapes, yielding a period-30
+<a class="i" href="gun.htm#gun-gl">Glider gun.</a>
+The other two produces gliders that don't quite make it.</p>
+
+<p>The left example above one creates a glider that almost escapes, but hits the
+right shuttle at the last moment; if it were advanced only 2 more generations,
+it would have escaped. This <i>can</i> be rescued and turned into a
+<a class="i" href="p30.htm#p30-lg">period 30 oscillator</a> by eating the glider
+before the right shuttle returns. It can also be turned into a successful gun
+by using a Buckaroo to reflect the glider 90 degrees before it hits the
+shuttle.</p>
+
+<p>The right example shoots a glider directly into the right shuttle,
+effectively shooting itself in the head, while other debris destroys the left
+shuttle.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	not quite stable objects.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

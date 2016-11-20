@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-6 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-6 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 6 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-6 Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p6-16">16</a> |
+	  <a class="j" href="#p6-18">18</a> |
+	  <a class="j" href="#p6-20">20</a> |
+	  <a class="j" href="#p6-21">21</a> |
+	  <a class="j" href="#p6-22">22</a> |
+	  <a class="j" href="#p6-23">23</a> |
+	  <a class="j" href="#p6-24">24</a> |
+	  <a class="j" href="#p6-25">25</a> |
+	  <a class="j" href="#p6-lg">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g6-p6">6</a> |
+	  <a class="j" href="#ge-p6">1 glider/bit</a> |
+	  <a class="j" href="#ge-p6">&gt;1 glider/bit</a> |
+	  <a class="j" href="#gu-p6">unknown</a><br />
+	<b><a class="j" href="#nat-p6">Frequency of occurrence</a></b>
+</p>
+
+<hr />
+<hr />
+<a name="p6-16"></a>
+<h2>The 1 <a class="i" href="bits-16.htm">sixteen-bit</a>
+period 6 oscillator</h2>
+<p><a class="p" href="stamp/p6-16.rle"><img src="map/p6-16.png"
+ alt="16b P6" width="81" height="81" usemap="#p6-16" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16ux.rle">
+	    Unix [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-16">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p6-16.zip" />
+	<area coords="61,61,80,80" href="stamp/p6-16.rle" />
+	<area coords="0,0,80,80" href="16/16ux.rle" />
+</map>
+
+<p>The Unix is the smallest oscillator that produces a period 6
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+<hr />
+<a name="p6-18"></a>
+<h2>The 4 <a class="i" href="bits-18.htm">eighteen-bit</a>
+period 6 oscillators</h2>
+<p><a class="p" href="stamp/p6-18.rle"><img src="map/p6-18.png"
+ alt="18-bit period 6 oscillators"
+ width="261" height="81" usemap="#p6-18" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18cfbc1.rle">
+	    Up beacon on up candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfbc3.rle">
+	    Up beacon on down candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfbc4.rle">
+	    Down beacon on down candel- frobra [13]</a></td>
+	<td><a class="p" href="18/18cfbc2.rle">
+	    Down beacon on up candel- frobra [13]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p6-18.zip" />
+	<area coords="241,61,260,80" href="stamp/p6-18.rle" />
+	<area coords="0,0,69,80" href="18/18cfbc1.rle" />
+	<area coords="70,0,129,80" href="18/18cfbc3.rle" />
+	<area coords="130,0,189,80" href="18/18cfbc4.rle" />
+	<area coords="190,0,260,80" href="18/18cfbc2.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="p6-20"></a>
+<h2>The 11 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 6 oscillators</h2>
+<p><a class="p" href="stamp/p6-20.rle"><img src="map/p6-20.png"
+ alt="20-bit period 6 oscillators"
+ width="381" height="141" usemap="#p6-20" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20cfbp1.rle">
+	    Up bipole on up candel- frobra [16]</a></td>
+	<td><a class="p" href="20/20cfbp3.rle">
+	    Up bipole on down candel- frobra [16]</a></td>
+	<td><a class="p" href="20/20cfbp4.rle">
+	    Down bipole on down candel- frobra [16]</a></td>
+	<td><a class="p" href="20/20cupbc2.rle">
+	    Down beacon on cuphook w/ pre- block [17]</a></td>
+	<td><a class="p" href="20/20cupbc1.rle">
+	    Up beacon on cuphook w/ pre- block [18]</a></td>
+	<td><a class="p" href="20/20cutbc3.rle">
+	    Up beacon on down cuphook w/ tail [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="20/20cutbc1.rle">
+	    Up beacon on up cuphook w/ tail [14]</a></td>
+	<td><a class="p" href="20/20cutbc2.rle">
+	    Down beacon on up cuphook w/ tail [12]</a></td>
+	<td class="y"><a class="p" href="20/20blonkr.rle">
+	    Blonker [25]</a></td>
+	<td><a class="p" href="20/20cfbp2.rle">
+	    Down bipole on up candel- frobra [17]</a></td>
+	<td><a class="p" href="20/20cutbc4.rle">
+	    Down beacon on down cuphook w/ tail [13]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p6-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/p6-20.zip" />
+	<area coords="361,121,380,140" href="stamp/p6-20.rle" />
+	<area coords="0,0,69,49" href="20/20cfbp1.rle" />
+	<area coords="70,0,129,49" href="20/20cfbp3.rle" />
+	<area coords="130,0,189,49" href="20/20cfbp4.rle" />
+	<area coords="190,0,249,49" href="20/20cupbc2.rle" />
+	<area coords="250,0,309,49" href="20/20cupbc1.rle" />
+	<area coords="310,0,380,49" href="20/20cutbc3.rle" />
+	<area coords="0,50,69,140" href="20/20cutbc1.rle" />
+	<area coords="70,50,129,140" href="20/20cutbc2.rle" />
+	<area coords="130,50,189,140" href="20/20blonkr.rle" />
+	<area coords="190,50,249,140" href="20/20cfbp2.rle" />
+	<area coords="250,50,309,140" href="20/20cutbc4.rle" />
+	<area coords="310,50,380,140" nohref="nohref" />
+</map>
+
+<p>All of these except the Blonker have a pseudo-period of 6, a composite of
+2 and 3.</p>
+
+<hr />
+<a name="p6-21"></a>
+<h2>The 15 <a class="i" href="bits-21.htm">21-bit</a>
+period 6 oscillators</h2>
+<p><a class="p" href="stamp/p6-21.rle"><img src="map/p6-21.png"
+ alt="21-bit period 6 oscillators"
+ width="421" height="201" usemap="#p6-21" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21cftp1.rle">
+	    Up tripole on up candel- frobra [19]</a></td>
+	<td><a class="p" href="21/21cftp3.rle">
+	    Up tripole on down candel- frobra [19]</a></td>
+	<td><a class="p" href="21/21cftp4.rle">
+	    Down tripole on down candel- frobra [19]</a></td>
+	<td class="g"><a class="p" href="21/21cptbc1.rle">
+	    Up beacon on cuphook w/ pre- block w/ tub [21]</a></td>
+	<td><a class="p" href="21/21cptbc2.rle">
+	    Down beacon on cuphook w/ pre- block w/ tub [20]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21tcubc3.rle">
+	    Up beacon on down cuphook w/ tub and tail [12]</a></td>
+	<td><a class="p" href="21/21tcubc1.rle">
+	    Up beacon on up cuphook w/ tub and tail [17]</a></td>
+	<td><a class="p" href="21/21tcubc2.rle">
+	    Down beacon on up cuphook w/ tub and tail [15]</a></td>
+	<td><a class="p" href="21/21tcubc4.rle">
+	    Down beacon on down cuphook w/ tub and tail [16]</a></td>
+	<td><a class="p" href="21/21elebc1.rle">
+	    Up beacon on up long bookend eating eater [12]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21ttbet.rle">
+	    Eater eating test tube baby [12]</a></td>
+	<td><a class="p" href="21/21elebc4.rle">
+	    Down beacon on down long bookend eating eater [12]</a></td>
+	<td><a class="p" href="21/21elebc3.rle">
+	    Up beacon on down long bookend eating eater [12]</a></td>
+	<td><a class="p" href="21/21cftp2.rle">
+	    Down tripole on up candel- frobra [17]</a></td>
+	<td><a class="p" href="21/21elebc2.rle">
+	    Down beacon on up long bookend eating eater [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p6-21.zip" />
+	<area coords="401,181,420,200" href="stamp/p6-20.rle" />
+	<area coords="0,0,89,69" href="21/21cftp1.rle" />
+	<area coords="90,0,169,69" href="21/21cftp3.rle" />
+	<area coords="170,0,249,69" href="21/21cftp4.rle" />
+	<area coords="250,0,329,69" href="21/21cptbc1.rle" />
+	<area coords="330,0,420,69" href="21/21cptbc2.rle" />
+	<area coords="0,70,89,129" href="21/21tcubc3.rle" />
+	<area coords="90,70,169,129" href="21/21tcubc1.rle" />
+	<area coords="170,70,249,129" href="21/21tcubc2.rle" />
+	<area coords="250,70,329,129" href="21/21tcubc4.rle" />
+	<area coords="330,70,420,129" href="21/21elebc1.rle" />
+	<area coords="0,130,89,200" href="21/21ttbet.rle" />
+	<area coords="90,130,169,200" href="21/21elebc4.rle" />
+	<area coords="170,130,249,200" href="21/21elebc3.rle" />
+	<area coords="250,130,329,200" href="21/21cftp2.rle" />
+	<area coords="330,130,420,200" href="21/21elebc2.rle" />
+</map>
+
+<p>All of these have a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="p6-22"></a>
+<h2>The 43 <a class="i" href="bits-22.htm">22-bit</a>
+period 6 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>2 Unix on table.</li>
+    <li>16 Candelfrobra on period 2 oscillator.</li>
+    <li>6 Cuphook on period 2 oscillator.</li>
+    <li>16 Cuphook w/tail on period 2 oscillator.</li>
+    <li>3 Eater eating period 2 oscillator.</li>
+</ul></p>
+
+<p>All of these except Unix on table have a pseudo-period of 6, a composite
+of 2 and 3.</p>
+
+<p>All of these are easy to synthesize using standard techniques.</p>
+<hr />
+<a name="p6-23"></a>
+<h2>The 71 <a class="i" href="bits-23.htm">23-bit</a>
+period 6 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>16 Candelfrobra on period 2 oscillator.</li>
+    <li>12 Cuphook on period 2 oscillator.</li>
+    <li>32 Cuphook w/tail on period 2 oscillator.</li>
+    <li>9 Eater eating period 2 oscillator.</li>
+    <li>2 Miscellaneous (see below).</li>
+</ul></p>
+
+<p>All of these except the two below have a pseudo-period of 6, a composite
+of 2 and 3.</p>
+
+<p>Syntheses for 2 of these (1 still unknown) are shown; all the others
+are easy to synthesize using standard techniques.</p>
+<p><a class="p" href="stamp/p6-23.rle"><img src="map/p6-23.png"
+ alt="23-bit P6" width="181" height="101" usemap="#p6-23" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="23/23p6bkhd.rle">
+	    P6 w/ block and head [x]</a></td>
+	<td class="y"><a class="p" href="23/23p6nb.rle">
+	    Nicolay Belu- chenko's P6 between two eaters [24]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p6-23.zip" />
+	<area coords="161,81,180,100" href="stamp/p1-23.rle" />
+	<area coords="0,0,89,100" href="23/23p6bkhd.rle" />
+	<area coords="90,0,180,100" href="23/23p6nb.rle" />
+</map>
+
+<hr />
+<a name="p6-24"></a>
+<h2>The 186 <a class="i" href="bits-24.htm">24-bit</a>
+period 6 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>6 Unix on cap or long bookend.</li>
+    <li>75 Candelfrobra on period 2 oscillator.</li>
+    <li>22 Cuphook on period 2 oscillator.</li>
+    <li>60 Cuphook w/tail on period 2 oscillator.</li>
+    <li>18 Eater eating period 2 oscillator.</li>
+    <li>2 Jam on griddle.</li>
+    <li>3 Miscellaneous (see below).</li>
+</ul></p>
+
+<p>All of these except the first and last categories have a pseudo-period of
+6, a composite of 2 and 3.</p>
+
+<p>Syntheses for 3 of these (2 still unknown) are shown; all the others
+are easy to synthesize using standard techniques.</p>
+<p><a class="p" href="stamp/p6-24.rle"><img src="map/p6-24.png"
+ alt="24-bit P6" width="201" height="81" usemap="#p6-24" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="24/24bk4bl4.rle">
+	    Four blinkers around four blocks [12]</a></td>
+	<td class="r"><a class="p" href="24/24p6bthd.rle">
+	    P6 w/ boat and head [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24p6bktb.rle">
+	    P6 w/ block and tub [x+5]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p6-24.zip" />
+	<area coords="181,61,200,80" href="stamp/p1-24.rle" />
+	<area coords="0,0,69,80" href="24/24bk4bl4.rle" />
+	<area coords="70,0,129,80" href="24/24p6bthd.rle" />
+	<area coords="130,0,200,80" href="24/24p6bktb.rle" />
+</map>
+
+<hr />
+<a name="p6-25"></a>
+<h2><a class="i" href="bits-25.htm">25-bit</a>
+period 6 oscillators</h2>
+<p>There are several hundred 25-bit period 6 oscillators. Unfortunately, these have
+not yet been counted. Most consist of combinations of existing components.</p>
+
+<p>Syntheses for 8 of these (6 still unknown) are shown; all the others
+should be easy to synthesize using standard techniques.</p>
+<p><a class="p" href="stamp/p6-25.rle"><img src="map/p6-25.png"
+ alt="25-bit period-6 oscillators"
+ width="541" height="81" usemap="#p6-25" /></a><br />
+    <table width="545">
+    <colgroup><col width="71" /><col span="5" width="60" /><col width="80" />
+	<col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="25/25p6tahd.rle">
+	    P6 w/ table and head [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25p6shhd.rle">
+	    P6 w/ ship and head [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25p6bkbt.rle">
+	    P6 w/ block and boat [x+7]</a></td>
+	<td class="r"><a class="p" href="25/25p6achd.rle">
+	    P6 w/ carrier and head [x+12]</a></td>
+	<td class="r"><a class="p" href="25/25p6bttb.rle">
+	    P6 w/ boat and tub [x+11]</a></td>
+	<td class="r"><a class="p" href="25/25p6bchd.rle">
+	    P6 w/ beacon and head [x+7]</a></td>
+	<td class="r"><a class="p" href="25/25kysbp1.rle">
+	    Short key and skewed pole tie bipole [55]</a></td>
+	<td class="r"><a class="p" href="25/25kysbp2.rle">
+	    Bent key and skewed pole tie bipole [49]</a></td>
+    </tr>
+</table></p>
+
+<map name="p6-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="521,0,540,19" href="zip/p6-25.zip" />
+	<area coords="521,61,540,80" href="stamp/gu-p4.rle" />
+	<area coords="0,0,89,80" href="25/25p6tahd.rle" />
+	<area coords="90,0,169,80" href="25/25p6shhd.rle" />
+	<area coords="170,0,249,80" href="25/25p6bkbt.rle" />
+	<area coords="250,0,329,80" href="25/25p6achd.rle" />
+	<area coords="330,0,409,80" href="25/25p6bttb.rle" />
+	<area coords="410,0,489,80" href="25/25p6bchd.rle" />
+	<area coords="490,0,540,80" href="25/25kysbp1.rle" />
+</map>
+
+<p>The last two have a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="p6-lg"></a>
+<h2>21 period 6 oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/p6-lg.rle"><img src="map/p6-lg.png"
+ alt="larger period 6 oscillators"
+ width="621" height="421" usemap="#p6-lg" /></a><br />
+    <table width="625">
+    <colgroup><col width="111" /><col span="4" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/28a4all.rle">
+	    A for All [14]</a></td>
+	<td class="y"><a class="p" href="lg/28p6js.rle">
+	    Jason Summers's P6 [40]</a></td>
+	<td class="y"><a class="p" href="lg/28p6uu.rle">
+	    Sesqui- unix [12]</a></td>
+	<td class="y"><a class="p" href="lg/31p6mm.rle">
+	    Merzenich's unix on eater [13]</a></td>
+	<td><a class="p" href="lg/31p6ei.rle">
+	    Extremely impressive [30-35]</a></td>
+	<td class="y"><a class="p" href="lg/33p6-1.rle">
+	    33-bit eater- hassled P6 [50-72]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/32p6uu1.rle">
+	    Two cis unices [11]</a></td>
+	<td class="y"><a class="p" href="lg/32p6rats.rle">
+	    $rats [101-124]</a></td>
+	<td class="y"><a class="p" href="lg/32p6-1.rle">
+	    32-bit P6 #1 [72]</a></td>
+	<td><a class="p" href="lg/32p6uu2.rle">
+	    Two trans unices [11]</a></td>
+	<td><a class="p" href="lg/32uxux2.rle">
+	    Two touching trans- unices [14]</a></td>
+	<td><a class="p" href="lg/32uxux1.rle">
+	    Two touching cis- unices [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/34td4ly.rle">
+	    Lonely bee hassled by four toads [19]</a></td>
+	<td><a class="p" href="lg/37ux2sh.rle">
+	    Ship hassled by two unices [17]</a></td>
+	<td><a class="p" href="lg/44p6uuu1.rle">
+	    Three cis cis unices [23]</a></td>
+	<td><a class="p" href="lg/44p6uuu2.rle">
+	    Three cis trans unices [16]</a></td>
+	<td><a class="p" href="lg/44p6uuu3.rle">
+	    Three trans trans unices [17]</a></td>
+	<td><a class="p" href="lg/45p6nb.rle">
+	    Beluchenko's two unices and block on corner table [24]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="lg/46p6mm.rle">
+	    Merzenich's unix on dual eater-2 [49]</a></td>
+	<td><a class="p" href="lg/52p6mm.rle">
+	    Merzenich's 4 clocks hassling 2 siamese unices [42]</a></td>
+	<td><a class="p" href="lg/56p6uuuu.rle">
+	    Unicycle; Four cis unices [28]</a></td>
+	<td colspan="3" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+
+<map name="p6-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p6-lg.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-lg.rle" />
+	<area coords="0,0,109,109" href="lg/28a4all.rle" />
+	<area coords="110,0,209,109" href="lg/28p6js.rle" />
+	<area coords="210,0,309,109" href="lg/28p6uu.rle" />
+	<area coords="310,0,409,109" href="lg/31p6mm.rle" />
+	<area coords="410,0,509,109" href="lg/31p6ei.rle" />
+	<area coords="510,0,620,109" href="lg/33p6-1.rle" />
+	<area coords="0,110,109,209" href="lg/32p6uu1.rle" />
+	<area coords="110,110,209,209" href="lg/32p6rats.rle" />
+	<area coords="210,110,309,209" href="lg/32p6-1.rle" />
+	<area coords="310,110,409,209" href="lg/32p6uu2.rle" />
+	<area coords="410,110,509,209" href="lg/32uxux2.rle" />
+	<area coords="510,110,620,209" href="lg/32uxux1.rle" />
+	<area coords="0,210,109,309" href="lg/34td4ly.rle" />
+	<area coords="110,210,209,309" href="lg/37ux2sh.rle" />
+	<area coords="210,210,309,309" href="lg/44p6uuu1.rle" />
+	<area coords="310,210,409,309" href="lg/44p6uuu2.rle" />
+	<area coords="410,210,509,309" href="lg/44p6uuu3.rle" />
+	<area coords="510,210,620,309" href="lg/45p6nb.rle" />
+	<area coords="0,310,109,420" href="lg/46p6mm.rle" />
+	<area coords="110,310,209,420" href="lg/52p6mm.rle" />
+	<area coords="210,310,309,420" href="lg/56p6uuuu.rle" />
+	<area coords="310,310,620,420" nohref="nohref" />
+</map>
+
+<p>Extremely impressive is an unusual oscillator. It appears at first glance
+to be a billiard table, but isn't really, as one of the sides temporarily
+falls apart, but then re-forms later.</p>
+
+<hr />
+<hr />
+<a name="g6-p6"></a>
+<h2>1 period 6 oscillator
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-p6.rle"><img src="map/g6-p6.png"
+ alt="6g P6" width="81" height="81" usemap="#g6-p6" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16ux.rle">Unix [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g6-p6.zip" />
+	<area coords="61,61,80,80" href="stamp/g6-p6.rle" />
+	<area coords="0,0,80,80" href="16/16ux.rle" />
+</map>
+
+<p>The Unix is the smallest oscillator that produces a period 6
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+<hr />
+<a name="ge-p6"></a>
+<h2>The 1 period 6 oscillator up to 21 bits
+<a class="i" href="glider-e.htm">costing 1 glider/bit</a></h2>
+<p><a class="p" href="stamp/ge-p6.rle"><img src="map/ge-p6.png"
+ alt="1g/b P6" width="81" height="81" usemap="#ge-p6" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td class="g"><a class="p" href="21/21cptbc1.rle">
+	    Up beacon on cuphook w/ pre-block [21]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ge-p6.zip" />
+	<area coords="61,61,80,80" href="stamp/ge-p6.rle" />
+	<area coords="0,0,80,80" href="21/21cptbc1.rle" />
+</map>
+
+<p>This has a pseudo-period of 6, a composite of 2 and 3.</p>
+
+<hr />
+<a name="gg-p6"></a>
+<h2>The 1 period 6 oscillator up to 21 bits
+<a class="i" href="glider-g.htm">costing &gt;1 glider/bit</a></h2>
+<p><a class="p" href="stamp/gg-p6.rle"><img src="map/gg-p6.png"
+ alt=">1 g/b P6" width="81" height="61" usemap="#gg-p6" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="20/20blonkr.rle">
+	    Blonker [25]</a></td>
+    </tr>
+</table></p>
+
+<map name="gg-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/gg-p6.zip" />
+	<area coords="61,41,80,60" href="stamp/gg-p6.rle" />
+	<area coords="0,0,80,60" href="20/20blonkr.rle" />
+</map>
+
+<hr />
+<a name="gu-p6"></a>
+<h2>The 9 period 6 oscillators up to 25 bits
+<a class="i" href="glider-u.htm">without any known syntheses</a></h2>
+<p>These are all derived from one base 23-bit oscillator.</p>
+<p><a class="p" href="stamp/gu-p6.rle"><img src="map/gu-p6.png"
+ alt="unknown period-6 oscillators"
+ width="601" height="81" usemap="#gu-p6" /></a><br />
+    <table width="605">
+    <colgroup><col width="91" /><col width="60" /><col width="80" />
+	<col span="5" width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="23/23p6bkhd.rle">
+	    P6 w/ block and head [x]</a></td>
+	<td class="r"><a class="p" href="24/24p6bthd.rle">
+	    P6 w/ boat and head [x+6]</a></td>
+	<td class="r"><a class="p" href="24/24p6bktb.rle">
+	    P6 w/ block and tub [x+5]</a></td>
+	<td class="r"><a class="p" href="25/25p6tahd.rle">
+	    P6 w/ table and head [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25p6shhd.rle">
+	    P6 w/ ship and head [x+6]</a></td>
+	<td class="r"><a class="p" href="25/25p6bkbt.rle">
+	    P6 w/ block and boat [x+7]</a></td>
+	<td class="r"><a class="p" href="25/25p6achd.rle">
+	    P6 w/ carrier and head [x+12]</a></td>
+	<td class="r"><a class="p" href="25/25p6bttb.rle">
+	    P6 w/ boat and tub [x+11]</a></td>
+	<td class="r"><a class="p" href="25/25p6bchd.rle">
+	    P6 w/ beacon and head [x+7]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/gu-p6.zip" />
+	<area coords="581,61,600,80" href="stamp/gu-p6.rle" />
+	<area coords="0,0,109,80" href="23/23p6bkhd.rle" />
+	<area coords="110,0,189,80" href="24/24p6bthd.rle" />
+	<area coords="190,0,289,80" href="24/24p6bktb.rle" />
+	<area coords="290,0,369,80" href="25/25p6tahd.rle" />
+	<area coords="370,0,449,80" href="25/25p6shhd.rle" />
+	<area coords="450,0,529,80" href="25/25p6bkbt.rle" />
+	<area coords="530,0,600,80" href="25/25p6achd.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="nat-p6"></a>
+<h2>The top 1 <a class="i" href="natural.htm">naturally-occurring</a>
+period 6 oscillator</h2>
+<p><a class="p" href="stamp/nat-p6.rle"><img src="map/nat-p6.png"
+ alt="natural P6" width="101" height="81" usemap="#nat-p6" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16ux.rle">
+	    Unix [6] (1.7e9)</a></td>
+    </tr>
+</table></p>
+
+<map name="nat-p6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/nat-p6.zip" />
+	<area coords="81,61,100,80" href="stamp/nat-p6.rle" />
+	<area coords="0,0,100,80" href="16/16ux.rle" />
+</map>
+
+<p>The Unix is the smallest oscillator that produces a period 6
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="pp6.htm">period-6 pseudo-oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	6,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

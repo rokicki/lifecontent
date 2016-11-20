@@ -1,0 +1,32 @@
+#N 16-649.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:54 2015
+x = 151, y = 139, rule = B3/S23
+78boo$77boo$73bobo3bo$74boo$74bo$97bxx28boo18bxx$70bo27bx29bo19bx$37bo
+33boo24bx29bo19bx$35boo33boo24bx29bo19bx$36boo20bx19bo17bxbx27bobo17bx
+bx$57bxbx17bobo17bxbx14bo12bobo17bxbx$35bo3boo17bxbx17bobo17bxbx11bobo
+13bobo11bxx4bxbx$35booboo19bx19bo19bx13boo14bo11bxbx5bx$34bobo3bo27boo
+72bx$67bobo$69bo7bo$76boo$76bobo35boo$113bobo$115bo$$116boo$116bobo$
+116bo14$47bobo$32bo14boo$33bo14bo$31b3o54bo42bo$36bo52boo41bo$37boo49b
+oo40b3o$36boo54bo41bo$82bobo6boo41bobo$47boo18bxx14boobboobbobo40boo$
+25b3o20bo19bx14bo4bo49bo$24b5o18bo19bx12bo6bo17bxx18boo11bobo4bxx$24b
+3oboo16bo19bx13boo4bo19bx19bo11boo6bx$27boo17bobo17bxbx10bobo4bobo17bx
+bx17bobo17bxbx$47bobo14bxxbxbx14boobobo14bxxbxbx14boobobo14bxxbxbx$42b
+oo4bobo5bo6bxbxbxbbx12bobobobbo12bxbxbxbbx12bobobobbo12bxbxbxbx$41bobo
+5bo6bobo5bx3bxbx13bo3bobo13bx3bxbx13bo3bobo13bx3bx$42bo13boo11bx19bo
+19bx19bo4$50boo$50bobo$36bo13bo$36boo8b3o88boo$35bobo10bo88bobo$47bo
+89bo6$38b3o$38bobbo$38bo$38bo3bo$38bo3bo$38bo$39bobo4$121bo$120bo$120b
+3o5bobo$128boo$129bo$$121boo7boo$122boo5boo$121bo9bo12bxx$45boo18bxx
+18boo18bxx18boo17bxbx$46bo19bx19bo19bx19bo19bx$46bobo17bxbx17bobo17bxb
+xx16boboo16bxbxx$44boobobo14bxxbxbx14boobobo14bxxbxbx14boobobo14bxxbxb
+x$43bobobobo15bxbxbx15bobobo3bo11bxbx17bobo17bxbx$44bo3bo16bxbbx16bobb
+o3bo12bxbx17bobo17bxbx$64bxx18boo6b3o11bx19bo19bx$90bo$42b3o44boo$39bo
+bbo41boo3bobo$40bobbo39boo$38b3o44bo$80boo$81boo$80bo10$89bobo$92bo$
+92bo$89bobbo$90b3o39bo$132bobo$132boo$$83bo26byy18boo$82bo10bo16byy18b
+oo$82b3o6boo$80bo11boo$bbo75bobo$obo48bo27boo$boo46bobo$4boo18bxx18boo
+4booboo9bxx18boo$4bobo17bxbx17bobo6bobo8bxbx17bobo10bo7bxx18boo18bxx$
+6bo19bx19bo6bo12bxbbx16bobbo6boo8bx19bo19bx$bo4boboo16bxbxx16boboo16bx
+bxbx15bobobo5bobo7bxbxx16boboo16bxbxx$bboboobobo14bxxbxbx14boobobo14b
+xxbxbxx13booboboo13bxxbxbx14boobobo14bxxbxbx$3obbobo17bxbx17bobo17bxbx
+17bobo17bxbx17bobo17bxbx$5bobo16bxbbx16bobbo16bxbbx16bobbo16bxbbx16bo
+bbo16bxbbx$6bo18bxx18boo18bxx18boo18bxx18boo18bxx$o$boo$oobboo$3bobo$
+5bo!

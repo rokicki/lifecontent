@@ -1,0 +1,874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Variant: Niemiec's Rules</title>
+<meta name="description"
+content="Life Variant: Niemiec's Rules object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life variant niemiec's rules life still life oscillator spaceship puffer gun replicator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Variant: Niemiec's Rules</h1>
+
+<p align="center">
+	<a class="j" href="#mn-intro">Introduction</a> |
+	<a class="j" href="#mn-run">Running patterns </a> |
+	<a class="j" href="#mn-p1">Still-lifes</a> |
+	<a class="j" href="#mn-pp1">Pseudo-still-lifes</a> |
+	<a class="j" href="#mn-p2">P2 oscillators</a> |
+	<a class="j" href="#mn-pp2">P2 pseudo-oscillator</a> |
+	<a class="j" href="#mn-p3">P3-6 oscillators</a> |
+	<a class="j" href="#mn-p8">P8n oscillators</a> |
+	<a class="j" href="#mn-p140">P140 and P280 oscillators</a> |
+	<a class="j" href="#mn-ss">Spaceships</a> |
+	<a class="j" href="#mn-cons">Constellations</a> |
+	<a class="j" href="#mn-meth">Methuselah</a> |
+	<a class="j" href="#mn-gun">Guns</a> |
+	<a class="j" href="#mn-puff">Puffers</a> |
+	<a class="j" href="#mn-br">Breeder</a> |
+	<a class="j" href="#mn-v0">Rule variant 0</a>
+</p>
+
+<hr /><hr />
+<a name="mn-intro"></a>
+<h2>Introduction</h2>
+<p>This is actually several closely-related rules. While the birth conditions
+are totalistic (and, in fact, the same as Life's), the survival conditions are
+not totalistic - i.e. they depend not only on the number of neighbors, but also
+their relative positions. Birth occurs on any 3 neighbors, while survival occurs
+on 2-4 neighbors that are orthogonally connected to the original cell (i.e.
+diagonal neighbors are allowed only if they are themselves adjacent to one or
+two orthogonal neighbors). Most common patterns are shared by all variants.
+The variants arise by tweaking three of the survival conditions:</p>
+<p><ul>
+    <li>1: Three on one side, plus a fourth on a diagonal. If allowed,
+	this enables a (5, 6)<i>c</i>/19 clean oblique puffer; otherwise,
+	it enables a related (2,3)<i>c</i>/15 clean oblique puffer.</li>
+    <li>2: Two opposite neighbors. If allowed, this enables the Blinker;
+	otherwise, it enables a 2<i>c</i>/9 diagonal glider (the Tadpole).</li>
+    <li>4: Three on one side, plus both other diagonals</li>
+</ul></p>
+
+<p>Furthermore, variant 0 (i.e. none of the above) has a period 28 <i>c</i>/14
+non-monotonic orthogonal glider. Variant 1 (i.e. 1 but not 2 or 4) has a
+period 280 (mod 70) shuttle with useful sparks. Variant 5 (i.e. 1 and 4 but
+not 2) has a 7<i>c</i>/27 orthogonal glider. Variants 1 and 5 (i.e. 1 but not 2;
+4 is irrelevant) have a natural replicator. All of the variants also possess
+two other natural spaceships of different velocities (<i>c</i>/3 diagonal,
+<i>c</i>/3 orthogonal).</p>
+
+<p>Due to the survival rule favoring ominos (and almost nothing else), it
+follows that almost all still-lifes are composed entirely of ominos or
+groups of disconnected ominos. It is also interesting that most of the
+oscillators and spaceships, and even the replicator, have phases that consist
+entirely of ominos.</p>
+
+<p>It is also curious that most of the common objects are very closely related
+by structure:</p>
+<p><ul>
+    <li>The smallest phase of the replicator differs from the block in only
+	one bit.</li>
+    <li>The smallest phase of the replicator differs from the orthogonal
+	glider in only one bit.</li>
+    <li>One phase of the tadpole differs from the orthogonal glider in only
+	one bit.</li>
+    <li>One phase of the puffer engine differs from the orthogonal glider in
+	only two bits.</li>
+    <li>One phase of the puffer engine differs from the diagonal glider in
+	only two bits.</li>
+    <li>The period 280 shuttle differs from the orthogonal glider in only one
+	bit.</li>
+    <li>The period 8 eater is composed of two colliding replicators.</li>
+</ul></p>
+
+<hr />
+<a name="mn-run"></a>
+<h2>Running Patterns</h2>
+<p>The patterns on this page can be run by Golly, but require the
+following rule files to first be downloaded and installed.
+They can either be installed for all users (in the Rules directory directly
+under where the Golly application is installed), or in the current user's
+personal Rule directory. (To find out where this is, run Golly, select
+<i>File/Preferences...</i>, look at the <i>Control</i> tab.
+It is displayed right next to the <i>Your Rules...</i> button.</p>
+
+<p>Golly versions 2.5 and later can use the single rule file
+(<a class="p" href="rules/Niemiec1.rule">Niemiec1.rule</a>).</p>
+
+<p>Earlier versions of Golly require two files: the rule table
+(<a class="p" href="rules/Niemiec1.table">Niemiec1.table</a>) and the
+corresponding color table
+(<a class="p" href="rules/Niemiec1.colors">Niemiec1.colors</a>).</p>
+
+<hr /><hr />
+<a name="mn-p1"></a>
+<h2>Still-lifes</h2>
+<p>These are all the still-lifes up to 10 bits, plus a few others for which
+syntheses are known. Several show techniques that can be used to make many
+still-lifes infinitely extensible.</p>
+
+<p><a class="p" href="stamp/mn-p1.rle"><img src="map/mn-p1.png"
+ alt="niemiec1 still-lifes"
+ width="621" height="181" usemap="#mn-p1" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n4bk.rle">Block [2]</a></td>
+	<td><a class="p" href="rulemn/n5z.rle">Z [3]</a></td>
+	<td><a class="p" href="rulemn/n6ac.rle">Carrier [3]</a></td>
+	<td><a class="p" href="rulemn/n7w.rle">W [5]</a></td>
+	<td><a class="p" href="rulemn/n8zz.rle">Z siamese Z [7]</a></td>
+	<td><a class="p" href="rulemn/n9acz.rle">Carrier siamese Z [7]</a></td>
+	<td><a class="p" href="rulemn/n9wtl.rle">W w/ tail [7]</a></td>
+	<td><a class="p" href="rulemn/n10stst1.rle">
+	    Cis stool on stool [3]</a></td>
+	<td><a class="p" href="rulemn/n10rr2.rle">Down R tie R [8]</a></td>
+	<td><a class="p" href="rulemn/n10rr1.rle">Up R tie R [6]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="rulemn/n10acac.rle">
+	    Carrier siamese carrier [x]</a></td>
+	<td><a class="p" href="rulemn/n10stst2.rle">
+	    Trans stool on stool [4]</a></td>
+	<td><a class="p" href="rulemn/n10acta.rle">
+	    Carrier siamese table [9]</a></td>
+	<td><a class="p" href="rulemn/n10wz.rle">
+	    W siamese Z [9]</a></td>
+	<td><a class="p" href="rulemn/n11bmst1.rle">
+	    Up block on medium stool [4]</a></td>
+	<td><a class="p" href="rulemn/n12tata1.rle">
+	    Cis table on table [10]</a></td>
+	<td><a class="p" href="rulemn/n14msms1.rle">
+	    Up cis medium stool on medium stool [4]</a></td>
+	<td><a class="p" href="rulemn/n14jst1.rle">
+	    Cis stool on J [4]</a></td>
+	<td><a class="p" href="rulemn/n14jst3.rle">
+	    Down trans stool on J [4]</a></td>
+	<td><a class="p" href="rulemn/n14jst2.rle">
+	    Up trans stool on J [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rulemn/n15bkcv.rle">
+	    Block on cover [6]</a></td>
+	<td><a class="p" href="rulemn/n18jj1.rle">
+	    Up cis J on J [4]</a></td>
+	<td><a class="p" href="rulemn/n18hshs1.rle">
+	    Cis heavy stool on heavy stool [4]</a></td>
+	<td><a class="p" href="rulemn/n18ust1.rle">
+	    Cis stool on U [7]</a></td>
+	<td><a class="p" href="rulemn/n18hshs2.rle">
+	    Trans heavy stool on heavy stool [4]</a></td>
+	<td><a class="p" href="rulemn/n18jj5.rle">
+	    Down trans J on down J [4]</a></td>
+	<td><a class="p" href="rulemn/n18jj2.rle">
+	    Down cis J on J [4]</a></td>
+	<td><a class="p" href="rulemn/n18ust2.rle">
+	    Trans stool on U [7]</a></td>
+	<td><a class="p" href="rulemn/n18jj3.rle">
+	    Up trans J on J [4]</a></td>
+	<td><a class="p" href="rulemn/n18jj4.rle">
+	    Down trans J on J [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rulemn/n20htas1.rle">
+	    Cis heavy table on heavy table [3]</a></td>
+	<td><a class="p" href="rulemn/n22mstas.rle">
+	    Pair of medium stools siamese tables [7]</a></td>
+	<td><a class="p" href="rulemn/n22uj1.rle">
+	    Cis J on U [7]</a></td>
+	<td><a class="p" href="rulemn/n22uj3.rle">
+	    Down trans J on U [7]</a></td>
+	<td><a class="p" href="rulemn/n22uj2.rle">
+	    Up trans J on U [7]</a></td>
+	<td><a class="p" href="rulemn/n26uu1.rle">
+	    Cis U on U [10]</a></td>
+	<td><a class="p" href="rulemn/n26uu2.rle">
+	    Trans U on U [10]</a></td>
+	<td><a class="p" href="rulemn/n36cross.rle">
+	    Cross [12]</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="mn-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/mn-p1.zip" />
+	<area coords="601,161,620,180" href="stamp/mn-p1.rle" />
+	<area coords="0,0,69,49" href="rulemn/n4bk.rle" />
+	<area coords="70,0,129,49" href="rulemn/n5z.rle" />
+	<area coords="130,0,189,49" href="rulemn/n6ac.rle" />
+	<area coords="190,0,249,49" href="rulemn/n7w.rle" />
+	<area coords="250,0,309,49" href="rulemn/n8zz.rle" />
+	<area coords="310,0,369,49" href="rulemn/n9acz.rle" />
+	<area coords="370,0,429,49" href="rulemn/n9wtl.rle" />
+	<area coords="430,0,489,49" href="rulemn/n10stst1.rle" />
+	<area coords="490,0,549,49" href="rulemn/n10rr2.rle" />
+	<area coords="550,0,620,49" href="rulemn/n10rr1.rle" />
+	<area coords="0,50,69,89" href="rulemn/n10acac.rle" />
+	<area coords="70,50,129,89" href="rulemn/n10stst2.rle" />
+	<area coords="130,50,189,89" href="rulemn/n10acta.rle" />
+	<area coords="190,50,249,89" href="rulemn/n10wz.rle" />
+	<area coords="250,50,309,89" href="rulemn/n11bmst1.rle" />
+	<area coords="310,50,369,89" href="rulemn/n12tata1.rle" />
+	<area coords="370,50,429,89" href="rulemn/n14msms1.rle" />
+	<area coords="430,50,489,89" href="rulemn/n14jst1.rle" />
+	<area coords="490,50,549,89" href="rulemn/n14jst3.rle" />
+	<area coords="550,50,620,89" href="rulemn/n14jst2.rle" />
+	<area coords="0,90,69,129" href="rulemn/n15bkcv.rle" />
+	<area coords="70,90,129,129" href="rulemn/n18jj1.rle" />
+	<area coords="130,90,189,129" href="rulemn/n18hshs1.rle" />
+	<area coords="190,90,249,129" href="rulemn/n18ust1.rle" />
+	<area coords="250,90,309,129" href="rulemn/n18hshs2.rle" />
+	<area coords="310,90,369,129" href="rulemn/n18jj5.rle" />
+	<area coords="370,90,429,129" href="rulemn/n18jj2.rle" />
+	<area coords="430,90,489,129" href="rulemn/n18ust2.rle" />
+	<area coords="490,90,549,129" href="rulemn/n18jj3.rle" />
+	<area coords="550,90,620,129" href="rulemn/n18jj4.rle" />
+	<area coords="0,130,69,180" href="rulemn/n20htas1.rle" />
+	<area coords="70,130,129,180" href="rulemn/n22mstas.rle" />
+	<area coords="130,130,189,180" href="rulemn/n22uj1.rle" />
+	<area coords="190,130,249,180" href="rulemn/n22uj3.rle" />
+	<area coords="250,130,309,180" href="rulemn/n22uj2.rle" />
+	<area coords="310,130,369,180" href="rulemn/n26uu1.rle" />
+	<area coords="370,130,429,180" href="rulemn/n26uu2.rle" />
+	<area coords="430,130,489,180" href="rulemn/n36cross.rle" />
+	<area coords="490,130,620,180" nohref="nohref" />
+</map>
+
+<hr />
+<a name="mn-pp1"></a>
+<h2>Pseudo-still-lifes</h2>
+<p><a class="p" href="stamp/mn-pp1.rle"><img src="map/mn-pp1.png"
+ alt="niemiec1 pseudo-still-lifes"
+ width="381" height="61" usemap="#mn-pp1" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n8bkbk.rle">
+	    Block on block; Bi- block [2]</a></td>
+	<td><a class="p" href="rulemn/n10acbk1.rle">
+	    Block on carrier [6]</a></td>
+	<td><a class="p" href="rulemn/n10acbk2.rle">
+	    Block below carrier [6]</a></td>
+	<td><a class="p" href="rulemn/n16bbbb.rle">
+	    Block pair on block pair [6]</a></td>
+	<td><a class="p" href="rulemn/n18bsts.rle">
+	    Block pair on pair of stools [4]</a></td>
+	<td><a class="p" href="rulemn/n20st4.rle">
+	    Two pairs of stools [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-pp1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/mn-pp1.zip" />
+	<area coords="361,41,380,60" href="stamp/mn-pp1.rle" />
+	<area coords="0,0,69,60" href="rulemn/n8bkbk.rle" />
+	<area coords="70,0,129,60" href="rulemn/n10acbk1.rle" />
+	<area coords="130,0,189,60" href="rulemn/n10acbk2.rle" />
+	<area coords="190,0,249,60" href="rulemn/n16bbbb.rle" />
+	<area coords="250,0,309,60" href="rulemn/n18bsts.rle" />
+	<area coords="310,0,380,60" href="rulemn/n20st4.rle" />
+</map>
+
+<hr />
+<a name="mn-p2"></a>
+<h2>Period-2 oscillators</h2>
+<p><a class="p" href="stamp/mn-p2.rle"><img src="map/mn-p2.png"
+ alt="niemiec1 P2 oscillators"
+ width="637" height="81" usemap="#mn-p2" /></a><br />
+    <table width="641">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="80" />
+	<col width="68" /></colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n6bc.rle">
+	    Beacon [2]</a></td>
+	<td><a class="p" href="rulemn/n10bbc.rle">
+	    Beacon tie block [4]</a></td>
+	<td><a class="p" href="rulemn/n12sp.rle">
+	    Semi- phoenix [4]</a></td>
+	<td><a class="p" href="rulemn/n12bcs.rle">
+	    Bridged beacons [x]</a></td>
+	<td><a class="p" href="rulemn/n12cy.rle">
+	    Cyclone [x]</a></td>
+	<td><a class="p" href="rulemn/n12px.rle">
+	    Phoenix [x]</a></td>
+	<td><a class="p" href="rulemn/n12bcbc.rle">
+	    Beacon tie beacon [4]</a></td>
+	<td><a class="p" href="rulemn/n17p2.rle">
+	    17-bit P2 oscillator [x]</a></td>
+	<td><a class="p" href="rulemn/n18px12.rle">
+	    2x1 Phoenix [x]</a></td>
+	<td><a class="p" href="rulemn/n21p2.rle">
+	    21-bit P2 oscillator [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="617,0,636,19" href="zip/mn-p2.zip" />
+	<area coords="617,61,636,80" href="stamp/mn-p2.rle" />
+	<area coords="0,0,69,80" href="rulemn/n6bc.rle" />
+	<area coords="70,0,129,80" href="rulemn/n10bbc.rle" />
+	<area coords="130,0,189,80" href="rulemn/n12sp.rle" />
+	<area coords="190,0,249,80" href="rulemn/n12bcs.rle" />
+	<area coords="250,0,309,80" href="rulemn/n12cy.rle" />
+	<area coords="310,0,369,80" href="rulemn/n12px.rle" />
+	<area coords="370,0,429,80" href="rulemn/n12bcbc.rle" />
+	<area coords="430,0,489,80" href="rulemn/n17p2.rle" />
+	<area coords="490,0,569,80" href="rulemn/n18px12.rle" />
+	<area coords="570,0,636,80" href="rulemn/n21p2.rle" />
+</map>
+
+<hr />
+<a name="mn-pp2"></a>
+<h2>Period-2 pseudo-oscillator</h2>
+<p><a class="p" href="stamp/mn-pp2.rle"><img src="map/mn-pp2.png"
+ alt="N1 PP2" width="81" height="61" usemap="#mn-pp2" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n10bcbk.rle">Block on beacon [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-pp2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/mn-pp2.zip" />
+	<area coords="61,41,80,60" href="stamp/mn-pp2.rle" />
+	<area coords="0,0,80,60" href="rulemn/n10bcbk.rle" />
+</map>
+
+<hr />
+<a name="mn-p3"></a>
+<h2>Oscillators of periods 3 through 6</h2>
+
+<p><a class="p" href="stamp/mn-p3.rle"><img src="map/mn-p3.png"
+ alt="niemiec1 P3-6 oscillators"
+ width="381" height="61" usemap="#mn-p3" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n17co.rle">P3 corner [x]</a></td>
+	<td><a class="p" href="rulemn/n20gb.rle">P3 Gumball [x]</a></td>
+	<td><a class="p" href="rulemn/n29jl.rle">P3 Jacob's ladder [x]</a></td>
+	<td><a class="p" href="rulemn/n10p4.rle">10-bit P4 [x]</a></td>
+	<td><a class="p" href="rulemn/n24p5.rle">24-bit P5 [x]</a></td>
+	<td><a class="p" href="rulemn/n19p6.rle">19-bit P6 [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-p3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/mn-p3.zip" />
+	<area coords="361,41,380,60" href="stamp/mn-p3.rle" />
+	<area coords="0,0,69,60" href="rulemn/n17co.rle" />
+	<area coords="70,0,129,60" href="rulemn/n20gb.rle" />
+	<area coords="130,0,189,60" href="rulemn/n29jl.rle" />
+	<area coords="190,0,249,60" href="rulemn/n10p4.rle" />
+	<area coords="250,0,309,60" href="rulemn/n24p5.rle" />
+	<area coords="310,0,380,60" href="rulemn/n19p6.rle" />
+</map>
+
+<hr />
+<a name="mn-p8"></a>
+<h2>Period-8<i>n</i> oscillators</h2>
+<p><a class="p" href="stamp/mn-p8.rle"><img src="map/mn-p8.png"
+ alt="niemiec1 P8n oscillators"
+ width="421" height="121" usemap="#mn-p8" /></a><br />
+    <table width="425">
+    <colgroup><col width="111" /><col span="2" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n10et.rle">
+	    P8 eater [x]</a></td>
+	<td><a class="p" href="rulemn/n25p16pp.rle">
+	    P16 Ping pong [x]</a></td>
+	<td><a class="p" href="rulemn/n25p40pp.rle">
+	    P40 Ping pong [x]</a></td>
+	<td><a class="p" href="rulemn/n25p64pp.rle">
+	    P64 Ping pong [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-p8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/mn-p8.zip" />
+	<area coords="401,101,420,120" href="stamp/mn-p8.rle" />
+	<area coords="0,0,109,120" href="rulemn/n10et.rle" />
+	<area coords="110,0,209,120" href="rulemn/n25p16pp.rle" />
+	<area coords="210,0,309,120" href="rulemn/n25p40pp.rle" />
+	<area coords="310,0,420,120" href="rulemn/n25p64pp.rle" />
+</map>
+
+<p>The period 8 oscillator is one of the two commonly-occurring oscillators
+with periods above 2. It is called the Eater, because it can eat all of the
+spaceships, which is very convenient, since the simplest
+<a class="j" href="#mn-gun">glider guns</a> are based on the
+<a class="j" href="#mn-p140">period 280 shuttle</a>, and 280 is multiple of 8.</p>
+
+<p>The oscillator can also reflect diagonal gliders, allowing for simple
+glider-loop oscillators of all periods 8+24<i>n</i>, <i>n</i>&ge;0. The first three of
+these are shown.</p>
+
+<hr />
+<a name="mn-p140"></a>
+<h2>Period-140 and 280 oscillators</h2>
+<p><a class="p" href="stamp/mn-p140.rle"><img src="map/mn-p140.png"
+ alt="niemiec1 P140 and P280 oscillators"
+ width="381" height="141" usemap="#mn-p140" /></a><br />
+    <table width="385">
+    <colgroup><col width="251" /><col width="132" /></colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n14p140.rle">
+	    P140 (mod 70) Two interleaved shuttles [4]</a></td>
+	<td><a class="p" href="rulemn/n7p280.rle">
+	    P280 (mod 70) Shuttle [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-p140">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/mn-p140.zip" />
+	<area coords="361,121,380,140" href="stamp/mn-p140.rle" />
+	<area coords="0,0,249,140" href="rulemn/n14p140.rle" />
+	<area coords="250,0,380,140" href="rulemn/n7p280.rle" />
+</map>
+
+<p>There is a natural 7-bit shuttle that generates huge clean plumes of debris
+and rotates 90 degrees every 70 generations, yielding a period 280 oscillator.
+Two of these can occupy the same area, effectively making a period 140
+oscillator. Because the central core is so small, it is shown with the smallest
+population of the core (7) rather than the smallest total population (27) that
+occurs 19 generations later. The large debris plumes are useful, in that they
+can eat gliders, and even rub against others to create
+<a class="j" href="#mn-gun">glider guns</a>.</p>
+
+<hr />
+<a name="mn-ss"></a>
+<h2>Spaceships</h2>
+<p><a class="p" href="stamp/mn-ss.rle"><img src="map/mn-ss.png"
+ alt="niemiec1 spaceships"
+ width="541" height="61" usemap="#mn-ss" /></a><br />
+    <table width="545">
+    <colgroup><col width="91" /><col width="80" /><col width="120" />
+	<col span="2" width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n5dg.rle">
+	    <i>c</i>/3 Diagonal glider [2]</a></td>
+	<td><a class="p" href="rulemn/n6tp.rle">
+	    2<i>c</i>/9 Diagonal Tadpole [2]</a></td>
+	<td><a class="p" href="rulemn/n11op.rle">
+	    (6, 5)<i>c</i>/19 Clean oblique puffer [2]</a></td>
+	<td><a class="p" href="rulemn/n6gl.rle">
+	    <i>c</i>/3 Ortho- gonal glider [2]</a></td>
+	<td><a class="p" href="rulemn/n12glgl1.rle">
+	    Inward glider on glider [4]</a></td>
+	<td><a class="p" href="rulemn/n12glgl2.rle">
+	    Outward glider on glider [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="521,0,540,19" href="zip/mn-ss.zip" />
+	<area coords="521,41,540,60" href="stamp/mn-ss.rle" />
+	<area coords="0,0,69,60" href="rulemn/n5dg.rle" />
+	<area coords="70,0,129,60" href="rulemn/n6tp.rle" />
+	<area coords="130,0,229,60" href="rulemn/n11op.rle" />
+	<area coords="230,0,289,60" href="rulemn/n6gl.rle" />
+	<area coords="290,0,349,60" href="rulemn/n12glgl1.rle" />
+	<area coords="350,0,540,60" href="rulemn/n12glgl2.rle" />
+</map>
+
+<p>This rule includes 4 basic common spaceships, all of which have different
+periods and velocities. The orthogonal one is the most common, and forms the
+basis for all syntheses. It can also form pseudo-spaceships, the smallest
+two of which sometimes occur naturally, and are shown.</p>
+
+<hr />
+<a name="mn-cons"></a>
+<h2>Constellations</h2>
+<p>These are all the constellations that can be formed from two gliders
+(excluding those that include one or more gliders), and several constellations
+consisting of blocks that can be formed from three gliders.</p>
+<p><a class="p" href="stamp/mn-cons.rle"><img src="map/mn-cons.png"
+ alt="niemiec1 constellations"
+ width="521" height="301" usemap="#mn-cons" /></a><br />
+    <table width="525">
+    <colgroup><col width="111" /><col span="3" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n8bkbk06.rle">
+	    Two blocks offset (6, 0) [2]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk07.rle">
+	    Two blocks offset (7, 0) [2]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk0b.rle">
+	    Two blocks offset (11, 0) [3]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk14.rle">
+	    Two blocks offset (4, 1) [2]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk15.rle">
+	    Two blocks offset (5, 1) [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rulemn/n8bkbk16.rle">
+	    Two blocks offset (6, 1) [2]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk24.rle">
+	    Two blocks offset (4, 2) [3]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk27.rle">
+	    Two blocks offset (7, 2) [2]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk2i.rle">
+	    Two blocks offset (18, 2) [3]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk33.rle">
+	    Two blocks offset (3, 3) [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rulemn/n8bkbk37.rle">
+	    Two blocks offset (7, 3) [2]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk38.rle">
+	    Two blocks offset (8, 3) [2]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk59.rle">
+	    Two blocks offset (9, 5) [3]</a></td>
+	<td><a class="p" href="rulemn/n8bkbk7f.rle">
+	    Two blocks offset (15, 7) [2]</a></td>
+	<td><a class="p" href="rulemn/n12bk3a.rle">
+	    Three staggered blocks [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="rulemn/n12bk3b.rle">
+	    Three blocks far apart [2]</a></td>
+	<td><a class="p" href="rulemn/n16bk4a.rle">
+	    Two pairs of two blocks [2]</a></td>
+	<td><a class="p" href="rulemn/n16bk4b.rle">
+	    Blockade [2]</a></td>
+	<td colspan="2"><a class="p" href="rulemn/n48bk12.rle">
+	    Twelve blocks [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,281,19,300" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/mn-cons.zip" />
+	<area coords="501,281,520,300" href="stamp/mn-cons.rle" />
+	<area coords="0,0,109,69" href="rulemn/n8bkbk06.rle" />
+	<area coords="110,0,209,69" href="rulemn/n8bkbk07.rle" />
+	<area coords="210,0,309,69" href="rulemn/n8bkbk0b.rle" />
+	<area coords="310,0,409,69" href="rulemn/n8bkbk14.rle" />
+	<area coords="410,0,520,69" href="rulemn/n8bkbk15.rle" />
+	<area coords="0,70,109,129" href="rulemn/n8bkbk16.rle" />
+	<area coords="110,70,209,129" href="rulemn/n8bkbk24.rle" />
+	<area coords="210,70,309,129" href="rulemn/n8bkbk27.rle" />
+	<area coords="310,70,409,129" href="rulemn/n8bkbk2i.rle" />
+	<area coords="410,70,520,129" href="rulemn/n8bkbk33.rle" />
+	<area coords="0,130,109,189" href="rulemn/n8bkbk37.rle" />
+	<area coords="110,130,209,189" href="rulemn/n8bkbk38.rle" />
+	<area coords="210,130,309,189" href="rulemn/n8bkbk59.rle" />
+	<area coords="310,130,409,189" href="rulemn/n8bkbk7f.rle" />
+	<area coords="410,130,520,189" href="rulemn/n12bk3a.rle" />
+	<area coords="0,190,109,300" href="rulemn/n12bk3b.rle" />
+	<area coords="110,190,209,300" href="rulemn/n16bk4a.rle" />
+	<area coords="210,190,309,300" href="rulemn/n16bk4b.rle" />
+	<area coords="310,190,520,300" href="rulemn/n48bk12.rle" />
+</map>
+
+<hr />
+<a name="mn-meth"></a>
+<h2>Methuselah</h2>
+<p><a class="p" href="stamp/mn-meth.rle"><img src="map/mn-meth.png"
+ alt="N1 meth" width="81"
+ height="61" usemap="#mn-meth" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n4p.rle">P; P190 P replicator [2]</a></td>
+    </tr>
+    <tr>
+	<td><a class="p" href="rulemn/n4prun.rle">Run P...</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/mn-meth.zip" />
+	<area coords="61,41,80,60" href="stamp/mn-meth.rle" />
+	<area coords="0,0,80,60" href="rulemn/n4p.rle" />
+</map>
+
+<p>This rule features a very common 5-bit replicator, the P pentomino. Every 95
+generations, it turns into two copies of itself rotated 90 degrees, 7 spaces
+forward, and 17 to either side, so the corners expand diagonally at a speed of
+12<i>c</i>/95, with diagonal glide symmetry, similar to Life's switch engine. It
+starts out as a clean binary sawtooth, but unfortunately, on the fourth and
+subsequent cycles, the interior consists of irregular debris. It emits large
+numbers of gliders of all types in all directions, and its corners tend to
+expand in a regular manner. It does occasionally expand at a faster rate than
+12<i>c</i>/95, as most gliders escape at <i>c</i>/3 or close to it, and sometimes these
+collide to create new replicators far away from the original one.</p>
+
+<p>It is theoretically possible that this might eventually stabilize, but after
+22000 generations with a population of almost 2.5 million, it shows no indication
+of doing so, having spawned new copies of itself over 500 spaces beyond its
+corners, and multiple others much closer to itself, so the ultimate fate of
+this object is unknown. Unfortunately, since its behavior is irregular, it is
+not conducive to rapid computation using hashing algorithms. (Contrast with the
+<a class="j" href="#mn-br">breeder</a> below, which is extremely regular. At generation
+1e497, Golly computes 1e495 generations every 8 seconds, on an 2.2 GHz
+CPU)</p>
+
+<p>This rule is frequently explosive, as many random patterns develop
+replicators near an edge, causing that edge to rapidly explode, sometimes
+apparently forever.</p>
+
+<p>Many other mechanisms in this rule closely resemble the replicator, including
+the <a class="j" href="#mn-p140">shuttle</a>,
+<a class="j" href="#mn-puff">puffer</a>, and
+<a class="j" href="#mn-p8">eater</a>.</p>
+
+<p>As this replicator's behavior is erratic, it is considered a methuselah
+with an unknown (presumably infinite) census. Its smallest predecessor has 4
+bits. Most other methuselahs in this rule appear to be replicators surrounded
+by other things; they are far too numerous to list individually.</p>
+
+<hr /><hr />
+<a name="mn-gun"></a>
+<h2>Glider Guns</h2>
+<p>There is one simple multi-purpose glider gun, consisting of two period 280
+shuttles in tandem, with 180-degree rotational symmetry, rubbing their sparks
+together. Each cycle, this releases two orthogonal gliders, and two diagonal
+ones, all in different directions. Normally, one suppresses three of these,
+yielding a gun that makes either an orthogonal glider, or a diagonal one.
+(There are also several other similar known guns that make only pairs of one
+kind of glider or the other, but it's easier to just use one kind of gun
+for everything).</p>
+
+<p>Two orthogonal guns can shoot gliders at each other, in such a way that
+the gliders collide to either make any of the four kinds of spaceships.
+"tee-guns" are useful at inserting a glider stream close to another.</p>
+
+<p><!-- TBD --></p>
+
+<hr />
+<a name="mn-puff"></a>
+<h2>Puffers</h2>
+
+<p><!-- TBD --></p>
+
+<hr />
+<a name="mn-br"></a>
+<h2>Breeder</h2>
+<p>This is an SMM breeder that uses three of the four basic glider types.
+It consists of five basic sections:</p>
+
+<p>The west section consists of five orthogonal glider guns. The westmost one
+makes one eastbound glider A. The next two form a tee-gun producing another
+eastbound glider B southwest of A. The next two form another tee-gun making a
+third eastbound glider C southwest of B.</p>
+
+<p>The east section is similar arrangement of five orthogonal glider guns.
+The eastmost one makes one westbound glider D. The next two form a tee-gun
+making another eastbound glider E southwest of D. The next two form a tee-gun
+making another eastbound glider F southwest of E. These are much closer together
+than the western guns.</p>
+
+<p>The north section is similar arrangement of five orthogonal glider guns.
+The northernmost one makes one southbound glider G. The next two form a tee-gun
+making another southbound glider H slightly east and substantially north of G.
+The next two form a tee-gun making another southbound glider I west and slightly
+south of G.</p>
+
+<p>The northeast section contains three guns. The southmost of these makes a
+a diagonal glider J heading southwest. The other two form a tee-gun that makes
+an oblique puffer engine K heading south-southwest. (Due to the placement of the
+two guns, the topmost eaters suppressing north-bound diagonal gliders can be
+removed, as the two spurious diagonal gliders harmlessly annihilate each other.)
+Because the two streams have directions that are very similar but not identical,
+these guns must be placed unusually far away for the rest of the breeder to
+allow the two streams to converge on the same area.</p>
+
+<p>The middle section is where all the components come together. The three
+pairs of gliders A+D, B+E, C+F from the east and west make three synchronous
+oblique puffer engines heading southwest. One engine by itself is a clean puffer.
+Three together form a rake that shoots one orthogonal gliders westward every
+three cycles (i.e. every 57 generations), and also leaves two spurious blocks
+behind. Puffer engine K comes up behind the new three-engine rake, and uses its
+smoke to clean up these blocks at its own leisure.</p>
+
+<p>Unfortunately, two engines together form a dirty puffer that produces much
+toxic debris. For the short duration when there are only two engines in place,
+gliders J and G respectively hit the toxic debris clouds from the first two
+cycles, suppressing them.</p>
+
+<p>The first time the three-engine combination puffs, it leaves behind two
+additional spurious blocks. Subsequent cycles do not do this, because the
+new smoke interacts with the previous cycle's smoke to suppress these. Glider
+H removes the northernmost of these two blocks, and puffer engine K just happens
+to cleanly eliminate the other one as it passes by.</p>
+
+<p>The breeder creates a wave of four-engine rakes heading south-southwest,
+with waves of gliders heading west. Unfortunately, the first five glider waves
+would normally destroy the west-side guns. The last four of these are easily
+suppressed by eaters. The first cannot be eaten, because the eater would be in
+the path of the west-side gliders, so glider I is used to remove it.</p>
+
+<p>As <i>n</i> approaches infinity, at generation <i>n</i>, the population is
+asymptotic to 0.00022452 <i>n</i>&sup2; (43 <i>n</i>&sup2;/191520).
+There are around 3.13283e-5 <i>n</i>&sup2; (<i>n</i>&sup2;/31920)
+generated gliders in the field, and around 0.0142857 <i>n</i> (<i>n</i>/70)
+generated puffer engines.</p>
+
+<p>The static parts of the breeder consists of 36 shuttles and 56 eaters, all
+of which are glider-constructible, so in theory, it should be possible to
+synthesize the breeder from gliders, although the synthesis would be rather
+large (184 gliders, plus possibly a few more needed to suppress output from
+components constructed before other components are ready).</p>
+
+<p>This image (reduced to half size) shows the breeder at generation 1120,
+after four 280-generation cycles. Four rakes can be clearly seen, with the
+front three emitting waves of gliders.</p>
+<p><a class="p" href="stamp/mn-br.rle"><img src="map/mn-br.png"
+ alt="niemiec1 breeder" width="475" height="455" usemap="#mn-br" /></a></p>
+
+<map name="mn-br">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,435,19,454" href="#bottom" />
+	<area coords="455,0,474,19" href="zip/mn-br.zip" />
+	<area coords="455,435,474,454" href="stamp/mn-br.rle" />
+	<area coords="0,0,474,454" href="rulemn/nbreeder.rle" />
+</map>
+
+<hr />
+<a name="mn-v0"></a>
+<h2>Rule Variant 0</h2>
+<p>Rule variant 0 is generally less interesting than the above, so it is just
+being mentioned briefly. The oblique puffer, replicator, and rotor no longer
+work. However, there are two new notable spaceships.</p>
+
+<p>The patterns on this page can be run by Golly, but require the
+following rule files to first be downloaded and installed.
+They can either be installed for all users (in the Rules directory directly
+under where the Golly application is installed), or in the current user's
+personal Rule directory. (To find out where this is, run Golly, select
+<i>File/Preferences...</i>, look at the <i>Control</i> tab.
+It is displayed right next to the <i>Your Rules...</i> button.</p>
+
+<p>Golly versions 2.5 and later can use the single rule file
+(<a class="p" href="rules/Niemiec0.rule">Niemiec0.rule</a>).</p>
+
+<p>Earlier versions of Golly require two files: the rule table
+(<a class="p" href="rules/Niemiec0.table">Niemiec0.table</a>) and the
+corresponding color table
+(<a class="p" href="rules/Niemiec0.colors">Niemiec0.colors</a>).</p>
+
+<p><a class="p" href="stamp/mn-v0.rle"><img src="map/mn-v0.png"
+ alt="niemiec0 spaceships"
+ width="201" height="61" usemap="#mn-v0" /></a><br />
+    <table width="205">
+    <colgroup><col width="121" /><col width="82" /></colgroup>
+    <tr>
+	<td><a class="p" href="rulemn/n10op.rle">
+	    (3, 2)<i>c</i>/15 Clean oblique puffer [2]</a></td>
+	<td><a class="p" href="rulemn/n12moth.rle">
+	    <i>c</i>/14 Ortho- gonal moth [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="mn-v0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/mn-v0.zip" />
+	<area coords="181,41,200,60" href="stamp/mn-v0.rle" />
+	<area coords="0,0,129,60" href="rulemn/n10op.rle" />
+	<area coords="130,0,200,60" href="rulemn/n12moth.rle" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other rules:</b>
+	<a class="i" href="lifepage.htm">B3/S23 (Conway's Life)</a>,
+	<a class="i" href="color.htm">Multi-colored Life</a>,
+	<a class="i" href="rule22.htm">B2/S2 (2/2 Life)</a>,
+	<a class="i" href="rule34.htm">B34/S34 (3/4 Life)</a>,
+	Niemiec's Rules.</p>
+
+<p><b>See also:</b>
+	<a class="i" href="lifeterm.htm">definitions</a>,
+	<a class="i" href="lifestr.htm">structure</a>,
+	<a class="i" href="lifemeth.htm">search methodologies</a>,
+	<a class="i" href="liferule.htm">other rules</a>,
+	<a class="i" href="lifenews.htm">news</a>,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

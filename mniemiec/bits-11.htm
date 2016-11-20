@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Eleven-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: eleven-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 11 eleven bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Eleven-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-11">Still-lifes</a> |
+	<a class="j" href="#pp1-11">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-11">P2 oscillator</a> |
+	<a class="j" href="#pp2-11">P2 pseudo-oscillators</a> |
+	<a class="j" href="#ss-11">Spaceship</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-11"></a>
+<h2>The 46 eleven-bit
+ <a class="i" href="p1.htm">still-lifes</a></h2>
+<p><a class="p" href="stamp/p1-11.rle"><img src="map/p1-11.png"
+ alt="11-bit still-lifes" width="621" height="221" usemap="#p1-11" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="11/11-1.rle">
+	    11.1; Extra long boat [4]</a></td>
+	<td><a class="p" href="11/11-2.rle">
+	    11.2; Up long boat w/ tail [5]</a></td>
+	<td><a class="p" href="11/11-3.rle">
+	    11.3; Down long boat w/ tail [7]</a></td>
+	<td><a class="p" href="11/11-4.rle">
+	    11.4; Down loaf w/ tail; Trans- loaf w/ tail [4]</a></td>
+	<td><a class="p" href="11/11-5.rle">
+	    11.5; Up loaf a/ tail; Cis- loaf w/ tail [4]</a></td>
+	<td><a class="p" href="11/11-6.rle">
+	    11.6; Python siamese snake [7]</a></td>
+	<td><a class="p" href="11/11-7.rle">
+	    11.7; Python siamese carrier [8]</a></td>
+	<td><a class="p" href="11/11-8.rle">
+	    11.8; Extra long canoe [7]</a></td>
+	<td><a class="p" href="11/11-9.rle">
+	    11.9; 11-bit snake [6]</a></td>
+	<td><a class="p" href="11/11-10.rle">
+	    11.10; Integral w/ long hook [7]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-11.rle">
+	    11.11; Integral w/ up boat; Trans- boat w/ nine [4]</a></td>
+	<td><a class="p" href="11/11-12.rle">
+	    11.12; Integral w/ down boat [5]</a></td>
+	<td><a class="p" href="11/11-13.rle">
+	    11.13; Extra long hook w/ tail [7]</a></td>
+	<td><a class="p" href="11/11-14.rle">
+	    11.14; Long cis hook w/ tail [7]</a></td>
+	<td><a class="p" href="11/11-15.rle">
+	    11.15; Integral w/ two hooks [8]</a></td>
+	<td><a class="p" href="11/11-16.rle">
+	    11.16; Long fuse w/ two tails [7]</a></td>
+	<td><a class="p" href="11/11-17.rle">
+	    11.17; Long claw w/ tail [4]</a></td>
+	<td><a class="p" href="11/11-18.rle">
+	    11.18; Integral w/ two tubs [6]</a></td>
+	<td><a class="p" href="11/11-19.rle">
+	    11.19; Long cis shil- lelagh [6]</a></td>
+	<td><a class="p" href="11/11-20.rle">
+	    11.20; Very long integral [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-21.rle">
+	    11.21; Extra long shil- lelagh [6]</a></td>
+	<td><a class="p" href="11/11-22.rle">
+	    11.22; Tub w/ extra long tail [6]</a></td>
+	<td><a class="p" href="11/11-23.rle">
+	    11.23; Boat w/ very long tail [8]</a></td>
+	<td><a class="p" href="11/11-24.rle">
+	    11.24; Barge w/ long tail [6]</a></td>
+	<td><a class="p" href="11/11-25.rle">
+	    11.25; Tub w/ cis tail [8]</a></td>
+	<td><a class="p" href="11/11-26.rle">
+	    11.26; Long integral w/ tub [8]</a></td>
+	<td><a class="p" href="11/11-27.rle">
+	    11.27; Claw w/ tub w/ tail [6]</a></td>
+	<td><a class="p" href="11/11-28.rle">
+	    11.28; Fuse w/ tail and long tail [7]</a></td>
+	<td><a class="p" href="11/11-29.rle">
+	    11.29; Eater head siamese snake [8]</a></td>
+	<td><a class="p" href="11/11-30.rle">
+	    11.30; Ship tie boat; Ship on boat [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-31.rle">
+	    11.31; Snake tie boat [6]</a></td>
+	<td><a class="p" href="11/11-32.rle">
+	    11.32; Carrier tie boat [5]</a></td>
+	<td><a class="p" href="11/11-33.rle">
+	    11.33; Very long hat; Eleven- loop [4]</a></td>
+	<td><a class="p" href="11/11-34.rle">
+	    11.34; Boat w/ hooked tail; Long hat siamese boat [5]</a></td>
+	<td><a class="p" href="11/11-35.rle">
+	    11.35; Integral w/ tail [4]</a></td>
+	<td><a class="p" href="11/11-36.rle">
+	    11.36; Down boat on table; Trans- boat and table [6]</a></td>
+	<td><a class="p" href="11/11-37.rle">
+	    11.37; Up boat on table; Cis- boat and table [4]</a></td>
+	<td><a class="p" href="11/11-38.rle">
+	    11.38; Gull; Elevener; Intensionless [4]</a></td>
+	<td><a class="p" href="11/11-39.rle">
+	    11.39; Integral w/ tub and hook [6]</a></td>
+	<td><a class="p" href="11/11-40.rle">
+	    11.40; Eater head siamese carrier [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-41.rle">
+	    11.41; Eater tail siamese snake [6]</a></td>
+	<td><a class="p" href="11/11-42.rle">
+	    11.42; Eater tail siamese carrier [5]</a></td>
+	<td><a class="p" href="11/11-43.rle">
+	    11.43; Loaf siamese loaf [4]</a></td>
+	<td><a class="p" href="11/11-44.rle">
+	    11.44; Eater w/ cape [5]</a></td>
+	<td><a class="p" href="11/11-45.rle">
+	    11.45; Snake w/ feather [6]</a></td>
+	<td><a class="p" href="11/11-46.rle">
+	    11.46; Carrier w/ feather [6]</a></td>
+	<td colspan="4" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p1-11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-11.zip" />
+	<area coords="601,201,620,220" href="stamp/p1-11.rle" />
+	<area coords="0,0,69,49" href="11/11-1.rle" />
+	<area coords="70,0,129,49" href="11/11-2.rle" />
+	<area coords="130,0,189,49" href="11/11-3.rle" />
+	<area coords="190,0,249,49" href="11/11-4.rle" />
+	<area coords="250,0,309,49" href="11/11-5.rle" />
+	<area coords="310,0,369,49" href="11/11-6.rle" />
+	<area coords="370,0,429,49" href="11/11-7.rle" />
+	<area coords="430,0,489,49" href="11/11-8.rle" />
+	<area coords="490,0,549,49" href="11/11-9.rle" />
+	<area coords="550,0,620,49" href="11/11-10.rle" />
+	<area coords="0,50,69,89" href="11/11-11.rle" />
+	<area coords="70,50,129,89" href="11/11-12.rle" />
+	<area coords="130,50,189,89" href="11/11-13.rle" />
+	<area coords="190,50,249,89" href="11/11-14.rle" />
+	<area coords="250,50,309,89" href="11/11-15.rle" />
+	<area coords="310,50,369,89" href="11/11-16.rle" />
+	<area coords="370,50,429,89" href="11/11-17.rle" />
+	<area coords="430,50,489,89" href="11/11-18.rle" />
+	<area coords="490,50,549,89" href="11/11-19.rle" />
+	<area coords="550,50,620,89" href="11/11-20.rle" />
+	<area coords="0,90,69,129" href="11/11-21.rle" />
+	<area coords="70,90,129,129" href="11/11-22.rle" />
+	<area coords="130,90,189,129" href="11/11-23.rle" />
+	<area coords="190,90,249,129" href="11/11-24.rle" />
+	<area coords="250,90,309,129" href="11/11-25.rle" />
+	<area coords="310,90,369,129" href="11/11-26.rle" />
+	<area coords="370,90,429,129" href="11/11-27.rle" />
+	<area coords="430,90,489,129" href="11/11-28.rle" />
+	<area coords="490,90,549,129" href="11/11-29.rle" />
+	<area coords="550,90,620,129" href="11/11-30.rle" />
+	<area coords="0,130,69,169" href="11/11-31.rle" />
+	<area coords="70,130,129,169" href="11/11-32.rle" />
+	<area coords="130,130,189,169" href="11/11-33.rle" />
+	<area coords="190,130,249,169" href="11/11-34.rle" />
+	<area coords="250,130,309,169" href="11/11-35.rle" />
+	<area coords="310,130,369,169" href="11/11-36.rle" />
+	<area coords="370,130,429,169" href="11/11-37.rle" />
+	<area coords="430,130,489,169" href="11/11-38.rle" />
+	<area coords="490,130,549,169" href="11/11-39.rle" />
+	<area coords="550,130,620,169" href="11/11-40.rle" />
+	<area coords="0,170,69,220" href="11/11-41.rle" />
+	<area coords="70,170,129,220" href="11/11-42.rle" />
+	<area coords="130,170,189,220" href="11/11-43.rle" />
+	<area coords="190,170,249,220" href="11/11-44.rle" />
+	<area coords="250,170,309,220" href="11/11-45.rle" />
+	<area coords="310,170,369,220" href="11/11-46.rle" />
+	<area coords="370,170,620,220" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp1-11"></a>
+<h2>The 16 eleven-bit
+ <a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p><a class="p" href="stamp/pp1-11.rle"><img src="map/pp1-11.png"
+ alt="11-bit pseudo-still-lifes"
+ width="501" height="101" usemap="#pp1-11" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="11/11shbt1.rle">
+	    Up boat on ship [5]</a></td>
+	<td><a class="p" href="11/11snbt1.rle">
+	    Up boat on snake [5]</a></td>
+	<td><a class="p" href="11/11acbt1.rle">
+	    Up boat on carrier [5]</a></td>
+	<td><a class="p" href="11/11snbt2.rle">
+	    Down boat on snake [5]</a></td>
+	<td><a class="p" href="11/11lsbk1.rle">
+	    Block on python [6]</a></td>
+	<td><a class="p" href="11/11lfbk.rle">
+	    Block on loaf [3]</a></td>
+	<td><a class="p" href="11/11hvbt.rle">
+	    Boat on beehive [4]</a></td>
+	<td><a class="p" href="11/11acbt3.rle">
+	    Up boat below carrier [7]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11shbt2.rle">
+	    Down boat on ship [4]</a></td>
+	<td><a class="p" href="11/11etbk3.rle">
+	    Block above eater [4]</a></td>
+	<td><a class="p" href="11/11etbk2.rle">
+	    Block below eater [5]</a></td>
+	<td><a class="p" href="11/11etbk1.rle">
+	    Block on eater [4]</a></td>
+	<td><a class="p" href="11/11lbbk.rle">
+	    Block on long boat [5]</a></td>
+	<td><a class="p" href="11/11acbt2.rle">
+	    Down boat on carrier [7]</a></td>
+	<td><a class="p" href="11/11lsbk2.rle">
+	    Block below python [4]</a></td>
+	<td><a class="p" href="11/11acbt4.rle">
+	    Down boat below carrier [7]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp1-11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/pp1-11.zip" />
+	<area coords="481,81,500,100" href="stamp/pp1-8.rle" />
+	<area coords="0,0,69,49" href="11/11shbt1.rle" />
+	<area coords="70,0,129,49" href="11/11snbt1.rle" />
+	<area coords="130,0,189,49" href="11/11acbt1.rle" />
+	<area coords="190,0,249,49" href="11/11snbt2.rle" />
+	<area coords="250,0,309,49" href="11/11lsbk1.rle" />
+	<area coords="310,0,369,49" href="11/11lfbk.rle" />
+	<area coords="370,0,429,49" href="11/11hvbt.rle" />
+	<area coords="430,0,500,49" href="11/11acbt3.rle" />
+	<area coords="0,50,69,100" href="11/11shbt2.rle" />
+	<area coords="70,50,129,100" href="11/11etbk3.rle" />
+	<area coords="130,50,189,100" href="11/11etbk2.rle" />
+	<area coords="190,50,249,100" href="11/11etbk1.rle" />
+	<area coords="250,50,309,100" href="11/11lbbk.rle" />
+	<area coords="310,50,369,100" href="11/11acbt2.rle" />
+	<area coords="370,50,429,100" href="11/11lsbk2.rle" />
+	<area coords="430,50,500,100" href="11/11acbt4.rle" />
+</map>
+
+<hr />
+<a name="p2-11"></a>
+<h2>The 1 eleven-bit
+<a class="i" href="p2.htm">period 2 oscillator</a></h2>
+<p><a class="p" href="stamp/p2-11.rle"><img src="map/p2-11.png"
+ alt="11b P2" width="81" height="81" usemap="#p2-11" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="11/11pp.rle">Pentapole [10]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-11.zip" />
+	<area coords="61,61,80,80" href="stamp/p2-11.rle" />
+	<area coords="0,0,80,80" href="11/11pp.rle" />
+</map>
+
+<hr />
+<a name="pp2-11"></a>
+<h2>The 2 eleven-bit
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp2-11.rle"><img src="map/pp2-11.png"
+ alt="11-bit PP2" width="141" height="61" usemap="#pp2-11" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="11/11bcbt1.rle">
+	    Up boat on beacon [4]</a></td>
+	<td><a class="p" href="11/11bcbt2.rle">
+	    Down boat on beacon [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp2-11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/pp2-11.zip" />
+	<area coords="121,41,140,60" href="stamp/pp2-11.rle" />
+	<area coords="0,0,69,60" href="11/11bcbt1.rle" />
+	<area coords="70,0,140,60" href="11/11bcbt2.rle" />
+</map>
+
+<hr />
+<a name="ss-11"></a>
+<h2>The 1 eleven-bit
+<a class="i" href="ss.htm">spaceship</a></h2>
+<p><a class="p" href="stamp/ss-11.rle"><img src="map/ss-11.png"
+ alt="11b SS" width="81" height="81" usemap="#ss-11" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="ss/11mw.rle">
+	    Middle- weight spaceship; MWSS; Medium fish [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="ss-11">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/ss-11.zip" />
+	<area coords="61,61,80,80" href="stamp/ss-11.rle" />
+	<area coords="0,0,80,80" href="ss/11mw.rle" />
+</map>
+
+<p>The MWSS has a period of 4 and an orthogonal velocity of <i>c</i>/2.
+It moves one cell up and flips from side to side every two generations,
+effectively moving two cells up every 4 generations.
+It is one of the few common <a class="i" href="ss.htm">spaceship</a>
+in Life, and is used in some syntheses.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	11,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

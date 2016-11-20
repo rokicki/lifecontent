@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-10 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-10 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 10 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<h1>Life Period-10 Oscillators</h1>
+
+<a name="top"></a>
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p10-23">23</a> |
+	  <a class="j" href="#p10-24">24</a> |
+	  <a class="j" href="#p10-25">25</a> |
+	  <a class="j" href="#p10-lg">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#gg-p10">&gt;1 glider/bit</a>
+</p>
+
+<hr />
+<hr />
+<a name="p10-23"></a>
+<h2>The 5 <a class="i" href="bits-23.htm">23-bit</a>
+period 10 oscillators</h2>
+<p><a class="p" href="stamp/p10-23.rle"><img src="map/p10-23.png"
+ alt="23-bit P10 oscillators" width="421" height="101" usemap="#p10-23" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="23/23svbct3.rle">
+	    Silver's P5 below up beacon on table [25]</a></td>
+	<td class="y"><a class="p" href="23/23svbct2.rle">
+	    Silver's P5 on down beacon on table [28]</a></td>
+	<td class="y"><a class="p" href="23/23svbct1.rle">
+	    Silver's P5 on up beacon on table [25]</a></td>
+	<td class="y"><a class="p" href="23/23svbct4.rle">
+	    Silver's P5 below down beacon on table [35]</a></td>
+	<td class="y"><a class="p" href="23/23apbp.rle">
+	    Pseudo- barber- pole tie bipole [50]</a></td>
+    </tr>
+</table></p>
+
+<map name="p10-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/p10-23.zip" />
+	<area coords="401,81,420,100" href="stamp/p10-23.rle" />
+	<area coords="0,0,89,100" href="23/23svbct3.rle" />
+	<area coords="90,0,169,100" href="23/23svbct2.rle" />
+	<area coords="170,0,249,100" href="23/23svbct1.rle" />
+	<area coords="250,0,329,100" href="23/23svbct4.rle" />
+	<area coords="330,0,420,100" href="23/23apbp.rle" />
+</map>
+
+<p>These all have a pseudo-period of 10, a composite of 2 and 5.</p>
+
+<hr />
+<a name="p10-24"></a>
+<h2>The 2 <a class="i" href="bits-24.htm">24-bit</a>
+period 10 oscillators</h2>
+<p><a class="p" href="stamp/p10-24.rle"><img src="map/p10-24.png"
+ alt="24-bit P10s" width="181" height="101" usemap="#p10-24" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="24/24p10mm.rle">
+	    Merzenich's 24-bit P10 [40]</a></td>
+	<td class="y"><a class="p" href="24/24aptp.rle">
+	    Pseudo- barber- pole tie tripole [52]</a></td>
+    </tr>
+</table></p>
+
+<map name="p10-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p10-24.zip" />
+	<area coords="161,81,180,100" href="stamp/p10-24.rle" />
+	<area coords="0,0,89,100" href="24/24p10mm.rle" />
+	<area coords="90,0,180,100" href="24/24aptp.rle" />
+</map>
+
+<p>The pseudo-barber-pole tie tripole has a pseudo-period of 10, a composite of
+2 and 5.</p>
+
+<hr />
+<a name="p10-25"></a>
+<h2>The 1 <a class="i" href="bits-25.htm">25-bit</a>
+period 10 oscillator</h2>
+<p><a class="p" href="stamp/p10-25.rle"><img src="map/p10-25.png"
+ alt="25b P10" width="121" height="121" usemap="#p10-25" /></a><br />
+    <table width="125">
+    <colgroup><col width="123" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="25/25apqp.rle">
+	    Pseudo- barber- pole tie quadpole [41]</a></td>
+    </tr>
+</table></p>
+
+<map name="p10-25">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="101,0,120,19" href="zip/p10-25.zip" />
+	<area coords="101,101,120,120" href="stamp/p10-25.rle" />
+	<area coords="0,0,120,120" href="25/25apqp.rle" />
+</map>
+
+<p>This has a pseudo-period of 10, a composite of 2 and 5.</p>
+
+<hr />
+<a name="p10-lg"></a>
+<h2>2 period 10 oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/p10-lg.rle"><img src="map/p10-lg.png"
+ alt="P10 oscillators" width="321" height="121" usemap="#p10-lg" /></a><br />
+    <table width="325">
+    <colgroup><col width="111" /><col width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="lg/44p10-1.rle">
+	    44-bit P10 #1 [65]</a></td>
+	<td><a class="p" href="lg/46p10mm.rle">
+	    Merzenich's 4 clocks hassling 2 alternating unices [41]</a></td>
+	<td><a class="p" href="lg/56pu2b8.rle">
+	    Eight blocks hassling two pulsars [30]</a></td>
+    </tr>
+</table></p>
+
+<map name="p10-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/p10-lg.zip" />
+	<area coords="301,101,320,120" href="stamp/p10-lg.rle" />
+	<area coords="0,0,109,120" href="lg/44p10-1.rle" />
+	<area coords="110,0,209,120" href="lg/46p10mm.rle" />
+	<area coords="210,0,320,120" href="lg/56pu2b8.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="gg-p10"></a>
+<h2>The 7 period 10 oscillators up to
+25 bits <a class="i" href="glider-g.htm">costing &gt;1 glider/bit</a></h2>
+<p><a class="p" href="stamp/gg-p10.rle"><img src="map/gg-p10.png"
+ alt="gt. 1 glider/bit p10"
+ width="421" height="181" usemap="#gg-p10" /></a><br />
+    <table width="425">
+    <colgroup><col width="111" /><col span="2" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="23/23svbct3.rle">
+	    Silver's P5 below up beacon on table [37]</a></td>
+	<td class="y"><a class="p" href="23/23svbct2.rle">
+	    Silver's P5 on down beacon on table [28]</a></td>
+	<td class="y"><a class="p" href="23/23svbct1.rle">
+	    Silver's P5 on up beacon on table [25]</a></td>
+	<td class="y"><a class="p" href="23/23svbct4.rle">
+	    Silver's P5 below down beacon on table [35]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="23/23apbp.rle">
+	    Pseudo- barber- pole tie bipole [50]</a></td>
+	<td class="y"><a class="p" href="24/24p10mm.rle">
+	    Merzenich's 24-bit P10 [40]</a></td>
+	<td class="y"><a class="p" href="24/24aptp.rle">
+	    Pseudo- barber- pole tie tripole [52]</a></td>
+	<td class="y"><a class="p" href="25/25apqp.rle">
+	    Pseudo- barber- pole tie quadpole [41]</a></td>
+    </tr>
+</table></p>
+
+<map name="gg-p10">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/gg-p10.zip" />
+	<area coords="401,161,420,180" href="stamp/gg-p10.rle" />
+	<area coords="0,0,109,89" href="23/23svbct3.rle" />
+	<area coords="110,0,209,89" href="23/23svbct2.rle" />
+	<area coords="210,0,309,89" href="23/23svbct1.rle" />
+	<area coords="310,0,420,89" href="23/23svbct4.rle" />
+	<area coords="0,90,109,180" href="23/23apbp.rle" />
+	<area coords="110,90,209,180" href="24/24p10mm.rle" />
+	<area coords="210,90,309,180" href="24/24aptp.rle" />
+	<area coords="310,90,420,180" href="25/25apqp.rle" />
+</map>
+
+<p>All of these except Merzenich's P10 have a pseudo-period of 10, a composite
+of 2 and 5.</p>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="pp10.htm">period-10 pseudo-oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	<a class="i" href="p5.htm">5</a>,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	10,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Six-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: six-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 6 six bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Six-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-6">Still-lifes</a> |
+	<a class="j" href="#p2-6">P2 oscillators</a> |
+	<a class="j" href="#cons-6">Constellations</a> |
+	<a class="j" href="#meth-6">Methuselahs</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-6"></a>
+<h2>The 5 six-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p><a class="p" href="stamp/p1-6.rle"><img src="map/p1-6.png"
+ alt="6-bit still-lifes" width="321" height="61" usemap="#p1-6" /></a><br />
+    <table width="325">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6sn.rle">
+	    Snake [4]</a></td>
+	<td><a class="p" href="0/6sh.rle">
+	    Ship [3]</a></td>
+	<td><a class="p" href="0/6hv.rle">
+	    Beehive [2]</a></td>
+	<td><a class="p" href="0/6ac.rle">
+	    Aircraft carrier; Carrier [4]</a></td>
+	<td><a class="p" href="0/6bg.rle">
+	    Barge [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="301,0,320,19" href="zip/p1-6.zip" />
+	<area coords="301,41,320,60" href="stamp/p1-5.rle" />
+	<area coords="0,0,69,60" href="0/6sn.rle" />
+	<area coords="70,0,129,60" href="0/6sh.rle" />
+	<area coords="130,0,189,60" href="0/6hv.rle" />
+	<area coords="190,0,249,60" href="0/6ac.rle" />
+	<area coords="250,0,320,60" href="0/6bg.rle" />
+</map>
+
+<hr />
+<a name="p2-6"></a>
+<h2>The 3 six-bit
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<p><a class="p" href="stamp/p2-6.rle"><img src="map/p2-6.png"
+ alt="6-bit P2" width="201" height="61" usemap="#p2-6" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6td.rle">Toad [3]</a></td>
+	<td><a class="p" href="0/6ck.rle">Clock [4]</a></td>
+	<td><a class="p" href="0/6bc.rle">Beacon [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/p2-6.zip" />
+	<area coords="181,41,200,60" href="stamp/p2-6.rle" />
+	<area coords="0,0,69,60" href="0/6td.rle" />
+	<area coords="70,0,129,60" href="0/6ck.rle" />
+	<area coords="130,0,200,60" href="0/6bc.rle" />
+</map>
+
+<p>Clocks have thumbs that can sometimes be used to suppress
+<a class="i" href="lifeterm.htm#spark">diagonal bit-sparks</a>,
+allowing clocks to be used as
+<a class="i" href="lifeterm.htm#rock">rocks</a> to stabilize some larger
+<a class="i" href="osc.htm">oscillators</a>.</p>
+
+<p>Toads have no stable surfaces, but one side vacillates between one and two
+bits, making it possible to form pseudo-objects with other toads or similar
+oscillators, or with even-period oscillators that create
+<a class="i" href="lifeterm.htm#spark">domino sparks</a>, like the
+<a class="p" href="12/12fg.rle">Figure-8</a>.</p>
+
+<p>Their other sides can also be placed between pairs of domino sparks in
+several ways, resulting in two reactions: <i>toad-flipping</i>, where the toad
+is reflected, and <i>toad-sucking</i>, where the toad is moved sideways one
+position. Since each step must occur twice to return the toad to the original
+period, this usually results in an oscillator of double the original period (or
+quadruple, if the original period is odd). Several examples are shown in the
+<a class="i" href="period.htm#p60">period 60</a> versions of a toad between
+two <a class="p" href="12/12pc.rle">pentadecathlons</a>. Several additional
+<a class="i" href="p8.htm#p8-lg">period 8</a> versions using
+<a class="p" href="12/12fg.rle">Figure-8s</a> do <i>not</i> double the period,
+because the Figure-8's domino sparks have an extra bit-spark that produces a
+second domino hassling the toad twice in immediate succession each cycle.
+Toad-sucking can also occur be done by pairs of
+<a class="i" href="exotic.htm#ss-o4"><i>c</i>/4</a> or
+<a class="i" href="exotic.htm#ss-o6"><i>c</i>/6</a> orthogonal spaceships
+that produce domino sparks each time they advance. This could theoretically
+also work with spaceships of any slower even base period that move one step each
+period and produce one domino spark each period.</p>
+
+<p>Pairs of toads, known as
+<a class="p" href="12/12kt.rle">killer toads</a>, can also eat expanding
+objects like <a class="p" href="ss/11mw.rle">middle-weight</a> and
+<a class="p" href="ss/13hw.rle">heavy-weight</a> spaceships, and forming
+<a class="p" href="0/9tqtl.rle">3/4 traffic light</a>. These are most useful for eating
+spaceship streams whose period is a multiple of 2. For those whose period is a
+multiple of 3, <a class="p" href="lg/32kcf.rle">killer candelfrobras</a> are more
+appropriate.</p>
+
+<hr />
+<a name="cons-6"></a>
+<h2>2 easily-constructible six-bit
+<a class="i" href="cons.htm">constellations</a></h2>
+<p>All arrangements of a two blinkers can be made from 4 gliders.
+There are many of these that can also be made from 3 gliders.</p>
+
+<p><a class="p" href="stamp/cons-6.rle"><img src="map/cons-6.png"
+ alt="6b constellations"
+ width="141" height="61" usemap="#cons-6" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6blbl04.rle">
+	    Two blinkers offset (4, 0) [3]</a></td>
+	<td><a class="p" href="0/6htl.rle">
+	    Half traffic light [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/cons-6.zip" />
+	<area coords="121,41,140,60" href="stamp/cons-6.rle" />
+	<area coords="0,0,69,60" href="0/6blbl04.rle" />
+	<area coords="70,0,140,60" href="0/6htl.rle" />
+</map>
+
+<hr />
+<a name="meth-6"></a>
+<h2>7 six-bit
+<a class="i" href="meth.htm">methuselahs</a></h2>
+<p><a class="p" href="stamp/meth-6.rle"><img src="map/meth-6.png"
+ alt="6-bit methuselahs" width="581" height="61" usemap="#meth-6" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6lm.rle">
+	    Handshake (@5); Lumps of muck (LOM) (@7) [2]</a></td>
+	<td><a class="p" href="0/6tm.rle">
+	    Thompson's 6-bit methuselah [6]</a></td>
+	<td><a class="p" href="0/6be.rle">
+	    Century (@1); Bookend (@2); Hook (@2); Kidney (@2) [3]</a></td>
+	<td><a class="p" href="0/6tbd.rle">
+	    Thunder- bird (@1) [4]</a></td>
+	<td><a class="p" href="0/6bh.rle">
+	    B Hept- omino (@1) [2]</a></td>
+	<td><a class="p" href="0/6wg.rle">
+	    Block and glider; Wing (@2); R-Loaf (@2) [3]</a></td>
+	<td><a class="p" href="0/6h.rle">
+	    Herschel parent; Herschel (@1) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16lm.rle">
+	    Blockade (4 blocks) (@67)</a></td>
+	<td><a class="p" href="0/6tm.rle">
+	    Loaf, 6 blocks and 12 blinkers (@608)</a></td>
+	<td><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (@103)</a></td>
+	<td><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (@244)</a></td>
+	<td><a class="p" href="lg/28bh.rle">
+	    Ship, 3 blocks, 2 gliders (@149)</a></td>
+	<td><a class="p" href="0/9bkgl.rle">
+	    Block and glider (@106)</a></td>
+	<td><a class="p" href="23/23h.rle">
+	    Ship, 2 blocks, glider (@128)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/meth-6.zip" />
+	<area coords="561,41,580,60" href="stamp/meth-6.rle" />
+	<area coords="0,0,89,60" href="0/6lm.rle" />
+	<area coords="90,0,169,60" href="0/6tm.rle" />
+	<area coords="170,0,249,60" href="0/6be.rle" />
+	<area coords="250,0,329,60" href="0/6tbd.rle" />
+	<area coords="330,0,409,60" href="0/6bh.rle" />
+	<area coords="410,0,489,60" href="0/6wg.rle" />
+	<area coords="490,0,580,60" href="0/6h.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	6,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

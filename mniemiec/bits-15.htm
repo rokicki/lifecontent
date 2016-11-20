@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Fifteen-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: fifteen-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 15 fifteen bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Fifteen-Bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-15">Still-lifes</a> |
+	<a class="j" href="#pp1-15">Pseudo-still-lifes</a> |
+	<a class="j" href="#p2-15">P2 oscillators</a> |
+	<a class="j" href="#pp2-15">P2 pseudo-oscillators</a> |
+	<a class="j" href="#p5-15">P5 oscillator</a> |
+	<a class="j" href="#p8-15">P8 oscillator</a> |
+	<a class="j" href="#cons-15">Constellation</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-15"></a>
+<h2>The 1353 <a class="i" href="p1-15.htm">fifteen-bit</a>
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="p1-15.htm">separate page</a>.</p>
+
+<hr />
+<a name="pp1-15"></a>
+<h2>The 620 fifteen-bit
+<a class="i" href="pp1.htm">pseudo-still-lifes</a></h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="pp1-15.htm">separate page</a>.</p>
+
+<hr />
+<a name="p2-15"></a>
+<h2>The 29 fifteen-bit
+<a class="i" href="p2.htm">period 2 oscillators</a></h2>
+<p><a class="p" href="stamp/p2-15.rle"><img src="map/p2-15.png"
+ alt="15-bit period 2 oscillators"
+ width="621" height="201" usemap="#p2-15" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="15/15ff1.rle">
+	    15-bit P2 #1 [x]</a></td>
+	<td><a class="p" href="15/15bcleh2.rle">
+	    Down beacon on up long bookend w/ hook [9]</a></td>
+	<td><a class="p" href="15/15ttbhk.rle">
+	    Test tube baby w/ hook [9]</a></td>
+	<td><a class="p" href="15/15bcleh3.rle">
+	    Up beacon on down long bookend w/ hook [9]</a></td>
+	<td><a class="p" href="15/15dtbk.rle">Block on griddle;
+	    Griddle and block; Singular flip- flop [11]</a></td>
+	<td class="r"><a class="p" href="15/15ff2.rle">
+	    Blinkers bit pole [x]</a></td>
+	<td class="y"><a class="p" href="15/15ff3.rle">
+	    15-bit P2 #3 [34]</a></td>
+	<td><a class="p" href="15/15bclet2.rle">
+	    Down beacon on up long bookend w/ tub [9]</a></td>
+	<td><a class="p" href="15/15ttbtb.rle">
+	    Test tube baby w/ tub; Odd test tube baby [9]</a></td>
+	<td><a class="p" href="15/15bcleh4.rle">
+	    Down beacon on down long bookend w/ hook [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="15/15bclet4.rle">
+	    Down beacon on down long bookend w/ tub [9]</a></td>
+	<td><a class="p" href="15/15bclet3.rle">
+	    Up beacon on down long bookend w/ tub [9]</a></td>
+	<td><a class="p" href="15/15tpta1.rle">
+	    Up tripole on table [10]</a></td>
+	<td class="r"><a class="p" href="15/15ff5.rle">
+	    Mutter- ing moat 1 [x]</a></td>
+	<td class="y"><a class="p" href="15/15ff6.rle">
+	    15-bit P2 #6 [21]</a></td>
+	<td class="y"><a class="p" href="15/15ff7.rle">
+	    15-bit P2 #7 [23]</a></td>
+	<td><a class="p" href="15/15bcleh1.rle">
+	    Up beacon on up long bookend w/ hook [9]</a></td>
+	<td><a class="p" href="15/15bpet2.rle">
+	    Bipole tie eater tail [13]</a></td>
+	<td><a class="p" href="15/15pxcav.rle">
+	    Phoenix w/ cavity [11]</a></td>
+	<td><a class="p" href="15/15bclet1.rle">
+	    Up beacon on up long bookend w/ tub [9]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="15/15tpta2.rle">
+	    Down tripole on table [9]</a></td>
+	<td><a class="p" href="15/15bpls.rle">
+	    Bipole tie python [12]</a></td>
+	<td><a class="p" href="15/15tpsn.rle">
+	    Tripole tie snake [12]</a></td>
+	<td><a class="p" href="15/15tpsh.rle">
+	    Tripole tie ship [12]</a></td>
+	<td><a class="p" href="15/15bpet1.rle">
+	    Bipole tie eater head [12]</a></td>
+	<td><a class="p" href="15/15bplb.rle">
+	    Bipole tie long boat [10]</a></td>
+	<td class="g"><a class="p" href="15/15tpac.rle">
+	    Tripole tie carrier [15]</a></td>
+	<td><a class="p" href="15/15qpbt.rle">
+	    Quad- pole tie boat; Quad- pole on boat [7]</a></td>
+	<td class="y"><a class="p" href="15/15np.rle">
+	    Nono- pole [24]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="p2-15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p2-15.zip" />
+	<area coords="601,181,620,200" href="stamp/p2-15.rle" />
+	<area coords="0,0,69,69" href="15/15ff1.rle" />
+	<area coords="70,0,129,69" href="15/15bcleh2.rle" />
+	<area coords="130,0,189,69" href="15/15ttbhk.rle" />
+	<area coords="190,0,249,69" href="15/15bcleh3.rle" />
+	<area coords="250,0,309,69" href="15/15dtbk.rle" />
+	<area coords="310,0,369,69" href="15/15ff2.rle" />
+	<area coords="370,0,429,69" href="15/15ff3.rle" />
+	<area coords="430,0,489,69" href="15/15bclet2.rle" />
+	<area coords="490,0,549,69" href="15/15ttbtb.rle" />
+	<area coords="550,0,620,69" href="15/15bcleh4.rle" />
+	<area coords="0,70,69,129" href="15/15bclet4.rle" />
+	<area coords="70,70,129,129" href="15/15bclet3.rle" />
+	<area coords="130,70,189,129" href="15/15tpta1.rle" />
+	<area coords="190,70,249,129" href="15/15ff5.rle" />
+	<area coords="250,70,309,129" href="15/15ff6.rle" />
+	<area coords="310,70,369,129" href="15/15ff7.rle" />
+	<area coords="370,70,429,129" href="15/15bcleh1.rle" />
+	<area coords="430,70,489,129" href="15/15bpet2.rle" />
+	<area coords="490,70,549,129" href="15/15pxcav.rle" />
+	<area coords="550,70,620,129" href="15/15bclet1.rle" />
+	<area coords="0,130,69,200" href="15/15tpta2.rle" />
+	<area coords="70,130,129,200" href="15/15bpls.rle" />
+	<area coords="130,130,189,200" href="15/15tpsn.rle" />
+	<area coords="190,130,249,200" href="15/15tpsh.rle" />
+	<area coords="250,130,309,200" href="15/15bpet1.rle" />
+	<area coords="310,130,369,200" href="15/15bplb.rle" />
+	<area coords="370,130,429,200" href="15/15tpac.rle" />
+	<area coords="430,130,489,200" href="15/15qpbt.rle" />
+	<area coords="490,130,549,200" href="15/15np.rle" />
+	<area coords="550,130,620,200" nohref="nohref" />
+</map>
+
+<hr />
+<a name="pp2-15"></a>
+<h2>The 78 fifteen-bit
+<a class="i" href="pp2.htm">period 2 pseudo-oscillators</a></h2>
+<p><a class="p" href="stamp/pp2-15.rle"><img src="map/pp2-15.png"
+ alt="15-bit period 2 pseudo-oscillators"
+ width="621" height="421" usemap="#pp2-15" /></a></p>
+
+<map name="pp2-15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/pp2-15.zip" />
+	<area coords="601,401,620,420" href="stamp/pp2-15.rle" />
+	<area coords="0,0,69,57" href="15/15tpsn1.rle" />
+	<area coords="70,0,129,57" href="15/15bcbbt1.rle" />
+	<area coords="130,0,189,57" href="15/15bctlt2.rle" />
+	<area coords="190,0,249,57" href="15/15bcll7.rle" />
+	<area coords="250,0,309,57" href="15/15bcll3.rle" />
+	<area coords="310,0,369,57" href="15/15bbcbt2.rle" />
+	<area coords="370,0,429,57" href="15/15bpls3.rle" />
+	<area coords="430,0,489,57" href="15/15bcvb1.rle" />
+	<area coords="490,0,549,57" href="15/15bcdbt4.rle" />
+	<area coords="550,0,620,57" href="15/15bcubt3.rle" />
+	<area coords="0,58,69,105" href="15/15bcubt1.rle" />
+	<area coords="70,58,129,105" href="15/15bpet5.rle" />
+	<area coords="130,58,189,105" href="15/15bplb1.rle" />
+	<area coords="190,58,249,105" href="15/15bpet8.rle" />
+	<area coords="250,58,309,105" href="15/15bpet3.rle" />
+	<area coords="310,58,369,105" href="15/15bcin3.rle" />
+	<area coords="370,58,429,105" href="15/15bcin1.rle" />
+	<area coords="430,58,489,105" href="15/15bcubt6.rle" />
+	<area coords="490,58,549,105" href="15/15bcdbt2.rle" />
+	<area coords="550,58,620,105" href="15/15bcll4.rle" />
+	<area coords="0,106,69,153" href="15/15bcll8.rle" />
+	<area coords="70,106,129,153" href="15/15bcbbt2.rle" />
+	<area coords="130,106,189,153" href="15/15bpls1.rle" />
+	<area coords="190,106,249,153" href="15/15bclht2.rle" />
+	<area coords="250,106,309,153" href="15/15bclht1.rle" />
+	<area coords="310,106,369,153" href="15/15bbcbt4.rle" />
+	<area coords="370,106,429,153" href="15/15bcxs1.rle" />
+	<area coords="430,106,489,153" href="15/15bclht5.rle" />
+	<area coords="490,106,549,153" href="15/15bcll9.rle" />
+	<area coords="550,106,620,153" href="15/15bcll1.rle" />
+	<area coords="0,154,69,201" href="15/15bcll6.rle" />
+	<area coords="70,154,129,201" href="15/15bclht4.rle" />
+	<area coords="130,154,189,201" href="15/15tpsh1.rle" />
+	<area coords="190,154,249,201" href="15/15tpac3.rle" />
+	<area coords="250,154,309,201" href="15/15bplf1.rle" />
+	<area coords="310,154,369,201" href="15/15bplf2.rle" />
+	<area coords="370,154,429,201" href="15/15bcdbt1.rle" />
+	<area coords="430,154,489,201" href="15/15bctlt1.rle" />
+	<area coords="490,154,549,201" href="15/15bclc1.rle" />
+	<area coords="550,154,620,201" href="15/15tpsn2.rle" />
+	<area coords="0,202,69,249" href="15/15tpac1.rle" />
+	<area coords="70,202,129,249" href="15/15tpbc1.rle" />
+	<area coords="130,202,189,249" href="15/15tpbc3.rle" />
+	<area coords="190,202,249,249" href="15/15bclc3.rle" />
+	<area coords="250,202,309,249" href="15/15bpls2.rle" />
+	<area coords="310,202,369,249" href="15/15bcll5.rle" />
+	<area coords="370,202,429,249" href="15/15bbcbt1.rle" />
+	<area coords="430,202,489,249" href="15/15bcdbt3.rle" />
+	<area coords="490,202,549,249" href="15/15bcubt4.rle" />
+	<area coords="550,202,620,249" href="15/15bcubt2.rle" />
+	<area coords="0,250,69,297" href="15/15bcvb2.rle" />
+	<area coords="70,250,129,297" href="15/15bcxs3.rle" />
+	<area coords="130,250,189,297" href="15/15tphv.rle" />
+	<area coords="190,250,249,297" href="15/15bpet6.rle" />
+	<area coords="250,250,309,297" href="15/15bpet4.rle" />
+	<area coords="310,250,369,297" href="15/15bplb2.rle" />
+	<area coords="370,250,429,297" href="15/15bcin4.rle" />
+	<area coords="430,250,489,297" href="15/15bpet7.rle" />
+	<area coords="490,250,549,297" href="15/15bcin2.rle" />
+	<area coords="550,250,620,297" href="15/15bcubt5.rle" />
+	<area coords="0,298,69,345" href="15/15tpsh2.rle" />
+	<area coords="70,298,129,345" href="15/15qpbt1.rle" />
+	<area coords="130,298,189,345" href="15/15tpac2.rle" />
+	<area coords="190,298,249,345" href="15/15bcxs2.rle" />
+	<area coords="250,298,309,345" href="15/15bcll10.rle" />
+	<area coords="310,298,369,345" href="15/15bclht6.rle" />
+	<area coords="370,298,429,345" href="15/15bcll2.rle" />
+	<area coords="430,298,489,345" href="15/15bbcbt3.rle" />
+	<area coords="490,298,549,345" href="15/15bclht3.rle" />
+	<area coords="550,298,620,345" href="15/15bpls4.rle" />
+	<area coords="0,346,69,420" href="15/15tpac4.rle" />
+	<area coords="70,346,129,420" href="15/15bclc2.rle" />
+	<area coords="130,346,189,420" href="15/15qpbt2.rle" />
+	<area coords="190,346,249,420" href="15/15tpbc2.rle" />
+	<area coords="250,346,309,420" href="15/15tpbc4.rle" />
+	<area coords="310,346,369,420" href="15/15bclc4.rle" />
+	<area coords="370,346,429,420" href="15/15ppbk.rle" />
+	<area coords="430,346,489,420" href="15/15bcxs4.rle" />
+	<area coords="490,346,620,420" nohref="nohref" />
+</map>
+
+<hr />
+<a name="p5-15"></a>
+<h2>The 1 fifteen-bit
+<a class="i" href="p5.htm">period 5 oscillator</a></h2>
+<p><a class="p" href="stamp/p5-15.rle"><img src="map/p5-15.png"
+ alt="15b P5" width="81" height="81" usemap="#p5-15" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="15/15ap.rle">
+	    Pseudo- barber- pole; Flammen- kamp's P5 [28]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p5-15.zip" />
+	<area coords="61,61,80,80" href="stamp/p5-15.rle" />
+	<area coords="0,0,80,80" href="15/15ap.rle" />
+</map>
+
+<p>The pseudo-barber-pole superficially resembles the whole series of
+<a class="i" href="p2.htm">period 2 barber-pole oscillators</a>, but
+strangely enough, has a period of 5 instead. It forms the basis for a large
+number of larger <a class="i" href="p5.htm">period 5 oscillators</a>
+(and many with periods that are multiples of 5, such as
+<a class="i" href="p10.htm">period 10</a>).</p>
+
+<hr />
+<a name="p8-15"></a>
+<h2>The 1 fifteen-bit
+<a class="i" href="p8.htm">period 8 oscillator</a></h2>
+<p><a class="p" href="stamp/p8-15.rle"><img src="map/p8-15.png"
+ alt="15b P8" width="81" height="61" usemap="#p8-15" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="15/15br.rle">
+	    Blocker [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p8-15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p8-15.zip" />
+	<area coords="61,41,80,60" href="stamp/p8-15.rle" />
+	<area coords="0,0,80,60" href="15/15br.rle" />
+</map>
+
+<p>The blocker is the smallest oscillator that produces a period 8
+<a class="i" href="lifeterm.htm#spark">diagonal bit spark</a>.</p>
+
+<hr />
+<a name="cons-15"></a>
+<h2>1 easily-constructible fifteen-bit
+<a class="i" href="cons.htm">constellation</a></h2>
+<p><a class="p" href="stamp/cons-15.rle"><img src="map/cons-15.png"
+ alt="20b const." width="121" height="101" usemap="#cons-15" /></a><br />
+    <table width="125">
+    <colgroup><col width="123" /></colgroup>
+    <tr>
+	<td><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (via Bookend) [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="101,0,120,19" href="zip/cons-15.zip" />
+	<area coords="101,81,120,100" href="stamp/cons-15.rle" />
+	<area coords="0,0,120,100" href="15/15be.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	<a class="i" href="bits-8.htm">8</a>,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	15,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

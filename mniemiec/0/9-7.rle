@@ -1,0 +1,30 @@
+#N 9-7.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 01:59:59 2015
+x = 138, y = 193, rule = B3/S23
+79bobo$79boo$67bo12bo$68boo$67boo42bo$35bobo71bobo$36boo3bo34bo33boo$
+36bobboo34bo$40boo33b3o14byy18boo$56bxx34byybbxx14boobboo18bxx$57bx11b
+obo6boo17bx19bo19bx$obo15bx19bo17bx13boo6bobo15bx19bo19bx$oo16b3x17b3o
+14bx14bo7bo16bx19bo19bx$bo19bx19bo13bxbx37bxbx17bobo17bxbx$20bxx18boo
+14bxx38bxx18boo18bxx$bb3o$bbo$3bo5$37boo$36bobo$38bo11$57bobo$58boo$
+58bo3$14bo$14bobo$14boo6$12bo9b3o$12boo4bo3bo13bxx58bxx18boo18bxx$11bo
+bo5boobbo13bx59bx19bo19bx$18boo16bx59bx19bo19bx$15bo19bx59bx19bo19bx$
+15boo18bxbx34bobo20bxbx17bobo17bxbx$14bobo19bxx34boo22bxx18boo18bxx$
+73bo$96byy18boo$72b3o20byby17bobo$22b3o47bo23by19bo$22bo50bo38b3o$15bo
+7bo31boo57bo$15boo39boo55bo$14bobo38bo3$91b3o$91bo$92bo3$118bobo$119b
+oo$109bo9bo3bo$110bo12bobo$108b3o12boo$$69bo53bo$70bo51boo$68b3o3bo47b
+obo$72boo62bxx$65b3o5boo20bxx18boo20bx$34bobo30bo28bx19bo19bx$35boo19b
+x9bo9bo18bx19bo19bx$35bo19bxbx17bobo17bxbx17bobo17bxbx$56bxx18boo18bxx
+18boo18bxx$35b3o$35bo$36bo16$116bobo$116boo$83bo33bo$82bo32bo$82b3o31b
+o$100bxx12b3o3boo$81bo19bx19bo14bxx$80boo16b3x17b3o16bx$54bxx18boo4bob
+o11bxxbbx15boobbo17bx$55bx19bo19bx19bo5b3o11bx$34boo19bxbx17bobo17bxbx
+17bobo3bo13bxbx$35boo19bxx18boo18bxx18boo4bo13bxx$34bo3boo$38bobo$38bo
+19$69bobo$38bo31boo$36bobo31bo$37boo17bxx18boo18bxx18boo18bxx$55bxbx
+17bobo19bx19bo19bx$34boo3bo14bxbx17bobo19bx19bo19bx$35booboo15bx19bo
+19bx19bo19bx$34bo3bobo54bxbx17bobo17bxbx$96bxx18boo18bxx$73boo$70bobbo
+bo3boo15byy18boo$68bobobbo4boo16byy18boo$69boo9bo$113b3o$115bo$114bo8$
+105bo$105bobo$105boo7$116b4o$101bo14bo3bo15bxx$19bo27bx19bo19bx13boo4b
+o8bo20bx$19boo25bxbx17bobo17bxbx11bobo3bobo8bobbo15bx$18bobo24bxbbx16b
+obbo16bxbbx16bobbo26bx$23bobo19bxbx17bobo17bxbx17bobo27bxbx$23boo21bx
+19bo19bx19bo29bxx$24bo$26bo59bx19bo$26boo58bx19bo$25bobo58bx19bo$110b
+3o3boo$69boo39bobbobbobo$69bobo38bo5bo$69bo40bo3bo$65b3o42bo3bo$67bo
+42bo$66bo44bobo$116b3o$116bo$117bo$$127bo$126boo$126bobo!

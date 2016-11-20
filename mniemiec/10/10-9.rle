@@ -1,0 +1,31 @@
+#N 10-9.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:00 2015
+x = 155, y = 223, rule = B3/S23
+10bo$8bobo$9boo20$18bo$19boobbo$18boobbo$22b3o5$45bxxbxx65bxxbxx$45bxb
+xxbbx49bo13bxbxxbbx$10b3o37bxx50boo16bxx$12bo88boo$11bo97bo$110boo$
+109boo$$36b3o68boo$36bo69bobo$37bo70bo12$73boo$74boo$73bo4$137boo$136b
+oo$138bo15$74boo$73bobo$75bo10$32bo$31bo$31b3o4$bo132bobo$bboo131boo$b
+oo132bo5$45bxxbxx15booboo15bxxbxx41boobb3o7bxxbxx$45bxbxxbbx13boboobbo
+13bxbxxbbx40boobo9bxbxxbbx$50bxx18boo18bxx39bo4bo13bxx6$7bobo33byy18b
+oo$7boo34byy18boo$8bo$61boo63boo$7boo51bobo63bobo$7bobo52bo63bo$7bo94b
+oo$101bobo$103bo6boo$109bobo$111bo5$28boo$27boo41bo59bo$29bo38boo58boo
+$69boo58boo$66bo9bo49bo$58bo8bo7bo42bo8bo$59bo5b3o7b3o41bo5b3o$57b3o
+25bxxbxx27b3o16b3o6bxxbxx$85bxbxxbbx44bo8bxbxxbbx$61boo15b3o9bxx29boo
+8boo4bo12bxx$62boo8b3o3bo43boo8boo$61bo10bo6bo41bo9bo$73bo60b3o$134bo$
+135bo12$92bobo$92boo$93bo$$125bobo$126boo$6bo119bo$6bobo$6boo74bo21bxx
+18boo$42bo35boboo22bx19bo$7boo31bobo33bobobboo22bx19bo$6bobo19bxx11boo
+5boo15bxxbxx7boo6booboo16bxbxx16boboo15bxxbxx$8bobbo16bxbbx12boobbobbo
+13bxxbxbbx13boobobbo15bxxbbx15boobbo13bxbxxbbx$11bobo16bxx11bobo4boo
+18bxx18boo18bxx11boo5boo18bxx$11boo32bo72bo4bobo$119boobbo$12boo104boo
+$11bobo$13bo5$14bobo115bo$14boo115bo$15bo115b3o$$14bo116bo$13bo74bobo
+39boo$13b3o28bo44boo39bobobbobo$23bo21boo42bo45boo$16bo4boo21boo19bxxb
+xx21bo13bxxbx16boobo7bo8bxxbxx$5bo9boo5boo5bxx18boo14bxbxxbbx14boobbo
+14bxbxx16boboo10bo5bxbxxbbx$6bo8bobo11bxbx9boo6bobo18bxx13boo3b3o40bo
+4boo10bxx$4b3o35boo43bo44boo4bobo$31bxbx7bo9bobo19bxx7boo48bobo$34bx
+19bo18bx9boo$33bxx18boo20bx6bo$74bxx$74bx$oo54bo18bx$boo52boo17bxx$o
+54bobo$5boo45bo$4bobo45boo$6bo44bobo11$11bo$10bo$10b3o$24bo59bo39bo$
+11bo3boo6bo61boo38boo$11boobbobo5b3o58boo19bxxbxx14boo19bxxbxx$10bobo
+bbo13bxx18boo18bxx18boo14bxbxxbbx17boo14bxbxxbbx$29bxbx17bobo17bxbx9b
+oo6bobo18bxx9boo6bobo18bxx$82boo38boo$31bxbx17bobo17bxbx7bo9bobo27bo9b
+obo$32bxx18boo18bxx18boo38boo$151byby$36byy18boo39boo55by$36byy18boo
+39bobo54by$97bo32boo19bybby$54boo75boo19b3y$53bobo74bo$55bo!

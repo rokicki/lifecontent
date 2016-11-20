@@ -1,0 +1,657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Objects Buildable With 4 Gliders</title>
+<meta name="description"
+content="Conway's Game of Life: Syntheses of objects from 4 gliders" />
+<meta name="keywords" content="conway game life four 4 glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Objects Buildable With 4 Gliders</h1>
+
+<p align="center">
+	<a class="j" href="#g4-p1">Still-lifes</a> |
+	<a class="j" href="#g4-pp1">Pseudo-still-lifes</a> |
+	<a class="j" href="#g4-p2">P2 oscillators</a> |
+	<a class="j" href="#g4-pp2">P2 pseudo-oscillators</a> |
+	<a class="j" href="#g4-p8">P8 oscillator</a> |
+	<a class="j" href="#g4-cons">Constellations</a> |
+	<a class="j" href="#g4-meth">Methuselahs</a> |
+	<a class="j" href="#g4-nat">Naturally-occurring objects</a>
+</p>
+
+<hr /><hr />
+<p>Since only a small fraction of all the possible 4-glider interactions have
+been tracked, it is likely that many of these lists are incomplete.</p>
+
+<hr />
+<hr />
+<a name="g4-p1"></a>
+<h2>111 <a class="i" href="p1.htm">still-lifes</a>
+buildable from 4 gliders</h2>
+<p>Due to space limitations, these and their syntheses are shown on a
+<a class="i" href="g4-p1.htm">separate page</a>.</p>
+
+<hr />
+<a name="g4-pp1"></a>
+<h2>33 <a class="i" href="pp1.htm">pseudo-still-lifes</a>
+buildable from 4 gliders</h2>
+<p><a class="p" href="stamp/g4-pp1.rle"><img src="map/g4-pp1.png"
+ alt="4-glider pseudo-still-lifes"
+ width="561" height="181" usemap="#g4-pp1" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="10/10acbk2.rle">
+	    Block below carrier [4]</a></td>
+	<td><a class="p" href="10/10btbt2.rle">
+	    Down boat on boat [4]</a></td>
+	<td><a class="p" href="11/11hvbt.rle">
+	    Boat on beehive [4]</a></td>
+	<td><a class="p" href="11/11shbt2.rle">
+	    Down boat on ship [4]</a></td>
+	<td><a class="p" href="11/11etbk3.rle">
+	    Block above eater [4]</a></td>
+	<td><a class="p" href="11/11etbk1.rle">
+	    Block on eater [4]</a></td>
+	<td><a class="p" href="11/11lsbk2.rle">
+	    Block below python [4]</a></td>
+	<td><a class="p" href="12/12bkbkbk.rle">
+	    Block on block on block [4]</a></td>
+	<td><a class="p" href="12/12pdbk.rle">
+	    Block on pond [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="12/12shhv.rle">
+	    Beehive on ship [4]</a></td>
+	<td><a class="p" href="12/12lbbt2.rle">
+	    Down boat on long boat [4]</a></td>
+	<td><a class="p" href="13/13lfhv.rle">
+	    Beehive on loaf [4]</a></td>
+	<td><a class="p" href="13/13pdbt.rle">
+	    Boat on pond [4]</a></td>
+	<td><a class="p" href="13/13ethv1.rle">
+	    Beehive on eater [4]</a></td>
+	<td><a class="p" href="13/13ethv3.rle">
+	    Beehive above eater [4]</a></td>
+	<td><a class="p" href="13/13lpbt2.rle">
+	    Down boat on long ship [4]</a></td>
+	<td><a class="p" href="13/13etsh4.rle">
+	    Down ship below eater [4]</a></td>
+	<td><a class="p" href="14/14pdhv.rle">
+	    Beehive on pond [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="14/14lflf1.rle">
+	    Up loaf on loaf [4]</a></td>
+	<td><a class="p" href="14/14etet11.rle">
+	    Up eater tail above eater [4]</a></td>
+	<td><a class="p" href="14/14etet12.rle">
+	    Down eater tail below eater [4]</a></td>
+	<td><a class="p" href="15/15pdlf.rle">
+	    Loaf on pond [4]</a></td>
+	<td><a class="p" href="15/15lfbbk.rle">
+	    Block on block on loaf [4]</a></td>
+	<td><a class="p" href="15/15pdet3.rle">
+	    Pond above eater [4]</a></td>
+	<td><a class="p" href="16/16pdpd.rle">
+	    Pond on pond [4]</a></td>
+	<td><a class="p" href="16/16shbts5.rle">
+	    Trans up and down boats on ship [4]</a></td>
+	<td><a class="p" href="16/16bbkbbk.rle">
+	    Two blocks on two blocks [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="17/17btlfbt.rle">
+	    Two down boats on loaf [4]</a></td>
+	<td><a class="p" href="17/17etbts1.rle">
+	    Up boats on and above eater [4]</a></td>
+	<td><a class="p" href="18/18bbtbbt.rle">
+	    Two blocks on two boats [4]</a></td>
+	<td><a class="p" href="18/18btpdbt.rle">
+	    Two boats on pond [4]</a></td>
+	<td><a class="p" href="19/19btetlf.rle">
+	    Up boat above and up loaf on eater [4]</a></td>
+	<td><a class="p" href="20/20bt4.rle">
+	    Boat on boat on boat on boat [4]</a></td>
+	<td colspan="3" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g4-pp1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/g4-pp1.zip" />
+	<area coords="541,161,560,180" href="stamp/g4-pp1.rle" />
+	<area coords="0,0,69,49" href="10/10acbk2.rle" />
+	<area coords="70,0,129,49" href="10/10btbt2.rle" />
+	<area coords="130,0,189,49" href="11/11hvbt.rle" />
+	<area coords="190,0,249,49" href="11/11shbt2.rle" />
+	<area coords="250,0,309,49" href="11/11etbk3.rle" />
+	<area coords="310,0,369,49" href="11/11etbk1.rle" />
+	<area coords="370,0,429,49" href="11/11lsbk2.rle" />
+	<area coords="430,0,489,49" href="12/12bkbkbk.rle" />
+	<area coords="490,0,560,49" href="12/12pdbk.rle" />
+	<area coords="0,50,69,89" href="12/12shhv.rle" />
+	<area coords="70,50,129,89" href="12/12lbbt2.rle" />
+	<area coords="130,50,189,89" href="13/13lfhv.rle" />
+	<area coords="190,50,249,89" href="13/13pdbt.rle" />
+	<area coords="250,50,309,89" href="13/13ethv1.rle" />
+	<area coords="310,50,369,89" href="13/13ethv3.rle" />
+	<area coords="370,50,429,89" href="13/13lpbt2.rle" />
+	<area coords="430,50,489,89" href="13/13etsh4.rle" />
+	<area coords="490,50,560,89" href="14/14pdhv.rle" />
+	<area coords="0,90,69,129" href="14/14lflf1.rle" />
+	<area coords="70,90,129,129" href="14/14etet11.rle" />
+	<area coords="130,90,189,129" href="14/14etet12.rle" />
+	<area coords="190,90,249,129" href="15/15pdlf.rle" />
+	<area coords="250,90,309,129" href="15/15lfbbk.rle" />
+	<area coords="310,90,369,129" href="15/15pdet3.rle" />
+	<area coords="370,90,429,129" href="16/16pdpd.rle" />
+	<area coords="430,90,489,129" href="16/16shbts5.rle" />
+	<area coords="490,90,560,129" href="16/16bbkbbk.rle" />
+	<area coords="0,130,69,180" href="17/17btlfbt.rle" />
+	<area coords="70,130,129,180" href="17/17etbts1.rle" />
+	<area coords="130,130,189,180" href="18/18bbtbbt.rle" />
+	<area coords="190,130,249,180" href="18/18btpdbt.rle" />
+	<area coords="250,130,309,180" href="19/19btetlf.rle" />
+	<area coords="310,130,369,180" href="20/20bt4.rle" />
+	<area coords="370,130,560,180" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g4-p2"></a>
+<h2>2  <a class="i" href="p2.htm">period 2 oscillators</a>
+buildable from 4 gliders</h2>
+<p><a class="p" href="stamp/g4-p2.rle"><img src="map/g4-p2.png"
+ alt="4g P2" width="141" height="61" usemap="#g4-p2" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6ck.rle">Clock [4]</a></td>
+	<td><a class="p" href="18/18sc.rle">Spark coil [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/g4-p2.zip" />
+	<area coords="121,41,140,60" href="stamp/g4-p2.rle" />
+	<area coords="0,0,69,60" href="0/6ck.rle" />
+	<area coords="70,0,140,60" href="18/18sc.rle" />
+</map>
+
+<p>Clocks have thumbs that can sometimes be used to suppress
+<a class="i" href="lifeterm.htm#spark">diagonal bit-sparks</a>,
+allowing clocks to be used as
+<a class="i" href="lifeterm.htm#rock">rocks</a> to stabilize some larger
+<a class="i" href="osc.htm">oscillators</a>.</p>
+
+<hr />
+<a name="g4-pp2"></a>
+<h2>3 <a class="i" href="pp2.htm">period 2 pseudo-oscillators</a>
+buildable from 4 gliders</h2>
+<p><a class="p" href="stamp/g4-pp2.rle"><img src="map/g4-pp2.png"
+ alt="4gl pseudo-P2"
+ width="201" height="61" usemap="#g4-pp2" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="10/10bcbk.rle">Block on beacon [4]</a></td>
+	<td><a class="p" href="11/11bcbt1.rle">Up boat on beacon [4]</a></td>
+	<td><a class="p" href="14/14bbcbk1.rle">
+	    Cis block on beacon on block [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-pp2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/g4-pp2.zip" />
+	<area coords="181,41,200,60" href="stamp/g4-pp2.rle" />
+	<area coords="0,0,69,60" href="10/10bcbk.rle" />
+	<area coords="70,0,129,60" href="11/11bcbt1.rle" />
+	<area coords="130,0,200,60" href="14/14bbcbk1.rle" />
+</map>
+
+<hr />
+<a name="g4-p8"></a>
+<h2>1 <a class="i" href="p8.htm">period 8 oscillator</a>
+buildable from 4 gliders</h2>
+<p><a class="p" href="stamp/g4-p8.rle"><img src="map/g4-p8.png" alt="4g P8"
+ width="81" height="61" usemap="#g4-p8" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="12/12fg.rle">Figure-8; Big beacon [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-p8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g4-p8.zip" />
+	<area coords="61,41,80,60" href="stamp/g4-p8.rle" />
+	<area coords="0,0,80,60" href="12/12fg.rle" />
+</map>
+
+<p>Figure-8 is the smallest oscillator that produces a period 8 (delayed)
+<a class="i" href="lifeterm.htm#spark">domino spark</a>.</p>
+
+<hr />
+<a name="g4-cons"></a>
+<h2>8 small <a class="i" href="cons.htm">constellations</a>
+buildable from 4 gliders</h2>
+<p>There are an infinite number of 4-glider constellations;
+these are some of the most common.</p>
+<p><a class="p" href="stamp/g4-cons.rle"><img src="map/g4-cons.png"
+ alt="4-glider constellations"
+ width="401" height="261" usemap="#g4-cons" /></a><br />
+    <table width="405">
+    <colgroup><col width="91" /><col width="160" /><col width="152" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/8tbtb04.rle">
+	    Two tubs offset (4, 0) [4]</a></td>
+	<td><a class="p" href="lg/32bw2bl4.rle">
+	    Two bowties and two half traffic lights [4]</a></td>
+	<td><a class="p" href="lg/96pupu0g.rle">
+	    Two pulsars offset (16, 0) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="10/10btbt4.rle">
+	    Two boats pointing in opposite directions [4]</a></td>
+	<td rowspan="2"><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (via Thunderbird)</a></td>
+	<td><a class="p" href="lg/96pupu0h.rle">
+	    Two pulsars offset (17, 0) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/56biby.rle">
+	    Bi-bakery [4]</a></td>
+	<td><a class="p" href="lg/96pupu2g.rle">
+	    Two pulsars offset (16, 2) [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="381,0,400,19" href="zip/g4-cons.zip" />
+	<area coords="381,241,400,260" href="stamp/g4-cons.rle" />
+	<area coords="0,0,89,89" href="0/8tbtb04.rle" />
+	<area coords="90,0,249,89" href="lg/32bw2bl4.rle" />
+	<area coords="250,0,400,89" href="lg/96pupu0g.rle" />
+	<area coords="0,90,89,169" href="10/10btbt4.rle" />
+	<area coords="90,90,249,260" href="lg/46tbd.rle" />
+	<area coords="250,90,400,169" href="lg/96pupu0h.rle" />
+	<area coords="0,170,89,260" href="lg/56biby.rle" />
+	<area coords="170,170,249,260" href="lg/96pupu2g.rle" />
+	<area coords="250,170,400,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g4-meth"></a>
+<h2>6 <a class="i" href="meth.htm">methuselahs</a>
+buildable from 4 gliders</h2>
+<p><a class="p" href="stamp/g4-meth.rle"><img src="map/g4-meth.png"
+ alt="4-glider methuselahs"
+ width="521" height="61" usemap="#g4-meth" /></a><br />
+    <table width="525">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6tbd.rle">Thunder- bird (@1) [4]</a></td>
+	<td><a class="p" href="0/7ak.rle">Acorn [4]</a></td>
+	<td><a class="p" href="0/7mp.rle">Multum in parvo [4]</a></td>
+	<td><a class="p" href="0/8sw.rle">
+	    Un- stabil- ized switch engine [4]</a></td>
+	<td><a class="p" href="0/9jd.rle">Jaydot (@-1) [4]</a></td>
+	<td><a class="p" href="0/8cm.rle">
+	    Glider- mango collision (@-4), Glider- mango mess, Pi heptomino and
+	    block (@3) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (@244)</a></td>
+	<td><a class="p" href="lg/633ak.rle">
+	    Oak: Mango, 2 ponds, 5 loaves, 2 barges, 2 ships, 30 beehives, 3
+	    ships, 8 boats, 34 blocks, 41 blinkers, 13 gliders (@5206)</a></td>
+	<td><a class="p" href="lg/633mp.rle">
+	    Block on beehive, pond, 6 loaves, toad, 28 beehives, 6 ships,
+	    8 boats, 2 tubs, 40 blocks, 36 blinkers, 13 gliders (@3933)</a></td>
+	<td><a class="p" href="lg/842sw.rle">
+	    2 Ponds, 2 long boats, 11 loaves, 33 beehives, 4 ships, 11 boats,
+	    2 tubs, 60 blocks, 50 blinkers, 12 gliders (@3911)</a></td>
+	<td><a class="p" href="lg/1124jd.rle">
+	    1 Fleet, 1 pond, 13 loaves, 1 toad, 5 ships, 9 boats, 5 tubs,
+	    68 blocks, 66 blinkers, 26 gliders (@6929)</a></td>
+	<td><a class="p" href="lg/440cm.rle">
+	    Penta- decathlon, pond, 6 loaves, toad, 18 beehives, ship, 12 boats,
+	    tub, 30 blocks, 18 blinkers, 4 gliders (@2585)</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/g4-meth.zip" />
+	<area coords="501,41,520,60" href="stamp/g4-meth.rle" />
+	<area coords="0,0,89,60" href="0/6tbd.rle" />
+	<area coords="90,0,169,60" href="0/7ak.rle" />
+	<area coords="170,0,249,60" href="0/7mp.rle" />
+	<area coords="250,0,329,60" href="0/8sw.rle" />
+	<area coords="330,0,409,60" href="0/9jd.rle" />
+	<area coords="410,0,520,60" href="0/8cm.rle" />
+</map>
+
+<p>Note that the minimum sizes of Acorn and Multum in parvo are the same size
+(7 bits), their censuses are the same size (633 bits), and both release 13
+gliders, but they are totally unrelated in any other way.</p>
+
+<hr />
+<hr />
+<a name="g4-nat"></a>
+<h2>The top 113 <a class="i" href="natural.htm">naturally-occurring</a> objects
+buildable from 4 gliders</h2>
+<p><a class="p" href="stamp/g4-nat.rle"><img src="map/g4-nat.png"
+ alt="4-glider natural objects"
+ width="561" height="321" usemap="#g4-nat" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="12/12-3.rle">
+	    12.3; Half fleet; Ship tie ship [4] (730)</a></td>
+	<td><a class="p" href="0/6ac.rle">
+	    Carrier; Aircraft carrier [4] (13077)</a></td>
+	<td><a class="p" href="0/8lp.rle">
+	    Long ship [4] (24259)</a></td>
+	<td><a class="p" href="0/8sl.rle">
+	    Shil- lelagh [4] (32987)</a></td>
+	<td><a class="p" href="0/9-4.rle">
+	    9.4; Integral [4] (35129)</a></td>
+	<td><a class="p" href="10/10-24.rle">
+	    10.24; Bowtie; Boat tie boat [4] (32688)</a></td>
+	<td><a class="p" href="0/6sn.rle">
+	    Snake [4] (32880)</a></td>
+	<td><a class="p" href="14/14-36.rle">
+	    14.36; Bit S [4] (39770)</a></td>
+	<td><a class="p" href="0/9-5.rle">
+	    9.5; Up boat w/ tail [4] (87374)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-30.rle">
+	    11-30; Ship tie boat [4] (109739)</a></td>
+	<td><a class="p" href="0/8tt.rle">
+	    Tub w/ tail; Twit [4] (139675)</a></td>
+	<td><a class="p" href="10/10-2.rle">
+	    10.2; Very long ship [4] (161862)</a></td>
+	<td><a class="p" href="12/12-25.rle">
+	    12.25; Cis table on table [4] (181444)</a></td>
+	<td><a class="p" href="0/8cs.rle">
+	    8.2; Canoe; Sinking ship [4] (219181)</a></td>
+	<td><a class="p" href="14/14-55.rle">
+	    14.55; Up bun on bun; Cis- mirrored R-bee [4] (346884)</a></td>
+	<td><a class="p" href="15/15-243.rle">
+	    15.243; Moose; Moose antlers [4] (382224)</a></td>
+	<td><a class="p" href="10/10-25.rle">
+	    10.25; Block on table [4] (414201)</a></td>
+	<td><a class="p" href="14/14-89.rle">
+	    14.89; Block on dock; [4] (422961)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16-737.rle">
+	    16.737; Beehive on dock; [4] (629542)</a></td>
+	<td><a class="p" href="10/10-7.rle">
+	    10.7; Beehive w/ tail [4] (648130)</a></td>
+	<td><a class="p" href="16/16-644.rle">
+	    16.644; Scorpion [4] (810964)</a></td>
+	<td><a class="p" href="10/10-4.rle">
+	    10.4; Loop; Long hat [4] (832569)</a></td>
+	<td><a class="p" href="14/14-39.rle">
+	    14.39; Four- teener [4] (959835)</a></td>
+	<td><a class="p" href="0/9-6.rle">
+	    9.6; Down boat w/ tail [4] (1.2e6)</a></td>
+	<td><a class="p" href="0/7ls.rle">
+	    Python; Long snake [4] (1.3e6)</a></td>
+	<td><a class="p" href="14/14-13.rle">
+	    14.13; Down bun on bun; Trans- mirrored R-bee [4] (1.4e6)</a></td>
+	<td><a class="p" href="18/18-287.rle">
+	    18.287; House on house; Dead spark coil; JC [4] (1.4e6)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="14/14-590.rle">
+	    14.590; Up bookend on bookend; Cis- mirrored hook; Bookends [4] (1.4e6)</a></td>
+	<td><a class="p" href="11/11-38.rle">
+	    11.38; Gull; Intens- ionless; Elevener [4] (1.4e6)</a></td>
+	<td><a class="p" href="12/12-27.rle">
+	    12.27; Block on cap [4] (1.5e6)</a></td>
+	<td><a class="p" href="11/11-5.rle">
+	    11.58; Down loaf w/ tail [4] (1.5e6)</a></td>
+	<td><a class="p" href="14/14-87.rle">
+	    14.87; Down bookend down on bookend; Cis- rotated hook [4] (1.5e6)</a></td>
+	<td><a class="p" href="12/12-29.rle">
+	    12.29; Block on up long bookend [4] (1.7e6)</a></td>
+	<td><a class="p" href="0/6ck.rle">
+	    Clock [4] (1.7e6)</a></td>
+	<td><a class="p" href="10/10-20.rle">
+	    10.20; Cis shil- lelagh [4] (1.9e6)</a></td>
+	<td><a class="p" href="20/20-5320.rle">
+	    20.5320; Dock on dock; Mirrored dock [4] (1.9e6)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="14/14-589.rle">
+	    14.589; Down bun on bookend; Trans- hook and R-bee [4] (2.1e6)</a></td>
+	<td><a class="p" href="12/12-111.rle">
+	    12.111; Block w/ cover [4] (2.2e6)</a></td>
+	<td><a class="p" href="15/15-462.rle">
+	    15.462; Up boat on dock [4] (2.3e6)</a></td>
+	<td><a class="p" href="0/8vs.rle">
+	    8.1; Very long snake [4] (2.4e6)</a></td>
+	<td><a class="p" href="10/10-17.rle">
+	    10.17; Integral w/ tub; Tub w/ nine [4] (2.6e6)</a></td>
+	<td><a class="p" href="15/15-114.rle">
+	    15.114; Down bun on wing; Trans- R-bee and R-loaf [4] (3.0e6)</a></td>
+	<td><a class="p" href="14/14-591.rle">
+	    14.591; Up bun on bookend; Cis- hook and R-bee [4] (3.2e6)</a></td>
+	<td><a class="p" href="0/9-9.rle">
+	    9.9; Tub w/ long tail [4] (3.4e6)</a></td>
+	<td><a class="p" href="11/11-43.rle">
+	    11.43; Loaf siamese loaf [4] (3.7e6)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/8ht.rle">
+	    8.4; Hook w/ tail; Snake eater [4] (3.7e6)</a></td>
+	<td><a class="p" href="11/11-33.rle">
+	    11.33; Very long hat; Eleven- loop [4] (3.9e6)</a></td>
+	<td><a class="p" href="10/10-18.rle">
+	    10.18; Claw w/ tail; Great snake eater [4] (4.6e6)</a></td>
+	<td><a class="p" href="16/16-129.rle">
+	    16.129; Sym- metric scorpion [4] (4.8e6)</a></td>
+	<td><a class="p" href="11/11-5.rle">
+	    11.53; Up loaf w/ tail [4] (4.8e6)</a></td>
+	<td><a class="p" href="15/15-360.rle">
+	    15.360; Bee hat [4] (5.1e6)</a></td>
+	<td><a class="p" href="0/9-3.rle">
+	    9.3; Long canoe [4] (5.1e6)</a></td>
+	<td><a class="p" href="12/12-7.rle">
+	    12.7; Boat tie eater [4] (5.9e6)</a></td>
+	<td><a class="p" href="13/13-224.rle">
+	    13.224; Down snake on bun; [4] (5.9e6)</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="11/11-37.rle">
+	    11.37; Up boat on table [4] (6.2e6)</a></td>
+	<td><a class="p" href="12/12-8.rle">
+	    12.8; Beehive on table [4] (6.4e6)</a></td>
+	<td><a class="p" href="10/10-5.rle">
+	    10.5; Up barge w/ tail [4] (6.7e6)</a></td>
+	<td><a class="p" href="11/11-11.rle">
+	    11.11; Integral w/up boat; Trans- boat w/ nine [4] (7.9e6)</a></td>
+	<td><a class="p" href="12/12-112.rle">12.112;
+	    Beehive w/ hooked tail; Beehive bend tail [4] (8.3e6)</a></td>
+	<td><a class="p" href="12/12-104.rle">
+	    12.104; Bi- beehive; Beehive tie beehive [4] (8.8e6)</a></td>
+	<td><a class="p" href="12/12fg.rle">
+	    Figure-8; Big beacon [4] (3.3e7)</a></td>
+	<td><a class="p" href="18/18sc.rle">
+	    Spark coil [4] (3.6e7)</a></td>
+	<td colspan="2" class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g4-nat">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,301,19,320" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/g4-nat.zip" />
+	<area coords="541,301,560,320" href="stamp/g4-nat.rle" />
+	<area coords="0,0,69,53" href="12/12-3.rle" />
+	<area coords="70,0,129,53" href="0/6ac.rle" />
+	<area coords="130,0,189,53" href="0/8lp.rle" />
+	<area coords="190,0,249,53" href="0/8sl.rle" />
+	<area coords="250,0,309,53" href="0/9-4.rle" />
+	<area coords="310,0,369,53" href="10/10-24.rle" />
+	<area coords="370,0,429,53" href="0/6sn.rle" />
+	<area coords="430,0,489,53" href="14/14-36.rle" />
+	<area coords="490,0,560,53" href="0/9-5.rle" />
+	<area coords="0,54,69,97" href="11/11-30.rle" />
+	<area coords="70,54,129,97" href="0/8tt.rle" />
+	<area coords="130,54,189,97" href="10/10-2.rle" />
+	<area coords="190,54,249,97" href="12/12-25.rle" />
+	<area coords="250,54,309,97" href="0/8cs.rle" />
+	<area coords="310,54,369,97" href="14/14-55.rle" />
+	<area coords="370,54,429,97" href="15/15-243.rle" />
+	<area coords="430,54,489,97" href="10/10-25.rle" />
+	<area coords="490,54,560,97" href="14/14-89.rle" />
+	<area coords="0,98,69,141" href="16/16-737.rle" />
+	<area coords="70,98,129,141" href="10/10-7.rle" />
+	<area coords="130,98,189,141" href="16/16-644.rle" />
+	<area coords="190,98,249,141" href="10/10-4.rle" />
+	<area coords="250,98,309,141" href="14/14-39.rle" />
+	<area coords="310,98,369,141" href="0/9-6.rle" />
+	<area coords="370,98,429,141" href="0/7ls.rle" />
+	<area coords="430,98,489,141" href="14/14-13.rle" />
+	<area coords="490,98,560,141" href="18/18-287.rle" />
+	<area coords="0,142,69,185" href="14/14-590.rle" />
+	<area coords="70,142,129,185" href="11/11-38.rle" />
+	<area coords="130,142,189,185" href="12/12-27.rle" />
+	<area coords="190,142,249,185" href="11/11-4.rle" />
+	<area coords="250,142,309,185" href="14/14-87.rle" />
+	<area coords="310,142,369,185" href="12/12-29.rle" />
+	<area coords="370,142,429,185" href="0/6ck.rle" />
+	<area coords="430,142,489,185" href="10/10-20.rle" />
+	<area coords="490,142,560,185" href="20/20-5320.rle" />
+	<area coords="0,186,69,229" href="14/14-589.rle" />
+	<area coords="70,186,129,229" href="12/12-111.rle" />
+	<area coords="130,186,189,229" href="15/15-462.rle" />
+	<area coords="190,186,249,229" href="0/8vs.rle" />
+	<area coords="250,186,309,229" href="10/10-17.rle" />
+	<area coords="310,186,369,229" href="15/15-114.rle" />
+	<area coords="370,186,429,229" href="14/14-591.rle" />
+	<area coords="430,186,489,229" href="0/9-9.rle" />
+	<area coords="490,186,560,229" href="11/11-43.rle" />
+	<area coords="0,230,69,273" href="0/8ht.rle" />
+	<area coords="70,230,129,273" href="11/11-33.rle" />
+	<area coords="130,230,189,273" href="10/10-18.rle" />
+	<area coords="190,230,249,273" href="16/16-129.rle" />
+	<area coords="250,230,309,273" href="11/11-5.rle" />
+	<area coords="310,230,369,273" href="15/15-360.rle" />
+	<area coords="370,230,429,273" href="0/9-3.rle" />
+	<area coords="430,230,489,273" href="12/12-7.rle" />
+	<area coords="490,230,560,273" href="13/13-224.rle" />
+	<area coords="0,274,69,320" href="11/11-37.rle" />
+	<area coords="70,274,129,320" href="12/12-18.rle" />
+	<area coords="130,274,189,320" href="10/10-5.rle" />
+	<area coords="190,274,249,320" href="11/11-11.rle" />
+	<area coords="250,274,309,320" href="12/12-112.rle" />
+	<area coords="310,274,369,320" href="12/12-104.rle" />
+	<area coords="370,274,429,320" href="12/12fg.rle" />
+	<area coords="430,274,489,320" href="18/18sc.rle" />
+	<area coords="490,274,560,320" nohref="nohref" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other costs:</b>
+	<a class="i" href="glider-2.htm">2 gliders</a>,
+	<a class="i" href="glider-3.htm">3 gliders</a>,
+	4 gliders,
+	<a class="i" href="glider-5.htm">5 gliders</a>,
+	<a class="i" href="glider-6.htm">6 gliders</a>,
+	<a class="i" href="glider-e.htm">1 glider/bit</a>,
+	<a class="i" href="glider-g.htm">&gt;1 glider/bit</a>,
+	<a class="i" href="glider-u.htm">unknown</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

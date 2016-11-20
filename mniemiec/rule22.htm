@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Variant: 2-2 Life</title>
+<meta name="22-description"
+content="Life Variant: 2/2 Life: B2/S2 object lists and glider syntheses" />
+<meta name="22-keywords"
+content="conway game life variant 22 life still life oscillator spaceship object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Variant: 2/2 Life</h1>
+
+<p align="center">
+	<a class="j" href="#22-intro">Introduction</a> |
+	<a class="j" href="#22-count">Object Counts</a> |
+	<a class="j" href="#22-p1">Still-lifes</a> |
+	<a class="j" href="#22-p2">P2 Oscillators</a> |
+	<a class="j" href="#22-p4">P4 Oscillators</a> |
+	<a class="j" href="#22-btc">Billiard table oscillators</a> |
+	<a class="j" href="#22-ss">Spaceships</a> |
+	<a class="j" href="#22-ws">Wick-stretchers</a>
+</p>
+
+<hr /><hr />
+<a name="22-intro"></a>
+<h2>Introduction</h2>
+
+<p>The B2/S2 rule is similar to Life, except both birth and survival occur on
+exactly 2 living neighbors.
+This rule has the following interesting properties:</p>
+<p><ul>
+    <li>The birth-on-2 rule makes any leading surface containing a domino expand
+	forever at a speed of <i>c</i>, making it impossible for anything to
+	catch up and stop it. This makes possible a very simple
+	<a class="j" href="#22-ss">spaceship</a>, as well as infinitely many
+	dirty puffers. This also makes this rule very difficult to work with,
+	since almost every pattern expands without limit.</li>
+    <li>Due to the birth-on-2 rule, pseudo-objects are not possible.</li>
+    <li>Survival-on-2, combined with lack of birth on 3-6, make possible
+	solid walls that are totally impervious to assault from either side.
+	In essence, they are immovable objects, except at their ends. If such
+	walls bend around corners, their inside corners are also impervious.
+	Four such walls surrounding an enclosed space make the space totally
+	contained, and useful for creating
+	<a class="j" href="#22-btc">billiard table</a> oscillators of arbitrarily
+	high periods.</li>
+    <li><a class="j" href="#22-p1">Still-lifes</a> are possible, but they are
+	all rare. They must all be surrounded by L trominos, and if sufficiently
+	large, may also contain enclosed chains of walls (see previous
+	section).</li>
+    <li>Since the birth and survival rules are identical, a cell does not
+	participate in its subsequent state. I.e., no information is transferred
+	directly from a cell and its child. Information can only be transferred
+	from a cell to its subsequent generation by moving to an alternate cell
+	and coming back later. This principle attaches parity to information,
+	and it is no surprise that most oscillators have periods of
+	<a class="j" href="#22-p2">2</a>, or sometimes
+	<a class="j" href="#22-p4">4</a>. The one common
+	<a class="j" href="#22-ss">spaceship</a> mechanism has a period of 1 and
+	a velocity of <i>c</i>, demonstrating the same parity principle. The many
+	dirty puffers derived from it all appear to have even periods.</li>
+    <li>Unlike Life, where "cool" broth exteriors usually muddle around and
+	occasionally expand, the birth-on-2 rule causes almost every broth
+	to expand in every orthogonal direction. In terms of object synthesis,
+	the practical result of this is extremely difficult to collide gliders
+	together to leave only small usable sparks. It is even extremely
+	difficult to even destroy an object with gliders. For this reason,
+	all syntheses on this page also include object destructor mechanisms,
+	if available.</li>
+</ul></p>
+
+<hr />
+<a name="22-count"></a>
+<h2>Object Counts</h2>
+
+<p>Computer searches have counted
+<a class="j" href="#22-p1">still-lifes</a> up to 30 bits and
+<a class="j" href="#22-p2">period 2 oscillators</a> up to 17 bits.</p>
+
+<p>Numbers in <b>bold face</b> have been confirmed by computer search. Other
+given numbers are believed to be complete, but have not yet been verified.
+Lists with large numbers of objects that have not yet been counted are shown
+with "many".</p>
+
+<p>Status of object lists on sub-pages is shown by background color:</p>
+<p><ul>
+    <li>White (or <span class="h">light blue</span>) indicates small complete
+	object list; may have syntheses for some.</li>
+    <li><span class="r">Red</span> indicates complete object count; may have
+	syntheses for some.</li>
+    <li><span class="s">Grey</span> indicates objects not counted; may have
+	syntheses for some.</li>
+</ul></p>
+
+<p>    <table width="804">
+    <colgroup><col width="161" /><col span="11" width="20" />
+	<col span="2" width="30" /><col width="60" />
+	<col span="14" width="20" /><col width="21" /></colgroup>
+    <tr>
+	<td class="h"><b>Bits</b></td>
+	<td class="h"><b>2</b></td><td class="h"><b>3</b></td>
+	<td class="h"><b>4</b></td><td class="h"><b>5</b></td>
+	<td class="h"><b>6</b></td><td class="h"><b>7</b></td>
+	<td class="h"><b>8</b></td><td class="h"><b>9</b></td>
+	<td class="h"><b>10</b></td><td class="h"><b>11</b></td>
+	<td class="h"><b>12</b></td><td class="h"><b>13</b></td>
+	<td class="h"><b>14</b></td><td class="h"><b>15</b></td>
+	<td class="h"><b>16</b></td><td class="h"><b>17</b></td>
+	<td class="h"><b>18</b></td><td class="h"><b>19</b></td>
+	<td class="h"><b>20</b></td><td class="h"><b>21</b></td>
+	<td class="h"><b>22</b></td><td class="h"><b>23</b></td>
+	<td class="h"><b>24</b></td><td class="h"><b>25</b></td>
+	<td class="h"><b>26</b></td><td class="h"><b>27</b></td>
+	<td class="h"><b>29</b></td><td class="h"><b>29</b></td>
+	<td class="h"><b>30</b></td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#22-p1">Still-lifes</a></b></td>
+	<td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>1</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>1</b></td>
+	<td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+	<td><b>0</b></td><td><b>4</b></td>
+	<td class="h"><b>0</b></td><td><b>0</b></td><td><b>3</b></td>
+	<td><b>0</b></td><td><b>0</b></td>
+	<td class="h"><b>13</b></td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#22-p2">P2 oscillators</a></b></td>
+	<td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+	<td class="h"><b>0</b></td><td><b>3</b></td><td><b>3</b></td>
+	<td><b>5</b></td><td><b>2</b></td><td class="h"><b>15</b></td>
+	<td><b>26</b></td><td class="r"><b>56</b></td>
+	<td class="r"><b>103</b></td><td class="r"><b>250</b></td>
+	<td class="r"><b>478</b></td><td class="r"><b>1129</b></td>
+	<td colspan="14" class="s">many</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#22-p4">P4 oscillators</a></b></td>
+	<td><b>0</b></td><td><b>1</b></td><td>2</td><td class="h"><b>0</b>
+	</td><td><b>1</b></td><td>2</td><td>4</td><td>0</td>
+	<td class="h">2</td><td class="r">8</td><td class="r">21</td>
+	<td class="r">13</td><td colspan="17" class="s">many</td>
+    </tr>
+
+    <tr>
+	<td><b><a class="j" href="#22-ss">Spaceships</a></b></td>
+	<td><b>0</b></td><td><b>0</b></td><td><b>1</b></td>
+	<td class="h"><b>1</b></td><td>0</td><td>0</td><td>0</td><td>0</td>
+	<td class="h">0</td><td>0</td><td>0</td><td>2</td>
+	<td class="r">1</td><td class="r">1</td><td class="r">1</td>
+	<td class="r">1</td><td class="r">1</td><td class="r">1</td>
+	<td class="r">1</td><td class="r">1</td><td class="r">4</td>
+	<td class="r">7</td><td colspan="7" class="s">many</td>
+    </tr>
+</table></p>
+
+<hr /><hr />
+<a name="22-p1"></a>
+<h2>Still-lifes</h2>
+<p>Still-lifes are extremely rare in this rule. They are all highly artificial,
+and must employ extensive frameworks to induct all unwanted births on the
+outside. Since survival can only happen on 2, the only components permitted are
+L trominos and circular chains of bits (typically rounded rectangles, although
+at larger sizes, concave lakes are also possible). Since births can only occur
+on 2 neighbors, and such chains are bounded by empty cells with more than 2
+everywhere except at outside corners, they act as stable immovable objects
+everywhere except at their outside corners. (As a side-effect, this permits
+construction of totally safe billiard table enclosures, since no matter what
+happens on the inside, the outside is safe from harm.)</p>
+
+<p>Stable arrangements can be made of rectangular arrays of L trominos
+containing at least 2 in each dimension. Furthermore, one rectangular corner can
+be removed, yielding an L-shaped arrangement, as long as the two arms have width
+2 or more. Thus, it is possible to create still-lifes of any population
+3(<i>xy</i>+<i>xj</i>+<i>iy</i>) where <i>x</i>,<i>y</i>&ge;2 and
+<i>i</i>,<i>j</i>&ge;0. This simplifies to 3<i>n</i> for <i>n</i> in 4, 6,
+or any number 8 and larger.</p>
+
+<p>A single pond can be stabilized by 16 trominos, allowing still-lifes of
+populations 56+3(3<i>i</i>+2<i>j</i>) where <i>i</i><i>j</i>&ge;0,
+or 56+3<i>n</i> where <i>n</i>&ge;0.</p>
+
+<p>Finally, a hollow box with 6 or more bits on the side can be stabilized by
+3 L trominos on each corner, yielding still-lifes of populations 60+2<i>n</i>.
+If an additional L tromino is added on an inside corner, this yields still-lifes
+of populations 63+2<i>n</i>.</p>
+
+<p>Thus, still-lifes are possible with populations 12, 18, 24, 27, 30, 33,
+36, 39, 42, 45, 48, 51, 54, 56, 57, 60, and all sizes 62 and larger.</p>
+
+<p>The following table shows all still-lifes up to 30 bits, plus a sampling
+of all other known sizes up to 65 bits. (Note that the number above each
+object indicates its population; none can be synthesized from gliders,
+and individual pattern files are not provided.)</p>
+<p><a class="p" href="stamp/22-p1.rle"><img src="map/22-p1.png"
+ alt="B2/S2 still-lifes"
+ width="637" height="441" usemap="#22-p1" /></a></p>
+
+<map name="22-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,421,19,440" href="#bottom" />
+	<area coords="617,0,636,19" href="zip/22-p1.zip" />
+	<area coords="0,0,636,440" href="stamp/22-p1.rle" />
+</map>
+
+<p>Although not generally considered a still-life, the empty field (i.e.
+<a class="p" href="rule22/x0death.rle">death</a>) technically fulfills all the
+criteria, and it warrants being mentioned for several reasons. First, it is
+extremely rare for any patterns to totally die out. Second, unlike any of the
+other still lifes, it can be synthesized from gliders. Third, there are only three collisions of two
+gliders that don't expand infinitely, and one of them results in death.</p>
+
+<hr />
+<a name="22-p2"></a>
+<h2>Period-2 Oscillators</h2>
+<p>These are the 56 period 2 oscillators up to 11 bits, plus two larger ones
+for which syntheses are known (and that are both infinitely extensible).</p>
+
+<p><a class="p" href="stamp/22-p2.rle"><img src="map/22-p2.png"
+ alt="B2/S2 period 2 oscillators"
+ width="621" height="381" usemap="#22-p2" /></a><br />
+    <table width="625">
+    <colgroup><col width="71" /><col span="8" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="rule22/x2-1.rle">
+	    Blinker (2.1) [6]</a></td>
+	<td class="y"><a class="p" href="rule22/x3-1.rle">
+	    Yoyo (3.1) [8]</a></td>
+	<td class="r">6.1 [x]</td>
+	<td class="r">6.2 [x]</td>
+	<td class="r">6.3 [x]</td>
+	<td class="r">7.1 [x]</td>
+	<td class="r">7.2 [x]</td>
+	<td class="r">7.3 [x]</td>
+	<td class="r">8.1 [x]</td>
+	<td class="r">8.2 [x]</td>
+    </tr>
+
+    <tr>
+	<td class="r">8.3 [x]</td>
+	<td class="r">8.4 [x]</td>
+	<td class="r">8.5 [x]</td>
+	<td class="r">9.1 [x]</td>
+	<td class="r">9.2 [x]</td>
+	<td class="r">10.1 [x]</td>
+	<td class="r">10.2 [x]</td>
+	<td class="r">10.3 [x]</td>
+	<td class="r">10.4 [x]</td>
+	<td class="r">10.5 [x]</td>
+    </tr>
+
+    <tr>
+	<td class="r">10.6 [x]</td>
+	<td class="r">10.7 [x]</td>
+	<td><a class="p" href="rule22/x10-8.rle">Lines (10.8) [2]</a></td>
+	<td class="r">10.9 [x]</td>
+	<td class="r">10.10 [x]</td>
+	<td class="r">10.11 [x]</td>
+	<td class="r">10.12 [x]</td>
+	<td class="r">10.13 [x]</td>
+	<td class="r">10.14 [x]</td>
+	<td class="r">10.15 [x]</td>
+    </tr>
+
+    <tr>
+	<td class="r">11.1 [x]</td>
+	<td class="r">11.2 [x]</td>
+	<td class="r">11.3 [x]</td>
+	<td class="r">11.4 [x]</td>
+	<td class="r">11.5 [x]</td>
+	<td class="r">11.6 [x]</td>
+	<td class="r">11.7 [x]</td>
+	<td class="r">11.8 [x]</td>
+	<td class="r">11.9 [x]</td>
+	<td class="r">11.10 [x]</td>
+    </tr>
+
+    <tr>
+	<td class="r">11.11 [x]</td>
+	<td class="r">11.12 [x]</td>
+	<td class="r">11.13 [x]</td>
+	<td class="r">11.14 [x]</td>
+	<td class="r">11.15 [x]</td>
+	<td class="r">11.16 [x]</td>
+	<td class="r">11.17 [x]</td>
+	<td class="r">11.18 [x]</td>
+	<td class="r">11.19 [x]</td>
+	<td class="r">11.20 [x]</td>
+    </tr>
+
+    <tr>
+	<td class="r">11.21 [x]</td>
+	<td class="r">11.22 [x]</td>
+	<td class="r">11.23 [x]</td>
+	<td class="r">11.24 [x]</td>
+	<td class="r">11.25 [x]</td>
+	<td class="r">11.26 [x]</td>
+	<td colspan="2"><a class="p" href="rule22/x21lll.rle">
+	    Three lines [4]</a></td>
+	<td colspan="2"><a class="p" href="rule22/x22ll.rle">
+	    Long lines [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="22-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,361,19,380" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/22-p2.zip" />
+	<area coords="601,361,620,380" href="stamp/22-p2.rle" />
+	<area coords="0,0,69,69" href="rule22/x2-1.rle" />
+	<area coords="70,0,129,69" href="rule22/x3-1.rle" />
+	<area coords="130,0,620,69" nohref="nohref" />
+	<area coords="0,70,620,129" nohref="nohref" />
+	<area coords="0,130,129,189" nohref="nohref" />
+	<area coords="130,130,189,189" href="rule22/x10-8.rle" />
+	<area coords="190,130,620,189" nohref="nohref" />
+	<area coords="0,190,620,309" nohref="nohref" />
+	<area coords="0,310,369,380" nohref="nohref" />
+	<area coords="370,310,489,380" href="rule22/x21lll.rle" />
+	<area coords="490,310,620,380" href="rule22/x22ll.rle" />
+</map>
+
+<hr />
+<a name="22-p4"></a>
+<h2>Period-4 Oscillators</h2>
+<p>Other than the numerous <a class="j" href="#22-p2">period 2 oscillators</a>,
+and the eccentric large <a class="j" href="#22-btc">billiard tables</a>, the only
+other known oscillators are three small period 4 pulsators, plus their trivial
+extensions. Ones marked * are infinitely extensible. All up to 10 bits are
+shown, plus a few larger ones.</p>
+
+<p><a class="p" href="stamp/22-p4.rle"><img src="map/22-p4.png"
+ alt="B2/S2 period 4 oscillators"
+ width="501" height="201" usemap="#22-p4" /></a></p>
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="rule22/x3v.rle">
+	    V [5]</a></td>
+	<td class="y"><a class="p" href="rule22/x4cr.rle">
+	    Crown [10]</a></td>
+	<td class="y"><a class="p" href="rule22/x4sl.rle">
+	    Slash [10]</a></td>
+	<td class="y"><a class="p" href="rule22/x6vv.rle">
+	    V on v* [10]</a></td>
+	<td class="y"><a class="p" href="rule22/x7cv.rle">
+	    Crown on v* [15]</a></td>
+	<td class="y"><a class="p" href="rule22/x7sv.rle">
+	    Slash on v* [15]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="rule22/x8cc1.rle">
+	    Siamese crowns* [x]</a></td>
+	<td class="r"><a class="p" href="rule22/x8cs.rle">
+	    Crown on slash* [x]</a></td>
+	<td class="r"><a class="p" href="rule22/x8cc2.rle">
+	    Crown on crown* [x]</a></td>
+	<td class="y"><a class="p" href="rule22/x8ss.rle">
+	    Slash on slash* [12]</a></td>
+	<td class="y"><a class="p" href="rule22/x10vvv1.rle">
+	    Trans v on v on v* [15]</a></td>
+	<td class="y"><a class="p" href="rule22/x10vvv2.rle">
+	    Cis v on v on v* [15]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="rule22/x12sss1.rle">
+	    Trans slash on slash on slash* [22]</a></td>
+	<td class="r"><a class="p" href="rule22/x13sss2.rle">
+	    Cis slash on slash on slash* [x]</a></td>
+	<td colspan="4" class="s">&nbsp;</td>
+    </tr>
+</table>
+
+<map name="22-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,181,19,200" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/22-p4.zip" />
+	<area coords="481,181,500,200" href="stamp/22-p4.rle" />
+	<area coords="0,0,89,69" href="rule22/x3v.rle" />
+	<area coords="90,0,169,69" href="rule22/x4cr.rle" />
+	<area coords="170,0,249,69" href="rule22/x4sl.rle" />
+	<area coords="250,0,329,69" href="rule22/x6vv.rle" />
+	<area coords="330,0,409,69" href="rule22/x7cv.rle" />
+	<area coords="410,0,500,69" href="rule22/x7sv.rle" />
+	<area coords="0,70,89,129" href="rule22/x8cc1.rle" />
+	<area coords="90,70,169,129" href="rule22/x8cc2.rle" />
+	<area coords="170,70,249,129" href="rule22/x8cs.rle" />
+	<area coords="250,70,329,129" href="rule22/x8ss.rle" />
+	<area coords="330,70,409,129" href="rule22/x10vvv1.rle" />
+	<area coords="410,70,500,129" href="rule22/x10vvv2.rle" />
+	<area coords="0,130,89,200" href="rule22/x12sss1.rle" />
+	<area coords="90,130,169,200" href="rule22/x13sss2.rle" />
+	<area coords="170,130,500,200" nohref="nohref" />
+</map>
+
+<hr />
+<a name="22-btc"></a>
+<h2>Billiard Table Oscillators</h2>
+<p>Since <a class="j" href="#22-p1">still-lifes</a> rely on heavily inducting
+the outsides of interiors that are inherently unstable, the same mechanisms used
+to construct them can also construct a variety of billiard table oscillators.
+A few small ones work with only L tromino stabilizations, but most work
+safely within a totally enclosed box. The period 5 oscillator shown below is
+infinitely extensible; a domino placed 5 or more bits away from both edges
+of a channel is a bi-directional period 5 glider gun that shoots gliders into
+the walls at both ends. (None of these can be synthesized from gliders, and
+individual pattern files are not provided.)</p>
+
+<p><a class="p" href="stamp/22-btc.rle"><img src="map/22-btc.png"
+ alt="B2/S2 billiard tables"
+ width="601" height="281" usemap="#22-btc" /></a></p>
+
+<map name="22-btc">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,261,19,280" href="#bottom" />
+	<area coords="581,0,600,19" nohref="nohref" />
+	<area coords="0,0,600,280" href="stamp/22-btc.rle" />
+</map>
+
+<p>The last example shown is not really an oscillator at all.
+It was originally believed to be an oscillator with a period in excess of
+20000, but was finally analyzed by Golly, using its HashLife algorithm,
+and the interior stablizes into a single blinker after 2,878,904
+generations. It is a good illustration of the total robustness of billiard
+table interiors in this rule.</p>
+
+<hr />
+<a name="22-ss"></a>
+<h2>Spaceships</h2>
+<p>There is one basic spaceship, that has a period of 1, and moves with a
+velocity of <i>c</i>. Most variations of it produce incredibly dirty puffers
+with even periods, although there are a few that are clean spaceships and
+wick stretchers. Spaceships of any period 2<sup><i>n</i></sup> can be
+constructed by extending the examples below.</p>
+
+<p>Two other spaceships have been found with velocities slower than <i>c</i>
+but these are very rare in this rule.</p>
+
+<p><a class="p" href="stamp/22-ss.rle"><img src="map/22-ss.png" alt="B2/S2 spaceships"
+ width="301" height="281" usemap="#22-ss" /></a><br />
+    <table width="305">
+    <colgroup><col width="91" /><col width="80" /><col width="132" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="rule22/x30p4gl.rle">
+	    P4 Escorted domino Spaceship [x]</a></td>
+	<td class="r"><a class="p" href="rule22/x38p8gl.rle">
+	    P8 Escorted domino Spaceship [x]</a></td>
+	<td rowspan="3" class="r">
+	    <a class="p" href="rule22/xg21193.rle"><i>c</i>/2
+	    Glider 21193 [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="r"><a class="p" href="rule22/x13p2gl.rle">
+	    P2 Spaceship [x]</a></td>
+	<td class="r"><a class="p" href="rule22/x22p2gl.rle">
+	    P2 Escorted domino Spaceship [x]</a></td>
+    </tr>
+
+    <tr>
+	<td class="g"><a class="p" href="rule22/x4gl.rle">
+	    P1 Glider; Glider 230 [4]</a></td>
+	<td class="r"><a class="p" href="rule22/x13g9588.rle">
+	    <i>c</i>/3 Glider 9588 [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="22-ss">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,261,19,280" href="#bottom" />
+	<area coords="281,0,300,19" href="zip/22-ss.zip" />
+	<area coords="281,261,300,280" href="stamp/22-ss.rle" />
+	<area coords="0,0,89,89" href="rule22/x30p4gl.rle" />
+	<area coords="90,0,169,89" href="rule22/x38p8gl.rle" />
+	<area coords="170,0,300,280" href="rule22/xg21193.rle" />
+	<area coords="0,90,89,209" href="rule22/x13p2gl.rle" />
+	<area coords="90,90,169,209" href="rule22/x22p2gl.rle" />
+	<area coords="0,210,89,280" href="rule22/x4gl.rle" />
+	<area coords="90,210,169,280" href="rule22/x13g9588.rle" />
+</map>
+
+<hr />
+<a name="22-ws"></a>
+<h2>Wick-stretchers</h2>
+<p>The basic <i>c</i> spaceship can cleanly extend lines perpendicular to its
+direction of travel. This makes construction of wick-stretchers easy.</p>
+
+<p>The tube-stretchers are special wick-stretchers that extrude an
+ever-expanding tube similar to a billiard table. Anything can be safely put
+inside, it cannot escape; the bottom and sides are impervious, and
+the top is receding at <i>c</i>, so nothing can catch up to it. The rightmost example
+shows how a single extra bit can forment total chaos, but in this case, the
+chaos is contained within a constrained area.</p>
+
+<p><a class="p" href="stamp/22-ws.rle"><img src="map/22-ws.png"
+ alt="B2/S2 wick-stretchers"
+ width="421" height="121" usemap="#22-ws" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="rule22/x12wsll.rle">
+	    Two-line wick- stretcher [x]</a></td>
+	<td class="r"><a class="p" href="rule22/x19wsbl.rle">
+	    Blinkers on line wick- stretcher [x]</a></td>
+	<td class="r"><a class="p" href="rule22/x44wsgl.rle">
+	    Empty tube- stretcher [x]</a></td>
+	<td class="r"><a class="p" href="rule22/x56wsgg.rle">
+	    Glider- filled tube- stretcher [x]</a></td>
+	<td class="r"><a class="p" href="rule22/x52wsjk.rle">
+	    Chaos- filled tube- stretcher [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="22-ws">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/22-ws.zip" />
+	<area coords="401,101,420,120" href="stamp/22-ws.rle" />
+	<area coords="0,0,89,120" href="rule22/x12wsll.rle" />
+	<area coords="90,0,169,120" href="rule22/x19wsbl.rle" />
+	<area coords="170,0,249,120" href="rule22/x44wsgl.rle" />
+	<area coords="250,0,329,120" href="rule22/x56wsgg.rle" />
+	<area coords="330,0,420,120" href="rule22/x52wsjk.rle" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other rules:</b>
+	<a class="i" href="lifepage.htm">B3/S23 (Conway's Life)</a>,
+	<a class="i" href="color.htm">Multi-colored Life</a>,
+	B2/S2 (2/2 Life),
+	<a class="i" href="rule34.htm">B34/S34 (3/4 Life)</a>,
+	<a class="i" href="rulemn.htm">Niemiec's Rules</a>.</p>
+
+<p><b>See also:</b>
+	<a class="i" href="lifeterm.htm">definitions</a>,
+	<a class="i" href="lifestr.htm">structure</a>,
+	<a class="i" href="lifemeth.htm">search methodologies</a>,
+	<a class="i" href="liferule.htm">other rules</a>,
+	<a class="i" href="lifenews.htm">news</a>,
+	<a class="i" href="lifecred.htm">credits</a>,
+	<a class="i" href="lifelink.htm">links</a>,
+	<a class="i" href="lifemap.htm">site map</a>,
+	<a class="i" target="lifesrch" href="lifesrch.htm">search</a>,
+	<a class="i" target="lifesrch" href="lifxsrch.htm">expanded search</a>,
+	<a class="i" target="srchhelp" href="srchhelp.htm">search help</a>,
+	<a class="i" href="download.htm">downloads</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

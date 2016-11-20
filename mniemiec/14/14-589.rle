@@ -1,0 +1,31 @@
+#N 14-589.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:00:27 2015
+x = 165, y = 148, rule = B3/S23
+141bo$142bo$140b3o$$102bo45bo$96bo5bobo41boo$94bobo5boo43boo$95boo$7bo
+bo91bo$8boo89bobo$8bo91boo$33bxx30bo17bxx38bxx38bxx$31bxbbx11bo18bobo
+13bxbbx36bxbbx14boo20bxbbx$boo11bo16b3x13bo17boo14b3x37b3x16boo19b3x$o
+bo10boo30b3o91bo3bo$bbo6boobbobo15b3x47b3x37b3x19bobo15b3x$10boo18bxbb
+x46bxbbx36bxbbx19boobb3o10bxbbx$9bo21bxx24bo23bxx38bxx24bo13bxx$55bobo
+45boo43bo$56boo39boo4bobo$59b3o34bobo4bo$59bo38bo$60bo$$108bo$107boo$
+107bobo10$137bobo$137boo$23bo29bo84bo$22bo31boo87bobo$22b3o28boo84boo
+bboo$43bxx18boo18bxx53bobo3bo18bxx$22bo19bxbx12boo3bobo16bxbbx55bo21bx
+bx$22boo19bx12bobo4bo17b3x78bxx$21bobo34bo$81b3x$80bxbbx$62boo17bxx$
+58boobbobo$57bobobbo$59bo3$67bo$66boo$66bobo6$104bobo$104boo$105bo$90b
+obo$66boo23boo$61bo3boo24bo$60bo6bo$60b3o33bobo$94bobobobo$63boo30boob
+oo$23boo18bxx18bobo17bxx18boo18bxx18boo18bxx$22bobo17bxbx18bo18bxbx17b
+obo16bxbbx16bobbo16bxbbx$22boo18bxx38bxx10bo7boo17b3x17b3o17b3x$59bo
+35boo$27bo14bxx16boo20bxx10boo6boo17b3x17b3o17b3x$25boo15bxbx14boo21bx
+bx17bobo15bxbbx16bobbo16bxbbx$26boo15bx20b3o16bx19bo16bxx18boo19bxx$
+21boo41bo$19bobobo41bo70boo$17bobobo113bobo$18boo117bo$139b3o$139bo$
+93bo46bo$93boo$92bobo16$99bo46bo$97bobo47bo$98boo37bobo5b3o$138boo$65b
+o72bo$65bobo26bo$61bo3boo28bo40boo7boo$62boo19bxx8b3o7boo32boo5boo$61b
+oo19bxbx17bobo31bo9bo15bx$82bx19bo18bxx18boo18bxbx$81bxx18boo6bobo7bx
+bbx16bobbo16bxbbx$109boo8b3x17b3o17b3x$90boo18bo$41bxx18boo18bxx8boo8b
+oo18b3x17b3o17b3x$20boo18bxbbx16bobbo16bxbbx6bo9bobbo8bo7bxbbx16bobbo
+16bxbbx$19bobo19bxx18boo18bxx18boo9bobo6bxx18boo18bxx$21bo90boo$23boo$
+23bobo85bo$23bo86boo$110bobo13$62bo$62bobo76bo$62boobboo71bobo$65boo
+40bo27bo4boo$67bo15bx19bobbo29boo$62bo19bxbx17bobob3o13bxx11boo5boo$
+61bobo17bxbx17bobo18bxbx5bo11bobo18bxx$59bobbo16bxbbx16bobbo16bx4bx6b
+oo6bo4bo16bxbbx$59b3o17b3x17b3o17b5x6boo7b5o17b3x$135bo$61b3o17b3x17b
+3o17b3x11boo4b3o17b3x$60bobbo16bxbbx16bobbo16bxbbx10bobo3bobbo16bxbbx$
+61boo18bxx18boo18bxx18boo18bxx!

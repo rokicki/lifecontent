@@ -1,0 +1,856 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Fourteen-Bit Still-Lifes</title>
+<meta name="description"
+content="Conway's Game of Life: fourteen-bit still-life lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 14 fourteen bit still life object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Fourteen-Bit Still-Lifes</h1>
+
+<p align="center">
+	<a class="j" href="#p1-14-0">14.1-14.100</a> |
+	<a class="j" href="#p1-14-1">14.101-14.200</a> |
+	<a class="j" href="#p1-14-2">14.201-14.300</a> |
+	<a class="j" href="#p1-14-3">14.301-14.400</a> |
+	<a class="j" href="#p1-14-4">14.401-14.500</a> |
+	<a class="j" href="#p1-14-5">14.501-14.600</a> |
+	<a class="j" href="#p1-14-6">14.601-14.619</a>
+</p>
+
+<hr /><hr />
+<a name="p1-14-0"></a>
+<h2>The 619 <a class="i" href="bits-14.htm">fourteen-bit</a>
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<h3>14.1-14.100</h3>
+<p><a class="p" href="stamp/p1-14-0.rle"><img src="map/p1-14-0.png"
+ alt="14-bit still-lifes 1-100"
+ width="621" height="421" usemap="#p1-14-0" /></a></p>
+
+<map name="p1-14-0">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-14.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-14-0.rle" />
+	<area coords="0,0,69,49" href="14/14-1.rle" />
+	<area coords="70,0,129,49" href="14/14-2.rle" />
+	<area coords="130,0,189,49" href="14/14-3.rle" />
+	<area coords="190,0,249,49" href="14/14-4.rle" />
+	<area coords="250,0,309,49" href="14/14-5.rle" />
+	<area coords="310,0,369,49" href="14/14-6.rle" />
+	<area coords="370,0,429,49" href="14/14-7.rle" />
+	<area coords="430,0,489,49" href="14/14-8.rle" />
+	<area coords="490,0,549,49" href="14/14-9.rle" />
+	<area coords="550,0,620,49" href="14/14-10.rle" />
+	<area coords="0,50,69,89" href="14/14-11.rle" />
+	<area coords="70,50,129,89" href="14/14-12.rle" />
+	<area coords="130,50,189,89" href="14/14-13.rle" />
+	<area coords="190,50,249,89" href="14/14-14.rle" />
+	<area coords="250,50,309,89" href="14/14-15.rle" />
+	<area coords="310,50,369,89" href="14/14-16.rle" />
+	<area coords="370,50,429,89" href="14/14-17.rle" />
+	<area coords="430,50,489,89" href="14/14-18.rle" />
+	<area coords="490,50,549,89" href="14/14-19.rle" />
+	<area coords="550,50,620,89" href="14/14-20.rle" />
+	<area coords="0,90,69,129" href="14/14-21.rle" />
+	<area coords="70,90,129,129" href="14/14-22.rle" />
+	<area coords="130,90,189,129" href="14/14-23.rle" />
+	<area coords="190,90,249,129" href="14/14-24.rle" />
+	<area coords="250,90,309,129" href="14/14-25.rle" />
+	<area coords="310,90,369,129" href="14/14-26.rle" />
+	<area coords="370,90,429,129" href="14/14-27.rle" />
+	<area coords="430,90,489,129" href="14/14-28.rle" />
+	<area coords="490,90,549,129" href="14/14-29.rle" />
+	<area coords="550,90,620,129" href="14/14-30.rle" />
+	<area coords="0,130,69,169" href="14/14-31.rle" />
+	<area coords="70,130,129,169" href="14/14-32.rle" />
+	<area coords="130,130,189,169" href="14/14-33.rle" />
+	<area coords="190,130,249,169" href="14/14-34.rle" />
+	<area coords="250,130,309,169" href="14/14-35.rle" />
+	<area coords="310,130,369,169" href="14/14-36.rle" />
+	<area coords="370,130,429,169" href="14/14-37.rle" />
+	<area coords="430,130,489,169" href="14/14-38.rle" />
+	<area coords="490,130,549,169" href="14/14-39.rle" />
+	<area coords="550,130,620,169" href="14/14-40.rle" />
+	<area coords="0,170,69,209" href="14/14-41.rle" />
+	<area coords="70,170,129,209" href="14/14-42.rle" />
+	<area coords="130,170,189,209" href="14/14-43.rle" />
+	<area coords="190,170,249,209" href="14/14-44.rle" />
+	<area coords="250,170,309,209" href="14/14-45.rle" />
+	<area coords="310,170,369,209" href="14/14-46.rle" />
+	<area coords="370,170,429,209" href="14/14-47.rle" />
+	<area coords="430,170,489,209" href="14/14-48.rle" />
+	<area coords="490,170,549,209" href="14/14-49.rle" />
+	<area coords="550,170,620,209" href="14/14-50.rle" />
+	<area coords="0,210,69,249" href="14/14-51.rle" />
+	<area coords="70,210,129,249" href="14/14-52.rle" />
+	<area coords="130,210,189,249" href="14/14-53.rle" />
+	<area coords="190,210,249,249" href="14/14-54.rle" />
+	<area coords="250,210,309,249" href="14/14-55.rle" />
+	<area coords="310,210,369,249" href="14/14-56.rle" />
+	<area coords="370,210,429,249" href="14/14-57.rle" />
+	<area coords="430,210,489,249" href="14/14-58.rle" />
+	<area coords="490,210,549,249" href="14/14-59.rle" />
+	<area coords="550,210,620,249" href="14/14-60.rle" />
+	<area coords="0,250,69,289" href="14/14-61.rle" />
+	<area coords="70,250,129,289" href="14/14-62.rle" />
+	<area coords="130,250,189,289" href="14/14-63.rle" />
+	<area coords="190,250,249,289" href="14/14-64.rle" />
+	<area coords="250,250,309,289" href="14/14-65.rle" />
+	<area coords="310,250,369,289" href="14/14-66.rle" />
+	<area coords="370,250,429,289" href="14/14-67.rle" />
+	<area coords="430,250,489,289" href="14/14-68.rle" />
+	<area coords="490,250,549,289" href="14/14-69.rle" />
+	<area coords="550,250,620,289" href="14/14-70.rle" />
+	<area coords="0,290,69,329" href="14/14-71.rle" />
+	<area coords="70,290,129,329" href="14/14-72.rle" />
+	<area coords="130,290,189,329" href="14/14-73.rle" />
+	<area coords="190,290,249,329" href="14/14-74.rle" />
+	<area coords="250,290,309,329" href="14/14-75.rle" />
+	<area coords="310,290,369,329" href="14/14-76.rle" />
+	<area coords="370,290,429,329" href="14/14-77.rle" />
+	<area coords="430,290,489,329" href="14/14-78.rle" />
+	<area coords="490,290,549,329" href="14/14-79.rle" />
+	<area coords="550,290,620,329" href="14/14-80.rle" />
+	<area coords="0,330,69,369" href="14/14-81.rle" />
+	<area coords="70,330,129,369" href="14/14-82.rle" />
+	<area coords="130,330,189,369" href="14/14-83.rle" />
+	<area coords="190,330,249,369" href="14/14-84.rle" />
+	<area coords="250,330,309,369" href="14/14-85.rle" />
+	<area coords="310,330,369,369" href="14/14-86.rle" />
+	<area coords="370,330,429,369" href="14/14-87.rle" />
+	<area coords="430,330,489,369" href="14/14-88.rle" />
+	<area coords="490,330,549,369" href="14/14-89.rle" />
+	<area coords="550,330,620,369" href="14/14-90.rle" />
+	<area coords="0,370,69,420" href="14/14-91.rle" />
+	<area coords="70,370,129,420" href="14/14-92.rle" />
+	<area coords="130,370,189,420" href="14/14-93.rle" />
+	<area coords="190,370,249,420" href="14/14-94.rle" />
+	<area coords="250,370,309,420" href="14/14-95.rle" />
+	<area coords="310,370,369,420" href="14/14-96.rle" />
+	<area coords="370,370,429,420" href="14/14-97.rle" />
+	<area coords="430,370,489,420" href="14/14-98.rle" />
+	<area coords="490,370,549,420" href="14/14-99.rle" />
+	<area coords="550,370,620,420" href="14/14-100.rle" />
+</map>
+
+<hr />
+<a name="p1-14-1"></a>
+<h3>14.101-14.200</h3>
+<p><a class="p" href="stamp/p1-14-1.rle"><img src="map/p1-14-1.png"
+ alt="14-bit still-lifes 101-200"
+ width="621" height="421" usemap="#p1-14-1" /></a></p>
+
+<map name="p1-14-1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-14.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-14-1.rle" />
+	<area coords="0,0,69,49" href="14/14-101.rle" />
+	<area coords="70,0,129,49" href="14/14-102.rle" />
+	<area coords="130,0,189,49" href="14/14-103.rle" />
+	<area coords="190,0,249,49" href="14/14-104.rle" />
+	<area coords="250,0,309,49" href="14/14-105.rle" />
+	<area coords="310,0,369,49" href="14/14-106.rle" />
+	<area coords="370,0,429,49" href="14/14-107.rle" />
+	<area coords="430,0,489,49" href="14/14-108.rle" />
+	<area coords="490,0,549,49" href="14/14-109.rle" />
+	<area coords="550,0,620,49" href="14/14-110.rle" />
+	<area coords="0,50,69,89" href="14/14-111.rle" />
+	<area coords="70,50,129,89" href="14/14-112.rle" />
+	<area coords="130,50,189,89" href="14/14-113.rle" />
+	<area coords="190,50,249,89" href="14/14-114.rle" />
+	<area coords="250,50,309,89" href="14/14-115.rle" />
+	<area coords="310,50,369,89" href="14/14-116.rle" />
+	<area coords="370,50,429,89" href="14/14-117.rle" />
+	<area coords="430,50,489,89" href="14/14-118.rle" />
+	<area coords="490,50,549,89" href="14/14-119.rle" />
+	<area coords="550,50,620,89" href="14/14-120.rle" />
+	<area coords="0,90,69,129" href="14/14-121.rle" />
+	<area coords="70,90,129,129" href="14/14-122.rle" />
+	<area coords="130,90,189,129" href="14/14-123.rle" />
+	<area coords="190,90,249,129" href="14/14-124.rle" />
+	<area coords="250,90,309,129" href="14/14-125.rle" />
+	<area coords="310,90,369,129" href="14/14-126.rle" />
+	<area coords="370,90,429,129" href="14/14-127.rle" />
+	<area coords="430,90,489,129" href="14/14-128.rle" />
+	<area coords="490,90,549,129" href="14/14-129.rle" />
+	<area coords="550,90,620,129" href="14/14-130.rle" />
+	<area coords="0,130,69,169" href="14/14-131.rle" />
+	<area coords="70,130,129,169" href="14/14-132.rle" />
+	<area coords="130,130,189,169" href="14/14-133.rle" />
+	<area coords="190,130,249,169" href="14/14-134.rle" />
+	<area coords="250,130,309,169" href="14/14-135.rle" />
+	<area coords="310,130,369,169" href="14/14-136.rle" />
+	<area coords="370,130,429,169" href="14/14-137.rle" />
+	<area coords="430,130,489,169" href="14/14-138.rle" />
+	<area coords="490,130,549,169" href="14/14-139.rle" />
+	<area coords="550,130,620,169" href="14/14-140.rle" />
+	<area coords="0,170,69,209" href="14/14-141.rle" />
+	<area coords="70,170,129,209" href="14/14-142.rle" />
+	<area coords="130,170,189,209" href="14/14-143.rle" />
+	<area coords="190,170,249,209" href="14/14-144.rle" />
+	<area coords="250,170,309,209" href="14/14-145.rle" />
+	<area coords="310,170,369,209" href="14/14-146.rle" />
+	<area coords="370,170,429,209" href="14/14-147.rle" />
+	<area coords="430,170,489,209" href="14/14-148.rle" />
+	<area coords="490,170,549,209" href="14/14-149.rle" />
+	<area coords="550,170,620,209" href="14/14-150.rle" />
+	<area coords="0,210,69,249" href="14/14-151.rle" />
+	<area coords="70,210,129,249" href="14/14-152.rle" />
+	<area coords="130,210,189,249" href="14/14-153.rle" />
+	<area coords="190,210,249,249" href="14/14-154.rle" />
+	<area coords="250,210,309,249" href="14/14-155.rle" />
+	<area coords="310,210,369,249" href="14/14-156.rle" />
+	<area coords="370,210,429,249" href="14/14-157.rle" />
+	<area coords="430,210,489,249" href="14/14-158.rle" />
+	<area coords="490,210,549,249" href="14/14-159.rle" />
+	<area coords="550,210,620,249" href="14/14-160.rle" />
+	<area coords="0,250,69,289" href="14/14-161.rle" />
+	<area coords="70,250,129,289" href="14/14-162.rle" />
+	<area coords="130,250,189,289" href="14/14-163.rle" />
+	<area coords="190,250,249,289" href="14/14-164.rle" />
+	<area coords="250,250,309,289" href="14/14-165.rle" />
+	<area coords="310,250,369,289" href="14/14-166.rle" />
+	<area coords="370,250,429,289" href="14/14-167.rle" />
+	<area coords="430,250,489,289" href="14/14-168.rle" />
+	<area coords="490,250,549,289" href="14/14-169.rle" />
+	<area coords="550,250,620,289" href="14/14-170.rle" />
+	<area coords="0,290,69,329" href="14/14-171.rle" />
+	<area coords="70,290,129,329" href="14/14-172.rle" />
+	<area coords="130,290,189,329" href="14/14-173.rle" />
+	<area coords="190,290,249,329" href="14/14-174.rle" />
+	<area coords="250,290,309,329" href="14/14-175.rle" />
+	<area coords="310,290,369,329" href="14/14-176.rle" />
+	<area coords="370,290,429,329" href="14/14-177.rle" />
+	<area coords="430,290,489,329" href="14/14-178.rle" />
+	<area coords="490,290,549,329" href="14/14-179.rle" />
+	<area coords="550,290,620,329" href="14/14-180.rle" />
+	<area coords="0,330,69,369" href="14/14-181.rle" />
+	<area coords="70,330,129,369" href="14/14-182.rle" />
+	<area coords="130,330,189,369" href="14/14-183.rle" />
+	<area coords="190,330,249,369" href="14/14-184.rle" />
+	<area coords="250,330,309,369" href="14/14-185.rle" />
+	<area coords="310,330,369,369" href="14/14-186.rle" />
+	<area coords="370,330,429,369" href="14/14-187.rle" />
+	<area coords="430,330,489,369" href="14/14-188.rle" />
+	<area coords="490,330,549,369" href="14/14-189.rle" />
+	<area coords="550,330,620,369" href="14/14-190.rle" />
+	<area coords="0,370,69,420" href="14/14-191.rle" />
+	<area coords="70,370,129,420" href="14/14-192.rle" />
+	<area coords="130,370,189,420" href="14/14-193.rle" />
+	<area coords="190,370,249,420" href="14/14-194.rle" />
+	<area coords="250,370,309,420" href="14/14-195.rle" />
+	<area coords="310,370,369,420" href="14/14-196.rle" />
+	<area coords="370,370,429,420" href="14/14-197.rle" />
+	<area coords="430,370,489,420" href="14/14-198.rle" />
+	<area coords="490,370,549,420" href="14/14-199.rle" />
+	<area coords="550,370,620,420" href="14/14-200.rle" />
+</map>
+
+<hr />
+<a name="p1-14-2"></a>
+<h3>14.201-14.300</h3>
+<p><a class="p" href="stamp/p1-14-2.rle"><img src="map/p1-14-2.png"
+ alt="14-bit still-lifes 201-300"
+ width="621" height="421" usemap="#p1-14-2" /></a></p>
+
+<map name="p1-14-2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-14.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-14-2.rle" />
+	<area coords="0,0,69,49" href="14/14-201.rle" />
+	<area coords="70,0,129,49" href="14/14-202.rle" />
+	<area coords="130,0,189,49" href="14/14-203.rle" />
+	<area coords="190,0,249,49" href="14/14-204.rle" />
+	<area coords="250,0,309,49" href="14/14-205.rle" />
+	<area coords="310,0,369,49" href="14/14-206.rle" />
+	<area coords="370,0,429,49" href="14/14-207.rle" />
+	<area coords="430,0,489,49" href="14/14-208.rle" />
+	<area coords="490,0,549,49" href="14/14-209.rle" />
+	<area coords="550,0,620,49" href="14/14-210.rle" />
+	<area coords="0,50,69,89" href="14/14-211.rle" />
+	<area coords="70,50,129,89" href="14/14-212.rle" />
+	<area coords="130,50,189,89" href="14/14-213.rle" />
+	<area coords="190,50,249,89" href="14/14-214.rle" />
+	<area coords="250,50,309,89" href="14/14-215.rle" />
+	<area coords="310,50,369,89" href="14/14-216.rle" />
+	<area coords="370,50,429,89" href="14/14-217.rle" />
+	<area coords="430,50,489,89" href="14/14-218.rle" />
+	<area coords="490,50,549,89" href="14/14-219.rle" />
+	<area coords="550,50,620,89" href="14/14-220.rle" />
+	<area coords="0,90,69,129" href="14/14-221.rle" />
+	<area coords="70,90,129,129" href="14/14-222.rle" />
+	<area coords="130,90,189,129" href="14/14-223.rle" />
+	<area coords="190,90,249,129" href="14/14-224.rle" />
+	<area coords="250,90,309,129" href="14/14-225.rle" />
+	<area coords="310,90,369,129" href="14/14-226.rle" />
+	<area coords="370,90,429,129" href="14/14-227.rle" />
+	<area coords="430,90,489,129" href="14/14-228.rle" />
+	<area coords="490,90,549,129" href="14/14-229.rle" />
+	<area coords="550,90,620,129" href="14/14-230.rle" />
+	<area coords="0,130,69,169" href="14/14-231.rle" />
+	<area coords="70,130,129,169" href="14/14-232.rle" />
+	<area coords="130,130,189,169" href="14/14-233.rle" />
+	<area coords="190,130,249,169" href="14/14-234.rle" />
+	<area coords="250,130,309,169" href="14/14-235.rle" />
+	<area coords="310,130,369,169" href="14/14-236.rle" />
+	<area coords="370,130,429,169" href="14/14-237.rle" />
+	<area coords="430,130,489,169" href="14/14-238.rle" />
+	<area coords="490,130,549,169" href="14/14-239.rle" />
+	<area coords="550,130,620,169" href="14/14-240.rle" />
+	<area coords="0,170,69,209" href="14/14-241.rle" />
+	<area coords="70,170,129,209" href="14/14-242.rle" />
+	<area coords="130,170,189,209" href="14/14-243.rle" />
+	<area coords="190,170,249,209" href="14/14-244.rle" />
+	<area coords="250,170,309,209" href="14/14-245.rle" />
+	<area coords="310,170,369,209" href="14/14-246.rle" />
+	<area coords="370,170,429,209" href="14/14-247.rle" />
+	<area coords="430,170,489,209" href="14/14-248.rle" />
+	<area coords="490,170,549,209" href="14/14-249.rle" />
+	<area coords="550,170,620,209" href="14/14-250.rle" />
+	<area coords="0,210,69,249" href="14/14-251.rle" />
+	<area coords="70,210,129,249" href="14/14-252.rle" />
+	<area coords="130,210,189,249" href="14/14-253.rle" />
+	<area coords="190,210,249,249" href="14/14-254.rle" />
+	<area coords="250,210,309,249" href="14/14-255.rle" />
+	<area coords="310,210,369,249" href="14/14-256.rle" />
+	<area coords="370,210,429,249" href="14/14-257.rle" />
+	<area coords="430,210,489,249" href="14/14-258.rle" />
+	<area coords="490,210,549,249" href="14/14-259.rle" />
+	<area coords="550,210,620,249" href="14/14-260.rle" />
+	<area coords="0,250,69,289" href="14/14-261.rle" />
+	<area coords="70,250,129,289" href="14/14-262.rle" />
+	<area coords="130,250,189,289" href="14/14-263.rle" />
+	<area coords="190,250,249,289" href="14/14-264.rle" />
+	<area coords="250,250,309,289" href="14/14-265.rle" />
+	<area coords="310,250,369,289" href="14/14-266.rle" />
+	<area coords="370,250,429,289" href="14/14-267.rle" />
+	<area coords="430,250,489,289" href="14/14-268.rle" />
+	<area coords="490,250,549,289" href="14/14-269.rle" />
+	<area coords="550,250,620,289" href="14/14-270.rle" />
+	<area coords="0,290,69,329" href="14/14-271.rle" />
+	<area coords="70,290,129,329" href="14/14-272.rle" />
+	<area coords="130,290,189,329" href="14/14-273.rle" />
+	<area coords="190,290,249,329" href="14/14-274.rle" />
+	<area coords="250,290,309,329" href="14/14-275.rle" />
+	<area coords="310,290,369,329" href="14/14-276.rle" />
+	<area coords="370,290,429,329" href="14/14-277.rle" />
+	<area coords="430,290,489,329" href="14/14-278.rle" />
+	<area coords="490,290,549,329" href="14/14-279.rle" />
+	<area coords="550,290,620,329" href="14/14-280.rle" />
+	<area coords="0,330,69,369" href="14/14-281.rle" />
+	<area coords="70,330,129,369" href="14/14-282.rle" />
+	<area coords="130,330,189,369" href="14/14-283.rle" />
+	<area coords="190,330,249,369" href="14/14-284.rle" />
+	<area coords="250,330,309,369" href="14/14-285.rle" />
+	<area coords="310,330,369,369" href="14/14-286.rle" />
+	<area coords="370,330,429,369" href="14/14-287.rle" />
+	<area coords="430,330,489,369" href="14/14-288.rle" />
+	<area coords="490,330,549,369" href="14/14-289.rle" />
+	<area coords="550,330,620,369" href="14/14-290.rle" />
+	<area coords="0,370,69,420" href="14/14-291.rle" />
+	<area coords="70,370,129,420" href="14/14-292.rle" />
+	<area coords="130,370,189,420" href="14/14-293.rle" />
+	<area coords="190,370,249,420" href="14/14-294.rle" />
+	<area coords="250,370,309,420" href="14/14-295.rle" />
+	<area coords="310,370,369,420" href="14/14-296.rle" />
+	<area coords="370,370,429,420" href="14/14-297.rle" />
+	<area coords="430,370,489,420" href="14/14-298.rle" />
+	<area coords="490,370,549,420" href="14/14-299.rle" />
+	<area coords="550,370,620,420" href="14/14-300.rle" />
+</map>
+
+<hr />
+<a name="p1-14-3"></a>
+<h3>14.301-14.400</h3>
+<p><a class="p" href="stamp/p1-14-3.rle"><img src="map/p1-14-3.png"
+ alt="14-bit still-lifes 301-400"
+ width="621" height="421" usemap="#p1-14-3" /></a></p>
+
+<map name="p1-14-3">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-14.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-14-3.rle" />
+	<area coords="0,0,69,49" href="14/14-301.rle" />
+	<area coords="70,0,129,49" href="14/14-302.rle" />
+	<area coords="130,0,189,49" href="14/14-303.rle" />
+	<area coords="190,0,249,49" href="14/14-304.rle" />
+	<area coords="250,0,309,49" href="14/14-305.rle" />
+	<area coords="310,0,369,49" href="14/14-306.rle" />
+	<area coords="370,0,429,49" href="14/14-307.rle" />
+	<area coords="430,0,489,49" href="14/14-308.rle" />
+	<area coords="490,0,549,49" href="14/14-309.rle" />
+	<area coords="550,0,620,49" href="14/14-310.rle" />
+	<area coords="0,50,69,89" href="14/14-311.rle" />
+	<area coords="70,50,129,89" href="14/14-312.rle" />
+	<area coords="130,50,189,89" href="14/14-313.rle" />
+	<area coords="190,50,249,89" href="14/14-314.rle" />
+	<area coords="250,50,309,89" href="14/14-315.rle" />
+	<area coords="310,50,369,89" href="14/14-316.rle" />
+	<area coords="370,50,429,89" href="14/14-317.rle" />
+	<area coords="430,50,489,89" href="14/14-318.rle" />
+	<area coords="490,50,549,89" href="14/14-319.rle" />
+	<area coords="550,50,620,89" href="14/14-320.rle" />
+	<area coords="0,90,69,129" href="14/14-321.rle" />
+	<area coords="70,90,129,129" href="14/14-322.rle" />
+	<area coords="130,90,189,129" href="14/14-323.rle" />
+	<area coords="190,90,249,129" href="14/14-324.rle" />
+	<area coords="250,90,309,129" href="14/14-325.rle" />
+	<area coords="310,90,369,129" href="14/14-326.rle" />
+	<area coords="370,90,429,129" href="14/14-327.rle" />
+	<area coords="430,90,489,129" href="14/14-328.rle" />
+	<area coords="490,90,549,129" href="14/14-329.rle" />
+	<area coords="550,90,620,129" href="14/14-330.rle" />
+	<area coords="0,130,69,169" href="14/14-331.rle" />
+	<area coords="70,130,129,169" href="14/14-332.rle" />
+	<area coords="130,130,189,169" href="14/14-333.rle" />
+	<area coords="190,130,249,169" href="14/14-334.rle" />
+	<area coords="250,130,309,169" href="14/14-335.rle" />
+	<area coords="310,130,369,169" href="14/14-336.rle" />
+	<area coords="370,130,429,169" href="14/14-337.rle" />
+	<area coords="430,130,489,169" href="14/14-338.rle" />
+	<area coords="490,130,549,169" href="14/14-339.rle" />
+	<area coords="550,130,620,169" href="14/14-340.rle" />
+	<area coords="0,170,69,209" href="14/14-341.rle" />
+	<area coords="70,170,129,209" href="14/14-342.rle" />
+	<area coords="130,170,189,209" href="14/14-343.rle" />
+	<area coords="190,170,249,209" href="14/14-344.rle" />
+	<area coords="250,170,309,209" href="14/14-345.rle" />
+	<area coords="310,170,369,209" href="14/14-346.rle" />
+	<area coords="370,170,429,209" href="14/14-347.rle" />
+	<area coords="430,170,489,209" href="14/14-348.rle" />
+	<area coords="490,170,549,209" href="14/14-349.rle" />
+	<area coords="550,170,620,209" href="14/14-350.rle" />
+	<area coords="0,210,69,249" href="14/14-351.rle" />
+	<area coords="70,210,129,249" href="14/14-352.rle" />
+	<area coords="130,210,189,249" href="14/14-353.rle" />
+	<area coords="190,210,249,249" href="14/14-354.rle" />
+	<area coords="250,210,309,249" href="14/14-355.rle" />
+	<area coords="310,210,369,249" href="14/14-356.rle" />
+	<area coords="370,210,429,249" href="14/14-357.rle" />
+	<area coords="430,210,489,249" href="14/14-358.rle" />
+	<area coords="490,210,549,249" href="14/14-359.rle" />
+	<area coords="550,210,620,249" href="14/14-360.rle" />
+	<area coords="0,250,69,289" href="14/14-361.rle" />
+	<area coords="70,250,129,289" href="14/14-362.rle" />
+	<area coords="130,250,189,289" href="14/14-363.rle" />
+	<area coords="190,250,249,289" href="14/14-364.rle" />
+	<area coords="250,250,309,289" href="14/14-365.rle" />
+	<area coords="310,250,369,289" href="14/14-366.rle" />
+	<area coords="370,250,429,289" href="14/14-367.rle" />
+	<area coords="430,250,489,289" href="14/14-368.rle" />
+	<area coords="490,250,549,289" href="14/14-369.rle" />
+	<area coords="550,250,620,289" href="14/14-370.rle" />
+	<area coords="0,290,69,329" href="14/14-371.rle" />
+	<area coords="70,290,129,329" href="14/14-372.rle" />
+	<area coords="130,290,189,329" href="14/14-373.rle" />
+	<area coords="190,290,249,329" href="14/14-374.rle" />
+	<area coords="250,290,309,329" href="14/14-375.rle" />
+	<area coords="310,290,369,329" href="14/14-376.rle" />
+	<area coords="370,290,429,329" href="14/14-377.rle" />
+	<area coords="430,290,489,329" href="14/14-378.rle" />
+	<area coords="490,290,549,329" href="14/14-379.rle" />
+	<area coords="550,290,620,329" href="14/14-380.rle" />
+	<area coords="0,330,69,369" href="14/14-381.rle" />
+	<area coords="70,330,129,369" href="14/14-382.rle" />
+	<area coords="130,330,189,369" href="14/14-383.rle" />
+	<area coords="190,330,249,369" href="14/14-384.rle" />
+	<area coords="250,330,309,369" href="14/14-385.rle" />
+	<area coords="310,330,369,369" href="14/14-386.rle" />
+	<area coords="370,330,429,369" href="14/14-387.rle" />
+	<area coords="430,330,489,369" href="14/14-388.rle" />
+	<area coords="490,330,549,369" href="14/14-389.rle" />
+	<area coords="550,330,620,369" href="14/14-390.rle" />
+	<area coords="0,370,69,420" href="14/14-391.rle" />
+	<area coords="70,370,129,420" href="14/14-392.rle" />
+	<area coords="130,370,189,420" href="14/14-393.rle" />
+	<area coords="190,370,249,420" href="14/14-394.rle" />
+	<area coords="250,370,309,420" href="14/14-395.rle" />
+	<area coords="310,370,369,420" href="14/14-396.rle" />
+	<area coords="370,370,429,420" href="14/14-397.rle" />
+	<area coords="430,370,489,420" href="14/14-398.rle" />
+	<area coords="490,370,549,420" href="14/14-399.rle" />
+	<area coords="550,370,620,420" href="14/14-400.rle" />
+</map>
+
+<hr />
+<a name="p1-14-4"></a>
+<h3>14.401-14.500</h3>
+<p><a class="p" href="stamp/p1-14-4.rle"> <img src="map/p1-14-4.png"
+ alt="14-bit still-lifes 401-500"
+ width="621" height="421" usemap="#p1-14-4" /></a></p>
+
+<map name="p1-14-4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-14.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-14-4.rle" />
+	<area coords="0,0,69,49" href="14/14-401.rle" />
+	<area coords="70,0,129,49" href="14/14-402.rle" />
+	<area coords="130,0,189,49" href="14/14-403.rle" />
+	<area coords="190,0,249,49" href="14/14-404.rle" />
+	<area coords="250,0,309,49" href="14/14-405.rle" />
+	<area coords="310,0,369,49" href="14/14-406.rle" />
+	<area coords="370,0,429,49" href="14/14-407.rle" />
+	<area coords="430,0,489,49" href="14/14-408.rle" />
+	<area coords="490,0,549,49" href="14/14-409.rle" />
+	<area coords="550,0,620,49" href="14/14-410.rle" />
+	<area coords="0,50,69,89" href="14/14-411.rle" />
+	<area coords="70,50,129,89" href="14/14-412.rle" />
+	<area coords="130,50,189,89" href="14/14-413.rle" />
+	<area coords="190,50,249,89" href="14/14-414.rle" />
+	<area coords="250,50,309,89" href="14/14-415.rle" />
+	<area coords="310,50,369,89" href="14/14-416.rle" />
+	<area coords="370,50,429,89" href="14/14-417.rle" />
+	<area coords="430,50,489,89" href="14/14-418.rle" />
+	<area coords="490,50,549,89" href="14/14-419.rle" />
+	<area coords="550,50,620,89" href="14/14-420.rle" />
+	<area coords="0,90,69,129" href="14/14-421.rle" />
+	<area coords="70,90,129,129" href="14/14-422.rle" />
+	<area coords="130,90,189,129" href="14/14-423.rle" />
+	<area coords="190,90,249,129" href="14/14-424.rle" />
+	<area coords="250,90,309,129" href="14/14-425.rle" />
+	<area coords="310,90,369,129" href="14/14-426.rle" />
+	<area coords="370,90,429,129" href="14/14-427.rle" />
+	<area coords="430,90,489,129" href="14/14-428.rle" />
+	<area coords="490,90,549,129" href="14/14-429.rle" />
+	<area coords="550,90,620,129" href="14/14-430.rle" />
+	<area coords="0,130,69,169" href="14/14-431.rle" />
+	<area coords="70,130,129,169" href="14/14-432.rle" />
+	<area coords="130,130,189,169" href="14/14-433.rle" />
+	<area coords="190,130,249,169" href="14/14-434.rle" />
+	<area coords="250,130,309,169" href="14/14-435.rle" />
+	<area coords="310,130,369,169" href="14/14-436.rle" />
+	<area coords="370,130,429,169" href="14/14-437.rle" />
+	<area coords="430,130,489,169" href="14/14-438.rle" />
+	<area coords="490,130,549,169" href="14/14-439.rle" />
+	<area coords="550,130,620,169" href="14/14-440.rle" />
+	<area coords="0,170,69,209" href="14/14-441.rle" />
+	<area coords="70,170,129,209" href="14/14-442.rle" />
+	<area coords="130,170,189,209" href="14/14-443.rle" />
+	<area coords="190,170,249,209" href="14/14-444.rle" />
+	<area coords="250,170,309,209" href="14/14-445.rle" />
+	<area coords="310,170,369,209" href="14/14-446.rle" />
+	<area coords="370,170,429,209" href="14/14-447.rle" />
+	<area coords="430,170,489,209" href="14/14-448.rle" />
+	<area coords="490,170,549,209" href="14/14-449.rle" />
+	<area coords="550,170,620,209" href="14/14-450.rle" />
+	<area coords="0,210,69,249" href="14/14-451.rle" />
+	<area coords="70,210,129,249" href="14/14-452.rle" />
+	<area coords="130,210,189,249" href="14/14-453.rle" />
+	<area coords="190,210,249,249" href="14/14-454.rle" />
+	<area coords="250,210,309,249" href="14/14-455.rle" />
+	<area coords="310,210,369,249" href="14/14-456.rle" />
+	<area coords="370,210,429,249" href="14/14-457.rle" />
+	<area coords="430,210,489,249" href="14/14-458.rle" />
+	<area coords="490,210,549,249" href="14/14-459.rle" />
+	<area coords="550,210,620,249" href="14/14-460.rle" />
+	<area coords="0,250,69,289" href="14/14-461.rle" />
+	<area coords="70,250,129,289" href="14/14-462.rle" />
+	<area coords="130,250,189,289" href="14/14-463.rle" />
+	<area coords="190,250,249,289" href="14/14-464.rle" />
+	<area coords="250,250,309,289" href="14/14-465.rle" />
+	<area coords="310,250,369,289" href="14/14-466.rle" />
+	<area coords="370,250,429,289" href="14/14-467.rle" />
+	<area coords="430,250,489,289" href="14/14-468.rle" />
+	<area coords="490,250,549,289" href="14/14-469.rle" />
+	<area coords="550,250,620,289" href="14/14-470.rle" />
+	<area coords="0,290,69,329" href="14/14-471.rle" />
+	<area coords="70,290,129,329" href="14/14-472.rle" />
+	<area coords="130,290,189,329" href="14/14-473.rle" />
+	<area coords="190,290,249,329" href="14/14-474.rle" />
+	<area coords="250,290,309,329" href="14/14-475.rle" />
+	<area coords="310,290,369,329" href="14/14-476.rle" />
+	<area coords="370,290,429,329" href="14/14-477.rle" />
+	<area coords="430,290,489,329" href="14/14-478.rle" />
+	<area coords="490,290,549,329" href="14/14-479.rle" />
+	<area coords="550,290,620,329" href="14/14-480.rle" />
+	<area coords="0,330,69,369" href="14/14-481.rle" />
+	<area coords="70,330,129,369" href="14/14-482.rle" />
+	<area coords="130,330,189,369" href="14/14-483.rle" />
+	<area coords="190,330,249,369" href="14/14-484.rle" />
+	<area coords="250,330,309,369" href="14/14-485.rle" />
+	<area coords="310,330,369,369" href="14/14-486.rle" />
+	<area coords="370,330,429,369" href="14/14-487.rle" />
+	<area coords="430,330,489,369" href="14/14-488.rle" />
+	<area coords="490,330,549,369" href="14/14-489.rle" />
+	<area coords="550,330,620,369" href="14/14-490.rle" />
+	<area coords="0,370,69,420" href="14/14-491.rle" />
+	<area coords="70,370,129,420" href="14/14-492.rle" />
+	<area coords="130,370,189,420" href="14/14-493.rle" />
+	<area coords="190,370,249,420" href="14/14-494.rle" />
+	<area coords="250,370,309,420" href="14/14-495.rle" />
+	<area coords="310,370,369,420" href="14/14-496.rle" />
+	<area coords="370,370,429,420" href="14/14-497.rle" />
+	<area coords="430,370,489,420" href="14/14-498.rle" />
+	<area coords="490,370,549,420" href="14/14-499.rle" />
+	<area coords="550,370,620,420" href="14/14-500.rle" />
+</map>
+
+<hr />
+<a name="p1-14-5"></a>
+<h3>14.501-14.600</h3>
+<p><a class="p" href="stamp/p1-14-5.rle"><img src="map/p1-14-5.png"
+ alt="14-bit still-lifes 501-600"
+ width="621" height="421" usemap="#p1-14-5" /></a></p>
+
+<map name="p1-14-5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-14.zip" />
+	<area coords="601,401,620,420" href="stamp/p1-14-5.rle" />
+	<area coords="0,0,69,49" href="14/14-501.rle" />
+	<area coords="70,0,129,49" href="14/14-502.rle" />
+	<area coords="130,0,189,49" href="14/14-503.rle" />
+	<area coords="190,0,249,49" href="14/14-504.rle" />
+	<area coords="250,0,309,49" href="14/14-505.rle" />
+	<area coords="310,0,369,49" href="14/14-506.rle" />
+	<area coords="370,0,429,49" href="14/14-507.rle" />
+	<area coords="430,0,489,49" href="14/14-508.rle" />
+	<area coords="490,0,549,49" href="14/14-509.rle" />
+	<area coords="550,0,620,49" href="14/14-510.rle" />
+	<area coords="0,50,69,89" href="14/14-511.rle" />
+	<area coords="70,50,129,89" href="14/14-512.rle" />
+	<area coords="130,50,189,89" href="14/14-513.rle" />
+	<area coords="190,50,249,89" href="14/14-514.rle" />
+	<area coords="250,50,309,89" href="14/14-515.rle" />
+	<area coords="310,50,369,89" href="14/14-516.rle" />
+	<area coords="370,50,429,89" href="14/14-517.rle" />
+	<area coords="430,50,489,89" href="14/14-518.rle" />
+	<area coords="490,50,549,89" href="14/14-519.rle" />
+	<area coords="550,50,620,89" href="14/14-520.rle" />
+	<area coords="0,90,69,129" href="14/14-521.rle" />
+	<area coords="70,90,129,129" href="14/14-522.rle" />
+	<area coords="130,90,189,129" href="14/14-523.rle" />
+	<area coords="190,90,249,129" href="14/14-524.rle" />
+	<area coords="250,90,309,129" href="14/14-525.rle" />
+	<area coords="310,90,369,129" href="14/14-526.rle" />
+	<area coords="370,90,429,129" href="14/14-527.rle" />
+	<area coords="430,90,489,129" href="14/14-528.rle" />
+	<area coords="490,90,549,129" href="14/14-529.rle" />
+	<area coords="550,90,620,129" href="14/14-530.rle" />
+	<area coords="0,130,69,169" href="14/14-531.rle" />
+	<area coords="70,130,129,169" href="14/14-532.rle" />
+	<area coords="130,130,189,169" href="14/14-533.rle" />
+	<area coords="190,130,249,169" href="14/14-534.rle" />
+	<area coords="250,130,309,169" href="14/14-535.rle" />
+	<area coords="310,130,369,169" href="14/14-536.rle" />
+	<area coords="370,130,429,169" href="14/14-537.rle" />
+	<area coords="430,130,489,169" href="14/14-538.rle" />
+	<area coords="490,130,549,169" href="14/14-539.rle" />
+	<area coords="550,130,620,169" href="14/14-540.rle" />
+	<area coords="0,170,69,209" href="14/14-541.rle" />
+	<area coords="70,170,129,209" href="14/14-542.rle" />
+	<area coords="130,170,189,209" href="14/14-543.rle" />
+	<area coords="190,170,249,209" href="14/14-544.rle" />
+	<area coords="250,170,309,209" href="14/14-545.rle" />
+	<area coords="310,170,369,209" href="14/14-546.rle" />
+	<area coords="370,170,429,209" href="14/14-547.rle" />
+	<area coords="430,170,489,209" href="14/14-548.rle" />
+	<area coords="490,170,549,209" href="14/14-549.rle" />
+	<area coords="550,170,620,209" href="14/14-550.rle" />
+	<area coords="0,210,69,249" href="14/14-551.rle" />
+	<area coords="70,210,129,249" href="14/14-552.rle" />
+	<area coords="130,210,189,249" href="14/14-553.rle" />
+	<area coords="190,210,249,249" href="14/14-554.rle" />
+	<area coords="250,210,309,249" href="14/14-555.rle" />
+	<area coords="310,210,369,249" href="14/14-556.rle" />
+	<area coords="370,210,429,249" href="14/14-557.rle" />
+	<area coords="430,210,489,249" href="14/14-558.rle" />
+	<area coords="490,210,549,249" href="14/14-559.rle" />
+	<area coords="550,210,620,249" href="14/14-560.rle" />
+	<area coords="0,250,69,289" href="14/14-561.rle" />
+	<area coords="70,250,129,289" href="14/14-562.rle" />
+	<area coords="130,250,189,289" href="14/14-563.rle" />
+	<area coords="190,250,249,289" href="14/14-564.rle" />
+	<area coords="250,250,309,289" href="14/14-565.rle" />
+	<area coords="310,250,369,289" href="14/14-566.rle" />
+	<area coords="370,250,429,289" href="14/14-567.rle" />
+	<area coords="430,250,489,289" href="14/14-568.rle" />
+	<area coords="490,250,549,289" href="14/14-569.rle" />
+	<area coords="550,250,620,289" href="14/14-570.rle" />
+	<area coords="0,290,69,329" href="14/14-571.rle" />
+	<area coords="70,290,129,329" href="14/14-572.rle" />
+	<area coords="130,290,189,329" href="14/14-573.rle" />
+	<area coords="190,290,249,329" href="14/14-574.rle" />
+	<area coords="250,290,309,329" href="14/14-575.rle" />
+	<area coords="310,290,369,329" href="14/14-576.rle" />
+	<area coords="370,290,429,329" href="14/14-577.rle" />
+	<area coords="430,290,489,329" href="14/14-578.rle" />
+	<area coords="490,290,549,329" href="14/14-579.rle" />
+	<area coords="550,290,620,329" href="14/14-580.rle" />
+	<area coords="0,330,69,369" href="14/14-581.rle" />
+	<area coords="70,330,129,369" href="14/14-582.rle" />
+	<area coords="130,330,189,369" href="14/14-583.rle" />
+	<area coords="190,330,249,369" href="14/14-584.rle" />
+	<area coords="250,330,309,369" href="14/14-585.rle" />
+	<area coords="310,330,369,369" href="14/14-586.rle" />
+	<area coords="370,330,429,369" href="14/14-587.rle" />
+	<area coords="430,330,489,369" href="14/14-588.rle" />
+	<area coords="490,330,549,369" href="14/14-589.rle" />
+	<area coords="550,330,620,369" href="14/14-590.rle" />
+	<area coords="0,370,69,420" href="14/14-591.rle" />
+	<area coords="70,370,129,420" href="14/14-592.rle" />
+	<area coords="130,370,189,420" href="14/14-593.rle" />
+	<area coords="190,370,249,420" href="14/14-594.rle" />
+	<area coords="250,370,309,420" href="14/14-595.rle" />
+	<area coords="310,370,369,420" href="14/14-596.rle" />
+	<area coords="370,370,429,420" href="14/14-597.rle" />
+	<area coords="430,370,489,420" href="14/14-598.rle" />
+	<area coords="490,370,549,420" href="14/14-599.rle" />
+	<area coords="550,370,620,420" href="14/14-600.rle" />
+</map>
+
+<hr />
+<a name="p1-14-6"></a>
+<h3>14.601-14.619</h3>
+<p><a class="p" href="stamp/p1-14-6.rle"><img src="map/p1-14-6.png"
+ alt="14-bit still-lifes 601-619"
+ width="621" height="101" usemap="#p1-14-6" /></a></p>
+
+<map name="p1-14-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p1-14.zip" />
+	<area coords="601,81,620,100" href="stamp/p1-14-6.rle" />
+	<area coords="0,0,69,49" href="14/14-601.rle" />
+	<area coords="70,0,129,49" href="14/14-602.rle" />
+	<area coords="130,0,189,49" href="14/14-603.rle" />
+	<area coords="190,0,249,49" href="14/14-604.rle" />
+	<area coords="250,0,309,49" href="14/14-605.rle" />
+	<area coords="310,0,369,49" href="14/14-606.rle" />
+	<area coords="370,0,429,49" href="14/14-607.rle" />
+	<area coords="430,0,489,49" href="14/14-608.rle" />
+	<area coords="490,0,549,49" href="14/14-609.rle" />
+	<area coords="550,0,620,49" href="14/14-610.rle" />
+	<area coords="0,50,69,100" href="14/14-611.rle" />
+	<area coords="70,50,129,100" href="14/14-612.rle" />
+	<area coords="130,50,189,100" href="14/14-613.rle" />
+	<area coords="190,50,249,100" href="14/14-614.rle" />
+	<area coords="250,50,309,100" href="14/14-615.rle" />
+	<area coords="310,50,369,100" href="14/14-616.rle" />
+	<area coords="370,50,429,100" href="14/14-617.rle" />
+	<area coords="430,50,489,100" href="14/14-618.rle" />
+	<area coords="490,50,549,100" href="14/14-619.rle" />
+	<area coords="550,50,620,100" nohref="nohref" />
+</map>
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other <a class="i" href="bits-14.htm">14-bit objects</a>:</b>
+	still-lifes,
+	<a class="i" href="pp1-14.htm">pseudo-still-lifes</a>,
+	<a class="i" href="bits-14.htm#p2-14">P2 oscillators</a>,
+	<a class="i" href="bits-14.htm#pp2-14">P2 pseudo-oscillators</a>,
+	<a class="i" href="bits-14.htm#p3-14">P3 oscillator</a>.</p>
+
+<p><b>Other <a class="i" href="p1.htm">still-lifes</a>:</b>
+	<a class="i" href="p1.htm#p1-4">4-bit</a>,
+	<a class="i" href="p1.htm#p1-5">5-bit</a>,
+	<a class="i" href="p1.htm#p1-6">6-bit</a>,
+	<a class="i" href="p1.htm#p1-7">7-bit</a>,
+	<a class="i" href="p1.htm#p1-8">8-bit</a>,
+	<a class="i" href="p1.htm#p1-9">9-bit</a>,
+	<a class="i" href="p1.htm#p1-10">10-bit</a>,
+	<a class="i" href="p1.htm#p1-11">11-bit</a>,
+	<a class="i" href="p1-12.htm">12-bit</a>,
+	<a class="i" href="p1-13.htm">13-bit</a>,
+	14-bit,
+	<a class="i" href="p1-15.htm">15-bit</a>,
+	<a class="i" href="p1-16.htm">16-bit</a>,
+	<a class="i" href="p1-17.htm">17-bit</a>,
+	<a class="i" href="p1-18.htm">18-bit</a>,
+	<a class="i" href="p1.htm#p1-19">19-bit</a>,
+	<a class="i" href="p1.htm#p1-20">20-bit</a>,
+	<a class="i" href="p1.htm#p1-21">21-bit</a>,
+	<a class="i" href="p1.htm#p1-22">22-bit</a>,
+	<a class="i" href="p1.htm#p1-23">23-bit</a>,
+	<a class="i" href="p1.htm#p1-24">24-bit</a>,
+	<a class="i" href="p1.htm#p1-25">25-bit</a>,
+	<a class="i" href="p1.htm#p1-26">26-bit</a>,
+	<a class="i" href="p1.htm#p1-27">27-bit</a>,
+	<a class="i" href="p1.htm#p1-28">28-bit</a>,
+	<a class="i" href="p1.htm#p1-29">29-bit</a>,
+	<a class="i" href="p1.htm#p1-lg">30-bit and larger</a>,
+	<a class="i" href="p1.htm#p1-bad">not quite still</a>.</p>
+
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

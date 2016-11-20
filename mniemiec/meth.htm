@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Methuselahs</title>
+<meta name="description"
+content="Conway's Game of Life: Methuselah lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life methuselah object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Methuselahs</h1>
+
+<p align="center">
+	<b><a class="j" href="#meth-intro">Introduction</a></b><br />
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#meth-5">5</a> |
+	  <a class="j" href="#meth-6">6</a> |
+	  <a class="j" href="#meth-7">7</a> |
+	  <a class="j" href="#meth-8">8</a> |
+	  <a class="j" href="#meth-9">9</a> |
+	  <a class="j" href="#meth-10">10</a><br />
+	<b><a class="i" href="objsize.htm">Period of final census</a>:</b>
+	  <a class="j" href="#meth-p1">1</a> |
+	  <a class="j" href="#meth-p2">2</a> |
+	  <a class="j" href="#meth-p4">4</a> |
+	  <a class="j" href="#meth-p60">60</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g2-meth">2</a> |
+	  <a class="j" href="#g3-meth">3</a> |
+	  <a class="j" href="#g4-meth">4</a> |
+	  <a class="j" href="#g5-meth">5</a> |
+	  <a class="j" href="#g6-meth">6</a>
+</p>
+
+<hr /><hr />
+<a name="meth-intro"></a>
+<p>Methuselahs are unstable patterns that run for a long time before
+stabilizing, usually into a constellation. Since they aren't stable, they
+don't actually have periods. The periods shown here associated with them are
+the periods of their final censuses. For example, this is 4 if the census
+includes any gliders or spaceships, 2 if it doesn't but includes blinkers or
+toads, and 1 if it includes only still-lifes. In one case (the glider-mango
+collision), the period is 60, because it includes all of these plus a
+pentadecathlon. Coincidentally, that is also the only methuselah listed here
+whose final census population is not constant, also because of the
+pentadecathlon. (Beacons also cause similar population fluctuation, and
+occur frequently; however, none of the methuselahs listed here have any beacons
+in their final censuses). Each methuselah has the population of its final
+census shown at its bottom right corner on the stamp image.</p>
+
+<p>Since methuselahs do not repeat, they are listed under the smallest known
+pattern that evolves along the same sequence. In many cases, this is smaller
+than the "standard" size. For example, the standard sizes of the
+<a class="p" href="0/5ph.rle">Pi heptomino</a>,
+<a class="p" href="0/6bh.rle">B heptomino</a>, and
+<a class="p" href="0/7oo.rle">Octomino</a> buildable from 2 gliders
+are respectively 7, 7 and 8, but their minimum sizes are 5, 6, and 7.
+Where there are more than one of these, the one with the longest running time
+is shown, and where there are several of those, one with the smallest bounding
+box is shown. Also, the syntheses are of various patterns along this sequence,
+not necessarily the first generation. These are grouped by common predecessor.
+In some cases, a single pattern may have different names for different phases
+(for example, a House is the third generation of the
+Pi heptomino, which is itself the second generation of the base
+<a class="p" href="0/5ph.rle">5-bit methuselah</a>, and Bunnies is the
+immediate predecessor to <a class="p" href="0/9ra.rle">Rabbits.</a>)</p>
+
+<p>Where names do not correspond to the phase shown, but occur later, the
+generation number at which the named pattern occurs is shown after the name
+with an @ sign. The generation at which the pattern achieves stability (i.e.
+census consists entirely of still-lifes, oscillators, and/or escaping
+spaceships) is also described. Note that in some cases (e.g. Dove), the named
+pattern does not evolve directly from the shown predecessor; rather, the two
+evolve into a shared common descendent some time shortly afterwards.</p>
+
+<p>Also, since these patterns do not repeat, there is no attempt to synchronize
+starting and ending generations. Furthermore, as most methuselahs expand to
+very large sizes, there is insufficient space within most of the synthesis
+pages to run the patterns to completion, especially for common methuselahs
+for which multiple syntheses are given; these pages only deal with synthesis
+of the methuselahs themselves, but not with their ultimate censuses.</p>
+
+<p>To allow viewing of methuselah census, results, each of the text tables
+here contains two rows. The upper row shows the glider synthesis of the
+methuselah (or an early-generation equivalent), while the lower row shows its
+final census. If the census results are sufficiently small, both of these
+may point to the same file; otherwise, large methuselahs run alone to allow
+them to fill large areas - especially if they release many gliders.</p>
+
+<hr />
+<hr />
+<a name="meth-5"></a>
+<h2>The 2 <a class="i" href="bits-5.htm">five-bit</a>
+methuselahs</h2>
+<p><a class="p" href="stamp/meth-5.rle"><img src="map/meth-5.png"
+ alt="5-bit methuselahs" width="181" height="61" usemap="#meth-5" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/5ph.rle">Pi Hept- omino (@2);
+	    Blasting cap (@2); House (@5) [2]</a></td>
+	<td><a class="p" href="0/5rp.rle">
+	    R pent- omino (@2) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/55ph.rle">
+	    2 Ponds, 6 blocks, 5 blinkers (@175)</a></td>
+	<td><a class="p" href="lg/116rp.rle">Loaf, ship,
+	    4 beehives, boat, 8 blocks, 4 blinkers, 6 gliders (@1105)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/meth-5.zip" />
+	<area coords="161,41,180,60" href="stamp/meth-5.rle" />
+	<area coords="0,0,89,60" href="0/5ph.rle" />
+	<area coords="90,0,180,60" href="0/5rp.rle" />
+</map>
+
+<hr />
+<a name="meth-6"></a>
+<h2>7 <a class="i" href="bits-6.htm">six-bit</a>
+methuselahs</h2>
+<p><a class="p" href="stamp/meth-6.rle"><img src="map/meth-6.png"
+ alt="6-bit methuselahs" width="581" height="61" usemap="#meth-6" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6lm.rle">
+	    Handshake (@5); Lumps of muck (LOM) (@7) [2]</a></td>
+	<td><a class="p" href="0/6tm.rle">
+	    Thompson's 6-bit methuselah [6]</a></td>
+	<td><a class="p" href="0/6be.rle">
+	    Century (@1); Bookend (@2); Hook (@2); Kidney (@2) [3]</a></td>
+	<td><a class="p" href="0/6tbd.rle">
+	    Thunder- bird (@1) [4]</a></td>
+	<td><a class="p" href="0/6bh.rle">
+	    B Hept- omino (@1) [2]</a></td>
+	<td><a class="p" href="0/6wg.rle">
+	    Block and glider; Wing (@2); R-Loaf (@2) [3]</a></td>
+	<td><a class="p" href="0/6h.rle">
+	    Herschel parent; Herschel (@1) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16lm.rle">
+	    Blockade (4 blocks) (@67)</a></td>
+	<td><a class="p" href="0/6tm.rle">
+	    Loaf, 6 blocks and 12 blinkers (@608)</a></td>
+	<td><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (@103)</a></td>
+	<td><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (@244)</a></td>
+	<td><a class="p" href="lg/28bh.rle">
+	    Ship, 3 blocks, 2 gliders (@149)</a></td>
+	<td><a class="p" href="0/9bkgl.rle">
+	    Block and glider (@106)</a></td>
+	<td><a class="p" href="23/23h.rle">
+	    Ship, 2 blocks, glider (@128)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/meth-6.zip" />
+	<area coords="561,41,580,60" href="stamp/meth-6.rle" />
+	<area coords="0,0,89,60" href="0/6lm.rle" />
+	<area coords="90,0,169,60" href="0/6tm.rle" />
+	<area coords="170,0,249,60" href="0/6be.rle" />
+	<area coords="250,0,329,60" href="0/6tbd.rle" />
+	<area coords="330,0,409,60" href="0/6bh.rle" />
+	<area coords="410,0,489,60" href="0/6wg.rle" />
+	<area coords="490,0,580,60" href="0/6h.rle" />
+</map>
+
+<hr />
+<a name="meth-7"></a>
+<h2>4 <a class="i" href="bits-7.htm">seven-bit</a>
+methuselahs</h2>
+<p><a class="p" href="stamp/meth-7.rle"><img src="map/meth-7.png"
+ alt="7-bit methuselahs" width="341" height="61" usemap="#meth-7" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/7oo.rle">
+	    (2 glider) Oct- omino (@4) [2]</a></td>
+	<td><a class="p" href="0/7dv.rle">
+	    Dove (@1); R-mango (@1) [3]</a></td>
+	<td><a class="p" href="0/7ak.rle">
+	    Acorn [4]</a></td>
+	<td><a class="p" href="0/7mp.rle">
+	    Multum in parvo [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/48oo.rle">
+	    2 Traffic lights, 4 beehives (@388)</a></td>
+	<td><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (@201)</a></td>
+	<td><a class="p" href="lg/633ak.rle">
+	    Oak: Mango, 2 ponds, 5 loaves, 2 barges, 2 ships, 30 beehives, 3
+	    ships, 8 boats, 34 blocks, 41 blinkers, 13 gliders (@5206)</a></td>
+	<td><a class="p" href="lg/633mp.rle">
+	    Block on beehive, pond, 6 loaves, toad, 28 beehives, 6 ships,
+	    8 boats, 2 tubs, 40 blocks, 36 blinkers, 13 gliders (@3933)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-7">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/meth-7.zip" />
+	<area coords="321,41,340,60" href="stamp/meth-7.rle" />
+	<area coords="0,0,89,60" href="0/7oo.rle" />
+	<area coords="90,0,169,60" href="0/7dv.rle" />
+	<area coords="170,0,249,60" href="0/7ak.rle" />
+	<area coords="250,0,340,60" href="0/7mp.rle" />
+</map>
+
+<p>Note that the minimum sizes of Acorn and Multum in parvo are the same size
+(7 bits), their censuses are the same size (633 bits), and both release 13
+gliders, but they are totally unrelated in any other way.</p>
+
+<hr />
+<a name="meth-8"></a>
+<h2>6 <a class="i" href="bits-8.htm">eight-bit</a>
+methuselahs</h2>
+<p><a class="p" href="stamp/meth-8.rle"><img src="map/meth-8.png"
+ alt="8-bit methuselahs" width="521" height="61" usemap="#meth-8" /></a><br />
+    <table width="525">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/8dh.rle">
+	    Die hard [5]</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Pike; Pi hept- omino and block [3]</a></td>
+	<td><a class="p" href="0/8gd.rle">
+	    Gliders by the dozen, Gliders- omino (@-1) [3]</a></td>
+	<td><a class="p" href="0/8j.rle">
+	    J [3]</a></td>
+	<td><a class="p" href="0/8sw.rle">
+	    Un- stabil- ized switch engine [4]</a></td>
+	<td><a class="p" href="0/8cm.rle">Glider- mango collision
+	    (@-4); Glider- mango mess; Pi hept- omino and block (@3) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/8dh.rle">
+	    Death (@118)</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Toad, 9 beehives, 2 boats, 7 blocks, 9 blinkers (@991)</a></td>
+	<td><a class="p" href="lg/124gd.rle">
+	    4 Beehives, 4 blocks, 4 blinkers, 12 gliders (@184)</a></td>
+	<td><a class="p" href="0/8j.rle">Fleet, loaf, ship,
+	    2 beehives, 2 boats, 8 blocks, blinker, 2 gliders (@556)</a></td>
+	<td><a class="p" href="lg/842sw.rle">
+	    2 Ponds, 2 long boats, 11 loaves, 33 beehives, 4 ships, 11 boats,
+	    2 tubs, 60 blocks, 50 blinkers, 12 gliders (@3911)</a></td>
+	<td><a class="p" href="lg/440cm.rle">
+	    Penta- decathlon, pond, 6 loaves, toad, 18 beehives, ship, 12 boats,
+	    tub, 30 blocks, 18 blinkers, 4 gliders (@2585)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/meth-8.zip" />
+	<area coords="501,41,520,60" href="stamp/meth-8.rle" />
+	<area coords="0,0,89,60" href="0/8dh.rle" />
+	<area coords="90,0,169,60" href="0/8pk.rle" />
+	<area coords="170,0,249,60" href="0/8gd.rle" />
+	<area coords="250,0,329,60" href="0/8j.rle" />
+	<area coords="330,0,409,60" href="0/8sw.rle" />
+	<area coords="410,0,520,60" href="0/8cm.rle" />
+</map>
+
+<hr />
+<a name="meth-9"></a>
+<h2>2 <a class="i" href="bits-9.htm">nine-bit</a>
+methuselahs</h2>
+<p><a class="p" href="stamp/meth-9.rle"><img src="map/meth-9.png"
+ alt="9-bit methuselah" width="181" height="61" usemap="#meth-9" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/9jd.rle">Jaydot (@-1) [4]</a></td>
+	<td><a class="p" href="0/9ra.rle">Bunnies; Rabbits (@1) [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/1124jd.rle">
+	    1 Fleet, 1 pond, 13 loaves, 1 toad, 5 ships, 9 boats, 5 tubs,
+	    68 blocks, 66 blinkers, 26 gliders (@6929)</a></td>
+	<td><a class="p" href="lg/1744ra.rle">
+	    3 Ponds, 18 loaves, 2 toads, 65 beehives, 7 ships, 18 boats, 4 tubs,
+	    109 blocks, 136 blinkers, 40 gliders (@17332)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-9">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/meth-9.zip" />
+	<area coords="161,41,180,60" href="stamp/meth-9.rle" />
+	<area coords="0,0,89,60" href="0/9jd.rle" />
+	<area coords="90,0,180,60" href="0/9ra.rle" />
+</map>
+
+<hr />
+<a name="meth-10"></a>
+<h2>1 <a class="i" href="bits-10.htm">ten-bit</a>
+methuselah</h2>
+<p><a class="p" href="stamp/meth-10.rle"><img src="map/meth-10.png"
+ alt="10b methuselah" width="101" height="61" usemap="#meth-10" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="10/10gm.rle">
+	    Two- glider mess [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="10/10gm.rle">
+	    Ship, beehive, 4 blocks, 8 blinkers, 4 gliders (@530)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-10">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/meth-10.zip" />
+	<area coords="81,41,100,60" href="stamp/meth-10.rle" />
+	<area coords="0,0,100,60" href="10/10gm.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="meth-p1"></a>
+<h2>2 methuselahs whose censuses are
+<a class="i" href="p1.htm">period 1</a></h2>
+<p><a class="p" href="stamp/meth-p1.rle"><img src="map/meth-p1.png"
+ alt="still methuselahs"
+ width="181" height="61" usemap="#meth-p1" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6lm.rle">
+	    Handshake (@5); Lumps of muck (LOM) (@7) [2]</a></td>
+	<td><a class="p" href="0/8dh.rle">Die hard [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16lm.rle">
+	    Blockade (4 blocks) (@67)</a></td>
+	<td><a class="p" href="0/8dh.rle">Death (@118)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-p1">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/meth-p1.zip" />
+	<area coords="161,41,180,60" href="stamp/meth-p1.rle" />
+	<area coords="0,0,89,60" href="0/6lm.rle" />
+	<area coords="90,0,180,60" href="0/8dh.rle" />
+</map>
+
+<hr />
+<a name="meth-p2"></a>
+<h2>8 methuselahs whose censuses are
+<a class="i" href="p2.htm">period 2</a></h2>
+<p><a class="p" href="stamp/meth-p2.rle"><img src="map/meth-p2.png"
+ alt="P2 methuselahs"
+ width="621" height="61" usemap="#meth-p2" /></a><br />
+    <table width="625">
+    <colgroup><col width="87" /><col span="6" width="76" /><col width="80" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/5ph.rle">Pi Heptomino (@2);
+	    Blasting cap (@2); House (@5) [2]</a></td>
+	<td><a class="p" href="0/6tm.rle">
+	    Thompson's 6-bit methuselah [6]</a></td>
+	<td><a class="p" href="0/6be.rle">
+	    Century (@1); Bookend (@2); Hook (@2); Kidney (@2) [3]</a></td>
+	<td><a class="p" href="0/6tbd.rle">Thunder- bird (@1) [4]</a></td>
+	<td><a class="p" href="0/7oo.rle">(2 glider) Octomino (@4) [2]</a></td>
+	<td><a class="p" href="0/7dv.rle">
+	    Dove (@1); R-mango (@1) [3]</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Pike; Pi heptomino and block (@3) [3]</a></td>
+	<td><a class="p" href="10/10gm.rle">Two-glider mess [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/55ph.rle">
+	    2 Ponds, 6 blocks, 5 blinkers (@175)</a></td>
+	<td><a class="p" href="0/6tm.rle">
+	    Loaf, 6 blocks and 12 blinkers (@608)</a></td>
+	<td><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (@103)</a></td>
+	<td><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (@244)</a></td>
+	<td><a class="p" href="lg/48oo.rle">
+	    2 Traffic lights and 4 beehives (@388)</a></td>
+	<td><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (@201)</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Toad, 9 beehives, 2 boats, 7 blocks, 9 blinkers (@991)</a></td>
+	<td><a class="p" href="10/10gm.rle">
+	    Ship, beehive, 4 blocks, 8 blinkers, 4 gliders (@530)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-p2">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/meth-p2.zip" />
+	<area coords="601,41,620,60" href="stamp/meth-p2.rle" />
+	<area coords="0,0,85,60" href="0/5ph.rle" />
+	<area coords="86,0,161,60" href="0/6tm.rle" />
+	<area coords="162,0,237,60" href="0/6be.rle" />
+	<area coords="238,0,313,60" href="0/6tbd.rle" />
+	<area coords="314,0,389,60" href="0/7oo.rle" />
+	<area coords="390,0,465,60" href="0/7dv.rle" />
+	<area coords="466,0,541,60" href="0/8pk.rle" />
+	<area coords="542,0,620,60" href="10/10gm.rle" />
+</map>
+
+<p>These all have a period of 2 because of blinkers (and also, in Pike, a toad).</p>
+<hr />
+<a name="meth-p4"></a>
+<h2>11 methuselahs whose censuses are
+<a class="i" href="p4.htm">period 4</a></h2>
+<p><a class="p" href="stamp/meth-p4.rle"><img src="map/meth-p4.png"
+ alt="P4 methuselahs"
+ width="501" height="121" usemap="#meth-p4" /></a><br />
+    <table width="505">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/5rp.rle">
+	    R pent- omino (@2) [3]</a></td>
+	<td><a class="p" href="0/6bh.rle">B Hept- omino (@1) [2]</a></td>
+	<td><a class="p" href="0/6wg.rle">
+	    Block and glider; Wing (@2); R-loaf (@2) [3]</a></td>
+	<td><a class="p" href="0/6h.rle">
+	    Herschel parent; Herschel (@1) [3]</a></td>
+	<td><a class="p" href="0/7ak.rle">Acorn [4]</a></td>
+	<td><a class="p" href="0/7mp.rle">Multum in parvo [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/116rp.rle">Loaf, ship,
+	    4 beehives, boat, 8 blocks, 4 blinkers, 6 gliders (@1105)</a></td>
+	<td><a class="p" href="lg/28bh.rle">
+	    Ship, 3 blocks, 2 gliders (@149)</a></td>
+	<td><a class="p" href="0/9bkgl.rle">
+	    Block and glider (@106)</a></td>
+	<td><a class="p" href="23/23h.rle">
+	    Ship, 2 blocks, glider (@128)</a></td>
+	<td><a class="p" href="lg/633ak.rle">
+	    Oak: Mango, 2 ponds, 5 loaves, 2 barges, 2 ships, 30 beehives, 3
+	    ships, 8 boats, 34 blocks, 41 blinkers, 13 gliders (@5206)</a></td>
+	<td><a class="p" href="lg/633mp.rle">
+	    Block on beehive, pond, 6 loaves, toad, 28 beehives, 6 ships,
+	    8 boats, 2 tubs, 40 blocks, 36 blinkers, 13 gliders (@3933)</a></td>
+    </tr>
+
+    <tr>
+	<td rowspan="2" class="s">&nbsp;</td>
+	<td><a class="p" href="0/8gd.rle">
+	    Gliders by the dozen, Gliders- omino (@-1) [3]</a></td>
+	<td><a class="p" href="0/8j.rle">
+	    J (@6) [3]</a></td>
+	<td><a class="p" href="0/8sw.rle">
+	    Un- stabil- ized switch engine [4]</a></td>
+	<td><a class="p" href="0/9jd.rle">Jaydot (@-1) [4]</a></td>
+	<td><a class="p" href="0/9ra.rle">Bunnies; Rabbits (@1) [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/124gd.rle">
+	    4 Beehives, 4 blocks, 4 blinkers, 12 gliders (@184)</a></td>
+	<td><a class="p" href="0/8j.rle">Fleet, loaf, ship,
+	    2 beehives, 2 boats, 8 blocks, blinker, 2 gliders (@556)</a></td>
+	<td><a class="p" href="lg/842sw.rle">
+	    2 Ponds, 2 long boats, 11 loaves, 33 beehives, 4 ships, 11 boats,
+	    2 tubs, 60 blocks, 50 blinkers, 12 gliders (@3911)</a></td>
+	<td><a class="p" href="lg/1124jd.rle">
+	    1 Fleet, 1 pond, 13 loaves, 1 toad, 5 ships, 9 boats, 5 tubs,
+	    68 blocks, 66 blinkers, 26 gliders (@6929)</a></td>
+	<td><a class="p" href="lg/1744ra.rle">
+	    3 Ponds, 18 loaves, 2 toads, 65 beehives, 7 ships, 18 boats, 4 tubs,
+	    109 blocks, 136 blinkers, 40 gliders (@17332)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-p4">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/meth-p4.zip" />
+	<area coords="481,101,500,120" href="stamp/meth-p4.rle" />
+	<area coords="0,0,89,69" href="0/5rp.rle" />
+	<area coords="90,0,169,69" href="0/6bh.rle" />
+	<area coords="170,0,249,69" href="0/6wg.rle" />
+	<area coords="250,0,329,69" href="0/6h.rle" />
+	<area coords="330,0,409,69" href="0/7ak.rle" />
+	<area coords="410,0,500,69" href="0/7mp.rle" />
+	<area coords="0,70,89,120" nohref="nohref" />
+	<area coords="90,70,169,120" href="0/8gd.rle" />
+	<area coords="170,70,249,120" href="0/8j.rle" />
+	<area coords="250,70,329,120" href="0/8sw.rle" />
+	<area coords="330,70,409,120" href="0/9jd.rle" />
+	<area coords="410,70,500,120" href="0/9ra.rle" />
+</map>
+
+<p>These all have a period of 4 because of gliders.</p>
+
+<p>Note that the minimum sizes of Acorn and Multum in parvo are the same size
+(7 bits), their censuses are the same size (633 bits), and both release 13
+gliders, but they are totally unrelated in any other way.</p>
+
+<hr />
+<a name="meth-p60"></a>
+<h2>1 methuselah whose census is
+<a class="i" href="p60.htm">period 60</a></h2>
+<p><a class="p" href="stamp/meth-p60.rle"><img src="map/meth-p60.png"
+ alt="P60 methuselah"
+ width="121" height="61" usemap="#meth-p60" /></a><br />
+    <table width="125">
+    <colgroup><col width="123" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8cm.rle">
+	    Glider- mango collision (@-4), Glider- mango mess, Pi heptomino and
+	    block (@3) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/440cm.rle">
+	    Penta- decathlon, pond, 6 loaves, toad, 18 beehives, ship, 12 boats,
+	    tub, 30 blocks, 18 blinkers, 4 gliders (@2585)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-p60">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="101,0,120,19" href="zip/meth-p60.zip" />
+	<area coords="101,41,120,60" href="stamp/meth-p60.rle" />
+	<area coords="0,0,120,60" href="0/8cm.rle" />
+</map>
+
+<p>This has a pseudo-period of 60, a composite of 4 and 15, because of gliders
+and a pentadecathlon.</p>
+
+<hr />
+<hr />
+<a name="g2-meth"></a>
+<h2>The 5 methuselahs
+<a class="i" href="glider-2.htm">buildable from 2 gliders</a></h2>
+<p><a class="p" href="stamp/g2-meth.rle"><img src="map/g2-meth.png"
+ alt="2-glider methuselahs"
+ width="421" height="61" usemap="#g2-meth" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6lm.rle">
+	    Handshake (@5); Lumps of muck (LOM) (@7) [2]</a></td>
+	<td><a class="p" href="0/5ph.rle">Pi Heptomino (@2);
+	    Blasting cap (@2); House (@5) [2]</a></td>
+	<td><a class="p" href="0/7oo.rle">(2 glider) Octomino (@4) [2]</a></td>
+	<td><a class="p" href="10/10gm.rle">Two-glider mess [2]</a></td>
+	<td><a class="p" href="0/6bh.rle">B Heptomino (@1) [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="16/16lm.rle">
+	    Blockade (4 blocks) (@67)</a></td>
+	<td><a class="p" href="lg/55ph.rle">
+	    2 Ponds, 6 blocks, 5 blinkers (@175)</a></td>
+	<td><a class="p" href="lg/48oo.rle">
+	    2 Traffic lights and 4 beehives (@388)</a></td>
+	<td><a class="p" href="10/10gm.rle">
+	    Ship, beehive, 4 blocks, 8 blinkers, 4 gliders (@530)</a></td>
+	<td><a class="p" href="lg/28bh.rle">
+	    Ship, 3 blocks, 2 gliders (@149)</a></td>
+    </tr>
+</table></p>
+
+<map name="g2-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/g2-meth.zip" />
+	<area coords="401,41,420,60" href="stamp/g2-meth.rle" />
+	<area coords="0,0,89,60" href="0/6lm.rle" />
+	<area coords="90,0,169,60" href="0/5ph.rle" />
+	<area coords="170,0,249,60" href="0/7oo.rle" />
+	<area coords="250,0,329,60" href="10/10gm.rle" />
+	<area coords="330,0,420,60" href="0/6bh.rle" />
+</map>
+
+<hr />
+<a name="g3-meth"></a>
+<h2>8 methuselahs
+<a class="i" href="glider-3.htm">buildable from 3 gliders</a></h2>
+<p><a class="p" href="stamp/g3-meth.rle"><img src="map/g3-meth.png"
+ alt="3-glider methuselahs"
+ width="621" height="61" usemap="#g3-meth" /></a><br />
+    <table width="625">
+    <colgroup><col width="87" /><col span="6" width="76" /><col width="80" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6be.rle">
+	    Century (@1); Bookend (@2); Hook (@2); Kidney (@2) [3]</a></td>
+	<td><a class="p" href="0/7dv.rle">
+	    Dove (@1); R-mango (@1) [3]</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Pike; Pi heptomino and block (@3) [3]</a></td>
+	<td><a class="p" href="0/5rp.rle">
+	    R pentomino (@2) [3]</a></td>
+	<td><a class="p" href="0/6wg.rle">
+	    Block and glider; Wing (@2); R-loaf (@2) [3]</a></td>
+	<td><a class="p" href="0/6h.rle">
+	    Herschel parent; Herschel (@1) [3]</a></td>
+	<td><a class="p" href="0/8gd.rle">
+	    Gliders by the dozen, Gliders- omino (@-1) [3]</a></td>
+	<td><a class="p" href="0/8j.rle">
+	    J (@6) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (@103)</a></td>
+	<td><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (@201)</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Toad, 9 beehives, 2 boats, 7 blocks, 9 blinkers (@991)</a></td>
+	<td><a class="p" href="lg/116rp.rle">Loaf, ship,
+	    4 beehives, boat, 8 blocks, 4 blinkers, 6 gliders (@1105)</a></td>
+	<td><a class="p" href="0/9bkgl.rle">
+	    Block and glider (@106)</a></td>
+	<td><a class="p" href="23/23h.rle">
+	    Ship, 2 blocks, glider (@128)</a></td>
+	<td><a class="p" href="lg/124gd.rle">
+	    4 Beehives, 4 blocks, 4 blinkers, 12 gliders (@184)</a></td>
+	<td><a class="p" href="0/8j.rle">Fleet, loaf, ship,
+	    2 beehives, 2 boats, 8 blocks, blinker, 2 gliders (@556)</a></td>
+    </tr>
+</table></p>
+
+<map name="g3-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/g3-meth.zip" />
+	<area coords="601,41,620,60" href="stamp/g3-meth.rle" />
+	<area coords="0,0,85,60" href="0/6be.rle" />
+	<area coords="86,0,161,60" href="0/7dv.rle" />
+	<area coords="162,0,237,60" href="0/8pk.rle" />
+	<area coords="238,0,313,60" href="0/5rp.rle" />
+	<area coords="314,0,389,60" href="0/6wg.rle" />
+	<area coords="390,0,465,60" href="0/6h.rle" />
+	<area coords="466,0,541,60" href="0/8gd.rle" />
+	<area coords="542,0,620,60" href="0/8j.rle" />
+</map>
+
+<hr />
+<a name="g4-meth"></a>
+<h2>6 methuselahs
+<a class="i" href="glider-4.htm">buildable from 4 gliders</a></h2>
+<p><a class="p" href="stamp/g4-meth.rle"><img src="map/g4-meth.png"
+ alt="4-glider methuselahs"
+ width="521" height="61" usemap="#g4-meth" /></a><br />
+    <table width="525">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/6tbd.rle">Thunder- bird (@1) [4]</a></td>
+	<td><a class="p" href="0/7ak.rle">Acorn [4]</a></td>
+	<td><a class="p" href="0/7mp.rle">Multum in parvo [4]</a></td>
+	<td><a class="p" href="0/8sw.rle">
+	    Un- stabil- ized switch engine [4]</a></td>
+	<td><a class="p" href="0/9jd.rle">Jaydot (@-1) [4]</a></td>
+	<td><a class="p" href="0/8cm.rle">
+	    Glider- mango collision (@-4), Glider- mango mess, Pi heptomino and
+	    block (@3) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (@244)</a></td>
+	<td><a class="p" href="lg/633ak.rle">
+	    Oak: Mango, 2 ponds, 5 loaves, 2 barges, 2 ships, 30 beehives, 3
+	    ships, 8 boats, 34 blocks, 41 blinkers, 13 gliders (@5206)</a></td>
+	<td><a class="p" href="lg/633mp.rle">
+	    Block on beehive, pond, 6 loaves, toad, 28 beehives, 6 ships,
+	    8 boats, 2 tubs, 40 blocks, 36 blinkers, 13 gliders (@3933)</a></td>
+	<td><a class="p" href="lg/842sw.rle">
+	    2 Ponds, 2 long boats, 11 loaves, 33 beehives, 4 ships, 11 boats,
+	    2 tubs, 60 blocks, 50 blinkers, 12 gliders (@3911)</a></td>
+	<td><a class="p" href="lg/1124jd.rle">
+	    1 Fleet, 1 pond, 13 loaves, 1 toad, 5 ships, 9 boats, 5 tubs,
+	    68 blocks, 66 blinkers, 26 gliders (@6929)</a></td>
+	<td><a class="p" href="lg/440cm.rle">
+	    Penta- decathlon, pond, 6 loaves, toad, 18 beehives, ship, 12 boats,
+	    tub, 30 blocks, 18 blinkers, 4 gliders (@2585)</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/g4-meth.zip" />
+	<area coords="501,41,520,60" href="stamp/g4-meth.rle" />
+	<area coords="0,0,89,60" href="0/6tbd.rle" />
+	<area coords="90,0,169,60" href="0/7ak.rle" />
+	<area coords="170,0,249,60" href="0/7mp.rle" />
+	<area coords="250,0,329,60" href="0/8sw.rle" />
+	<area coords="330,0,409,60" href="0/9jd.rle" />
+	<area coords="410,0,520,60" href="0/8cm.rle" />
+</map>
+
+<p>Note that the minimum sizes of Acorn and Multum in parvo are the same size
+(7 bits), their censuses are the same size (633 bits), and both release 13
+gliders, but they are totally unrelated in any other way.</p>
+
+<hr />
+<a name="g5-meth"></a>
+<h2>2 methuselahs
+<a class="i" href="glider-5.htm">buildable from 5 gliders</a></h2>
+<p><a class="p" href="stamp/g5-meth.rle"><img src="map/g5-meth.png"
+ alt="5gl methuselahs"
+ width="181" height="61" usemap="#g5-meth" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8dh.rle">Die hard [5]</a></td>
+	<td><a class="p" href="0/9ra.rle">Bunnies; Rabbits (@1) [5]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/8dh.rle">Death (@118)</a></td>
+	<td><a class="p" href="lg/1744ra.rle">
+	    3 Ponds, 18 loaves, 2 toads, 65 beehives, 7 ships, 18 boats, 4 tubs,
+	    109 blocks, 136 blinkers, 40 gliders (@17332)</a></td>
+    </tr>
+</table></p>
+
+<map name="g5-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/g5-meth.zip" />
+	<area coords="161,41,180,60" href="stamp/g5-meth.rle" />
+	<area coords="0,0,89,60" href="0/8dh.rle" />
+	<area coords="90,0,180,60" href="0/9ra.rle" />
+</map>
+
+<hr />
+<a name="g6-meth"></a>
+<h2>1 methuselah
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-meth.rle"><img src="map/g6-meth.png"
+ alt="6gl meth"
+ width="81" height="61" usemap="#g6-meth" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6tm.rle">
+	    Thompson's 6-bit methuselah [6]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/6tm.rle">
+	    Loaf, 6 blocks and 12 blinkers (@608)</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-meth">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g6-meth.zip" />
+	<area coords="61,41,80,60" href="stamp/g6-meth.rle" />
+	<area coords="0,0,80,60" href="0/6tm.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	methuselahs,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

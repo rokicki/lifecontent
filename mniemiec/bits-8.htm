@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Eight-Bit Life Objects</title>
+<meta name="description"
+content="Conway's Game of Life: eight-bit object lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life 8 eight bit object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Eight-bit Life Objects</h1>
+
+<p align="center">
+	<a class="j" href="#p1-8">Still-lifes</a> |
+	<a class="j" href="#pp1-8">Pseudo-still-life</a> |
+	<a class="j" href="#p2-8">P2 oscillator</a> |
+	<a class="j" href="#cons-8">Constellations</a> |
+	<a class="j" href="#meth-8">Methuselahs</a>
+</p>
+
+<hr />
+<hr />
+<a name="p1-8"></a>
+<h2>The 9 eight-bit
+<a class="i" href="p1.htm">still-lifes</a></h2>
+<p><a class="p" href="stamp/p1-8.rle"><img src="map/p1-8.png"
+ alt="8-bit still-lifes" width="561" height="61" usemap="#p1-8" /></a><br />
+    <table width="565">
+    <colgroup><col width="71" /><col span="7" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/8sl.rle">
+	    Shil- lelagh [4]</a></td>
+	<td><a class="p" href="0/8pd.rle">
+	    Pond [2]</a></td>
+	<td><a class="p" href="0/8lp.rle">
+	    Long ship [4]</a></td>
+	<td><a class="p" href="0/8cg.rle">
+	    8.3; Mango; Cigar [3]</a></td>
+	<td><a class="p" href="0/8ht.rle">
+	    8.4; Hook w/ tail; Snake eater [4]</a></td>
+	<td><a class="p" href="0/8vs.rle">
+	    8.1; Very long snake [4]</a></td>
+	<td><a class="p" href="0/8lg.rle">
+	    Long barge [3]</a></td>
+	<td><a class="p" href="0/8tt.rle">
+	    Tub w/ tail; Twit [4]</a></td>
+	<td><a class="p" href="0/8cs.rle">
+	    8.2; Canoe; Sinking ship; Cis snake [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="p1-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="541,0,560,19" href="zip/p1-8.zip" />
+	<area coords="541,41,560,60" href="stamp/p1-8.rle" />
+	<area coords="0,0,69,60" href="0/8sl.rle" />
+	<area coords="70,0,129,60" href="0/8pd.rle" />
+	<area coords="130,0,189,60" href="0/8lp.rle" />
+	<area coords="190,0,249,60" href="0/8cg.rle" />
+	<area coords="250,0,309,60" href="0/8ht.rle" />
+	<area coords="310,0,369,60" href="0/8vs.rle" />
+	<area coords="370,0,429,60" href="0/8lg.rle" />
+	<area coords="430,0,489,60" href="0/8tt.rle" />
+	<area coords="490,0,560,60" href="0/8cs.rle" />
+</map>
+
+<p>The Pond can eat the same way an <a class="p" href="0/7et.rle">eater</a>
+can, as long as it eats from two adjacent sides simultaneously. The simplest
+example is in the P3 oscillator
+<a class="p" href="22/22et2pd.rle">Biting off more than they can chew</a>,
+where both sides of the pond are eaten by eaters.</p>
+
+<hr />
+<a name="pp1-8"></a>
+<h2>The 1 eight-bit
+<a class="i" href="pp1.htm">pseudo-still-life</a></h2>
+<p><a class="p" href="stamp/pp1-8.rle"><img src="map/pp1-8.png"
+ alt="8b PS" width="81" height="61" usemap="#pp1-8" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8bkbk.rle">
+	    Block on block; Bi- block [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="pp1-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/pp1-8.zip" />
+	<area coords="61,41,80,60" href="stamp/pp1-8.rle" />
+	<area coords="0,0,80,60" href="0/8bkbk.rle" />
+</map>
+
+<hr />
+<a name="p2-8"></a>
+<h2>The 1 eight-bit
+<a class="i" href="p2.htm">period 2 oscillator</a></h2>
+<p><a class="p" href="stamp/p2-8.rle"><img src="map/p2-8.png"
+ alt="8b P2" width="81" height="61" usemap="#p2-8" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8bp.rle">Bipole [5]</a></td>
+    </tr>
+</table></p>
+
+<map name="p2-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p2-8.zip" />
+	<area coords="61,41,80,60" href="stamp/p2-8.rle" />
+	<area coords="0,0,80,60" href="0/8bp.rle" />
+</map>
+
+<hr />
+<a name="cons-8"></a>
+<h2>2 easily-constructible eight-bit
+<a class="i" href="cons.htm">constellations</a></h2>
+<p>All arrangements of a boat and a blinker or two blocks can be made from
+4 gliders, all arrangements of a tub and a block can be made from 5 gliders,
+and all arrangements of two tubs can be made from 6 gliders.
+There are many of these that can also be made from fewer gliders.</p>
+
+<p><a class="p" href="stamp/cons-8.rle"><img src="map/cons-8.png"
+ alt="8b constellations"
+ width="141" height="61" usemap="#cons-8" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8bkbk14.rle">
+	    Two blocks offset (4, 1) [2]</a></td>
+	<td><a class="p" href="0/8tbtb04.rle">
+	    Two tubs offset (4, 0) [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/cons-8.zip" />
+	<area coords="121,41,140,60" href="stamp/cons-8.rle" />
+	<area coords="0,0,69,60" href="0/8bkbk14.rle" />
+	<area coords="70,0,140,60" href="0/8tbtb04.rle" />
+</map>
+
+<p>Two blocks offset (4, 1) can eat a LWSS</p>
+
+<hr />
+<a name="meth-8"></a>
+<h2>6 eight-bit
+<a class="i" href="meth.htm">methuselahs</a></h2>
+<p><a class="p" href="stamp/meth-8.rle"><img src="map/meth-8.png"
+ alt="8-bit methuselahs" width="521" height="61" usemap="#meth-8" /></a><br />
+    <table width="525">
+    <colgroup><col width="91" /><col span="4" width="80" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/8dh.rle">
+	    Die hard [5]</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Pike; Pi hept- omino and block [3]</a></td>
+	<td><a class="p" href="0/8gd.rle">
+	    Gliders by the dozen, Gliders- omino (@-1) [3]</a></td>
+	<td><a class="p" href="0/8j.rle">
+	    J [3]</a></td>
+	<td><a class="p" href="0/8sw.rle">
+	    Un- stabil- ized switch engine [4]</a></td>
+	<td><a class="p" href="0/8cm.rle">Glider- mango collision
+	    (@-4); Glider- mango mess; Pi hept- omino and block (@3) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/8dh.rle">
+	    Death (@118)</a></td>
+	<td><a class="p" href="0/8pk.rle">
+	    Toad, 9 beehives, 2 boats, 7 blocks, 9 blinkers (@991)</a></td>
+	<td><a class="p" href="lg/124gd.rle">
+	    4 Beehives, 4 blocks, 4 blinkers, 12 gliders (@184)</a></td>
+	<td><a class="p" href="0/8j.rle">Fleet, loaf, ship,
+	    2 beehives, 2 boats, 8 blocks, blinker, 2 gliders (@556)</a></td>
+	<td><a class="p" href="lg/842sw.rle">
+	    2 Ponds, 2 long boats, 11 loaves, 33 beehives, 4 ships, 11 boats,
+	    2 tubs, 60 blocks, 50 blinkers, 12 gliders (@3911)</a></td>
+	<td><a class="p" href="lg/440cm.rle">
+	    Penta- decathlon, pond, 6 loaves, toad, 18 beehives, ship, 12 boats,
+	    tub, 30 blocks, 18 blinkers, 4 gliders (@2585)</a></td>
+    </tr>
+</table></p>
+
+<map name="meth-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/meth-8.zip" />
+	<area coords="501,41,520,60" href="stamp/meth-8.rle" />
+	<area coords="0,0,89,60" href="0/8dh.rle" />
+	<area coords="90,0,169,60" href="0/8pk.rle" />
+	<area coords="170,0,249,60" href="0/8gd.rle" />
+	<area coords="250,0,329,60" href="0/8j.rle" />
+	<area coords="330,0,409,60" href="0/8sw.rle" />
+	<area coords="410,0,520,60" href="0/8cm.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Other sizes:</b>
+	<a class="i" href="bits-3.htm">3</a>,
+	<a class="i" href="bits-4.htm">4</a>,
+	<a class="i" href="bits-5.htm">5</a>,
+	<a class="i" href="bits-6.htm">6</a>,
+	<a class="i" href="bits-7.htm">7</a>,
+	8,
+	<a class="i" href="bits-9.htm">9</a>,
+	<a class="i" href="bits-10.htm">10</a>,
+	<a class="i" href="bits-11.htm">11</a>,
+	<a class="i" href="bits-12.htm">12</a>,
+	<a class="i" href="bits-13.htm">13</a>,
+	<a class="i" href="bits-14.htm">14</a>,
+	<a class="i" href="bits-15.htm">15</a>,
+	<a class="i" href="bits-16.htm">16</a>,
+	<a class="i" href="bits-17.htm">17</a>,
+	<a class="i" href="bits-18.htm">18</a>,
+	<a class="i" href="bits-19.htm">19</a>,
+	<a class="i" href="bits-20.htm">20</a>,
+	<a class="i" href="bits-21.htm">21</a>,
+	<a class="i" href="bits-22.htm">22</a>,
+	<a class="i" href="bits-23.htm">23</a>,
+	<a class="i" href="bits-24.htm">24</a>,
+	<a class="i" href="bits-25.htm">25</a>,
+	<a class="i" href="bits-lg.htm">26 and larger</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

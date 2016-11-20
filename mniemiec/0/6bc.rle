@@ -1,0 +1,31 @@
+#N 6bc.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 02:03:01 2015
+x = 199, y = 128, rule = B3/S23
+170bo$85bobo83boo$17bobo15bxx15bobo20bxx9boo27bxx20bo17bxx13boo23bxx$
+17boo16bx8bo8boo20bx10bo3bo24bx22boo15bx39bx$14bo3bo19bx6boo6bo24bx11b
+obo25bx18boo19bx39bx$12bobo22bxx5boo31bxx11boo25bxx38bxx17bo20bxx$13b
+oo33boo126bobo$49boo42bo82boo$13boo33bo44boo45bobo29b3o$12bobo77bobo
+46boo31bo$14bo126bo31bo$$138b3o$140bo$51bobo85bo$51boo48bo$52bo34bo13b
+obo$88boo11boo$48bobo36boo$49boo40boo36bobo48bo$20bo28bo42boo36boo43bo
+bboo$21bo69bo38bo45bobboo$19b3o13bxx38bxx38bxx38bxx17b3o18bxx$35bx39bx
+39bx16bo22bx39bx$38bx39bx39bx13bobo23bx39bx$17b3o17bxx38bxx38bxx13boo
+23bxx18b3o17bxx$19bo153boobbo$18bo112bo42boobbo$48b3o81boo39bo$21b3o
+26bo80boo$21bo27bo$22bo7$106bo$55bo51bo$56bo48b3o67bobo$bbo51b3o118boo
+$obo32bxx38bxx38bxx38bxx15bo3bo18bxx$boo3bo28bx39bx29boo8bx28bo10bx16b
+oo6bo14bx$4boo5bobo24bx18bo20bx27boo10bx23boo14bx12bobo4boo18bx$5boo4b
+oo24bxx18bobo17bxx26bo11bxx24boo12bxx20boo16bxx$12bo44boo$176boo$54boo
+121boo$55boo119bo$54bo4$135bo$136boo$135boo$$82b3o$84bo51boo$83bo53boo
+$53bobo5bobo30bo41bo$9bo5bo19bxx17boo5boo12bxx18bo19bxx78bxx$10boobbob
+o18bx18bo7bo12bx17b3o19bx79bx$9boo4bobo20bx12bo7bo18bx39bx79bx$16bobo
+18bxx12boo5boo17bxx18boo18bxx78bxx$12boo3bo32bobo5bobo32boobbobo70bobb
+obo$13boo78boobbo70bobobboo$12bo156boo3bo5$189byy$57byy129bybby$56bybb
+y120boo7byy$57byy120boo$181bo3$140bo18byy$132bobo4bo19byy$75bxx38bxx
+16boo4b3o13bxx$75bx39bx17bo21bx$78bx39bx21bo17bx$32bobo42bxx38bxx13b3o
+4boo16bxx15bo$27boo6bo51bo19byy25bo4bobo11byy17bobo$28boobo3bo50bo20b
+yy24bo19byy18boo$27bo3bo3bo50b3o$35bo141bo$32bobbo51bo6boo72bo8bobo$
+33b3o50boo5boo71bobo8boo$86bobo6bo71boo14bo11bxx$170boo9boo12bx$171boo
+9boo14bx$170bo14boo10bxx$175boo8bobo$174bobo8bo$176bo$$179boo$179bobo$
+179bo9$95bo$93bobo19bxx18boo18bxx18boo18bxx$94boo19bxx18boo18bxx18boo
+3bo14bx$91boo35bo51bobo15bx$90bobo36bo50boo15bxx$92bo34b3o22bx19bo$
+151bxbx17bobo$130b3o18bxbx17bobobb3o$132bo19bx19bo3bo$131bo45bo$$175b
+oo$176boo$175bo$179b3o$179bo$180bo!

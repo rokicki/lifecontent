@@ -1,0 +1,880 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Period-5 Oscillators</title>
+<meta name="description"
+content="Conway's Game of Life: Period-5 oscillator lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life period 5 oscillator object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Period-5 Oscillators</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#p5-15">15</a> |
+	  <a class="j" href="#p5-16">16</a> |
+	  <a class="j" href="#p5-17">17</a> |
+	  <a class="j" href="#p5-18">18</a> |
+	  <a class="j" href="#p5-19">19</a> |
+	  <a class="j" href="#p5-20">20</a> |
+	  <a class="j" href="#p5-21">21</a> |
+	  <a class="j" href="#p5-22">22</a> |
+	  <a class="j" href="#p5-23">23</a> |
+	  <a class="j" href="#p5-24">24</a> |
+	  <a class="j" href="#p5-lg">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g6-p5">3</a> |
+	  <a class="j" href="#ge-p5">1 glider/bit</a> |
+	  <a class="j" href="#gg-p5">&gt;1 glider/bit</a> |
+	  <a class="j" href="#gu-p5">unknown</a><br />
+	<b><a class="j" href="#nat-p5">Frequency of occurrence</a></b>
+</p>
+
+<hr />
+<hr />
+<a name="p5-15"></a>
+<h2>The 1 <a class="i" href="bits-15.htm">fifteen-bit</a>
+period 5 oscillator</h2>
+<p><a class="p" href="stamp/p5-15.rle"><img src="map/p5-15.png"
+ alt="15b P5" width="81" height="81" usemap="#p5-15" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="15/15ap.rle">
+	    Pseudo- barber- pole; Flammen- kamp's P5 [28]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p5-15.zip" />
+	<area coords="61,61,80,80" href="stamp/p5-15.rle" />
+	<area coords="0,0,80,80" href="15/15ap.rle" />
+</map>
+
+<p>The pseudo-barber-pole superficially resembles the whole series of
+<a class="i" href="p2.htm">period 2 barber-pole oscillators</a>, but
+strangely enough, has a period of 5 instead. It forms the basis for a large
+number of larger period 5 oscillators
+(and many with periods that are multiples of 5, such as
+<a class="i" href="p10.htm">period 10</a>).</p>
+
+<hr />
+<a name="p5-16"></a>
+<h2>The 1 <a class="i" href="bits-16.htm">sixteen-bit</a>
+period 5 oscillator</h2>
+<p><a class="p" href="stamp/p5-16.rle"><img src="map/p5-16.png"
+ alt="16b P5" width="81" height="61" usemap="#p5-16" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16oc.rle">
+	    Octagon II [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-16">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/p5-16.zip" />
+	<area coords="61,41,80,60" href="stamp/p5-16.rle" />
+	<area coords="0,0,80,60" href="16/16oc.rle" />
+</map>
+
+<p>Octagon II has eight <a class="i" href="lifeterm.htm#spark">fingers</a>
+that can sometimes be used to hassle other oscillators like the
+<a class="i" href="period.htm#p50">period 50</a>
+<a class="p" href="lg/92p50tj.rle">Traffic Jam</a>.</p>
+
+<hr />
+<a name="p5-17"></a>
+<h2>The 2 <a class="i" href="bits-17.htm">seventeen-bit</a>
+period 5 oscillators</h2>
+<p><a class="p" href="stamp/p5-17.rle"><img src="map/p5-17.png"
+ alt="17-bit P5" width="141" height="81" usemap="#p5-17" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td class="y"><a class="p" href="17/17svsn.rle">
+	    Silver's P5 on snake [19]</a></td>
+	<td><a class="p" href="17/17svac.rle">
+	    Silver's P5 on snake [14]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/p5-17.zip" />
+	<area coords="121,61,140,80" href="stamp/p5-17.rle" />
+	<area coords="0,0,69,80" href="17/17svsn.rle" />
+	<area coords="70,0,140,80" href="17/17svac.rle" />
+</map>
+
+<hr />
+<a name="p5-18"></a>
+<h2>The 4 <a class="i" href="bits-18.htm">eighteen-bit</a>
+period 5 oscillators</h2>
+<p><a class="p" href="stamp/p5-18.rle"><img src="map/p5-18.png"
+ alt="18-bit P5" width="261" height="81" usemap="#p5-18" /></a><br />
+    <table width="265">
+    <colgroup><col width="71" /><col span="2" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18fm.rle">
+	    Fumarole [7]</a></td>
+	<td class="y"><a class="p" href="18/18svls.rle">
+	    Silver's P5 on python [23]</a></td>
+	<td class="y"><a class="p" href="18/18svet1.rle">
+	    Silver's P5 on eater [24]</a></td>
+	<td><a class="p" href="18/18svet2.rle">
+	    Silver's P5 above eater [12]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/p5-18.zip" />
+	<area coords="241,61,260,80" href="stamp/p5-18.rle" />
+	<area coords="0,0,69,80" href="18/18fm.rle" />
+	<area coords="70,0,129,80" href="18/18svls.rle" />
+	<area coords="130,0,189,80" href="18/18svet1.rle" />
+	<area coords="190,0,260,80" href="18/18svet2.rle" />
+</map>
+
+<p>The Fumarole is the smallest oscillator that produces a period 5
+<a class="i" href="lifeterm.htm#spark">domino spark</a>.</p>
+
+<hr />
+<a name="p5-19"></a>
+<h2>The 8 <a class="i" href="bits-19.htm">nineteen-bit</a>
+period 5 oscillators</h2>
+<p><a class="p" href="stamp/p5-19.rle"><img src="map/p5-19.png"
+ alt="19-bit P5" width="501" height="81" usemap="#p5-19" /></a><br />
+    <table width="505">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="19/19fmtb.rle">
+	    Fumarole w/ tub [12]</a></td>
+	<td><a class="p" href="19/19svvs.rle">
+	    Silver's P5 on very long snake [16]</a></td>
+	<td><a class="p" href="19/19svcs.rle">
+	    Silver's P5 on canoe [16]</a></td>
+	<td class="y"><a class="p" href="19/19svsl1.rle">
+	    Silver's P5 above shil- lelagh [23]</a></td>
+	<td><a class="p" href="19/19svsl2.rle">
+	    Silver's P5 behind shil- lelagh [17]</a></td>
+	<td class="y"><a class="p" href="19/19svht1.rle">
+	    Silver's P5 on hook w/ tail [31]</a></td>
+	<td><a class="p" href="19/19svht2.rle">
+	    Silver's P5 above hook w/ tail [15]</a></td>
+	<td><a class="p" href="19/19svtt.rle">
+	    Silver's P5 above tub w/ tail [14]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-19">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="481,0,500,19" href="zip/p5-19.zip" />
+	<area coords="481,61,500,80" href="stamp/p5-19.rle" />
+	<area coords="0,0,69,80" href="19/19fmtb.rle" />
+	<area coords="70,0,129,80" href="19/19svvs.rle" />
+	<area coords="130,0,189,80" href="19/19svcs.rle" />
+	<area coords="190,0,249,80" href="19/19svsl1.rle" />
+	<area coords="250,0,309,80" href="19/19svsl2.rle" />
+	<area coords="310,0,369,80" href="19/19svht1.rle" />
+	<area coords="370,0,429,80" href="19/19svht2.rle" />
+	<area coords="430,0,500,80" href="19/19svtt.rle" />
+</map>
+
+<hr />
+<a name="p5-20"></a>
+<h2>The 16 <a class="i" href="bits-20.htm">twenty-bit</a>
+period 5 oscillators</h2>
+<p><a class="p" href="stamp/p5-20.rle"><img src="map/p5-20.png"
+ alt="20-bit period 5 oscillators"
+ width="521" height="161" usemap="#p5-20" /></a><br />
+    <table width="525">
+    <colgroup><col width="71" /><col span="6" width="60" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="20/20fmub.rle">
+	    Fumarole w/ up boat [10]</a></td>
+	<td><a class="p" href="20/20fmtt.rle">
+	    Fumar- ole w/ two tubs [16]</a></td>
+	<td class="y"><a class="p" href="20/20svin.rle">
+	    Silver's P5 on integral [27]</a></td>
+	<td class="y"><a class="p" href="20/20svll.rle">
+	    Silver's P5 above long shil- lelagh [27]</a></td>
+	<td class="g"><a class="p" href="20/20svlc.rle">
+	    Silver's P5 on long canoe [20]</a></td>
+	<td class="y"><a class="p" href="20/20svlht1.rle">
+	    Silver's P5 on long hook w/ tail [23]</a></td>
+	<td class="g"><a class="p" href="20/20svxs.rle">
+	    Silver's P5 above extra long snake [20]</a></td>
+	<td class="y"><a class="p" href="20/20ne.rle">
+	    Elkies's P5 [24]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="20/20svtlt1.rle">
+	    Silver's P5 above tub w/ long tail [26]</a></td>
+	<td><a class="p" href="20/20svha.rle">
+	    Silver's P5 on hat [18]</a></td>
+	<td class="y"><a class="p" href="20/20svtlt2.rle">
+	    Silver's P5 behind tub w/ long tail [22]</a></td>
+	<td><a class="p" href="20/20svdbt.rle">
+	    Silver's P5 above down boat w/ tail [14]</a></td>
+	<td><a class="p" href="20/20svubt.rle">
+	    Silver's P5 above up boat w/ tail [15]</a></td>
+	<td><a class="p" href="20/20svlht2.rle">
+	    Silver's P5 above long hook w/ tail [16]</a></td>
+	<td><a class="p" href="20/20et2z.rle">
+	    Pentoad between two eaters [12]</a></td>
+	<td class="y"><a class="p" href="20/20apbt.rle">
+	    Pseudo- barber- pole tie boat [36]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,141,19,160" href="#bottom" />
+	<area coords="501,0,520,19" href="zip/p5-20.zip" />
+	<area coords="501,141,520,160" href="stamp/p5-20.rle" />
+	<area coords="0,0,69,69" href="20/20fmub.rle" />
+	<area coords="70,0,129,69" href="20/20fmtt.rle" />
+	<area coords="130,0,189,69" href="20/20svin.rle" />
+	<area coords="190,0,249,69" href="20/20svll.rle" />
+	<area coords="250,0,309,69" href="20/20svlc.rle" />
+	<area coords="310,0,369,69" href="20/20svlht1.rle" />
+	<area coords="370,0,429,69" href="20/20svxs.rle" />
+	<area coords="430,0,520,69" href="20/20ne.rle" />
+	<area coords="0,70,69,160" href="20/20svtlt1.rle" />
+	<area coords="70,70,129,160" href="20/20svha.rle" />
+	<area coords="130,70,189,160" href="20/20svtlt2.rle" />
+	<area coords="190,70,249,160" href="20/20svdbt.rle" />
+	<area coords="250,70,309,160" href="20/20svubt.rle" />
+	<area coords="310,70,369,160" href="20/20svlht2.rle" />
+	<area coords="370,70,429,160" href="20/20et2z.rle" />
+	<area coords="430,70,520,160" href="20/20apbt.rle" />
+</map>
+
+<hr />
+<a name="p5-21"></a>
+<h2>The 42 <a class="i" href="bits-21.htm">21-bit</a>
+period 5 oscillators</h2>
+<p><a class="p" href="stamp/p5-21.rle"><img src="map/p5-21.png"
+ alt="21-bit period 5 oscillators"
+ width="581" height="401" usemap="#p5-21" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="21/21fmtub.rle">
+	    Fumarole w/ tub and up boat [14]</a></td>
+	<td class="y"><a class="p" href="21/21svcsl.rle">
+	    Silver's P5 before cis shillelagh [22]</a></td>
+	<td class="y"><a class="p" href="21/21svcht1.rle">
+	    Silver's P5 on cis hook w/ tail [30]</a></td>
+	<td class="y"><a class="p" href="21/21svihk2.rle">
+	    Silver's P5 above integral w/ hook [30]</a></td>
+	<td class="y"><a class="p" href="21/21svitb.rle">
+	    Silver's P5 above integral w/ tub [30]</a></td>
+	<td class="y"><a class="p" href="21/21svss.rle">
+	    Silver's P5 on snake siamese snake [27]</a></td>
+	<td class="y"><a class="p" href="21/21svsa.rle">
+	    Silver's P5 on snake siamese carrier [24]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21svtvt.rle">
+	    Silver's P5 above tub w/ very long tail [30]</a></td>
+	<td class="y"><a class="p" href="21/21svas.rle">
+	    Silver's P5 on carrier siamese snake [22]</a></td>
+	<td><a class="p" href="21/21svaa.rle">
+	    Silver's P5 on carrier siamese carrier [19]</a></td>
+	<td class="y"><a class="p" href="21/21svvht1.rle">
+	    Silver's P5 on very long hook w/ tail [27]</a></td>
+	<td><a class="p" href="21/21svvl.rle">
+	    Silver's P5 above very long shillelagh [20]</a></td>
+	<td><a class="p" href="21/21svys.rle">
+	    Silver's P5 on extra extra long snake [20]</a></td>
+	<td><a class="p" href="21/21fmug.rle">
+	    Fumarole w/ up barge [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21fmft.rle">
+	    Fumarole w/ fuse w/ tail [16]</a></td>
+	<td class="y"><a class="p" href="21/21svblt1.rle">
+	    Silver's P5 above boat w/ long tail [28]</a></td>
+	<td><a class="p" href="21/21svvc.rle">
+	    Silver's P5 on very long canoe [20]</a></td>
+	<td class="y"><a class="p" href="21/21netb.rle">
+	    Elkies's P5 w/ tub [28]</a></td>
+	<td class="g"><a class="p" href="21/21svlha1.rle">
+	    Silver's P5 on up long hat [21]</a></td>
+	<td class="y"><a class="p" href="21/21svbta1.rle">
+	    Silver's P5 on block on table [22]</a></td>
+	<td class="y"><a class="p" href="21/21svlha2.rle">
+	    Silver's P5 on down long hat [40]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21svblt2.rle">
+	    Silver's P5 behind boat w/ long tail [24]</a></td>
+	<td class="y"><a class="p" href="21/21svbta2.rle">
+	    Silver's P5 above block on table [31]</a></td>
+	<td class="y"><a class="p" href="21/21svihk1.rle">
+	    Silver's P5 on integral w/ hook [37]</a></td>
+	<td><a class="p" href="21/21hxsn.rle">
+	    Hooks on snake [17]</a></td>
+	<td><a class="p" href="21/21hxac.rle">
+	    Hooks on carrier [14]</a></td>
+	<td class="y"><a class="p" href="21/21svcht2.rle">
+	    Silver's P5 above cis hook w/ tail [43]</a></td>
+	<td><a class="p" href="21/21svhvt.rle">
+	    Silver's P5 on beehive w/ tail [14]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="21/21svdgt.rle">
+	    Silver's P5 on down barge w/ tail [17]</a></td>
+	<td><a class="p" href="21/21svclt.rle">
+	    Silver's P5 above claw w/ tail [14]</a></td>
+	<td><a class="p" href="21/21svftt.rle">
+	    Silver's P5 on fuse w/ two tails [18]</a></td>
+	<td><a class="p" href="21/21svugt.rle">
+	    Silver's P5 on up barge w/ tail [16]</a></td>
+	<td><a class="p" href="21/21svvht2.rle">
+	    Silver's P5 above very long hook w/ tail [18]</a></td>
+	<td class="y"><a class="p" href="21/21apta1.rle">
+	    Up table on pseudo barber pole [31]</a></td>
+	<td class="y"><a class="p" href="21/21apta3.rle">
+	    Up table below pseudo barber pole [31]</a></td>
+    </tr>
+
+    <tr>
+	<td class="y"><a class="p" href="21/21apta4.rle">
+	    Down table below pseudo barber pole [33]</a></td>
+	<td class="y"><a class="p" href="21/21apta2.rle">
+	    Down table on pseudo barber pole [33]</a></td>
+	<td class="y"><a class="p" href="21/21apsn1.rle">
+	    Pseudo barber pole tie up snake [41]</a></td>
+	<td class="y"><a class="p" href="21/21apsn2.rle">
+	    Pseudo barber pole tie down snake [41]</a></td>
+	<td class="y"><a class="p" href="21/21apsh.rle">
+	    Pseudo barber pole tie ship [38]</a></td>
+	<td class="y"><a class="p" href="21/21apac1.rle">
+	    Pseudo barber pole tie up carrier [40]</a></td>
+	<td class="y"><a class="p" href="21/21apac2.rle">
+	    Pseudo barber pole tie down carrier [40]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-21">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,381,19,400" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p5-21.zip" />
+	<area coords="561,381,580,400" href="stamp/pp5-21.rle" />
+	<area coords="0,0,89,69" href="21/21fmtub.rle" />
+	<area coords="90,0,169,69" href="21/21svcsl.rle" />
+	<area coords="170,0,249,69" href="21/21svcht1.rle" />
+	<area coords="250,0,329,69" href="21/21svihk2.rle" />
+	<area coords="330,0,409,69" href="21/21svitb.rle" />
+	<area coords="410,0,489,69" href="21/21svss.rle" />
+	<area coords="490,0,580,69" href="21/21svsa.rle" />
+	<area coords="0,70,89,129" href="21/21svtvt.rle" />
+	<area coords="90,70,169,129" href="21/21svas.rle" />
+	<area coords="170,70,249,129" href="21/21svaa.rle" />
+	<area coords="250,70,329,129" href="21/21svvht1.rle" />
+	<area coords="330,70,409,129" href="21/21svvl.rle" />
+	<area coords="410,70,489,129" href="21/21svys.rle" />
+	<area coords="490,70,580,129" href="21/21fmug.rle" />
+	<area coords="0,130,89,189" href="21/21fmft.rle" />
+	<area coords="90,130,169,189" href="21/21svblt1.rle" />
+	<area coords="170,130,249,189" href="21/21svvc.rle" />
+	<area coords="250,130,329,189" href="21/21netb.rle" />
+	<area coords="330,130,409,189" href="21/21svlha1.rle" />
+	<area coords="410,130,489,189" href="21/21svbta1.rle" />
+	<area coords="490,130,580,189" href="21/21svlha2.rle" />
+	<area coords="0,190,89,249" href="21/21svblt2.rle" />
+	<area coords="90,190,169,249" href="21/21svbta2.rle" />
+	<area coords="170,190,249,249" href="21/21svihk1.rle" />
+	<area coords="250,190,329,249" href="21/21hxsn.rle" />
+	<area coords="330,190,409,249" href="21/21hxac.rle" />
+	<area coords="410,190,489,249" href="21/21svcht2.rle" />
+	<area coords="490,190,580,249" href="21/21svhvt.rle" />
+	<area coords="0,250,89,309" href="21/21svdgt.rle" />
+	<area coords="90,250,169,309" href="21/21svclt.rle" />
+	<area coords="170,250,249,309" href="21/21svftt.rle" />
+	<area coords="250,250,329,309" href="21/21svugt.rle" />
+	<area coords="330,250,409,309" href="21/21svvht2.rle" />
+	<area coords="410,250,489,309" href="21/21apta1.rle" />
+	<area coords="490,250,580,309" href="21/21apta3.rle" />
+	<area coords="0,310,89,400" href="21/21apta4.rle" />
+	<area coords="90,310,169,400" href="21/21apta2.rle" />
+	<area coords="170,310,249,400" href="21/21apsn1.rle" />
+	<area coords="250,310,329,400" href="21/21apsn2.rle" />
+	<area coords="330,310,409,400" href="21/21apsh.rle" />
+	<area coords="410,310,489,400" href="21/21apac1.rle" />
+	<area coords="490,310,580,400" href="21/21apac2.rle" />
+</map>
+
+<hr />
+<a name="p5-22"></a>
+<h2>The 76 <a class="i" href="bits-22.htm">22-bit</a>
+period 5 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>57 Silver's P5 on 11-bit still-life (two shown;
+	one without synthesis).</li>
+    <li>7 Pseudo-barber-pole tied to a 7-bit still-life (not shown).</li>
+    <li>5 Expanded fumaroles (not shown).</li>
+    <li>3 Expanded Elkies's P5s (two shown; one without synthesis).</li>
+    <li>1 Expanded pentoad (not shown).</li>
+    <li>3 Hooks on python or eater (shown).</li>
+</ul></p>
+
+<p>Syntheses for 5 of these are shown; all others are easy to synthesize
+using standard techniques except one expanded Elkies's P5 and one Silver's P5,
+also shown below.</p>
+<p><a class="p" href="stamp/p5-22.rle"><img src="map/p5-22.png"
+ alt="22-bit period 5 oscillators"
+ width="581" height="81" usemap="#p5-22" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="r"><a class="p" href="22/22neclpb.rle">
+	    Elkies's P5 w/ claw and pre-block [x]</a></td>
+	<td class="r"><a class="p" href="22/22svcslt.rle">
+	    Silver's P5 before cis shil- lelagh w/ tub [x]</a></td>
+	<td class="y"><a class="p" href="22/22nebt.rle">
+	    Elkies's P5 w/ boat [30]</a></td>
+	<td class="g"><a class="p" href="22/22hxet1.rle">
+	    Hooks on eater [22]</a></td>
+	<td><a class="p" href="22/22hxls.rle">
+	    Hooks on python [17]</a></td>
+	<td class="y"><a class="p" href="22/22svlch2.rle">
+	    Silver's P5 above long cis hook w/ tail [53]</a></td>
+	<td><a class="p" href="22/22hxet2.rle">
+	    Hooks above eater [15]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-22">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/p5-22.zip" />
+	<area coords="561,61,580,80" href="stamp/p5-22.rle" />
+	<area coords="0,0,89,80" href="22/22neclpb.rle" />
+	<area coords="90,0,169,80" href="22/22svcslt.rle" />
+	<area coords="170,0,249,80" href="22/22nebt.rle" />
+	<area coords="250,0,329,80" href="22/22hxet1.rle" />
+	<area coords="330,0,409,80" href="22/22hxls.rle" />
+	<area coords="410,0,489,80" href="22/22svlch2.rle" />
+	<area coords="490,0,580,80" href="22/22hxet2.rle" />
+</map>
+
+<hr />
+<a name="p5-23"></a>
+<h2>The 210 <a class="i" href="bits-23.htm">23-bit</a>
+period 5 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>148 Silver's P5 on 12-bit still-life.</li>
+    <li>12 Table on Silver's P5 on snake or carrier.</li>
+    <li>15 Pseudo-barber-pole tied to an 8-bit still-life.</li>
+    <li>9 Pseudo-barber-pole on long bookend, cap, or cover.</li>
+    <li>10 Expanded fumaroles.</li>
+    <li>5 Expanded Elkies's P5s (one without synthesis shown).</li>
+    <li>3 Expanded pentoads (one shown).</li>
+    <li>6 Hooks on 8-bit still-life.</li>
+    <li>2 Hooks w/ integral on snake or carrier.</li>
+</ul></p>
+
+<p>Synthesis for 1 of these is shown; all others are easy to synthesize using
+standard techniques except one expanded Elkies's P5, also shown below, and a few
+cases of Silver's P5.</p>
+<p><a class="p" href="stamp/p5-23.rle"><img src="map/p5-23.png"
+ alt="23 bit P5" width="181" height="81" usemap="#p5-23" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="23/23necltp.rle">
+	    Elkies's P5 w/ claw w/ tub and pre-block [x]</a></td>
+	<td><a class="p" href="23/23etzbeb.rle">Pentoad 1h2;
+	    Pentoad between eater and bookend and block [19]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-23">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/p5-23.zip" />
+	<area coords="161,61,180,80" href="stamp/p5-23.rle" />
+	<area coords="0,0,89,80" href="23/23necltp.rle" />
+	<area coords="90,0,180,80" href="23/23etzbeb.rle" />
+</map>
+
+<hr />
+<a name="p5-24"></a>
+<h2>The 419 <a class="i" href="bits-24.htm">24-bit</a>
+period 5 oscillators</h2>
+<p>Unfortunately, due to time limitations, these cannot yet be shown.
+These consist of:</p>
+<p><ul>
+    <li>314 Silver's P5 on 13-bit still-life.</li>
+    <li>18 Table on Silver's P5 on python or eater.</li>
+    <li>26 Pseudo-barber-pole tied to an 9-bit still-life.</li>
+    <li>8 Pseudo-barber-pole on long bookend with tub or hook.</li>
+    <li>22 Expanded fumaroles.</li>
+    <li>12 Expanded Elkies's P5s (3 without syntheses; 4 shown).</li>
+    <li>3 Expanded pentoads.</li>
+    <li>9 Hooks on 9-bit still-life.</li>
+    <li>3 Hooks w/integral on python or eater.</li>
+    <li>4 Hooks w/integral w/tub or hook on snake or carrier.</li>
+</ul></p>
+
+<p>Synthesis for 1 of these are shown; all others are easy to synthesize using
+standard techniques except three expanded Elkies's P5s, also shown below, and a
+few cases of Silver's P5.</p>
+<p><a class="p" href="stamp/p5-24.rle"><img src="map/p5-24.png"
+ alt="24 bit P5" width="341" height="81" usemap="#p5-24" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td class="y"><a class="p" href="24/24nelfbk.rle">
+	    Block on Elkies's P5 w/ loaf [28]</a></td>
+	<td class="r"><a class="p" href="24/24neclbp.rle">
+	    Elkies's P5 w/ claw w/ boat and pre-block [x]</a></td>
+	<td class="r"><a class="p" href="24/24nelecl.rle">
+	    Elkies's P5 w/ long bookend and claw and pre-block [x]</a></td>
+	<td class="r"><a class="p" href="24/24nesn.rle">
+	    Elkies's P5 siamese snake [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/p5-24.zip" />
+	<area coords="321,61,340,80" href="stamp/p5-24.rle" />
+	<area coords="0,0,89,80" href="24/24nelfbk.rle" />
+	<area coords="90,0,169,80" href="24/24neclbp.rle" />
+	<area coords="170,0,249,80" href="24/24nelecl.rle" />
+	<area coords="250,0,340,80" href="24/24nesn.rle" />
+</map>
+
+<hr />
+<a name="p5-lg"></a>
+<h2>6 period 5 oscillators
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/p5-lg.rle"><img src="map/p5-lg.png"
+ alt="larger period 5 oscillators"
+ width="621" height="121" usemap="#p5-lg" /></a><br />
+    <table width="625">
+    <colgroup><col width="111" /><col span="4" width="100" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/26et2z2.rle">
+	    Two pentoads between two eaters [17]</a></td>
+	<td><a class="p" href="lg/28hxsn2.rle">
+	    Hooks on two snakes [22]</a></td>
+	<td><a class="p" href="lg/34heart.rle">
+	    Heart [15]</a></td>
+	<td><a class="p" href="lg/34et2z2p.rle">
+	    Two pentoads between two eaters and a pond [19]</a></td>
+	<td><a class="p" href="lg/40p5-1.rle">
+	    40-bit P5 oscillator [27]</a></td>
+	<td><a class="p" href="lg/64harbor.rle">
+	    Harbor [34]</a></td>
+    </tr>
+</table></p>
+
+<map name="p5-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,101,19,120" href="#bottom" />
+	<area coords="601,0,620,19" href="zip/p5-lg.zip" />
+	<area coords="601,101,620,120" href="stamp/p5-lg.rle" />
+	<area coords="0,0,109,120" href="lg/26et2z2.rle" />
+	<area coords="110,0,209,120" href="lg/28hxsn2.rle" />
+	<area coords="210,0,309,120" href="lg/34heart.rle" />
+	<area coords="310,0,409,120" href="lg/34et2z2p.rle" />
+	<area coords="410,0,509,120" href="lg/40p5-1.rle" />
+	<area coords="510,0,620,120" href="lg/64harbor.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="g6-p5"></a>
+<h2>1  period 5 oscillator
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p><a class="p" href="stamp/g6-p5.rle"><img src="map/g6-p5.png"
+ alt="g6 P5" width="81" height="61" usemap="#g6-p5" /></a><br />
+    <table width="85">
+    <colgroup><col width="83" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16oc.rle">Octagon II [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="61,0,80,19" href="zip/g6-p5.zip" />
+	<area coords="61,41,80,60" href="stamp/g6-p5.rle" />
+	<area coords="0,0,80,60" href="16/16oc.rle" />
+</map>
+
+<p>Octagon II has eight <a class="i" href="lifeterm.htm#spark">fingers</a>
+that can sometimes be used to hassle other oscillators like the
+<a class="i" href="period.htm#p50">period 50</a>
+<a class="p" href="lg/92p50tj.rle">Traffic Jam</a>.</p>
+
+<hr />
+<a name="ge-p5"></a>
+<h2>The 3 period 5 oscillators up to 21 bits
+<a class="i" href="glider-e.htm">costing 1 glider/bit</a></h2>
+<p><a class="p" href="stamp/ge-p5.rle"><img src="map/ge-p5.png"
+ alt="1 glider/bit p5 oscillators"
+ width="261" height="81" usemap="#ge-p5" /></a><br />
+    <table width="265">
+    <colgroup><col width="91" /><col width="80" /><col width="92" /></colgroup>
+    <tr>
+	<td class="g"><a class="p" href="20/20svlc.rle">
+	    Silver's P5 above long canoe [20]</a></td>
+	<td class="g"><a class="p" href="20/20svxs.rle">
+	    Silver's P5 above extra long snake [20]</a></td>
+	<td class="g"><a class="p" href="21/21svlha1.rle">
+	    Silver's P5 on up long hat [21]</a></td>
+    </tr>
+</table></p>
+
+<map name="ge-p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="241,0,260,19" href="zip/ge-p5.zip" />
+	<area coords="241,61,260,80" href="stamp/ge-p5.rle" />
+	<area coords="0,0,89,80" href="20/20svlc.rle" />
+	<area coords="90,0,169,80" href="20/20svxs.rle" />
+	<area coords="170,0,260,80" href="21/21svlha1.rle" />
+</map>
+
+<hr />
+<a name="gg-p5"></a>
+<h2>The 38 period 5 oscillators up to 21 bits
+<a class="i" href="glider-g.htm">costing &gt;1 glider/bit</a></h2>
+<p><a class="p" href="stamp/gg-p5.rle"><img src="map/gg-p5.png"
+ alt="gt. 1 glider/bit p5 oscillators"
+ width="581" height="441" usemap="#gg-p5" /></a></p>
+
+<map name="gg-p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,421,19,440" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/gg-p5.zip" />
+	<area coords="561,421,580,440" href="stamp/gg-p5.rle" />
+	<area coords="0,0,89,89" href="15/15ap.rle" />
+	<area coords="90,0,169,89" href="17/17svsn.rle" />
+	<area coords="170,0,249,89" href="18/18svls.rle" />
+	<area coords="250,0,329,89" href="18/18svet1.rle" />
+	<area coords="330,0,409,89" href="19/19svsl1.rle" />
+	<area coords="410,0,489,89" href="19/19svht1.rle" />
+	<area coords="490,0,580,89" nohref="nohref" />
+	<area coords="0,90,89,169" href="20/20svin.rle" />
+	<area coords="90,90,169,169" href="20/20svll.rle" />
+	<area coords="170,90,249,169" href="20/20svlht1.rle" />
+	<area coords="250,90,329,169" href="20/20ne.rle" />
+	<area coords="330,90,409,169" href="20/20svtlt1.rle" />
+	<area coords="410,90,489,169" href="20/20svtlt2.rle" />
+	<area coords="490,90,580,169" href="20/20apbt.rle" />
+	<area coords="0,170,89,229" href="21/21svcsl.rle" />
+	<area coords="90,170,169,229" href="21/21svcht1.rle" />
+	<area coords="170,170,249,229" href="21/21svihk2.rle" />
+	<area coords="250,170,329,229" href="21/21svitb.rle" />
+	<area coords="330,170,409,229" href="21/21svss.rle" />
+	<area coords="410,170,489,229" href="21/21svsa.rle" />
+	<area coords="490,170,580,229" href="21/21svtvt.rle" />
+	<area coords="0,230,89,289" href="21/21svas.rle" />
+	<area coords="90,230,169,289" href="21/21svvht1.rle" />
+	<area coords="170,230,249,289" href="21/21svblt1.rle" />
+	<area coords="250,230,329,289" href="21/21netb.rle" />
+	<area coords="330,230,409,289" href="21/21svbta1.rle" />
+	<area coords="410,230,489,289" href="21/21svlha2.rle" />
+	<area coords="490,230,580,289" href="21/21svblt2.rle" />
+	<area coords="0,290,89,349" href="21/21svbta2.rle" />
+	<area coords="90,290,169,349" href="21/21svcht2.rle" />
+	<area coords="170,290,249,349" href="21/21svihk1.rle" />
+	<area coords="250,290,329,349" href="21/21apta1.rle" />
+	<area coords="330,290,409,349" href="21/21apta3.rle" />
+	<area coords="410,290,489,349" href="21/21apta4.rle" />
+	<area coords="490,290,580,349" href="21/21apta2.rle" />
+	<area coords="0,350,89,440" href="21/21apsn1.rle" />
+	<area coords="90,350,169,440" href="21/21apsn2.rle" />
+	<area coords="170,350,249,440" href="21/21apsh.rle" />
+	<area coords="250,350,329,440" href="21/21apac1.rle" />
+	<area coords="330,350,409,440" href="21/21apac2.rle" />
+	<area coords="410,350,580,440" nohref="nohref" />
+</map>
+
+<hr />
+<a name="gu-p5"></a>
+<h2>The 2 period 5 oscillators up to 22 bits
+<a class="i" href="glider-u.htm">without any known syntheses</a></h2>
+<p><a class="p" href="stamp/gu-p5.rle"><img src="map/gu-p5.png"
+ alt="unknown P5 oscillators"
+ width="181" height="81" usemap="#gu-p5" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td class="r"><a class="p" href="22/22neclpb.rle">
+	    Elkies's P5 w/ claw and pre-block [x]</a></td>
+	<td class="r"><a class="p" href="22/22svcslt.rle">
+	    Silver's P5 before cis shil- lelagh w/ tub [x]</a></td>
+    </tr>
+</table></p>
+
+<map name="gu-p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/gu-p5.zip" />
+	<area coords="161,61,180,80" href="stamp/gu-p5.rle" />
+	<area coords="0,0,89,80" href="22/22neclpb.rle" />
+	<area coords="90,0,180,80" href="22/22svcslt.rle" />
+</map>
+
+<hr />
+<hr />
+<a name="nat-p5"></a>
+<h2>The top 1 <a class="i" href="natural.htm">naturally-occurring</a>
+period 5 oscillator</h2>
+<p><a class="p" href="stamp/nat-p5.rle"><img src="map/nat-p5.png"
+ alt="natural P5" width="101" height="61" usemap="#nat-p5" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16oc.rle">
+	    Octagon II [6] (1.7e9)</a></td>
+    </tr>
+</table></p>
+
+<map name="nat-p5">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/nat-p5.zip" />
+	<area coords="81,41,100,60" href="stamp/nat-p5.rle" />
+	<area coords="0,0,100,60" href="16/16oc.rle" />
+</map>
+
+<p>Octagon II has eight <a class="i" href="lifeterm.htm#spark">fingers</a>
+that can sometimes be used to hassle other oscillators like the
+<a class="i" href="period.htm#p50">period 50</a>
+<a class="p" href="lg/92p50tj.rle">Traffic Jam</a>.</p>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="pp5.htm">period-5 pseudo-oscillators</a>.</p>
+
+<p><b>Other
+<a class="i" href="osc.htm">oscillators</a> by period:</b>
+	<a class="i" href="p2.htm">2</a>,
+	<a class="i" href="p3.htm">3</a>,
+	<a class="i" href="p4.htm">4</a>,
+	5,
+	<a class="i" href="p6.htm">6</a>,
+	<a class="i" href="p8.htm">8</a>,
+	<a class="i" href="p10.htm">10</a>,
+	<a class="i" href="p12.htm">12</a>,
+	<a class="i" href="p14.htm">14</a>,
+	<a class="i" href="p15.htm">15</a>,
+	<a class="i" href="p24.htm">24</a>,
+	<a class="i" href="p30.htm">30</a>,
+	<a class="i" href="p36.htm">36</a>,
+	<a class="i" href="p60.htm">60</a>,
+	<a class="i" href="period.htm">other</a>.</p>
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	<a class="i" href="cons.htm">constellations</a>,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>

@@ -1,0 +1,12 @@
+#N exrecipe.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 01:57:57 2015
+x = 135, y = 75, rule = B3/S23
+5$28bobo25bo27bo14bo22bo$28boo24boo28bobo10bobo22bobo$29bo25boo27boo
+12boo11bxx9boo$46bxx63bx$38bo74by$36bobo7byy64bxy$37boo7byby$47by21bxx
+$$69bxxyy$69bxbby3$50boo49boo$50bobo49boo$50bo50bo18b3o$120bo$116boo3b
+o$9bxx104boo$117bo$9byy89boo$9byy90boo$100bo$$66boo$65bobo$29boo36bo$
+29bobo$29bo$5b3o$7bo$6bo3$23b3o$23bo$24bo3$122bo5bo$55bo9bo19bo11bobo
+20boo4boo$54bo11boo15boo13boo21boo4boo$54b3o8boo17boo12bo$40bx34bx$39b
+xbx33bxby$41by34byy32bxx$40by$40byy68byy$110by$113by$112byy$$37boo$38b
+oo$37bo13b3o13bo$51bo15boo$52bo13bobo5b3o$76bo$75bo$101b3o21bo$103bo
+20boo$102bo21bobo3$106b3o$108bo$107bo!

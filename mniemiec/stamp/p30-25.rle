@@ -1,0 +1,12 @@
+#N p30-25.rle
+#O Mark D. Niemiec's life synthesis database, Thu Feb 19 01:58:24 2015
+x = 125, y = 35, rule = B3/S23
+5$5boo18boo8bobo27bobo27boo$6bo18bo9boobo26boobo26bobo$6bobo5boo7bobo
+12bo29bo28bo$7boo5bobbo5boo13bobo5boo20bobo5boo19bobo6bo$18bo20boo5bo
+bbo19boo5bobbo18boo4bobo$18bo31bo29bo6boo14bobo$18bo31bo6boo21bo6boo
+13bobbo11boo$14bobbo32bo6boo21bo22bobo11boo$14boo30bobbo26bobbo24bobo$
+46boo28boo28bo6$5boo28boo29bo29bo$5bobo28bo28bobo27bobo$7bo28bobo5boo
+20bobo27bobo$7bobo6bo20boo5bobbo20bo29bo$8boo4bobo31bo19bobo5boo20bobo
+5boo$13bobo11boo19bo20boo5bobbo19boo5bobbo$12bobbo11boo19bo31bo29bo6b
+oo$13bobo28bobbo5boo25bo6boo21bo6boo$14bobo27boo7bobo24bo6boo21bo$16bo
+38bo20bobbo26bobbo$55boo19boo28boo!

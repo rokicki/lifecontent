@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="copyright" content="1997,1998,1999,2013 Mark D. Niemiec" />
+<title>Life Constellations</title>
+<meta name="description"
+content="Conway's Game of Life: Constellation lists and glider syntheses" />
+<meta name="keywords"
+content="conway game life constellation object list glider synthesis" />
+  <style type="text/css"><!--
+    body{color:black;background-color:white;
+	margin-top:0;padding:0;border:0;height:100%;
+	font-family:Verdana,Arial,Helvetica,sans-serif;}
+    h1{text-align:center;
+	font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h2{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    h3{font-family:Verdana,Arial,Helvetica,sans-serif;font-variant:small-caps;}
+    img{border:2px black solid;}
+    table{border:1px black solid;border-spacing:0px;}
+    td,th{border:1px black solid;vertical-align:top;font-size:12px;padding:1px;}
+    a{text-decoration:none;}
+    a:focus{text-decoration:underline;}
+    a:hover{text-decoration:underline;}
+    a.p:link{color:#008000;}
+    a.p:visited{color:#00C000;}
+    a.i:link{color:#000080;}
+    a.i:visited{color:#000080;}
+    a.j:link{color:#008080;}
+    a.j:visited{color:#008080;}
+    a.x:link{color:#800000;}
+    a.x:visited{color:#FF0000;}
+    .s{background-color:#C0C0C0;}
+    .b{background-color:#AAAAFF;}
+    .g{background-color:#AAFFAA;}
+    .c{background-color:#AAFFFF;}
+    .r{background-color:#FFAAAA;}
+    .m{background-color:#FFAAFF;}
+    .y{background-color:#FFFFAA;}
+    .o{background-color:#FFAA55;}
+    .v{background-color:#AA55FF;}
+    .h{background-color:#E0E0FF;}
+    .z{background-color:#000000;color:#FFFFFF;}
+  --></style>
+</head>
+
+<body>
+
+<a name="top"></a>
+<h1>Life Constellations</h1>
+
+<p align="center">
+	<b><a class="i" href="objsize.htm">Size in bits</a>:</b>
+	  <a class="j" href="#cons-6">6</a> |
+	  <a class="j" href="#cons-8">8</a> |
+	  <a class="j" href="#cons-9">9</a> |
+	  <a class="j" href="#cons-10">10</a> |
+	  <a class="j" href="#cons-12">12</a> |
+	  <a class="j" href="#cons-15">15</a> |
+	  <a class="j" href="#cons-16">16</a> |
+	  <a class="j" href="#cons-17">17</a> |
+	  <a class="j" href="#cons-18">18</a> |
+	  <a class="j" href="#cons-20">20</a> |
+	  <a class="j" href="#cons-24">24</a> |
+	  <a class="j" href="#cons-lg">Larger</a><br />
+	<b><a class="i" href="objcost.htm">Cost in gliders</a>:</b>
+	  <a class="j" href="#g2-cons">2</a> |
+	  <a class="j" href="#g3-cons">3</a> |
+	  <a class="j" href="#g4-cons">4</a> |
+	  <a class="j" href="#g6-cons">6</a>
+</p>
+
+<hr /><hr />
+<p>There are an infinite number of constellations of each size (e.g. any two
+objects can be placed in a field with an arbitrary spatial offset between them),
+so only a small number of common, easily-constructed, and naturally-occurring
+constellations are shown. A few additional highly artificial ones are also
+included that have special functions (eaters, reflectors, etc.).</p>
+
+<p>Some constellations produced by <a class="i" href="meth.htm">methuselahs</a>
+are shown if they are small, and don't include gliders or other spaceships.
+A few small exceptions including a glider and one other small object are also
+included.</p>
+
+<hr />
+<hr />
+<a name="cons-6"></a>
+<h2>2 easily-constructible <a class="i" href="bits-6.htm">six-bit</a>
+constellations</h2>
+<p>All arrangements of a two blinkers can be made from 4 gliders.
+There are many of these that can also be made from 3 gliders.</p>
+
+<p><a class="p" href="stamp/cons-6.rle"><img src="map/cons-6.png"
+ alt="6b constellations"
+ width="141" height="61" usemap="#cons-6" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/6blbl04.rle">
+	    Two blinkers offset (4, 0) [3]</a></td>
+	<td><a class="p" href="0/6htl.rle">
+	    Half traffic light [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-6">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/cons-6.zip" />
+	<area coords="121,41,140,60" href="stamp/cons-6.rle" />
+	<area coords="0,0,69,60" href="0/6blbl04.rle" />
+	<area coords="70,0,140,60" href="0/6htl.rle" />
+</map>
+
+<hr />
+<a name="cons-8"></a>
+<h2>2 easily-constructible <a class="i" href="bits-8.htm">eight-bit</a>
+constellations</h2>
+<p>All arrangements of a boat and a blinker or two blocks can be made from
+4 gliders, all arrangements of a tub and a block can be made from 5 gliders,
+and all arrangements of two tubs can be made from 6 gliders.
+There are many of these that can also be made from fewer gliders.</p>
+
+<p><a class="p" href="stamp/cons-8.rle"><img src="map/cons-8.png"
+ alt="8b constellations"
+ width="141" height="61" usemap="#cons-8" /></a><br />
+    <table width="145">
+    <colgroup><col width="71" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8bkbk14.rle">
+	    Two blocks offset (4, 1) [2]</a></td>
+	<td><a class="p" href="0/8tbtb04.rle">
+	    Two tubs offset (4, 0) [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-8">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="121,0,140,19" href="zip/cons-8.zip" />
+	<area coords="121,41,140,60" href="stamp/cons-8.rle" />
+	<area coords="0,0,69,60" href="0/8bkbk14.rle" />
+	<area coords="70,0,140,60" href="0/8tbtb04.rle" />
+</map>
+
+<p>Two blocks offset (4, 1) can eat a LWSS</p>
+
+<hr />
+<a name="cons-9"></a>
+<h2>2 easily-constructible <a class="i" href="bits-9.htm">nine-bit</a>
+constellations</h2>
+<p><a class="p" href="stamp/cons-9.rle"><img src="map/cons-9.png"
+ alt="9b constellations" width="161" height="61" usemap="#cons-9" /></a><br />
+    <table width="165">
+    <colgroup><col width="71" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/9tqtl.rle">
+	    3/4 traffic light [3]</a></td>
+	<td><a class="p" href="0/9bkgl.rle">
+	    Block and glider (via Wing) [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-9">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="141,0,160,19" href="zip/cons-9.zip" />
+	<area coords="141,41,160,60" href="stamp/cons-9.rle" />
+	<area coords="0,0,69,60" href="0/9tqtl.rle" />
+	<area coords="70,0,160,60" href="0/9bkgl.rle" />
+</map>
+
+<hr />
+<a name="cons-10"></a>
+<h2>3 easily-constructible <a class="i" href="bits-10.htm">ten-bit</a>
+constellations</h2>
+<p><a class="p" href="stamp/cons-10.rle"><img src="map/cons-10.png"
+ alt="10b const" width="201" height="61" usemap="#cons-10" /></a><br />
+    <table width="205">
+    <colgroup><col width="71" /><col width="60" /><col width="72" /></colgroup>
+    <tr>
+	<td><a class="p" href="10/10btbt3.rle">
+	    Two point- to- point boats [3]</a></td>
+	<td><a class="p" href="10/10btbt4.rle">
+	    Two boats pointing in opposite direct- ions [4]</a></td>
+	<td><a class="p" href="10/10lfbl.rle">
+	    Loaf and blinker [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-10">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,41,19,60" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/cons-10.zip" />
+	<area coords="181,41,200,60" href="stamp/cons-10.rle" />
+	<area coords="0,0,69,60" href="10/10btbt3.rle" />
+	<area coords="70,0,129,60" href="10/10btbt4.rle" />
+	<area coords="130,0,200,60" href="10/10lfbl.rle" />
+</map>
+
+<hr />
+<a name="cons-12"></a>
+<h2>6 easily-constructible <a class="i" href="bits-12.htm">twelve-bit</a>
+constellations</h2>
+<p><a class="p" href="stamp/cons-12.rle"><img src="map/cons-12.png"
+ alt="12-bit constellations"
+ width="381" height="81" usemap="#cons-12" /></a><br />
+    <table width="385">
+    <colgroup><col width="71" /><col span="4" width="60" /><col width="72" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="12/12kt.rle">
+	    Killer toads [6]</a></td>
+	<td><a class="p" href="12/12tl.rle">
+	    Traffic light [2]</a></td>
+	<td><a class="p" href="12/12e5.rle">
+	    Eater-5 [6]</a></td>
+	<td><a class="p" href="12/12hhf.rle">
+	    Half honey- farm [3]</a></td>
+	<td><a class="p" href="12/12te.rle">
+	    Tear- drop [2]</a></td>
+	<td><a class="p" href="12/12bf.rle">
+	    Butterfly [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-12">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="361,0,380,19" href="zip/cons-12.zip" />
+	<area coords="361,61,380,80" href="stamp/cons-12.rle" />
+	<area coords="0,0,69,80" href="12/12kt.rle" />
+	<area coords="70,0,129,80" href="12/12tl.rle" />
+	<area coords="130,0,189,80" href="12/12e5.rle" />
+	<area coords="190,0,249,80" href="12/12hhf.rle" />
+	<area coords="250,0,309,80" href="12/12te.rle" />
+	<area coords="310,0,380,80" href="12/12bf.rle" />
+</map>
+
+<p><a class="p" href="12/12e5.rle">Eater-5</a> is an eater that can eat gliders,
+but unlike <a class="p" href="0/7et.rle">Eater-1</a>, that sits right in the
+middle of the glider's path, Eater-5 sits off to the side, making it more useful
+for picking off gliders from one stream that is very close to another, with an
+offset of as few as 9 cells. The <a class="p" href="17/17e5v2.rle">less
+obtrusive Eater-5</a> is slightly larger and more expensive, but can also pick
+off gliders from one stream 8 cells away from another.</p>
+<p>Traffic light predecessors are some of the most versatile objects in Life.
+Mangling them in many ways produces more of the same. Two of them together along
+an even line of symmetry form a
+<a class="p" href="12/12pc.rle">Pentadecathlon</a>,
+whose phase can often be altered, (for example, to period
+<a class="i" href="period.htm#p9">9</a> or
+<a class="i" href="period.htm#p54">54</a>).</p>
+
+<p>Even more interesting are two traffic light predecessors along an odd line
+of symmetry. In 15 generations, they split into two identical copies of
+themselves, eventually resulting in a
+<a class="p" href="lg/48pu.rle">Pulsar.</a>
+However, if one of these two copies is removed, an oscillator results.
+Furthermore, if one of the blinkers is eaten from the side at the same time,
+the traffic lights reform one generation earlier. This yields simple
+oscillators of periods
+<a class="i" href="period.htm#p28">28</a>,
+<a class="i" href="period.htm#p29">29</a>, and
+<a class="i" href="p30.htm#p30-lg">30</a>.
+Pulsar predecessors can also be hassled in many other ways to produce other
+periods, such as <a class="i" href="p10.htm#p10-lg">10</a> and 55.</p>
+
+<p>If the half-pulsar is always eaten from the same side (which can be done by
+a <a class="i" href="exotic.htm#ss-o5"><i>c</i>/5 spaceship</a>), the pulsar predecessor
+becomes a spaceship push-along. Unfortunately, no way is currently known for
+this mechanism to work on its own without an external spaceship to push it
+along.</p>
+
+<p>If traffic light predecessors (or 2 or 4, as in pulsar predecessors) are
+inducted on on all four sides, they produce a whole series of period 2
+oscillators called <a class="i" href="p2.htm#p2-sc">Scrubbers</a>.</p>
+
+<p>Finally, two traffic lights can interact to push each other apart in 25
+generations, leading to natural oscillators called Traffic Jams, of which a
+<a class="i" href="period.htm#p50">period 50</a> example is shown.</p>
+
+<hr />
+<a name="cons-15"></a>
+<h2>1 easily-constructible <a class="i" href="bits-15.htm">fifteen-bit</a>
+constellation</h2>
+<p><a class="p" href="stamp/cons-15.rle"><img src="map/cons-15.png"
+ alt="20b const." width="121" height="101" usemap="#cons-15" /></a><br />
+    <table width="125">
+    <colgroup><col width="123" /></colgroup>
+    <tr>
+	<td><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (via Bookend) [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-15">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="101,0,120,19" href="zip/cons-15.zip" />
+	<area coords="101,81,120,100" href="stamp/cons-15.rle" />
+	<area coords="0,0,120,100" href="15/15be.rle" />
+</map>
+
+<hr />
+<a name="cons-16"></a>
+<h2>2 easily-constructible <a class="i" href="bits-16.htm">sixteen-bit</a>
+constellations</h2>
+<p><a class="p" href="stamp/cons-16.rle"><img src="map/cons-16.png"
+ alt="16-bit constellations"
+ width="201" height="81" usemap="#cons-16" /></a><br />
+    <table width="205">
+    <colgroup><col width="91" /><col width="112" /></colgroup>
+    <tr>
+	<td><a class="p" href="16/16blocks.rle">
+	    Four skewed blocks [2]</a></td>
+	<td><a class="p" href="16/16lm.rle">
+	    Blockade (via Lumps of muck) [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-16">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="181,0,200,19" href="zip/cons-16.zip" />
+	<area coords="181,61,200,80" href="stamp/cons-16.rle" />
+	<area coords="0,0,89,80" href="16/16blocks.rle" />
+	<area coords="90,0,200,80" href="16/16lm.rle" />
+</map>
+
+<hr />
+<a name="cons-17"></a>
+<h2>2 easily-constructible <a class="i" href="bits-17.htm">seventeen-bit</a>
+constellations</h2>
+<p><a class="p" href="stamp/cons-17.rle"><img src="map/cons-17.png"
+ alt="17b const." width="181" height="81" usemap="#cons-17" /></a><br />
+    <table width="185">
+    <colgroup><col width="91" /><col width="92" /></colgroup>
+    <tr>
+	<td><a class="p" href="17/17e5v2.rle">
+	    Less obtrusive eater-5 [12]</a></td>
+	<td><a class="p" href="17/17tlgl.rle">
+	    Traffic light and glider [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-17">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="161,0,180,19" href="zip/cons-17.zip" />
+	<area coords="161,61,180,80" href="stamp/cons-17.rle" />
+	<area coords="0,0,89,80" href="17/17e5v2.rle" />
+	<area coords="90,0,180,80" href="17/17tlgl.rle" />
+</map>
+
+<p><a class="p" href="12/12e5.rle">Eater-5</a> is an eater that can eat gliders,
+but unlike <a class="p" href="0/7et.rle">Eater-1</a>, that sits right in the
+middle of the glider's path, Eater-5 sits off to the side, making it more useful
+for picking off gliders from one stream that is very close to another, with an
+offset of as few as 9 cells. The <a class="p" href="17/17e5v2.rle">less
+obtrusive Eater-5</a> is slightly larger and more expensive, but can also pick
+off gliders from one stream 8 cells away from another.</p>
+<hr />
+<a name="cons-18"></a>
+<h2>4 easily-constructible <a class="i" href="bits-18.htm">eighteen-bit</a>
+constellations</h2>
+<p><a class="p" href="stamp/cons-18.rle"><img src="map/cons-18.png"
+ alt="18-bit constellations"
+ width="421" height="141" usemap="#cons-18" /></a><br />
+    <table width="425">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="172" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="18/18tqhf.rle">
+	    3/4 honey- farm [3]</a></td>
+	<td><a class="p" href="18/18ic.rle">
+	    Interchange [2]</a></td>
+	<td><a class="p" href="18/18lftbbb.rle">
+	    Loaf and tub and block and blinker [2]</a></td>
+	<td><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (via Dove) [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-18">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,121,19,140" href="#bottom" />
+	<area coords="401,0,420,19" href="zip/cons-18.zip" />
+	<area coords="401,121,420,140" href="stamp/cons-18.rle" />
+	<area coords="0,0,89,140" href="18/18tqhf.rle" />
+	<area coords="90,0,169,140" href="18/18ic.rle" />
+	<area coords="170,0,249,140" href="18/18lftbbb.rle" />
+	<area coords="250,0,420,140" href="18/18dv.rle" />
+</map>
+
+<hr />
+<a name="cons-20"></a>
+<h2>1 easily-constructible <a class="i" href="bits-20.htm">twenty-bit</a>
+constellation</h2>
+<p><a class="p" href="stamp/cons-20.rle"><img src="map/cons-20.png"
+ alt="20b const." width="101" height="101" usemap="#cons-20" /></a><br />
+    <table width="105">
+    <colgroup><col width="103" /></colgroup>
+    <tr>
+	<td><a class="p" href="20/20shb2b2.rle">
+	    Ship two blocks and two blinkers [3]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-20">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="81,0,100,19" href="zip/cons-20.zip" />
+	<area coords="81,81,100,100" href="stamp/cons-20.rle" />
+	<area coords="0,0,100,100" href="20/20shb2b2.rle" />
+</map>
+
+<hr />
+<a name="cons-24"></a>
+<h2>4 easily-constructible <a class="i" href="bits-24.htm">24-bit</a>
+constellations</h2>
+<p><a class="p" href="stamp/cons-24.rle"><img src="map/cons-24.png"
+ alt="larger constellations"
+ width="341" height="81" usemap="#cons-24" /></a><br />
+    <table width="345">
+    <colgroup><col width="91" /><col span="2" width="80" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="24/24sfl.rle">
+	    Small fleet [6]</a></td>
+	<td><a class="p" href="24/24fl.rle">
+	    Fleet [3]</a></td>
+	<td><a class="p" href="24/24shf.rle">
+	    Small honeyfarm [6]</a></td>
+	<td><a class="p" href="24/24hf.rle">
+	    Honeyfarm [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-24">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,61,19,80" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/cons-24.zip" />
+	<area coords="321,61,340,80" href="stamp/cons-24.rle" />
+	<area coords="0,0,89,80" href="24/24sfl.rle" />
+	<area coords="90,0,169,80" href="24/24fl.rle" />
+	<area coords="170,0,249,80" href="24/24shf.rle" />
+	<area coords="250,0,340,80" href="24/24hf.rle" />
+</map>
+
+<hr />
+<a name="cons-lg"></a>
+<h2>18 easily-constructible constellations
+<a class="i" href="bits-lg.htm">26 bits and larger</a></h2>
+<p><a class="p" href="stamp/cons-lg.rle"><img src="map/cons-lg.png"
+ alt="larger constellations"
+ width="581" height="421" usemap="#cons-lg" /></a><br />
+    <table width="585">
+    <colgroup><col width="91" /><col span="2" width="80" />
+	<col span="2" width="40" /><col width="80" /><col width="172" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="lg/28by.rle">
+	    Bakery [3]</a></td>
+	<td><a class="p" href="lg/31b1tl.rle">
+	    B1 eater [22]</a></td>
+	<td class="y"><a class="p" href="lg/31piref.rle">
+	    Pi reflector [46]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/37e3lf.rle">
+	    Eater-3 [72]</a></td>
+	<td class="y"><a class="p" href="lg/39ve3lf.rle">
+	    Variant eater-3 [42]</a></td>
+	<td rowspan="2"><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (via Thunderbird) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/32laundr.rle">
+	    Laundro- mat; 8 tubs [6]</a></td>
+	<td><a class="p" href="lg/56biby.rle">
+	    Bi-bakery [4]</a></td>
+	<td colspan="2" class="y"><a class="p" href="lg/27cy.rle">
+	    Century eater constellation [9]</a></td>
+	<td colspan="2"><a class="p" href="lg/49snref.rle">
+	    Snark reflector [48]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/32kcf.rle">
+	    Killer candel- frobras [12-16]</a></td>
+	<td colspan="4"><a class="p" href="lg/96pupu0g.rle">
+	    Two pulsars offset (16, 0) [4]</a></td>
+	<td rowspan="2"><a class="p" href="0/7oo.rle">(Two glider) Octomino:</a>
+	    <a class="p" href="lg/48oo.rle">
+	    2 Traffic lights, 4 beehives [2]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/96pupu0h.rle">
+	    Two pulsars offset (17, 0) [4]</a></td>
+	<td colspan="4"><a class="p" href="lg/96pupu2g.rle">
+	    Two pulsars offset (16, 2) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td colspan="2"><a class="p" href="lg/28p8ref.rle">
+	    P8 glider reflector [11]</a></td>
+	<td colspan="4"><a class="p" href="lg/44p15ref.rle">
+	    P15 glider reflector [20]</a></td>
+	<td><a class="p" href="lg/32bw2bl4.rle">
+	    Two bowties and two half traffic lights [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="cons-lg">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,401,19,420" href="#bottom" />
+	<area coords="561,0,580,19" href="zip/cons-lg.zip" />
+	<area coords="561,401,580,420" href="stamp/cons-lg.rle" />
+	<area coords="0,0,89,69" href="lg/28by.rle" />
+	<area coords="90,0,169,69" href="lg/31b1tl.rle" />
+	<area coords="170,0,249,69" href="lg/31piref.rle" />
+	<area coords="250,0,329,69" href="lg/37e3lf.rle" />
+	<area coords="330,0,409,69" href="lg/39ve3lf.rle" />
+	<area coords="410,0,580,169" href="lg/46tbd.rle" />
+	<area coords="0,70,89,169" href="lg/32laundr.rle" />
+	<area coords="90,70,169,169" href="lg/56biby.rle" />
+	<area coords="170,70,289,169" href="lg/27cy.rle" />
+	<area coords="290,70,409,169" href="lg/49snref.rle" />
+	<area coords="0,170,169,249" href="lg/32kcf.rle" />
+	<area coords="170,170,409,249" href="lg/96pupu0g.rle" />
+	<area coords="410,170,580,420" href="lg/48oo.rle" />
+	<area coords="0,250,169,329" href="lg/96pupu0h.rle" />
+	<area coords="170,250,409,329" href="lg/96pupu2g.rle" />
+	<area coords="0,330,169,420" href="lg/28p8ref.rle" />
+	<area coords="170,330,409,420" href="lg/44p15ref.rle" />
+	<area coords="410,330,580,420" href="lg/32bw2bl4.rle" />
+</map>
+
+<p>Eater-3 is an eater that can eat gliders, but unlike
+<a class="p" href="0/7et.rle">Eater-1</a>, it can also eat many other things
+that grow at a corner. It consists of a catalyst still-life and a loaf. The
+loaf eats the target and flips over, then takes a bite out of the
+catalyst still-life (that reforms), and flips back. With appropriate pairs of
+sparks, it can also reflect pairs of gliders, allowing the construction of
+glider-loop oscillators of periods 18+8<i>n</i>.</p>
+
+<p>The variant eater-3 is very similar, and much cheaper to construct.
+Unfortunately, it cannot be used to reflect glider pairs.</p>
+
+<p>Bellman One (B1) is a specific eater found using Mike Playle's Bellman
+search program. (Actually, the name refers to the mechanism, rather than the
+form; the forms shown are the smallest currently known). It consists of a
+still-life and an eater, and is specifically designed to eat traffic-lights.
+A slight variant of it eats gliders instead.</p>
+<p>The Century eater is specifically designed to eat a
+<a class="p" href="0/6be.rle">century</a>.</p>
+
+<p>Pairs of candelfrobras, known as "killer candelfrobras", can also eat
+expanding objects like <a class="p" href="ss/11mw.rle">middle-weight</a> and
+<a class="p" href="ss/13hw.rle">heavy-weight</a> spaceships, and forming
+<a class="p" href="0/9tqtl.rle">3/4 traffic light</a>. These are most useful for eating
+spaceship streams whose period is a multiple of 3. For those whose period is a
+multiple of 2, <a class="p" href="12/12kt.rle">Killer toads</a> are more appropriate.</p>
+
+<p>The Snark is a remarkable eater discovered by
+<a class="i" href="lifecred.htm#playle">Mike Playle</a> in April of 2013
+using his Bellman search program.
+(Actually, the name refers to the mechanism, rather than the form; the forms
+shown are the smallest currently known). It has many remarkable eating
+properties. When combined with two eaters and a block, it forms a stable glider
+reflector that can reflect gliders 90 degrees as long as they are at least 43
+generations apart. This allows for creation of glider-loop oscillators of every
+period 43 and higher, and is the first period 43 oscillator ever found. This is
+also the smallest (and fastest) stable glider reflector currently known.</p>
+
+<hr />
+<hr />
+<a name="g2-cons"></a>
+<h2>The 11 small constellations
+<a class="i" href="glider-2.htm">buildable from 2 gliders</a></h2>
+<p><a class="p" href="stamp/g2-cons.rle"><img src="map/g2-cons.png"
+ alt="2-glider constellations"
+ width="601" height="181" usemap="#g2-cons" /></a><br />
+    <table width="605">
+    <colgroup><col width="91" /><col span="3" width="80" /><col width="120" />
+	<col width="152" /></colgroup>
+    <tr>
+	<td><a class="p" href="0/8bkbk14.rle">
+	    Two blocks offset (4, 1) [2]</a></td>
+	<td><a class="p" href="12/12te.rle">Teardrop [2]</a></td>
+	<td><a class="p" href="16/16blocks.rle">Four skewed blocks [2]</a></td>
+	<td><a class="p" href="24/24hf.rle">Honey- farm [2]</a></td>
+	<td><a class="p" href="16/16lm.rle">
+	    Blockade (via Lumps of muck) [2]</a></td>
+	<td rowspan="2"><a class="p" href="0/7oo.rle">(Two glider) Octomino:</a>
+	    <a class="p" href="lg/48oo.rle">
+	    2 Traffic lights, 4 beehives [2]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="17/17tlgl.rle">
+	    Traffic light and glider [2]</a></td>
+	<td><a class="p" href="10/10lfbl.rle">Loaf and blinker [2]</a></td>
+	<td><a class="p" href="12/12tl.rle">Traffic light [2]</a></td>
+	<td><a class="p" href="18/18ic.rle">Inter- change [2]</a></td>
+	<td><a class="p" href="18/18lftbbb.rle">
+	    Loaf and tub and block and blinker [2]</a></td>
+    </tr>
+</table></p>
+
+<map name="g2-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,161,19,180" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/g2-cons.zip" />
+	<area coords="581,161,600,180" href="stamp/g2-cons.rle" />
+	<area coords="0,0,89,89" href="0/8bkbk14.rle" />
+	<area coords="90,0,169,89" href="12/12te.rle" />
+	<area coords="170,0,249,89" href="16/16blocks.rle" />
+	<area coords="250,0,329,89" href="24/24hf.rle" />
+	<area coords="330,0,449,89" href="16/16lm.rle" />
+	<area coords="450,0,600,180" href="lg/48oo.rle" />
+	<area coords="0,90,89,180" href="17/17tlgl.rle" />
+	<area coords="90,90,169,180" href="10/10lfbl.rle" />
+	<area coords="170,90,249,180" href="12/12tl.rle" />
+	<area coords="250,90,329,180" href="18/18ic.rle" />
+	<area coords="330,90,449,180" href="18/18lftbbb.rle" />
+</map>
+
+<p>Two blocks offset (4, 1) can eat a LWSS</p>
+
+<hr />
+<a name="g3-cons"></a>
+<h2>13 small constellations
+<a class="i" href="glider-3.htm">buildable from 3 gliders</a></h2>
+<p>There are an infinite number of 3-glider constellations;
+these are some of the most common.</p>
+<p><a class="p" href="stamp/g3-cons.rle"><img src="map/g3-cons.png"
+ alt="3-glider constellations"
+ width="601" height="221" usemap="#g3-cons" /></a><br />
+    <table width="605">
+    <colgroup><col width="91" /><col span="5" width="80" /><col width="112" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="10/10btbt3.rle">
+	    Two point- to- point boats [3]</a></td>
+	<td><a class="p" href="12/12hhf.rle">
+	    Half honey- farm [3]</a></td>
+	<td><a class="p" href="12/12bf.rle">
+	    Butterfly [3]</a></td>
+	<td><a class="p" href="18/18tqhf.rle">
+	    3/4 honey- farm [3]</a></td>
+	<td><a class="p" href="24/24fl.rle">
+	    Fleet [3]</a></td>
+	<td><a class="p" href="lg/28by.rle">
+	    Bakery [3]</a></td>
+	<td colspan="2"><a class="p" href="0/9bkgl.rle">
+	    Block and glider (via Wing) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/6blbl04.rle">
+	    Two blinkers offset (4, 0) [3]</a></td>
+	<td><a class="p" href="0/6htl.rle">
+	    Half traffic light [3]</a></td>
+	<td rowspan="2" colspan="2"><a class="p" href="15/15be.rle">
+	    Blinker and 3 blocks (via Bookend) [3]</a></td>
+	<td rowspan="2" ><a class="p" href="20/20shb2b2.rle">
+	    Ship and two blocks and two blinkers [3]</a></td>
+	<td rowspan="2" colspan="2"><a class="p" href="18/18dv.rle">
+	    3 Blocks and 2 blinkers (via Dove) [3]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="0/9tqtl.rle">
+	    3/4 traffic light [3]</a></td>
+	<td class="s">&nbsp;</td>
+    </tr>
+</table></p>
+
+<map name="g3-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,201,19,220" href="#bottom" />
+	<area coords="581,0,600,19" href="zip/g3-cons.zip" />
+	<area coords="581,201,600,220" href="stamp/g3-cons.rle" />
+	<area coords="0,0,89,89" href="10/10btbt3.rle" />
+	<area coords="90,0,169,89" href="12/12hhf.rle" />
+	<area coords="170,0,249,89" href="12/12bf.rle" />
+	<area coords="250,0,329,89" href="18/18tqhf.rle" />
+	<area coords="330,0,409,89" href="24/24fl.rle" />
+	<area coords="410,0,489,89" href="lg/28by.rle" />
+	<area coords="490,0,600,89" href="0/9bkgl.rle" />
+	<area coords="0,90,89,149" href="0/6blbl04.rle" />
+	<area coords="90,90,169,149" href="0/6htl.rle" />
+	<area coords="170,90,329,220" href="15/15be.rle" />
+	<area coords="330,90,409,220" href="20/20shb2b2.rle" />
+	<area coords="410,90,600,220" href="18/18dv.rle" />
+	<area coords="0,150,89,220" href="0/9tqtl.rle" />
+	<area coords="90,150,169,220" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g4-cons"></a>
+<h2>8 small constellations
+<a class="i" href="glider-4.htm">buildable from 4 gliders</a></h2>
+<p>There are an infinite number of 4-glider constellations;
+these are some of the most common.</p>
+<p><a class="p" href="stamp/g4-cons.rle"><img src="map/g4-cons.png"
+ alt="4-glider constellations"
+ width="401" height="261" usemap="#g4-cons" /></a><br />
+    <table width="405">
+    <colgroup><col width="91" /><col width="160" /><col width="152" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="0/8tbtb04.rle">
+	    Two tubs offset (4, 0) [4]</a></td>
+	<td><a class="p" href="lg/32bw2bl4.rle">
+	    Two bowties and two half traffic lights [4]</a></td>
+	<td><a class="p" href="lg/96pupu0g.rle">
+	    Two pulsars offset (16, 0) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="10/10btbt4.rle">
+	    Two boats pointing in opposite directions [4]</a></td>
+	<td rowspan="2"><a class="p" href="lg/46tbd.rle">
+	    4 Beehives, 2 boats, 2 blinkers (via Thunderbird)</a></td>
+	<td><a class="p" href="lg/96pupu0h.rle">
+	    Two pulsars offset (17, 0) [4]</a></td>
+    </tr>
+
+    <tr>
+	<td><a class="p" href="lg/56biby.rle">
+	    Bi-bakery [4]</a></td>
+	<td><a class="p" href="lg/96pupu2g.rle">
+	    Two pulsars offset (16, 2) [4]</a></td>
+    </tr>
+</table></p>
+
+<map name="g4-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,241,19,260" href="#bottom" />
+	<area coords="381,0,400,19" href="zip/g4-cons.zip" />
+	<area coords="381,241,400,260" href="stamp/g4-cons.rle" />
+	<area coords="0,0,89,89" href="0/8tbtb04.rle" />
+	<area coords="90,0,249,89" href="lg/32bw2bl4.rle" />
+	<area coords="250,0,400,89" href="lg/96pupu0g.rle" />
+	<area coords="0,90,89,169" href="10/10btbt4.rle" />
+	<area coords="90,90,249,260" href="lg/46tbd.rle" />
+	<area coords="250,90,400,169" href="lg/96pupu0h.rle" />
+	<area coords="0,170,89,260" href="lg/56biby.rle" />
+	<area coords="170,170,249,260" href="lg/96pupu2g.rle" />
+	<area coords="250,170,400,260" nohref="nohref" />
+</map>
+
+<hr />
+<a name="g6-cons"></a>
+<h2>5 small constellations
+<a class="i" href="glider-6.htm">buildable from 6 gliders</a></h2>
+<p>There are an infinite number of 6-glider constellations;
+these are some of the most common.</p>
+<p><a class="p" href="stamp/g6-cons.rle"><img src="map/g6-cons.png"
+ alt="6-glider constellations"
+ width="341" height="101" usemap="#g6-cons" /></a><br />
+    <table width="345">
+    <colgroup><col width="71" /><col span="3" width="60" /><col width="92" />
+	</colgroup>
+    <tr>
+	<td><a class="p" href="12/12kt.rle">Killer toads [6]</a></td>
+	<td><a class="p" href="12/12e5.rle">Eater-5 [6]</a></td>
+	<td><a class="p" href="24/24sfl.rle">Small fleet [6]</a></td>
+	<td><a class="p" href="24/24shf.rle">Small honey- farm [6]</a></td>
+	<td><a class="p" href="lg/32laundr.rle">Laundromat [6]</a></td>
+    </tr>
+</table></p>
+
+<map name="g6-cons">
+	<area coords="0,0,19,19" href="#top" />
+	<area coords="0,81,19,100" href="#bottom" />
+	<area coords="321,0,340,19" href="zip/g6-cons.zip" />
+	<area coords="321,81,340,100" href="stamp/g6-cons.rle" />
+	<area coords="0,0,69,100" href="12/12kt.rle" />
+	<area coords="70,0,129,100" href="12/12e5.rle" />
+	<area coords="130,0,189,100" href="24/24sfl.rle" />
+	<area coords="190,0,249,100" href="24/24shf.rle" />
+	<area coords="250,0,340,100" href="lg/32laundr.rle" />
+</map>
+
+
+<hr /><hr />
+<a name="bottom"></a>
+<p><b>Related:</b>
+<a class="i" href="color.htm#c-cons">constellations in multi-color Life</a>.</p>
+
+<p><b>Other types:</b>
+	<a class="i" href="p1.htm">still-lifes</a>,
+	<a class="i" href="pp1.htm">pseudo-still-lifes</a>,
+	<a class="i" href="osc.htm">oscillators</a>,
+	<a class="i" href="posc.htm">pseudo-oscillators</a>,
+	<a class="i" href="period.htm">oscillators by period</a>,
+	<a class="i" href="pperiod.htm">pseudo-oscillators by period</a>,
+	<a class="i" href="gun.htm">guns</a>,
+	<a class="i" href="color.htm">multi-colored Life</a>,
+	<a class="i" href="ss.htm">
+	    basic spaceships and pseudo-spaceships</a>,
+	<a class="i" href="exotic.htm">exotic spaceships</a>,
+	<a class="i" href="flotilla.htm">spaceships flotillae</a>,
+	<a class="i" href="puff.htm">puffers</a>,
+	constellations,
+	<a class="i" href="meth.htm">methuselahs</a>,
+	<a class="i" href="bits-bad.htm">not quite stable objects</a>.</p>
+
+<p><b>See also:</b> Life objects sorted by:
+	<a class="i" href="objcount.htm">counts</a>,
+	<a class="i" href="natural.htm">frequency of occurrence</a>,
+	<a class="i" href="objcost.htm">cost in gliders</a>,
+	<a class="i" href="objname.htm">name</a>,
+	<a class="i" href="objsize.htm">size in bits</a>,
+	or <a class="i" href="objtype.htm">type</a>.</p>
+
+<p><a class="i" href="index.htm">Home page</a> |
+<a class="i" href="lifepage.htm">Life page</a></p>
+<p><a class="i" href="lifepage.htm#copyright">
+Copyright &copy; 1997, 1998, 1999, 2013, 2014 by Mark. D. Niemiec.
+All rights reserved</a>.<br />
+This page was last updated on
+<i>2015-02-19</i>.
+</p>
+</body></html>
