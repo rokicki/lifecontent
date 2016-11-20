@@ -1,0 +1,73 @@
+<!--saved from url=(0090)http://web.archive.org/web/20071123223730/www.math.ucdavis.edu/~dean/RLE/saw.external.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> Sawtooth with external timing </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+#N Sawtooth with external timing
+#C (The comments below are for an earlier version of this pattern.  The
+#C generation numbers are no longer correct.)
+#C
+#C A p8 blinker puffer (found by Bob Wainwright) moves west.  A glider
+#C bounces between a fixed reflector (in gens  480*2^n-701  (n>=1))
+#C and a southeastward Cordership (in gens  720*2^n-661  (n>=1)).
+#C Each bounce from the fixed reflector releases a salvo (formed in
+#C gens  480*2^n-310  (n>=1)) consisting of a MWSS and 2 LWSSs aimed
+#C toward the line of blinkers.  The salvo hits the nearest blinker
+#C in gen  2400*2^n-880n-3115  (n>=1), causing the blinker line to
+#C decay at 2c/3.  (Another salvo, present in the initial pattern,
+#C hits in gen 5.)  When the decay catches up to the puffer, a new
+#C line of blinkers starts to form (in gen 3840*2^n-880n-3760  (n>=0)).
+#C
+#C When the salvo hits the blinker line, the population is large,
+#C about  180*2^n  in gens around  2400*2^n.  (Specifically, in gen
+#C 2400*2^n-880n-3115  there are  60*2^n-29  blinkers.)  When the
+#C decay catches up with the puffer, the population is bounded, about
+#C 1400 in gens around  3840*2^n-880n.
+#C (This header was written by Dean Hickerson, 4/4/93)
+#O David I. Bell, dbell@pdact.pd.necisa.oz.au (10/27/92; revised 8/16/93)
+x = 150, y = 219, rule = B3/S23
+131b2o$131b2o$61bo$60bobo$43b2o15b2obo68bo$43bobo14b2ob2o8b2o21b2o33b
+3o$38b2o6bo13b2obo8bobo21bo33bo3bo$34b2obo2bo2bo2bo13bobo8b3o12bo7bobo
+19b2o14bo$34b2o2b2o6bo8bo5bo8b3o8b2o3b4o4b2o20b2o11bo5bo$43bobo7bobo
+15b3o8b2o3b4o11bo10b2o6bo3b2o2bo5bo$43b2o9b2o16bobo2b2obob2o3bo2bo11bo
+bo7b3o5bo3bobo3bo3bo$73b2o2b2obobo4b4o14b2o6b2o6b5o5b3o$79b2obo3b4o15b
+2o9b2o4b3o$86bo18b2o9b2o$93b2o7bobo$92bobo7bo11bo$62b2o8bo19bo19bobo
+15bo$61b2ob2o4b2o19b2o20b2o$31b2o38b2o24b2o4bo4b2o$32bo30bo32bo2bobo3b
+obo2bo19bo$32bobo29bob2o28b3o9b3o19bobo$33b2o30bo33b2o5b2o22b2o$98bo2b
+5o2bo12bo$98b2o7b2o13bo$4b2o114b3o$3b2ob3o122b2o3b2o$4b5o23b2o28b2o28b
+2o29bo$5b3o23b4o26b4o26b4o11b2o14bo9bo3bo$18b3o9b2ob2o25b2ob2o25b2ob2o
+10b2ob2o9bo2b3o8b3o$17b5o9b2o28b2o28b2o13b4o8b2o13b3o$4b5o7b2ob3o85b2o
+9bobo$4bo6bo5b2o38bo$4bo6bo43b2o$5bo5bo44b2o$7bo125b2o$133b2o$83b2o41b
+2o$6b2o75b2o40b2o$5b2ob4o60b2o6b2o10bo4bo29bo9bo$6b6o42bobo15b2o5b3o
+10bo4bobo35bobo$7b4o46bo22b2o10bo7b2o21b2o9bobo11b2o$41b2o10bo4bo2b2o
+5b2o13b2o2b2o11b2o4b2o15b3o7bo2bo11b2o$40bobo10b2obo2bob2o4b2o14b2o2bo
+2b2o8b2o4b2o6b2o9b2obo5bobo$42bo14b2o10bo18b4o5bobo14bo5bo4bo2bo6bobo$
+89bo7bo21bo5b2obo8bo$65b2o48bo3bo3b3o$64bo2bo49bo5b2o$67bo$67bo12bobo$
+40b2o22b2obo12b2o$40b2o22b2o15bo$40b2o35b2o$40bo36b2o$39bobo23b2o$39bo
+b2o22b2o$56b3o$26b2o4bobo21bo26b2o9b2o$25bobo12b2o15bo24b2o9bobo$27bo
+4b5o3b2o35bo6bo7b3o4b2ob3o$33b3o40bobo12b3o4bo2b4o$34b2o33b2o3b2o3bo
+12b3o4b2o$69b2o3b2o3bo13bobo$9bo8b2o54b2o3bo14b2o$7bobo6bo2bo56bobo$2o
+4bobo7bo3bo2b2o17bo34bo$2o3bo2bo7bo2b2o2b3o15b2o10b2o$6bobo16b2obo12bo
+bo9b2o$7bobo4b3o8bo2bo7b2o12b2o6bo3b2o$9bo15b2obo5bo3bo10b3o5bo3bobo$
+23b3o7bo5bo10b2o6b5o$23b2o7b2obo3bo13b2o4b3o$33bo5bo13b2o$20bo13bo3bo$
+20b3o13b2o$23bo45b2o$22b2o45b2o3$25bo43b3o10bo$7b2o14b2ob2o42b2o5b4obo
+$7b2o58b2o8bobob2o$22bo5bo38b3o9bo$68bobo7b2o$22b2obob2o40b2o2$72bo13b
+3o$72b2o12bo$71bobo13bo9bo$7bo88bobo$6b3o75bobo8bob2o10b2o$5b5o48b2o
+24bo2bo6b2ob2o10b2o$4b2o3b2o46b3o3b2obo20b2o6bob2o$54bob2o5bo3bo2bo14b
+o3b2o5bobo$54bo2bo4bo4bo2b2o15b2o8bo$54bob2o4b4o5b2o11bo2bo$8bo15b2o3b
+2o18b2o6b3o3bo7b3o10bobo$7b2o15bo5bo17bobo7b2o11b2o$48bo21b2o$5bo19bo
+3bo17b2o21bo$4bobo19b3o$3bo3bo$4b3o$2b2o3b2o2$24b2o$25bo$22b3o$22bo4$
+2b2o8bo$3bo6b3o$3o6bo$o8b2o9$5b5o$4bob3obo$5bo3bo$6b3o$7bo2$10bo$9b2o
+4$6b2obob2o$6bo5bo$7bo3bo$8b3o8$10bo$9b2o6$92b2o$92b2o3$75bo$74bobob2o
+$76bo2b2o2bo$79bo2b3o$73bo2bo2b4ob2o14b2o$74bobo5b3o15b2o$71bo3bo7bo$
+68bo3bo$67bo5bo$68b2ob2o2$68bo$68b4o36b2o$69bobo36b2o$71bo$70b3o$69b2o
+b2o$70b3o$71bo5$87b3o20b5o$87bo22b2obo$88bo22b3o$49bo61b2o$48bobob2o
+57bo$50bo2b2o2bo52bobo$53bo2b3o51b2o$47bo2bo2b4ob2o49bob3o$48bobo5b3o
+51bo3bo$49bo7bo51bo3bo$113b3o$46b2o33bo29b2o$46b2o31b2obo28b2ob2o$70bo
+bo6b2o2bo9b3o17bo$70bo2bo6b2o3b3o6bo2bo$69bo3b2o8b4obo9bo$69bo12b4o2bo
+6bobo$83bo$69bo2b3o$54b2o13b2o$54b2o15b3o$71b3o25bobo$92b2o3b2obo$92b
+5ob2o3b2o$70bo18bo2bob2obobo3b2o$69bobo16bo4b2o4bob2o2bo$72bo11b4obo
+10bobobo$62b2o3bo4bo11b2ob3o12bobo$62b2o2bo5b2o11b3o$72bo12b2o$67b2o2b
+3o11bo$72b2o10bobo$84b2o$83bob3o$84bo3bo$69bo2bo10bo3bo$70b2o15b3o$85b
+2o$85b2ob2o$87bo!
+
+</PRE></BODY></HTML>

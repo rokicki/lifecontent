@@ -1,0 +1,72 @@
+<!--saved from url=(0083)http://web.archive.org/web/20071123223610/www.math.ucdavis.edu/~dean/RLE/logt2.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> log(t)^2 </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+#N log(t)^2
+#C Population in generation t is asymptotic to
+#C (5 log(t)^2)/(3 log(2)^2).  More specifically, for
+#C n>=2,  the population in generation  960*2^n  is
+#C (5n^2+170n)/3 + 1831 - (if  n mod 3 = 1  then 25/3 else 0).
+#C This uses a caber tosser, a modified block pusher, and a toggleable
+#C p120 gun.  Each glider from the caber tosser turns on the gun and
+#C causes the block pusher to go through one cycle (sending out a
+#C salvo and awaiting the return gliders).  When the cycle is
+#C complete, the gun is turned back off.
+#O Dean Hickerson, dean.hickerson@yahoo.com  4/24/92 (revised 9/8/94)
+x = 218, y = 278, rule = B3/S23
+120bobo$120bo3bo$104bo19bo$102b4o19bo10b2o$103bob2o17bo10bo$96b2o3bobo
+b3o12bo3bo9bo12b2o$96bo6bob2o13bobo11bo13bo$102b4o28bo15b2o$104bo30bo
+14b3o6bo$119b2o15b2o12b2o6b2o$119bo28bo$147b2o$115b2o$115bo$103bo9bobo
+$102bobo8b2o$92b2o7bob2o43b2o$91bobo6b2ob2o44bo$90bo6b3obob2o44bobo5b
+2o$81b2o7bo2bo2bo2bo2bobo10bo34b2o5bobo$81bo8bo6b2o4bo10b2o44bo11bobo$
+91bobo63bo2bo10bo2bo$92b2o21bo44bo9b2o$104b2o8bobo32bo7bobo8b2o3bo9bo$
+86b2o16bo8bo2bo32b2o6b2o11b2o10b2o$86bo25bo2bo16bo38bo2bo$107b2o19b2o
+2b2ob3o11bo22bobo$107bo7bo12bo5b4o10bobo$114b2o16b2o14bo2bo$149bo2bo$
+125b2o$126bo22bo$126bobo8b2o10b2o$84b2o3b2o36b2o7b3o$84bo5bo42bob2o9b
+2o30bo$133bo2bo10bo29b4o$85bo3bo43bob2o13b2o8bobo13b2obo5b2o$86b3o47b
+3o12bo6bo3bo12b3obobo4bo$100bo11bo24b2o19bo17b2obo$100b3o10bo43bo19b4o
+$103bo7b3o44bo19bo$102b2o49b2o3bo3bo$152bobo5bobo$152bo$89bo61b2o$87b
+2ob2o36b2o$105bo22bo$86bo5bo11b3o$104b3o$86b2o3b2o$102b2o3b2o63bo24b2o
+$102bo5bo63b2o23bo$155bo17b2o13b2o5bobo$153b3o7b2o8b3o11b3o5b2o$152bo
+10bo9b2o9bob2o$152b2o18b2o10bo2bo$172bo11bob2o$187b3o$90bo97b2o5b2o$
+89b2o13bo91bo$104b2o$208b2o$115bo92bo$115b3o29b2o3b2o$92b4o22bo29b5o$
+91bo8bo16b2o29b2ob2o42bo$91bo3b2o2b2o47b2ob2o41b3o$86b2o4bo2bo53b3o42b
+3o$86bo$192b2o3b2o$109bo82bo5bo$107b3o42b2o55bo$85b3o18bo10b2o3b2o28bo
+55b3o$85b3o18b2o10b5o30b3o37bo13b5o$84bo3bo30b3o33bo36b2o12b2o3b2o$77b
+2o4bo5bo30bo29bo41bobo12b5o$77bo6bo3bo61b2o55bo3bo$85b3o16bo21b2o22b2o
+56bobo$103b3o19bobo23bo57bo$103b3o19bo$124b2o$101b2o3b2o103bo$101bo5bo
+101b2ob2o$121bo68b2o3b2o7bo$75b2o3b2o38b2o81bo4bo5bo$75bo5bo20bo88bo3b
+o7b3o$101b2o89b3o13b2o3b2o$76bo3bo20bobo88b3o$58bo18b3o$57bo30bo$53bo
+2bo4bo25b3o100b2o$52b2obo2bob2o24b5o100bo$48bo7b2o27bobobobo96b3o$47b
+2o36b2o3b2o96bo$64b2o$64bo34b2o3b2o$65bo$64b2o34bo3bo58b2o49bo$73b2o
+26b3o58bobo48b3o$74bo5bo20b3o60bo47b5o$79b3o115b2o12bobobobo$78b5o5bo
+104b4o5bo8b2o3b2o$77b2o3b2o3b2o104b3ob2o2b2o$78b5o115bo$78bo3bo18bo$
+79bobo19b2o109b2o$80bo54b2o74b2o$136bo76bo3$77bo$5b2o69b3o$5bo70b3o$
+174bo34b2o3b2o$74b2o3b2o92bo36b5o$74bo5bo52b2o3b2o33b3o34b2ob2o$133bo
+5bo70b2ob2o$187b2o22b3o$134bo3bo48bo$135b3o$4b3o$3bo3bo206b2o$2bo5bo
+205bo$2b2obob2o206b3o$217bo$133b2o$5bo128bo$4bobo124b3o$4bobo65b2o3b2o
+52bo11bo$4b2o136b2o$3bo69bo3bo64bobo$2b3o69b3o$bo3bo68b3o$ob3obo$b5o$
+72b2o$73bo70bo$70b3o68b4o$70bo69b4o$133b2o5bo2bo$133bo6b4o$114b2o25b4o
+7b2o$114bo29bo7bobo$154bo$154b2o4$3b2o3b2o$3bobobobo$4b5o$5b3o3b2o$6bo
+3bobo99b2o3b2o$12bo$113bo3bo$114b3o$114b3o$76b2o$75bobo$75bo$7b3o64b2o
+$6b2ob2o91bo$6b2ob2o90bo15bo$6b5o40b2o43b2o2bo4bo10b3o$5b2o3b2o38bobo
+30bo13bobo2bob2o10b3o$52bo28b3o3bo12b2o$80bo5bobo25b2o3b2o$80b2o5bo26b
+o5bo4$91bo25b2o$91b3o22b2o$9bo84bo$8b2o68bo14b2o19bo$77b3o33bobo$24b2o
+50b5o31bo3bo$23b3o49b2o3b2o31b3o$22bobo2bo3bo12bo31b5o30b2o3b2o$22b2o
+2b2o2b2o11b2o31bo3bo$17b2o7b2o15b2o32bobo13b2o3b2o$17bo25bo34bo14b2o3b
+2o$94b5o$40bo54bobo$38b3o35bo$17bo19bo36b2ob2o16b3o$15bo3bo17b2o$15b5o
+53bo5bo$14b2o3b2o$15b5o53b2o3b2o$16b3o15b3o$17bo$34bobo75bo$21b2o10b5o
+73b3o$20bobo9b2o3b2o59bo11b5o$22bo9b2o3b2o58b3o9b2o3b2o$78b2o16b5o$78b
+o16b2o3b2o$32b2o45b3o$32bobo46bo$32bo2$18b3o$17bo3bo89bo$50bo60b2o$16b
+o5bo27b2o46b2o$16b2o3b2o76bo3$30b2o3b2o$32b3o21b3o$31bo3bo18bo2bo$32bo
+bo7bo10bo$33bo8b2o10bobo$20bo59b2o$19b2o9b2o47bobo$31bo48bo14b2o3b2o$
+28b3o$28bo67bo3bo$97b3o$34bo62b3o$34b2o2$96bo$95b3o$94bo3bo$74bo21bo$
+35b2o36b2o18bo5bo$35bobo33bo2bo18bo5bo$28b3o4bob2o55bo3bo$36b2o33bobo
+21b3o$36bo35bo5$82b3o$80bo2bo$79bo$80bobo13bo$47bo48b2o$31bo15b3o$31b
+2ob2o10b2ob2o$29bo2bo$27bo6bo14b2o$27bo3bo2bo14bo$25b3o2b4o14b2o$26b2o
+2bo2bo14bo$27bo3bo15b3o$28b3obo12bob3o$29b3o13bo42bo$30bo9bo4bo42b2o$
+37b2obo$35b2o$33bo2bo2b2o$32bobob2o2b2o$31b3ob2o$32b2o5bo$33bo46bo$34b
+5o41b2o$35b2o$36bo5$72bo$57bo14b2o$57b2ob2o$55bo2bo$53bo6bo$53bo3bo2bo
+$51b3o2b4o$52b2o2bo2bo$53bo3bo$54b3obo$55b3o$56bo!
+
+</PRE></BODY></HTML>

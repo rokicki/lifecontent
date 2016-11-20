@@ -1,0 +1,207 @@
+<!--saved from url=(0089)http://web.archive.org/web/20071123223742/www.math.ucdavis.edu/~dean/RLE/saw.tractor.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> Sawtooth patterns using tractor beams </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+Here are 5 sawtooth patterns based on tractor beams.  In each case, a gun
+sends out a series of spaceships.  The first one hits a spark at the back
+of a slower spaceship, creating a small object; at this time the population
+is large.  Subsequent spaceships pull the object back toward the gun.  When
+it reaches the gun, it is destroyed; at this time the population is small.
+Then another series of spaceships is sent out, repeating the process.
+
+#N Diagonal sawtooth with expansion factor 6
+#C Population is unbounded but does not tend to infinity.  Its graph is
+#C a sawtooth function with ever-increasing teeth.  More specifically, the
+#C population in generation  t = 8*6^n - 159  (n >= 2)  is  (t+23487)/36,
+#C but the population in generation  32*6^n - 184  (n >= 1)  is only  452.
+#C (This should be rebuilt using a smaller Cordership.)
+#O Dean Hickerson, dean.hickerson@yahoo.com (5/14/91; revised 9/11/94)
+x = 98, y = 93, rule = B3/S23
+28b3o$27bo3bo$26bo4bo8b2o3b3o$26bo2bobo7b4o$26b2obobo6bo3b2o$28b2obo2b
+o4b2obobo$18b3o9b2o2bo$17bo2bo10b3o13bo6b2o$16bo4bo22bo2bo6bo$16bo2b3o
+23b3o$16bo5bo$17b7o$23bo$23bo$21b2o$62b2o$62bo2$24b3obo$24b3obo$25bo8b
+2o$26bo3b3ob2o$27bo6bo$28bobobobo35b2o$29bo40bo9bo$61bo16b3o$2b3o55bob
+o14bo$bo3bo53b2ob2o13b2o$o4bo53b2ob2o$o2bobo52b3o$2obobo52b3o3bo$2b2ob
+o2bo50b2o$4b2o2bo50bobo$5b3o64b2o3b2o$35b3o34bobobobo$33bo3b2o34b5o$
+32bo2bo2b2o34b3o$29b2o7bo36bo$30bobo3b2o2$47b2o$45b6o$44b6o$43bo6bo26b
+2o$44b3o30bo$8b2o35b2o31b3o$8bo39bo8bo22bo$53b2o2b2ob3o$53bo5b4o$57b2o
+2$35bo15bo29bo2bo$34bobo12b3o28bo3b2o2b2o$16b2o15b2ob2o10bo31bo7bo$16b
+o16b2ob2o10b2o19bo11b4o8b2o$32b3o32b3o23bo$32b3o3bo27bo12bo$33b2o31b2o
+3bo6b2o$33bobo35b3o4bobo$74bo$73b2o$24b2o17b2o3b2o$24bo27b3o$43bo5bo4b
+o6b2o3b2o$53bo8b5o$44b2ob2o14b3o$46bo17bo8b2o3b2o12b5o$58b3o12bo5bo11b
+ob3obo$58bo33bo3bo$48bo10bo14bo3bo14b3o$47bobo25b3o16bo$46bo3bo41b2o$
+46b5o40bobo$45b2o3b2o39bobo$46b5o41bo$47b3o11b3o$48bo$61bobo14bo10b2ob
+ob2o$60b5o11b2ob2o8bo5bo$59b2o3b2o24bo3bo$59b2o3b2o9bo5bo9b3o2$75b2o3b
+2o3$48b2o$48bo2$61b2o28b2o$61bo29bo2$78b2o$78bo!
+
+#N Orthogonal sawtooth with expansion factor 6
+#C Population is unbounded but does not tend to infinity.  Its graph is
+#C a sawtooth function with ever-increasing teeth.  More specifically,
+#C the population in generations  t  near  28*6^n  is about  t/5  if
+#C t  is odd and about  3t/20  if  t  is even, but the population in
+#C generation  14*6^n - 84  (n>=2)  is only 610.  (Even more
+#C specifically, the population in generation  t = 28*6^n + 12  (n>=1),
+#C is  3t/20 + 603;  it rises to  t/5 + 647  in the next generation.)
+#C
+#C This uses a spark from a period 4, speed c/4 orthogonal spaceship,
+#C found by Hartmut Holzwart, to turn 2+1/2 pairs of LWSSs into a loaf,
+#C which is then pulled back by subsequent pairs of LWSSs. When the
+#C loaf is pulled all the way back, it gets deleted and the cycle
+#C begins again.
+#O Dean Hickerson, dean.hickerson@yahoo.com (8/14/92)
+x = 114, y = 74, rule = B3/S23
+50b2o21bo$51bo19bobo$51bobo8bo2b2o3bobo$52b2o7b2o2bo3bo2bo14b2o$60b2o
+8bobo14bobo$47bo11b3o9bobo16bo11bobo$45bobo12b2o11bo13bo2bo10bo2bo$35b
+2o6b2o16b2o27bo9b2o$34bo8b2o17bo24bobo8b2o3bo9bo$33bo5bo3b2o42b2o11b2o
+10b2o$23bo9bo5b2o4bobo7b2o44bo2bo$23b2o8bo6bo6bo7bobo44bobo$34bo22bo$
+35b2o20b2o8$29bobo$29bo2bo$20b2o10b2o11b2o$20bo9bo3b2o8bobo$32b2o9bo$
+29bo2bo10bo2bo16b2o12bob2o$29bobo11bo19b3obo8b3obob3o$44bobo5b2o9bo4bo
+b2o3bo10bobo$2o23bo19b2o5bobo8b2o3bob4o3bo5b2o4b2o$bo23bobo26bo7bob4o
+5bob3o4bo2b2obo$bobo4b2o18b2o4b2o18b2o5b3o13bo4bo$2b2o6bo17b2o5bo26bob
+4o5bob3o4bo2b2obo$11bo16b2o33b2o3bob4o3bo5b2o4b2o$11bo13bobo35bo4bob2o
+3bo10bobo$11bo13bo37b3obo8b3obob3o$10bo52b2o12bob2o$8b2o$3b2o$3bo6$34b
+2o2b3o2b2o11b2o$34bo2b5o2bo10bobo$2obob2o28b9o11bo$o5bo25b3o9b3o7b2o$b
+o3bo26bo2bo7bo2bo$2b3o3bo24b2o9b2o$8b2o40b2o$7bobo40bo$43bo4bobo$32bo
+9bobo3b2o$26bobo2b2o9b2obo$25bo2bo2bobo8b2ob2o$24b2o16b2obo$5bo16b2o3b
+o14bobo$5bo18b2o17bo$4bobo11b2o5bo2bo$3b2ob2o9bobo6bobo$2bo5bo8bo21bo$
+5bo10b2o20b2o$2b2o3b2o18b2o8b2o4b2o5bo$27bo8b3o4b2o3bobo29bo$37b2o4b2o
+2bobo30bobo$38b2o6bo2bo16b2o15b2o4b2o$39bo7bobo16bo16b2o5bo$48bobo12b
+2o18b2o$50bo11b3o15bobo$63b2o15bo$6bo59bo$5b2o59b2o!
+
+#N Orthogonal sawtooth with expansion factor 23/3
+#C Population is unbounded but does not tend to infinity.  Its graph is
+#C a sawtooth function with ever-increasing teeth.  More specifically,
+#C there exist constants C (about 108.0889482660234065799673872495) and
+#C D (about 252.2075459540546153532572369156) such that the population
+#C in some generation near  C*(23/3)^n  is about 576, while the
+#C population in generations t near  D*(23/3)^n  is about 6t/35 if
+#C t is even, 8t/35 if t is odd.
+#C
+#C This uses a spark from a weekender, a period 7, speed 2c/7 orthogonal
+#C spaceship found by David Eppstein, to turn 2+1/2 pairs of LWSSs into
+#C a loaf, which is then pulled back by subsequent pairs of LWSSs. When
+#C the loaf is pulled all the way back, it gets deleted and the cycle
+#C begins again.  The p60 source of the LWSSs is the same as that in
+#C the sawtooth with e.f. 6 based on a c/4 spaceship, but an eater and
+#C a pentadecathlon have been added to make things work correctly for
+#C all 3 possible positions of the returning loaf.
+#O Dean Hickerson, dean.hickerson@yahoo.com (1/17/2000)
+x = 114, y = 74, rule = B3/S23
+50b2o21bo$51bo19bobo$51bobo8bo2b2o3bobo$52b2o7b2o2bo3bo2bo14b2o$60b2o
+8bobo14bobo$47bo11b3o9bobo16bo11bobo$45bobo12b2o11bo13bo2bo10bo2bo$35b
+2o6b2o16b2o27bo9b2o$34bo8b2o17bo24bobo8b2o3bo9bo$33bo5bo3b2o42b2o11b2o
+10b2o$23bo9bo5b2o4bobo7b2o44bo2bo$23b2o8bo6bo6bo7bobo44bobo$34bo22bo$
+35b2o20b2o3$94b2o$94bo$92bobo$92b2o2$29bobo$29bo2bo42bo$20b2o10b2o11b
+2o26b2obo$20bo9bo3b2o8bobo25bo4bo$32b2o9bo28b2o2bo$29bo2bo10bo2bo23bob
+ob2o$29bobo11bo24bo2bo$44bobo5b2o14bo$2o23bo19b2o5bobo13bobo$bo23bobo
+26bo14b2ob2o$bobo4b2o18b2o4b2o18b2o13b2ob2o$2b2o6bo17b2o5bo32bobo$11bo
+16b2o38bo$11bo13bobo40bo2bo$11bo13bo44bobob2o$10bo61b2o2bo$8b2o62bo4bo
+$3b2o68b2obo$3bo71bo6$34b2o2b3o2b2o11b2o$34bo2b5o2bo10bobo$2obob2o28b
+9o11bo24bo$o5bo25b3o9b3o7b2o23bobo$bo3bo26bo2bo7bo2bo$2b3o3bo24b2o9b2o
+33b3o$8b2o40b2o$7bobo40bo$43bo4bobo28b3o$32bo9bobo3b2o$26bobo2b2o9b2ob
+o33bobo$25bo2bo2bobo8b2ob2o33bo$24b2o16b2obo$5bo16b2o3bo14bobo$5bo18b
+2o17bo$4bobo11b2o5bo2bo$3b2ob2o9bobo6bobo$2bo5bo8bo21bo$5bo10b2o20b2o$
+2b2o3b2o18b2o8b2o4b2o5bo$27bo8b3o4b2o3bobo29bo$37b2o4b2o2bobo30bobo$
+38b2o6bo2bo16b2o15b2o4b2o$39bo7bobo16bo16b2o5bo$48bobo12b2o18b2o$50bo
+11b3o15bobo$63b2o15bo$6bo59bo$5b2o59b2o!
+
+#N Orthogonal sawtooth with expansion factor 11
+#C Population is unbounded but does not tend to infinity.  Its graph is
+#C a sawtooth function with ever-increasing teeth.  More specifically,
+#C the population in generation  t = 36*11^n - 37  (n>=1),  is
+#C 7(t+1)/30 + 746,  but the population in generation  12*11^n - 51
+#C (n>=1)  is only 635 if n is even, 633 if n is odd.
+#C This uses a spark from a period 9, speed c/3 orthogonal spaceship,
+#C found by David Bell, to turn a LWSS into a loaf, which is then pulled
+#C back by pairs of LWSSs. When the loaf is pulled all the way back, it
+#C gets deleted and the cycle begins again.  (The deletion is caused by
+#C interaction with a LWSS and with 3 gliders which would otherwise form
+#C a LWSS.)
+#C
+#C Try putting something in the path of the c/3, far away from the guns.
+#C When the beam of LWSSs hits the resulting garbage, it is likely that
+#C a loaf will eventually be formed and pulled back.  No matter where
+#C the loaf starts, when it reaches the guns it will be deleted by one
+#C of 3 different reactions.  (The block behind the c/3 is used for one
+#C of these; it's not needed for the sawtooth pattern itself.)  The beam
+#C of LWSSs will again be released and may eventually form another loaf.
+#C The process may be repeated many times until either the LWSS beam
+#C burns through the garbage or the reaction moves upstream and consumes
+#C the guns.
+#O Dean Hickerson, dean.hickerson@yahoo.com (5/15/92)
+x = 113, y = 69, rule = B3/S23
+40bo$39b4o$38b2ob4o5b2o$9b2o16b2o8b3ob2o3bo3bo2bo$10bo16bo10b2ob2o3bo
+7bo$39b5o3bo6bo7bo$40bo3b3o7bo6b2o12b2o$50bo2bo19bo2bo$9bo40b2o20bo15b
+obo$7bo3bo48bo11bo15bo3bo$7b5o46bobo11bo7bo11bo$6b2o3b2o35b2o6b2o15bo
+2bo3bobo10bo5bo$7b5o35bo8b2o17b2o3b2o10bo5b2o$8b3o35bo5bo3b2o30bo3bo$
+9bo36bo5b2o4bobo27bobo$46bo6bo6bo$38b2o7bo$32bobo2bobo8b2o$32b2o3bo21b
+o$33bo2b2o22b2o$59b2o$10bobo$11b2o22b2o9b2o$11bo22bo2bo7bo2bo$34b3o9b
+3o44bo3b2o$37b9o29b2o15bo4b3o$36bo2b5o2bo28bo18b3o3bo$4b2o3b2o25b2o2b
+3o2b2o32bo9bo3bob2obob2o$79b2o8b3o6bobo$4bo5bo69bob2obob2o2bo4bo2b3o$
+14bo18bo29bo16bo3b3o3bo8bob2obo$5b2ob2o3bobo18bo29bo15bo5b2o2bo4b6o4b
+2o$7bo6bo15bo3bo25bo3bo13bobo4b2o18b2o$o30b4o26b4o6b2o7bo5b2o2bo4b6o4b
+2o$3o67b4o6bo3b3o3bo8bob2obo$3bo5b2o59b2ob2o5bob2obob2o2bo4bo2b3o$2b2o
+5bo62b2o5b2o8b3o6bobo$10b3o47b2o17bo9bo3bob2obob2o$12bo47bo33b3o3bo$
+48bo9bobo31bo4b3o$47bobo8b2o17b2o14bo3b2o$4b3o30b2o6b2o3bo27bo$3bo3bo
+7b2o19bobo7bo3bo27bobo5bobo$14bobo18b3o7b2o3bo28b2o5bo2bo$2bo5bo7bo9bo
+7b3o10bobo39b2o8bo$2b2o3b2o17b2o7b3o10bo38bo3b2o5bobo$36bobo50b2o6bob
+2o$37b2o47bo2bo6b2ob2o11bo$86bobo8bob2o10b2o$55b2o41bobo$54bobo42bo$
+56bo31bo$88b2o2$83b3o$38bo44bo$36bobo45bo$4b2o3b2o18b2o4bobo14b2o$29bo
+4bo2bo14b3o42b2o$4bo5bo24bobo16b2obo6bo33bo$36bobo15bo2bo5b2o21b2o12b
+2o6b2o$5b2ob2o28bo15b2obo27bo14b3o6bo$7bo44b3o19bo9bo15b2o$52b2o20b2o
+8bo13bo$84bo12b2o$85bo$86b2o$7bo$7b2o!
+
+#N Orthogonal sawtooth with expansion factor 21
+#C Population is unbounded but does not tend to infinity.  Its graph is
+#C a sawtooth function with ever-increasing teeth.  More specifically,
+#C the population in generation  t = 18*21^n + 222  (n>=0),  is
+#C 7t/60 + 1290,  but the population in generation  6*21^n + 193  (n>=1)
+#C is only  1212.
+#C This uses a spark from a c/3 orthogonal spaceship ("turtle") to turn
+#C a HWSS into a loaf, which is then pulled back by pairs of LWSSs.  When
+#C the loaf is pulled all the way back, another HWSS is fired toward the
+#C c/3, starting the cycle again.  The HWSS synthesis, using 2 gliders,
+#C a Kok's galaxy, and a figure 8, is due to David Buckingham.
+#C This was the first sawtooth built.
+#O Dean Hickerson, dean.hickerson@yahoo.com (4/10/91)
+x = 173, y = 114, rule = B3/S23
+39b2o$39bo16b2o$28b2o7bobo16bo$28bo2bo5b2o$14bobo15bo$12bo3bo15bo$12bo
+19bo$5b2o4bo16bo2bo6b2o$5bo6bo15b2o8bobo15bo$12bo3bo22b3o13b3o$14bobo
+23b2o13b3o$37b2o$37b3o13b2o3b2o$31bo21bo5bo$32bo$30b3o5b2o$38bo22b2o$
+55bo6bo$56bo5bobo7b2o$54b3o6b2o6b3o$9bobo56bob2o15bo$7bo3bo56bo2bo15bo
+bo$2o5bo15b2o43bob2o16bobo$o5bo16bo2bo24bo5bo13b3o14bo2bo3b2o$7bo19bo
+23bo5bo14b2o14bobo4bo$7bo3bo15bo6b2o16bo3bo30bobo28b2o$9bobo15bo6bo18b
+3o31bo31bo$23bo2bo76b2o14bobo9bo$23b2o78bo16b2o8b4o$38b2o52bobo6bobo
+25b2obo8b2o$38bo53bo2bo5b2o25b3obobo6bo2bo$26b2o8bobo38bo17b2o32b2obo
+12bo$28bo7b2o38bobo14bo3b2o20b2o9b4o11bo6b2o$15b2o12bo26b2o17bob2o16b
+2o21bo2bo9bo13bo6bo$15bo13bo26bo17b2ob2o13bo2bo6b2o14bo22bo2bo$12b2o
+15bo27b3o15bob2o13bobo6bo2bo13bo22b2o$4b2o5b3o14bo8b2o20bo11b2o3bobo
+25bo13bob2o$4bo7b2o12b2o9bo24bo7bobo4bo26bo15bo8bo$15bo31b2o12bo8bo30b
+2obo22b2o$15b2o30bo13b3o5b2o31bo25b2o$37b3o79b2o$29bo8b2o55bo23bo12b2o
+$30bo4b2o9b3o47b2o4b2o28bo$28b3o4b3o8b2o18b2o27b2o5bo41bo$36bobo10b2o
+16bo74bobo$24b2o11b2o9b3o16bobo7b2o42b2o7b2o9bobo11b2o$24bo22bobo18b2o
+5bo2bo42bo8b3o7bo2bo11bo$14bo32b2o25bo13bo43b2obo5bobo$13bobo58bo11b4o
+42bo2bo6bobo$b2o10b2obo8bobo46bo12bob2o41b2obo8bo$bo11b2ob2o6bo2bo47bo
+2bo6bobob3o31b2o5b3o$13b2obo6b2o52b2o8bob2o31bobo5b2o$13bobo5b2o3bo59b
+4o8b2o22bo$14bo8b2o63bo9bobo20b2o$24bo2bo5b2o65bo$25bobo5bobo64b2o$35b
+o$35b2o2$53bo7b3o$53b2ob2obo2b2o$54bo4b3o$34b2ob2obo13bo3bobo2bo$33b2o
+2b2ob2o12bo4bo4bo$41bo12bo4bo4bo$33b2o19bo3bobo2bo$33b2o5b2o12bo4b3o$
+40b2o11b2ob2obo2b2o$33bo13b3o3bo7b3o$33b2ob2o2b2o5b3o$34bob2ob2o6b3o$
+50b3o$50b3o$50b3o2$39b2o23b2o$38b3o23bo44bo27b2o$26bo8bob2o9b2o59bobo
+26bo$26bobo6bo2bo9bo63b2o6b2o16bobo9bo$27bobo5bob2o25bo47b2o4bo3bo16b
+2o8b4o$14b2o11bo2bo7b3o22b2obo45b2o3bo5bo24b2ob4o5b2o$14bo12bobo9b2o
+25bo33b2o7bobo4b2obo3bo23b3ob2o3bo3bo2bo$26bobo37bo32bobo7bo7bo5bo24b
+2ob2o3bo7bo$26bo36bo2bo32bo18bo3bo7b2o17b5o3bo6bo6b2o$37b2o25b2o32b2o
+20b2o8bobo17bo3b3o7bo6bo$37bo43b2o27bo21bo27bo2bo$81bo26b2o22b2o26b2o$
+70b2o7bobo27b2o$70bobo6b2o54bo$57bobo13bo61b2o$56bo2bo5bo4bo2bo18b2o$
+55b2o9bo6bo17bo2bo41bo$53b2o3bo5b3o3bobo21bo40bobo$55b2o13b2o22bo39bo
+2bo$49b2o5bo2bo31b2obo38bo2bo24bo$48bobo6bobo32bo67bobo$48bo66bobo18bo
+7bobo13b2obo4b2o$47b2o34b2o29bo2bo17b2o6bo2bo13b2ob2o3bo$23bo24bob2o
+30bobo7b2o6b2o11b2o10b2o15b2o16b2obo$23b2o23bobo30b3o8bo7bobo8b2o3bo8b
+o14b2o3bo14bobo$14b2o8b2o14bo5bobo2bo29b2o20bo9b2o27b2o17bo$14bo9b3o
+13bobo3b2o2b2o32b2o14bo2bo10bo2bo18b2o5bo2bo$24b2o15bobo39b3o17bo11bob
+o17bobo6bobo$23b2o16bo2bo13b2o33b2o5bobo32bo$23bo17bobo16bo8b3o20bobo
+5b2o32b2o$40bobo7b2o9bo9bo3bo7b2o7bo$40bo9bo10bo8bo4bobo5bo7b2o$61bo
+16b2o$60bo17b2o$58b2o18b2o$75bobo4b2o$75bo6bobo$84bo$84b2o!
+
+</PRE></BODY></HTML>

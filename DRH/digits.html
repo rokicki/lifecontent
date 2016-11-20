@@ -1,0 +1,1247 @@
+<!--saved from url=(0084)http://web.archive.org/web/20071102183319/www.math.ucdavis.edu/~dean/RLE/digits.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> Digits in Life </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+In February 2007, Eric Angelini suggested looking at patterns formed
+from the digits of a number, using the font below:
+
+    ooo.o.ooo.ooo.o.o.ooo.ooo.ooo.ooo.ooo
+    o.o.o...o...o.o.o.o...o.....o.o.o.o.o
+    o.o.o.ooo.ooo.ooo.ooo.ooo...o.ooo.ooo
+    o.o.o.o.....o...o...o.o.o...o.o.o...o
+    ooo.o.ooo.ooo...o.ooo.ooo...o.ooo.ooo
+
+I've had some fun playing around with such patterns.  Some of our discussion
+is on his website: <A href="http://www.cetteadressecomportecinquantesignes.com/GOLife.htm">Une suite pour la Vie</a>
+
+Contents:
+
+<a href="digits.html#death">Patterns which die</a>
+<a href="digits.html#collection">Still-lifes, oscillators, and spaceships</a>
+<a href="digits.html#pseudo">Pseudo still-lifes and oscillators</a>
+<a href="digits.html#infinite">Infinite growth</a>
+<a href="digits.html#repeated">Repeated strings of digits</a>
+<a href="digits.html#spaceships">Creating spaceships and gliders</a>
+<a href="digits.html#gun">Synthesis of glider gun</a>
+
+<A name="death">
+Patterns which die
+------------------</a>
+
+Eric first asked if infinitely many such patterns die.  It's easy to see
+that the answer is "yes"; e.g. numbers of the form 1444...444 all die in
+9 gens.  Arbitrarily slow death is also possible; e.g. numbers of the form
+1125344743766111...111947742, with an odd number of 1's, die by crashing
+spaceships:
+
+#C 1125344743766111111111947742 dies by crashing a MWSS and a LWSS.
+x = 89, y = 5, rule = B3/S23
+obob3ob3ob3obobobobob3obobob3ob3ob3ob3obobobobobobobobobob3obobob3ob3o
+bobob3o$obo3bobo5bobobobobo3bobobo3bo3bobo3bo3bobobobobobobobobobobobo
+bo3bo3bobobo3bo$obob3ob3ob3ob3ob3o3bob3ob3o3bob3ob3obobobobobobobobobo
+b3ob3o3bo3bob3ob3o$obobo5bo3bo3bo3bo3bo3bo3bo3bobobobobobobobobobobobo
+bobo3bo3bo3bo3bo3bobo$obob3ob3ob3o3bo3bo3bo3bob3o3bob3ob3obobobobobobo
+bobobob3o3bo3bo3bo3bob3o!
+
+Numbers of the form 1125344743766189077900222...2220066748424 are even
+more amusing; here the number of 2's in the middle must be divisible
+by 3 and >= 9:
+
+#C 11253447437661890779002222222222222222222222220066748424
+#C The 2's in the middle form two lines of blinkers, which decay from
+#C opposite ends.
+#C Dean Hickerson, dean.hickerson@yahoo.com (2/18/2007)
+x = 217, y = 5, rule = B3/S23
+obob3ob3ob3obobobobob3obobob3ob3ob3ob3obob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3obobob3obobob3obobo$obo3bobo5bobobobobo3bobobo3bo3bobo3bo
+3bobobobobobobo3bo3bobobobobobobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobobobobobo3bo5bobobobobobobo3bobob
+o$obob3ob3ob3ob3ob3o3bob3ob3o3bob3ob3obob3ob3obobo3bo3bob3obobobobob3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+obobobob3ob3o3bob3ob3ob3ob3ob3o$obobo5bo3bo3bo3bo3bo3bo3bo3bobobobobob
+obobo3bobobo3bo3bo3bobobobobobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobobobobobobobo3bo3bobobo3bobo5bo$obob
+3ob3ob3o3bo3bo3bo3bob3o3bob3ob3obob3ob3ob3o3bo3bob3ob3ob3ob3ob3ob3ob3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3o3bo3bob3o3bob3o3bo!
+
+The sequence of numbers which die has been added to the On-Line
+Encyclopedia of Integer Sequences: <A href="http://www.research.att.com/~njas/sequences/A126803">Integers which die in Life</a>
+
+<A name="collection">
+Still-lifes, oscillators, and spaceships
+----------------------------------------</a>
+
+Of course, death isn't the most interesting thing that can happen to
+a Life pattern.  Here's a collection of numbers which produce small
+still-lifes, oscillators, and spaceships.  In each of these, the named
+object is produced by itself.  Most of these were found by observing
+that some number produced an uncommon still-life, and then modifying
+the initial and final digits to get rid of the debris.
+
+#C Small pattern collection
+#C This contains numeric predecessors of various still-lifes,
+#C oscillators, the "familiar fours" (and some less familiar ones), and
+#C the 4 common spaceships.  The numbers with at most 6 digits are probably
+#C minimal; the larger ones probably aren't.
+#C
+#C Names of the less common objects are taken from Andrzej Okrasinski's
+#C Game of Life Statistics ( http://www.geocities.com/conwaylife/lf020n.pdf ).
+#C
+#C blinker (p2)               29
+#C block                      70
+#C tub                        3906
+#C boat                       24
+#C beehive                    163
+#C ship                       516
+#C barge                      243
+#C toad (p2)                  8696
+#C beacon (p2)                3671
+#C aircraft carrier           186176
+#C snake                      341957652114
+#C loaf                       60
+#C long boat                  587
+#C eater                      1084557
+#C long snake                 6065270247413614
+#C
+#C pond                       36
+#C mango                      857
+#C long barge                 127515
+#C long ship                  154235114
+#C tub with tail              2557376
+#C canoe                      52104106503114
+#C shillelagh                 157796
+#C hook with tail             112108350204
+#C bipole (p2)                7020200455
+#C long shillelagh            8330423935
+#C very long boat             4476
+#C hat                        249681
+#C up boat with tail          18019138
+#C down boat with tail        19333076503
+#C tub with long tail         1599435990114
+#C
+#C integral sign              1135274716
+#C tub with nine              187597582
+#C very long ship             31808650070114
+#C boat tie                   7200647110228
+#C block and table            41275676414
+#C beehive with tail          10846421
+#C up barge with tail         55540559353
+#C down barge with tail       1552921912246414
+#C claw with tail             91254643267
+#C cis shillelagh             111410294065111068
+#C loop                       3317286570681
+#C unnamed 11-bit still-life  761314714
+#C elevener                   1858705011164
+#C unnamed 11-bit still-life  21590971031
+#C eater siamese snake        147432532023
+#C
+#C trans loaf with tail       149059473114
+#C trans long boat with tail  6733116821185776
+#C ship boat tie              1125100561957
+#C cis boat and table         18710583610
+#C pair of tables             33108318
+#C ship tie                   141225452
+#C trans legs and block       11317113569
+#C eater siamese eater        410754245114
+#C cis block and long hook    1006382171456
+#C unnamed 12-bit still-life  127745053
+#C beehive with bend tail     7961412233308125408
+#C cis snorkel loop           16635966646711066148
+#C unnamed 13-bit still-life  38923541681
+#C beehive at loaf            277305174681
+#C half bakery                76109
+#C
+#C cis loaf at loaf           189422808541
+#C paper clip                 324637
+#C big S                      14172002
+#C hat siamese hat            1130132
+#C racetrack II siamese hat   22798258254132
+#C fourteener                 23144355435681
+#C cis mirrored R-bee         380718
+#C trans rotated R-bee        4104645072
+#C cis rotated R-bee          7621392111674
+#C bookends                   18030383
+#C cis hook and R-bee         113021797020694
+#C pond and table             604123154231147
+#C block and dock             141247457341871
+#C beehive and cap            410173645421961
+#C dock siamese carrier       14644309288681
+#C
+#C unnamed 14-bit still-life  13673415404000183
+#C cis boat and dock          6581004399314
+#C bi-pond                    141207310
+#C moose antlers              7686328
+#C cis mirrored long hook     113183
+#C beehive and dock           340412204591456712
+#C cis mirrored R-loaf        410813883110
+#C scorpion                   1803712066986301
+#C twin peaks                 66695034197110359
+#C unnamed 18-bit still-life  1893303515
+#C cis mirrored R-mango       4110080033111
+#C cis rotated R-mango        669019610699
+#C dead spark coil            4108303132
+#C trans rotated C            6587961971
+#C unnamed 18-bit still-life  13554271714
+#C
+#C pond and dock              182530867166
+#C cis long hook and dock     122915233114
+#C unnamed 19-bit still-life  7161006176
+#C cis mirrored dock          25410808131018
+#C unnamed 21-bit still-life  46725681
+#C long worm and blocks       13801006728751
+#C cis mirrored worm          6308383830114
+#C cis mirrored long dock     630800000080010 ( found by Nicolay Beluchenko )
+#C unnamed 26-bit still-life  180303033818720
+#C unnamed 28-bit still-life  180010010081
+#C unnamed 38-bit still-life  70310003114
+#C
+#C traffic light              1
+#C blockade                   67
+#C honey farm                 78
+#C fleet                      7108
+#C bakery                     1672
+#C land of lakes              1635661
+#C 4 eaters                   11300
+#C
+#C pulsar (p3)                0
+#C pentadecathlon (p15)       1445481003304129144171771
+#C queen bee shuttle (p30)    1983263225470666662666647618  ( found jointly )
+#C twin bees shuttle (p46)    397301133310                  ( with Nicolay  )
+#C twin bees shuttle (p46)    331101301133310               ( Beluchenko    )
+#C
+#C glider                     90
+#C LWSS                       3207
+#C MWSS                       94174
+#C HWSS                       185598100297311043114
+#C Dean Hickerson, dean.hickerson@yahoo.com (3/26/2007)
+x = 736, y = 428, rule = B3/S23
+b3o12b3ob3o60b2o13b3ob3o46b2o15bobob3ob3ob3ob3obobob3obob3o33b2o13bobo
+bob3ob3ob3ob3obobob3ob3obobobobo37bo16bob3ob3obobob3ob3ob3ob3ob3ob3obo
+bobo25bo16bob3ob3ob3ob3obobobob3obobob3obobob3ob3ob3obob3ob3o15b2o13bo
+b3ob3ob3ob3ob3ob3ob3ob3obob3ob3o43b3o14bo$18bobobo59bo2bo14bobo48bo16b
+obo3bobo5bo3bobobo3bobobo34bo2bo12bobobobobobobobo3bobobobo3bo3bobobob
+obo36bobo15bobobobobobobo3bo3bobobobobobobobo3bobobo24bobo15bo3bobo5bo
+3bobobobobo3bobobobobobobobobobobobobobobo3bo14bo2bo12bobobo3bobo5bobo
+bobobobo5bobobo3bo62bo$16b3ob3o59bo2bo12b3ob3o47b3o13bobob3ob3ob3o3bob
+3o3bobob3o32bobo13bob3ob3obobob3ob3ob3o3bob3obobob3o35bo2bo15bob3ob3ob
+3ob3ob3ob3obobob3ob3ob3obo24bobo15bob3ob3o3bob3ob3obob3ob3obobob3obobo
+bobobobobob3ob3o14bo2bo12bob3ob3ob3ob3obobob3ob3o3bobob3ob3o41bo5bo12b
+o$16bo5bo60b2o15bobobo50bo12bobo3bo3bobo5bo3bo3bobobobo33bo14bo3bo3bob
+obo3bo3bo3bo3bo3bobobo3bo36b2ob2o13bobobo3bo3bobo3bo3bobobobobobo3bo3b
+obo25bob2o13bo3bobobo3bo3bo3bobo3bo3bobobo3bobobobobobobobobobo3bo15b
+2o13bobobobo5bo3bobobobobobobo3bobobobobobo41bo5bo12bo$16b3ob3o75b3ob
+3o49b2o12bobob3ob3ob3o3bo3bo3bobob3o30b3o15bo3bob3ob3ob3ob3o3bo3bob3ob
+obo3bo38bo2bo12bob3ob3o3bob3ob3ob3ob3ob3ob3o3bobo27bobo12bob3ob3o3bob
+3o3bobob3o3bob3o3bob3ob3ob3obob3ob3o30bob3ob3ob3ob3ob3ob3ob3o3bobob3ob
+3o41bo5bo12bo$231bo96bobo82bo2bo86b4o$329bo84b2o86bo4bo98b3o$502b2o2b
+2o8$665b3ob3o$665bobobobo$665b3obobo$667bobobo$665b3ob3o2$601b2o$601b
+2o2b2o$605b2o7$2b2o12b3ob3o59b2o14b3ob3ob3o42bo16bob3ob3ob3ob3ob3ob3ob
+3ob3o34b2o12b3ob3ob3ob3obobob3ob3ob3obobob3ob3ob3ob3ob3o24b2o14b3ob3ob
+obob3ob3ob3o47bo14b3ob3ob3obob3ob3obobob3ob3ob3ob3obobobo26b2o2b2o12bo
+b3ob3ob3obob3ob3ob3ob3obobobobo64b3ob3o$2b2o14bobobo58bo2bo13bobobo5bo
+41bobo15bobobo3bobo3bobo3bobo3bobo3bo33bobo12bo5bo3bo3bobobobo3bobo3bo
+bobobobobo5bo3bobo25bo2bo15bo3bobobobo5bo3bo46bobo13bo3bo3bobobobobobo
+bobobo3bobobobobo3bobobobo26bo4bo12bo3bo3bobobobobo5bo3bo3bobobobobo
+64bo5bo$18bobobo59bo2bo12b3ob3o3bo42bobo14bob3o3bob3ob3o3bob3ob3ob3o
+32bobo13b3o3bob3ob3obobob3ob3ob3obobob3ob3o3bo3bob3o23b2obo13b3ob3ob3o
+b3ob3o3bo47b2o13b3ob3ob3obobobobobob3ob3ob3ob3ob3obob3o27b4o13bob3ob3o
+b3obob3ob3ob3ob3obobob3o64b3o3bo$18bobobo60b2o13bobo3bo3bo44bo14bobobo
+3bo3bo3bo3bo3bobobobo33bobo14bobo3bo3bo3bobobobobobobobo3bobobobo3bo3b
+o3bobobo24bob2o14bobo5bobobo3bo3bo62bobo3bobobobobobobobo3bo3bo3bo3bo
+3bobo3bo44bobo3bo5bobo3bobo5bo3bobobo3bo64bobo3bo$18bob3o75b3ob3o3bo
+44bobo12bob3o3bob3ob3o3bob3ob3ob3o31bo16b3o3bob3ob3obobob3ob3ob3obobob
+3ob3o3bo3bob3o24bo2bo12b3ob3o3bob3ob3o3bo45b4o13b3ob3ob3obob3ob3o3bob
+3ob3ob3ob3obo3bo27b4o13bob3ob3ob3obob3ob3ob3ob3obobo3bo64b3o3bo$154b2o
+75b2o96b2o80bo4bo85bo3bo$411b2o2b2o85b2o5$605b2o$605b2o2b2o$609b2o2$
+665b3ob3ob3ob3o$667bo3bobobo3bo$665b3ob3obobo3bo$667bobo3bobo3bo$665b
+3ob3ob3o3bo7$604bo$603bobo$603bobo$604bo$2bo13b3ob3ob3ob3o53bo13bob3ob
+3ob3obob3o34b2o15b3obob3ob3ob3ob3ob3ob3ob3ob3ob3obobobobo14b2o16bobob
+3ob3obob3ob3ob3ob3obob3ob3ob3o37b2o13bobobobob3ob3ob3ob3ob3o37b2o5b2o
+12b3ob3ob3ob3ob3ob3ob3o47b2o15b3obob3obob3ob3ob3obob3ob3o70b3ob3o$bobo
+14bobobobobobo54bobo12bo3bo3bobo3bobo36bobo16bobobobobobobobobo3bo3bob
+obobo3bobobobobobobo14bobo15bobo3bobo3bobobobobobo3bo3bobobobo5bo36bo
+2bo12bobobobo3bo3bobobobobo3bo37bo7bo14bobo3bobobo5bo3bobobo47b2o17bob
+obo3bobobobobobo3bo3bobo48b2o7b2o15bobobo$2bo13b3ob3obobob3o51bobo13bo
+b3o3bob3obob3o35bobo13b3obob3obobob3ob3ob3obobobobo3bobobobobob3o15b2o
+15bobob3ob3obobobobobob3ob3obob3ob3o3bo36bob2o12bob3obo3bob3obobobobob
+3o38b3ob3o15bob3ob3ob3ob3ob3ob3o51bo14bobob3obobobobobob3obo3bob3o45bo
+2bo5bo2bo14bob3o$18bo3bobobobobo50bobo14bobo5bo3bobo3bo36bobo14bobobob
+obobobobobobo3bobobobobo3bobobobobo3bo17b2o13bobobo5bobobobobobo3bobob
+obo3bo3bo3bo33b2obo15bo3bobo3bobo3bobobobobo42bobo17bobobobobobobo3bob
+o3bobo47b5o14bobobobobobobobobobobobo3bobobo46b2o7b2o15bobobo$16b3ob3o
+b3ob3o51bo15bob3o3bob3obob3o37b2o12b3obob3ob3ob3ob3ob3ob3ob3o3bob3obob
+o3bo17bobo12bobob3ob3obob3ob3ob3ob3obob3ob3o3bo33bo2bo15bo3bobo3bob3ob
+3ob3ob3o41bo18bob3ob3ob3ob3ob3ob3o46bo19bobob3obob3ob3ob3obo3bob3o72bo
+b3o$235bo90b2o174bobob2o96bo$503b2ob2o95bobo$603bobo$604bo7$665b3obobo
+bob3obobo$665bobobobobo3bobobo$665b3ob3obo3bob3o$667bo3bobo3bo3bo$665b
+3o3bobo3bo3bo11$2bo13b3obobo59b2o14bob3obobob3ob3ob3obobobobo24bo16b3o
+b3ob3ob3ob3obobob3obobob3ob3ob3ob3o20b2o12bob3ob3obob3ob3ob3ob3ob3obob
+3o42bo15bobob3ob3obob3ob3o46b2o16bobobobob3ob3ob3ob3obob3o44b2o2b2o12b
+3ob3obobobob3ob3ob3ob3obob3obob3obob3o38b2o16b3obob3ob3o$bobo14bobobo
+59bobo13bobo3bobo3bo3bobo3bobobobo23bobo17bo3bobobobobobo3bobo3bobobob
+obo3bo3bobobo17bo2bo13bobobo3bobobobobo3bobo3bobo3bobobo40b5o13bobo3bo
+bobobo3bo3bo45bo2bo15bobobobo3bobobo3bo3bobobobo44bo4bo14bobo3bobobobo
+bobobobobobobobo3bobobobobobobo38bobo17bobobobobobo$b2o13b3ob3o60bobo
+12bob3ob3ob3ob3ob3obobob3o24b2o17bob3obobobobob3ob3o3bobobobobob3ob3ob
+3o16bobobo13bob3o3bobobobob3ob3ob3ob3obobobo39bo5bo12bobob3obobobob3ob
+3o45bo2bo15bob3obob3obobo3bob3obobobo45b4o13b3ob3ob3obobobob3obobob3ob
+ob3obobobobob3o39b2o17bobobobob3o$16bo5bo61b2o12bo3bo3bobo5bo3bobobo3b
+o26b2o15bobo3bobobobobobo3bo3bobobobobobo3bo3bobo17b2ob2o12bobobo3bobo
+bobo3bobobo3bobobobobobo40b5o13bobo3bobobobo3bobo48b2ob2o13bo3bobobo3b
+obo3bo3bobobobo62bo5bo3bobobobobobobobobobobo3bobobobobobobo41b2o15bob
+obobobobo$16b3o3bo75bob3o3bob3ob3ob3obobo3bo26bobo14bob3ob3ob3ob3o3bo
+3bobobob3ob3ob3ob3o34bob3o3bobob3ob3ob3ob3ob3obob3o42bo15bobob3ob3obob
+3ob3o48bo2bo12bo3bobob3ob3o3bob3obob3o45b4o13b3ob3o3bobob3ob3ob3ob3obo
+b3obob3obob3o34b2o5bobo14bobob3ob3o$154bo258bo2bo85bo4bo93bobo5b2o$
+414b2o86b2o2b2o94b2o$604b2o$604bobo$605b2o6$665bob3ob3ob3ob3ob3obob3ob
+3ob3ob3ob3ob3obobob3obobob3obobobobo$665bobobobo3bo3bobobobobobobobobo
+3bobobo3bo3bobobobobobobo3bobobobobo$665bob3ob3ob3ob3ob3obobobobobob3o
+b3o3bob3obobobobob3ob3obobob3o$665bobobo3bo3bo3bobobobobobobobobo5bo3b
+o3bobobobobo3bo3bobobo3bo$665bob3ob3ob3ob3ob3obob3ob3ob3ob3o3bob3obobo
+b3o3bob3obobo3bo11$b2o13bob3ob3o57bo15b3ob3ob3ob3ob3ob3ob3o27bo2bo12bo
+bobob3ob3ob3ob3ob3ob3obobobobobo26bo2bo12b3ob3obob3ob3ob3obob3o52bo15b
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3obobobob3ob3o15b2o15bobob3obob3ob3o59b2o
+13bobob3ob3ob3ob3ob3ob3obo56b2o16bob3ob3ob3o$o2bo12bobo5bo56bobo16bobo
+3bo5bo3bo3bobo29b4o12bobobo3bo3bobo3bo5bobo3bobobobobo26b4o14bo3bobobo
+bobobo3bobobobo50b5o15bo3bo3bobobobobo3bobo3bobo3bobo3bobobo3bo3bo15bo
+3bo12bobo3bobobobo3bo59bobo12bobobo5bo3bobo3bo3bobobo55bo2bo15bobo5bo
+3bo$b2o13bob3ob3o57bobo13b3ob3ob3o3bob3o3bob3o43b3obob3o3bob3ob3o3bob
+3ob3obob3o42b3ob3obobobob3ob3obob3o49bo5bo12b3ob3o3bob3ob3ob3ob3ob3ob
+3ob3ob3obob3ob3o16b4o12bobob3obob3ob3o61bo12b3ob3o3bob3ob3ob3ob3obo55b
+obo16bob3o3bob3o$16bobobo3bo59bo13bo5bo3bo3bo3bo3bobobo29b2o14bobobo5b
+o3bobobo3bobobo3bobo3bo26b4o14bo3bobobobobobo3bobobobo50bob3o13bo3bo5b
+o3bobobobo5bobobobo5bo3bobo3bobo34bobo3bobobobo3bo57b4o15bobobo3bobo5b
+obobobobobo53b2obo3bo13bobobo3bobo$16bob3ob3o59b2o12b3ob3ob3o3bob3o3bo
+b3o29b2o14bobob3o3bob3ob3o3bob3o3bobo3bo26bo2bo12b3ob3obob3ob3ob3obob
+3o51b2o15b3ob3o3bob3ob3ob3ob3ob3ob3ob3o3bobob3ob3o16b4o12bobob3obob3ob
+3o57bo18bob3o3bob3ob3ob3ob3obo52bo2bo3bobo12bob3o3bob3o$412bo3bo83b2ob
+ob2o94bobo3bo2bo$412b2o86bo2bob2o95bo3bob2o$501b2o102bobo$604bo2bo$
+605b2o21$2b2o12b3obob3o59b2o12b3ob3obob3obobobob3ob3ob3ob3ob3obobobobo
+9b2o12bob3ob3obobob3obobob3obo40b2o12bobobobob3ob3ob3obobob3ob3o48b2o
+14b3ob3obobobobobob3ob3ob3obobob3ob3ob3ob3obo16b2o2b2o12b3obobob3obobo
+bob3ob3ob3obobob3ob3obobobob3ob3ob3obob3o8b2ob2o13bob3ob3ob3obob3ob3ob
+3ob3ob3ob3ob3ob3obo36b2o16bob3ob3ob3ob3ob3obo$bobo12bo3bobo62bo12bo5bo
+bobobobobobobobobo3bo3bobo3bobobobobo9bo13bobobobobobobobo3bobo3bobo
+39bobo12bobobobo3bo3bobo3bobobo5bo48bobo15bo3bobobobobobo3bobo3bo3bobo
+3bobo3bo3bobobo16bo4bo14bobobobobobobobo3bo3bobobobobobo3bobobobobobo
+3bo5bobo3bo8b2ob2o13bo3bobobobobobobobobobobo5bo3bobobo3bobo3bo35bo2bo
+15bobo5bobo3bo3bo3bo$b2o13b3obob3o59bo13b3ob3obobobob3obobobob3ob3obob
+ob3obobob3o6b2obo13bobobob3ob3ob3ob3ob3obo39b2o13bob3obob3ob3ob3ob3ob
+3ob3o50bo13b3ob3obob3ob3ob3ob3ob3ob3ob3ob3ob3ob3obo17b4o13b3ob3obobob
+3obob3ob3obobob3ob3ob3obob3ob3ob3o3bobob3o26bob3ob3obobobobobobobob3o
+3bob3ob3o3bob3obo35bo2bo15bob3ob3ob3ob3ob3obo$18bobobobo56bobo16bobo3b
+obobo3bobobobobobo3bobobo3bobobo3bo5bo2bo14bobobobobo3bobobo3bobo3bo
+37b2o15bo3bobobo3bo5bo3bo3bobo52b2o12bo5bobo3bo3bo3bo3bo3bo3bo3bo3bobo
+bobobobo36bo3bobobo3bobobo3bo3bobo3bo3bo3bobo3bo3bobobo3bobobo10b5o13b
+o3bobobobobobobobobobobobo3bobo3bobo3bo3bobo36b2ob2o13bobobo3bo3bobobo
+bobobo$16b3obob3o56b2o15b3ob3obob3o3bobob3ob3ob3ob3ob3obobo3bo6b2o15bo
+b3ob3o3bob3o3bob3obo36bobo15bo3bobob3ob3ob3o3bob3ob3o47b2obo13b3ob3obo
+3bo3bob3ob3ob3o3bob3ob3ob3ob3obo19b2o13b3o3bob3o3bobob3ob3ob3o3bob3ob
+3obo3bob3ob3o3bobob3o7bo5bo12bob3ob3ob3obob3ob3ob3o3bob3ob3o3bob3obo
+38bo2bo12bob3ob3ob3ob3ob3obo$231b2o94bo2bo82bo2bo84bobo2b2o99bo2bo$
+328b2o84b2o86b2o104b2o$598b2o$597bo2bo$597bo2bo$598b2ob2o$600bo2bo$
+600bo2bo$601b2o17$2bo13b3obobob3o56b2o13bob3ob3ob3ob3ob3o31b2o16b3ob3o
+b3obobob3ob3ob3ob3ob3ob3ob3o21b2ob2o12bobob3obob3obobob3ob3ob3ob3o47b
+2o13b3ob3ob3ob3obob3o49bo14bobobob3ob3obob3ob3ob3ob3obobob3o35b2o15b3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3obobobobo32bo7bo15bobob3ob3ob3o$bobo14bobobo
+3bo57bo13bobo5bo3bobobobo34bo16bo3bo3bo3bobobobobo3bo3bobo3bobo5bo22bo
+b2o12bobo3bobo3bobobo3bobo3bo3bobo46bo2bo14bobobobobo3bobobobo48bobo
+13bobobobobobobobo3bobobobobo3bobobobobo34bobo15bo5bobobobobo3bobobo3b
+obobo3bobobobobobobo30b3o7b3o13bobo3bobobobobo$obo13b3ob3ob3o56bo14bob
+3o3bo3bob3ob3o32bobo14b3ob3ob3ob3obobob3ob3ob3ob3ob3ob3o22bo15bobob3ob
+o3bobobob3ob3ob3ob3o47b3o12b3ob3obobo3bobob3o48bo2bo12b3obobobob3obob
+3ob3ob3ob3obobobobo34bo4bo12b3ob3obobob3ob3ob3ob3ob3ob3obobobobob3o29b
+o13bo12bobob3obobobobo$bo14bo5bo3bo56bobo12bo3bo3bo3bo3bobobo33bobo15b
+o3bo3bo3bobobo3bo3bo3bo3bo3bo3bo23b3o12bobo3bobo3bobobo3bo3bobobo3bo
+64bobobobobo3bobobobo49b3o14bobobobobobobo3bobobobobo3bobobobobo35b5o
+12bobo3bobobobobo3bobobo3bobobo3bobobobobo3bo29b2o11b2o12bobo3bobobobo
+bo$16b3o3bob3o57b2o12bob3o3bo3bob3ob3o34bobo12b3ob3ob3o3bob3ob3ob3ob3o
+b3ob3ob3o25bo12bobob3obo3bobobob3ob3ob3ob3o47b3o12b3ob3ob3o3bobob3o66b
+obob3ob3obob3ob3ob3ob3obobob3o52b3ob3ob3ob3ob3ob3ob3ob3ob3ob3obobo3bo
+56bobob3ob3ob3o$154bo173bo2bo82b3o86b5o$329b2o82bo2bo85bo4bo$413bobo
+86bobo$414bo88b2o3$596b2o11b2o$596bo13bo$597b3o7b3o$599bo7bo16$2bo13b
+3ob3ob3ob3o53b2o12bobob3obob3ob3ob3ob3ob3ob3ob3obobo13bo15bob3ob3ob3ob
+3ob3obob3obob3ob3obobob3obobobobobo13bo12bobobob3ob3ob3obobob3obobob3o
+bobobobo36bo17bobobob3obobob3obobob3ob3ob3ob3o33b2o13bob3ob3ob3ob3obob
+3ob3ob3ob3ob3ob3ob3ob3ob3obo15b2o3b2o12b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3obob3o$o2bo12bobobo3bobobo55bo13bobo3bobobobobobo3bobo3bobo3bob
+obobobo12bobo14bobo3bo5bobobo3bobobobobo3bo3bobobobo3bobobobobo11b3o
+12bobobobobo3bobo3bobo3bobobobo3bobobobo35bobo16bobobobobobobobo3bobob
+o3bobo3bo3bo32bo2bo12bobobobobo3bo3bobo3bobobobo3bo3bobobobobo5bobobob
+o15bobobobo12bo5bobobobobobobobobobobobobobobobobobobobobobobobobobo$o
+2bo12b3ob3ob3ob3o50b2obo13bobob3obobobob3ob3ob3obobob3obobob3o11bobobo
+13bob3ob3ob3ob3ob3obob3obob3ob3ob3ob3ob3obob3o10bo15b3obobobo3bob3ob3o
+b3ob3ob3obobob3o35bobo16b3obobobob3ob3ob3ob3obobo3bob3o32b3o13bob3obob
+ob3o3bobob3obobob3ob3ob3ob3ob3ob3obobobo17bobo14b3ob3obobob3obobobobob
+obobobobobobobob3obobobobobobobo$bo14bobobobo3bobobo50bobo14bobobo3bob
+obobobo3bo3bobobobo3bobo3bo12bo2bo13bo3bo3bobo5bobo3bo3bobobo3bo5bobob
+o3bobo3bo10b2o16bobobobo3bo3bo3bobo5bo3bobobo3bo36b2ob2o15bobobobo3bob
+obo3bo3bobobo3bobo32b2o16bobobobobo3bo3bobobo3bobobobobobo3bobobobobo
+3bobobobo16b2ob2o13bobo3bobobobobobobobobobobobobobobobobobobobobobobo
+bobobo$16b3ob3ob3ob3o67bobob3obob3ob3ob3ob3ob3ob3ob3o3bo15b2o12bob3ob
+3ob3ob3ob3obob3obob3ob3o3bob3o3bobo3bo11bo16bobob3o3bob3o3bob3o3bob3ob
+obo3bo39bobo14bobob3o3bob3o3bob3ob3o3bob3o31bob2o13bob3ob3ob3o3bobob3o
+b3ob3ob3ob3ob3ob3ob3ob3obo17bobo14b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o
+b3obob3o$234bobo92bobo80bo2bo85bobobobo$235b2o93bo82b2o86b2o3b2o19$
+600bo5bo$600bo5bo$600b2o3b2o2$596b3o2b2ob2o2b3o$2o14b3ob3ob3obo52b2o
+15b3ob3ob3ob3ob3ob3ob3obobob3ob3o17b2o12b3obob3ob3obobob3obobob3ob3ob
+3ob3o23b2o15bob3ob3ob3ob3ob3ob3obob3obobobob3ob3o35b2o13b3ob3ob3obob3o
+b3ob3obobobob3ob3obobo26bo15b3ob3ob3ob3ob3ob3ob3obobobob3ob3obobob3ob
+3ob3ob3o10b2o4b2o12bob3ob3ob3ob3ob3ob3ob3ob3ob3obob3ob3ob3ob3o23bobobo
+bobobo14b3o$o17bobo5bobo52bo18bobobo3bobobo3bobobobobobobobo3bo18bobo
+12bobobo3bobo3bobobo3bobo3bo3bobo5bo23bo3bo12bobobobobobo5bobobo3bobo
+3bobobobobo3bo36bo2bo14bobo5bobo3bobobo3bobobobobo5bobobo26b3o13bo3bo
+3bo3bobobo3bobo3bobobobobobo3bobobobobo3bobo3bobo10bo3bo2bo12bobobobob
+o3bobobo3bobobo3bo3bobobobobobo3bo3bobobo25b2o3b2o16bobo$3bo12b3ob3o3b
+obo53bobo15bobobob3obobob3obobobobob3ob3ob3o16bo14b3obob3ob3ob3ob3ob3o
+b3ob3ob3o3bo24b4o12bobobobobob3ob3ob3ob3obo3bobob3ob3ob3o34b3o15bob3ob
+3obob3ob3ob3obobobob3o3bob3o29bo12b3ob3ob3ob3ob3obobob3ob3obob3o3bobob
+obobob3ob3ob3o11b6o13bob3obobob3obobob3obobob3ob3ob3obob3o3bob3obobo
+48bobo$2b2o14bobobo3bobo56bo14bobobobo3bobobo3bobobobo3bo3bo3bo17bo15b
+obobo5bo3bobobo3bo3bobo3bobo3bo40bobobobobobobo3bobobobo3bo3bobo3bo3bo
+bobo52bobobobo3bo3bo3bobo3bobobobobo3bo3bo26b3o13bobobobobobo3bo3bobob
+o3bo3bobo3bo3bobobobobo3bo3bo3bo30bobobobobo3bobobo3bobobo3bo3bobobobo
+bobo3bobo3bobo25b2o3b2o16bobo$16b3ob3o3bobo55b2o14bob3ob3ob3ob3ob3ob3o
+3bob3ob3o14b3o14b3obob3ob3o3bob3o3bob3ob3ob3o3bo24b2o14bob3ob3ob3ob3ob
+3ob3obo3bobo3bob3ob3o34b3o15bob3ob3obob3ob3ob3obobobob3o3bo3bo25bo16b
+3ob3ob3ob3ob3ob3ob3o3bobob3o3bobobob3ob3ob3ob3o11b6o13bob3ob3ob3ob3ob
+3ob3ob3ob3ob3obob3o3bob3ob3o23bobobobobobo14b3o$151bo81b2o92bo2bo82b3o
+84bo3bo2bo88b3o2b2ob2o2b3o$328b2o86bo83b2o4b2o$413b3o184b2o3b2o$413bo
+186bo5bo$600bo5bo16$609bo$608bobo3$608b3o$2b2o12bob3ob3obob3ob3o49b2o
+12b3ob3ob3ob3obobob3ob3ob3ob3ob3o16b2o13bobobobobobob3ob3ob3obobob3ob
+3ob3obobobob3ob3ob3o5b2o17bob3ob3ob3obobob3ob3ob3ob3o46b2o14bob3ob3ob
+3ob3ob3ob3ob3o37bo18bob3ob3ob3ob3ob3ob3ob3obob3o37b2o3b2o12bob3ob3ob3o
+bob3ob3obob3ob3ob3obo49b3o12bobobobobob3obobob3obob3ob3ob3ob3ob3obobob
+ob3ob3obobobobobobob3obob3ob3obo$o2bo12bobobobo3bo3bobo50bobo12bobo3bo
+3bobobobobo3bo3bobobo3bobo18bobo12bobobobobobobobo3bobobobobobobobo3bo
+3bobobobobobo3bobo5bobo16bo3bo3bo3bobobobo3bobobo5bo46bo2bo12bobobobob
+o3bobobo3bobobo3bo36bobo17bobobobobo3bo3bobobo3bobo3bobo39bobobobo12bo
+bobobobobobobobobobobobobobobobobobobo50bo13bobobobobobo3bobobobobobob
+obobo3bo3bobobobobobo3bobobobobobobobobo3bobo3bo3bobo$2o14bob3ob3obo3b
+ob3o48bo14b3ob3ob3obobob3ob3ob3ob3ob3ob3o18bo12bobobob3obobobob3ob3ob
+3obobob3ob3obobobobobob3ob3o7bo16bob3o3bo3bob3ob3obobob3ob3o47b3o12bob
+3obobob3obobob3ob3ob3o36bo2bob2o13bob3ob3ob3ob3obobob3ob3obob3o39bobo
+14bob3obobobobobobobobobobobobobobob3obo64bob3ob3ob3ob3ob3obobobobobob
+3ob3obobob3obob3ob3obob3ob3obo3bobo3bo3bobo$16bobobobobobo3bobobo49bo
+13bobo3bo3bobobo3bobo5bo3bo3bo3bo17bo13bobobo3bobobobobo5bo3bobobobobo
+3bobobobobobobobobobo7b3o14bobo5bo3bo3bo3bobobo3bo3bo62bobobobobo3bobo
+bo3bobobo3bo37bobobobo12bobobo3bo3bo3bobobo3bo3bobo3bo39bobo14bobobobo
+bobobobobobobobobobobobobobobobo64bo3bo3bo3bo3bobobobobobobobo3bo3bobo
+bo3bobobo5bobo3bo3bobo3bobo3bo3bobo$16bob3ob3obo3bob3o50bo12b3ob3ob3ob
+3o3bob3ob3ob3ob3ob3o14bobo14bobobo3bobob3ob3ob3o3bob3ob3ob3obobobob3ob
+3ob3o10bo13bob3o3bo3bo3bob3ob3ob3ob3o47b3o12bob3ob3ob3ob3ob3ob3ob3o38b
+2o3bo12bob3ob3ob3ob3ob3ob3ob3obob3o38b2ob2o13bob3ob3ob3obob3ob3obob3ob
+3ob3obo50bo13bo3bo3bob3o3bob3obob3ob3ob3ob3ob3o3bobob3ob3obo3bo3bobo3b
+obo3bo3bobo$84b2o65b2o81bobo91bo2bo81b3o87bobo102b3o$235bo92b2o83bo89b
+obo102b3o$501bobobobo$501b2o3b2o$608bobo$609bo20$2b2o12b3obobobob3ob3o
+b3ob3ob3ob3obobobobo27bo13bobobobob3ob3o38b2ob2o12b3ob3obob3ob3ob3ob3o
+b3ob3ob3ob3ob3obo18b2o14b3ob3ob3obobobobob3ob3ob3ob3ob3ob3ob3obob3ob3o
+bobob3ob3o8bo3b2o12bobob3ob3ob3obob3ob3ob3ob3ob3ob3ob3ob3obobo17b2o13b
+obobobob3ob3ob3ob3ob3ob3ob3obobobo30bobobobo13b3ob3ob3obob3ob3ob3ob3ob
+obobobo41bobo22bob3ob3ob3ob3ob3ob3ob3ob3ob3obobob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3obobob3ob3obob3o$2bo15bobobobobobobo5bobo3bo5bobobobobo
+26bobo12bobobobo3bobo41bobo15bo3bobo3bo3bobobobo3bo5bobobobo3bobobo17b
+o2bo15bobobobo3bobobobo3bo3bo3bo3bo3bobobobobobo3bobo3bobobobobobo7bob
+obobo12bobo3bobobo3bobo3bobobo3bobobo3bobobobo3bobobobo16bo2bo12bobobo
+bobobobobobobobobobobo3bo3bobobobo29bob2ob2obo14bobobo3bobobobobobobob
+o3bobobobobo39bo3bo22bobobobobo3bo3bobo5bo3bo3bobo3bobo3bobobobo3bo3bo
+3bo3bo5bobo3bo3bo3bo3bobo3bobo3bobobo$3bo12b3ob3obob3ob3o3bob3ob3ob3ob
+obob3o25bobo13b3ob3o3bob3o39bo2bo12b3ob3obo3bob3ob3ob3ob3o3bobobob3ob
+3obo18b2obo14bob3ob3obob3obob3ob3ob3ob3ob3obobob3obob3ob3ob3obobob3o7b
+obobo14bobob3obobob3obo3bob3o3bobobob3obobob3ob3ob3o15bo2bo13b3obobobo
+bobobob3obobobobob3ob3obobobo29bo7bo14bobobob3obobobobobobobob3obobob
+3o32b2o5bo26bob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o3bobobob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3o3bob3obob3o$2b2o14bo3bobo3bo3bo3bobobo3bobo3bobo3bo24bob
+o16bo3bo3bobobo40b2o15bo3bobo3bobo3bobobobo3bo3bobobobobobobobo21bo14b
+o3bobobobo3bobobo3bo5bo3bo3bobobobobobobo5bo3bobobobobo8b2ob2o13bobo3b
+obobobo3bo3bo3bo3bobobobo3bobobobo3bo3bo15b3o16bobobobobobobobobobobob
+obo3bo3bobobobo30b7o15bobobo3bobobobobobobobo3bobobo3bo32b2o4bo4bo8b2o
+12bo3bobobo3bobo3bobo3bobo3bo5bo3bo3bobobobobobobobobobobobobobo3bobob
+obobobobobo3bo3bobobobobobo$16b3o3bobob3ob3o3bob3ob3ob3obobo3bo24b2o
+17bo3bo3bob3o55b3ob3obo3bob3ob3ob3ob3o3bob3ob3ob3obo18b3o15bob3ob3obo
+3bobob3ob3ob3ob3ob3ob3ob3obob3ob3o3bob3ob3o26bobob3ob3ob3obo3bob3o3bob
+3ob3ob3ob3ob3o3bo34bobobob3ob3ob3ob3ob3ob3ob3obobobo52bob3ob3obob3ob3o
+b3ob3obobo3bo39bo12b2o12bob3ob3ob3ob3ob3ob3ob3ob3ob3o3bo3bob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3o3bo3bob3obob3o$233bo178b3o85b7o89bo3bo$412bo2bo
+83bo7bo90bobo$413bo2bo82bob2ob2obo$414b2o84bobobobo20$582b2o2b2o4bo2b
+2o12b2o$582b2ob2o6b2obo12b2o$2bo13b3ob3o59bo15b3obobob3ob3ob3obo35bo
+13b3ob3obob3obobobob3obobobo38b2o12bob3ob3ob3ob3ob3ob3ob3ob3obobob3ob
+3obobob3ob3ob3obobobob3o9b2o13b3ob3obobobob3ob3obob3obobob3ob3obobobob
+ob3o14bo19b3ob3ob3ob3obob3ob3obob3ob3ob3ob3o114bobo6bo27b3ob3ob3ob3ob
+3obobob3ob3ob3obob3o$bobo12bo3bobo59b3o15bobobobobobo3bobobo34bobo14bo
+bo3bo3bobobobo3bobobobo36bo2bo12bobo3bo5bobo3bobobo3bo3bo3bobobo5bobob
+obobobo3bo3bobobobobo5b2obo2bo12bo3bobobobobo3bo3bobobo3bobo3bo3bobobo
+bobo3bo13bobo18bo3bo3bobobobobobobobo3bobobobo3bobobobo115b2o4b3o29bob
+obo3bo3bobobobobo3bo3bo3bobobobo$o2bo12b3obobo62bo12b3ob3ob3ob3ob3obo
+33bo2bo14bob3obob3obob3o3bobob3o35bob2o13bob3ob3ob3ob3ob3ob3ob3ob3ob3o
+b3o3bobobobobob3ob3obob3ob3o6bobo2bo12b3obobob3obob3ob3obob3ob3ob3ob3o
+bobob3o3bo13bo2bob2o14b3ob3ob3obobobob3ob3obobobob3ob3ob3o151b3ob3o3bo
+b3obobobobob3ob3ob3obobobo$b2o13bobobobo59b3o13bo5bo3bobobobobobo33bob
+o15bobobobo3bobo3bo3bobo3bo35bo16bobobobobo3bo3bo3bobobobobobobo3bobob
+o3bobobobobobobobobobo3bobobo6bo2b2o13bobobobo3bobobo5bobo3bo3bobo5bob
+obo3bo3bo14bobobobo13bobobobo3bobobobo3bobobobobobobobo3bo3bo115b2o4b
+3o29bo3bo3bo3bobobobobo3bo3bo3bobobobo$16b3ob3o59bo15b3o3bob3ob3ob3obo
+32b2ob2o14bob3obob3obo3bo3bobo3bo36b3o13bob3ob3ob3ob3ob3ob3ob3ob3o3bob
+3o3bobobob3ob3ob3obo3bob3o5b2o17b3ob3o3bobob3ob3obob3o3bob3ob3obobo3bo
+3bo15b2obo2bo12b3ob3ob3ob3obob3ob3obob3ob3ob3ob3o114bobo6bo27b3ob3o3bo
+b3ob3obobob3ob3ob3obob3o$235bo178bobo168b2o6b2obo12b2o$415bo170b2o4bo
+2b2o12b2o22$582b2o2b2o4bo2b2o12b2o$582b2ob2o6b2obo12b2o$2b2o12b3ob3ob
+3o54b2o15bob3ob3obob3obob3ob3o31b2o12bob3ob3ob3ob3ob3ob3ob3obobobob3ob
+obo23b2o13b3ob3ob3ob3ob3ob3obobobob3ob3obo42b2o12bobobobob3obobob3obob
+ob3ob3ob3obobobob3ob3obo17b2ob2o12bobobob3ob3ob3ob3ob3obob3ob3o122bobo
+6bo27b3ob3obobob3obob3ob3obobob3ob3ob3obob3o$bobo12bo3bobo3bo55bo15bob
+obobobobobobobo3bobobo32bo12bobobobo3bobo3bobobobo3bobobobobobo3bobo
+23bobo14bobobobobo3bo3bobo3bobobobo3bobobo38b2obobo12bobobobo3bobobo3b
+obobobo5bo3bobobobobobo3bobo17bo3bo12bobobobobobobo3bobobo3bobo3bo3bo
+123b2o4b3o29bo3bobobobobobo3bobobobobo3bo3bo3bobobobo$obo13b3ob3o3bo
+55bobo13bob3obobobob3obob3ob3o29b3o13bob3ob3ob3o3bobobob3obobobobobob
+3ob3o25bo12b3ob3ob3ob3ob3ob3ob3obob3ob3obo38b2obo14bob3obob3ob3o3bob3o
+b3o3bob3ob3obob3o3bobo18b3o13b3obobobob3ob3obobob3obob3ob3o159b3ob3obo
+bobobobob3obobobobob3ob3ob3obobobo$bo16bobobo3bo56bobo12bobobobobobo3b
+obo3bobobo29bo15bobobo3bobobo3bobobo3bobobobobobobobo3bo21b4o15bobobo
+3bobo5bo3bo3bobobobobobobo41bo14bo3bobobo5bo3bo3bo3bo3bo3bo3bobobobo3b
+obo36bobobobobobo3bobobo3bobo3bobo125b2o4b3o29bo3bobobobobobo3bobobobo
+bo3bo3bo3bobobobo$16b3ob3o3bo57b2o12bob3ob3obob3obob3ob3o27bobo15bob3o
+b3ob3o3bob3ob3ob3obobobob3o3bo21bo16b3ob3ob3ob3ob3ob3o3bobob3ob3obo41b
+obo12bo3bobob3o3bo3bo3bob3o3bob3o3bobob3o3bobo18b3o15bobob3ob3ob3ob3ob
+3obob3ob3o122bobo6bo27b3ob3obobob3obob3ob3obobob3ob3ob3obob3o$150b2o
+81bo96b2o80bo3bo165b2ob2o6b2obo12b2o$232b2o178b2ob2o165b2o2b2o4bo2b2o
+12b2o24$o15bob3ob3obobob3ob3ob3o44bo12bob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o
+11b2o2b2o12b3obob3ob3ob3ob3ob3obob3ob3obo30bo13b3ob3ob3ob3ob3ob3obob3o
+bobob3ob3obo37b2o13bobobob3obob3ob3ob3obobob3obobob3obob3ob3obo15b2o
+17b3ob3ob3ob3ob3ob3obob3ob3obo$3o13bobobobobobobobo3bo5bo42b3o12bobobo
+3bo3bo3bobobo3bobo3bo3bobo3bo11bobo2bo14bobobo3bobobobobobo3bobobobo3b
+obo29bobo14bo3bo3bo3bobobobo3bo3bobobobo3bobobo36bo2bo12bobobobobobo3b
+o3bobo3bobobo3bobo3bobobobobo3bo15bobo16bo3bo3bobo3bobobobo3bobobo3bob
+o$3bo12bobobob3ob3ob3ob3o3bo41bo15bob3ob3ob3ob3obobo3bob3ob3obobob3o
+13bobo13b3obob3ob3obobob3o3bobobobob3obo28bo2bo12b3o3bo3bob3obobob3obo
+3bob3ob3ob3obo36b4o12b3obobobobo3bob3ob3ob3ob3ob3ob3obob3ob3obo17bo2b
+2o12b3ob3ob3o3bob3ob3obob3o3bobo$2b2o12bobobobobo3bo3bo3bo3bo40bobo14b
+o3bo3bo3bo3bobobo3bobobo3bobobo3bo13b2o14bo3bo3bo3bobobo3bo3bobobobo3b
+obo27bob2o13bo5bo3bo3bobobo3bobo3bo3bobobobobobo54bobobobobo3bo3bobobo
+3bo3bo3bobo3bo3bobobobo15bobobobo12bobo3bobobo3bo3bobobobo3bo3bobo$16b
+ob3ob3o3bob3ob3o3bo41b2o14bob3ob3ob3ob3ob3o3bob3ob3ob3ob3o29b3obob3ob
+3ob3ob3o3bobob3ob3obo26bobo15b3o3bo3bob3ob3ob3obo3bo3bob3ob3obo36b2o
+16bobob3obo3bob3ob3o3bob3o3bob3obob3ob3obo15b2o2bo14b3ob3ob3o3bob3ob3o
+bob3o3bobo$231bobo93bo2bo83bobo$232bo95b2o85b2o24$b2o13b3ob3ob3ob3ob3o
+b3ob3ob3obobob3obobobob3ob3obobobo6bo16bob3ob3ob3obobob3ob3ob3ob3ob3ob
+obobobo11b2o12bobobob3obobob3ob3ob3ob3ob3ob3ob3ob3o22bo13b3ob3obob3ob
+3o60b2o2b2o12bobobob3obobobobob3ob3ob3ob3ob3ob3ob3ob3obo20bo13bob3ob3o
+b3obobob3ob3obob3obobobo$bo14bo3bobobo3bo5bo3bobobo3bobobo3bobobobo3bo
+bo3bobobo5bobo15bobo3bobobobobobo3bobo3bobobobobobobobobobo10bobo12bob
+obo3bobobo3bo3bobo5bo3bobobo3bo3bo21bobo14bobo3bobobobobo60bobo2bo12bo
+bobobo3bobobobo3bobobobobo3bobobobobobo3bobobo19bobo12bo3bobo3bo3bobo
+3bo3bobo3bobobobo$2bo13b3obobob3ob3ob3o3bobobob3ob3o3bob3obob3ob3obob
+3o6bo2b2o12bob3ob3ob3ob3ob3ob3ob3ob3obobobobob3o10bo14bob3o3bob3ob3ob
+3ob3ob3ob3obobob3ob3o20bo2bo14bob3obobobob3o62b2o14bob3ob3ob3ob3ob3obo
+bob3ob3ob3ob3ob3ob3obo18bo2bo12bob3ob3ob3ob3ob3o3bobo3bobob3o$3bo12bob
+obobobobo3bobo5bobobobo5bo3bo3bobo3bobobobo3bo7b2obo12bo3bo3bo3bo3bo3b
+o3bo3bo3bobobobobo3bo9b2o14bo3bo3bo3bo3bobo5bo3bobo3bobobo5bo19bob2o
+15bobobobobobo3bo62bo15bo3bobobo3bo3bo3bobobo3bobo3bobobobobobobobobo
+14b2o2bobo13bo3bo3bo3bo3bobo5bobo3bobo3bo$2b2o12b3ob3ob3ob3ob3o3bob3ob
+3o3bo3bo3bobob3ob3obo3bo23bob3ob3ob3o3bob3ob3ob3ob3ob3obobo3bo9bo15bo
+3bo3bo3bob3ob3ob3ob3ob3ob3ob3ob3o18bobo17bob3obob3ob3o60bobo15bo3bob3o
+3bo3bob3ob3ob3ob3ob3ob3ob3ob3obo14bobob2o14bob3ob3ob3o3bob3o3bobo3bobo
+3bo$153bo76bo2bo92b2o83bo$152b2o77b2o176bobo$409b2o!
+
+<A name="pseudo">
+Pseudo still-lifes and oscillators
+----------------------------------</a>
+
+Here are some numbers which produce close combinations of still-lifes:
+
+#C Numeric predecessors of pseudo still-lifes (and oscillators).
+#C (These are made up of 2 or more components which don't touch but which
+#C are close enough to each other so that some dead cell has more than 3
+#C live neighbors, but fewer than 3 in any component.)
+#C
+#C 2 blocks                   80
+#C 2 loaves                   883
+#C 2 loaves                   275663827376
+#C 2 beehives                 381
+#C 2 boats                    6644
+#C 2 boats                    257737559
+#C 2 ships                    30031
+#C 2 ponds                    1138776244
+#C 2 integral signs           80103310388
+#C
+#C block + beehive            73502
+#C block + loaf               1422748
+#C block + boat               7948
+#C block + ship               7275956915
+#C block + pond               14451055111
+#C block + beacon             5297
+#C block + eater              2545096704
+#C block + eater              1135175288242
+#C block + eater              2028108936114
+#C block + long boat          18910901366304
+#C
+#C beehive + loaf             16131
+#C beehive + boat             113765110794
+#C beehive + ship             46613734575114
+#C beehive + pond             11360422608
+#C beehive + long boat        11357520813221914
+#C beehive + eater            1602019736801
+#C
+#C loaf + boat                41847380114
+#C loaf + boat                4123729009911
+#C loaf + ship                76834931422
+#C loaf + long boat           4108798044
+#C loaf + beacon              1602821988
+#C loaf + pond                160929718134670
+#C
+#C pond + boat                5513614
+#C pond + beacon              57693896365995215
+#C boat + eater               149945894301
+#C
+#C 4 blocks (2x2)             31100381
+#C 4 blocks (1x4)             1131013
+#C pond + 2 blocks            60787781
+#C loaf + block + beehive     18910428084
+#C block + pond + beehive     1447774240
+#C 2 blocks + 2 beehives      4108108104
+#C Dean Hickerson, dean.hickerson@yahoo.com (3/20/2007)
+x = 508, y = 277, rule = B3/S23
+5b2o12b3ob3o59bo13b3ob3ob3ob3ob3o46b2o13bob3obob3obo73bo13bobobob3obob
+ob3ob3ob3ob3obobobobo38bo14b3ob3obob3ob3obobobo60b2ob2o12b3obobob3ob3o
+b3ob3obo$5b2o12bobobobo55b2obobo14bo3bobo3bobo3bo45bo2bo12bobo3bo3bobo
+72bobo12bobobobobobobo3bo3bobobobobobobobobo37bobo13bo3bo3bo3bobo3bobo
+bo60b2ob2o14bobobobobobobo3bobobobo$19b3obobo55b2obobo14bob3ob3obobob
+3o46b2o13bob3obob3obo71bo2bo12b3obob3ob3o3bob3ob3obobobobob3o38b2o13b
+3ob3obob3ob3obob3o77b3obobobobobobob3ob3obo$5b2o12bobobobo59bo15bo3bo
+3bobobobo63bobobobo3bobo72b2o15bobobobo3bo3bo3bobobobobobobo3bo55bo3bo
+bo3bobobobo3bo60b2ob2o14bobobobobobobo3bobobobo$5b2o12b3ob3o75bob3ob3o
+b3ob3o46b2o13bob3obob3obo89bobob3o3bo3bob3ob3ob3obobo3bo38b2o13b3ob3ob
+ob3ob3obo3bo60b2ob2o12b3obobob3ob3ob3ob3obo$163bo2bo97b2o87bo2bo$163bo
+bo97bobo87bo2bo$164bo99bo89b2o20$455b2o$455b2o2$5bo13b3ob3ob3o54bo14bo
+bobob3ob3ob3obobob3o41bo13bobob3ob3ob3ob3obobob3ob3ob3obobo42b2o3bo13b
+obobob3ob3ob3ob3ob3ob3ob3ob3ob3obobo24b2o19b3ob3ob3ob3ob3ob3ob3ob3ob3o
+b3ob3ob3ob3ob3ob3obob3o21b2o12bobob3obob3obob3o$4bobo12bobobobo3bo50b
+2obobo13bobobo3bo3bo3bobobobobo40bobo12bobo3bo3bobo3bo3bobobobo3bobobo
+bobo41bo2bobobo12bobobo3bo3bo3bo3bobobobobobobobobobobobobo24b2o4b2o
+13bo5bobo3bobo3bobobobobobo5bobo3bo3bobobobobo5bobobo23b2o12bobo3bobob
+obobo3bo$3bo2bo12b3ob3ob3o50b2obo2bo12bob3ob3ob3o3bob3ob3o40b2o13bobob
+3o3bob3ob3obobobobo3bob3ob3o42bobob2o13b3obob3ob3o3bob3ob3obobobobob3o
+b3obobo26b2obo2bo12b3o3bob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3obob3o
+35bobob3obobobobob3o$4b2o13bobobobo3bo54b2o13bo3bobo3bo5bo3bobobo55bob
+o3bo3bobobo3bobobobobo3bo3bo3bo43bo19bobobo5bo3bobo5bobobobobo3bo3bobo
+bo26b2obo2bo14bo3bobobo3bo3bobobo3bobobo3bobobo3bo3bo3bo3bobo3bo3bo21b
+2o12bobo3bobobobobo3bo$19b3ob3ob3o69bo3bob3ob3o3bo3bob3o40b2o13bobob3o
+3bob3ob3obobob3o3bob3o3bo63bobob3ob3o3bob3ob3ob3ob3ob3ob3obobo30b2o13b
+3o3bob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3obob3o21b2o12bobob3obob3obo
+b3o$4b2o157bo2bo$3bo2bo157b2o289b2o$4bobo448b2o$5bo22$4bo14b3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3o19bo13b3ob3obobob3o51b2o12bobob3ob3obob3ob3o
+b3obobob3ob3ob3obobobobo32b2o3b2o12b3ob3ob3ob3obobob3ob3obobobob3ob3o
+29b2o18bobobob3ob3obobob3ob3ob3obobob3ob3obo39b2o16b3ob3ob3ob3ob3ob3ob
+3obo$3bobo15bo3bobo3bo3bo5bobobo3bo3bo3bo3bobo20bobo14bobobobobobobo
+50bobo12bobobo3bo3bo3bo3bo3bobobobo5bobo3bobobobo31bo2bobobo14bobo3bob
+o3bobobobobo3bobobobo3bo3bo29bo5bo13bobobobobobobobobobo3bobobobobobo
+3bobobobo39b2o16bo3bobo3bobobo3bo3bobobobo$3bo2bo12b3o3bob3ob3ob3ob3ob
+3ob3o3bob3o3bob3o19b2o14bob3ob3ob3o50b2o13b3ob3ob3obob3o3bob3ob3ob3o3b
+ob3obobob3o32bobob2o15bob3ob3ob3ob3ob3ob3obob3ob3ob3o30b3obobo12bob3ob
+3ob3ob3ob3ob3ob3ob3ob3obobobo57b3obobo3bob3o3bo3bob3obo$4b2o13bo5bo3bo
+bobobobo3bobobobo5bo3bo3bobobo35bo3bo3bobobo67bobobobobobo3bo3bo3bo3bo
+3bo3bo3bobobo3bo33bo19bobobobobo3bo3bo3bo3bobo3bobo3bo34bob2o13bo3bo3b
+o3bo3bo3bobobo3bo3bo3bobobobo39b2o16bobobobo3bobobo3bo3bobobobo$19b3o
+3bob3ob3ob3ob3ob3ob3o3bob3o3bob3o19b2o14bob3o3bob3o50b2o15bob3ob3obob
+3o3bob3o3bob3o3bob3obobo3bo53bob3ob3ob3o3bob3ob3obo3bob3ob3o49bo3bob3o
+b3o3bob3ob3ob3o3bob3ob3obo38bo2bob2o12b3ob3o3bob3o3bo3bob3obo$4b2o79b
+2o76bo2bo283bo2bob2o$3bo2bo157b2o285b2o$4bobo$5bo22$4b2o13b3ob3obo57b
+2o12b3ob3ob3ob3ob3ob3ob3ob3obob3o24b2o3bo13bobob3ob3ob3obobob3ob3ob3ob
+3ob3o46bo14bobobob3ob3ob3ob3ob3ob3obobobobo131b2o6bo13bob3ob3obob3obob
+ob3ob3ob3ob3obobo$3bo2bo14bobobobo56bobo14bo3bo3bobo3bobobo3bo3bobobob
+o25bo2bobobo12bobo3bobo3bobobobo3bo3bobo3bobobobo42b2obobo13bobobobobo
+bobo3bobobobobobobobobobobo130bo2bob2obobo12bobobobobobobobobobo3bobob
+obobobobobobo$4b2o13b3ob3obo56b2o15bob3o3bob3ob3ob3ob3ob3obob3o23bo2bo
+bobo12bobob3ob3obobob3ob3ob3ob3obobob3o41bobobo2bo12b3obobobob3o3bob3o
+b3obobob3ob3o131bobob2obobo12bob3ob3obobobob3ob3ob3obobob3ob3o$21bobob
+obo73bobo5bo3bo3bo3bobobo3bobo3bo24b2o3bo13bobo3bobobobobo3bobo3bo3bob
+obobobobo40bobo3b2o15bobobobobobo3bo3bobobobobo3bo3bo132bo6bo13bobobo
+3bobobobo3bobo3bobobobobobo3bo$4b2o13b3ob3obo56b2o15bob3o3bob3ob3ob3ob
+3ob3obob3o43bobob3ob3ob3o3bob3ob3ob3ob3ob3o41bo21bobob3ob3o3bob3ob3ob
+3o3bo3bo153bob3ob3obob3o3bob3ob3ob3ob3o3bo$3bo2bo77b2o$4b2o24$5bo13b3o
+b3obobobobo47b2o16bobobobobob3obob3ob3ob3obobobo31b2o14bobob3ob3ob3ob
+3ob3ob3ob3obob3ob3ob3obob3obobobo23b2o18bob3ob3ob3ob3ob3obob3ob3ob3o
+136b2o3bo13bobobobobob3ob3ob3obobob3obobob3o$4bobo12bo3bo3bobobobo46bo
+2bob2o12bobobobobobo3bobobobo3bo3bobobo30bo2bo13bobo3bobo5bobo5bobobob
+obobo3bo3bo3bobobobobobobo22bo2bob2o14bobo3bobo3bobobo3bobobobobobobob
+o135bo2bobobo12bobobobobo3bo3bo3bobobo3bobobobobo$5b2o12b3ob3ob3ob3o
+46bo2bob2o12bob3ob3ob3obobobob3ob3obobobo31b2o14bobob3ob3o3bob3ob3obob
+ob3obob3ob3ob3obob3obob3o23bobobo15bob3obobob3ob3ob3obob3ob3ob3o135bo
+2bobobo12bob3ob3o3bo3bo3bob3ob3ob3obobo$19bobobobo3bo3bo47b2o16bo3bo3b
+o3bobobobo3bo3bobobobo47bobo3bo3bo3bo3bobo3bobobobobo3bobo3bo3bo3bobo
+3bo24bo5bo12bobobobobobo3bobobo3bo3bobobobobo136b2o3bo13bo3bo3bo3bo3bo
+3bo3bobo5bobobo$5b2o12b3ob3o3bo3bo65bo3bo3bob3obob3ob3ob3obobobo31b2o
+14bobob3ob3o3bob3ob3ob3ob3obob3ob3ob3obob3obo3bo29b2o12bob3ob3ob3ob3ob
+3obob3ob3ob3o155bo3bo3bo3bo3bo3bo3bob3o3bob3o$4bobo156bobo284b2o$5bo
+158bobo283b2o$165bo19$454b2o$453bo2bo$454b2o2$5bo13b3ob3ob3ob3ob3ob3ob
+3ob3ob3o28b2ob2o12b3ob3ob3ob3o51bo13bob3ob3ob3ob3obob3ob3ob3ob3ob3ob3o
+bo35b2o3bo14bob3ob3ob3ob3ob3ob3obob3obob3obobob3ob3ob3o122b2o13bobobob
+3ob3obob3ob3obob3obobo$b2obobo14bobo5bo3bo3bo3bobo3bo3bobo28b2ob2o12bo
+5bobobo3bo47b2obobo12bobo3bobo3bobobobobobo3bo3bobo3bobobobobo34bo2bob
+obo13bobo3bobobobo3bobobo3bobobobobo3bobobobo5bobobo122b2o13bobobobobo
+bobobobobobobobobobobobo$obob2o13b3ob3o3bo3bob3o3bob3ob3ob3o26b2o17b3o
+b3ob3o3bo46bobobobo12bob3obobob3obobobob3o3bob3ob3ob3obobobo34bo2bobo
+2bo12bob3obobob3ob3ob3o3bobob3obob3ob3ob3o3bobobo137b3obobobob3obobobo
+b3obobobob3o$bo17bo5bo3bo3bo3bo3bo3bo3bo3bo26b2o19bobo5bo3bo46bo4bo13b
+obobobobobo3bobobo3bo3bo3bobobobobobobobo35b2o3b2o13bobobobobo3bobo5bo
+3bobobobobo3bo3bobobo3bobobo122b2o15bobobobobobobobobobobobobobo3bo$
+19b3ob3o3bo3bob3o3bob3ob3ob3o45b3ob3ob3o3bo45b2o18bob3ob3ob3ob3obob3o
+3bob3ob3ob3ob3obo55bob3ob3ob3ob3ob3o3bobob3obob3o3bob3o3bob3o122b2o15b
+obob3ob3obob3ob3obob3o3bo2$454b2o$453bo2bo$454b2o22$5b2o12b3ob3ob3ob3o
+bo49b2o12b3ob3obobob3ob3ob3ob3ob3ob3obobo$4bobo14bobobobobo3bobo49b2o
+14bobo3bobobo3bobobobobo5bobobobobo$4b2o13b3obobobobob3obo63b3ob3ob3ob
+3obobob3ob3o3bobobob3o$21bobobobobo3bobo49b2o12bo5bo3bo3bobobo3bobobo
+3bobobo3bo$4b2o13b3ob3ob3ob3obo50bo12b3ob3o3bob3ob3ob3ob3o3bob3o3bo$4b
+obo76b3o$5b2o76bo24$4b2o13bobob3ob3ob3ob3ob3ob3obobobobo31b2o12bobob3o
+b3obob3ob3ob3ob3ob3ob3obobob3o$3bo2bo12bobo3bobobo3bo3bobo5bobobobobo
+31b2o12bobo3bobo3bo3bobo5bobobobobo3bobobo3bo$3bo2bo12bobob3ob3o3bo3bo
+b3ob3ob3ob3o45bobob3ob3obo3bob3ob3ob3ob3ob3ob3ob3o$4b2o13bobo3bobobo3b
+o3bobobobo5bo3bo31b2o12bobo3bo3bobo3bo3bobo3bobobobobo5bobo$19bobob3ob
+3o3bo3bob3ob3o3bo3bo31bo13bobob3ob3obo3bob3ob3ob3ob3ob3o3bob3o$4b2o77b
+obo$3bo2bo76b2o$3bo2bo$4b2o22$2b2o15b3ob3obob3ob3ob3obob3ob3ob3ob3o22b
+2ob2o14b3ob3ob3ob3obob3ob3ob3ob3ob3obobobobo$2bo16bobobobobobobo3bo3bo
+bobobo3bobobobobo22b2obo17bobobo3bobobobobobobobobobo3bobo3bobobobo$3b
+3o13b3obobobobobob3ob3obobobob3ob3ob3o26b3o12b3obobob3ob3obobobob3ob3o
+b3ob3obobob3o$6bo12bobobobobobobo3bo3bobobobo3bobobobobo28bo12bo3bobob
+o3bobobobobobobo3bo3bobobobobo3bo$5b2o12b3ob3obob3ob3ob3obob3ob3ob3ob
+3o41b3ob3ob3ob3obob3ob3ob3ob3ob3obobo3bo2$5b2o$6bo$3b3o$2bo$2b2o20$83b
+2o14bob3ob3obob3ob3ob3obob3ob3ob3ob3ob3obobo$83b2o14bobobobobobobobobo
+bobobobo3bobo3bo5bobobobobo$99bob3ob3obobobob3obobobob3ob3ob3ob3obobob
+3o$83b2o14bobobo3bobobobo3bobobobo3bobobobobo3bobobo3bo$83bobo13bob3ob
+3obob3ob3ob3obob3ob3ob3ob3ob3o3bo$84bobo$85bo!
+
+<A name="infinite">
+Infinite growth
+---------------</a>
+
+I think the smallest number that produces infinite population growth is
+154299.  It produces a block-laying Corderman switch engine along with
+some other junk.  And 41140732 makes the other known type of switch
+engine; it's probably not the minimal example:
+
+#C Two examples of infinite growth
+#C 154299 creates a stabilized Corderman switch engine heading southeast
+#C in gen 539; the engine produces 8 blocks every 96 gens.
+#C 41140732 creates an engine heading northwest in gen 148; after a while
+#C it produces 3 blocks, 4 blinkers, 2 beehives, a boat, a loaf, a ship,
+#C and a glider (also headed northwest) every 384 gens.
+x = 35, y = 155, rule = B3/S23
+ob3obobob3ob3ob3o$obo3bobo3bobobobobo$ob3ob3ob3ob3ob3o$o3bo3bobo5bo3bo
+$ob3o3bob3ob3ob3o146$obobobobobob3ob3ob3ob3ob3ob3o$obobobobobobobo3bo
+3bo3bo3bobo$3obobob3obobo3bob3ob3ob3ob3o$2bobobo3bobobo3bo3bobo5bobobo
+$2bobobo3bob3o3bob3ob3ob3ob3o!
+
+<A name="repeated">
+Repeated strings of digits
+--------------------------</a>
+
+Long strings of a single digit produce 4 different results:
+
+A string of 1's, 3's, 4's, 6's, 8's, or 9's dies quickly, except at the
+ends.  These are useful for large constructions, since they allow us to
+connect various components, as long as the components can be embedded
+between two strings of dying digits.  For example, the bi-ship
+predecessor given earlier is made from an embeddable digit string which
+produces a fleet (...11150038111...) and one which produces a LWSS
+(...11131041653546111...).  Most of my experiments have been with such
+embeddable digit strings.
+
+As noted earlier, a long string of 2's produces two lines of blinkers; so
+does a string of 5's.
+
+A string of 0's produces a wick which is stable in the middle but decays
+from the ends at 4c/5, leaving behind a lot of debris.  There are at least
+5 different fuses of this type, formed, for example, by the numbers
+1000..., 2000..., 6000..., 7000..., and 8000... .  (To see these in action
+requires too many 0's to include the patterns here.)  Here's a short string
+of 0's, stabilized with tubs at the ends; I don't know if there are strings
+of digits that can be put at the ends to stabilize the wick:
+
+#C 00000000 with tubs at the ends
+x = 39, y = 5, rule = B3/S23
+4b3ob3ob3ob3ob3ob3ob3ob3o$bo2bobobobobobobobobobobobobobobobo2bo$obobo
+bobobobobobobobobobobobobobobobobo$bo2bobobobobobobobobobobobobobobobo
+2bo$4b3ob3ob3ob3ob3ob3ob3ob3o!
+
+A string of 7's becomes, in 6 gens, a long line with some dying debris
+in the middle, plus some junk at the ends.  If we put 61 at the left end
+and 22 at the right end, then the junk dies out without affecting the
+line.  This line then expands north and south while shrinking from east
+and west, leaving behind a large quantity of debris.
+
+#C 61777...77722 (with 60 7's) creates a line of length 235.  This
+#C finishes in gen 6642 with a population of 4240.
+x = 253, y = 5, rule = B3/S23
+3obob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o$o3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo$3obo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3b
+o3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bob3ob3o$obobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobo3bo$
+3obo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bob3ob3o!
+
+Longer lines produce patterns with a fractal structure resembling a
+Sierpinski gasket:
+
+#C This is gen 7 of 61777...77722, with 2048 7's.  It creates a line of
+#C length 8187.  This finishes in gen 15210 with a population of 461428
+#C in even gens, 461564 in odd gens.
+x = 8209, y = 9, rule = B3/S23
+8200b3o4b2o$8201b2o4b2o$8201bo5bo$obo9b8185o8bo$b3o8b8185o6b2obo$2bobo
+7b8185o7bo2bo$8203bo3bo$8203bo2bo$8203bobo!
+
+
+Some repeated strings of more than one digit are also interesting.  Of
+the 45 distinct patterns formed by repeating a pair of digits, 21 die
+(except perhaps at the ends) and 22 end up with a line of still-lifes
+and blinkers.  Of the remaining two, ...39393939... produces a line of
+blinkers and a line of gliders, and ...171717... expands at 7c/40 north
+and south, while decaying from both ends.  The interior is complicated;
+I don't know exactly what it does.  (This is a relative of a "titanic
+toroidal traveler", a pattern that lives on a cylinder of width 6,
+discovered by Robert Wainwright in 1971.)  Here's a small piece of the
+...171717... pattern; to see the traveler in action you'll need to use
+a bigger piece, or use a Life program that can handle a cylindrical
+universe.
+
+#C 1717...1717 (with 64 17's)
+x = 383, y = 5, rule = B3/S23
+ob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3ob
+ob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3ob
+ob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3ob
+ob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3obob3ob
+ob3obob3obob3obob3obob3obob3obob3obob3o$o3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bo$o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bo$o3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bo$o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bob
+o3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bo!
+
+
+Several repeated strings of 3 digits also produce relatives of the same
+titanic toroidal traveler: 025, 052, 088, 258, and 285.  And 569 produces
+a different one (found by Bill Gosper in 1971):  Starting in gen 187 it
+grows north and south at c/2; the top and bottom move with period 10,
+but the interior is complicated.
+
+#C 569569...569569 (with 25 569's)
+x = 299, y = 5, rule = B3/S23
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3o$o3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo
+3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo
+3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo
+3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobo$3ob3ob3ob3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3o$2bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bob
+obo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bob
+obo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bob
+obo3bo3bobobo3bo3bobobo3bo3bobobo3bo3bobobo3bo$3ob3ob3ob3ob3ob3ob3ob3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o!
+
+Repeated strings of 013 and 001 produce rows of rare still-lifes
+(hat siamese hat and cis mirrored long dock); short versions of these
+were shown in the small pattern collection.
+
+<A name="spaceships">
+Creating spaceships and gliders
+-------------------------------</a>
+
+The small pattern collection shown earlier was the result of running lots
+of numeric patterns and seeing what they produce.  In some cases, the
+still-life or oscillator was produced along with some other stuff, and
+the ends of the numbers had to be modified to eliminate the debris.  No
+doubt a few other things could be produced in this way.  But it's also
+possible to build things that don't occur naturally.
+
+First, there are many embeddable digit strings that produce gliders.
+These gliders can crash to form a few things.  For example, here's
+another way to create an eater:
+
+#C 1415073111111103975114 makes 2 gliders, which crash to form an eater.
+x = 65, y = 5, rule = B3/S23
+obobobob3ob3ob3ob3obobobobobobobob3ob3ob3ob3ob3obobobobo$obobobobo3bob
+o3bo3bobobobobobobobobobo3bobobo3bobo3bobobobo$ob3obob3obobo3bob3obobo
+bobobobobobobob3ob3o3bob3obobob3o$o3bobo3bobobo3bo3bobobobobobobobobob
+o3bo3bo3bo3bobobo3bo$o3bobob3ob3o3bob3obobobobobobobob3ob3ob3o3bob3obo
+bo3bo!
+
+But most patterns can't be built with just 2 gliders, so we need a way
+to send more than one glider along close parallel paths.  Fortunately
+there are also some embeddable digit strings that produce spaceships
+moving either east or west, and there are combinations of these in which
+the spaceships crash to form gliders.  Here are the pure spaceship
+producers that I've found:
+
+#C ...1119477425111... and ...111424746405017111... produces westward LWSSs.
+#C ...11194711556134111..., ...11131041653546111..., and
+#C ...111553318811576425111... produce eastward LWSSs.
+#C ...11147297575111... and ...111253447437666... produce eastward MWSSs.
+x = 73, y = 245, rule = B3/S23
+obobobobob3obobob3ob3obobob3ob3obobobobobo$obobobobobobobobo3bo3bobobo
+3bobo3bobobobobo$3obobobob3ob3o3bo3bob3ob3ob3obobobob3o$2bobobobo3bo3b
+o3bo3bo3bobo5bobobobo3bo$2bobobobob3o3bo3bo3bo3bob3ob3obobobo3bo36$obo
+bobobobobob3obobob3obobob3obobob3ob3ob3obob3obobobobobo$obobobobobobo
+3bobobo3bobobobo3bobobobobo3bobobo3bobobobobobo$3obobobob3ob3ob3o3bob
+3ob3ob3obobob3obobobo3bobobobob3o$2bobobobo3bobo5bo3bo3bobobo3bobobo3b
+obobobo3bobobobo3bo$2bobobobo3bob3o3bo3bo3bob3o3bob3ob3ob3obo3bobobobo
+3bo36$obobobobob3obobob3obobob3ob3ob3obob3obobobobobobobo$obobobobobob
+obobo3bobobobo3bo3bo3bo3bobobobobobobobo$3obobobob3ob3o3bobobob3ob3ob
+3obob3ob3obobobob3o$2bobobobo3bo3bo3bobobo3bo3bobobobo3bo3bobobobo3bo$
+2bobobobob3o3bo3bobobob3ob3ob3obob3o3bobobobo3bo36$obobobobob3obob3obo
+bobob3ob3ob3ob3obobob3obobobobobo$obobobobo3bobobobobobobobo3bo5bobo3b
+obobo3bobobobobo$3obobobob3obobobob3obob3ob3ob3ob3ob3ob3obobobob3o$2bo
+bobobo3bobobobo3bobobobo3bo3bo3bo3bobobobobobo3bo$2bobobobob3obob3o3bo
+bob3ob3ob3ob3o3bob3obobobo3bo36$obobobobob3ob3ob3ob3obob3ob3obobob3ob
+3ob3obobob3ob3obobobobobo$obobobobobo3bo5bo3bobobobobobobobobo5bobo3bo
+bo3bobo3bobobobobo$3obobobob3ob3ob3ob3obob3ob3obobob3o3bob3ob3ob3ob3ob
+obobob3o$2bobobobo3bo3bo3bo3bobobobobobobobo3bo3bobobo3bobo5bobobobo3b
+o$2bobobobob3ob3ob3ob3obob3ob3obobob3o3bob3o3bob3ob3obobobo3bo36$obobo
+bobobobob3ob3ob3ob3ob3ob3ob3obobobobobo$obobobobobobo3bo3bobobo3bobo5b
+obo3bobobobobo$3obobobob3o3bob3ob3o3bob3o3bob3obobobob3o$2bobobobo3bo
+3bobo5bo3bo3bo3bo3bobobobo3bo$2bobobobo3bo3bob3ob3o3bob3o3bob3obobobo
+3bo36$obobobobob3ob3ob3obobobobob3obobob3ob3ob3ob3ob3obo$obobobobo3bob
+o5bobobobobo3bobobo3bo3bobo3bo3bo3bo$3obobobob3ob3ob3ob3ob3o3bob3ob3o
+3bob3ob3ob3obo$2bobobobobo5bo3bo3bo3bo3bo3bo3bo3bobobobobobobobo$2bobo
+bobob3ob3ob3o3bo3bo3bo3bob3o3bob3ob3ob3obo!
+
+Here are the combinations of these that I've found which produce
+gliders.  No doubt there are many more, which can produce gliders on
+any desired path with any desired phase.
+
+#C 5 collisions between spaceships produce gliders.
+#C There are 2 NEward gliders, 2 NWward gliders, and 1 SWward glider.
+x = 395, y = 205, rule = B3/S23
+78bobobobobob3obob3obobobob3ob3ob3ob3obobob3obobob3obob3obobobob3ob3ob
+3ob3obobob3obobobobobobobobobobobobobobobobobobob3obobob3obobob3obobob
+3ob3ob3obob3obobobobobobobobobobobob3obobob3obobob3obobob3ob3ob3obob3o
+bobobobobo$78bobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobo3bobobobob
+obobobo3bo5bobo3bobobo3bobobobobobobobobobobobobobobobobobo3bobobo3bob
+obobo3bobobobobo3bobobo3bobobobobobobobobobobobo3bobobo3bobobobo3bobob
+obobo3bobobo3bobobobobobo$78b3obobobob3obobobob3obob3ob3ob3ob3ob3ob3ob
+obob3obobobob3obob3ob3ob3ob3ob3ob3obobobobobobobobobobobobobobobobob3o
+b3ob3o3bob3ob3ob3obobob3obobobo3bobobobobobobobobobob3ob3ob3o3bob3ob3o
+b3obobob3obobobo3bobobobob3o$80bobobobo3bobobobo3bobobobo3bo3bo3bo3bob
+obobobo3bobobobo3bobobobo3bo3bo3bo3bobobobobobobobobobobobobobobobobob
+obo3bobo5bo3bo3bobobo3bobobo3bobobobo3bobobobobobobobobobo3bobo5bo3bo
+3bobobo3bobobo3bobobobo3bobobobo3bo$80bobobobob3obob3o3bobob3ob3ob3ob
+3o3bob3obobob3obob3o3bobob3ob3ob3ob3o3bob3obobobobobobobobobobobobobob
+obobo3bob3o3bo3bo3bob3o3bob3ob3ob3obo3bobobobobobobobobobo3bob3o3bo3bo
+3bob3o3bob3ob3ob3obo3bobobobo3bo46$70bobobobobobobob3ob3ob3ob3ob3ob3ob
+3obobobobobobobobobobob3obob3obobobob3ob3ob3ob3obobob3obobobobobobobob
+obobobobobobobobobobob3obobob3obobob3obobob3ob3ob3obob3obobobobobobobo
+bobobobobobobobobobobobobobobob3obobob3ob3obobob3ob3obobobobobo$70bobo
+bobobobobo3bo3bobobo3bobo5bobo3bobobobobobobobobobo3bobobobobobobobo3b
+o5bobo3bobobo3bobobobobobobobobobobobobobobobobobo3bobobo3bobobobo3bob
+obobobo3bobobo3bobobobobobobobobobobobobobobobobobobobobobobobobobobo
+3bo3bobobo3bobo3bobobobobo$70b3obobobob3o3bob3ob3o3bob3o3bob3obobobobo
+bobobobobobob3obobobob3obob3ob3ob3ob3ob3ob3obobobobobobobobobobobobobo
+bobobob3ob3ob3o3bob3ob3ob3obobob3obobobo3bobobobobobobobobobobobobobob
+obobobobobobobobob3ob3o3bo3bob3ob3ob3obobobob3o$72bobobobo3bo3bobo5bo
+3bo3bo3bo3bobobobobobobobobobobo3bobobobo3bobobobo3bo3bo3bo3bobobobobo
+bobobobobobobobobobobobobobo3bobo5bo3bo3bobobo3bobobo3bobobobo3bobobob
+obobobobobobobobobobobobobobobobobobobo3bo3bo3bo3bo3bobo5bobobobo3bo$
+72bobobobo3bo3bob3ob3o3bob3o3bob3obobobobobobobobobobob3obob3o3bobob3o
+b3ob3ob3o3bob3obobobobobobobobobobobobobobobobo3bob3o3bo3bo3bob3o3bob
+3ob3ob3obo3bobobobobobobobobobobobobobobobobobobobobobobob3o3bo3bo3bo
+3bob3ob3obobobo3bo46$obobobobob3ob3ob3obobobobob3obobob3ob3ob3obob3obo
+bob3obobob3ob3ob3obob3obobobobobobobobobobobobobobobobobobobobobobobob
+3obob3obobobob3ob3ob3ob3obobob3obobobobobobobobobobobobobobobobobobob
+3obobob3obobob3obobob3ob3ob3ob3ob3obob3obobob3ob3obobob3obobobobobob3o
+bobob3obobob3obobob3ob3ob3obob3obobobobobo$obobobobo3bobo5bobobobobo3b
+obobo3bo3bobo3bobobobobo3bobobobo3bo3bo3bo3bobobobobobobobobobobobobob
+obobobobobobobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobobobobobobobo
+bobobobobobobobobobo3bobobo3bobobobo3bobobobobo3bobobobobo3bobobobobo
+3bo3bobobo3bobobobobobo3bobobo3bobobobo3bobobobobo3bobobo3bobobobobobo
+$3obobobob3ob3ob3ob3ob3o3bob3ob3o3bob3obob3ob3o3bobobob3ob3ob3obob3ob
+3obobobobobobobobobobobobobobobobobobobobobob3obobobob3obob3ob3ob3ob3o
+b3ob3obobobobobobobobobobobobobobobobob3ob3ob3o3bob3ob3ob3obobob3obobo
+b3ob3obob3ob3o3bo3bob3ob3ob3obob3ob3ob3o3bob3ob3ob3obobob3obobobo3bobo
+bobob3o$2bobobobobo5bo3bo3bo3bo3bo3bo3bo3bobobobo3bo3bo3bobobo3bo3bobo
+bobo3bo3bobobobobobobobobobobobobobobobobobobobobobo3bobobobo3bobobobo
+3bo3bo3bo3bobobobobobobobobobobobobobobobobobobo3bobo5bo3bo3bobobo3bob
+obo3bobobobobo3bobo3bo3bo3bo3bo3bobo5bobo3bobo5bo3bo3bobobo3bobobo3bob
+obobo3bobobobo3bo$2bobobobob3ob3ob3o3bo3bo3bo3bob3o3bob3obob3o3bo3bobo
+bob3ob3ob3obob3o3bobobobobobobobobobobobobobobobobobobobobobob3obob3o
+3bobob3ob3ob3ob3o3bob3obobobobobobobobobobobobobobobobo3bob3o3bo3bo3bo
+b3o3bob3ob3ob3ob3ob3obob3o3bo3bo3bo3bob3o3bobo3bob3o3bo3bo3bob3o3bob3o
+b3ob3obo3bobobobo3bo46$2bobobobobobobob3ob3ob3ob3ob3ob3ob3obobobobob3o
+bobob3obobob3ob3ob3obob3obobobobobobobobobobobobobobobobobobobobobobob
+ob3obob3obobobob3ob3ob3ob3obobob3obobobobobobobobobobobobobobobobobobo
+b3obobob3obobob3obobob3ob3ob3obobob3obob3obobob3ob3obobob3ob3obobobobo
+bobobobobobobobobobobobobobobobob3obobob3ob3obobob3ob3obobobobobo$2bob
+obobobobobo3bo3bobobo3bobo5bobo3bobobobobobobobo3bobobobo3bo3bo3bo3bob
+obobobobobobobobobobobobobobobobobobobobobobo3bobobobobobobobo3bo5bobo
+3bobobo3bobobobobobobobobobobobobobobobobobo3bobobo3bobobobo3bobobobob
+o3bobobobobo3bobobobobo3bo3bobobo3bobo3bobobobobobobobobobobobobobobob
+obobobobobobobobo3bo3bobobo3bobo3bobobobobo$2b3obobobob3o3bob3ob3o3bob
+3o3bob3obobobobob3ob3o3bobobob3ob3ob3obob3ob3obobobobobobobobobobobobo
+bobobobobobobobobob3obobobob3obob3ob3ob3ob3ob3ob3obobobobobobobobobobo
+bobobobobobob3ob3ob3o3bob3ob3ob3obobob3obobobobob3obob3ob3o3bo3bob3ob
+3ob3obobobobobobobobobobobobobobobobobobobobob3ob3o3bo3bob3ob3ob3obobo
+bob3o$4bobobobo3bo3bobo5bo3bo3bo3bo3bobobobobo3bo3bo3bobobo3bo3bobobob
+o3bo3bobobobobobobobobobobobobobobobobobobobobobo3bobobobo3bobobobo3bo
+3bo3bo3bobobobobobobobobobobobobobobobobobobo3bobo5bo3bo3bobobo3bobobo
+3bobobobobo3bobo3bo3bo3bo3bo3bobo5bobobobobobobobobobobobobobobobobobo
+bobobo3bo3bo3bo3bo3bobo5bobobobo3bo$4bobobobo3bo3bob3ob3o3bob3o3bob3ob
+obobobob3o3bo3bobobob3ob3ob3obob3o3bobobobobobobobobobobobobobobobobob
+obobobobob3obob3o3bobob3ob3ob3ob3o3bob3obobobobobobobobobobobobobobobo
+bo3bob3o3bo3bo3bob3o3bob3ob3ob3obobob3obob3o3bo3bo3bo3bob3ob3obobobobo
+bobobobobobobobobobobobobobobobob3o3bo3bo3bo3bob3ob3obobobo3bo46$obobo
+bobob3obob3obobobob3ob3ob3ob3obobob3obob3obobob3obobob3ob3ob3obob3obob
+obobobobobobobobobobobobobobobobobobobobobob3obob3obobobob3ob3ob3ob3ob
+obob3obobobobobobobobobobobobobobobobobobob3obobob3obobob3obobob3ob3ob
+3obobob3obob3obobob3ob3obobob3ob3obobobobobobobobobobobobobobobobobobo
+bobobobobobobobobobobobobobobobobobobobob3obobob3ob3obobob3ob3obobobob
+obo$obobobobo3bobobobobobobobo3bo5bobo3bobobo3bobobobobo3bobobobo3bo3b
+o3bo3bobobobobobobobobobobobobobobobobobobobobobobobo3bobobobobobobobo
+3bo5bobo3bobobo3bobobobobobobobobobobobobobobobobobo3bobobo3bobobobo3b
+obobobobo3bobobobobo3bobobobobo3bo3bobobo3bobo3bobobobobobobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobobobobobobo3bo3bobob
+o3bobo3bobobobobo$3obobobob3obobobob3obob3ob3ob3ob3ob3ob3obob3ob3o3bob
+obob3ob3ob3obob3ob3obobobobobobobobobobobobobobobobobobobobobob3obobob
+ob3obob3ob3ob3ob3ob3ob3obobobobobobobobobobobobobobobobob3ob3ob3o3bob
+3ob3ob3obobob3obobobobob3obob3ob3o3bo3bob3ob3ob3obobobobobobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobobobob3ob3o3bo3bob3o
+b3ob3obobobob3o$2bobobobo3bobobobo3bobobobo3bo3bo3bo3bobobobo3bo3bo3bo
+bobo3bo3bobobobo3bo3bobobobobobobobobobobobobobobobobobobobobobo3bobob
+obo3bobobobo3bo3bo3bo3bobobobobobobobobobobobobobobobobobobo3bobo5bo3b
+o3bobobo3bobobo3bobobobobo3bobo3bo3bo3bo3bo3bobo5bobobobobobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobobobobo3bo3bo3bo3bo
+3bobo5bobobobo3bo$2bobobobob3obob3o3bobob3ob3ob3ob3o3bob3obob3o3bo3bob
+obob3ob3ob3obob3o3bobobobobobobobobobobobobobobobobobobobobobob3obob3o
+3bobob3ob3ob3ob3o3bob3obobobobobobobobobobobobobobobobo3bob3o3bo3bo3bo
+b3o3bob3ob3ob3obobob3obob3o3bo3bo3bo3bob3ob3obobobobobobobobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobob3o3bo3bo3bo3bob3ob
+3obobobo3bo!
+
+<A name="gun">
+Synthesis of glider gun
+-----------------------</a>
+
+As an example of what can be done with reactions like these, here's a
+number which produces a glider gun:
+
+#C Numeric predecessor of period 30 glider gun
+#C This quickly becomes 4 gliders and 40 spaceships headed east and
+#C west.  The spaceships crash to form more gliders, for a total of
+#C 6 headed NE and 6 headed NW.  The first 4 collide in pairs to form
+#C 2 blocks.  The next 4 form 2 ponds, which the next 2 turn into
+#C ships.  The last 2 turn the ships into queen bee shuttles,
+#C forming a gun aimed SW in generation 4140.
+#C The number, which has 740 digits, is shown here, with spaces
+#C separating its components:
+#C 411 31041653546 11 31041653546 1144444444444444444444444444444
+#C 31041653546 11 31041653546 11444444444444444 31041653546 11
+#C 31041653546 11444444444444444444 31041653546 11 31041653546
+#C 111444444444444 15073 114444 5473 11444444444 2474640508 444444
+#C 2474640508 444444444444444444444 2474640508 444444 2474640508 4444
+#C 2474640508 444444 2474640508 4444444444444444444444 2474640508
+#C 444444 2474640508 414 7297575 114 9471155613 414444444444
+#C 31041653546 11 2534474376 1 9471155613 414444444444 31041653546 114
+#C 7297575 114 9471155613 414444444444 31041653546 114 7297575 118
+#C 9471155613 414444444444 31041653546 18 6703 1444 107579 1114444
+#C 2474640508 51 947742 414444444441 947742 414444444444 2474640508
+#C 51 947742 414444444441 947742 41444 2474640508 51 947742 414
+#C 2474640508 414444444444444 2474640508 51 947742 414444444441
+#C 947742 414
+#C Dean Hickerson, dean.hickerson@yahoo.com (3/5/2007)
+x = 2761, y = 5, rule = B3/S23
+obobobob3obob3obobobob3ob3ob3ob3obobob3obobob3obob3obobobob3ob3ob3ob3o
+bobob3obobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobobobobob3obob3obobob
+ob3ob3ob3ob3obobob3obobob3obob3obobobob3ob3ob3ob3obobob3obobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobob3obob3obobobob3ob
+3ob3ob3obobob3obobob3obob3obobobob3ob3ob3ob3obobob3obobobobobobobobobo
+bobobobobobobobobobobobobobobobobobobobobobobobobobobobobob3obob3obobo
+bob3ob3ob3ob3obobob3obobob3obob3obobobob3ob3ob3ob3obobob3obobobobobobo
+bobobobobobobobobobobobobobobobobobobobobobob3ob3ob3ob3obobobobobobobo
+bobobob3obobob3ob3obobobobobobobobobobobobobobobobobobobobob3obobob3ob
+obob3obobob3ob3ob3ob3obobobobobobobobobobobobob3obobob3obobob3obobob3o
+b3ob3ob3obobobobobobobobobobobobobobobobobobobobobobobobobobobobobobob
+obobobobobobobobobobobob3obobob3obobob3obobob3ob3ob3ob3obobobobobobobo
+bobobobobob3obobob3obobob3obobob3ob3ob3ob3obobobobobobobobob3obobob3ob
+obob3obobob3ob3ob3ob3obobobobobobobobobobobobob3obobob3obobob3obobob3o
+b3ob3ob3obobobobobobobobobobobobobobobobobobobobobobobobobobobobobobob
+obobobobobobobobobobobobobob3obobob3obobob3obobob3ob3ob3ob3obobobobobo
+bobobobobobobob3obobob3obobob3obobob3ob3ob3ob3obobobobobob3ob3ob3ob3ob
+3ob3ob3obobobobob3obobob3obobob3ob3ob3obob3obobobobobobobobobobobobobo
+bobobobobobobobobobob3obob3obobobob3ob3ob3ob3obobob3obobob3ob3ob3obobo
+bobob3obobob3ob3ob3obob3obobob3obobob3ob3ob3obob3obobobobobobobobobobo
+bobobobobobobobobobobobobob3obob3obobobob3ob3ob3ob3obobob3obobobobob3o
+b3ob3ob3ob3ob3ob3obobobobob3obobob3obobob3ob3ob3obob3obobobobobobobobo
+bobobobobobobobobobobobobobobob3obob3obobobob3ob3ob3ob3obobob3obobobob
+ob3ob3ob3ob3ob3ob3ob3obobob3ob3obobob3obobob3ob3ob3obob3obobobobobobob
+obobobobobobobobobobobobobobobobob3obob3obobobob3ob3ob3ob3obobob3obob
+3ob3ob3ob3ob3obobobobobobobobob3ob3ob3ob3ob3obobobobobobobobobobobob3o
+bobob3obobob3obobob3ob3ob3ob3ob3obob3obobob3ob3obobob3obobobobobobobob
+obobobobobobobobobobobobobobob3obobob3ob3obobob3obobobobobobobobobobob
+obobobobobobobobobobobobob3obobob3obobob3obobob3ob3ob3ob3ob3obob3obobo
+b3ob3obobob3obobobobobobobobobobobobobobobobobobobobobobob3obobob3ob3o
+bobob3obobobobobobobobobob3obobob3obobob3obobob3ob3ob3ob3ob3obob3obobo
+b3ob3obobob3obobobobobob3obobob3obobob3obobob3ob3ob3ob3obobobobobobobo
+bobobobobobobobobobobobobobobobobobobobobobob3obobob3obobob3obobob3ob
+3ob3ob3ob3obob3obobob3ob3obobob3obobobobobobobobobobobobobobobobobobob
+obobobob3obobob3ob3obobob3obobobobobo$obobobo3bobobobobobobobo3bo5bobo
+3bobobo3bobo3bobobobobobobobo3bo5bobo3bobobo3bobobobobobobobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobob
+obobobobobobobobobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobo3bobobob
+obobobobo3bo5bobo3bobobo3bobobobobobobobobobobobobobobobobobobobobobob
+obobobobobobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobo3bobobobobobob
+obo3bo5bobo3bobobo3bobobobobobobobobobobobobobobobobobobobobobobobobob
+obobobobobobobobobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobo3bobobob
+obobobobo3bo5bobo3bobobo3bobobobobobobobobobobobobobobobobobobobobobob
+obobobobobobo3bobo3bo3bobobobobobobobobobobobo3bobo3bo3bobobobobobobob
+obobobobobobobobobobobobobo3bobobo3bobobobo3bobobobobo3bobobobobobobob
+obobobobobobobobo3bobobo3bobobobo3bobobobobo3bobobobobobobobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobo3bo
+bobo3bobobobo3bobobobobo3bobobobobobobobobobobobobobobobo3bobobo3bobob
+obo3bobobobobo3bobobobobobobobobobobobo3bobobo3bobobobo3bobobobobo3bob
+obobobobobobobobobobobobobobo3bobobo3bobobobo3bobobobobo3bobobobobobob
+obobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobob
+obobobobobobo3bobobo3bobobobo3bobobobobo3bobobobobobobobobobobobobobob
+obo3bobobo3bobobobo3bobobobobo3bobobobobobobobobo3bo3bobobo3bobo5bobo
+3bobobobobobobobo3bobobobo3bo3bo3bo3bobobobobobobobobobobobobobobobobo
+bobobobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobo3bobo5bobobobobo3bo
+bobo3bo3bobo3bobobobobo3bobobobo3bo3bo3bo3bobobobobobobobobobobobobobo
+bobobobobobobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobobobo3bo3bobob
+o3bobo5bobo3bobobobobobobobo3bobobobo3bo3bo3bo3bobobobobobobobobobobob
+obobobobobobobobobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobobobo3bo
+3bobobo3bobo5bobo3bobobobobobobobo3bobobobo3bo3bo3bo3bobobobobobobobob
+obobobobobobobobobobobobobobobo3bobobobobobobobo3bo5bobo3bobobo3bobobo
+bo5bobobo3bobobobobobobobobobobo3bobo5bobobobobobobobobobobobobobo3bob
+obo3bobobobo3bobobobobo3bobobobobo3bobobobobo3bo3bobobo3bobobobobobobo
+bobobobobobobobobobobobobobobobobobobobo3bo3bobobo3bobobobobobobobobob
+obobobobobobobobobobobobobobo3bobobo3bobobobo3bobobobobo3bobobobobo3bo
+bobobobo3bo3bobobo3bobobobobobobobobobobobobobobobobobobobobobobobobob
+obo3bo3bobobo3bobobobobobobobobobo3bobobo3bobobobo3bobobobobo3bobobobo
+bo3bobobobobo3bo3bobobo3bobobobobobo3bobobo3bobobobo3bobobobobo3bobobo
+bobobobobobobobobobobobobobobobobobobobobobobobobobobobobobo3bobobo3bo
+bobobo3bobobobobo3bobobobobo3bobobobobo3bo3bobobo3bobobobobobobobobobo
+bobobobobobobobobobobobobobobobobo3bo3bobobo3bobobobobobo$3obobob3obob
+obob3obob3ob3ob3ob3ob3ob3obobob3obobobob3obob3ob3ob3ob3ob3ob3obobob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3obobobob3obob3ob3ob3ob3ob3ob3obobob3obobobob3obob3ob3o
+b3ob3ob3ob3obobob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3obobobo
+b3obob3ob3ob3ob3ob3ob3obobob3obobobob3obob3ob3ob3ob3ob3ob3obobob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3obobobob3obob3ob3ob3o
+b3ob3ob3obobob3obobobob3obob3ob3ob3ob3ob3ob3obobobob3ob3ob3ob3ob3ob3ob
+3ob3ob3ob3ob3ob3obob3obobo3bob3obobob3ob3ob3ob3ob3ob3o3bob3obobob3ob3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob3ob3ob3ob3ob3ob3ob
+3ob3ob3o3bob3ob3ob3obobob3obobob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob3ob3ob3ob3ob
+3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob3ob3ob3ob3ob3ob3ob3o3bob3ob3ob3o
+bobob3obobob3ob3ob3ob3ob3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob3ob3ob3o
+b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o3bob
+3ob3ob3obobob3obobob3ob3ob3ob3ob3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob
+3ob3obob3o3bob3ob3o3bob3o3bob3obobob3ob3ob3o3bobobob3ob3ob3obob3ob3obo
+b3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3obobobob3obob3ob3ob3ob3ob3ob3obobob3ob
+3ob3ob3ob3o3bob3ob3o3bob3obob3ob3o3bobobob3ob3ob3obob3ob3obob3ob3ob3ob
+3ob3ob3ob3ob3ob3ob3ob3obobobob3obob3ob3ob3ob3ob3ob3obobob3o3bob3ob3o3b
+ob3o3bob3obobob3ob3ob3o3bobobob3ob3ob3obob3ob3obob3ob3ob3ob3ob3ob3ob3o
+b3ob3ob3ob3obobobob3obob3ob3ob3ob3ob3ob3obobob3o3bob3ob3o3bob3o3bob3ob
+obob3ob3ob3o3bobobob3ob3ob3obob3ob3obob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob
+3obobobob3obob3ob3ob3ob3ob3ob3obob3ob3o3bobobob3obob3ob3ob3obobobo3bob
+3o3bob3obobobob3ob3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob3ob3obob3ob3o
+3bo3bob3ob3ob3obob3ob3ob3ob3ob3ob3ob3ob3ob3obob3ob3o3bo3bob3ob3ob3obob
+3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob3ob3obob3ob
+3o3bo3bob3ob3ob3obob3ob3ob3ob3ob3ob3ob3ob3ob3obob3ob3o3bo3bob3ob3ob3ob
+ob3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob3ob3obob3ob3o3bo3bob3ob3ob3obo
+b3ob3ob3o3bob3ob3ob3obobob3obobob3ob3obob3ob3ob3ob3ob3ob3ob3ob3ob3ob3o
+b3ob3ob3ob3ob3o3bob3ob3ob3obobob3obobob3ob3obob3ob3o3bo3bob3ob3ob3obob
+3ob3ob3ob3ob3ob3ob3ob3ob3obob3ob3o3bo3bob3ob3ob3obob3o$2bobobo3bobobob
+o3bobobobo3bo3bo3bo3bobobobobo3bobobobo3bobobobo3bo3bo3bo3bobobobobo3b
+o3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bobobobo3bobobobo3bo3bo3bo3bobobobobo3bobobobo3bobobob
+o3bo3bo3bo3bobobobobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bob
+obobo3bobobobo3bo3bo3bo3bobobobobo3bobobobo3bobobobo3bo3bo3bo3bobobobo
+bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobobobo3bobo
+bobo3bo3bo3bo3bobobobobo3bobobobo3bobobobo3bo3bo3bo3bobobobobobo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobo3bobobo3bo3bobobo3bo3bo3bo3bo3bo3bo3bo
+3bobobo3bo3bo3bo3bo3bo3bo3bo3bo3bobo5bo3bo3bobobo3bobobo3bobobobobo3bo
+3bo3bo3bo3bo3bobo5bo3bo3bobobo3bobobo3bobobobobo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobo5bo3bo3bobobo3bobobo3bobob
+obobo3bo3bo3bo3bo3bo3bobo5bo3bo3bobobo3bobobo3bobobobobo3bo3bo3bo3bobo
+5bo3bo3bobobo3bobobo3bobobobobo3bo3bo3bo3bo3bo3bobo5bo3bo3bobobo3bobob
+o3bobobobobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bobo5bo3bo3bobobo3bobobo3bobobobobo3bo3bo3bo3bo3bo3bobo5bo3bo3b
+obobo3bobobo3bobobobobo3bobo3bo3bobo5bo3bo3bo3bo3bobobo3bo3bo3bo3bobob
+o3bo3bobobobo3bo3bobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobobobo3bobobobo
+3bo3bo3bo3bobobobobobo5bo3bo3bo3bo3bo3bo3bo3bobobobo3bo3bo3bobobo3bo3b
+obobobo3bo3bobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobobobo3bobobobo3bo3bo
+3bo3bobobobobo3bo3bobo5bo3bo3bo3bo3bobobo3bo3bo3bo3bobobo3bo3bobobobo
+3bo3bobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobobobo3bobobobo3bo3bo3bo3bobo
+bobobo3bo3bobo5bo3bo3bo3bo3bobobobobo3bo3bo3bobobo3bo3bobobobo3bo3bobo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobobobo3bobobobo3bo3bo3bo3bobobobobobo
+bobo3bobobo3bobo3bo3bo3bobobobo3bo3bo3bo3bobobobo3bo3bo3bo3bobo5bo3bo
+3bobobo3bobobo3bobobobobo3bobo3bo3bo3bo3bo3bobo5bobo3bo3bo3bo3bo3bo3bo
+3bo3bo3bobo3bo3bo3bo3bo3bobo5bobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobo5bo3b
+o3bobobo3bobobo3bobobobobo3bobo3bo3bo3bo3bo3bobo5bobo3bo3bo3bo3bo3bo3b
+o3bo3bo3bobo3bo3bo3bo3bo3bobo5bobo3bo3bo3bobo5bo3bo3bobobo3bobobo3bobo
+bobobo3bobo3bo3bo3bo3bo3bobo5bobo3bobo5bo3bo3bobobo3bobobo3bobobobobo
+3bobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobo5bo3bo3bobobo3bobobo3bob
+obobobo3bobo3bo3bo3bo3bo3bobo5bobo3bo3bo3bo3bo3bo3bo3bo3bo3bobo3bo3bo
+3bo3bo3bobo5bobo3bo$2bobobob3obob3o3bobob3ob3ob3ob3o3bob3obobob3obob3o
+3bobob3ob3ob3ob3o3bob3obobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bob3obob3o3bobob3ob3ob3ob3o
+3bob3obobob3obob3o3bobob3ob3ob3ob3o3bob3obobo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bo3bob3obob3o3bobob3ob3ob3ob3o3bob3obobob3obob3o3bobob
+3ob3ob3ob3o3bob3obobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo
+3bo3bob3obob3o3bobob3ob3ob3ob3o3bob3obobob3obob3o3bobob3ob3ob3ob3o3bob
+3obobobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bobob3ob3o3bob3obobo3bo3bo3b
+o3bob3o3bo3bob3obobo3bo3bo3bo3bo3bo3bo3bo3bo3bob3o3bo3bo3bob3o3bob3ob
+3ob3ob3o3bo3bo3bo3bo3bo3bob3o3bo3bo3bob3o3bob3ob3ob3ob3o3bo3bo3bo3bo3b
+o3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bob3o3bo3bo3bob3o3bob3o
+b3ob3ob3o3bo3bo3bo3bo3bo3bob3o3bo3bo3bob3o3bob3ob3ob3ob3o3bo3bo3bo3bob
+3o3bo3bo3bob3o3bob3ob3ob3ob3o3bo3bo3bo3bo3bo3bob3o3bo3bo3bob3o3bob3ob
+3ob3ob3o3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3b
+o3bob3o3bo3bo3bob3o3bob3ob3ob3ob3o3bo3bo3bo3bo3bo3bob3o3bo3bo3bob3o3bo
+b3ob3ob3ob3o3bobo3bo3bob3ob3o3bob3o3bob3obobo3bob3o3bo3bobobob3ob3ob3o
+bob3o3bobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bob3obob3o3bobob3ob3ob3ob3o3bob
+3obobob3ob3ob3o3bo3bo3bo3bob3o3bob3obob3o3bo3bobobob3ob3ob3obob3o3bobo
+3bo3bo3bo3bo3bo3bo3bo3bo3bo3bob3obob3o3bobob3ob3ob3ob3o3bob3obobo3bo3b
+ob3ob3o3bob3o3bob3obobo3bob3o3bo3bobobob3ob3ob3obob3o3bobo3bo3bo3bo3bo
+3bo3bo3bo3bo3bo3bob3obob3o3bobob3ob3ob3ob3o3bob3obobo3bo3bob3ob3o3bob
+3o3bob3obobob3ob3o3bo3bobobob3ob3ob3obob3o3bobo3bo3bo3bo3bo3bo3bo3bo3b
+o3bo3bob3obob3o3bobob3ob3ob3ob3o3bob3obob3ob3o3bob3ob3obo3bo3bo3bobob
+3o3bob3o3bob3obobobo3bo3bo3bo3bob3o3bo3bo3bob3o3bob3ob3ob3ob3ob3obob3o
+3bo3bo3bo3bob3o3bobo3bo3bo3bo3bo3bo3bo3bo3bo3bobob3o3bo3bo3bo3bob3o3bo
+bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bob3o3bo3bo3bob3o3bob3ob3ob3ob3ob3obob3o
+3bo3bo3bo3bob3o3bobo3bo3bo3bo3bo3bo3bo3bo3bo3bobob3o3bo3bo3bo3bob3o3bo
+bo3bo3bo3bob3o3bo3bo3bob3o3bob3ob3ob3ob3ob3obob3o3bo3bo3bo3bob3o3bobo
+3bob3o3bo3bo3bob3o3bob3ob3ob3ob3o3bobo3bo3bo3bo3bo3bo3bo3bo3bo3bo3bo3b
+o3bo3bob3o3bo3bo3bob3o3bob3ob3ob3ob3ob3obob3o3bo3bo3bo3bob3o3bobo3bo3b
+o3bo3bo3bo3bo3bo3bo3bobob3o3bo3bo3bo3bob3o3bobo3bo!
+
+END OF FILE
+</PRE>
+
+</BODY></HTML>

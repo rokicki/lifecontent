@@ -1,0 +1,59 @@
+<!--saved from url=(0091)http://web.archive.org/web/20071123223737/www.math.ucdavis.edu/~dean/RLE/saw.parabolic.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> Parabolic sawtooth </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+#N Parabolic sawtooth
+#C Population is unbounded but does not tend to infinity; its graph as
+#C a function of time is a sawtooth with a parabolic envelope.
+#C The pattern works by repeating the following operation for each n>=0.
+#C A 4-glider salvo is sent southeast toward a block A, arriving in
+#C generation  20 n^2 + 144 n + a[n mod 3],  where  a[0]=a[2]=131  and
+#C a[1]=91.  Block A is pushed 1 unit southeast and another block, B, is
+#C created upstream from A.  Then, every 108 generations, 2 gliders hit B,
+#C pulling it 3 units northwest.  Eventually B gets deleted by a glider, at
+#C generation  20 n^2 + 180 n + b[n mod 3],  where  b[0]=193,  b[1]=223,
+#C and  b[2]=227.  Then another 4-glider salvo is sent toward A.
+#C The population is minimal around the time B is deleted.  (The minimum
+#C appears to be 1208 in generations  180 n^2 + 540 n + 210  and
+#C 180 n^2 + 660n + 450.)  The population is maximal around the time B is
+#C created:  there are about n/30 2-glider salvos on their way toward B
+#C around generation  t = 20 n^2 + 144 n, so the population is about
+#C n/3 ~ sqrt(t/180)  at this time.
+#O Dean Hickerson, dean.hickerson@yahoo.com (6/26/91)
+x = 126, y = 144, rule = B3/S23
+34b2o11b2o36b2o18b2o$34bo12bo37bo19bo6$16b2o16bo$16bo16b3o$33b3o36b2o
+29bo5bo$72bo11b3o16b2o3b2o$31b2o3b2o6b2o3b2o32bo3bo$31bo5bo44bo5bo16b
+3o$45bo3bo32bo5bo16b3o$46b3o57bo$46b3o24bo10bo$35bo35b2ob2o7b2o$34bo$
+34b3o33bo5bo$14b5o$13bob3obo50b2o3b2o5b3o$14bo3bo26bo5bo30b3o$15b3o15b
+o5bo4b3o5bo28bo3bo$16bo16bo5bo4b3o3b3o$34bo3bo41b2o3b2o20b3o6b2o$35b3o
+4b2o3b2o57bo3bo5bo$42bo5bo56bo5bo$5b2o7bo90bo5bo$5bo8bo$13bobo$12b2ob
+2o99b3o$11bo5bo98b3o$14bo23b2o7b2o23b2o3b2o36bo3bo$11b2o3b2o20bo8bo24b
+o5bo$5bo33b3o6b3o31b2o23b2o5b2o3b2o$4b3o27b2o5bo8bo4b2o16bo3bo4bo24bo$
+4b3o28bo19bo18b3o21b2o$35bobo5bo9bobo42bo$2b2o3b2o27b2o4bobo8b2o$2bo5b
+o32bob2o$40b2ob2o$13b2o26bob2o13bo$13bo9b2o17bobo12bo40bo$4bo15bo4b4o
+14bo13b3o14b2o4bobo13b2ob2o$5bo13b2o2b2ob3o36b2o7bo5b2o$3b3o17bo37b4o
+4b2o10bo13bo5bo$61b3ob2o2bo18bo2bo$66bo16b2o2b2o3bo2b2o3b2o14bo5bo$83b
+o8bo23b2o3b2o$o5bo81b4o$o5bo111b3o$bo3bo21bo15bo74b3o$2b3o22b2o15bo74b
+o$26bobo13b3o3$34bo$34b3o$37bo$36b2o55b2o3b2o2b2o$25b2o66bo5bo2bo$26bo
+32bo9b2o51bo$57bobo10bo23bo3bo22b3o$23bo2bo31b2o10bobo5bo16b3o22b5o$3b
+2o3b2o14bo2bo43b2o3b4o39b2o3b2o$3b2o3b2o15bobo8bo5bo34bob2o9b2o$4b5o
+17bo9bo5bo32bobob3o8bo$5bobo29bo3bo35bob2o$25b2o11b3o35b4o32b2o$5b3o
+17bo30bo21bo33bobo$57b2o37b2o11b2obobo$56b2o38bo12bobobo$111bo$111b2o$
+8bo43b2o57b3o$7bobo42bo23bo34b3o3b2o3b2o$6bo3bo63bobo34b3o3b2o3b2o$7b
+3o28b2o35b2o34b2o5b5o$5b2o3b2o26bo15b2o55bo7bobo$54bo32b2o20bobobo$45b
+2o5bobo32bo21b2obobo4b3o$44b3o5b2o19bo38bobo$32bo8bob2o29bo37b2o$32bob
+o6bo2bo27b3o$20b2o11bobo5bob2o$20bo12bo2bo7b3o$33bobo9b2o63b2o7b2o$32b
+obo75bo8bo$32bo$8b2o33b2o$8bo34bo12b2o51b3o$55bo2bo50b2o$47b2o6bo56b2o
+$48b2o5bo55b3o$47bo7bob2o51bobo$57bo52b2o3$56b2o$56bo2$28bobo$28bo3bo$
+18b2o12bo10b2o$18bo14bo7bo2bo21b2o42b2o$32bo7bo11b2o12bo43bo$28bo3bo7b
+o11bo$28bobo9bo$41bo2bo20b3o$43b2o20b2o$68b2o$34bo32b3o$34bobo29bobo$
+17b2o18b2o4b2o21b2o41b2o$19bo17b2o4bo65bo$20bo16b2o9b3o23bo$9b2o9bo8bo
+4bobo13bo22b2o$9bo10bo9bo3bo14bo7b2o13b2o8b2o$19bo8b3o26b3o11b3o8bo$
+17b2o40b2obo9b2o$59bo2bo10b2o$59b2obo11bo$50b2o5b3o$49bobo5b2o$49bo44b
+o$48b2o40b2o2b2ob3o$90bo5b4o$86b2o6b2o$85bobo18b2o$22b2o60b3o19bo$24bo
+59b2o21b3o$14b2o9bo13bo47b2o20bo$14bo10bo13bobo44b3o$25bo16b2o4b2o12b
+2o$24bo17b2o4bo13b3o$22b2o18b2o9b2o9b2obo11bo6b2o$39bobo11bo10bo2bo10b
+2o6bo$39bo24b2obo9b2o$62b3o11b3o$62b2o13b2o$78b2o5b2o$79bo5bobo$87bo$
+87b2o!
+
+</PRE></BODY></HTML>

@@ -1,0 +1,138 @@
+<!--saved from url=(0090)http://web.archive.org/web/20071123223429/www.math.ucdavis.edu/~dean/RLE/brdr.pfrless.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> Pufferless breeder </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+#N Pufferless breeder
+#C Population grows quadratically.
+#C A shotgun sends an 8-spaceship salvo eastward every 360 gens.
+#C Call the spaceships, from top to bottom, A, B, C, D, D', C', B',
+#C and A'.  D and D' are MWSSs; the others are HWSSs.  (The shotgun's
+#C output is approximately glide symmetric.)  Every 360 gens, two
+#C guns and a kickback reaction are used to create a northeastward
+#C glider in front of A and B.  A and B redirect the glider
+#C southeastward.  Then C' and D' duplicate it, producing 2 SEward
+#C gliders and a block.  The second glider escapes, the block is
+#C deleted by D, and the first glider is turned NEward by A' and B'.
+#C It is duplicated by C and D, again producing an escaping glider, a
+#C block that gets deleted by the next D', and another NEward glider.
+#C The latter interacts with the next A and B in the same way as the
+#C original glider did, 596 gens later and 118 units farther east.
+#C
+#C Thus, in gen t, there are approximately  t/360  gliders zigzagging
+#C east, each producing 2 more gliders every 596 gens.  So the
+#C population is growing by about  5 * 2/596 * t/360  =  t/21456
+#C cells per generation, and the total population is about  t^2/42912.
+#C The gliders occupy a nonconvex quadrilateral with vertices at
+#C (approximately)  (0,0),  (t/4,t/4),  (59t/298,0),  and  (t/4,-t/4).
+#O Dean Hickerson, dean.hickerson@yahoo.com (10/12/92)
+x = 391, y = 291, rule = B3/S23
+31bo$29bobo$19b2o6b2o$18bo3bo4b2o12b2o$17bo5bo3b2o13bo42b2o12b2o$7bo9b
+o3bob2o4bobo53bo14bo$7b2o8bo5bo7bo$18bo3bo$19b2o43b2o54b2o$65bo54bo$
+33bo$33b2o$34b2o$96b2o3b2o17b3o$37b3o46bo9bobobobo17b3o$85b3o9b5o17bo
+3bo10b2o$24b2o5b3o50b5o9b3o17bo5bo10bo$24bo58b2o3b2o9bo19bo3bo$41bob2o
+3b2o11b2o3b2o16b5o31b3o31b2o$41b2obo3b2o34bo3bo65bo$27b3o18b2o11bo5bo
+17bobo$29bo19bo36bo46b3o$28bo19bobo11b2ob2o66b3o$47b2obo13bo67bo3bo40b
+o$14b2o72bo66bo21bobo$14bo60b2o9b2ob2o18b2o20b2o3b2o15b2ob2o20bobo7bo$
+3b2o6b2o12b2o22bo25bo33bo55b2o11bo2bo6b2o$3bo6b3o7b2o5bo20b2o35bo5bo
+60bo5bo6bo12bobo2b2o4b2o$11b2o6bobo6bo148bobo3b2o4b3o8bo$14bo6bo6bo9bo
+46b2o3b2o4b3o53b2o3b2o18bo5b2o4b2o8b2o84bo$14b2o12bo8b2o22b3o31bo3bo
+88b2o94bobo$27bo32bo3bo29bo5bo87bo94bob2o15b2o$25b2o68bo3bo20b2o3b2o
+150b2o3b2ob2o14bobo$38b2o19bo5bo30b3o10b3o9b5o51b2o98bo5bob2o13bo$38bo
+bo18b2o3b2o30b3o22b2ob2o52bo105bobo13bo2bo8bo$25bobo13bo73bo5b2ob2o17b
+2o140bo14bo10b2o$24bo2bo5bo4bo2bo73bo6b3o18bo157bobo$23b2o9bo6bo73bo
+53bo4bo2bo124b2o$15bo5b2o3bo5b3o3bobo6b2o40bo6bo32bo5bo34b2o2b3o$15b2o
+6b2o13b2o7bobo38b2o6b2o13b3o15b2o3b2o34b3o9b2o102bo$24bo2bo21bo14b2o
+106bo9bo102b2o$25bobo21b2o13bo66b3o20b2o3b2o2b2obo117b2o$65b3o9b2o28b
+2o14bo7b3o20bo5bo2bob2o12bo101bo$41bo25bo10bo8bo19bo14b2o8bo45b2o101bo
+$41b2o34bo10bo19bo46bo3bo18bobo100bo5bo$42b2o33b2o7b3o18b2o47b3o128bo
+6b2o$46bo144b2o94bo6bo$46bo82b2o60bobo76bo4b2obo$40bo5bo34b2o21bo2bo
+22bo50bo4b2o6bo7b2o66b2o3bob2o$32b2o6bo36b2o4b4o12b2o2b2o3bo18b3o50bob
+o2bo2bo2bo2bo8bo$32bo5b3o36bo3b2ob3o12bo8bo18bo7bobo16b2o24b2obob3o6bo
+75bo$37b2o10bob2o3b2o23bo22b4o27b2o18bo24b2ob2o6bobo75bobo43b2o$38b2o
+9b2obo3bo79bo4b2o9b3o25b2obo7b2o76bo2bo21b2o19bo$37bo103bo10bo17b2o8bo
+bo87bo2bo19b2o10bobo5bobo$56bo2bo82bo26bobo9bo113bo8bo2bo5b2o$55bo2bo
+82b2o26bo100bo19b2o11b2o25b2o31b2o$23bo31bobo110b2o100b2o18bobo8b2o3bo
+23bo33bo$20b4o32bo224bo11bo9b2o$12b2o5b4o7bo4b2o97b4o123b2o18b2o7bo2bo
+10bo2bo$12bo6bo2bo7b2o3bobo18b2o75bo8bo22bo2bo92bo31bo11bobo6bo69b2o$
+19b4o6bobo4b3o17bo76bo3b2o2b2o17b2o2b2o3bo83bo5bobo28bobo19b3o69bo$20b
+4o13b3o94bo2bo22bo8bo82bobo4b2o29b2o19bo$23bo12b3o126b4o71bo10bo3b2o
+23b2o21b2o6b2o$35bobo6b2o194b2o9bo3b2o21bo2bo21bo$35b2o7bobo132bo71bo
+3b2o20bo15bobo5bobo5bo18b2obob2o$28bo17bo132b4o69bobo22bo15bo3bo3b2o5b
+3o17bo5bo27b3o$28bobo15b2o132b4o7bo61bo23bo7bo11bo9bo3bo17bo3bo27bo3bo
+$11b2o18b2o136b2o9bo2bo6bobo78b2o5bo2bo3bobo10bo7bob3obo17b3o27bo5bo$
+13bo17b2o5bo130bo10b4o4b2o3bo45b2o29bobo7b2o3b2o10bo9b5o48bo5bo$14bo
+16b2o4b2o140b4o5b2o3bo10bo35bo29bo22bo3bo65bo$3bo10bo13bobo75bo72bo8b
+2o3bo9b2o64b2o22bobo65bo3bo16b2o3b2o$3b2o9bo13bo77b3o81bobo44bo2bo121b
+3o$13bo95bo81bo46bo2bo121bo19bo3bo$11b2o95b2o129bobo142b3o$240bo88bo
+54b3o$328bo31b3o$30b3o206b2o79b2o6b3o29b3o10b2o$240bo20bob2o44bo11bo
+37bo3bo9bo$34bo226b2obo45b2o$34bo245b2o27b2o47b2o3b2o$28bo5bo73b2o3b2o
+71b2o84b3o5bo106bo$20b2o6bo82bo74bo144b5o50b3o$20bo7bo79bo5bo16bobo28b
+2o3b2obo95b3o35b2o3b2o19bob3obo49b3o$37bob2o4bo63b2ob2o17b2o29b2o3bob
+2o136bo23bo3bo$37b2obo3b2o64bobo19bo29b2o106bo33bo5bo21b3o49b2o3b2o$
+111bo50bo107bo34b2ob2o23bo50bo5bo$45bo30bobo32bo49bobo106bo35bobo$44bo
+bo30b2o82bob2o142bo30b2o15b2o$9bo33bo2bo30bo118b2o88bo20bo30bo17bo$9b
+2o31bo2bo67b2o81bobo85bobo47bo25bo$2o8b2o14bo86bo48bo23bo4b2o4b3o7b2o
+63b2o9bobo11b2o34b2o18bo2bo3b2o$o9b3o13bobo16bo68b3o45b2o21bobob2o2bo
+4b3o7bo63b3o7bo2bo12bo38bob2o13bo2bo$10b2o15bobo14b2o70bo67bo3bob3o4b
+3o63bo10b2obo5bobo51bobo15bobo$9b2o16bo2bo142bo10bo3bob2o4bobo64b2o9bo
+2bo6bobo20bo14b2o14bo17bo14b2o14bo$9bo17bobo143b2o9bo3b2o6b2o76b2obo8b
+o20b2o14bo14b2o31bo14b2o$26bobo3b2o151bobo84b3o47bo15b2o15b2o15bo$26bo
+5bobo151bo85b2o48b2o14b2o16bo14b2o$34bo$34b2o2$54bo$55bo$49bo5bo$34b6o
+b2o7b6o$34b6ob2o$41b2o$34b2o5b2o$34b2o5b2o306b2o$34b2o5b2o6bo299bo$34b
+2o12bobo$34b2ob6o4bo3bo$34b2ob6o5bo3bo$49bo3bo$50bo3bo$51bobo$52bo$97b
+2o$98bo$93b3o2b2o$91b3obo3bo$91bo4bob2o$95bobo8b2o$93b2obo4bo$93bo3bob
+3o2bo3bo$93b2o2b3o4bo4bo$94bo11bobobo$94b2o11bobobo20b2o$108bo4bo15bo$
+109bo3bo14bobo2b2o$126bobob3o2bo$110b2o14bo2b6o$129b2ob2o$128b6o2bo5bo
+$127bo2b3obobo$128b2o2bobo5bob3o$133bo8b2obo$129b2o11bob2o$143b3obo2$
+145bo14$144b3o$144b3o$144b3o$128bob2ob2o6b3o$127b2ob2o2b2o5b3o$127bo
+13b3o$134b2o$127b2o5b2o$127b2o$111bo23bo$109bob2o14b2o2b2ob2o$108bo19b
+2ob2obo$94bobo2bo11bo$94b3obob2o5b2obo$93bo6bo7bo$94bo5b2o2$93b2o5bo$
+94bo6bo$93b2obob3o$95bo2bobo3$55bo$53bob2o$52bo$38bobo2bo11bo$38b3obob
+2o5b2obo$37bo6bo7bo$38bo5b2o2$37b2o5bo$38bo6bo$37b2obob3o$39bo2bobo5$
+37b2o$37bo$26b2o7bobo143bobo89bo$27bo7b2o144bo2bo86bobo$13bo15b2o141b
+2o10b2o8bo75bobo17bo$11bobo15b3o84bo55bo9bo3b2o5bobo68b2o3bo2bo16b2o$
+9b2o10bo7b2o16b2o65b3o67b2o6bob2o68bo5bobo15b2o$3bo5b2o11b2o3bo18bo2bo
+63bo47b2o18bo2bo6b2ob2o11bo63bobo13b3o9bo$3b2o4b2o10b2o3b2o18bo66b2o
+46bobo17bobo8bob2o10b2o65bo14b2o8b2o$11bobo32bo115b3o28bobo93b2o$13bo
+32bob2o113b2o29bo95bo$48bo111b2o$111bo48b3o108bo$110b3o158bo$28bobo9b
+2obo4bo61b3o158bo$29b2o9bob2o3b2o113bo3bob2o$23bo5bo78b2o3b2o46b2o3b2o
+bo97b3o$23b2o83bo5bo70bo$185b2o86b3o5bo$281b2o$31b3o228b2obo$33bo206b
+2o20bob2o$32bo206bo2bo$242bo$108b2o132bo$15bobo91bo129b2obo$13bo3bo88b
+3o83bobo45bo$6b2o5bo10b2o3b2o75bo84bo2bo$6bo5bo10bobo3bo2bo144b2o11b2o
+10b2o66b2o20bo$13bo11bo7bo143bobo8b2o3bo9bo36bo30bo18b4o$13bo3bo15bo7b
+o126bo11bo9b2o48b2o29bobo6bobo6bobob2o9b2o$15bobo15bo6b2o126b2o7bo2bo
+10bo2bo77b2o6bo3bo3bo2bob3o9bo$29bo2bo14b2o131bo11bobo55b2o32bo4bobob
+2o$29b2o16bo129bobo70bobo32bo4b4o$36bo8bobo129b2o72b3o30bo7bo$36b2o7b
+2o194b2o9b3o25bo3bo$24b2o11b2o202bo9b3o26bobo$23b3o4bo6b3o126b2o82bobo
+7b2o30bobo$20bob2o7b2o4b2o18b2o80b2o21b2obo2bob2o78b2o8bobo28bo2bo$13b
+o6bo2bo6b2o4b2o18bo2bo75b2obo2bob2o17bo4bo2bo91bo27b2o17bo$13b2o5bob2o
+12bo19bo78bo4bo2bo22bo95b2o18b2o4b2o3bo14bobo$23b3o30bo82bo25bo116bo7b
+2o16b2obo$24b2o30bob2o30b2o46bo132b2o18bo2bo2bobo8b2ob2o4bo$58bo30b2o
+79b2o100bo19bobo2b2o9b2obo4b2o$80b2o9bo51b2o26bo126bo9bobo$37bobo39b3o
+22b2o38bo26bobo9bo125bo$38b2o10b2obo4bo19bobo2bo2bo13b2obo2bob2o33bo
+10bo17b2o8b4o86bo$38bo11bob2o3b2o7b3o9b2o2b2o2b2o12bo4bo2bo34b2o9b3o
+24b2ob4o5b2o75bob2o$33bo7bo26bo13b2o20bo52bo22b3ob2o3bo3bo2bo73bo$33b
+2o6bo25bo35bo52b2o23b2ob2o3bo7bo72bo$41bo5bo84b2o48b5o3bo6bo7bo64bo2bo
+2bob2o$47bo30b2o28b2o22bo50bo3b3o7bo6b2o65b2o3b2obo$47bo30bo7b2o21bo
+48b3o32bo2bo91bo6bo$43b2o23bo10bo5bobo20bo14b2o33b3o32b2o93bo6b2o$42b
+2o22b3o9b2o7bo20b2o14bo32bo3bo120bo5bo$42bo22bo115bo100bo$65b2o89b2o3b
+2o16b2o101bo$27b2o21b2o37b2o6b2o66bob2o11b2o103b2o$27bo22bo11b3o25bo6b
+o32bo5bo28b2obo117b2o$16b2o6b2o12b2o8bobo11b3o48bo16bo5bo36b3o8bo102bo
+$16bo6b3o7b2o5bo7b2o11bo3bo47bo17bo3bo41b2o5b2o$24b2o6bobo6bo18bo5bo
+45bobo17b3o36b2obo3bo122bobo$27bo6bo6bo19bo3bo110bobo122bo2bo$27b2o12b
+o20b3o56b2o3b2o17bo143b2o13b2o6b2o$40bo104b2o141bobo11bo3b2o5bo$38b2o
+81bo5bo51bo98bo8bo16b2o$27bobo56b2o3b2o86b2o97b2o7bo2bo10bo2bo$25bo3bo
+56bobobobo5bo23b2ob2o160bo13bobo$17bo7bo12b2o47b5o5b3o24bo65b2o96bobo$
+16b4o4bo14bo48b3o5b5o89bobo96b2o$15b2obobo4bo50bo12bo5b2o3b2o8bo45b3o
+21bo4b2o4b3o7b2o$4bo9b3obo2bo3bo3bo19b2o25b2o18b5o9b2o10bo12bo19bo3bo
+19bobob2o2bo4b3o7bo$4b2o9b2obobo6bobo18bobo45b5o20bobo10b3o17bo5bo6bo
+10bo3bob3o4b3o$16b4o27b3o47bo2bo19bo3bo9b3o17bo5bo6b2o9bo3bob2o4bobo$
+17bo29b2o48bo3bo18b5o53bo3b2o6b2o$28bo21b2o13bo35bo17b2o3b2o6b2o3b2o
+40bobo$26bobo20b3o12b3o31b2obo18b5o7bo5bo41bo$27b2o34b5o32bo20b3o$62bo
+bobobo17b3o33bo$42b2obo3bo12b2o3b2o16b2ob2o$42bob2o3b2o34b2ob2o7b2o3b
+2o52bo$25bo59b5o7bo5bo52b2o$25b2o5b3o49b2o3b2o$98bo3bo$38b3o58b3o34bo$
+135b2o$35b2o$34b2o30bo54bo$34bo30b2o54b2o2$18bobo$18bo3bo63bo14bo$8b2o
+12bo10b2o51b2o12b2o$8bo14bo7bo2bo$22bo7bo12bo$18bo3bo7bo11b2o$18bobo9b
+o$31bo2bo$33b2o!
+
+</PRE></BODY></HTML>

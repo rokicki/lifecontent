@@ -1,0 +1,55 @@
+<!-- saved from url=(0088)http://web.archive.org/web/20071123223808/www.math.ucdavis.edu/~dean/RLE/sqrtgun3.0.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> Sqrtgun 3.0 </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+
+#N Sqrtgun 3.0
+#C Population in generation t is asymptotic to  5 sqrt(t/12).  A 4-glider
+#C salvo pushes a blinker 3 units southeast and sends back a glider,
+#C which causes another salvo to be fired and a glider to be sent
+#C northeast.  The round trip time, and hence the gap between
+#C northeastward gliders, increases by an average of 24 generations each
+#C time.  More specifically, let a[0]=207, a[1]=159, a[2]=-33, a[3]=111,
+#C and a[4]=231.  For n>=0, a glider is sent northeast (by reflection from
+#C a buckaroo) in generation  12 n^2 + 1116 n + a[n mod 5]  (at which
+#C time, for n>=1, the population is  5n + 1297)  and escapes about 300
+#C generations later.
+#O Dean Hickerson, dean.hickerson@yahoo.com  1/28/1991
+x = 176, y = 170, rule = B3/S23
+46b2o$46bo6$37b2o24b2o$37bo25bo$28b2o5bobo5b2o3b2o$27bobo5b2o6bo5bo$
+12bobo11bo$12bo2bo10bo2bo14bo3bo15bo$15b2o9bo18b3o15bobo$3b2o8bo3b2o8b
+obo6b2o24bo3bo$3bo11b2o11b2o6bo2bo23b3o$12bo2bo45b2o3b2o$12bobo21bo2bo
+$35bo2bo$35bobo$36bo2$36b2o$36bo$44bo$8bo34b3o$6b4o32b5o$2o5bob2o13bob
+o14b2o3b2o$o4bobob3o12bo3bo13b5o$7bob2o17bo13bo3bo47b2o$6b4o19bo14bo
+18b2o3b2o26bo$8bo19bo34b2o3b2o13b2o12bo$24bo3bo3b2o12b2o8bo7b5o14bo13b
+o13b2o$24bobo5bobo11bo8bo9bobo12b2o15bo11bo2bo$34bo12b3o5b3o14b2o5b3o
+14bo11bo15bobo$34b2o13bo15b3o4bo7b2o12b2o12bo15bo3bo$83bo24bo19bo$83b
+2o24bo2bo16bo4b2o$23b2o86b2o15bo5bo$23bo100bo3bo$78b2o9b2o33bobo$65b2o
+10bo2bo7bo2bo$37bo27bo11b3o2b5o2b3o$37b3o40b2o5b2o$40bo38bo9bo$39b2o
+38b2obo3bob2o$84bo4$21b2o3b2o14bo$23b3o15b3o55b2o21b2o$22bo3bo14b3o55b
+o22bo$23bobo86bo7bobo$24bo14b2o3b2o33bobo30b4o4b2o$39bo5bo32bo20b2o12b
+4o$74bo2bo4bo15bobo12bo2bo$73b2obo2bob2o5b2o7b3o13b4o$77b2o9bo7b3o13b
+4o$21b3o73b3o12bo$98bobo$21bobo15b2o58b2o$20b5o15bo$19b2o3b2o11b3o$19b
+2o3b2o11bo3$47b2o$47bo3$47bo72bo$21b2o23b2obo68bobo$21bo27bo66b2o18b2o
+$34b2o13bo66b2o17bo$34bo11bo2bo66b2o16bo$21bobo23b2o49bo13b2o4bobo13bo
+9b2o$21bo3bo70b3o12bobo6bo13bo9bo$11b2o12bo10b2o57bo15bo23bo$11bo14bo
+7bo2bo57b2o13b2o24b2o$25bo7bo11b2o$21bo3bo7bo11bo98b2o$21bobo9bo110bo$
+34bo2bo86bo$36b2o79bo5bobo28b2o$117bobo4bo29bo$41bo75b2o$39bobo125b2o$
+29b2o6b2o12b2o92bo21bo$28bo3bo4b2o12bo92b3o7bo$27bo5bo3b2o105b3o6bobo$
+17b2o8bo3bob2o4bobo110bo3bo$17bo9bo5bo7bo100b2o3b2o4b3o$28bo3bo109bo5b
+o2b2o3b2o$29b2o$54b2o$53bo2bo108b2o3b2o$56bo108bo5bo$28b2o26bo$28bo24b
+2obo109bo3bo$54bo112b3o3$54b2o$55bo2$140b2o3b2o$149b2o3b2o$26b2o3b2o
+94b3o11bo3bo3b2o3b2o$27b5o3b2o92bo12b3o5b5o$27b2ob2o4b2o90bo13b3o6bobo
+$27b2ob2o3bo134bo$28b3o10b2o108b3o15b3o$41bo126b5o$87bo70bo8b2o3b2o$
+80b2o5bobo15b2o36b2o12bo10b5o$80bo6b2o16bo37bo5b2o6b3o8bo3bo$30b3o39bo
+5bobo69bo19bo$30b3o39bobo3b2o67b3o$29bo3bo39bobo28b3o40bo15b2o7b2o$28b
+o5bo38bo2bo27b2o34bo18b4o4b2o3bo$29bo3bo5b2o3b2o27bobo31b2o27b2o2b2ob
+3o13b3ob2o2bo5b3o$30b3o6bo5bo15b2o9bobo31b3o27bo5b4o18bo10bo$60bobo9bo
+32bobo32b2o$40bo3bo15bo44b2o$41b3o15b2o6$39b2o51bo$31b2o7bo49b3o$31bo
+5b3o49bo$37bo51b2o3$86b3o$86b3o8b3o$85bo3bo9bo$98bo$84b2o3b2o2$48bo$
+47bobo47bo30bo$40b2o4bob2o46bobo28bo15b3o$40bo4b2ob2o47bo29b3o$46bob2o
+$47bobo9b2o$48bo10bobo$61bo$61b2o4$88b3o$87bo3bo$86bo5bo$86bo5bo3$127b
+o$126bobo$114bobo8bob2o$114bo2bo6b2ob2o10b2o$89b2o14b2o10b2o6bob2o10bo
+$89bo15bo9bo3b2o5bobo$117b2o8bo$114bo2bo$114bobo!
+
+</PRE></BODY></HTML>

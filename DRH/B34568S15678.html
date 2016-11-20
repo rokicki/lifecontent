@@ -1,0 +1,1024 @@
+<!--saved from url=(0090)http://web.archive.org/web/20071123223409/www.math.ucdavis.edu/~dean/RLE/B34568S15678.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> Spiral and polygonal growth in B34568/S15678 </TITLE>
+</HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a>
+
+<H2> Spiral and polygonal growth in B34568/S15678 </H2>
+(written 6/2/2006)
+
+<DL>
+<DT><H3>Table of Contents</H3><P>
+</P></DT><DD>
+<a href="B34568S15678.html#intro">Introduction</a><BR>
+<a href="B34568S15678.html#spiral">Spiral growth</a><BR>
+<a href="B34568S15678.html#c4">The c/4 corner</a><BR>
+<a href="B34568S15678.html#wick">Wickstretchers</a><BR>
+<a href="B34568S15678.html#poly">Polygonal growth</a><BR>
+<a href="B34568S15678.html#c8">The c/8 corner</a><BR>
+<a href="B34568S15678.html#strange">Some stranger patterns</a><BR>
+<a href="B34568S15678.html#spurt 5c19">Growth spurts (5c/19 plus c/8)</a><BR>
+<a href="B34568S15678.html#spurt 2nc(10n+6)">Growth spurts (2nc/(10n+6) plus c/8)</a><BR>
+<a href="B34568S15678.html#2fc150">The 25c/150 corner</a><BR>
+<a href="B34568S15678.html#spurt c4">Growth spurts (c/4 plus c/8)</a><BR>
+<a href="B34568S15678.html#questions">Questions</a><BR>
+</DD></DL>
+
+<P><H3><A name="intro">Introduction</a></H3>
+
+<P>In the rule B34568/S15678, most random patterns that I've looked at stop
+growing rather quickly, ending up as polygons with horizontal, vertical,
+and diagonal sides (with slopes 1 and -1); the edges have period 2 and
+the corners have small periods, typically 4, 6, 8, and 10.  But several
+types of infinite growth can occur, both linear (spirals and wickstretchers)
+and quadratic (expanding polygons).
+
+</P><P>Note:  Many of the patterns given here take a long time to finish (in
+one case more than 10^22 generations), and you'll need a program that
+implements Bill Gosper's hashlife algorithm to run them.  I recommend
+"Golly", by Tomas Rokicki, Andrew Trevorrow, Dave Greene, Alan Hensel,
+and Jason Summers, which can be found here:
+
+    <A href="http://golly.sourceforge.net/"> Golly </a>
+
+
+
+</P><P><H3><A name="spiral">Spiral growth</a></H3>
+
+<P>There's a structure, the 'plow', which moves along an edge of a rectangle,
+increasing its size; here it's shown moving west along a northern edge:</P><PRE>
+
+.......o.o.o.                        ......o.o.o.o
+    .o.o.o.oooooo                        o.o.o.ooooooo
+... ooooooooooooo ...       ->       ... ooooooooooooo ...
+    ooooooooooooo                        ooooooooooooo
+
+</PRE><P>The plow works in 64 rules: B356/S5678 with optional B478 and S014.  In at
+least 4 of these rules (B3456/S15678 with optional B8 and S0) the plow can
+turn a corner, allowing spiral growth.  Here's an example that works in all
+4 of these rules:</P><PRE>
+
+#C A plow moves counterclockwise around a square, causing it to expand
+#C forever.  Population growth is linear, but every cell in the plane
+#C eventually becomes and remains alive.
+x = 10, y = 10, rule = B34568/S15678
+5bobo$bobob4o$10o$b8o$10o$b8o$9o$b9o$9o$bobobobobo!
+
+</PRE><P>(There's another type of plow that works in 16 rules, B37/S345678 with
+optional B8 and S012.  In these rules, a plow doesn't turn a corner,
+but instead bounces back from it:</P><PRE>
+
+#C 4 plows move back and forth along the edges of a square, causing it
+#C to expand forever.  Population growth is linear, but every cell in
+#C the plane eventually becomes and remains alive.
+x = 18, y = 18, rule = B378/S012345678
+12bo$9b6o$3bobobob6o$b15o$b14o$16o$b14o$b15o$b14o$3b14o$2b15o$3b14o$2b
+16o$3b14o$2b15o$3b6obobobo$3b6o$5bo!
+
+</PRE><P>Except for the plows, these rules are quite different from
+B34568/S15678.)
+
+</P><P>Here are some examples of small patterns which produce up to 12 plows:</P><PRE>
+
+#C Spiral growth with 1, 2, 3, 4, 5, 6, 8, and 12 plows.  (These crash
+#C in gen 2005.)
+x = 217, y = 240, rule = B34568/S15678
+213bobo$213bo2bo$211bo2bo$212bobo2$129bo$128bo2bo$131bo$129b3o$128bo3b
+o5$56bo2b2o$57bobo$57b3o$60bo7$2bobo$obobo$2o$b2o70$28b6o$28b4o$28bo3b
+2o$28bo2bo$30b2obo100b4o$137b3o$134b2o2b2o$134b3o$136b4o104$15b2obo2b
+2o$15b2obob3o$16b2o2bo$21b2o$15b2o$17bo2b2o$15b3obob2o$15b2o2bob2o16$
+156b4obobo$159bo3bo$156bo3bo2bo$158bo3b2o$156b2o3bo$156bo2bo3bo$156bo
+3bo$156bobob4o!
+
+</PRE><P>Note that in the 1, 3, 5, 8, and 12-plow cases, there are 'flaws' near
+some of the corners, places where the usual sawtooth edge is modified.
+When a plow crosses a flaw, it's slowed down by 1 gen.  This change in
+timing is necessary for an odd number of plows, and is also important
+for some forms of non-spiral growth.  (Flaws aren't needed for 8 or 12
+plows; they just happen to be present in these particular patterns.)
+
+</P><P>I haven't seen more than 12 plows occur naturally, but we can construct
+patterns with as many as we want.  E.g. here 32 of them make a square
+grow and rotate:</P><PRE>
+
+#C Square with 32 plows grows and slowly rotates, its sides becoming
+#C asymptotically parallel to the axes.
+x = 71, y = 71, rule = B34568/S15678
+58bobo$50bobobobob4o$42bobobobob14o$34bobobobob21o$26bobobobob30o$18bo
+bobobob37o$10bobobobob46o$2bobobobob53o$2b62o$b62o$65o$b63o$65o$2b62o$
+b64o$2b62o$b64o$2b62o$b65o$2b63o$b65o$3b62o$2b64o$3b62o$2b64o$3b62o$2b
+65o$3b63o$2b65o$4b62o$3b64o$4b62o$3b64o$4b62o$3b65o$4b63o$3b65o$5b62o$
+4b64o$5b62o$4b64o$5b62o$4b65o$5b63o$4b65o$6b62o$5b64o$6b62o$5b64o$6b
+62o$5b65o$6b63o$5b65o$7b62o$6b64o$7b62o$6b64o$7b62o$6b65o$7b63o$6b65o$
+8b62o$7b62obo$8b53obobobobo$7b46obobobobo$8b37obobobobo$7b30obobobobo$
+8b21obobobobo$7b14obobobobo$9b4obobobobo$10bobo!
+
+</PRE><P>There are actually two ways that a plow can turn a corner, depending on
+the phase of the corner when the plow arrives.  The resulting positions for
+the plow after the turn differ by 2 units.  When two successive plows turn
+a corner for the first time, the distance between them increases by either
+0, 2, or 4 units.  But after the turn, the distance between them is always
+congruent to 2 (mod 4), and at subsequent turns their distance increases by
+either 0 or 4 units.  Furthermore, if a sequence of plows, whose successive
+distances are already 2 (mod 4), turns a corner, then the increases in
+distance alternate between 0 and 4.
+
+</P><P>When we add the results of 4 corners, there are 3 possible outcomes.
+Either the distances between successive plows all increase by 8, or half of
+them increase by 16 while the others remain the same, or half increase by 4
+while the others increase by 12:
+
+</P><PRE>  ... 0  4  0  4 ...         ... 0  4  0  4 ...         ... 0  4  0  4 ...
++ ... 0  4  0  4 ...       + ... 0  4  0  4 ...       + ... 0  4  0  4 ...
++ ... 4  0  4  0 ...       + ... 0  4  0  4 ...       + ... 0  4  0  4 ...
++ ... 4  0  4  0 ...       + ... 0  4  0  4 ...       + ... 4  0  4  0 ...
+  ------------------         ------------------       --------------------
+  ... 8  8  8  8 ...         ... 0 16  0 16 ...         ... 4 12  4 12 ...
+
+</PRE><P>With an odd number of plows, the result of 2 complete trips around the
+rectangle is an increase of 16 in all distances between successive plows,
+so the plows become more and more evenly spaced around the rectangle.
+With an even number N, we can either end up with N evenly spaced plows
+or N/2 evenly spaced pairs of close plows, or the distances between
+successive plows can be in the ratio 1 : 3 : 1 : 3 : ...  Here are
+examples of all 3 possibilities:</P><PRE>
+
+#C The 3 possible asymptotic spacings between 2, 4, and 6 plows.
+#C (These crash in gen 1168.)
+x = 189, y = 165, rule = B34568/S15678
+4bo166bo$80bob2o87bobo$b2obo75bo4bo87bo$80b2o2bobo$2ob2o76bob2obo84b3o
+bo67$2bo$2b2o168bo2bo$b5o76bobo86b2o$5o77bo2bo85b2ob2o$2b2o76bo2bo87b
+4o$3bo77bobo87b4o75$91bobo$83bobobobob4o$81b15o89bobo$80b15o80bobobobo
+bob2o$81b15o75bobob13o$80b15o77b15o$81b16o74b17o$80b16o77b14o$82b15o
+75b17o$4o77b15o77b15o$3b3o76b15o75b17o$2o2b2o75b13obo77b11obob2o$3o78b
+obobobobobobo79bobobobobobo$2b4o76b2o89bo!
+
+</PRE><P>Plows can also survive a collision, if conditions are right:</P><PRE>
+
+#C 2 and 4 plows repeatedly bounce off (or pass through) each other.
+#C (These crash in gen 2385.)
+x = 90, y = 4, rule = B34568/S15678
+4o80bob2obo$4o80bo4bo$o2bo80bo4bo$o2bo80bob2obo!
+
+</PRE><P><H3><A name="c4">The c/4 corner</a></H3>
+
+<P>Many examples of non-spiral growth, both linear and quadratic, involve a
+corner that grows orthogonally at c/4; here 4 of them fill the plane:</P><PRE>
+
+#C Asymptotic shape is an octagon with vertices (in gen t) at (t/4, 0),
+#C (t/5, t/5), and their rotations.  Population is asymptotic to t^2/5.
+#C Each of the corners along the axes grows at c/4, sending plows in
+#C both perpendicular directions.  These plows meet along the lines y=x
+#C and y=-x, creating the other 4 corners.
+x = 5, y = 5, rule = B34568/S15678
+b3o$5o$5o$5o$b3o!
+
+</PRE><P>In the pattern below, one c/4 corner fills 1/4 of the plane, specifically
+the region  -x < y < x.  But it's a bit complicated:  4/5 of the time
+there are 3 c/4 corners, the large one growing to the east, and smaller
+ones growing north and south.  When a northward corner meets the line
+y=x, it stops growing and a horizontal edge starts growing to the east.
+When that line meets the northward plows from the eastward corner, a new
+northward corner forms and the process repeats.  Although the asymptotic
+shape is simply a quadrilateral, two of its corners grow arbitrarily
+large.</P><PRE>
+
+#C c/4 corner fills 1/4 of the plane
+#C Asymptotic shape is a convex quadrilateral, with vertices at (0,0),
+#C (t/5, -t/5), (t/4, 0), and (t/5, t/5).  At the top and bottom corners,
+#C the horizontal distance between the edges fluctuates between
+#C 2 sqrt(t/5)  and  8/5 sqrt(t/5);  the horizontal distance fluctuates
+#C between 0 and  2/5 sqrt(t/5).
+x = 5, y = 5, rule = B34568/S15678
+5o$o2bo$o2bo$o2bo$5o!
+
+</PRE><P>The northward c/4 corner can also be stopped by a flaw on the horizontal
+edge, rather than by reaching the slope 1 diagonal; as the corner grows
+northward, its westward plows pull the flaw northeast until the flaw
+reaches the corner and stops its growth:</P><PRE>
+
+#C c/4 corner fills 1/4 of the plane
+x = 32, y = 9, rule = B34568/S15678
+4bobobobobobobobobobo2bobob2o$2b30o$2b29o$32o$32o$b31o$b30o$b31o$3bobo
+bobobobobobobobobobobob2o!
+
+</PRE>
+
+
+
+<P><H3><A name="wick">Wickstretchers</a></H3>
+
+<P>The reactions in which c/4 corners start and stop growing can be used
+to construct infinitely many speeds of diagonal wickstretchers, as in
+the example below:</P><PRE>
+
+#C 50c/256 wickstretcher
+#C c/4 corners grow south and east, stopping when they reach flaws
+#C and forming new corners when the last of their plows reach the
+#C southeast corner.
+x = 74, y = 76, rule = B34568/S15678
+60b4o$60b4o$58b8o$58b8o$56b12o$56b12o$54b16o$54b15o$52b18o$52b17o$50b
+20o$50b19o$48b22o$48b21o$46b24o$46b23o$44b26o$44b25o$42b27o$42b28o$40b
+29o$40b30o$38b31o$38b32o$36b33o$36b34o$34b35o$34b36o$32b37o$32b38o$30b
+39o$30b40o$28b41o$28b42o$26b43o$26b44o$24b45o$24b46o$22b47o$22b48o$20b
+49o$20b50o$18b51o$18b52o$16b53o$16b54o$14b55o$14b57o$12b58o$12b59o$10b
+60o$10b61o$8b62o$8b63o$6b64o$6b65o$4b66o$4b68o$2b69o$2b70o$71o$73o$2b
+70o$2b71o$4bobobobobob2obobob51o$21bobobobobob43o$31bobob38o$35bobob
+35o$39bobob31o$43bobob27o$47bobob22o$51bobob19o$55bobob14o$59bobob5obo
+bo$63bo3bo$65bo!
+
+</PRE><P>If we move both flaws 2 units farther from the southeast corner, we
+increase the period by 10 and the distance that the wickstretcher grows
+per period by 2, increasing the speed to 52c/266.  (If we move just
+the east-edge flaw 2 units north, then the pattern still grows diagonally
+until about gen 5840, at which point the last plows on both edges reach
+the corner too close together; the pattern stops growing in gen 10556.)
+
+</P><P>We can also move both flaws closer to the corner to decrease the period
+and speed; in this way we obtain wickstretchers of speed  2nc/(10n+6)
+for all  n >= 4.  We can also adjust the relative timing of the south and
+east edges; each must follow the other by  23+10k  gens for some  k >= 0.
+And by changing the lengths of the edges west and north of the flaws, we
+can make such wickstretchers arbitrarily wide.
+
+</P><P>Here are examples of the different timings of wickstretchers with n
+from 0 to 5.  In these, the flaws have been replaced by the diagonal
+edges, to give examples with minimum width (I think).</P><PRE>
+
+#C 12 wickstretchers, with speeds 8c/46, 10c/56, 12c/66 (2 forms),
+#C 14c/76 (2 forms), 16c/86 (3 forms), and 18c/96 (3 forms).
+x = 139, y = 298, rule = B34568/S15678
+134b2o$94bobobo7bo3bo3bo3bobobo11b2o$132b6o$94bo3bo6bo4bo3bo3bo13b6o$
+130b9o$94bobobo5bo5bobobo3bobobo7b8o$128b11o$94bo3bo4bo10bo3bo3bo5b10o
+$128b11o$94bobobo3bo11bo3bobobo5b10o$130b8o$130bobobobobo$134bo8$134b
+2o$134b2o$132b6o$88bo3bobobo7bo3bobobo3bobobo11b6o$130b9o$88bo3bo3bo6b
+o4bo7bo13b8o$128b11o$88bo3bo3bo5bo5bobobo3bobobo7b10o$126b13o$88bo3bo
+3bo4bo10bo3bo3bo5b12o$126b13o$88bo3bobobo3bo7bobobo3bobobo5b12o$128bob
+8o$130bobobobobo$134bo10$106b2o26b2o$106b2o26b2o$104b6o22b6o$104b6o22b
+6o$102b10o18b9o$58bo3bobobo7bo3bobobo3bobobo11b10o18b8o$100b13o15b11o$
+58bo7bo6bo4bo7bo13b12o16b10o$98b15o13b13o$58bo3bobobo5bo5bobobo3bobobo
+7b14o14b12o$96b17o11b15o$58bo3bo8bo6bo3bo3bo3bo5b16o12b14o$96b17o11b
+15o$58bo3bobobo3bo7bobobo3bobobo5b16o12b14o$98b15o13b12o$98bob12o14bob
+ob5obobo$100bobob8o18bo3bo$104bobobobobo19bo$108bo38$102b2o30b2o$102b
+2o30b2o$100b6o26b6o$100b6o26b6o$98b10o22b9o$98b10o22b8o$96b13o19b11o$
+52bo3bo3bo7bo3bobobo3bobobo11b12o20b10o$94b15o17b13o$52bo3bo3bo6bo8bo
+3bo13b14o18b12o$92b17o15b15o$52bo3bobobo5bo9bo3bobobo7b16o16b14o$90b
+19o13b17o$52bo7bo4bo10bo3bo3bo5b18o14b16o$90b19o13b17o$52bo7bo3bo11bo
+3bobobo5b18o14b16o$92b17o15bob12o$92bobob12o18bobob5obobo$96bobob8o22b
+o3bo$100bobobobobo23bo$104bo44$62b2o34b2o34b2o$62b2o34b2o34b2o$60b6o
+30b6o30b6o$60b6o30b6o30b6o$58b10o26b10o26b9o$58b10o26b10o26b8o$56b13o
+23b13o23b11o$56b12o24b12o24b10o$54b15o21b15o21b13o$10bo3bobobo7bo3bobo
+bo3bobobo11b14o22b14o22b12o$52b17o19b17o19b15o$10bo3bo10bo4bo3bo3bo13b
+16o20b16o20b14o$50b19o17b19o17b17o$10bo3bobobo5bo5bobobo3bobobo7b18o
+18b18o18b16o$48b21o15b21o15b19o$10bo3bo3bo4bo6bo3bo3bo3bo5b20o16b20o
+16b18o$48b21o15b21o15b19o$10bo3bobobo3bo7bobobo3bobobo5b20o16b20o16b
+18o$50bob17o17b19o17b16o$52bobob12o18bob16o18bobob9obobo$56bobob8o20bo
+bob12o22bobobobobo$60bobobobobo23bobob5obobo25bo$64bo31bo3bo$98bo85$
+54b2o38b2o38b2o$54b2o38b2o38b2o$52b6o34b6o34b6o$52b6o34b6o34b6o$50b10o
+30b10o30b9o$50b10o30b10o30b8o$48b13o27b13o27b11o$48b12o28b12o28b10o$
+46b15o25b15o25b13o$46b14o26b14o26b12o$44b17o23b17o23b15o$o3bobobo7bo3b
+obobo3bobobo11b16o24b16o24b14o$42b19o21b19o21b17o$o3bo3bo6bo4bo3bo3bo
+13b18o22b18o22b16o$40b21o19b21o19b19o$o3bobobo5bo5bobobo3bobobo7b20o
+20b20o20b18o$38b23o17b23o17b21o$o3bo3bo4bo10bo3bo3bo5b22o18b22o18b20o$
+38b23o17b23o17b21o$o3bobobo3bo7bobobo3bobobo5b22o18b22o18b20o$40bobob
+17o19b21o19bob16o$44bobob12o20bobob16o22bobob9obobo$48bobob8o24bobob
+12o26bobobobobo$52bobobobobo27bobob5obobo29bo$56bo35bo3bo$94bo!
+
+</PRE><P>I've seen 8 different speeds of diagonal wickstretchers occur naturally:
+5c/19, 8c/46, 10c/56, 12c/66, 14c/76, 16c/86, 28c/146, and 56c/286.  All
+but the first of these are of the type just described, with n = 4, 5, 6,
+7, 8, 14, and 28.  The 5c/19 is the most commonly occurring wickstretcher.
+It also has c/4 corners during part of its cycle, but I don't see a way
+to generalize it.</P><PRE>
+
+#C Diagonal wickstretchers formed by random patterns
+x = 366, y = 413, rule = B34568/S15678
+329bobobo7bo3bo3bobobo2$329bo10bo4bo3bo3bo7b5o$365bo$329bobobo5bo5bo3b
+obobo8b4o2$333bo4bo6bo7bo9bobo2$329bobobo3bo7bo3bobobo32$324bobobo7bo
+3bo3bo3bobobo2$324bo3bo6bo4bo3bo3bo13b2obo$364b2o$324bobobo5bo5bobobo
+3bobobo8bo$361b5o$324bo3bo4bo10bo3bo3bo9b3o2$324bobobo3bo11bo3bobobo
+46$250bo3bobobo7bo3bobobo3bobobo2$250bo3bo3bo6bo4bo7bo14bobo$291bo3bo
+29b3o34b2obo$250bo3bo3bo5bo5bobobo3bobobo8b3o31b3obo31bob2o$291b2ob2o
+33bo31bob2o$250bo3bo3bo4bo10bo3bo3bo9b4o30b4o31bobobo$325bob3o34bo$
+250bo3bobobo3bo7bobobo3bobobo21$182bo3bobobo7bo3bobobo3bobobo$291bob3o
+$182bo7bo6bo4bo7bo13bob2o63bo2b2o$223b3obo63bo2bo$182bo3bobobo5bo5bobo
+bo3bobobo12bo63b3o$223bo67b5o$182bo3bo8bo6bo3bo3bo3bo8bob3o2$182bo3bob
+obo3bo7bobobo3bobobo23$177bo3bo3bo7bo3bobobo3bobobo2$177bo3bo3bo6bo8bo
+3bo12bobo$218b4obo$177bo3bobobo5bo9bo3bobobo8bo2bobo$222b2o$177bo7bo4b
+o10bo3bo3bo10b2o$219b2o2bo$177bo7bo3bo11bo3bobobo27$160bo3bobobo7bo3bo
+bobo3bobobo2$160bo3bo10bo4bo3bo3bo14bo$202b2obo$160bo3bobobo5bo5bobobo
+3bobobo8bo2bo$202bobo$160bo3bo3bo4bo6bo3bo3bo3bo8bo2b2o2$160bo3bobobo
+3bo7bobobo3bobobo40$151bobobo3bobobo7bo3bo3bo3bo3bobobo2$155bo3bo3bo6b
+o4bo3bo3bo3bo12bo2b3o$202bo$151bobobo3bobobo5bo5bo3bobobo3bobobo8bob4o
+$200bo$151bo7bo3bo4bo6bo7bo3bo3bo8b5o$203bo$151bobobo3bobobo3bo7bo7bo
+3bobobo85$3bo$2bo73$obobo3bobobo7bo3bobobo3bobobo3bobobo$53bo3bobo$o7b
+o10bo8bo3bo3bo3bo12b2ob2obo$54bo4bo$obobo3bobobo5bo5bobobo3bobobo3bobo
+bo11bo$53bo4bo$4bo3bo3bo4bo6bo7bo3bo3bo3bo8bob2ob2o$53bobo3bo$obobo3bo
+bobo3bo7bobobo3bobobo3bobobo!
+
+</PRE><P>There's also a 2c/10 orthogonal wickstretcher, but it's easily destroyed
+by anything that touches it, and is quite rare.</P><PRE>
+
+#C 2c/10 orthogonal wickstretcher
+x = 5, y = 6, rule = B34568/S15678
+ob3o$bobo$2o2bo$2o2bo$bobo$ob3o!
+
+</PRE>
+
+
+
+<P><H3><A name="poly">Polygonal growth</a></H3>
+
+<P>In all of the diagonal wickstretchers, the growing corner sends plows
+in two directions; these plows hit diagonal edges and stop.  But if two
+such corners are growing perpendicular to each other, their plows can
+travel until they meet each other; in this way we can obtain quadratic
+growth.  For example, here a 5c/19 corner and an 8c/46 corner fill a
+quarter-plane:
+</P><PRE>
+
+#C Asymptotic shape is a concave quadrilateral, with vertices
+#C (0,0), (5t/19, 5t/19), (-13t/77, 40/231), and (-4t/23, 4t/23).
+#C Population is asymptotic to 9161/201894 t^2.
+x = 31, y = 11, rule = B34568/S15678
+bob2o$2obo$2o2bo$2o2bo$b2o2$26b3obo$26bobo$26bobobo$26bobo$26bo!
+
+</PRE><P>For two corners to be compatible in this way, their speeds s and t must
+satisfy  t >= s/(1+2s)  and  s >= t/(1+2t);  otherwise one corner's plows
+will catch up with and destroy the other corner.  These inequalities are
+satisfied by all pairs of the speeds mentioned so far, so we can combine
+any 2, 3, or 4 of them to fill 1/4, 1/2, 3/4, or all of the plane.  Here's
+an artificial example with 4 different corner speeds, which fills 3/4 of
+the plane:</P><PRE>
+
+#C Polygonal growth based on diagonal corners of speeds 38c/196 (SW),
+#C 8c/46 (SE), 5c/19 (NE), and 10c/56 (NW).  Asymptotic shape is a
+#C concave octagon with vertices at (0,0), (-19t/98, -19t/98),
+#C (5t/109, -152t/981), (4t/23, -4t/23), (40t/231, -13t/77),
+#C (5t/19, 5t/19), (-3t/19, 10t/57), and (-5t/28, 5t/28).
+#C Population is asymptotic to 221367875/1848541464 t^2.
+x = 87, y = 78, rule = B34568/S15678
+9bo$7bo3bo$5bob5obobo$6b10ob2o61b3o$5b14obobobobobobobobobobobobobobob
+obobobobobobobobobobob2obobo2bobobo2bo$6b79o$5b82o$6b79obo$5b82o$6b79o
+$5b81o$6b79o$6b79o$5b81o$6b79o$6b80o$8b10ob66o$8b7ob3o2b65o$10b5obo2b
+66o$10b6o2bob66o$12b2o5b65o$12b2o6b65o$19b64o$20b64o$19b63o$12b2o6b63o
+$12b2o5b63o$10b6o2bob63o$10b5obo2b62o$8b7ob3o2b61o$8b10ob62o$6b76o$6b
+74o$5b76o$5b75o$6b75o$5b75o$6b75o$5b75o$6b75o$5b75o$6b75o$5b75o$6b75o$
+5b75o$6b75o$5b75o$6b75o$5b75o$6b75o$4b76o$5b76o$4b76o$5b76o$4b76o$5b
+76o$4b76o$5b77o$4b77o$5b77o$3b78o$4b79o$3b79o$4b79o$2b80o$3b81o$2b81o$
+3b81o$b83o$2b82o$b84o$2b82o$86o$2b82o$b84o$2b81obo$bo2bobobobobobobobo
+bobobobobobobobobobo2bobobobobobobobobobobobobobobobobo2bobob2o$80bo!
+
+</PRE><P>We can also squeeze a c/4 orthogonal corner between two 5c/19 corners.
+(It won't fit next to any of the other known corners, since its plows
+eventually destroy them.)  The next pattern has 4 c/4 corners and
+4 5c/19 corners; it has the fastest growth of any pattern that I know of.
+</P><PRE>
+
+#C Asymptotic shape is a concave 16-gon whose vertices in gen t are at
+#C (t/4, 0), (5t/22, t/11), (5t/19, 5t/19), and their reflections.
+#C Population in gen t is asymptotic to 49/209 t^2.
+x = 31, y = 31, rule = B34568/S15678
+22b3o$6bo8bo4bobobobo$8bo4bobobo2b8o$2b7o2bob15o$b27o$2b26o$28obo$ob
+26o$29o$2b25o$b26o$3b25o$3b24o$2b27o$3b25o$b29o$3b25o$2b27o$4b24o$3b
+25o$4b26o$4b25o$2b29o$3b26obo$bob28o$3b26o$3b27o$3b15obo2b7o$3b8o2bobo
+bo4bo$4bobobobo4bo8bo$6b3o!
+
+</PRE>
+
+
+
+<P><H3><A name="c8">The c/8 corner</a></H3>
+
+<P>There's one other common form of diagonal growth, which doesn't seem to
+exist as a wickstretcher; its speed is c/8.  It also produces plows, but
+with a different leading edge that can't turn a corner or hit a diagonal
+line cleanly.  Here it's shown filling the first quadrant:
+</P><PRE>
+
+#C c/8 corner grows northeast.  Asymptotic shape is a quadrilateral with
+#C vertices (0,0), (t/9, 0), (t/8, t/8), and (0,t/9).  Population is
+#C asymptotic to t^2/72.  (This is the slowest form of quadratic growth
+#C that I know of.)
+x = 5, y = 5, rule = B34568/S15678
+ob3o$2o$2obo$2o$b3o!
+
+</PRE><P>The most common form of infinite growth has 4 of the c/8 corners:
+</P><PRE>
+
+#C Asymptotic shape is concave octagon whose vertices in gen t are at
+#C (t/9, 0), (t/8, t/8), and their rotations.  Population in gen t is
+#C asymptotic to 1/18 t^2.
+x = 5, y = 5, rule = B34568/S15678
+obobo$o2b2o$2o2bo$2bobo$5o!
+
+</PRE><P>In this example all 4 corners start their c/8 growth within 300 gens.
+But often it takes much longer.  E.g. here one corner starts growing in
+gen 630 and the others about gens 9000, 22000, and 61000:
+</P><PRE>
+
+x = 6, y = 5, rule = B34568/S15678
+o2b2o$ob3o$o4bo$2bo2bo$o2bobo!
+
+</PRE><P>If the inequalities stated earlier applied to the c/8 corner, it would only
+be compatible with perpendicular corners with speeds between c/10 and c/6,
+slower than the others mentioned so far.  But when the modified plows
+from the c/8 meet the normal ones from faster corners, the collisions
+produce flaws which slow down the normal plows.  So in fact the c/8 corner
+is compatible with the 8c/46, 10c/56, 12c/66, and 14c/76 corners.  In the
+last 3 cases, the collision point between the plows stays a bounded
+distance from the c/8 corner, so the asymptotic shapes are quadrilaterals
+rather than pentagons.  This seems like an odd coincidence, and I don't
+know if there's a good explanation for it.  (It's conceivable that the
+slope of the top edge adjacent to the  2nc/(10n+6)  corner could depend
+on initial conditions, and that some such corner is compatible with the
+c/8 corner for some  n > 7,  but I haven't seen any evidence of that.)
+
+</P><P>Here are examples of these pairs of corners:</P><PRE>
+
+#C Perpendicular corners with speeds c/8 and 8c/46.
+#C Asymptotic shape is concave pentagon with vertices (0,0), (4t/23, 4t/23),
+#C (-7t/65, 8t/65), (-t/8, t/8), and (-t/9, 0).  (It takes about 17000 gens
+#C for this to settle down.)
+x = 31, y = 15, rule = B34568/S15678
+b2o$4obobobobobobobobobo2bobo$ob25ob2o$30o$b28o$31o$b28o$30o$b28o$30o$
+b27o$29o$b27o$28o$2obobobobobobobobobobobobo!
+
+</PRE><P>Here's a natural example of the above; it takes about 17000 gens for the
+southern edge to settle down.</P><PRE>
+
+x = 7, y = 5, rule = B34568/S15678
+bo3bo$b2obobo$o3b3o$o2b4o$bobob2o!
+
+
+#C Perpendicular corners with speeds c/8 and 10c/56.
+#C Asymptotic shape is quadrilateral with vertices (0,0), (5t/28, 5t/28),
+#C (-t/8, t/8), and (-t/9, 0).
+x = 35, y = 17, rule = B34568/S15678
+b2o$4obobobobobobobobobobo2bobobo$ob29ob2o$34o$b32o$35o$b32o$34o$b32o$
+34o$b31o$33o$b31o$33o$b31o$32o$bobobobobobobobobobobobobobobo!
+
+
+#C Perpendicular corners with speeds c/8 and 12c/66.
+#C Asymptotic shape is quadrilateral with vertices (0,0), (2t/11, 2t/11),
+#C (-t/8, t/8), and (-t/9, 0).
+x = 39, y = 19, rule = B34568/S15678
+b2o$4obobobobobobobobobobobo2bobobobo$ob33ob2o$38o$b36o$39o$b36o$38o$b
+36o$38o$b35o$37o$b35o$37o$b35o$37o$b35o$36o$2obobobobobobobobobobobobo
+bobobobo!
+
+
+#C Perpendicular corners with speeds c/8 and 14c/76.
+#C Asymptotic shape is quadrilateral with vertices (0,0), (7t/38, 7t/38),
+#C (-t/8, t/8), and (-t/9, 0).
+x = 43, y = 21, rule = B34568/S15678
+b2o$4obobobobobobobobobobobobo2bobobobobo$ob37ob2o$42o$b40o$43o$b40o$
+42o$b40o$42o$b39o$41o$b39o$41o$b39o$41o$b39o$41o$b39o$40o$bobobobobobo
+bobobobobobobobobobobobobo!
+
+</PRE><P>If we try the same sort of thing with a 16c/86 corner, the c/8 corner
+eventually gets destroyed, no matter how wide the initial pattern is.</P><PRE>
+
+#C Perpendicular corners with speeds c/8 and 16c/86.
+#C The c/8 corner gets destroyed about gen 11200 and this becomes a
+#C period 2 oscillator in gen 37347.
+x = 195, y = 23, rule = B34568/S15678
+b2o$4obobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobo
+bobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobo
+bobobobobobobobobobobobobobobobobobobobo2bobobobobobo$ob189ob2o$194o$b
+192o$195o$b192o$194o$b192o$194o$b191o$193o$b191o$193o$b191o$193o$b191o
+$193o$b191o$193o$b191o$192o$2obobobobobobobobobobobobobobobobobobobobo
+bobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobo
+bobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobo
+bobobobo!
+
+</PRE>
+
+
+
+<P><H3><A name="strange">Some stranger patterns</a></H3>
+
+<P>So far all of the patterns that I've mentioned have asymptotic shapes
+that are polygons, and each edge is spatially periodic.  I don't know
+if nonpolygonal asymptotic shapes can occur, but there are some
+patterns whose edges aren't periodic, and others which don't have an
+asymptotic shape.  The ones that I know of are based on the
+flaw-pulling interaction of two c/4 corners.
+
+</P><P>First, here's a pattern whose asymptotic shape is a hexagon, but two
+of its edges are not periodic.  The top edge (with slope 1/6) is made
+up of ever-lengthening straight pieces of slopes 0 and 1/4, and the
+left edge is similarly jagged.</P><PRE>
+
+#C Asymptotic shape is convex hexagon with vertices at (t/5, -t/5),
+#C (t/4, 0), (t/5, t/5), (-t/7, t/7), (-t/5, -t/5), (0, -t/4). The
+#C top and left edges (with slopes 1/6 and 6) are not spatially
+#C periodic.
+x = 6, y = 6, rule = B34568/S15678
+2b3o$2bo$2o2b2o$o2bo$obo2bo$2bobo!
+
+</PRE><P>Most patterns in this rule run quite efficiently in hashlife.  However,
+whenever an edge with slope 1/6 forms, the program slows things down
+enormously and uses a lot of memory.  Several times my computer has
+crashed when using Golly to run such things.  (I understand that that's
+because I have such an out-of-date computer; on newer ones Golly will
+slow down but shouldn't crash.)
+
+</P><P>This pattern has no asymptotic shape:</P><PRE>
+
+#C No asymptotic shape
+#C Pattern is approximately square, symmetric under 90 degree rotation,
+#C and usually has 2 hills with slopes 1/4 and -1/4 along the north
+#C edge.  But at certain times there's only one hill, sometimes at the
+#C west end of the edge, sometimes at the east end.  Specifically,
+#C define a tribonacci sequence by a(0)=75, a(1)=130, a(2)=255, and
+#C a(n)=a(n-1)+a(n-2)+a(n-3) for n>=3.  Then there's only one hill, at
+#C the west end, at times  a(2n)+6n+4  (i.e. 79, 265, 861, 2887, ...);
+#C there's only one hill, at the east end, at times  a(2n+1)+6n+2
+#C (i.e. 132, 468, 1574, 5290, ...).
+x = 10, y = 10, rule = B34568/S15678
+3b2obo$b3obob2o$bo2b3obo$obobo3b2o$b2ob4obo$ob4ob2o$2o3bobobo$bob3o2bo
+$b2obob3o$3bob2o!
+
+</PRE><P>The pattern below is similar, but only the top and bottom have the
+shifting hills.</P><PRE>
+
+#C No asymptotic shape
+x = 7, y = 7, rule = B34568/S15678
+bobo$2b2obo$obo2b2o$3ob3o$2o2bobo$bob2o$3bobo!
+
+</PRE><P>This one also has shifting hills on the top and bottom, but not until
+about gen 48000:
+
+</P><PRE>x = 7, y = 7, rule = B34568/S15678
+bobobo$o4bo$2bo3bo$o5bo$o3bo$bo4bo$bobobo!
+
+</PRE><P>I haven't seen this occur naturally, but it's also possible to have
+shifting hills on just one edge:
+
+</P><PRE>x = 38, y = 27, rule = B34568/S15678
+23bo$21bo3bo$4bobobobobo2bobobob5obobo$4b26obo$3b31o$b34o$2b33o$b35o$
+2b33o$37o$ob34o$37o$2b34o$b37o$2b34obo$b37o$3b33o$2b35o$3b33o$3b34o$4b
+31o$6bob28o$8bobob21obo$12bobob13obobo$16bobob5obobo$20bo3bo$22bo!
+
+</PRE>
+
+
+
+<P><H3><A name="spurt 5c19">Growth spurts (5c/19 plus c/8)</a></H3>
+
+<P>If a pattern has growing corners of speeds  5c/19  or  2nc/(10n+6)  in
+opposite directions, it will probably settle down to a wickstretcher,
+possibly a 2-ended one.  For example:</P><PRE>
+
+#C About gen 4200 this becomes a 2-ended wickstretcher growing at 5c/19
+#C southwest and 8c/46 northeast.
+x = 6, y = 5, rule = B34568/S15678
+2obobo$2bo2bo$2b2o$2bob2o$2o2bo!
+
+</PRE><P>But if one corner has speed c/8, then things can get more interesting,
+as in this pattern:
+
+</P><PRE>x = 5, y = 5, rule = B34568/S15678
+5o$2ob2o$2obo$2o2bo$4o!
+
+</PRE><P>Starting around gen 800, this grows at 5c/19 southwest, and at c/8 in
+the other 3 diagonal directions.  The plows from the 5c/19 corner
+reach the adjacent corners around gen 2200, stopping them.  After that,
+the southwest part grows as a wide 5c/19 wickstretcher.
+
+</P><P>In gen 2672 the half of the pattern above the SW-NE diagonal has 3 edges,
+with slopes 24/5, 1, and 1/9.  But then the modified plows from the
+northeast c/8 corner reach the edge of slope 1, and 3 new edges appear,
+with slopes 2, 1/8, and -4/19.  During gens 2672 to 5197 the top half
+of the pattern grows, changing shape several times; the table below
+shows the slopes of the edges, from bottom to top, during the process.
+(The generations are approximate, since it's hard to define exactly when
+an edge appears or disappears.)
+
+</P><PRE>Generations  Slopes
+-----------  -------------------------------------
+2672         24/5    1                         1/9
+2672-2890    24/5    1    2    1/8    -4/19    1/9
+2890-3216    24/5         2    1/8    -4/19    1/9
+3216-3295    24/5              1/8    -4/19    1/9
+3295-3470    24/5    1         1/8    -4/19    1/9
+3470         24/5    1                -4/19    1/9
+3470-4003    24/5    1    0           -4/19    1/9
+4003         24/5    1    0                    1/9
+4003-4551    24/5    1    0    6/41            1/9
+4551-5197    24/5    1         6/41            1/9
+5197         24/5    1                         1/9
+
+</PRE><P>The process repeats, with growth spurts in the upper half starting in
+gens 5197, 14496, 49049, and 177181.  Meanwhile, similar growth spurts
+occur in the bottom half of the pattern, starting at gens 2770, 5240,
+14430, and 48317.
+
+</P><P>If all growth spurts were of the same type, such patterns would grow
+forever, with no asymptotic shape, and would expand by a factor
+asymptotic to 415/112 = 3.705... during each spurt.  But variations
+sometimes occur.  For this pattern the last spurt in the lower half is
+different:  Gen 88710 corresponds to gen 3470 above, but instead of
+a vertical edge starting to form immediately, it's delayed until
+gen 115060:
+
+</P><PRE>Generations    Slopes
+-----------    -----------------------------------
+ 88710         5/24    1                -19/4    9
+ 88710-96510   5/24    1    1/2    8    -19/4    9
+ 96510-108200  5/24         1/2    8    -19/4    9
+108200         5/24                8    -19/4    9
+108200-115060  5/24    1           8    -19/4    9
+115060         5/24    1                -19/4    9
+
+</PRE><P>Because of the delay, the slope -19/4 edge catches up with the
+c/8 corner, stopping it about gen 153850.  The pattern takes until
+gen 355901 to settle down, becoming a 5c/19 diagonal wickstretcher
+with width about 130000.
+
+</P><P>I've seen many examples of patterns like this, combining 5c/19 and
+c/8 corners.  In each case, after some number of growth spurts, the
+c/8 corner gets stopped and the pattern becomes a 5c/19 wickstretcher.
+Since most spurts take about 3.7 times as long as the preceding ones,
+it doesn't take very many of them to make a pattern last for a long
+time.  Here's the longest-lasting one that I've seen:</P><PRE>
+
+#C Becomes a 5c/19 diagonal wickstretcher about gen 5.88205*10^15, with
+#C width about 2.2*10^15.  This goes through 22 growth spurts on each
+#C side of the diagonal, before the last one on the bottom stops the
+#C c/8 corner about gen 2.5*10^15.
+x = 6, y = 6, rule = B34568/S15678
+b4o$o2bobo$obo$o3b2o$ob4o$b3o!
+
+</PRE><P>I don't know if all such patterns always behave this way, or if there
+are some in which infinitely many growth spurts occur.  With enough
+work, we could probably model this as a "3n+1" type of problem, and
+find patterns that last much longer than the ones I've seen.
+
+</P><P>Here are some more examples:</P><PRE>
+
+#C Becomes a 5c/19 diagonal wickstretcher in gen 654988, with
+#C width about 290000.
+x = 5, y = 5, rule = B34568/S15678
+4bo$5o$2o2bo$4bo$ob3o!
+
+
+#C Becomes a 5c/19 diagonal wickstretcher in gen 15379926, with
+#C width about 6800000.
+x = 5, y = 5, rule = B34568/S15678
+o3bo$ob2o$o2bo$5o$b2obo!
+
+
+#C Becomes a 5c/19 diagonal wickstretcher in gen 242490606, with
+#C width about 93000000.
+x = 5, y = 5, rule = B34568/S15678
+b3o$5o$bobo$2bo$2obo!
+
+
+#C Becomes a 5c/19 diagonal wickstretcher about gen 3.60238*10^10,
+#C with width about 1.7*10^10.
+x = 5, y = 5, rule = B34568/S15678
+5o$4o$o$bobo$2ob2o!
+
+
+#C Becomes a 5c/19 diagonal wickstretcher about gen 8.1838*10^12,
+#C with width about 3.5*10^12.
+x = 5, y = 5, rule = B34568/S15678
+b3o$4o$4bo$bo2bo$2obo!
+
+
+#C Becomes a 5c/19 diagonal wickstretcher about gen 3.44*10^13,
+#C with width about 1.4*10^13.
+x = 5, y = 5, rule = B34568/S15678
+5o$2bobo$obobo$o2b2o$3bo!
+
+</PRE><P><H3><A name="spurt 2nc(10n+6)">Growth spurts (2nc/(10n+6) plus c/8)</a></H3>
+
+<P>Although they're much less common, there are also some patterns
+which combine a  2nc/(10n+6)  corner and a c/8 corner.  (Sometimes
+there are two c/8 corners if n <= 7).  These also undergo growth
+spurts like those above, although variant types seem to be more
+common.  Some of the variants produce c/4 corners which eventually
+stop both of the diagonal corners.  So instead of turning into a
+wide wickstretcher, these often stop growing completely.  Here are
+some examples:</P><PRE>
+
+#C Grows at c/8 northeast and 8c/46 southwest for a while, but
+#C becomes a period 2 oscillator in gen 13512, with populations
+#C 9353701 and 9353234.
+x = 6, y = 6, rule = B34568/S15678
+2bobo$2ob3o$obob2o$obo$2bo$ob4o!
+
+
+#C Grows at c/8 northeast and 8c/46 southwest for a while, but
+#C becomes a period 2 oscillator in gen 1622613, with population
+#C about 1.66451*10^11.
+x = 7, y = 5, rule = B34568/S15678
+b2obobo$bo3bo$obobobo$2b5o$b2o3bo!
+
+
+#C Grows at c/8 northeast and southeast and 8c/46 southwest for about
+#C 3.5*10^11 gens.  Starting about gen 2.4*10^12 it grows at c/8 in all
+#C 4 diagonal directions.  (This has an edge of slope -6 during gens
+#C 1.2*10^10 to 1.6*10^10, which slows down hashlife.)
+x = 6, y = 6, rule = B34568/S15678
+2bo$o2b3o$3ob2o$o4bo$2bobo$bo!
+
+
+#C Grows at c/8 northeast and southeast and 8c/46 southwest for about
+#C 8*10^12 gens.  Starting about gen 7*10^13 it grows at c/8 in all
+#C 4 diagonal directions.
+x = 5, y = 8, rule = B34568/S15678
+obo$2bobo$obobo$b2o$bo2bo$ob2o$o2b2o$2b3o!
+
+
+#C Grows at c/8 northeast and 10c/56 southwest for a while, but
+#C becomes a period 2 oscillator in gen 609320 with population
+#C about 9.41135*10^9.
+x = 7, y = 5, rule = B34568/S15678
+o2bob2o$o2b4o$4b3o$2b4o$3ob2o!
+
+
+#C Grows at c/8 northeast and southeast and 10c/56 southwest for a
+#C while, but starts growing at c/8 in all 4 diagonal directions about
+#C gen 4.6*10^13.
+x = 6, y = 6, rule = B34568/S15678
+3b3o$2o2bo2$3ob2o$3b3o$bo3bo!
+
+
+#C Grows at c/8 northeast and southeast and 10c/56 southwest for about
+#C 6*10^14 gens, but starts growing at c/8 in all 4 diagonal directions
+#C about gen 6*10^15.
+x = 5, y = 8, rule = B34568/S15678
+2o2bo$bo2bo$3o$o$2o2bo$4o$2b2o$o2b2o!
+
+
+#C THIS TAKES A LONG TIME TO SETTLE DOWN
+#C Grows at c/8 northeast and southeast and 10c/56 southwest for about
+#C 1.4*10^21 gens, but starts growing at c/8 in all 4 diagonal directions
+#C about gen 1.5*10^22.
+x = 5, y = 6, rule = B34568/S15678
+2bo$obobo$o3bo$b2obo$b3o$b2o!
+
+
+#C Grows at c/8 northeast and 12c/66 southwest for a while, but
+#C becomes a period 2 oscillator in gen 3741593, with population
+#C about 6.95632*10^11.
+x = 6, y = 6, rule = B34568/S15678
+ob2o$b4o$bob3o$2bo2bo$o3b2o$b5o!
+
+
+#C Grows at c/8 northeast and 12c/66 southwest for about 3.3*10^15 gens,
+#C but becomes a period 2 oscillator about gen 1.19983*10^16, with
+#C population about 6.95455*10^30.
+x = 7, y = 5, rule = B34568/S15678
+5o$2b4o$obobo$obo2bo$2b3obo!
+
+
+#C Grows at c/8 northeast and 14c/76 southwest for a while, but
+#C becomes a period 2 oscillator about gen 5.93079*10^10, with
+#C population about 1.9588*10^20.
+x = 6, y = 6, rule = B34568/S15678
+2b4o$ob2o$5o$o2bo$2o3bo$3ob2o!
+
+
+#C Grows at c/8 northeast and 14c/76 southwest for a while, but
+#C becomes a wide 14c/76 wickstretcher in gen 9488900.
+x = 7, y = 5, rule = B34568/S15678
+b2o3bo$3o3bo$3b4o$obo3bo$bob2obo!
+
+
+#C Grows at c/8 northeast and 16c/86 southwest for a while, but
+#C becomes a period 2 oscillator in gen 11018300, with population
+#C about 5.06833*10^12.
+x = 6, y = 5, rule = B34568/S15678
+b4o$o2b3o$3o2bo$o3b2o$b3o!
+
+
+#C Grows at c/8 northeast and 16c/86 southwest for about 3*10^10 gens,
+#C but becomes a period 2 oscillator about gen 9.84602*10^10, with
+#C population about 4.89301*10^20.
+x = 7, y = 5, rule = B34568/S15678
+b2ob3o$bo3bo$bo3bo$ob3o$2b5o!
+
+
+#C Grows at c/8 northeast and 24c/126 southwest for about 2.1*10^10
+#C gens, but becomes a period 2 oscillator about gen 9.25*10^10 with
+#C population about 4.57055*10^20.
+x = 8, y = 5, rule = B34568/S15678
+3b3o$b2ob3o$2b3o2bo$obo2bobo$bob5o!
+
+
+#C Grows at c/8 northeast and 26c/136 southwest for about 4.8*10^7
+#C gens, but becomes a period 2 oscillator in gen 227251018, with
+#C population about 2.4417*10^15.
+x = 7, y = 5, rule = B34568/S15678
+2obo$4b3o$4b2o$ob4o$bobo2bo!
+
+
+#C Grows at c/8 northeast and 32c/166 southwest for about 2.8*10^6
+#C gens, but becomes a period 2 oscillator in gen 28207881, with
+#C population about 3.17619*10^13.
+x = 7, y = 5, rule = B34568/S15678
+obobobo$o2b2o$bobob2o$o2b3o$4obo!
+
+
+#C Grows at c/8 northeast and 42c/216 southwest for a while, but
+#C becomes a period 2 oscillator in gen 2353516 with population
+#C about 2.42414*10^11.
+x = 7, y = 5, rule = B34568/S15678
+bob4o$2ob3o$2obo2bo$3obo$o3bobo!
+
+</PRE><P>Finally, here are some patterns of this type which I've been unable
+to run to completion.  Each of these eventually produces an edge of
+slope -6 or -1/6, which causes Golly to slow down and use a lot of memory.
+Maybe someone with more memory will be able to run these to completion.</P><PRE>
+
+#C UNKNOWN
+#C Grows at c/8 northeast and 8c/46 southwest for at least 1.8*10^13
+#C gens.  This has an edge of slope -6 during gens 1.8*10^10 to
+#C 2.4*10^10.  An edge of slope -1/6 forms around gen 1.8*10^13, and
+#C I haven't run it much beyond that.
+x = 8, y = 5, rule = B34568/S15678
+2bob4o$3bob2o$bobo$3obo2bo$2bob3o!
+
+
+#C UNKNOWN
+#C Starting about gen 61000, this grows at c/8 northeast and
+#C southeast and 8c/46 southwest for at least 3.6*10^12 gens.
+#C This has an edge of slope -6 during gens 1.1*10^11 to 1.3*10^11.
+#C Another one forms about gen 3.6*10^12.
+x = 5, y = 8, rule = B34568/S15678
+bo2bo$b2obo$2bobo$2bo$o2b2o$b2o$o3bo$o2bo!
+
+
+#C UNKNOWN
+#C Grows at c/8 northeast and southeast and 8c/46 southwest for at
+#C least 7.4*10^15 gens.  This has an edge of slope -6 during gens
+#C 2.4*10^10 to 3.2*10^10.  Another one forms about gen 7.4*10^15.
+x = 7, y = 5, rule = B34568/S15678
+2obob2o$2ob2obo$3ob3o$bo2bobo$4o2bo!
+
+
+>#C UNKNOWN
+#C Grows at c/8 northeast and 10c/56 southwest for at least
+#C 1.9*10^13 gens, at which point an edge of slope -1/6 forms.
+x = 8, y = 5, rule = B34568/S15678
+o2bobobo$2o3b3o$2bo4bo$b2o3bo$3o3b2o!
+
+
+#C UNKNOWN
+#C Grows at c/8 northeast and 12c/66 southwest for at least
+#C 6.4*10^11 gens.  This has an edge of slope -6 during gens
+#C 1.1*10^9 to 1.6*10^9, another during gens 1.9*10^10 to
+#C 2.6*10^10, and a third during gens 5.6*10^10 to 7.1*10^10.
+#C An edge of slope -1/6 forms about gen 6.4*10^11.
+x = 7, y = 5, rule = B34568/S15678
+bobob2o$bobo$3obobo$b6o$bobo!
+
+
+#C UNKNOWN
+#C Grows at c/8 northeast and 18c/96 southwest for at least 9*10^11 gens.
+#C This has an edge of slope -1/6 during gens 10^9 to 1.2*10^9, and
+#C one of slope -6 from gen 7.3*10^11 to at least 9*10^11.
+x = 5, y = 6, rule = B34568/S15678
+b2o$obo$obobo$ob2o$3bo$4o!
+
+</PRE><P><H3><A name="2fc150">The 25c/150 corner</a></H3>
+
+<P>After writing the rest of this, I ran across another diagonal corner, with
+speed 25c/150:</P><PRE>
+
+#C UNKNOWN
+#C Grows at 25c/150 to the northeast for at least 3.4*10^9 gens.
+x = 7, y = 5, rule = B34568/S15678
+bob3o$2bob3o$b2obobo$bobo$4obo!
+
+</PRE><P>I don't know exactly what this pattern does.  Like the c/8 corner, some
+of the plows that the corner produces are unusual, and it doesn't seem
+to work as a wickstretcher.  At times up to 3.4*10^9, the pattern's
+shape is usually a pentagon:</P><PRE>
+
+___ A
+B  ___---   |
+  |         |
+  |         |
+  |        |
+C |        |
+   \      |
+    \_____|
+    D      E
+
+</PRE><P>At A it grows at 25c/150 to the northeast, sending plows west and south
+which form the edges AB and AE (with slopes 1/7 and 7).  There are messy
+reactions at B and E, which sometimes send plows south and west, moving
+the edges BC and DE west and south.  Usually when the plows reach C and D,
+they just extend the edge CD without moving it sideways.  But on rare
+occasions a modified plow causes a messy reaction at C or D, moving the
+edge southwest.
+
+</P><P>Growth to the south and west seems to be sublinear; at gen 3.4*10^9 these
+edges have only moved about 528000 and 594000 units, respectively.  If
+the pattern continues in this way, then the asymptotic shape is the quadrilateral with vertices (0,0), (t/7, 0), (t/6, t/6), and (0,t/7).
+But it's possible that some more complex reaction will occur somewhere
+which will change things completely.  E.g. if a 5c/19 corner were to
+form at B or E, its plows would eventually reach corner A, stopping the
+25c/150 growth.
+
+</P><P>Putting two 25c/150 corners together seems to give more orderly growth.
+But I haven't determined exactly when southward growth occurs, and I
+can't guarantee that this will run forever either:</P><PRE>
+
+#C UNKNOWN
+#C 25c/150 corners grow northwest and northeast for at least
+#C 9.3*10^8 gens.
+x = 9, y = 26, rule = B34568/S15678
+4bo$3b3o$b7o$bob3obo$b7o$3b3o$b7o$2b5o$b7o$2b5o$9o$ob5obo$9o$2b5o$b7o$
+2b5o$b7o$2b5o$b7o$2b5o$b7o$2b5o$b7o$2b5o$b7o$3bobo!
+
+</PRE><P>Putting four of these corners together, or putting one of them between
+two of the other known corners (slower than 5c/19), eliminates the messy
+corner reactions.  E.g. here one grows between a 40c/206 corner and a
+c/8 corner:</P><PRE>
+
+#C Grows at 40c/206 northwest, 25c/150 northeast, and c/8 southeast.
+#C Asymptotic shape is the concave octagon with vertices (0,0),
+#C (0, -t/9), (t/8, -t/8), (25t/206, -19t/206), (325t/1994, 281t/1994),
+#C (t/6, t/6), (21t/329, 50t/329), and (-20t/103, 20t/103). Population
+#C is asymptotic to  133714003/2432544408 t^2.
+#C (The vertex at (325t/1994, 281t/1994) is hard to see; the exterior
+#C angle there is less than 2 degrees.)
+x = 87, y = 55, rule = B34568/S15678
+4bo$obobobobo$b8obobo$b12obobo56b3o$17obobobobobo42bobobobobobob3o$b
+26obobobobobobobobob2obobobobobobobobobobobob11obobo$85o$b85o$85o$b85o
+$85o$b85o$85o$b85o$85o$b85o$85o$b85o$85o$b85o$85o$b85o$85o$b85o$85o$b
+85o$85o$b85o$85o$b85o$85o$b85o$85o$b85o$85o$b85o$85o$b85o$85o$b85o$85o
+$b85o$b84o$86o$b84o$86o$b84o$11ob74o$b7ob3o2b71o$8obo2b74o$2b7o2bob72o
+$2bobobo5b74o$13b74o$12b72ob2o$12b2obobobobobobobobobobobobobobobobobo
+bobobobobobobobobobobobobobobobobob3o!
+
+</PRE><P>We can also combine this corner with others growing antiparallel to it,
+to get more examples of growth spurts.  Unfortunately such patterns run
+very slowly in hashlife, and I haven't been able to track any of them
+to completion.  E.g.:</P><PRE>
+
+#C UNKNOWN
+#C Grows at 25c/150 northeast and 5c/19 southwest for at least
+#C 1.5*10^10 gens.
+x = 16, y = 18, rule = B34568/S15678
+10bob3o$11bob3o$10b2obobo$10bobo$9b4obo9$5o$o$4o2$obo!
+
+</PRE><P><H3><A name="spurt c4">Growth spurts (c/4 plus c/8)</a></H3>
+
+<P>Here are some more patterns with growth spurts, combining a c/4
+corner growing south and a c/8 corner growing northeast.  Because
+of long-lasting edges of slope 6, these run slowly in hashlife.</P><PRE>
+
+#C Grows at c/8 northeast and c/4 south, with growth spurts on the
+#C northwest side, until about gen 1.5*10^6.  Becomes a period 2
+#C oscillator in gen 8895153, with population about 2.64204*10^12.
+x = 5, y = 6, rule = B34568/S15678
+3bo$3o$o2b2o$obo$ob2o$b2o!
+
+
+#C Starting around gen 22000, this grows at c/8 northeast and c/4
+#C south, with growth spurts on the northwest side, until about
+#C gen 2*10^9.  By gen 1.4*10^10, it becomes a period 2 oscillator
+#C with population about 4.90362*10^18.
+x = 7, y = 5, rule = B34568/S15678
+o3b2o$b3o$2o$bobo2bo$4o2bo!
+
+</PRE><P>The next pattern is similar; I haven't tracked it to completion.</P><PRE>
+
+#C UNKNOWN
+#C Grows at c/8 northeast and c/4 south, with growth spurts on the
+#C northwest side for at least 5*10^9 gens.
+x = 5, y = 8, rule = B34568/S15678
+2ob2o$bo2bo$b4o$obo$2ob2o$2ob2o$obobo$2bobo!
+
+</PRE><P><H3><A name="questions">Questions</a></H3>
+
+<P>What do the patterns labelled "UNKNOWN" do?  Perhaps someone using
+Golly on a bigger computer than mine can finish running some of them.
+
+</P><P>Is there a simple reason why perpendicular corners with speeds c/8 and
+either 10c/56, 12c/66, or 14c/76 have asymptotic shapes which are
+quadrilaterals instead of pentagons?
+
+</P><P>Can a pattern undergo infinitely many growth spurts?
+
+</P><P>Can solids decay?  I.e. if a large square is full of live cells at some
+time, is it possible for it to be empty at some later time?
+
+</P><P>What other rules have linear, space-filling patterns?  In addition to
+B3456/S15678 with optional B8 and S0 and B37/S345678 with optional B8
+and S012, there's at least one other:</P><PRE>
+
+#C Population growth is linear, but every cell in the plane eventually
+#C becomes and remains alive. This works by a complicated interaction of
+#C several plows of two types.
+x = 5, y = 5, rule = B345678/S015678
+b2obo$o2bo$bo$bobo$5o!
+
+</PRE></BODY></HTML>

@@ -1,0 +1,137 @@
+<!--saved from url=(0088)http://web.archive.org/web/20071123223725/www.math.ucdavis.edu/~dean/RLE/saw.bounce.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8"> <TITLE> Sawtooths based on bouncing spaceships </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+Here are two sawtooths in which a gun sends out spaceships which bounce
+off the back of a slower, receding spaceship.  Each returning spaceship
+suppresses some outgoing ones.  So the space between the gun and the
+receding spaceship alternately becomes empty and full of spaceships.
+
+#N Diagonal sawtooth with expansion factor 4
+#C Population is unbounded but does not tend to infinity.  Its graph
+#C is a sawtooth function with ever-increasing teeth.
+#C
+#C A p960 gun sends gliders southwest.  Some are deleted; the others
+#C reflect off the backs of 2 Corderships.  Each returning glider
+#C deletes 2 outgoing ones.
+#C
+#C Note the use of an in-line inverter found by David Bell.
+#C
+#C This was built by David Bell (8/29/92; revised 8/16/93)
+#C (header written by Dean Hickerson, 1994)
+#C (8/29/99:  This should be rebuilt using a more compact p960 gun and
+#C            a smaller Cordership.)
+x = 168, y = 306, rule = B3/S23
+13b2o$13bo2bo2$17bo2$15b2o$14bo3$11b2o3b2o$11b2o3b2o$12b5o$13bobo2$13b
+3o2$2bo6bo$b2o6b2o$3o6b3o$b2o6b2o$2bo6bo103$141b2o$141bobo$132b2o2b2o
+6bo11bobo$132b2obo2bo2bo2bo10bo2bo4bo$136b2o6bo9b2o5b2o$141bobo8b2o3bo
+8b2o$141b2o11b2o10b2o$146bo8bo2bo$144b2o10bobo$131b2o12b2o$131bobo$
+131bo4$137bobo$137b2o$138bo3$126b2o$126bobo$117b2o2b2o6bo11bobo$117b2o
+bo2bo2bo2bo10bo2bo4bo$121b2o6bo9b2o5b2o$126bobo4b2o2b2o3bo8b2o$126b2o
+11b2o10b2o$131bo8bo2bo$129b2o10bobo$130b2o$108bobo2bobo$104b2obo2bo2bo
+2bob2o$108bobo2bobo2$136b3o$135bo3bo$134bo5bo2$133bo7bo$133bo7bo2$134b
+o5bo$135bo3bo$136b3o68$46b2o$46b2o$50b2o$51b2o$51bo$51b2o$50b2o2$38b2o
+11bo$38b2o9b3o$52bobo$50bo3b2o$54bo2$50b3o2$30b2o$30b2o4$65bo$64b3o$
+34bo$22b2o5b3obob4o23bo3bo4bobo$22b2o8b2obo26bo4b2ob5o$30b2o4b2obo22bo
+2bobo2bo3bo$41bo25bo$39b2obob2o30b2o$41b2obo32b2o$43bo33bo$77b2o$76b2o
+$46bo$43b3ob2o28bo$41b2ob3o28b3o$45bo32bobo$23bo52bo3b2o$44bo35bo$18bo
+b2o22bo$18bobo6bo16bo31b3o$17bo4b2o3bo14bobo$18bo8bo15bo$18bo7bo$31b3o
+$22bo9b2ob2o$32b2obo9bo38b2o$32bobo10b2o37b2o$32bobo11bo$33b2o8bobo$
+35bo6bo2bo$32bobo7bobo$31bo10bobo$43bo$76b2o$33bo3bo38b2o$29bo3bo$35bo
+$34b2o2$31b2ob2o$33bo$68b2o$49bo18b2o$58b3o$44bob2o10bobo$44bobo6bo2b
+2o2bo$43bo4b2o3bo2b3o$44bo8bo2b3o$44bo7bo2$48bo!
+
+#N Orthogonal sawtooth with expansion factor 25
+#C Population is unbounded but does not tend to infinity.  Its graph
+#C is a sawtooth function with ever-increasing teeth.  More
+#C specifically, the population in generations  t  near  30 * 25^n  is
+#C about  59t/225  if  t  is odd, about  7t/10  if  t  is even but not
+#C == 46 (mod 60),  and about  211t/900  if  t == 46 (mod 60);  the
+#C population in generation  6 * 25^n - 1125  (n>=2)  is only 1846.
+#C (Even more specifically, the population in generation
+#C t = 30 * 25^n - 525  (n>=1), is  59t/225 + 1951.)
+#C
+#C A shotgun produces a salvo of 4 eastward lightweight spaceships
+#C every 120 generations.  Some are deleted; the others eventually
+#C catch up to a pair of c/3 spaceships and reflect off the backs of
+#C them, forming westward middleweight spaceships.  When a MWSS
+#C returns to the shotgun, it causes the deletion of 5 salvos.
+#C (Notice the unusual eatering of a pi heptomino, by 2 blocks,
+#C that's used in this deletion.)  So the region between the shotgun
+#C and the c/3s alternately becomes full and empty of spaceships.
+#C
+#C Specifically, for  N>=3,  salvo N is created in gen  120N-305.
+#C (Salvos 1 and 2 are already fully formed in the initial pattern.
+#C Salvo 0 doesn't exist, but its effect is simulated by the
+#C nonexistence of 2 gliders.)  If not deleted, salvo N hits the c/3s
+#C in gen  360N-71,  creating a MWSS 111 gens later.  This MWSS
+#C returns to the shotgun and deletes 2 gliders, in gens  600N+85
+#C and  600N+155,  causing the deletion of salvos  5N+5  through
+#C 5N+9.  Thus, 5 salvos (numbered 0 to 4) delete 5^2 salvos (5 to
+#C 29), allowing 5^3 salvos (30 to 154) to escape, deleting 5^4
+#C salvos (155 to 779), ...
+#C
+#C The c/3 spaceships were found by David Bell, who suggested this
+#C way of making a sawtooth.
+#C
+#O Dean Hickerson, dean.hickerson@yahoo.com (8/26/92)
+x = 370, y = 118, rule = B3/S23
+235b2o$236bo$222bo15b2o$220bobo15b3o11bo$166b2o50b2o18b2o12bobo$166bo
+45bo5b2o16bo16bobo7bo$61bo40bo60b2o15bo31b2o4b2o15b2o16bo2bo6b2o$60bob
+o38bobo46bo11b3o15bobo37bobo30bobo3bo4b2o9bo$43b2o14bo3b2o36b2obo7b2o
+34bobo12b2o18b2o37bo29bobo3b2o4b3o7b2o44bo$43bobo13bo3b2o3b2o19b2o10b
+2obobo5bobo24bo7bobo16bo16b2o5bo44b2o15bo11b2o52bobo$44b3o12bo3b2o4bo
+19bo11b2obo10bo22b2o6bo2bo16b2o15b2o4b2o44bo27b2o43b2o6b2o$34bo10b3o
+12bobo38bobo8bo2bo8bo2bo9b2o4bo3bobo30bobo80bo43bo8b2o15bo31bo$34b2o8b
+3o14bo40bo12bo7b2o2b2o7b3o4b2o3bobo29bo125bo6bo2b2o15b2o29bobo$43bobo
+66bobo22b2o11bo145b2o8bo5b2o4bobo13b2o13b2o15b2o$43b2o67b2o24b2o156bo
+9bo5bo7bo13b3o11b3o14bo$139bo94b2o71bo26b2o9bob2o17b2o$234bo73b2o23b2o
+10bo2bo10bo5b3o$333bo11bob2o9b2o$208bo139b3o13bo2bo$207b3o23b3o113b2o
+14bobo$31b2o72bo127b2o132bo$32bo71b2o130b2o128bo$32bobo6bo73bobo117b3o
+126bobo$33b2o4bobo71bo3bo116bobo81b2o45bo$37b2o15b2o45b2o10bo12b2o31bo
+47b3o12b2o5b2o3b2o82bo46b2o$37b2o16bo45bo2bo7bo14bo29bobo48bo13bo7bo$
+2o23b2o10b2o18b2o46bo7bo44b2o204bo2bo$bo23bo13bobo15b3o45bo7bo3bo36b2o
+161b2obo47bo$bobo7bo10b2o17bo15b2o46bo9bobo36b3o161bobo44bo2b2o$2b2o7b
+obo7b3o10b2o19bo7b2o29b2o5bo2bo43bo3bo2bobo161bo44b4o$14b2o6b2o11bo18b
+2o7bobo27bobo5b2o45b2o2b2o2b2o160b2o44b2obo$14b2o9bo39bo27bo58b2o164b
+2o45bobo$14b2o9b2o38b2o25b2o224b2o45b3o$o10bobo352b2o$3o8bo351b2obo$3b
+o60bo59bo59bo59bo59bo58bo$2b2o61bo59bo59bo59bo59bo57bo$61bo3bo10bo44bo
+3bo10bo44bo3bo10bo44bo3bo10bo44bo3bo57b3o$62b4o11bo44b4o11bo44b4o11bo
+44b4o11bo44b4o60b2o$73bo3bo55bo3bo55bo3bo55bo3bo105bo2b2o$74b4o56b4o
+56b4o56b4o106bo$52b2o311b2o$2b2o3b2o25b2o7b2o6b3o310b3o$2bo5bo25bo9bo
+5bobo2bo3bo$35b9o6b2o2b2o2b2o32b2o$3bo3bo2b2o20b3o2b5o2b3o7b2o32b2o2b
+2o2b2o$4b3o4b2o19bo2bo2b3o2bo2bo41bo3bo2bobo$10bo22b2o9b2o48b3o$94b2o
+114bo6bo89bo$29b2o178b2obo2bob2o88bobo$28b2o10bobo167bobo2bobo89b2o$
+30bo8bo2bo168bo4bo$25b2o11b2o10b2o$7bo17bobo8b2o3bo9bo10bo$5b2ob2o6bo
+11bo9b2o21b2o49b2o75bo47b2o$16b2o7bo2bo10bo2bo17b2o11bo38bo74bobo48bo$
+4bo5bo17bo11bobo16b3o4b2o3bobo29bo6bobo17bobo55b2o48bobo$25bobo32b2o4b
+o3bobo30bobo4b2o18bo2bo17b2o9b2o75b2o44bo$4b2o3b2o14b2o25b2o7b2o6bo2bo
+16b2o15b2o7bo17b2o6b2o7bo2bobo3bobo2bo9bo109b2o$51bobo8bo7bobo16bo16b
+2o6bobo14bo3b2o5bo7b3o9b3o8bo110bobo$51bo19bobo12b2o18b2o5bob2o16b2o
+18b2o5b2o7bo2bo4bo$50b2o21bo11b3o15bobo6b2ob2o13bo2bo18bo2b5o2bo5b2obo
+2bob2o$86b2o15bo9bob2o13bobo19b2o7b2o9b2o$89bo19b2o3bobo231b3o$89b2o
+17bobo4bo233b2o$108bo54b2o58b2o58b2o63bo$107b2o53b4o56b4o56b4o61bo2b2o
+$8bo153b2ob2o55b2ob2o5b4o46b2ob2o5b4o54b2o$7b2o155b2o58b2o5bo3bo48b2o
+5bo3bo51b3o$235bo59bo51bo$234bo59bo52bo$347b2obo$184b2o164b2o$184bo
+122b2o40b3o$150b2o23b2o5bobo27bo4bo90bo40bobo$151bo22bobo5b2o26b2obo2b
+ob2o88bobo5b2o30b2obo$151bobo5bobo11bo36b2o6b2o89b2o5bo2bo28b4o$152b2o
+5bo2bo10bo2bo33b3o4b3o100bo9bobo16bo2b2o$103b2o9b2o46b2o9bo146bo7bo3bo
+19bo$103bobo7bobo44bo3b2o8bobo7bo135bo7bo13bo5bo2bo$94b2o10bo8bo5bo25b
+obo12b2o11b2o7b2o38bo91bo2bo7bo13b2o$94bo8bo2bo13bobo24bo3bo7bo2bo20bo
+bo3bo32bobo91b2o10bo20b2o$106bo13b2obo10b2o3b2o10bo7bobo27b2o30bobo17b
+o86bo3bo16bo$103bobo14b2ob2o7bo2bo3bobo10bo57bo4b2o3bo2bo16b2o88bobo
+15bobo$103b2o15b2obo7bo7bo11bo37bo19b2o4bo5bobo15b2o77b2o30bo$120bobo
+8bo15bo3bo3b2o31bobo18bobo10bobo13b3o9bo55bo12bo31bo$121bo9bo15bobo5bo
+bo30bo2bo32bo4bobo7b2o8b2o54b2o42bobo$125b2o5bo2bo21bo31bo2bo36b2o9b2o
+106bo2bo$124bobo7b2o21b2o48b2o21bo10bo64bo$124bo64bo17bo97bobo41b3o$
+123b2o40b2o22b2o87b4o22bo2bo42b2o$164bo42bo2bo62b2o7bo20bo2bo20b2o20bo
+$153b2o8bo6bo6bo28bo2bo63bo3b2o3bo44bobo20b2o$153bo9bo5b2o4bobo28bobo
+52b2o15bo2bo24bo10bo12bo7b2o8bobo$163bo5bo3b2o13bo18bo52bo2bo41b2o9bob
+o8bo2bo8bo9bo$164bo8b2o12b2o74bo52b2obo10bo$165b2o6b2o32b2o54bo52b2obo
+bo5bobo$175bobo29bo52b2obo52b2obo7b2o$177bo58bo24bo44b2o8bobo$235b2o
+68bobo9bo$219bo14b2o8b2o59bo$217bobo13b3o9bo16bo41b2o$210bo5bobo15b2o
+25b2o$210b2o3bo2bo16b2o$216bobo17bo$217bobo$219bo73bo$263bo29bobo$263b
+2o14b2o15b2o$249b2o28bo16b2o4b2o$249bo2bo23b2o18b2o5bo$240b2o11bo13bo
+7b3o15bobo$240bo12bo12b4o6b2o15bo$253bo11b2obobo8bo$249bo2bo11b3obo2bo
+7b2o$249b2o14b2obobo$266b4o$267bo!
+
+</PRE></BODY></HTML>

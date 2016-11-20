@@ -1,0 +1,156 @@
+<!--saved from url=(0090)http://web.archive.org/web/20071123223555/www.math.ucdavis.edu/~dean/RLE/herschelguns.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8"> <TITLE> Herschel-based guns </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+
+Here are 3 guns that use glider collisions to insert Herschels into
+tracks, which emit gliders that collide again.
+
+#C p281 glider gun
+#C This uses 2 identical Herschel tracks.  In the southeastern one,
+#C two gliders (SW and SE) crash to inject a Herschel into a track
+#C consisting of Buckingham's 190, 158, and 77 gen moves.  At the end
+#C a SW glider is emitted which returns to the collision site in gen
+#C 843 = 3*281, and a NW glider is sent toward the northwestern track,
+#C arriving at the collision site in gen 1686 = 6*281.
+#C (By deleting some of the Herschels and gliders, this could also
+#C work as a p843 gun.)
+#C Dean Hickerson, 11/4/96
+x = 364, y = 363, rule = B3/S23
+87b2o$87b2o6$85b2o$86b2o3b2o$85bo4b2o$92bo10$95b2o$94bobo$95bo7$97b2ob
+o$97bob2o2$90b2o$90b2o17$104b2o$104bo$102bobo$102b2ob2o$105bobo$105bob
+o$82b2o20b2ob3o$83bo26bo$83bobo18b2ob3o$10b2o72b2o18b2obo$10b2o3$84b2o
+$83bobo$83bo$81b3o$48bo18bo12bo$46b3o7b2o7b3o12b2o$45bo11bo6bo$21bo10b
+2o11b2o10bobo4b2o$19b2o11b2o24b2o$21bobobo$23bobo$92b3o$2o90bo$2o90b2o
+2$99b2o60b2o$99bo61bobo$21b2o77b3o58bo$21bobo78bo$23bo69b2o$23b2o69bo$
+93bo$93b2o2$32b2o36b2o$33bo36bo$30b3o31b2obo3b3o$30bo33b2ob4o2bo$70bo$
+60b2o2b2ob3o$52b2o6bo4bobo$53bo7b4o2bo$50b3o12b2o$50bo12b2o$64bo$63bo$
+63b2o42$61bo$62bo$60b3o5$232bo$231b2o$231bobo62$130bobo$131b2o$131bo5$
+301b3o$301bo$302bo42$299b2o$300bo$299bo$299b2o12bo$297b2o12b3o$296bo2b
+4o7bo$296bobo4bo6b2o$294b3ob2o2b2o$293bo$290bo2b4ob2o33bo$290b3o3bob2o
+31b3o$293bo36bo$292b2o36b2o2$269b2o$270bo$269bo69b2o$269b2o69bo$261bo
+78bobo$202bo58b3o77b2o$200bobo61bo$201b2o60b2o2$270b2o90b2o$271bo90b2o
+$269b3o$338bobo$338bobobo$304b2o24b2o11b2o$298b2o4bobo10b2o11b2o10bo$
+299bo6bo11bo$282b2o12b3o7b2o7b3o$283bo12bo18bo$280b3o$280bo$278bobo$
+278b2o3$352b2o$256bob2o18b2o72b2o$254b3ob2o18bobo$253bo26bo$254b3ob2o
+20b2o$256bobo$256bobo$257b2ob2o$259bobo$259bo$258b2o17$272b2o$272b2o2$
+263b2obo$263bob2o7$268bo$267bobo$267b2o10$271bo$272b2o4bo$271b2o3b2o$
+277b2o6$275b2o$275b2o!
+
+
+#C p281 glider gun
+#C Two gliders (SW and SE) crash to form a Herschel, which enters a
+#C Herschel track beginning with Buckingham's 190, 158, and 77 gen
+#C moves.  At this point a SW glider is emitted which returns to the
+#C collision site in gen 843 = 3*281.  The Herschel continues through
+#C 112, 117, 117, 117, 77, 158, 77, 77, 156, 77, 117, 190, 158, 158,
+#C 158, 158, 158, 117, 77, 77, and 77 gen moves.  Finally, a glider is
+#C sent SE, which returns to the collision site in gen 3372 = 12*281.
+#C (By deleting some of the Herschels and gliders, this could also
+#C work as a p843 gun.)
+#C Dean Hickerson, 11/14/96
+x = 185, y = 363, rule = B3/S23
+42bo$41bobo$41bobo$40b2ob3o$46bo$40b2ob4o2bo$40b2obo3b3o$46bo$18b2o26b
+2o50bo$19bo78b3o$19bobo47b2o30bo43bo$20b2o47bo30b2o34bo7bobo$70bo11bo
+53b3o6bo$69b2o9b3o56bo$79bo58b2o$79b2o10b2o$14bob2o73bo$14b2obo71bobo$
+89b2o$23b2o41b2o$23b2o41b2o63b2o25b2o$77b2o3b2o47b2o25bo$75b2ob4obo72b
+obo$75b2o4b2o73b2o$75b2o4bo$35b2o3b2o35bo2bo$36bo3bo36b3o63b2o$33b3o5b
+3o12b2o42b2o32b2o6bobo$33bo9bo12bo18b2o23b2o11b2o20bo6bo$31bobo23b3o
+16bo17bo18bo20bo6b2o$31b2o26bo13b3o16bobo19b3o17b2o$73bo19b2o21bo2$96b
+2o$22bo2bo70bo$24b4o69b3o45b2o$21bo77bo44bobo$9b2o11b2o2b2o116bo$10bo
+132b2o9b3o$10bobo9b2o129bo2bo$8b2ob2o8b2o130b2o$7bobo12b2o2bo$7bobo
+145bo2bo$5b3ob2o20b2o123b2o$4bo26bo121b2o$4bob2ob2o18bobo104b2o15b3o$o
+b2obobob2o18b2o106bo16bo$2obobo131bobo14bo2bo$5bo132b2o15b2o$5bobo$6b
+2o134bo$28b2o113b2o$28bo$29b3o$31bo3$5b2o$4bobo$4bo$3b2o151b2o$156bobo
+$158bo$158b2o$35b2o$35bo$33bobo$33b2ob2o$36bobo101b2o$36bobo100bobo$
+13b2o20b2ob3o98bo25b2o$14bo26bo96b2o25bo$14bobo18b2ob2obo104b2o15bobo$
+15b2o18b2obobob2obo100b2o15b2o$40bobob2o$40bo$38bobo$38b2o$16b2o$17bo$
+14b3o$14bo3$26b2o11b2o$26b2o11bobo103b2o$23b2o4bo11bo102bobo$22b3o5bo
+10b2o101bo$23bo5bo113b2o$24b2o$24b2o3bo141b2o$9b2o17bo142bo$10bo158bob
+o$10bobo156b2o$8b2ob2o$7bobo$7bobo134bo$5b3ob2o20b2o111b3o$4bo26bo115b
+o$4bob2ob2o18bobo114b2o$ob2obobob2o18b2o137b2o$2obobo162bobo$5bo164bo$
+5bobo162bobob2o$6b2o137b2o18b2obobob2obo$28b2o114bobo18b2ob2obo$28bo
+115bo26bo$29b3o111b2o8b3o9b2ob3o$31bo120bo2bo10bobo$152b2o2bo9bobo$
+155b2o6b2ob2o$5b2o156bobo$4bobo145bo12bo$4bo145b2o13b2o$3b2o146b2o4$
+35b2o$35bo$32b2obo107b2o$32bobob2o104bobo$31b3o2bobo103bo25b2o$31b2o3b
+obo102b2o25bo$13b2o16b2o2b2ob3o108b2o15bobo$14bo26bo107b2o15b2o$14bobo
+18b2ob2obo$15b2o18b2obobob2obo$29bo10bobob2o$30b2o8bo$29b2o7bobo$38b2o
+$16b2o8b2o$17bo7bo$14b3o8bo2bo$14bo10b2o$26bo$27b2obo117b2o$39b2o106bo
+bo$28b3o8bobo105bo$41bo104b2o$41b2o4$9b2o$10bo$10bobo$8b2ob2o$7bobo$7b
+obo$5b3ob2o20b2o$4bo26bo$4bob2ob2o18bobo$ob2obobob2o18b2o$2obobo150b2o
+$5bo150b2o$5bobo$6b2o139b2obo$28b2o117bob2o$10b2o16bo$9b2o18b3o$11bo
+19bo135b2o$167bo$165bobo$5b2o158b2o$4bobo$4bo$3b2o146b2o$32bo117bobo$
+30b3o117bo$29bo119b2o$29b2o6$154b2o$34b2o119bo$34bo117b3o$32bobo117bo$
+32b2o3$18b2o$17bobo$17bo$16b2o9b2o2$26bo2bo$34b2obo$26b3o5bob2o3$162b
+2o$162b2o2$153b2obo$153bob2o2$164b2o$162b2o2bo6b2o$162b2obo7bo$161bob
+2o6bobo$171b2o3$157b2o3b2o$156bobo$37b2o117bo$37bo117b2o$35bobo$35b2o
+5$160b2o$161bo$158b3o$158bo4$17b2o15b2o$16bobo15b2o$16bo25b2o$15b2o25b
+o$40bobo$40b2o5$22b2o144b2o$23bo144b2o$23bobo$24b2o133b2obo$159bob2o3$
+179b2o$179bo$177bobo$177b2o3$163b2o$162bobo$25b2o15b2o118bo$25b2o15bob
+o116b2o$44bo$44b2o5$166b2o$167bo$37b2o125b3o$37bo126bo$35bobo$35b2o84b
+2o$122bo$121bo$121b2o12bo$119b2o12b3o$118bo2b4o7bo$118bobo4bo6b2o$116b
+3ob2o2b2o$115bo$112bo2b4ob2o33bo$112b3o3bob2o31b3o$115bo36bo$17b2o15b
+2o78b2o36b2o20b2o$16bobo15b2o129b2o7b2o$16bo25b2o47b2o73bo$15b2o25bo
+49bo73bobo$40bobo48bo69b2o4b2o$40b2o49b2o69bo20b2o$83bo78bobo18bo$83b
+3o77b2o16bobo$32b2o52bo94b2o$22bo62b2o$22b3o7b2o$25bo66b2o$24b2o7bobo
+55bo2bo$34bo57b2o$34bo57bo70bo$163bobo$126b2o24b2o9b3o$120b2o4bobo10b
+2o11b2o11bo$45b2o74bo6bo11bo$45bo58b2o12b3o7b2o7b3o35b2o$43bobo59bo12b
+o18bo37b2o2b2o$43b2o57b3o74bobo$102bo78bo$100bobo78b2o$100b2o4$78bob2o
+18b2o$76b3ob2o18bobo$75bo26bo$76b3ob2o20b2o$29b2o47bobo$29b2o47bobo$
+79b2ob2o$81bobo$81bo$80b2o17$94b2o$94b2o2$85b2obo$85bob2o7$90bo$89bobo
+$89b2o10$94bo$95bo3bo$93b3o2bo$98b3o6$97b2o$97b2o!
+
+#C p737 glider gun
+#C This uses 4 identical Herschel tracks.  In the southern one,
+#C two gliders (SW and SE) crash to inject a Herschel into a track
+#C consisting of Buckingham's 156, 64, 117, 77, and 77 gen moves.  Two
+#C gliders are emitted (NW and NE), each on a path 84 units west of the
+#C antiparallel input glider.  The NW glider travels to the western
+#C track, arriving at its collision site in gen 1474 = 2*737.  The NE
+#C glider travels to the eastern track, arriving at its collision site
+#C in gen 2211 = 3*737.
+#C Dean Hickerson, 11/4/96
+x = 740, y = 740, rule = B3/S23
+462bo$460b3o$459bo$459b2o4$419bo48b2o$400b2o17b3o47bo$401bo20bo46bobo$
+388bo11bo20b2o11b2o34b2o$388b3o9b2o32b2o$391bo$378b2o10b2o$379bo111b2o
+$379bobo109b2o$365b2o13b2o$365b2o36b2o$403b2o$459b2o$359b2o85b2o11b2o$
+359b2o86bo$363b2o79b3o$363b2o79bo2$413b2o$394b2o18bo$358b2o34bo16b3o
+20b2o$358b2o35b3o13bo22bo$397bo37b3o$437bo43b2o$481b2o7$449bo$365b2o
+81bo$366bo81b3o$363b3o$363bo11$370b2o$370b2o2$361b2obo$361bob2o$379b2o
+$379bo$377bobo$377b2o2$362bo$362b3o$353bo11bo$334b2o17b3o8b2o14bo$335b
+o20bo22bobo$334bo20b2o23bo$334b2o6$337b2o36b2o$337b2o36bobo$377bo$325b
+3o40b2o7b2o$327bo40bo$326bo3b3o36b3o$330bo40bo$331bo$314b2o30b2o$313bo
+bo29bobo$313bo31bo$312b2o30b2o2$326b2o$326bo$327bo$326b2o50$475bobo$
+476b2o$476bo80$264bobo$264b2o$265bo22$14b2o$14b2o9$30b2o$30b2o4$141b2o
+$142b2o$141bo373b2o$514b2o$516bo2$9b2o$10bo$7b3o$7bo6$2o$bo$bobo15b2o$
+2b2o15b2o9$40bo$38bobo$39b2o$20b2o$20bobo$22bo$22b2o7$29b2o$29bo$10b2o
+15bobo$10b2o15b2o7$653bo$653b3o$656bo$655b2o2$9b2o$8bobo$8bo$7b2o5$25b
+2o634bo$25bobo620bob2o7bobo$27bo620b2obo8b2o$27b2o2$658b2o$657bobo$
+659bo2$670b2obo$17b2o651bob2o$17b2o$663b2o$8b2obo651b2o$8bob2o3$28b2o$
+28bo$26bobo624bo$26b2o625b3o$656bo$655b2o$12b2o$11bobo$11bo$10b2o2$
+673b2o$673bo$671bobo$671b2o2$15b2o50bo643b2o$16bo41bo7bobo642b2o5b2o$
+13b3o42b3o6bo650b2o$13bo47bo16bo603b2o$60b2o14b3o596b2o6bo$75bo599bo6b
+o14b2o17b2o$75b2o596bobo6b2o14bo17b2o$673b2o23bobo21b2o$699b2o21b2o2$
+53b2o25b2o578b2o$53b2o25bo578bobo$78bobo578bo25b2o$78b2o578b2o25b2o2$
+16b2o21b2o$16b2o21bobo23b2o$22b2o17bo14b2o6bobo596b2o$22b2o17b2o14bo6b
+o599bo$56bo6b2o596b3o14b2o$56b2o603bo16bo47bo$20b2o650bo6b3o42b3o$20b
+2o5b2o642bobo7bo41bo$27b2o643bo50b2o2$67b2o$66bobo$66bo$65b2o2$728b2o$
+728bo$726bobo$726b2o$83b2o$83bo$84b3o625b2o$86bo624bobo$711bo$710b2o3$
+728b2obo$75b2o651bob2o$75b2o$721b2o$66b2obo651b2o$66bob2o2$80bo$80bobo
+$80b2o2$711b2o$78b2o8bob2o620bo$78bobo7b2obo620bobo$78bo634b2o5$731b2o
+$731bo$729bobo$729b2o2$83b2o$83bo$84b3o$86bo7$711b2o15b2o$710bobo15b2o
+$710bo$709b2o7$716b2o$717bo$717bobo$718b2o$699b2o$699bobo$699bo9$719b
+2o15b2o$719b2o15bobo$738bo$738b2o6$732bo$730b3o$729bo$729b2o2$223bo$
+224b2o$223b2o373bo$596b2o$597b2o4$708b2o$708b2o9$724b2o$724b2o22$474bo
+$474b2o$473bobo80$263bo$262b2o$262bobo50$412b2o$412bo$413bo$412b2o2$
+394b2o30b2o$394bo31bo$392bobo29bobo$392b2o30b2o$408bo$368bo40bo$368b3o
+36b3o3bo$371bo40bo$361b2o7b2o40b3o$362bo$362bobo36b2o$363b2o36b2o6$
+404b2o$359bo23b2o20bo$358bobo22bo20bo$359bo14b2o8b3o17b2o$374bo11bo$
+375b3o$377bo2$361b2o$360bobo$360bo$359b2o$375b2obo$375bob2o2$368b2o$
+368b2o11$376bo$374b3o$289b3o81bo$291bo81b2o$290bo7$257b2o$257b2o43bo$
+302b3o37bo$305bo22bo13b3o35b2o$304b2o20b3o16bo34b2o$325bo18b2o$325b2o
+2$295bo79b2o$293b3o79b2o$292bo86b2o$279b2o11b2o85b2o$279b2o$335b2o$
+335b2o36b2o$358b2o13b2o$247b2o109bobo$247b2o111bo$348b2o10b2o$348bo$
+304b2o32b2o9b3o$268b2o34b2o11b2o20bo11bo$268bobo46bo20bo$270bo47b3o17b
+2o$270b2o48bo4$279b2o$280bo$277b3o$277bo!
+
+</PRE></BODY></HTML>

@@ -1,0 +1,143 @@
+<!--saved from url=(0087)http://web.archive.org/web/20071123223600/www.math.ucdavis.edu/~dean/RLE/irrat.lin.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> Irrational linear growth </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+#N Irrational 5
+#C Population growth is linear with an irrational multiplier.
+#C Each middleweight spaceship produced by the puffers either hits a
+#C boat or is deleted by a glider.  Denoting the first possibility by
+#C 1 and the second by 0, we obtain a sequence beginning 101011011010...
+#C If we prepend 101, we obtain the Fibonacci string sequence, defined
+#C by starting with 1 and then repeatedly replacing each 0 by 1 and each
+#C 1 by 10:  1 -> 10 -> 101 -> 10110 -> 10110101 -> ...  (See Knuth's
+#C "The art of computer programming, vol. 1", exercise 1.2.8.36 for
+#C another definition.)  The density of 1's in this sequence is
+#C (sqrt(5)-1)/2,  which implies that the population in gen t is
+#C asymptotic to  (8 - 31 sqrt(5)/10) t.  More specifically, the
+#C population in gen  20 F[n] - 92  (n>=6)  is 98 F[n] - 124 F[n-1] + 560,
+#C where  F[n]  is the n'th Fibonacci number.  (F[0]=0,  F[1]=1,  and
+#C F[n] = F[n-1] + F[n-2]  for  n>=2.)
+#O Dean Hickerson, dean.hickerson@yahoo.com (5/12/91)
+x = 147, y = 64, rule = B3/S23
+8b2o$7b4o4b4o$6b2ob2o4bo3bo$7b2o6bo112bo$16bo2bo109bo$125bo3bo$20b2o
+104b4o13b4o$10b2o8b2o120bo3bo$9bo2bo5bo3bo123bo$8b2o2bo4bo3bo99bo23bo$
+9b2o2bo2bo4bo97bobo$10b4o3bobo100b2o$137b2o3b2o$135bo6bobo$8b2o106bo
+17bo2bo6bo$7b4o103bobo16b2o7b3o$6b2ob2o15b2o43bo43b2o17b2o$7b2o16b4o
+43bo$24b2ob2o39bo3bo$25b2o42b4o14b4o20bo$51bo34bo3bo18bobo24b2o5b4o$
+52bo37bo19b2o22b2ob2o3bo3bo$34b2o11bo4bo36bo44b4o8bo$33b2ob2o10b5o82b
+2o8bo$16b2o16b4o68bo14b2o5b4o$15b2ob2o15b2o50bo16bobo12b2ob2o3bo3bo$
+16b4o68bo16b2o12b4o8bo$17b2o69bo31b2o5bo2bo$66bo20b2o$57b2o6bo20bo14bo
+23b2o$19b3o34b2ob2o4bo3bo29bobo22b5o$18b2o3bo33b4o4b4o31b2o22bo4bo$17b
+2o2bobo34b2o64b3o2bo$18bo5bo21b2o32b2o5b4o34bo2b2o$19b2o2bo21b2o31b2ob
+2o3bo3bo35b2o$23bo23bo12bo17b4o8bo$21bo37b2o18b2o8bo$25bo32b2o$16b2o6b
+o16b2o16b2o67b4o$15b2ob2o4bo3bo11b2o85bo3bo$16b4o4b4o14bo67b4o17bo$10b
+o6b2o77b2o11bo3bo16bo$b2o6bo85b2ob3o12bo$2ob2o4bo3bo22b2o19b2o37b5o11b
+o$b4o4b4o22b2o19b2ob2o15b2o19b3o21bo$2b2o33bo19b4o14b4o43bo$58b2o14b2o
+b2o39bo3bo16bo$75b2o42b4o17bo$4bo7b3o16b2o103bo3bo$3b2o9bo15b2o105b4o$
+2b2obo6b3o17bo$3bobo3b3o$4b2o$26b2o102bo4b2o$25b2o100b4o3b2ob2o$27bo
+98b5o4bo2bo$b2o122bo9bo2bo$2ob2o14b2o105b2o8b2o$b4o13b4o105bo$2b2o13b
+2ob2o$18b2o109b2o8bo$128b4o8bo$128b2ob2o3bo3bo$130b2o5b4o!
+
+#N Irrational 2
+#C Population growth appears to be linear with an irrational multiplier.
+#C The probability that a MWSS will hit a boat seems to be  1/sqrt(2)
+#C for the lower (westward) stream, and  sqrt(2)-1  for the upper
+#C (eastward) stream.  If this is true, then the population in gen t is
+#C about  (78 sqrt(2) - 73)t/40  for t even, and (82 sqrt(2) - 77)t/40
+#C for t odd.  If you can prove any of this, please let me know.
+#O Dean Hickerson, dean.hickerson@yahoo.com (5/20/91)
+x = 164, y = 67, rule = B3/S23
+7bo8b2o$6bo8b4o$6bo3bo3b2ob2o$6b4o5b2o2$20bo$20b2o122b2o$10b2o7b2obo
+119b2ob2o13b2o$8b2o2bo7bobo119b4o13b4o$8bo2b3o3bo3b2o120b2o14b2ob2o$8b
+o4bo2b3obo140b2o$9b5o122bo$11b2o124b2o$136b2o$7bo2bo20bobo124b2o$6bo
+25b2o118b3o3bobo$6bo3bo14bo6bo98bo17b3o6bob2o$6b4o14bo64b2o41b2o15bo9b
+2o$24bo3bo58b2ob2o14b2o23b2o16b3o7bo$24b4o18bobo38b4o14b4o$47b2o39b2o
+15b2ob2o$47bo23b2o34b2o17bo33b2o$33b4o13bo17b3ob2o5bo47b2o22b4o4b4o$
+33bo3bo12b2o3b3o10b5o5bobo45b2o22bo3bo4b2ob2o$15b4o14bo15bobo3bo13b3o
+6b2o15b2o57bo6b2o$15bo3bo14bo2bo18bo38bo49b2o6bo$15bo73b3o13b2o14bo14b
+4o4b4o$16bo71bo2bo14b2o14b2o11bo3bo4b2ob2o$36b3o11b3o14b3o18b2ob2o12b
+2o14b2o16bo6b2o$20bo14bo3bo10bo5b4o6b5o34bo32bo$18b3o18bo11bo4bo3bo4b
+2ob3o71bo$17bo3bo15b2o17bo9b2o48bo23bo$17bo4b3o32bo2bo45b2o9b2o9bo11bo
+2b2o$17b2obob3o20b3o49b4o4b4o7b2o11bo9bo5bo$19bo3b2o20bo15bo34bo3bo4b
+2ob2o18b3o9bobo2b2o$20bobo23bo12b3o38bo6b2o19b3o9bo3b2o$58bo3bo9bo26bo
+11bo12b5ob3o9b3o$58bo4b3o4b2o40b2o11b3o3b2o$15b4o5b2o14b3o15b2obob3o5b
+obo37b2o13bo$15bo3bo3b2ob2o12bo19bo3b2o6b2o71b2o$15bo8b4o13bo19bobo80b
+4o$16bo8b2o79bo6bo13b2o15b2ob2o$4o5b2o96b2o3bo13b4o16b2o$o3bo3b2ob2o
+22b3o18b4o5b2o24b5o10b2o4b3o11b2ob2o$o8b4o22bo20bo3bo3b2ob2o22bo4bo31b
+2o$bo8b2o24bo19bo8b4o22bo$57bo8b2o24bo22b3o$13bo62b6o33bo21b2o$3b2o8b
+2o15b3o43bo5bo33bo18b2ob2o$2bo2bo9bo14bo45bo58b4o16b2o$2bo2bo4b5o16bo
+45bo53bo4b2o15b2ob2o$2b2ob2o3b4o116bobo20b4o$4b2o4bo118bo24b2o$25b3o
+103b2o$25bo$26bo117bobo3b4o$4o138bo4bo2bo2b2o$o3bo13bo123bo3bo4bo2b2o$
+o16bo123bo3bo5bo2bo$bo15bo3bo120b2o8b2o$17b4o121b2o2$144bo2bo$148bo6b
+2o$144bo3bo4b2ob2o$145b4o4b4o$154b2o!
+
+#N Unknown irrational
+#C Population growth appears to be linear.  If you can find the rate
+#C of growth, please let me know.   (It's probably irrational, and
+#C probably different for even and odd generations.)   Just proving
+#C that the pattern never blows up isn't quite trivial.
+#O Dean Hickerson, dean.hickerson@yahoo.com (6/16/91)
+x = 91, y = 63, rule = B3/S23
+73bo$74bo6b2o$70bo3bo4b2ob2o$71b4o4b4o$80b2o3$79bo$57b2o20b2o$57bo15b
+2o3bob2o$46bobo6bobo15bo4bobo$44bo3bo6b2o21b2o$36bo7bo$35b4o4bo$23b2o
+9b2obobo4bo$8b2o13bo9b3obo2bo3bo3bo7b2o23b2o$8bo25b2obobo6bobo7bo22b2o
+b2o$35b4o24b2o14b4o$36bo24b2ob2o14b2o$61b4o$62b2o2$53b4o$8bo43bo3bo$7b
+3o46bo14b4o$6b5o44bo14bo3bo$5bobobobo38b2o22bo$5b2o3b2o38bo19bo2bo$24b
+o$22b4o42b2o$8bo7b2o5bob2o14b2o24b5o$7bobo6bo4bobob3o11bo2bo20b2o2bo4b
+o$6b2obo13bob2o11bo24bo3b3o2bo$6b3o13b4o12bo11b2o16bo2b2o$5bo2bo15bo5b
+o7bo11bo18b2o$5b3o21bo9bo2bo$4bo3bo20b3o9b2o$3bo5bo$4bo3bo5bo49b2o5b4o
+$5b3o7bo46b2ob2o3bo3bo5bo$13b3o21bo24b4o8bo6bo6b2o$38bo24b2o8bo3bo3bo
+4b2ob2o$32bo5bo39b4o4b4o$33b6o48b2o$74b2o$41b3o13b2o$40b5o4b4o5b2o13bo
+2bo7b3o$40b3ob2o2b6o3bo14b2ob2o5bo3b2o$43b2o3b4ob2o18bob5o2bobo2b2o$5b
+2o45b2o20bo2b3obo5bo$5bo56b2o14bo3bo2b2o$63b2o17bo$11bo22b2o26bo21bo$
+8b4o22bo8b2o3bo6bo$2o5b4o7bo4b2o7bobo10bobo8bo31b2o$o6bo2bo7b2o3bobo6b
+2o9b2o2bo8bo13b2o14b2ob2o$7b4o6bobo4b3o12bo8b9o12b4o13b4o$8b4o13b3o12b
+o28b2ob2o13b2o$11bo12b3o8bo4bo30b2o$23bobo10b5o8b4o$23b2o23b6o$48b4ob
+2o$52b2o!
+
+#N p60 version of Irrational 5
+#C Two puffers move east, producing a westward MWSS and a boat
+#C every 60 gens.  Two stationary guns produce a glider every 60
+#C gens and an eastward MWSS every 120 gens; half of the gliders
+#C delete the MWSSs while the other half escape.  But when a
+#C westward MWSS reaches the guns, it deletes 2 consecutive gliders,
+#C allowing one eastward MWSS to escape and suppressing one output
+#C glider.  When an eastward MWSS hits a boat, it becomes a NEward
+#C glider which deletes one westward MWSS.  Thus, each westward
+#C MWSS that reaches the guns causes the deletion of a later
+#C westward MWSS.  Specifically, if the westward MWSSs are
+#C numbered starting at 3, then, for each integer  K >= 2,  MWSS
+#C number  floor(K phi)  causes the deletion of MWSS number
+#C floor(K (phi+1)),  where  phi = (1 + sqrt(5))/2.  Also, a glider
+#C escapes from the bottom of the pattern about generation
+#C 120 floor(K (phi+1)).  Relative to a complete p120 glider stream,
+#C the resulting stream of gliders has density  1/(phi+1) =
+#C (3 - sqrt(5))/2 ~ 0.381966.
+#O Dean Hickerson, dean.hickerson@yahoo.com (1/2/99)
+x = 151, y = 91, rule = B3/S23
+105b2o$103b2ob2o13b2o$103b4o13b4o$104b2o14b2ob2o$122b2o4$119b2o$113b3o
+3bobo$92bo17b3o6bob2o$33bo59b2o15bo9b2o$32bobo57b2o16b3o7bo$15b2o15b2o
+bo$15bobo14b2ob2o3b2o39b2o$6bo11bo13b2obo5bo36b3ob2o37b2o$6b2o7bo2bo
+13bobo43b5o29b4o4b4o7b2o$18bo14bo45b3o25bo3bo3bo4b2ob2o4b2ob2o13b2o$
+15bobo90bo6bo6b2o5b4o13b4o$15b2o87bo3bo5bo15b2o14b2ob2o$105b4o39b2o$
+100b3o$98b2ob2o$100b3o18bo$34bo70b4o13b2o$35bo41bo26bo3bo12b2o23b2o$
+33b3o42b2o28bo38b2o$12bobo62b2o28bo38b2o$10bo3bo101bo29bo$3b2o5bo15b2o
+89b2o$3bo5bo16bo2bo86b2o$10bo19bo116b2o$10bo3bo15bo107b4o4b4o$12bobo
+15bo99bo6bo3bo4b2ob2o$26bo2bo6b2o93bo9bo6b2o$26b2o8bobo88bo3bo8bo$38bo
+89b4o$38b2o83b3o$30b2o68b3o18b2ob2o$30bo2bo65bobob2o18b3o$16bobo15bo6b
+2o56bo3bobo22b4o$14bo3bo15bo7bo56bobo3bo21bo3bo$14bo19bo65b2obobo25bo$
+7bo5bo16bo2bo68b3o25bo$7b2o5bo15b2o22b4o$14bo3bo34b6o$16bobo34b4ob2o$
+57b2o57bo$117bo$51bo14b2o45bo3bo$49b3o10b4ob2o15b4o26b4o$48bo13b6o15bo
+3bo21b3o$48b2o13b4o20bo19b2ob2o$86bo22b3o13b2o8bo$114b4o6b4o8bo$113bo
+3bo6b2ob2o3bo3bo$68b2o28b2o17bo8b2o5b4o$68bobo27bobo15bo$9b2o23b2o33bo
+29bo$9bobo22bo$2o10bo14bo4bobo70b2o17b2o$o8bo2bo13bobo3b2o70bobo16b2o
+7b3o$12bo13b2obo76bo17bo2bo6bo$9bobo14b2ob2o94bo6bobo$9b2o15b2obo97b2o
+3b2o$26bobo81b2o$27bo19b2o60bobo$47bo63bo23bo$136bo$132bo3bo$48bo67b4o
+13b4o$17b2o27bob2o65bo3bo$17bobo26bo72bo$8b2o10bo14bo10bo71bo$8bo8bo2b
+o13bobo9bo2bo$20bo13b2obo9b2o$17bobo14b2ob2o4bo$17b2o15b2obo4b2o$34bob
+o$35bo31b2o9b2o$66b2o9bobo$61bo6bo7b3o$38bo21bobo12b3o$37bobo18b2o3bo
+12b3o$37b2obo8bobo6b2o3bo13bobo5b2o$25b2o10b2ob2o6bo2bo6b2o3bo14b2o5bo
+bo$25bo11b2obo6b2o6b2o3bobo24bo$37bobo5b2o3bo3bo2bo3bo25b2o$38bo8b2o6b
+2o$48bo2bo$49bobo!
+
+</PRE></BODY></HTML>

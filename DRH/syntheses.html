@@ -1,0 +1,253 @@
+<!--saved from url=(0087)http://web.archive.org/web/20071123223813/www.math.ucdavis.edu/~dean/RLE/syntheses.html -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE> 2, 3, and 4-glider syntheses </TITLE> </HEAD><BODY bgcolor="#D0D080" text="black">
+Return to <a href="life.html">Dean Hickerson's Life page</a> <PRE>
+#C Collection of still-lifes and oscillators which can be synthesized
+#C from 2, 3, or 4 gliders.
+#C Only one synthesis is shown for each one, even if several are known.
+#C Unless otherwise indicated, these were taken from Mark D. Niemiec's
+#C Life Page ( http://home.interserv.com/~mniemiec/lifepage.htm ).
+#C Names of the less common objects are taken from Andrzej Okrasinski's
+#C Game of Life Statistics ( http://www.geocities.com/conwaylife/lf020n.pdf ).
+#C Objects are sorted first by the number of gliders needed and then by
+#C the population.  (For oscillators I use the population of the minimal
+#C phase.)
+#C
+#C 2-glider syntheses
+#C     3 bits:   blinker (period 2)
+#C     4 bits:   block
+#C     5 bits:   boat
+#C     6 bits:   beehive
+#C     7 bits:   loaf
+#C               eater
+#C     8 bits:   pond
+#C
+#C 3-glider syntheses
+#C     4 bits:   tub
+#C     6 bits:   ship
+#C               barge
+#C               toad (period 2)
+#C               beacon (period 2)
+#C     7 bits:   long boat
+#C     8 bits:   mango
+#C               long barge
+#C     9 bits:   very long boat
+#C               hat
+#C
+#C     12 bits:  pentadecathlon (period 15)
+#C     14 bits:  half bakery
+#C               paper clip
+#C     48 bits:  pulsar (period 3)
+#C
+#C 4-glider syntheses
+#C     6 bits:   snake
+#C               aircraft carrier
+#C               clock
+#C     7 bits:   long snake
+#C     8 bits:   shillelagh
+#C               long ship
+#C               tub with tail
+#C               canoe
+#C               hook with tail  (found by me, 4/29/2007)
+#C     9 bits:   long canoe
+#C
+#C               integral sign
+#C               up boat with tail
+#C               down boat with tail
+#C     10 bits:  very long ship  (found by me, 3/28/2007)
+#C               beehive with tail
+#C               very long canoe
+#C               cis-shillelagh  (found by Heinrich Koenig, 3/21/2007)
+#C               great snake eater
+#C               boat-tie
+#C               block and table
+#C
+#C               up barge with tail  (found by me, 4/13/2007)
+#C     11 bits:  trans loaf with tail
+#C               cis loaf with tail
+#C               ship on boat
+#C               elevener
+#C               trans boat with nine  (found by me, 3/27/2007)
+#C               unnamed 11-bit still-life  (found by me, 4/17/2007)
+#C               unnamed 11-bit still-life  (found by me, 3/28/2007)
+#C               cis boat and table  (found by me, 3/31/2007)
+#C     12 bits:  ship-tie
+#C
+#C               eater on boat
+#C               pair of tables
+#C               beehive and table  (found by me, 3/28/2007)
+#C               block and cap
+#C               trans mango with tail
+#C               beehive at beehive
+#C               carrier on carrier
+#C               tub with tail siamese eater
+#C               beehive with bend tail  (found by me, 3/27/2007)
+#C               trans legs and block  (found by me, 4/4/2007)
+#C
+#C               carrier on table  (found by me, 4/4/2007)
+#C               figure 8 (period 8)
+#C     13 bits:  cis boat and cap  (found by me, 4/3/2007)
+#C               eater on ship  (found by me, 3/28/2007)
+#C     14 bits:  big S
+#C               cis rotated R-bee
+#C               cis mirrored R-bee
+#C               trans hook and R-bee  (found by me, 4/17/2007)
+#C               cis-cap and table  (found by me, 4/17/2007)
+#C               block and dock
+#C
+#C               eater on eater
+#C               sidewalk
+#C               cis loaf at loaf
+#C               cis very long fuse with two tails
+#C               bookends
+#C               fourteener  (found by me, 3/28/2007)
+#C               unnamed 14-bit still-life  (found by Heinrich Koenig)
+#C     15 bits:  moose antlers
+#C               R-bee on shillelagh
+#C               unnamed 15-bit still-life  (found by me, 4/7/2007)
+#C
+#C               cis boat and dock
+#C               eater and cap
+#C               trans hook and R-loaf  (found by me, 3/28/2007)
+#C               hook on pond  (found by me, 3/28/2007)
+#C               bee-hat  (found by me, 4/29/2007)
+#C               unnamed 15-bit still-life  (found by me, 4/29/2007)
+#C     16 bits:  bi-pond
+#C               shift R-bee and C
+#C               cis hook and R-mango  (found by me, 4/3/2007)
+#C               scorpion  (found by me, 4/7/2007)
+#C
+#C     18 bits:  cis mirrored R-mango
+#C               dead spark coil
+#C               trans rotated C
+#C               spark coil (period 2)
+#C     19 bits:  unnamed 19-bit still-life  (found by me, 3/28/2007)
+#C     20 bits:  cis mirrored dock
+#C     22 bits:  vase
+#C Dean Hickerson, 4/29/2007
+x = 697, y = 335, rule = B3/S23
+b3o14bo3bo50bo19bo26bo4bo14bobo61b2obo18bobo26b2o15bobo36bo22bo51bo48b
+o20b2o36bo17b2o18bo44b2o21bo36b2o18bo17bo$16bobo2bo50bobo12bobo2bo25b
+2ob4ob2o12b2o62bob2o19b2o26bobo15b2o4bo30bobo19bobo50bobo2b2o43bobo18b
+o2bo32b2o18bo20b2o38b2obobo19b2o36bo2bo18bo17bo$17b2o2b3o49bo14b2o2b3o
+25bo4bo15bo5bo79bo29bo15bo3b2o32bobo19b2o51b2o3bo43b2o21b2o33b2o18b3o
+16b2o38bobobo15bo6b2o34bo2bo17b3o15b3o$88bo58bobo83bo23bobo18b2o32bobo
+73b3o63b4o57bo57bo2bo16bo41b3o$147b2o83bo25b2o54bo73bo65bo2bo58b2o58bo
+bo12b3o$95b2o135b3o79b2o18bo182bo16b3o40b2o21b2o33b3o14b3o$95bobo237bo
+181bobo16bo63bobo32bo2bo15bo19b3o$95bo44b3o131b2o6b3o48b3o4b3o144bobo
+28b2o15bo59bobo2bo35bo2bo13bo22bo$142bo85b2o43b2o7bo57bo147b2o106b2o
+39b2o36bo$141bo85b2o46bo7bo57bo146bo50b2o55bo$229bo99b2o207bobo$220b2o
+106bobo142b2o65bo3bo$221b2o107bo141bobo9b3o56b2o$220bo253bo11bo56bobo$
+485bo$406bo2bobo$404bobo2b2o$405b2o3bo12$433b2o$432b2o$434bo4$2b2o18bo
+50b2o12bo37b2o27bobo47b2o19bo10bo18b2o16bo41bo22bo49bo2bo29bo36b2o18bo
+36bo21bo36b2o23bobo31b2o3b2o22bo$2b2o17bo50bobo13b2o2bo31bo2bo26b2o48b
+o2bo18bo8bo20bo17bo38b3o12bo8bo50b4o28bo35bob2o19bo35b3obo18bo8bo25bo
+2bo16bo5b2o32bobobobo23b2o$21b3o48b2o13b2o3bobo29bobo28bo50b2o16b3o8b
+3o18bobo13b3o37bo16b2o6b3o80b3o32bo21b3o38b2o16b3o7bo26b4o14bobo6bo34b
+obo15bo8b2o$18bo73b2o28b2obo15bo115bobo19bobo29bobo14b2o58b4o66bo56b2o
+29b3o43b2o39bobobobo14bo$16bobo102bo2bo17bo115b2o19b2o29bo2bo74bo2bo
+62b2obo57bob3o55b2o56b2o3b2o12b3o$17b2o102bobo16b3o137bo30b2o20b2o3b2o
+114b2o18bo44bo12b3o41bo89b2o$122bo97b3o8b3o99bobob2o133bobo59bo15b3o
+23bobo86bobo$97b2o123bo8bo101bo5bo65bo67b2o58bo16bo26b2o77b3o8bo$96b2o
+47b3o73bo10bo52b3o117b2o144bo46b2o58bo$98bo48bo137bo118bobo2b2o186bobo
+57bo$146bo139bo122bobo5b2o180bo3bo$409bo6b2o184b2o$282b2o134bo183bobo$
+281b2o$283bo206b2o$490bobo$482b2o6bo$483b2o$482bo17$2bo15bo53bo18bo33b
+2o17bo61bo22bo25b2o27bo25b2o16b2o9bobo48bo13bobo50bo26bobo28bo18bo41b
+2o26bo28b2o18bo8bo$bobo12bobo3bo48bobo16bo32b3obo17b2o57bobo15bo5bo27b
+o27bobo24bo2bo14b2o8b2o45b2obobo13b2o49bobo25b2o28bobo15bobo37b2obo2bo
+20bobo2bobo26bobo18bo8b2o$2b2o13b2o2b2o49bobo15b3o29bo4bo16b2o59bobo
+12bobo5b3o25bob2o13bo10b2o25bobobo12bo3b2o6bo46bobobo13bo50b2o27bo27bo
+2bo16b2o38bobobo22b2o2b2o29bo2b2o12b3o7b2o$21bobo49bo48bob3o78bo15b2o
+34bobo13b2o37bo2bo16bobo52bo2bo27bo95b2ob2o52bobob2o23bo32bobobobo$
+123b2o108b2o23bo13bobo38b2o17bo53b2o29bo38b4o56bo2bo51b2o60b2o2bo$145b
+3o77b3o5bobo41b3o137b3o36bo2bo56bobo118bobo16b3o7b2o$88b2o3b3o44b3o2bo
+81bo5bo43bo179b2o14b2o2b2o38bo22bo50b3o44b2o18bo6bobo$87bobo3bo48bo3bo
+79bo51bo57b2o134bobo2bobo58b2o53bo63bo9bo$89bo4bo46bo193b2o84b3o50bo2b
+o61b2o51bo19b2o$337bo83bo190bobo$273b2o135b2o10bo189bo$272bobo134bobo
+128b3o$274bo136bo66b2o60bo$478bobo60bo$478bo2$548b3o$548bo$549bo17$b2o
+19bo48b3o15bo27b3o3b3o20bo56b2o15bo37b2o13bo40bo14bobo57b2o24bo42b2o
+20bo35bo32bo22b2o26bobo29b2o4b2o23bo$o2bo18bobo47b3o15bo54bo57bobobo
+13b2o34bobo14bo38bobo13b2o58bobo21b2o38b2o2bobo21b2o33b3o30bobo20bo2bo
+24b2o30bobo2bobo24b2o$b2o19b2o64b3o3b2o19bo4bobo4bo17b3o58b2o12b2o11bo
+22bobo13b3o38b2o15bo55b2obobo22b2o37bo3b2o21b2o37bo29b2o22b3o25bo32bo
+2bo15bo9b2o$18bo74b2o20bo4bobo4bo103b2o22bobo53b2o73b2ob2o63b3o61bo57b
+2o54bobo2bobo14bo$16bobo76bo19bo4bobo4bo104b2o21b2o25b3o25bobo93bo49bo
+55b2o3bo57bo2bo26b2o25b2o4b2o12b3o$17b2o69b2o27b3o3b3o151b2o3bo27b2o
+16b2o3b2o71bobo104bo2bo58bo2bo26bobo59b2o$87bobo182b2o3bobo3bo45b2o2bo
+bo4b3o63b2o84bo20bobo60b2o27bo60bobo$89bo27b3o3b3o14b2o86b3o42b2o2bo
+50bo4bo6bo150bo22bo141b3o9bo$115bo4bobo4bo13b2o5b2o71b2o5bo43bo68bo73b
+2o74b3o50bo55b3o55bo$115bo4bobo4bo12bo6b2o73b2o5bo174b3o8bobo125bo58bo
+54bo$115bo4bobo4bo21bo71bo184bo8bo127b3o45b2o8bo$405bo82b2o102b2o$117b
+3o3b3o362bobo100bo$488bo53b2o$541b2o$543bo$472b3o$474bo57b3o$473bo60bo
+$533bo16$b2o14bo55b2o14bo3bo111b2o22bo24b2o16bobo39b2o18bo50b2o18b2o
+50b2o27bo27b2ob2o16bobo7bobo28b2o23bo33b2o28bo$o2bo14bo55bo12bobo3bobo
+110bo15bo6bobo23bo17b2o38bobo19b2o49bo17bobo49bo2bo24b2o29bobo18b2o7b
+2o28bo2bo20b2o32b3obo27bobo$bobo12b3o52bo16b2o3b2o110bo14bobo6b2o24bob
+2o14bo39bo20b2o3bo46bob2o16bo3bo45bob2o25b2o26bobobobo16bo9bo27bob2o
+22b2o30bo4bo27b2o$2bo18b2o48b2o132bobo13b2o33bo2bo51b3o25bobo45bo2bo
+18b2o42b2obo56b2o3b2o54bobo15bo39bobobob2o$21bobo182b2o49b2o51bo28b2o
+47bo2bo17bobo41bo2bo32bo83b2obobo14b2o38b2obo2bo$21bo74bo130bo82b2o77b
+2o63b2o33bobo40b3o13b3o26b2o13b2o43b2o$95b2o124b3o2b2o102bobo156b2o43b
+o13bo120b2o$95bobo125bo2bobo102b2o160b2o38bo15bo103bo15bobo$222bo108bo
+73b2o86bobo101b3o53b2o14bo$275bo2bobo125b2o12bo72bo97b3o3bo54bobo$273b
+obo2b2o48b3o74bo13b2o172bo4bo66bo$274b2o3bo50bo88bobo170bo72b2o$329bo
+334bobo4$292b3o178bo$292bo180b2o$293bo178bobo17$2b2o17bobo47b2o17bo
+113b2o31bo15b2o18bo36b2o20bo3bobo51bo25bo41bo19bo35b2o17bo41b2o25bo30b
+2o3b2o14bo3bo$bobo17b2o48bobo15bo114bobo28b2o16bobo18bo35bobo18bo4b2o
+51bobo24bobo35b2obobo14bo3bobo32bobo2b2o14bo39bo2bo19bo4bobo28bobobobo
+12bobo3bobo$bo16bo3bo49bobo14b3o113bobo28b2o18bo15b3o37bo18b3o3bo51bob
+o24b2o35bobobobo12bobo3b2o33bo5bo12b3o9bo29b2obo18b2o4b2o31bobo15b2o3b
+2o$2o14bobo54bo132b2o49bo54bobo72b2obo62bobob2o14b2o39b5o23b2o31bob2o
+17bobo36bobo$17b2o239bo54bobo70bo2bo64bo61bo26b2o30bo57bobobobo$93bo
+130bo34bo54b2o14bo56b2o91b2o94b3o54b2o3b2o13b2o3b2o$87b2o3b2o128bobo
+33b2o16bo51bobo9bo134b2o3bobo65b2o28bo12b2o3b2o54bobo3bobo$88b2o2bobo
+128b2o52bo51b2o9bobo72bo58bobo3bo63b2o2bobo41b2o2bobo55bo3bo$87bo187b
+3o62b2o72bo61bo66bobo2bo42bo4bo$228bo185b3o128bo$227bo$227b3o47b2o$
+278b2o4b2o118b3o6b2o$277bo6bobo119bo5b2o$221b2o61bo120bo8bo$220bobo$
+222bo19$b2o20bo49bo19bo112bo16bobo5bobo21b2o29bo27bo31bobo2bo36b2o14bo
+52b2o13bobo39bo25bo35b2o20bo38b2o18bo$o2bo14bo2b2o49bobo16bobo111bobo
+16b2o6b2o21bobo26b2o27bobo31b2o2bobo32bo2bo15b2o49bo2bo13b2o39b3o15bob
+o3b2o35bo2bo17bobo38bobo18bo37bo$o2bo12bobo3b2o47bo2bo17b2o112bo17bo7b
+o25bo26b2o25bo2bo31bo3b2o33b2o2b2o12b2o51b3o13bo43bo15b2o4b2o34bo2bo
+18b2o35bo4bo16b3o35b2o$b2o14b2o52bobo129b3o53bo52bobo76bo92bobo27b2obo
+15bo39b2ob2o56b5o56b2o$72bo130bo53bobo18bobo30b2ob2o73bo67b3o24b2o28b
+2obobo52bo2bo$87b3o131b2o7b3o24b2o13bo5b2o109b2o65bo2bo25bo32b2o52bo2b
+o16bo41b5o13b3o$89bo130bobo7bo42b2o4bo177b2o22b2o58b2o30b2o18bo40bo4bo
+14bo36b2o$88bo7b3o123bo8bo40b2o207bobo56bobo48b3o43bobo13bo36b2o$96bo
+312bo63bo7bo60bo3bo57bo32b2o53bo$97bo312bo62b2o70b2o56b2o$408b3o61bobo
+70bobo51b2o2bobo$274bo323bobo$274b2o324bo$273bobo134b2o$411b2o$410bo9b
+o$419b2o$419bobo4$329b2o$328bobo$330bo4$367b3o$367bo$368bo6$73bo17bo
+114b2o25bo20b2o28bo25b2o34bo38b2o17bobo9bo40b2o20bo35bo16bobo39b2ob2o
+21bo$72bobo14bobo113bobo26bo20bo27bo26bobob2o30bobo36bobo17b2o9bobo37b
+o2bo17bobo34bobo16b2o39bo3bo19bobo$71bobo16b2o112bo27b3o20bob2o24b3o
+26bobo31b2o39bo17bo3bo6b2o38b3o19b2o32b3ob3o14bo41b3o21b2o$70bobo130bo
+52bo2bo13b2o37bobo72b3o19bobo99bo7bo$71bo131b2o53b2o12bobo38bo19bo56bo
+18b2o45b3o23b3o26b2o5b2o53b3o27bo$87bobo5bo135b2o41bo3bo52bobo55bobo
+63bo2bo23bo89bo2bo27bobo$88b2o5bobo133bobo43b2o53b2o56bo64b2o26bo58b2o
+29b2o28b2o$88bo6b2o134bo45bobo262bobo$337b2o154b2o43bo3bo48bo$221b2o
+114bobo153bobo42b2o52b2o6bobo$220bobo114bo78bo55b3o18bo43bobo51b2o7b2o
+$222bo105b3o84b2o57bo126bo$235b2o93bo84bobo55bo$234b2o49b2o42bo215b3o$
+236bo48bobo257bo$285bo260bo5$367bo$366bo$366b3o3$364bo$363b2o$363bobo
+8$70b2o22bobo106b2o16bo33bo21bo35bo74b2o14bobo6bo42bo2bo29bo28bo26bo
+26b2ob2o26bobo$70bobo21b2o108bo17bo31bobo20bobo32bobo72bo2bo14b2o7bo
+41b4o28bo25b2obobo26bo26bobobo26b2o$71bobo21bo108bob2o12b3o32b2o20b2o
+33b2o73bobobo13bo6b3o73b3o24bobobo24b3o6b3o15bobobo2bo25bo$72bobo130bo
+bo49b2o127b2obobo64b4o54bo2b2o34bo17b2o3bobo$73bo183bobo21bo30b4o74bo
+65bo2bo54bobo37bo22bo$87bobo3b3o162bo14b2o6bobo28bo2bo96b3o42b2o56b2o
+83b3o$88b2o3bo178bobo6b2o131bo118bo6b3o48b3o8bo$88bo5bo179bo131b2o5bo
+119b2o7bo50bo7bo$228bo176bobo69b2o53bobo6bo50bo$226b2o49b2o128bo69bobo
+$227b2o47bobo193b2o3bo$278bo194b2o$472bo$227b3o249b2o$227bo101b2o148bo
+bo$221b2o5bo99bobo148bo$220bobo107bo$222bo123b3o$348bo$347bo3$614b3o$
+614bo$615bo11$70b2ob2o18bo112b2o27bo19b2o20bo36b2o13bobo55bo26bo39b2o
+18bo7bo31b2o33bo25b2o27bo$71bobo14b2o3bobo111bo26bo21bo21bo34bobo13b2o
+56b3o25bo38bobo15bobo5b2o31bo2bo30b2o25bo2bo25bo$71bobo13bobo3b2o111bo
+27b3o19bob2o16b3o34b2o15bo59bo22b3o40bo16b2o6b2o29bo2b2o31b2o24b2obo
+25b3o$72bo16bo115bo16bo3bo28b2ob2o51b2o74b2obo65bob2o53b2o2b2o58b2o$
+202bobo15bobo3bobo81bobo74b2ob2o62bobob2o56bo2bo15b2o37b3o16b2o$202b2o
+17b2o3b2o44b3o35b2o16b2o3b2o6bo72b2o38b2o17b2o3b2o37b2o15bobo36bo2bo
+15bobo$274bo54b2o2bobo3b2o63b3o8b2o55bobo3bobo55bo3bo33b2o18bo3bo$97b
+2o174bo54bo4bo6b2o64bo7bo59bo3bo60b2o56b2o$97bobo128b3o54b2o118bo133bo
+bo55bobo$97bo130bo55b2o247b2o$229bo51bo4bo245bobo$280b2o252bo57b2o$
+280bobo308bobo$593bo4$423b3o$423bo$424bo!
+
+</PRE></BODY></HTML>
