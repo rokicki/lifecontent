@@ -1,0 +1,30 @@
+#C reactions:
+#C    A1:kickback reaction
+#C    A2:glider-block cycle reaction
+#C    A3:rephaser
+#C    A4:AK47 reaction
+#C    A5:inline inverter
+#C    A6:MWSS out of the blue
+#C    B1:killer toads
+#C    B2:transparent block reaction
+#C    B3:double block reaction
+#C    B4:Fast Forward Force Field (4F)
+#C    B5:do-see-do
+x = 317, y = 103, rule = B3/S23
+25bo39bobobo37bobobo38bo3bo56bobobo71bobobo$$25bo43bo41bo38bo3bo56bo
+75bo$$25bo39bobobo37bobobo38bobobo56bobobo71bobobo$$25bo39bo45bo42bo
+60bo71bo3bo$$25bo39bobobo37bobobo42bo56bobobo71bobobo15$280bobbo$284bo
+$280bo3bo$281b4o5$bbo210bo$107bobbo41bo61bo84boo14boo$bobo22bo39boo37b
+obobbobo38bobo58b3o83boo15boo$27boo37boo38boobboo38bo3bo144b5o$o3bo17b
+oobboo122bo3bo65bobo59boo16b4o$21bobo126bo3bo63bo3bo59boo5bo$obobo18bo
+41bobbo39boo41bobo56bo7bo69b3o9b4o$63bobobbobo37boo42bo56b4o4bo4bo8boo
+54bobobo7b5o$o3bo59boobboo138boobobo4bo12boo55bobbo6boo15boo$149boo46b
+oo8b3obobbo3bo3bo65b3o8boo14boo$150bo46boo9boobobo6bobo66bo$147b3o5boo
+52b4o$147bo7boo53bo3$282bo7bo$$280b3o7b3o$281booboobooboo$282b3o3b3o$
+283bo5bo11$282boo5boo$282boo5boo3$245bobo$245boo$246bo17$240boo$240bo$
+238bobo$238boo$222bobo$222boo$obo220bo$18boo7b3o$o3bo11bo4bo4b3o186b3o
+$22bo77b4o5boo41bo6bo32boo8b3o8booboboo$obo13bo5bo36bo39bo3bo6booboo
+38bo6boo30boo8bo3bo5bo5boo$17b6o36boo10boo30bo6bobboo32boobb3o5boo41bo
+4bo5booboboo$o3bo21b3o31boo9boo26bobbo42booboo53bo3bo7b3o$27b3o29boo
+84b4o9bo$obo109boo32boo9boo44bo3bo$112boo43bobo42bo4bo$192boo8bo3bo12b
+oo$192boo8b3o14boo!

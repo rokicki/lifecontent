@@ -1,0 +1,51 @@
+#C polyominoes:
+#C    A1:domino
+#C    B1:blinker
+#C    B2:pre-block 
+#C    C1:T-tetromino (T)
+#C    C2:block
+#C    D1:O-pentomino
+#C    D2:P-pentomino
+#C    D3:Q-pentomino
+#C    D4:R-pentomino (R, r5)
+#C    D5:S-pentomino
+#C    D6:T-pentomino
+#C    D7:U-pentomino
+#C    D8:V-pentomino
+#C    D9:W-pentomino 
+#C    D10:X-pentomino
+#C    D11:Y-pentomino
+#C    D12:Z-pentomino
+#C    E1:century (kidney)
+#C    E2:stairstep hexomino (lumps of muck, LoM)
+#C    E3:pre-beehive
+#C    E4:Z-hexomino
+#C    E5:toad
+#C    E6:table
+#C    F1:B-heptomino (B)
+#C    F2:C-heptomino
+#C    F3:Herschel (D-heptomino, J, J-heptomino)
+#C    F4:E-heptomino
+#C    F5:F-heptomino
+#C    F6:H-heptomino
+#C    F7:I-heptomino
+#C    F8:pi-heptomino (pi)
+#C    F9:bullet heptomino
+#C    G1:octomino
+x = 240, y = 115, rule = B3/S23
+19bo15bobobo15bobobo15bo3bo15bobobo15bobobo15bobobo15bobobo15bobobo11b
+o3bobobo15bo3bo11bo3bobobo$$19bo19bo19bo15bo3bo15bo19bo23bo15bo3bo15bo
+3bo11bo3bo3bo15bo3bo11bo7bo$$19bo15bobobo15bobobo15bobobo15bobobo15bob
+obo19bo15bobobo15bobobo11bo3bo3bo15bo3bo11bo3bobobo$$19bo15bo23bo19bo
+19bo15bo3bo19bo15bo3bo19bo11bo3bo3bo15bo3bo11bo3bo$$19bo15bobobo15bobo
+bo19bo15bobobo15bobobo19bo15bobobo15bobobo11bo3bobobo15bo3bo11bo3bobob
+o8$3bo$$bbobo$18boo$bo3bo$$bobobo$$bo3bo6$bobo$$bo3bo$$bobo13b3o18bo$
+38boo$bo3bo$$bobo8$bbobo$$bo3bo$17b3o18boo$bo16bo19boo$$bo3bo$$bbobo7$
+bobo$$bo3bo$15b5o18boo16b4o18boo18boo17b3o17bobo17bo19bo20bo19bo18boo$
+bo3bo32boo19bo17boo17b3o19bo18b3o17bo19boo18b3o16b4o18bo$38bo39bo39bo
+38b3o18boo18bo39boo$bo3bo$$bobo7$bobobo$$bo$18boo18boo17b3o17boo17b3o
+17b4o$bobobo10b3o18boo18b3o18bo18b3o16bobbo$17bo18boo40bo$bo76boo$$bob
+obo7$bobobo$$bo$16boboo17b3o17bo19b3o16boo18boo18boo19b3o18bo$bobobo
+10b3o17b3o18b3o16boo19bo19bo19bo19bobo17b3o$17bo19bo19bobo17boo18bo19b
+3o17boo18bobo17b3o$bo57bo37b3o18bo19boo$$bo7$bbobo$$o$18boo$obbobo12b
+oo$16b3o$o4bo11bo$$bbobo!

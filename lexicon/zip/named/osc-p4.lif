@@ -1,0 +1,63 @@
+#C p4 oscillators:
+#C    A0:mold (mould)
+#C    A1:mazing
+#C    A2:monogram (initials, JHC)
+#C    A3:pinwheel (Catherine wheel)
+#C    A4:clock II
+#C    A5:Gray counter
+#C    A6:1-2-3-4
+#C    A7:Achim's p4 (cloverleaf, dual 1-2-3-4)
+#C    A8:boss
+#C    A9:penny lane 
+#C    B0:confused eaters
+#C    B1:eater/block frob
+#C    B2:jack
+#C    B3:octagon IV
+#C    B4:T-nosed p4
+#C    B5:LW emulator (lightweight emulator, LWSS emulator)
+#C    B6:MW emulator (middleweight emulator, MWSS emulator)
+#C    B7:HW emulator (heavyweight emulator, HWSS emulator)
+#C    B8:fountain
+#C    B9:superfountain 
+#C    C0:wavefront
+#C    C1:hustler II
+#C    C2:windmill
+#C    C3:sixty-nine
+x = 356, y = 115, rule = B3/S23
+26bobobo34bo30bobobo30bobobo30bo3bo30bobobo30bobobo30bobobo30bobobo30b
+obobo$$26bo3bo34bo34bo34bo30bo3bo30bo34bo38bo30bo3bo30bo3bo$$26bo3bo
+34bo30bobobo30bobobo30bobobo30bobobo30bobobo34bo30bobobo30bobobo$$26bo
+3bo34bo30bo38bo34bo34bo30bo3bo34bo30bo3bo34bo$$26bobobo34bo30bobobo30b
+obobo34bo30bobobo30bobobo34bo30bobobo30bobobo15$bbo130boo33boo139bo$
+27boo34boo68boo33boo32bo36bo30boo3boo31bobo$bobo22bobbo31bobo30boo3boo
+100bobo34bobo28bobbobobbo30bobo29boo5boo$24bobbobo30bo5bo28bobobo31b4o
+31b4o30bobobo32bobobo27bobooboobo29booboo28bo7bo$o3bo23bo32bo3boo28boo
+boo27boobo4bo26boobo4bo26bobbo3bobbo29bo3bo26boo7boo27bo5bo24boobo7bob
+oo$24boboo67bobobo27boobobbobo26boobobbobo25bobobo3bobobo25boobobobob
+oo25bobobobo28bobobobobo23boobob5oboboo$obobo20bo37bobo28boo3boo29bo3b
+ooboo26bobboboboo23bobbo3bobbo26bobo5bobo23boo7boo26bobo3bobo27bobbobb
+o$64bo65bobobboboo26bobobboboo26bobobo32b5o27bobooboobo26boobo3boboo
+27b5o$o3bo126b4o31b4o31bobo65bobbobobbo26bobbobobobbo$202bo36bo30boo3b
+oo29bo5bo31bo$131boo33boo70bobo66booboo31bobo$131boo33boo71bo68bobo33b
+o$308bobo$309bo19$344bo$132boo175bo$132boo33bo$167bo135boobo5boboo22bo
+bbo5bobbo$93bo5bo31b4o31b3o134bo5bo5bo20boobbob5obobboo$24bo34boo32boo
+3boo30bo4bo103bo32boo30booboobooboo23bo11bo$24b3o33bo29bobboo3boobbo
+26bo6bo60boobobboboo27boobo3boboo22boobo4boboo57boboo9boobo$27bo32bobo
+27b3obbobobb3o25bo8bo59bo8bo27bo9bo22bo10bo27boo3boo21bobo3b3o3b3o3bob
+o$obo23bo34bobo31bobo27boobo8boboo24b5o28boo4boo29boo5boo24boo6boo22b
+oo15boo14b3obo13bob3o$26bobbo33booboo22b3obbobobb3o22boobo8boboo23bob
+3obo24b3obb4obb3o23b3obb5obb3o18b3obb6obb3o19bobbo3bobobo3bobbo24bobo$
+o3bo24bo36boo22bobboo3boobbo25bo8bo26bobobobo24bobbo6bobbo23bobbo7bobb
+o18bobbo8bobbo20b3ob9ob3o19b3o3bobo3b3o$27bobo30boo31boo3boo29bo6bo26b
+ooboboboo24boo8boo25boo9boo20boo10boo24bo4bo4bo22bobbo3bo3bobbo$obo24b
+oobboo28bo31bo5bo30bo4bo26bobbooboobbo130boo9boo20b4obbobobobb4o$31bob
+o24b3o70b4o27boo7boo130bo11bo20boobb3obob3obboo$o3bo28bo24bo246bo7bo
+21bo3bo3bobo3bo3bo$33boo97boo170boo7boo21bobbobobobobobobbo$obo129boo
+203boboboo3boobobo$338bo11bo21$132bo$131bobo$$129bo3boo$98bo29bo5bo$
+96boobo29bobo$29boo26bo36boo35boo6bo$29bo27b3o37boo40bo$30bo29bo33b3o
+28bo5boo4b3o$29boo28bobboo61bo11boo$bobo22boo3boo20bobooboboobbo22b3o
+33b3o7boobboobb3o$25bobb3obbo19boobobo5bo25boobb3oboo23boo6boboo4b3o$o
+3bo20bo5boo25bo4bo33b7o19boobb3obobo5b3o$26bo3bo26bo5boboboo19b7o30b3o
+$o20boobobo3bo26bobbooboboobo23boob3obboo23b3o6bo$21bobooboboo28boobbo
+39b3o28bobo$o3bo20bobo33bo$25bobo34b3o30b3o33bo3boo$bobo22bo37bo28boo
+35bo5bo$96boo33bobo$92boboo37boo$93bo!

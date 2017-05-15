@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<title>Life Lexicon</title>
+<meta NAME="Author" CONTENT="Stephen A. Silver">
+<meta NAME="Description" CONTENT="Stephen Silver's lexicon of terms used in Conway's Game of Life. Release 25r.">
+<meta NAME=KeyWords CONTENT="John Horton Conway's game of Life lexicon glossary John Conway's Life dictionary encyclopedia">
+<link href="lifelex.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div align="center">
+<table border="9" cellpadding="9" summary="title"><tr align="center"><td>
+<b class="l">Life Lexicon</b>
+<p>Release 25r, 2016 September 19<br>Single-page HTML version</p>
+</td></tr></table>
+</div>
+<h3 class="g">INTRODUCTION</h3>
+This is a lexicon of terms relating to John Horton Conway's Game of Life.
+An ASCII version and a multipage HTML version are also available.
+This HTML version can be viewed either
+<a href="lexiconf.htm" target="_top">with frames</a> or
+<a href="lexicon.htm" target="_top">without frames</a>.
+<p>This lexicon was compiled by Stephen A. Silver - see below for additional credits.
+<p>The latest versions of this lexicon (both HTML and ASCII) should be available from the
+<a href="lex_home.htm" target="_top">Life Lexicon Home Page</a>.
+<h3 class="g">CREDITS</h3>
+The largest single source for the early versions of this lexicon was a
+<a href="http://www.ibiblio.org/lifepatterns/lifep.zip" target="_top">glossary
+compiled by Alan Hensel</a>
+&#34;with indispensable help from John Conway, Dean Hickerson, David Bell,
+Bill Gosper, Bob Wainwright, Noam Elkies, Nathan Thompson, Harold McIntosh,
+and Dan Hoey&#34;.
+<p>Other sources include the works listed in the
+<a href="#bib">bibliography</a> at the
+end of this lexicon, as well as pattern collections by
+<a href="http://www.ibiblio.org/lifepatterns/lifep.zip" target="_top">Alan Hensel</a>
+and
+<a href="ftp://ftp.ibiblio.org/pub/linux/games/amusements/life/dblifelib-2.tgz" target="_top">David Bell</a>
+(and especially Dean Hickerson's file <tt>stamp.l</tt> in the latter collection),
+and the web sites of
+<a href="http://conwaylife.com/ref/mniemiec/lifepage.htm" target="_top">Mark Niemiec</a>,
+<a href="http://conwaylife.com/ref/lifepage/" target="_top">Paul Callahan</a>,
+<a href="http://wwwhomes.uni-bielefeld.de/achim/gol.html" target="_top">Achim Flammenkamp</a>,
+<a href="https://web.archive.org/web/20071112172439/http://members.aol.com/life1ine/life/lifepage.htm" target="_top">Robert Wainwright</a>
+and
+<a href="http://www.pentadecathlon.com/" target="_top">Heinrich Koenig</a>.
+Recent releases also use a lot of information from Dean Hickerson's
+header to his 1995
+<a href="http://conwaylife.com/ref/DRH/stamps.html" target="_top">stamp file</a>.
+<p>Most of the information on recent results is from the discoverers themselves.
+<p>The following people all provided useful comments on earlier releases
+of this lexicon: David Bell, Nicolay Beluchenko, Johan Bontes, Scot
+Ellison, Nick Gotts, Dave Greene, Alan Hensel, Dean Hickerson, Dieter
+Leithner, Mark Niemiec, Gabriel Nivasch, Andrzej Okrasinski, Peter Rott,
+Ken Takusagawa, Andrew Trevorrow and Malcolm Tyrrell.
+<p>The format, errors, use of British English and anything else you
+might want to complain about are by Stephen Silver.
+<h3 class="g">COPYING</h3>
+This lexicon is copyright &copy; Stephen Silver, 1997-2017.
+It may be freely copied and/or modified as long as due credit is given.
+This includes not just credit to those who have
+contributed in some way to the present version (see above),
+but also credit to those who have made any modifications.
+<h3 class="g">LEXICOGRAPHIC ORDER</h3>
+I have adopted the following convention: all characters (including spaces)
+other than letters and digits are ignored for the purposes of ordering the
+entries in this lexicon.
+(Many terms are used by some people as a single word,
+with or without a hyphen, and by others as two words.
+My convention means that I do not have to list these in two separate places.
+Indeed, I list them only once, choosing whichever form seems most
+common or sensible.)
+Digits lexicographically precede letters.
+<h3 class="g">FORMAT</h3>
+The main thing to note about the format of the HTML version is that
+all keywords are preceded by a colon.  For example, entering <b>:foo</b> in
+the dialogue box of your browser's Find command will take you straight
+to the definition of the first word beginning with &#34;foo&#34;
+(or at least it would if there were any).
+This is the recommended way of finding a
+particular definition when there is no link to click on.
+<p>The diagrams in this lexicon are in a very standard format.
+You should be able to simply copy a pattern, paste it into
+a new file and run it in your favourite Life program.
+If you use
+<a href="http://www.xs4all.nl/~jbontes/" target="_top">Johan Bontes' Life32</a>,
+<a href="http://psoup.math.wisc.edu/mcell/index.html" target="_top">Mirek W&oacute;jtowicz' MCell</a>
+or
+<a href="http://golly.sourceforge.net/" target="_top">Andrew Trevorrow and Tomas Rokicki's Golly</a>
+then you can just paste the pattern directly into the Life program.
+I have restricted myself to diagrams of size 64&times;64 or less.
+<p>Most definitions that have a diagram have also some data in brackets
+after the keyword.
+Oscillators are maked as p<i>n</i> (where <i>n</i> is a positive integer),
+meaning that the period is <i>n</i> (p1 indicates a still life).
+Wicks are marked in the same way but with the word &#34;wick&#34; added.
+For spaceships the speed (as a fraction of <i>c</i>, the speed of light),
+the direction and the period are given.
+Fuses are marked with speed and period and have the word &#34;fuse&#34; added.
+Wicks and fuses are infinite in extent and so have necessarily been
+truncated, with the ends stabilized wherever practical.
+<h3 class="g">SCOPE</h3>
+This lexicon covers only Conway's Life,
+and provides no information about other cellular automata.
+David Bell has written articles on two other interesting cellular automata:
+HighLife (which is similar to Life, but has a tiny replicator) and
+Day &amp; Night (which is very different, but exhibits many of the same
+phenomena).
+These articles can be found on
+<a href="http://www.canb.auug.org.au/~dbell/" target="_top">his web-site</a>.
+<h3 class="g">ERRORS AND OMISSIONS</h3>
+If you find any errors (including typos) or serious omissions, then please
+let me know.
+<h3 class="g">NAMES</h3>
+When deciding whether to use full or abbreviated forms of forenames
+I have tried, wherever possible, to follow the usage of the person concerned.
+<h3 class="g">QUOTE</h3>
+Every other author may aspire to praise;
+the lexicographer can only hope to escape reproach.&nbsp;&nbsp;&nbsp;
+<i>Samuel Johnson, 1775</i>
+<h3 class="g">DEDICATION</h3>
+This lexicon is dedicated to the memory of Dieter Leithner,
+who died on 26 February 1999.<hr>

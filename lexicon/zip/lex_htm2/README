@@ -1,0 +1,15 @@
+This zip file contains the multi-page HTML version of release 25r of
+the Life Lexicon, a lexicon of terms used in Conway's Game of Life.
+
+The files herein are:
+
+  README        (this file)
+  lex.htm       (the introductory notes for the Lexicon)
+  lex_?.htm     (27 files constituting the main body of the Lexicon)
+  lex_bib.htm   (the bibliography of the Lexicon)
+  lifelex.css   (the stylesheet used by all HTML files)
+
+Stephen Silver
+Dave Greene
+b3s23life(at)gmail.com
+Life Lexicon Home Page: http://conwaylife.com/ref/lexicon/lex_home.htm

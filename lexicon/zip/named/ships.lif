@@ -1,0 +1,115 @@
+#C c/4d:
+#C    A1:glider
+#C    A2:quarter
+#C    A3:B29
+#C    A4:Orion
+#C    A5:Canada goose
+#C    A6:Orion
+#C    A7:swan 
+#C    A8:crane
+#C    A9:big glider
+#C    A10:Enterprise
+#C c/2:
+#C    B1:LWSS (small fish, lightweight spaceship)
+#C    B2:MWSS (medium fish, middleweight spaceship)
+#C    B3:HWSS (big fish, heavyweight spaceship)
+#C    B4:X66
+#C    B5:hivenudger (beehive pusher)
+#C    B6:Coe ship
+#C    B7:ecologist
+#C    B8:Schick engine (Schick ship, flying machine)
+#C c/3:
+#C    C1:brain
+#C    C2:dart
+#C    C3:turtle
+#C    C4:wasp
+#C    C5:fly
+#C c/4:
+#C    D1:sparky
+#C c/5:
+#C    E1:spider
+#C    E2:SPPS
+#C    E3:APPS
+#C    E4:snail
+#C c/6:
+#C    F1:dragon
+#C 2c/7: 
+#C    G1:weekender
+#C c/6d: 
+#C    H1:seal
+x = 357, y = 380, rule = S23/B3
+30bo30bobobo30bobobo30bo3bo30bobobo30bobobo30bobobo30bobobo30bobobo26b
+o3bobobo$$30bo34bo34bo30bo3bo30bo34bo38bo30bo3bo30bo3bo26bo3bo3bo$$30b
+o30bobobo30bobobo30bobobo30bobobo30bobobo34bo30bobobo30bobobo26bo3bo3b
+o$$30bo30bo38bo34bo34bo30bo3bo34bo30bo3bo34bo26bo3bo3bo$$30bo30bobobo
+30bobobo34bo30bobobo30bobobo34bo30bobobo30bobobo26bo3bobobo15$266boo$
+62boo31b3o29boo32b3o35boo31bo10boo21bobo35b3o36b3o$61boo32bo30boo33bo
+9boo26bobo29b5o6boo22bo37bobb3o31boboo$63bo24b3o6bo30bo33bo6b3obo25bo
+31bobboo8bo7boo15bo4bo30bobo32b4o$65boo21bo6bobo32bo4b3o26boobboo26boo
+bo33boobo5boo6b3obo14boobbobo25boo7bo28boo5bo$64bo24bo4boob4o29b3o4boo
+26bo30bo4bo40boo3boboo22bobo25bobo4bobbo26b3obbobobo$26b3o62b4ob5oboo
+27b3obobo31bo26boboo6b3o27bobo6boo26boo26bo8boo25boo3bobobbo$3bo22bo
+36bobbo25boo7boobo33bo26boo3bo30b3o4boo31b3obo4bo22bo28boo33bobob5o$
+27bo27boo5boo67bobo30boboboo32b3obobo29b3o3bo4bo22bobbo6boo18bobbo5bob
+oo21boobobo3bo$bbobo49boo5bo68boobo30bobobboboo36bo29bo7bo32b3obo17bo
+9boobo20bo8boo$56bo4bobo67bo31bo4boo32bobo34bo6bo26bobo3boo23bobo6boo
+bbo19boobbo3bobo$bo3bo52boobbo66boobo30boo36boobo70boo28boobo4boo3bo
+21boobboboo6bo$58boo72bo30boo37bo39bo33bo3bo28bo7bo29boo5b3o$bobobo
+124boo68boobo104b4o3bobo30bobb3obbo$203bo74bo29boboo3b4o29bobbobboo$bo
+3bo195boo73boo31bo3boobo32boboo$276bo37boo32boo$277bo32bob3o33boo$278b
+o32bobbo32bo$348bobo$278booboo64bobbo$280boobo65bo$280boobo$$281bobo$
+283bo$283bo17$231b4o5boo$231bo3bo3booboo$161b4o5bobbo57bo8b4o$128bo32b
+o3bo3bo62bobbo5boo$bobo122boo33bo7bo3bo92b4o$59bo34boo30bobb3obbo27bo
+bbo3b4o23b6o34bo9boo18bo3bo9bo$bo3bo16bobbo31bo3bo30bo4bo28bo4b3o62bo
+5boo30b3o8b5o16bo11boo$21bo34bo34bo35b3obboo32boo28bo5boboo27bo3bo5bo
+4boo17bobbobboo5b3o$bobo17bo3bo30bo4bo29bo5bo68boo29bo3bo31bo4b5o5boo
+22b3o6b3o$21b4o31b5o30b6o30b3obboo32boo31bo33boobob4o4boo19bobbobboo5b
+3o$bo3bo120bo4b3o64boo35bo3boob3o21bo11boo$126bobb3obbo27bobbo3b4o24b
+4o35bobo27bo3bo9bo$bobo122boo33bo7bo3bo22booboo65b4o$128bo32bo3bo3bo
+27boo$161b4o5bobbo57b4o$231bo3bo$231bo$232bobbo21$129bo33bo$128bobo31b
+obo$22boo104bobo31bobo22bobo3bo$21bobbo5boo32bo63bo33bo23boobobobbo$
+21b3o3b3o33bobo61boo43b3o8bo9bo$21bobbob4o32boo63bobo31boo9boobboboo3b
+obb4o$bbobo17b3o3bo36bo26b3o7bo59bobo9b4obbobobboo4boo$22bobb3o33bo3bo
+26boobbobooboo23b3o33boo8bobbo3b3o5b3o$bo3bo18bo4boo27bobbo32b3o4bo24b
+3o34bo7bo4bobboobboobbobbo$24b5obo26bobobb4o26bobbobo3bo26bo35bobbo3bo
+4bobb3obobo4boo$bo54bobbo31bo4bo4bo24boo4bo35boboo4bobb4o5bo$24b5obo
+26bobobb4o25bo4bo4bo24bobboobbo31boo3boo4bobb4o5bo$bo3bo18bo4boo27bobb
+o30bobbobo3bo25b3obo33bobo3bo4bobb3obobo4boo$22bobb3o33bo3bo28b3o4bo
+25bob4o31boo5bo4bobboobboobbobbo$bbobo17b3o3bo36bo26boobbobooboo25bob
+oo33bobo4bobbo3b3o5b3o$21bobbob4o32boo28b3o7bo25boboo34bo7b4obbobobboo
+4boo$21b3o3b3o33bobo62bo43boobboboo3bobb4o$21bobbo5boo32bo65boo40b3o8b
+o9bo$22boo105bobbo53boobobobbo$129b3obboo51bobo3bo$129bobbo$130boo23$
+31bo$31bo15boo$bobo23boobob3o10boo3bo$21boboobooboobbobo3boob4o$bo3bo
+15bo3boobboboobb3obboboobboo3bo$21boboo4b3obob3o6boobbo$bo3bo23boobo
+15bobbo$21boboo4b3obob3o6boobbo$bo3bo15bo3boobboboobb3obboboobboo3bo$
+21boboobooboobbobo3boob4o$bobo23boobob3o10boo3bo$31bo15boo$31bo17$62b
+5o30b5o$65bobo32bobo$61bo6bo27bo6bo$61bo3bo30bo3bo$62boobo31boobo$65bo
+boo31boboo$63boo33boo$64bo34bo$62boo33boo$61bobo32bobo$61boboo31boboo$
+62bobo32bobo$64bo34bo$$64bo34bo$62bobo32bobo$61boboo31boboo$61bobo32bo
+bo$62boo33boo$24bo39bo34bo$23bobbo36boo33boo$65boboo31boboo$22boo3bo
+34boobo31boobo$22b5o34bo3bo30bo3bo$25bo35bo6bo27bo6bo23bo$21b6o38bobo
+32bobo24bo$22bo3bo35b5o30b5o24bo$22bo3bo100b3o17b3o3b3o$22bo104boobo9b
+o3bobo6b3o$21boobo103bo11boobo7bo4b4o$bobobo15bobbo32bo34bo39bo6bo3bob
+o3boobo5boo$21b5o30boo33boo36bobbob3o3boo9bo8boobo$bo20boboo31bo34bo
+36boobo5bo5bo17bo$23boo110bob7o$bobobo$23boo110bob7o$bo20boboo31bo34bo
+5bo30boobo5bo5bo17bo$21b5o30boo33boo5boo29bobbob3o3boo9bo8boobo$bobobo
+15bobbo32bo34bo5bo33bo6bo3bobo3boobo5boo$21boobo103bo11boobo7bo4b4o$
+22bo104boobo9bo3bobo6b3o$22bo3bo100b3o17b3o3b3o$22bo3bo35b5o30b5o24bo$
+21b6o38bobo32bobo24bo$25bo35bo6bo27bo6bo23bo$22b5o34bo3bo30bo3bo$22boo
+3bo34boobo31boobo$65boboo31boboo$23bobbo36boo33boo$24bo39bo34bo$62boo
+33boo$61bobo32bobo$61boboo31boboo$62bobo32bobo$64bo34bo$$64bo34bo$62bo
+bo32bobo$61boboo31boboo$61bobo32bobo$62boo33boo$64bo34bo$63boo33boo$
+65boboo31boboo$62boobo31boobo$61bo3bo30bo3bo$61bo6bo27bo6bo$65bobo32bo
+bo$62b5o30b5o23$29bobboo6bobb3o$21bo3b4ob6o4bobb3o$bobobo11b5o4bo4bo4b
+3o$16bo6boobo6boob3obbob3o$bo15b5ob3o8b4o3bob3o$21bobbo14bo$bobobo18b
+oo10booboo$24boo10booboo$bo19bobbo14bo$17b5ob3o8b4o3bob3o$bo14bo6boobo
+6boob3obbob3o$17b5o4bo4bo4b3o$21bo3b4ob6o4bobb3o$29bobboo6bobb3o26$18b
+o$16booboo$18bobbobo$23bo$bbobo18bobo$23bobbo$o20boo3bo$21boo$obbobo
+15boo$21boo3bo$o4bo17bobbo$23bobo$bbobo18bo$18bobbobo$16booboo$18bo23$
+19bobboo$17b3obobobo$17bobb3obboo$16bobb6obob3o$17bobb3obob5o$22bobobo
+bo$16bobo3bobob5o$16bobbobobboboo3bo$19bobboo7b3o$17bo3b5ob3obboo$20bo
+9bo$18bobo9bo$bo3bo14boob5o3bo$22bob3obbo5boo$bo3bo16bobbo3bob3oboo$
+24boo3b3obobbo3bo$bobobo18boo4boob4o3b3o$35bobobbo$bo3bo23bobo5boobboo
+$29bobbo5bob3o5bo$bo3bo23bo3bo4boobbo3bobbo$31b3o5boo8bo$31bobobbobbo
+5boobbo$33bobbooboobobbo$32bo7bobo$33bo3b4o$34bo3bo$$39bo$38bobo$37boo
+$37bobo$37boo$39bo$38bo!

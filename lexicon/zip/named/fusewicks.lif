@@ -1,0 +1,68 @@
+#C wicks:
+#C    A1:ants
+#C    A2:turning toads
+#C fenceposts:
+#C    B1:electric fence
+#C diagonal fuses:
+#C    C1:baker
+#C    C2:beacon maker
+#C    C3:boat maker
+#C    C4:harvester
+#C    C5:reverse fuse
+#C orthogonal fuses:
+#C    D1:lightspeed wire 
+#C    D2:cow
+#C    D3:washerwoman
+#C stetchers and eaters:
+#C    E1:tubstretcher (boatstretcher) 
+#C    E2:tubeater
+#C    E3:antstretcher
+#C    E4:anteater
+x = 348, y = 244, rule = S23/B3
+24bo75bobobo77bobobo65bo3bo75bobobo$$24bo79bo81bo65bo3bo75bo$$24bo75bo
+bobo77bobobo65bobobo75bobobo$$24bo75bo85bo69bo79bo$$24bo75bobobo77bobo
+bo69bo75bobobo18$bbo$109boo5boo5boo5boo5boo$bobo19boo3boo3boo3boo3boo
+3boo3boo3boo3boo37bo5bo6bo6bo6bo6bo$25boo3boo3boo3boo3boo3boo3boo3boo
+3boo34boo3bo4bobo4bobo4bobo4bobo4boboboboo$o3bo20boo3boo3boo3boo3boo3b
+oo3boo3boo3boo30boobob3obobboobbobboobbobboobbobboobbobboobbobbobboboo
+$23boo3boo3boo3boo3boo3boo3boo3boo3boo30bobboboo41b5obobbo$obobo90boob
+o46boobboboo$98bo50bo$o3bo93boo48boo28$27bo$26bobo24boo$19bo4b3obo5bo
+19bo3bobbo6bo5boo$18bobobbo4boo3bobo18bob3obb3o3bobo4bo$obo15bobobbob
+oo7bo20bo3boo3bobobbo6bo$17booboobobob5o5bo18boo3bobbobobooboobboo$o3b
+o13bobobbo3bobbobbo7boo3boo3boo4booboobbobobbobobo$18bobboo4boo6b3oboo
+3boo3boo3b3o5b4ob3obo3boo$obo16bobb3obbobbob4o3boo3boo3boo3b3oboobbo4b
+obo4bobbo$20boo3bobobbo5boo3boo3boo3boo6bo12bo3boo$o3bo17boobobooboboo
+bbo22bo8boobo$22boboobobboboo4bo17boobobo$obo25boo7boo18bobboo$55bobo$
+55boo23$196boo$110boo83bobo$109bobo82bo75boo$32boo74bo84bo75bobo$31bob
+o73bo84bo75bo$30bo75bo84bo75bo78boo$29bo75bo84bo75bo78bobo$bobo24bo75b
+o84bo75bo78bo$27bo75bo84bo75bo78bo$o3bo21bo75bo84bo75bo78bo$25bo75bo
+84bo75bo78bo$o23bo75bo84bo75bo78bo$23bo75bo80b5o75bo78bo$o3bo17bo73b3o
+85bo74bo78bo$21bo76bo85bo69b5o78bo$bobo14b3o77bo85bo69b4o78bo$19bo164b
+o69boboo77bo$333boo27$23boobboobboobboobboobboobboobboobboobboobboobb
+oobboo19boo7boobboobboobboobboobboobboobboobboobboobboobboo26bo$23boo
+bboobboobboobboobboobboobboobboobboobboobboobboo19boo4bob3obboobboobb
+oobboobboobboobboobboobboobboobboo3boo21boo4bo5bo5bo5bo5bo5bo5bo5bo5bo
+$96boobo49bobo21b3obbobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo3bobo$obo
+18b54o21boo3b49o23boo4bo5bo5bo5bo5bo5bo5bo5bo5bo$20bo6bo47bo20boobo50b
+o22bo$o3bo14bob5o4b45obo15boo4bob3obboobboobboobboobboobboobboobboobb
+oobboobboobboo$20bo5bo48bo16boo7boobboobboobboobboobboobboobboobboobb
+oobboobboo$o3bo16b54o$$o3bo18boobboobboobboobboobboobboobboobboobboobb
+oobboobboo$23boobboobboobboobboobboobboobboobboobboobboobboobboo$obo
+18$260boo$259boo$253boo5bo$252boo5boo$254bo4bobobboo$256boo3boob4o$
+202boo52boo10bo$40boo159boo65bo$40bobo159bobo57bo$40bo156bo4b3o59boo$
+43bo152b5ob3obboboo$43boo151bobboo6bo3booboo48b3o$43boo161bo4boo3boob
+oo42boobbo$42boo154boobbooboobboo5boo3booboo39bo$33boo6boo3bo159bo7boo
+5boo3booboo$33bobo3boobbobobo144b3o3bo5boo13boo5boo3booboo23b3obbo$33b
+o5b3o4bobo143bo5bobboboo19boo5boo3booboo18bobb3o$36bo10bobo143bo3boobo
+28boo5boo3booboo16boo$36boo10bobo145boo3bobo30boo5boo3booboo9booboo$
+49bobo132b3o10bo41boo5boo3booboo7boo$50bobo131bo5b3obboo47boo5boo3boob
+obo$51bobo131bobboob3oboo52boo5boo$52bobo132bo10bo55boo4bo$53bobo132bo
+boboo4bo60bo$54bobo133boobo$55bobo130boo3bobo$56bobo128boo$obobo52bobo
+129bo$58bobo125boo$o58bobo123b3o$60bobo121boobo$obobo56bobo119b4obo$
+62bobo123b3o$o62bobo123boo$64bobo114b3oboo$obobo60bobo112bo3b3o$66bobo
+114b3o$67bobo109bobobo$68bobo107b4o$69bobo106bo$70bobo106boo$71bobo
+106bobbo$72bobo96boo$73bobo95bobo3b3o$74bobo94bo3bo4bo$75bobo96boo$76b
+obo95bo5bo$77bobo$78bobo$79bobo$80bobo$81bobo$82bobo$83bobo$84bobo$85b
+obo$86bobo$87bobo$88bobo$89bobo$90bobo$91bobo$92boo$$95bo$91boboobo$
+85boo3b3o4bo$84boo4bobbo$86bo$91boobooboboo$87b3ob3obobobobo$91boo4bob
+o!

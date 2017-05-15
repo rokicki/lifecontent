@@ -1,0 +1,27 @@
+#C reflectors:
+#C    A:pentadecathlon (PD)
+#C    B:buckaroo
+#C    C:boojum reflector
+#C    D:twin bees shuttle (B-heptomino shuttle, p46 shuttle)
+#C    E:do-see-do
+#C    F:centinal
+#C    G:Achim's p144
+x = 282, y = 130, rule = B3/S23
+43bo74bobo66bobo$$42bobo73bo3bo63bo3bo$$41bo3bo72bobo65bo$$41bobobo72b
+o3bo63bo3bo$$41bo3bo72bobo66bobo10$183bobo6boo$184boo6boo$184bo7$219bo
+$218bobo$218bobo$29bo83bo85boo16booboo$30bo80bobo85boo$28b3o81boo103b
+ooboo$122bo58boo34boobo$120bobo57bobo39bo$43bo4bo70bobo58bo40boo$41boo
+b4oboo67bobbo11boo44boo$43bo4bo70bobo11boo$114boo4bobo90boo$113bobo6bo
+90boo4boo$113bo76boo27bobo$112boo75bobo29bo$189bo31boo$188boo23boo$
+213boo3$208bo$207bobo$208bo26$15bobo77bobobo75bobobo86bobo$$15bo3bo75b
+o79bo88bo$$15bo3bo75bobobo75bobobo84bobbobo$$15bo3bo75bo56bo22bo88bo4b
+o$150bobo$15bobo77bobobo51boo22bo90bobo6$62bobo$63boo193bo$63bo195bo$
+257b3o3$265bo$263bobo$264boo6$254boo24boo$bo252boo24boo$bbo269boo$3o
+163boo48boo53bobbo$167bo48bo55boo$68boo97bobo21boo21bobo$69bo98boo9bo
+3bo7boo21boo51b3o$69bobo106bo5bo14boo66bobo$70boo112bo13boo67b3o$85bob
+o91bo3boo14b5o63boo$86boo92b3o17b4o62b3o$86bo179bobo$180b3o17b4o62b3o$
+92b3o84bo3boo14b5o$90booboboo8b3o8boo66bo13boo62boo$90boo5bo5bo3bo8boo
+60bo5bo14boo60bobbo$15bo3bo70booboboo5bo4bo60boo9bo3bo7boo21boo46boo$
+3boo9bo5bo9boo60b3o7bo3bo60bobo21boo21bobo37boo24boo$3boo15bo9boo135bo
+48bo37boo24boo$15bo3boo81bo3bo59boo48boo$16b3o83bo4bo$89boo12bo3bo8boo
+$16b3o70boo14b3o8boo$15bo3boo$3boo15bo9boo$3boo9bo5bo9boo$15bo3bo!

@@ -1,0 +1,69 @@
+#C pure glider generators:
+#C    A0:biclock
+#C    A1:bi-loaf
+#C    A2:4-8-12 diamond
+#C methuselahs:
+#C    B0:R-pentomino
+#C    B1:multum in parvo
+#C    B2:acorn
+#C    B3:rabbits
+#C    B4:bunnies
+#C    B5:blom
+#C    B6:Justyna
+#C    B7:Iwona
+#C    B8:Lidka
+#C induction coils:
+#C    C0:anvil
+#C    C1:dock (big table, long house)
+#C    C2:bookend (hook)
+#C    C3:bun (R-bee)
+#C    C4:cap (covered table)
+#C    C5:cover
+#C    C6:dove
+#C    C7:house
+#C    C8:long bookend (long hook)
+#C    C9:side
+#C    C10:table
+#C    C11:teardrop
+#C    C12:very long house
+#C    C13:wing
+#C other little patterns:
+#C    D0:blasting cap
+#C    D1:block and glider
+#C    D2:butterfly
+#C    D3:Cheshire cat
+#C    D4:gliders by the dosen
+#C    D5:grin
+#C    D6:handshake (lumps of muck, LoM)
+#C    D7:phi
+#C    D8:pre-pulsar
+#C    D9:switch engine (Corder engine, SE)
+#C    D10:thunderbird
+x = 288, y = 139, rule = S23/B3
+25bobobo21bo22bobobo20bobobo21bo3bo24bobobo31bobobo34bobobo40bobobo$$
+25bo3bo21bo26bo24bo21bo3bo24bo35bo42bo40bo3bo$$25bo3bo21bo22bobobo20bo
+bobo21bobobo24bobobo31bobobo38bo40bobobo$$25bo3bo21bo22bo28bo25bo28bo
+31bo3bo38bo40bo3bo$$25bobobo21bo22bobobo20bobobo25bo24bobobo31bobobo
+38bo40bobobo19$bbo$$bobo22bo23bo24b4o$24boo23bobo$o3bo21boo20bobbo21b
+8o$25bo3bo19boo$obobo22boo19bobbo19b12o$29boo17bobo$o3bo23bo20bo23b8o
+$$75b4o14$239b3o3$197bo$196bobbo$197b3o81b3o$197bobbo26bo53bo$228boo
+51bo3bo$180boo16bo29bo14bo38bobbo$obo95bo3b3o19bo5bo19bo10bo19bo16bo
+44bo39b3o$27boo22b3o21bo22b3obbo22bo3bo20b4o6bo36bo44bo$o3bo21boo22bo
+bbo23bo21bo26bobbobo20boo7bo82bo27bo$27bo21bo24boobb3o44bobo32bo82boo
+26bobo$obo45bo109bobo71boo38bo$233bo$o3bo$$obo$199b3o$191b3o31boo$226b
+o27$23bobobo19bo15bobobo15bobobo15bo3bo15bobobo15bobobo15bobobo15bobob
+o15bobobo11bo3bobobo15bo3bo11bo3bobobo11bo3bobobo$$23bo3bo19bo19bo19bo
+15bo3bo15bo19bo23bo15bo3bo15bo3bo11bo3bo3bo15bo3bo11bo7bo11bo7bo$$23bo
+3bo19bo15bobobo15bobobo15bobobo15bobobo15bobobo19bo15bobobo15bobobo11b
+o3bo3bo15bo3bo11bo3bobobo11bo3bobobo$$23bo3bo19bo15bo23bo19bo19bo15bo
+3bo19bo15bo3bo19bo11bo3bo3bo15bo3bo11bo3bo15bo7bo$$23bobobo19bo15bobob
+o15bobobo19bo15bobobo15bobobo19bo15bobobo15bobobo11bo3bobobo15bo3bo11b
+o3bobobo11bo3bobobo7$bobo$$o3bo$$o127bo$26b4o14b4o17boo19boo17boo19b3o
+17boo17b3o19boo14boo19b4o16b3o14b5o17boo$o3bo20bo4bo12bo4bo14bobbo18bo
+bbo15bobbo17bo19bobbo15bo3bo15bo3bo14bob3o16bobbo16bobbo12bobbobbo15bo
+bbo$26b3obo12boobboo14b3o20b3o15b4o17bo20bobbo14booboo15b4o19bo36bobbo
+12boo3boo16bobo$bobo24boboo92boo21b3o95boo37boo9$obo$$o3bo80bobbo136b
+3o$27bo16boo17bo21b4o15boobbo38boo17b3o14b3o3b3o13bobo$o3bo21bobo15bob
+o16boo19bo4bo14bo3bo15bobbo18boboo15bo3bo13bobo3bobo12bo21bo$25booboo
+16boo15bobo18boboobo14bobboo16boo18boobo16bo3bo13b3o3b3o13bobbo17bo$o
+3bo59b3o17bo4bo56boo18b3o38b3o16bo$85b4o$obo!

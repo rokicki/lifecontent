@@ -1,0 +1,122 @@
+#C p5 oscillators:
+#C    A0:octagon II
+#C    A1:pseudo-barberpole (Achim's p5)
+#C    A2:pentoad (eater-bound Z-hexomino)
+#C    A3:fumarole
+#C    A4:Silver's p5
+#C    A5:Elkies' p5
+#C    A6:aVerage
+#C    A7:toaster (LW volcano, lightweight volcano)
+#C    A8:MW volcano (middleweight volcano)
+#C    A9:HW volcano (heavyweight volcano)
+#C    B0:101
+#C    B1:mathematician
+#C    B2:technician (technician finished product)
+#C    B3:chemist
+#C    B4:pedestle
+#C    B5:pentant
+#C    B6:siesta
+#C    B7:harbor
+#C p6 oscillators:
+#C    C0:unix
+#C    C1:A for All
+#C    C2:blonker
+#C    C3:p6 shuttle
+#C    C4:extremely impressive
+#C    C5:$rats
+#C    C6:sombreros
+#C    C7:T-nosed p6 
+#C p7 oscillators:
+#C    D0:burloaferimeter
+#C    D1:airforce
+#C    D2:hebdarole
+#C p8 oscillators:
+#C    E0:figure-8 (big beacon)
+#C    E1:blocker
+#C    E2:Coe's p8
+#C    E3:Achim's p8
+#C    E4:Kok's galaxy (galaxy)
+#C    E5:Hertz oscillator
+#C    E6:cauldron (crucible)
+#C    E7:R2D2
+#C    E8:pyrotechnecium (pyrotechneczum)
+#C    E9:bottle 
+#C    F0:smiley
+#C    F1:roteightor
+#C    F2:tumbling T-tetson
+#C p9 oscillators:
+#C    G0:worker bee (lonely bee)
+#C    G1:snacker
+x = 391, y = 274, rule = B3/S23
+63bobobo34bo30bobobo30bobobo30bo3bo30bobobo30bobobo30bobobo30bobobo30b
+obobo$$63bo3bo34bo34bo34bo30bo3bo30bo34bo38bo30bo3bo30bo3bo$$63bo3bo
+34bo30bobobo30bobobo30bobobo30bobobo30bobobo34bo30bobobo30bobobo$$63bo
+3bo34bo30bo38bo34bo34bo30bo3bo34bo30bo3bo34bo$$63bobobo34bo30bobobo30b
+obobo34bo30bobobo30bobobo34bo30bobobo30bobobo12$312bobbo32bo$346bo3bo
+29boo$105boo32boo60boo70boo36bo4bo$106bo32bo29boo30bo35bo36b3o32b3oboo
+b3o26bo5bo26bo4bo$65boo37bo32bobo27bo4bo29bobbo30bobb3o30bo4bo30bo3bo
+bbo3bo23b3ob3ob3o$obobo4bobobo16bo33bobbo34bobo32boo28bo4bo31boo32bo
+32bob4obo30b4obb4o23bo3booboo3bo18bobboboboobobo$63bo4bo64boo32bo4bo
+31bo3boboo27bobobbo26bobo4bobbo60bob3obob4o19b4oboobboob3o$o4bo3bo19bo
+bo30bo6bo30bobo31bo33bobbo31bo4boobo26boob4o25boob3obbobobo26boobobbob
+oo24bo35b4o5bo$62bo6bo64bo31bobobbobo29boo35bo30bobo4bobbo27bo8bo26bob
+oboboobo20boobo4boboobo$obobo4bobobo14bo3bo30bo4bo29bobo33boo30boo4boo
+66bobo28bob4obo31b3obb3o26boob3oboboo20bobbo4bobboboo$64bobbo62boo109b
+oo29bo4bo34bobbo29bobobbo25bo3boobboo4bo$o12bo14bobobo32boo30boo30bobo
+142b3o31b4oboob4o25bobboo23b3obb3obbobob3o$95bo33bo143boo33bobbo4bobbo
+24boo27bobb4o4bobbo$o8bobobo14bo3bo62boo31boo244bobobboobobobo$312bobb
+o59bo5booboboo$379boobobo$379b4obo$383bo$379boo$377bobbo$376bobbo$373b
+obboobobo3boo$373b3o3bobobobbo$376boo5b3o$375bo3b3o$375b3o4boo$373boo
+3boboobbo$374bobobbobobo$372bobbob3oboboo$372boobobobobobbo$375bo6boo$
+375b4oboo$381bo$375b6o$375bo$376b3o$378bo4$204bo105boo3boo$203bobo31b
+oo71bobobobo$170bo29bobboo33bo40boo30bo3bo$61boo6boo30bo32bo35b3o27b3o
+35bobo30boo5bobo$60bobo6bobo28bobo30bobo37bo30b3o32boo4boo24bobo4bo31b
+oo3boo$28bobo29bo10bo28bobo30boo33b3obbobboo24boo3bo38bo26bo3boobo24b
+oobbobo3bobobboo$57boobo10boboo24booboo27boo34bobobobobobo23bo4bobbo
+32b4o25boboo5b3o22boboboo5boobobo$28bo3bo24boobobobboobboboboo22bo7bo
+24bo3b3o30bo3bobobo24boboboboboo32bo26b3o5bobo3bo22bo13bo$60bobobobbob
+obo25b3o3b3o23bobboo3bobo24boobo5boboo23bobo3bobo30bo3b3o22bo3bobo5b3o
+$28bobo29bobobobbobobo58boo4boboo25bobobo3bo25boobobobobo30b4obbo23b3o
+5boobo25bo13bo$57boobobobboobboboboo22b9o26bobobo26bobobobobobo25bobbo
+4bo34bo28boboo3bo26boboboo5boobobo$28bo3bo24boobo10boboo22bo7bo26bo3bo
+26boobbobb3o28bo3boo34bo31bo4bobo24boobbobo3bobobboo$60bo10bo28b4o29b
+3o31bo34b3o36boo28bobo5boo29boo3boo$28bobo29bobo6bobo28bobboo30bobo30b
+3o35b3o62boo$61boo6boo65boo32bo33boobbo102bo3bo$203bobo104bobobobo$
+204bo105boo3boo25$311boo3boo$162bo78boo28boo8boo28bobobobo$101boo25bo
+bboo4bo24b3o38boo37bo28bobo6bobo29bo3bo$100bobbo24boobboboobo27bo36bob
+3o33bo32bo6bo$obobo4bobobo15bobo31boo35b4o28bobo29boo36bo4bo28boobob4o
+26boboo4boobo24bobobo5bobobo$63boo33bobobbobo27boo64boobo3boo28boobo5b
+obo21b3o10b3o20b3oboboo3boobob3o$o4bo3bo18bo3bo64bo8bo28bo32bo30boobo
+5boo29bobb3oboo20bo3bobo4bobo3bo21bobobo5bobobo$63bo33bo8bo28bo3bo27b
+4o32b5obbo28bo4bo24b3o10b3o$obobo4bobobo14bo33bobo33bobobbobo31bobo28b
+obbo37boo29b3obo26boboo4boobo29bo3bo$62bobbobboo30b4o34bo30b3o33bo37bo
+29bo6bo30bobobobo$o8bo3bo14bo3bo33boboo30bobbo100bobo35bo28bobo6bobo
+28boo3boo$64boo35boo69boo31bo36boo27boo8boo$o8bobobo15bobo140bo$173b3o
+$175bo24$138boo$131boo3bo4bo3boo$103bo24bobbobbobo4bobobbobbo$102bobo
+22boboboboobo4boboobobobo$65boo36bo24bobbobboboboobobobbobbo$66bo64boo
+4bobbo4boo$28bobo34bo35b5o32boo$obobo4bobobo50bob3o31bo5boboo24bobbobb
+obbo$28bo3bo31bobobbo29boboo3boboo23boboo4boobo$o4bo7bo47boobo3bobo28b
+obobbobo27bo8bo$28bo3bo28boobo4bo26boobo3boobo$obobo8bo51b4o27boobo5bo
+24boo14boo$28bo3bo67b5o25bobb4o4b4obbo$o12bo51boo64bobobobobbobobobo$
+28bobo34boo35bo27boobo3b4o3boboo$o12bo87bobo30boo6boo$102bo33boobboo$
+136bobbobo$137boo23$377boo6boo$376bobbo4bobbo$277bo98bobo6bobo$241boob
+o31bobo95boobb3obb3obboo$168boo31b6oboo31boboo32bo36bo35bo22bo6bobbo6b
+o$obobo4bobobo14bobobo98boo34bo33b6oboo103bobo32b5o20boboo10boobo$62b
+3o38bobo25boobboo31bo3bo35boo32b3o30b5o32bobobo30bo5bo20bobo10bobo$o4b
+o3bo3bo14bo33b3o37bo33boo30bo3boo27boo5boo31boboboboo23bobo5bobo29bobo
+bo27bobboboboobo21boo8boo$62b3o32boobbo4bo28bobbo31bobo28boo5boo31bo3b
+oboo23boobo3boboo26boobo3boboo23bobobobo4bobbo$obobo4bobobo14bobobo32b
+3o29boobobboboo31bobboo26boo3bo26boo5boo28boobo3bo29bo3bo29boobo3boboo
+24bobbo4bobobobo$65b3o33boo33bobobboo27bo3bo26boo35boobo3bo29bo3bo32bo
+3bo30boboobobobbo18boo8boo$o8bo3bo14bo36b3o107bo25boob6o32b3o31b3o33bo
+bobo31bo5bo19bobo10bobo$173boo26boob6o103bobo33b5o19boboo10boobo$o8bob
+obo14bobobo209boobo30boobo34bo36bo21bo6bobbo6bo$242boboo30boboo94boobb
+3obb3obboo$376bobo6bobo$376bobbo4bobbo$377boo6boo24$97bo$97b3o8boo$
+100bo7bo23b3o$99boo5bobo22bo18boo$28bobobo28booboboo38boo23bo3bo12bob
+oo$64bo66bobbobo10bo$28bo32bo5bo33b3o29bobobbo11bo$62b5o34bobbo29bo3bo
+7boobo$28bobobo68bo36bo7boo$98boobbo3bo28b3o4bo$28bo32b3ob3o29bobo6bo
+33boo$97bo7bo36bo$28bo67boo8b3o$108bo29$59boo12boo18boo16boo$60bo12bo
+20bo16bo$obobo4bobobo15bobo28bobo8bobo20bobo12bobo$61boo8boo22boo12boo
+$o4bo3bo3bo13bo72bo4bo$64b6o28boob4oboo$obobo4bobobo13bobbobo67bo4bo$
+61boo8boo22boo12boo$o12bo13bo4bo27bobo8bobo20bobo12bobo$60bo12bo20bo
+16bo$o8bobobo15bobo27boo12boo18boo16boo!

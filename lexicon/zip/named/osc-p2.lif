@@ -1,0 +1,80 @@
+#C p2 oscillators:
+#C    A0:blinker
+#C    A1:beacon
+#C    A2:toad
+#C    A3:clock
+#C    A4:bipole
+#C    A5:tripole
+#C    A6:quadpole (quapole)
+#C    A7:pentapole
+#C    A8:hexapole
+#C    A9:heptapole
+#C    B0:spark coil
+#C    B1:test tube baby
+#C    B2:eater plug (cavity)
+#C    B3:great on-off (pincers)
+#C    B4:light bulb
+#C    B5:cis-beacon on table
+#C    B6:trans-beacon on table
+#C    B7:cis-beacon on anvil
+#C    B8:fore and back (complementary blinker)
+#C    B9:snake pit
+#C    C0:quad (barberpole intersection)
+#C    C1:skewed quad
+#C    C2:singular flip-flop
+#C    C3:by flops
+#C    C4:why not
+#C    C5:fox (gnome)
+#C    C6:blinkers bit pole
+#C    C7:phoenix (flip-flop, flip-flops)
+#C    C8:almosymmetric
+#C    C9:revolver
+#C    D0:traffic light (TL)
+#C    D1:interchange
+#C    D2:negentropy
+#C    D3:piston
+#C    D4:4 boats
+#C    D5:washing machine (cloverleaf)
+#C    D6:Laputa
+#C    D7:scrubber
+#C    D8:glasses
+#C    D9:ring of fire
+x = 372, y = 160, rule = B3/S23
+31bobobo34bo30bobobo30bobobo30bo3bo30bobobo30bobobo30bobobo30bobobo30b
+obobo$$31bo3bo34bo34bo34bo30bo3bo30bo34bo38bo30bo3bo30bo3bo$$31bo3bo
+34bo30bobobo30bobobo30bobobo30bobobo30bobobo34bo30bobobo30bobobo$$31bo
+3bo34bo30bo38bo34bo34bo30bo3bo34bo30bo3bo34bo$$31bobobo34bo30bobobo30b
+obobo34bo30bobobo30bobobo34bo30bobobo30bobobo15$bbo201boo33boo66boo33b
+oo$67boo102boo31bobo32bobo33boo30bobo32bobo$bobo27b3o33bo34b3o33bo32bo
+bo101bobo$70bo30b3o32bobo67bobo32bobo65bobo32bobo$o3bo64boo66bobo33bob
+o33bo67bobo$137bo36boo32boo33bobo65bobo32bobo$obobo239boo33bobo$282bo
+30bobo32bobo$o3bo276boo31boo35bo$350boo28$105bo28boo36boobo104boo$103b
+3o27bobbo35boboo32boo35boo34bo$102bo30bobo73bo36bo31bo31booboo$obo62b
+oo4boo30bo28boobobbo34b3o30bo36bo34boo30boobobo31bobooboo$29boo4boo28b
+obobbobo27bobbo32boobo32bo3bo29boo35boo71bo30boobobo$o3bo24bobobbobo
+30bobbo28boboo36bo32bo3bo101b4o28b3ob3o36bo$31bobbo32bobbo28bo36b3o34b
+obo30b4o31b4o32bo4bo27bo36b3ob3o$obo26bobobbobo31boo28boo36bo34bobobob
+o28bobbo31bobbo33b3obo28boboboo30bo$29boo4boo134boo3boo102boboo28boob
+oo31boboboo$o3bo342booboobo$$obo32$bobo25boobboo30boo34bo71bo33bo72bo$
+29bobbobo30bo3boo30bobo35bo33bobo31bo39boo29bobo35bo28bo12bo$o3bo25bo
+35bobobo28bo4bo32bobo31bo33bobbo33b3obobo33bo29boobbobo26b3o4bo3b3o$
+33bo65b6o36bo28bob5o26boo71boo34bobo33bobobobbo$o28bobobbo29bobobo67b
+5o30bo35bobo33bobobbo33boo35boo26bo6bobo$29boobboo29boo3bo31boo38bo31b
+obo29bobobo32bo4bo29bo35bo33bobo6bo$o3bo63boo31boo34bobo33bo35bo32boo
+3bo31bobo30bo6bo28bobbobobo$139bo139bo32boobobo27b3o3bo4b3o$bobo313bo
+27bo12bo19$354bo$352bobobo$350bobobobobo$348bobobobobobobo$346bobobobb
+oobobobobo$344bobobobo6bobbobobo$342bobobobbo10bobobobo$343boobo14bobb
+obobo$341bo3bo18boboo$342b3o20bo3bo$340bo25b3o$99boobo176bo33bo8bo18b
+oo27bo$99boboo70bo103b3o31b3o8b3o14bo3bo24boo$obo60b3o4b3o99bobo30boob
+oo32booboo29bo33bo14bo14b4o23bo3bo$30b3o67b3o30boo7boo27boboo29boboobb
+o31boobo3boo25bobb3o28bobb3o4b3obbo12bo29b3o$o3bo56bo12bo24boboboboo
+26bobobbobbobo26bobobboo27boo4bo36bobbo24boobo3bo26boobo3bobbo3boboo
+12b3o29bo$28bo5bo26bo12bo24boobboboo28b4obbo29boobbobo27bo3bo30b6ob3o
+28bo3bo29bo3b4o3bo14bo3bo23b4o$o3bo23bo5bo26bo12bo21boobo3bo29bobobbo
+bbobo29boobo27bo4boo28bobbobo33bo3boboo26bo3bobbo3bo16boo24bo3bo$28bo
+5bo61boobo3bo29boo7boo29bobo28bobboobo28boo3boboo31b3obbo28b3o4b3o16bo
+27boo$o3bo58b3o4b3o27b3o71bo30booboo33booboo36bo56b3o25bo$30b3o248b3o
+29boobobboboo17bo3bo20b3o$obo97boobo177bo31boboobboobo19boobo18bo3bo$
+100boboo237bobobobbo14boboo$343bobobobo10bobbobobo$345bobobobbo6bobobo
+bo$347boboboboboobbobobo$349bobobobobobobo$351bobobobobo$353bobobo$
+355bo!

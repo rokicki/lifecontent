@@ -1,0 +1,140 @@
+#C named still-lifes:
+#C    4A:block
+#C    4B:tub (diamond)
+#C    5A:boat
+#C    6A:beehive (hive)
+#C    6B:ship
+#C    6C:snake
+#C    6D:barge
+#C    6E:aircraft carrier (carrier)
+#C    7A:loaf (burloaf)
+#C    7B:eater1 (eater, fishhook, hook)
+#C    7C:long boat
+#C    7D:long snake (python)
+#C    8A:pond
+#C    8B:shillelagh
+#C    8C:canoe (cis-snake)
+#C    8D:mango (cigar)
+#C    8E:hook with tail (hook)
+#C    8F:long barge
+#C    8G:long long snake
+#C    8H:long ship
+#C    8I:tub with tail (TWIT)
+#C    8J:bi-block
+#C    9A:hat
+#C    9B:integral sign (integral)
+#C    9C:long canoe (long sinking ship)
+#C    9d:long long boat
+#C    9E:long shillelagh
+#C    9F:trans-boat with tail (up boat with tail)
+#C    9G:cis-boat with tail (down boat with tail)
+#C    10A:loop (curl, long hat)
+#C    10B:loaf siamese barge
+#C    10C:long long canoe
+#C    10D:boat-tie (bow tie, bi-boat, boat on boat)
+#C    10E:long integral
+#C    10F:long long barge
+#C    10G:beehive with tail
+#C    10H:long long ship
+#C    10I:snake siamese snake
+#C    10J:block on table
+#C    11A:elevener (gull, intentionless)
+#C    11B:ship tie boat (boat-ship-tie, ship on boat)
+#C    11C:trans-loaf with tail
+#C    12A:cis fuse with two tails
+#C    12B:honeycomb (super beehive)
+#C    12C:ship-tie (bi-ship, ship on ship, half fleet)
+#C    12D:table on table (pair of tables)
+#C    12E:snake bridge snake
+#C    12F:teardrop
+#C    13A:sesquihat
+#C    14A:fourteener(14-ner)
+#C    14B:big S (large S, S, S-spiral)
+#C    14C:bi-loaf (half bakery, loaf on loaf)
+#C    14D:bi-loaf (loaf on loaf)
+#C    14E:paperclip (drain trap, S)
+#C    14F:bookends (pair of bookends)
+#C    14G:cis-mirrored R-bee
+#C    14H:sidewalk
+#C    14I:block and dock (block on big table)
+#C    15A:moose antlers (antlers, double wing)
+#C    16A:scorpion
+#C    16B:bi-pond
+#C    16C:beehive and dock (beehive on big table, hexadecimal)
+#C    16D:pond on pond
+#C    16E:blockade (lumps of muck, LoM)
+#C    17A:twinhat (twin peaks)
+#C    18A:dead spark coil (JC)
+#C    19A:eater2
+#C    19B:eater2
+#C    20A:small lake
+#C    20B:spiral
+#C    24A:lake
+#C    24B:fleet
+#C    24C:honey farm
+#C    26A:Mickey Mouse
+#C    28A:bakery
+#C    31A:eater3
+#C    40A:eater4
+x = 513, y = 272, rule = B3/S23
+27bo27bobo28bobo26bobo27bobobo25bobobo27bobo25bo3bo27bo31bo73bo27bobo
+28bobo26bobo27bobobo$$26bobo26bo3bo25bo3bo25bo3bo25bo29bo29bo29bo3bo
+27bo31bo72bobo26bo3bo25bo3bo25bo3bo25bo$$25bo3bo25bobo27bo29bo3bo25bob
+obo25bobobo25bobbobo24bobobo27bo31bo71bo3bo25bobo27bo29bo3bo25bobobo$$
+25bobobo25bo3bo25bo3bo25bo3bo25bo29bo29bo4bo24bo3bo27bo27bo3bo71bobobo
+25bo3bo25bo3bo25bo3bo25bo$$25bo3bo25bobo28bobo26bobo27bobobo25bo31bobo
+25bo3bo27bo28bobo72bo3bo25bobo28bobo26bobo27bobobo15$4bo3bo$344bo3bobo
+bo$4bo3bo17boo29bo$26boo28bobo285bo3bo21boo5boo$4bobobo48bo312bo7bo$
+344bo3bobobo18b3ob3o$8bo364bobo$344bo7bo21bo$8bo$344bo3bobobo14$4bobob
+o$373bo27boo30boo26boo3boo22boo$4bo21boo316bo3bobobo18b3o26bobbo28bobb
+o24bobbobobbo21boo$26bobo341bo3boo24bobbo29boo25bobbobobbo$4bobobo18bo
+316bo3bo21bobobobo24booboo55boo3boo$371boobobo26bobbo24b4o56boo17boo$
+8bo335bo3bobobo22bo27bobbo23bo4bo55boo17boo$404boo24boobboo$4bobobo
+335bo3bo3bo$511boo$344bo3bobobo158boo13$4bobobo$117bo$4bo22boo27boo28b
+oobo26bobo27boo196bo3bobobo$26bobbo26bobo27boboo27bobo26bobbo$4bobobo
+18boo28boo59bo29boo194bo7bo19bo3bo$371bobobobo$4bo3bo335bo7bo18bobobob
+o$370booboboboo$4bobobo335bo7bo21bo$$344bo7bo13$344bo3bobobo$4bobobo$
+344bo3bo3bo17boo3boo$8bo361bobobobo$27boo27boo29bo28boo226bo3bobobo19b
+obo$8bo17bobbo26bobo27bobo27bobobo249bobobobo$27bobo28bo28bobo29boo
+223bo3bo3bo17boo3boo$8bo19bo29boo28boo$344bo3bobobo$8bo15$344bo3bobobo
+20boboo23boo$4bobobo362b3oboo23bo$344bo3bo3bo17bo31boboo$4bo3bo362b3ob
+oo24booboo$27boo27boo31boo26boo27bobo28bo28boo28boo29bo28booboo43bo3bo
+bobo20bobo$4bobobo17bobbo26bobboo29bo25bobbo26boobo26bobo27bobo27bobo
+27bobo27booboo72bobo25booboo$26bobbo27boobo28bo27bobbo28bo27bobo29bobo
+25bobo27bobo74bo7bo21bo27bobo$4bo3bo18boo57bobo29boo29boo27bobo29boo
+26boo29bo132bobo$86boo91bo89boo73bo3bobobo50bo$4bobobo13$374bo$340bobo
+bo3bobobo20bobo24boo4bo$373bobo25bobb3o$4bobobo335bo3bo3bo18boo3boo23b
+obo$28bo30boo29boo25bo28boobboo24boo29bo162bo7bo23bobo$4bo3bo18bobo28b
+obo30bo24bobo27bobbobo24bobo27bobo131bobobo3bo3bo18boo3boo25bobo$27bob
+o28bo31bo26bobo27boo28bobo26boobo163bobo24b3obbo$4bobobo17booboo25bobo
+30bo28bobo58bo29bo130bo7bo3bo20bobo24bo4boo$56boo28bobo30boo58boo28boo
+163bo$8bo77boo252bobobo3bobobo$$4bobobo14$340bobobo3bo3bo21boo28boo30b
+o$373bobbo27bobo28bobo$27boo29boo31boo24bo30boo27bo29boo27boo28booboob
+o25boo44bo3bo3bo20bobbo28boo28bobo$o3bobobo17bobbo27bobbo31bo23bobo28b
+obo26bobo27bobbo26bobo27bobooboo25boo71boo4boo28boo27bo$27bobo26bobobo
+30bo25boo28bo29bobo27boobo26bobo100bobobo3bobobo17bo8bo20boo5bobo$o3bo
+3bo17booboo26bobo30bo28boo27bo29bobo29bo27bobo55b4o70bo8bo20bobo5boo
+21boo7boo$58bo30bo29bobo24bobo30bobo28boo27boo55bobbo40bo11bo18boo4boo
+22boo27bobbo5bobbo$o3bo3bo77bobo31bo25boo32bo192bobbo26boo26boo7boo$
+86boo252bobobo7bo20bobbo26bobo$o3bo3bo365boo28boo30bo$435bobo$o3bobobo
+426bobo$436bo10$371boo4boo$340bobobo3bobobo17bobbobbobbo$370bobb4obbo$
+344bo3bo22boo4boo$373b4o$340bobobo3bobobo20bobbo$4bo3bo17boo28boo29bo
+286boo$26bobo27bobo27bobo251bo7bo3bo$4bo3bo19bo28boo27bobbo$28b3o28boo
+26boobo249bobobo3bobobo$4bo3bo22bo27bobo28bo$30boo28bo29boo$4bo3bo$$4b
+o3bo8$374boo$340bobobo3bobobo20bobbo$373bobo$344bo3bo3bo18boobo3bo$
+370bobbo3bobo$340bobobo3bobobo17bobo3bobbo$371bo3boboo$340bo7bo3bo21bo
+bo$373bobbo$340bobobo3bobobo21boo$o3bobobo$$o7bo20bo28boo26boo28bobbo
+30boo30boo$27b3o27bobbo25bobo27b4o30bo30bobbo$o3bobobo17bo3boo24boboob
+o25boo62bo30boo$27bobbo26bobbo28boo25b4o30boo$o3bo23bobo27boo29bobo24b
+obbo26boobo$29bo60boo54boboo27bo$o3bobobo167bobo$176bobo$177bo6$379boo
+$344bobobo3bo21boobbobbo$371bobbo4bobo$348bo3bo17bobobo5bo$371bobboboo
+$344bobobo3bo21bobbo$o3bobobo366bo4bo$30bo317bo3bo23b5o$o7bo17boobobo$
+27bobobo312bobobo3bo25bo$o3bobobo18boboboo344bobo$28bo349bo$o7bo$$o3bo
+bobo9$373boo$373bo$340bo3bo3bobobo17boobo$370bobboo$340bo3bo3bo3bo18b
+oo4bo$373b5o$340bobobo3bo3bo20bo4boo$o3bo3bo21boo28boo25bo30bo29boo26b
+oo3boo24booboo25booboo27boo103boobbo$26boobbobo26bobbo23bobo28bobo27bo
+bbo25bobobobo23bobobobo25bobo28boo73bo3bo3bo23bobo$o3bo3bo17bo5bo26bob
+oo23bobbo26bobbo27boboo27bobo25bobobobo24bobbo135bobobobbo$27b5o24boob
+o27boobo26booboo24boobo27booboo25bo3bo25bobo27b4o73bo3bobobo24boob4o$o
+3bobobo20bo26bobbo29bobo27bobbo23bobbo86booboo25bo4bo107bo$57boo30bobb
+o26bobo25boo117boobboo107bobo$o7bo81boo28bo259boo$$o7bo!

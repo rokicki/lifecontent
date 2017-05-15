@@ -1,0 +1,21 @@
+#C puffers:
+#C    A:puffer train
+#C    B:glider train
+#C    C:Noah's ark
+#C    D:time bomb
+x = 328, y = 97, rule = S23/B3
+108bobo101bobo99bobo$8bo$108bo3bo98bo3bo98bo3bo$7bobo$108bobo100bo102b
+o3bo$6bo3bo$108bo3bo98bo3bo98bo3bo$6bobobo$108bobo101bobo99bobo$6bo3bo
+15$212bo100boo11bo$211boo100bo6bo4bobo$209bobbo102bo4bo$315bobbo3bobbo
+$209bobo105bo6boo$b3o11b3o79b3o6bo5bo6b3o88bo113bo$obbo10bobbo78bobbo
+5b3o3b3o5bobbo$3bo4b3o6bo81bo4boobbobobboo4bo$3bo4bobbo5bo77bo3bo6b3ob
+3o6bo3bo$bbo4bo8bo78bo3bo19bo3bo$99bo19bo$96bobo21bobo98b3o$219bobbo$
+105b3o3b3o104bo$104bo9bo104bobo$103bobbo5bobbo$95b3o6bobo5bobo6b3o$95b
+obbo6bo7bo6bobbo$95bo6bobo9bobo6bo$95bo3bobo5bo3bo5bobo3bo$95bo3bobbob
+3obobob3obobbo3bo$95bo7boboo5boobo7bo$96bobo9bobo9bobo5$106boo3boo$
+106boo3boo7$105bo7bo$104bobo5bobo$104bobbo3bobbo$105boo5boo$93bobo27bo
+bo$93boo29boo$94bo29bo$98b3o17b3o$98bobbo4boo3boo4bobbo$98bo7boo3boo7b
+o$98bo3bo13bo3bo$98bo21bo$99bobo15bobo$$104bo9bo$104boo7boo$103bobo7bo
+bo$$101boo13boo$101boo3bo5bo3boo$105b3o3b3o$103booboo3booboo$103b5o3b
+5o$103bobboo3boobbo$104b3o5b3o$105bo7bo9$106bo5bo$105bobo3bobo$105bobo
+3bobo$106bo5bo!

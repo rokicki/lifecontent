@@ -1,0 +1,82 @@
+Life Lexicon mode for GNU Emacs
+-------------------------------
+
+The file lifelex.el implements a Life Lexicon mode for GNU Emacs.
+This mode provides some fontification, and also functions to do
+the following:
+
+  (1) Load a pattern into your Life player.  The pattern loaded is
+      the one on the line where the cursor is, or the next one if
+      the cursor is not on a diagram line.  By default, no key is
+      assigned to this function, so you can assign whichever key
+      you prefer.  (I use F12.)
+
+  (2) Follow a cross-reference.  The cross-reference followed is the
+      one where the cursor is positioned, or the next one if the cursor
+      is not positioned on a cross-reference.  The default key for
+      this is RET (the Return or Enter key, or C-m).  You can also use
+      mouse-2 (the middle mouse button, if you have three, or both
+      mouse buttons together if you have only two).
+
+  (3) Go back to the position you were at before following a
+      cross-reference.  The default key for this is DEL (because
+      it's a backspace on my computer).  All positions from which a
+      cross-reference was followed are recorded, so you can go back
+      any number of steps.
+
+  (4) Jump to the definition of a term.  Press the key - there is no
+      default (I use C-f) - and type in the first few letters of the
+      term and then hit RET.
+
+These functions are also available on a menu entitled "Lexicon", but I
+added this as an afterthought and it probably isn't very useful.
+
+When entering Life Lexicon mode the buffer will be set to read-only.
+If, like me, you need to edit the lexicon then you can change this
+as for any other buffer (C-x C-q).  Note that this changes the way
+the RET and DEL keys work.
+
+To use the file lifelex.el, put it in the lisp subdirectory of your
+Emacs directory.  Then add the lisp code shown below (see end of file)
+to your .emacs file, making changes as appropriate.  Once you have done
+this (and restarted Emacs, or otherwise run the .emacs code) Emacs will
+switch to Life Lexicon mode for any file whose name ends in lexicon.txt.
+
+This is the first release of lifelex.el.  If you have any problems
+with it, or would like to see other features added, then please let
+me know.
+
+Stephen Silver
+life@argentum.freeserve.co.uk
+
+
+;; This makes Emacs automatically switch to Life Lexicon mode for any
+;; file whose name ends in "lexicon.txt".  If you have changed the name
+;; of the lexicon file then you will need to change this.
+(setq auto-mode-alist
+      (cons '("lexicon\\.txt\\'" . lifelex-mode) auto-mode-alist))
+;; Some things to be done when entering Life Lexicon mode.
+;;   The colours shown below are the default ones, and are suitable if your
+;; default face is white-on-black.  If your default face is different than
+;; this, or your version of Emacs doesn't support these colours, or you
+;; just don't like my colour scheme, then you will need to change these.
+;;   The values of `lifelex-tmpfile' and `lifelex-lifeapp' control the way
+;; that patterns are run.  Using "start" as the value of `lifelex-lifeapp'
+;; is appropriate on Windows 9x because it causes the default viewer for
+;; this filetype to be used.  The value of `lifelex-tmpfile' is the name
+;; of a temporary file to be used.  If this filename does not include
+;; a full path then it is considered to be relative to the usual Emacs
+;; `temporary-file-directory'.
+;;   The key-bindings shown below are the ones I use, and you may well
+;; want to change them.
+(defun my-lifelex-stuff ()
+  (set-face-foreground 'lifelex-headword-face "yellow")
+  (set-face-foreground 'lifelex-xref-face "spring green")
+  (set-face-foreground 'lifelex-diagram-face "RosyBrown2")
+  (setq lifelex-tmpfile "lex_tmp.lif")
+  (setq lifelex-lifeapp "start")
+  (define-key lifelex-mode-map "\C-f" 'lifelex-find-definition)
+  (define-key lifelex-mode-map [f12] 'lifelex-run-pattern))
+(add-hook 'lifelex-mode-hook 'my-lifelex-stuff)
+;; This autoload object should probably not be changed.
+(autoload 'lifelex-mode "lifelex" "Switch on Life Lexicon mode." t nil)
