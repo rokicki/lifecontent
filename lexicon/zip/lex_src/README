@@ -1,4 +1,4 @@
-This zip file contains the source of release 25r of the Life Lexicon,
+This zip file contains the source of Release 28 of the Life Lexicon,
 a lexicon of terms used in Conway's Game of Life.
 
 The source is unlikely to be of any use to most people, but is provided for
@@ -8,28 +8,30 @@ two reasons:
   (2) Some of it may be of use if anyone wants to convert the Lexicon into
       some other format.
 
-The files supplied are:
-    README        (this file)
-    makehtml.sh   (a bash script to generate the HTML versions)
-    htmlize.c     (C source for the `htmlize' program)
-    perfect.c     (C source for the `perfect' program)
-    head.htm      (the single-page HTML version of the introductory notes)
-    tail.htm      (the single-page HTML version of the bibliography)
-    ?.htm         (27 tiny files used for the multipage HTML version)
-    top1.htm      (used at the top of the multipage HTML files)
-    top2.htm      (also used at the top of the multipage HTML files)
-    bot.htm       (used at the bottom of the multipage HTML files)
-    lexicon.txt   (the ASCII version of the Lexicon)
-    lexiconf.htm  (the frameset for the single-page HTML version)
-    buttons.htm   (the button bar frame of the single-page HTML version)
-    lex.htm       (the multipage HTML version of the introductory notes)
-    lex_bib.htm   (the multipage HTML version of the bibliography)
-    lifelex.el    (a Life Lexicon mode for Emacs)
-    emacs.txt     (instructions for using lifelex.el)
-    lifelex.css   (stylesheet for HTML versions)
-    index.htm     (redirect page pointing to lex_home.htm)
-    lex_home.htm  (landing page for the multipage HTML version)
-
+The file supplied are:
+    README               (this file)
+    makehtml.sh          (a bash script to generate the HTML versions)
+    htmlize.c            (C source for the `htmlize' program)
+    perfect.c            (C source for the `perfect' program)
+    head.htm             (the single-page HTML version of the introductory notes)
+    tail.htm             (the single-page HTML version of the bibliography)
+    ?.htm                (27 tiny files used for the multipage HTML version)
+    top1.htm             (used at the top of the multipage HTML files)
+    top2.htm             (also used at the top of the multipage HTML files)
+    bot.htm              (used at the bottom of the multipage HTML files)
+    lexicon.txt          (the ASCII version of the Lexicon)
+    lexiconf.htm         (the frameset for the single-page HTML version)
+    buttons.htm          (the button bar frame of the single-page HTML version)
+    lex.htm              (the multipage HTML version of the introductory notes)
+    lex_bib.htm          (the multipage HTML version of the bibliography)
+    lifelex.el           (a Life Lexicon mode for Emacs)
+    emacs.txt            (instructions for using lifelex.el)
+    lifelex.css          (stylesheet for HTML versions)
+    lexicon-no-wrap.txt  (version of lexicon.txt with no added newlines)
+    lexicon-word-wrap.py (Python script to produce word-wrapped lexicon.txt)
+    manual-edits.txt     (post-compile adjustments currently needed,
+                             not yet integrated into perfect.c or htmlize.c)
+    
 The files htmlize.c and perfect.c should compile with any ANSI C compiler.
 To compile with cygwin, use
    gcc -o perfect.exe perfect.c

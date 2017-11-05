@@ -1,0 +1,584 @@
+Now for Release 28+, replace in all files except lexicon.txt:
+
+Ekstrom -> Ekstr&ouml;m
+  (12 places total -- lex_c, lex_f, lex_s, lex_t, and lexicon.htm)
+
+Francois -> Fran&ccedil;ois
+  (4 places total -- lex_h, lex_l, and lexicon.htm)
+
+Garden of Edens -> Gardens of Eden
+  (lexicon.htm, lex_s.htm)
+
+Search for "Release 28", "November 5", and "November 2017" and replace (where appropriate) with current release date and version.
+
+Replace the following original table chunks with <pre>...</pre>
+###ORIGINAL###
+lexicon.htm:
+-------------------------------
+result right-angle head-on
+-------------------------------
+nothing 11 17
+<a href="#ktx">beehive</a> 1 0
+<a href="#saf">B-heptomino</a> 1 2
+<a href="#fk0">bi-block</a> 1 0
+<a href="#i1p">blinker</a> 2 1
+<a href="#dp5">block</a> 3 3
+<a href="#i0n">boat</a> 0 1
+<a href="#uic">eater1</a> 1 0
+<a href="#p9q">glider</a> 1 1
+<a href="#v51">honey farm</a> 3 2
+<a href="#wji">interchange</a> 1 0
+<a href="#a3s">loaf</a> 0 1
+<a href="#wxa">lumps of muck</a> 1 0
+<a href="#u0v">octomino</a> 0 1
+<a href="#se4">pi-heptomino</a> 2 1
+<a href="#n2s">pond</a> 1 1
+<a href="#wr8">teardrop</a> 1 0
+<a href="#ndw">traffic light</a> 2 1
+<a href="#yre">four skewed blocks</a> 0 1
+<a href="#yx7">dirty</a> 6 0
+-------------------------------
+<pre>
+	-------------------------------
+	result     right-angle  head-on
+	-------------------------------
+	nothing             11       17
+	<a href="#ktx">beehive</a>              1        0
+	<a href="#saf">B-heptomino</a>          1        2
+	<a href="#fk0">bi-block</a>             1        0
+	<a href="#i1p">blinker</a>              2        1
+	<a href="#dp5">block</a>                3        3
+	<a href="#i0n">boat</a>                 0        1
+	<a href="#uic">eater1</a>               1        0
+	<a href="#p9q">glider</a>               1        1
+	<a href="#v51">honey farm</a>           3        2
+	<a href="#wji">interchange</a>          1        0
+	<a href="#a3s">loaf</a>                 0        1
+	<a href="#wxa">lumps of muck</a>        1        0
+	<a href="#u0v">octomino</a>             0        1
+	<a href="#se4">pi-heptomino</a>         2        1
+	<a href="#n2s">pond</a>                 1        1
+	<a href="#wr8">teardrop</a>             1        0
+	<a href="#ndw">traffic light</a>        2        1
+	<a href="#yre">four skewed blocks</a>   0        1
+	<a href="#yx7">dirty</a>                6        0
+	-------------------------------
+</pre>
+
+<pre>
+	-----------------------------------------
+	name/steps  m     dx   dy     discovery
+	-----------------------------------------
+	{R64}       R    -11    9   DJB, Sep 1995
+	{Fx77}      Ff   -25   -8   DJB, Aug 1996
+	{L112}      L    -12  -33   DJB, Jul 1996
+	{F116}      F    -32    1   PBC, Feb 1997
+	{F117}      F    -40   -6   DJB, Jul 1996
+	{Bx125}     Bf     9  -17   PBC, Nov 1998
+	{Fx119}     Ff   -20   14   DJB, Sep 1996
+	{Fx153}     Ff   -48   -4   PBC, Feb 1997
+	{L156}      L    -17  -41   DJB, Aug 1996
+	{Fx158}     Ff   -27   -5   DJB, Jul 1996
+	{F166}      F    -49    3   PBC, May 1997
+	{Fx176}     Ff   -45    0   PBC, Oct 1997
+	{R190}      R    -24   16   DJB, Jul 1996
+	{Lx200}     Lf   -17  -40   PBC, Jun 1997
+	{Rx202}     Rf    -7   32   DJB, May 1997
+	{Bx222}     Bf     6  -16   PBC, Oct 1998
+	-----------------------------------------
+</pre>
+<pre>
+	-----------------------------------------
+	name/steps  m     dx   dy     discovery
+	-----------------------------------------
+	<a href="#s7l">R64</a>         R    -11    9   DJB, Sep 1995
+	<a href="#lfj">Fx77</a>        Ff   -25   -8   DJB, Aug 1996
+	<a href="#g9o">L112</a>        L    -12  -33   DJB, Jul 1996
+	<a href="#awl">F116</a>        F    -32    1   PBC, Feb 1997
+	<a href="#awm">F117</a>        F    -40   -6   DJB, Jul 1996
+	<a href="#by4">Bx125</a>       Bf     9  -17   PBC, Nov 1998
+	<a href="#dka">Fx119</a>       Ff   -20   14   DJB, Sep 1996
+	<a href="#duw">Fx153</a>       Ff   -48   -4   PBC, Feb 1997
+	<a href="#gkk">L156</a>        L    -17  -41   DJB, Aug 1996
+	<a href="#dv1">Fx158</a>       Ff   -27   -5   DJB, Jul 1996
+	<a href="#ba2">F166</a>        F    -49    3   PBC, May 1997
+	<a href="#e0d">Fx176</a>       Ff   -45    0   PBC, Oct 1997
+	<a href="#m8d">R190</a>        R    -24   16   DJB, Jul 1996
+	<a href="#amz">Lx200</a>       Lf   -17  -40   PBC, Jun 1997
+	<a href="#pt0">Rx202</a>       Rf    -7   32   DJB, May 1997
+	<a href="#j7e">Bx222</a>       Bf     6  -16   PBC, Oct 1998
+	-----------------------------------------
+</pre>
+<pre>
+	----------------------------------------------------------------
+	Speed Direction  First Discovery     Discoverer             Date
+	----------------------------------------------------------------
+	c/4   diagonal   {glider}            Richard Guy            1970
+	c/2   orthogonal {LWSS}              John Conway            1970
+	c/3   orthogonal {25P3H1V0.1}        Dean Hickerson     Aug 1989
+	c/4   orthogonal {119P4H1V0}         Dean Hickerson     Dec 1989
+	c/12  diagonal   {Cordership}        Dean Hickerson     Apr 1991
+	2c/5  orthogonal {44P5H2V0}          Dean Hickerson     Jul 1991
+	c/5   orthogonal {snail}             Tim Coe            Jan 1996
+	2c/7  orthogonal {weekender}         David Eppstein     Jan 2000
+	c/6   orthogonal {dragon}            Paul Tooke         Apr 2000
+	c/5   diagonal   {295P5H1V1}         Jason Summers      Nov 2000
+	c/6   diagonal   {seal}              Nicolay Beluchenko Sep 2005
+	c/7   diagonal   {lobster}           Matthias Merzenich Aug 2011
+	c/7   orthogonal {loafer}            Josh Ball          Feb 2013
+	c/10  orthogonal {copperhead}        zdr                Mar 2016
+	3c/7  orthogonal {spaghetti monster} Tim Coe            Jun 2016
+	----------------------------------------------------------------
+</pre>
+<pre>
+	--------------------------------------------------------------
+	Speed Direction  First Discovery   Discoverer             Date
+	--------------------------------------------------------------
+	c/4   diagonal   <a href="#p9q">glider</a>            Richard Guy            1970
+	c/2   orthogonal <a href="#gr9">LWSS</a>              John Conway            1970
+	c/3   orthogonal <a href="#nmn">25P3H1V0.2</a>        Dean Hickerson     Aug 1989
+	c/4   orthogonal <a href="#gbh">119P4H1V0</a>         Dean Hickerson     Dec 1989
+	c/12  diagonal   <a href="#we6">Cordership</a>        Dean Hickerson     Apr 1991
+	2c/5  orthogonal <a href="#chz">44P5H2V0</a>          Dean Hickerson     Jul 1991
+	c/5   orthogonal <a href="#kfu">snail</a>             Tim Coe            Jan 1996
+	2c/7  orthogonal <a href="#dxb">weekender</a>         David Eppstein     Jan 2000
+	c/6   orthogonal <a href="#nl6">dragon</a>            Paul Tooke         Apr 2000
+	c/5   diagonal   <a href="#hwp">295P5H1V1</a>         Jason Summers      Nov 2000
+	c/6   diagonal   <a href="#fd7">seal</a>              Nicolay Beluchenko Sep 2005
+	c/7   diagonal   <a href="#ij0">lobster</a>           Matthias Merzenich Aug 2011
+	c/7   orthogonal <a href="#jic">loafer</a>            Josh Ball          Feb 2013
+	c/10  orthogonal <a href="#sje">copperhead</a>        zdr                Mar 2016
+	3c/7  orthogonal <a href="#rbf">spaghetti monster</a> Tim Coe            Jun 2016
+	--------------------------------------------------------------
+</pre>
+
+lex_1:
+-------------------------------
+result right-angle head-on
+-------------------------------
+nothing 11 17
+<a href="lex_b.htm#beehive">beehive</a> 1 0
+<a href="lex_b.htm#bheptomino">B-heptomino</a> 1 2
+<a href="lex_b.htm#biblock">bi-block</a> 1 0
+<a href="lex_b.htm#blinker">blinker</a> 2 1
+<a href="lex_b.htm#block">block</a> 3 3
+<a href="lex_b.htm#boat">boat</a> 0 1
+<a href="lex_e.htm#eater1">eater1</a> 1 0
+<a href="lex_g.htm#glider">glider</a> 1 1
+<a href="lex_h.htm#honeyfarm">honey farm</a> 3 2
+<a href="lex_i.htm#interchange">interchange</a> 1 0
+<a href="lex_l.htm#loaf">loaf</a> 0 1
+<a href="lex_l.htm#lumpsofmuck">lumps of muck</a> 1 0
+<a href="lex_o.htm#octomino">octomino</a> 0 1
+<a href="lex_p.htm#piheptomino">pi-heptomino</a> 2 1
+<a href="lex_p.htm#pond">pond</a> 1 1
+<a href="lex_t.htm#teardrop">teardrop</a> 1 0
+<a href="lex_t.htm#trafficlight">traffic light</a> 2 1
+<a href="lex_f.htm#fourskewedblocks">four skewed blocks</a> 0 1
+<a href="lex_d.htm#dirty">dirty</a> 6 0
+-------------------------------
+
+<pre>
+	-------------------------------
+	result     right-angle  head-on
+	-------------------------------
+	nothing             11       17
+	<a href="lex_b.htm#beehive">beehive</a>            1        0
+	<a href="lex_b.htm#bheptomino">B-heptomino</a>        1        2
+	<a href="lex_b.htm#biblock">bi-block</a>           1        0
+	<a href="lex_b.htm#blinker">blinker</a>            2        1
+	<a href="lex_b.htm#block">block</a>              3        3
+	<a href="lex_b.htm#boat">boat</a>               0        1
+	<a href="lex_e.htm#eater1">eater1</a>             1        0
+	<a href="lex_g.htm#glider">glider</a>             1        1
+	<a href="lex_h.htm#honeyfarm">honey farm</a>         3        2
+	<a href="lex_i.htm#interchange">interchange</a>        1        0
+	<a href="lex_l.htm#loaf">loaf</a>               0        1
+	<a href="lex_l.htm#lumpsofmuck">lumps of muck</a>      1        0
+	<a href="lex_o.htm#octomino">octomino</a>           0        1
+	<a href="lex_p.htm#piheptomino">pi-heptomino</a>       2        1
+	<a href="lex_p.htm#pond">pond</a>               1        1
+	<a href="lex_t.htm#teardrop">teardrop</a>           1        0
+	<a href="lex_t.htm#trafficlight">traffic light</a>      2        1
+	<a href="lex_f.htm#fourskewedblocks">four skewed blocks</a> 0        1
+	<a href="lex_d.htm#dirty">dirty</a>              6        0
+	-------------------------------
+</pre>
+
+lex_h:
+<pre>
+	-----------------------------------------
+	name/steps  m     dx   dy     discovery
+	-----------------------------------------
+	{R64}       R    -11    9   DJB, Sep 1995
+	{Fx77}      Ff   -25   -8   DJB, Aug 1996
+	{L112}      L    -12  -33   DJB, Jul 1996
+	{F116}      F    -32    1   PBC, Feb 1997
+	{F117}      F    -40   -6   DJB, Jul 1996
+	{Bx125}     Bf     9  -17   PBC, Nov 1998
+	{Fx119}     Ff   -20   14   DJB, Sep 1996
+	{Fx153}     Ff   -48   -4   PBC, Feb 1997
+	{L156}      L    -17  -41   DJB, Aug 1996
+	{Fx158}     Ff   -27   -5   DJB, Jul 1996
+	{F166}      F    -49    3   PBC, May 1997
+	{Fx176}     Ff   -45    0   PBC, Oct 1997
+	{R190}      R    -24   16   DJB, Jul 1996
+	{Lx200}     Lf   -17  -40   PBC, Jun 1997
+	{Rx202}     Rf    -7   32   DJB, May 1997
+	{Bx222}     Bf     6  -16   PBC, Oct 1998
+	-----------------------------------------
+</pre>
+<pre>
+	-----------------------------------------
+	name/steps  m     dx   dy     discovery
+	-----------------------------------------
+	<a href="lex_r.htm#r64">R64</a>         R    -11    9   DJB, Sep 1995
+	<a href="lex_f.htm#fx77">Fx77</a>        Ff   -25   -8   DJB, Aug 1996
+	<a href="lex_l.htm#l112">L112</a>        L    -12  -33   DJB, Jul 1996
+	<a href="lex_f.htm#f116">F116</a>        F    -32    1   PBC, Feb 1997
+	<a href="lex_f.htm#f117">F117</a>        F    -40   -6   DJB, Jul 1996
+	<a href="lex_b.htm#bx125">Bx125</a>       Bf     9  -17   PBC, Nov 1998
+	<a href="lex_f.htm#fx119">Fx119</a>       Ff   -20   14   DJB, Sep 1996
+	<a href="lex_f.htm#fx153">Fx153</a>       Ff   -48   -4   PBC, Feb 1997
+	<a href="lex_l.htm#l156">L156</a>        L    -17  -41   DJB, Aug 1996
+	<a href="lex_f.htm#fx158">Fx158</a>       Ff   -27   -5   DJB, Jul 1996
+	<a href="lex_f.htm#f166">F166</a>        F    -49    3   PBC, May 1997
+	<a href="lex_f.htm#fx176">Fx176</a>       Ff   -45    0   PBC, Oct 1997
+	<a href="lex_r.htm#r190">R190</a>        R    -24   16   DJB, Jul 1996
+	<a href="lex_l.htm#lx200">Lx200</a>       Lf   -17  -40   PBC, Jun 1997
+	<a href="lex_r.htm#rx202">Rx202</a>       Rf    -7   32   DJB, May 1997
+	<a href="lex_b.htm#bx222">Bx222</a>       Bf     6  -16   PBC, Oct 1998
+	-----------------------------------------
+</pre>
+
+lex_s:
+<pre>
+	----------------------------------------------------------------
+	Speed Direction  First Discovery     Discoverer             Date
+	----------------------------------------------------------------
+	c/4   diagonal   {glider}            Richard Guy            1970
+	c/2   orthogonal {LWSS}              John Conway            1970
+	c/3   orthogonal {25P3H1V0.1}        Dean Hickerson     Aug 1989
+	c/4   orthogonal {119P4H1V0}         Dean Hickerson     Dec 1989
+	c/12  diagonal   {Cordership}        Dean Hickerson     Apr 1991
+	2c/5  orthogonal {44P5H2V0}          Dean Hickerson     Jul 1991
+	c/5   orthogonal {snail}             Tim Coe            Jan 1996
+	2c/7  orthogonal {weekender}         David Eppstein     Jan 2000
+	c/6   orthogonal {dragon}            Paul Tooke         Apr 2000
+	c/5   diagonal   {295P5H1V1}         Jason Summers      Nov 2000
+	c/6   diagonal   {seal}              Nicolay Beluchenko Sep 2005
+	c/7   diagonal   {lobster}           Matthias Merzenich Aug 2011
+	c/7   orthogonal {loafer}            Josh Ball          Feb 2013
+	c/10  orthogonal {copperhead}        zdr                Mar 2016
+	3c/7  orthogonal {spaghetti monster} Tim Coe            Jun 2016
+	----------------------------------------------------------------
+</pre>
+<pre>
+	--------------------------------------------------------------
+	Speed Direction  First Discovery   Discoverer             Date
+	--------------------------------------------------------------
+	c/4   diagonal   <a href="lex_g.htm#glider">glider</a>            Richard Guy            1970
+	c/2   orthogonal <a href="lex_l.htm#lwss">LWSS</a>              John Conway            1970
+	c/3   orthogonal <a href="lex_1.htm#a-25p3h1v01">25P3H1V0.1</a>        Dean Hickerson     Aug 1989
+	c/4   orthogonal <a href="lex_1.htm#a-119p4h1v0">119P4H1V0</a>         Dean Hickerson     Dec 1989
+	c/12  diagonal   <a href="lex_c.htm#cordership">Cordership</a>        Dean Hickerson     Apr 1991
+	2c/5  orthogonal <a href="lex_1.htm#a-44p5h2v0">44P5H2V0</a>          Dean Hickerson     Jul 1991
+	c/5   orthogonal <a href="lex_s.htm#snail">snail</a>             Tim Coe            Jan 1996
+	2c/7  orthogonal <a href="lex_w.htm#weekender">weekender</a>         David Eppstein     Jan 2000
+	c/6   orthogonal <a href="lex_d.htm#dragon">dragon</a>            Paul Tooke         Apr 2000
+	c/5   diagonal   <a href="lex_1.htm#a-295p5h1v1">295P5H1V1</a>         Jason Summers      Nov 2000
+	c/6   diagonal   <a href="lex_s.htm#seal">seal</a>              Nicolay Beluchenko Sep 2005
+	c/7   diagonal   <a href="lex_l.htm#lobster">lobster</a>           Matthias Merzenich Aug 2011
+	c/7   orthogonal <a href="lex_l.htm#loafer">loafer</a>            Josh Ball          Feb 2013
+	c/10  orthogonal <a href="lex_c.htm#copperhead">copperhead</a>        zdr                Mar 2016
+	3c/7  orthogonal <a href="lex_s.htm#spaghettimonster">spaghetti monster</a> Tim Coe            Jun 2016
+	--------------------------------------------------------------
+</pre>
+
+In files changed for Golly, after running modify.pl, for all 6 tables, replace beginning tags with <pre>, end tags with </pre>, and add eight leading spaces...
+
+:2-glider collisions:
+
+### MULTI-PAGE lex_1.htm ###
+<pre>
+        -------------------------------
+        result     right-angle  head-on
+        -------------------------------
+        nothing             11       17
+        <a href="lex_b.htm#beehive">beehive</a>            1        0
+        <a href="lex_b.htm#bheptomino">B-heptomino</a>        1        2
+        <a href="lex_b.htm#biblock">bi-block</a>           1        0
+        <a href="lex_b.htm#blinker">blinker</a>            2        1
+        <a href="lex_b.htm#block">block</a>              3        3
+        <a href="lex_b.htm#boat">boat</a>               0        1
+        <a href="lex_e.htm#eater1">eater1</a>             1        0
+        <a href="lex_g.htm#glider">glider</a>             1        1
+        <a href="lex_h.htm#honeyfarm">honey farm</a>         3        2
+        <a href="lex_i.htm#interchange">interchange</a>        1        0
+        <a href="lex_l.htm#loaf">loaf</a>               0        1
+        <a href="lex_l.htm#lumpsofmuck">lumps of muck</a>      1        0
+        <a href="lex_o.htm#octomino">octomino</a>           0        1
+        <a href="lex_p.htm#piheptomino">pi-heptomino</a>       2        1
+        <a href="lex_p.htm#pond">pond</a>               1        1
+        <a href="lex_t.htm#teardrop">teardrop</a>           1        0
+        <a href="lex_t.htm#trafficlight">traffic light</a>      2        1
+        <a href="lex_f.htm#fourskewedblocks">four skewed blocks</a> 0        1
+        <a href="lex_d.htm#dirty">dirty</a>              6        0
+        -------------------------------
+</pre>
+
+### SINGLE-PAGE lexicon.htm ###
+<pre>
+		-------------------------------
+		result     right-angle  head-on
+		-------------------------------
+		nothing             11       17
+		<a href="lex_b.htm#beehive">beehive</a>            1        0
+		<a href="lex_b.htm#bheptomino">B-heptomino</a>        1        2
+		<a href="lex_b.htm#biblock">bi-block</a>           1        0
+		<a href="lex_b.htm#blinker">blinker</a>            2        1
+		<a href="lex_b.htm#block">block</a>              3        3
+		<a href="lex_b.htm#boat">boat</a>               0        1
+		<a href="lex_e.htm#eater1">eater1</a>             1        0
+		<a href="lex_g.htm#glider">glider</a>             1        1
+		<a href="lex_h.htm#honeyfarm">honey farm</a>         3        2
+		<a href="lex_i.htm#interchange">interchange</a>        1        0
+		<a href="lex_l.htm#loaf">loaf</a>               0        1
+		<a href="lex_l.htm#lumpsofmuck">lumps of muck</a>      1        0
+		<a href="lex_o.htm#octomino">octomino</a>           0        1
+		<a href="lex_p.htm#piheptomino">pi-heptomino</a>       2        1
+		<a href="lex_p.htm#pond">pond</a>               1        1
+		<a href="lex_t.htm#teardrop">teardrop</a>           1        0
+		<a href="lex_t.htm#trafficlight">traffic light</a>      2        1
+		<a href="lex_f.htm#fourskewedblocks">four skewed blocks</a> 0        1
+		<a href="lex_d.htm#dirty">dirty</a>              6        0
+		-------------------------------
+</pre>
+
+:Herschel conduit:
+### MULTI-PAGE lex_h.htm ###
+<pre>
+        -----------------------------------------
+        name/steps  m     dx   dy     discovery
+        -----------------------------------------
+        <a href="lex_r.htm#r64">R64</a>         R    -11    9   DJB, Sep 1995
+        <a href="lex_f.htm#fx77">Fx77</a>        Ff   -25   -8   DJB, Aug 1996
+        <a href="lex_l.htm#l112">L112</a>        L    -12  -33   DJB, Jul 1996
+        <a href="lex_f.htm#f116">F116</a>        F    -32    1   PBC, Feb 1997
+        <a href="lex_f.htm#f117">F117</a>        F    -40   -6   DJB, Jul 1996
+        <a href="lex_b.htm#bx125">Bx125</a>       Bf     9  -17   PBC, Nov 1998
+        <a href="lex_f.htm#fx119">Fx119</a>       Ff   -20   14   DJB, Sep 1996
+        <a href="lex_f.htm#fx153">Fx153</a>       Ff   -48   -4   PBC, Feb 1997
+        <a href="lex_l.htm#l156">L156</a>        L    -17  -41   DJB, Aug 1996
+        <a href="lex_f.htm#fx158">Fx158</a>       Ff   -27   -5   DJB, Jul 1996
+        <a href="lex_f.htm#f166">F166</a>        F    -49    3   PBC, May 1997
+        <a href="lex_f.htm#fx176">Fx176</a>       Ff   -45    0   PBC, Oct 1997
+        <a href="lex_r.htm#r190">R190</a>        R    -24   16   DJB, Jul 1996
+        <a href="lex_l.htm#lx200">Lx200</a>       Lf   -17  -40   PBC, Jun 1997
+        <a href="lex_r.htm#rx202">Rx202</a>       Rf    -7   32   DJB, May 1997
+        <a href="lex_b.htm#bx222">Bx222</a>       Bf     6  -16   PBC, Oct 1998
+        -----------------------------------------
+</pre>
+### SINGLE-PAGE lexicon.htm ###
+<pre>
+        -----------------------------------------
+        name/steps  m     dx   dy     discovery
+        -----------------------------------------
+        <a href="#s7l">R64</a>         R    -11    9   DJB, Sep 1995
+        <a href="#lfj">Fx77</a>        Ff   -25   -8   DJB, Aug 1996
+        <a href="#g9o">L112</a>        L    -12  -33   DJB, Jul 1996
+        <a href="#awl">F116</a>        F    -32    1   PBC, Feb 1997
+        <a href="#awm">F117</a>        F    -40   -6   DJB, Jul 1996
+        <a href="#by4">Bx125</a>       Bf     9  -17   PBC, Nov 1998
+        <a href="#dka">Fx119</a>       Ff   -20   14   DJB, Sep 1996
+        <a href="#duw">Fx153</a>       Ff   -48   -4   PBC, Feb 1997
+        <a href="#gkk">L156</a>        L    -17  -41   DJB, Aug 1996
+        <a href="#dv1">Fx158</a>       Ff   -27   -5   DJB, Jul 1996
+        <a href="#ba2">F166</a>        F    -49    3   PBC, May 1997
+        <a href="#e0d">Fx176</a>       Ff   -45    0   PBC, Oct 1997
+        <a href="#m8d">R190</a>        R    -24   16   DJB, Jul 1996
+        <a href="#amz">Lx200</a>       Lf   -17  -40   PBC, Jun 1997
+        <a href="#pt0">Rx202</a>       Rf    -7   32   DJB, May 1997
+        <a href="#j7e">Bx222</a>       Bf     6  -16   PBC, Oct 1998
+        -----------------------------------------
+</pre>
+
+:pseudo:
+<pre>
+        --------------
+        Bits    Number
+        --------------
+         8           1
+         9           1
+        10           7
+        11          16
+        12          55
+        13         110
+        14         279
+        15         620
+        16        1645
+        17        4067
+        18       10843
+        19       27250
+        20       70637
+        21      179011
+        22      462086
+        23     1184882
+        24     3068984
+        25     7906676
+        26    20463274
+        27    52816265
+        28   136655095
+        29   353198379
+        30   914075620
+        31  2364815358
+        32  6123084116
+        --------------
+</pre>
+
+:quasi:
+<pre>
+        ----------------
+        Bits       Count
+        ----------------
+         8             6
+         9            13
+        10            57
+        11           141
+        12           465
+        13          1224
+        14          3956
+        15         11599
+        16         36538
+        17        107415
+        18        327250
+        19        972040
+        20       2957488
+        21       8879327
+        22      26943317
+        ----------------
+</pre>
+
+:spaceship:
+### MULTI-PAGE lex_s.htm ###
+<pre>
+	--------------------------------------------------------------
+	Speed Direction  First Discovery   Discoverer             Date
+	--------------------------------------------------------------
+	c/4   diagonal   <a href="lex_g.htm#glider">glider</a>            Richard Guy            1970
+	c/2   orthogonal <a href="lex_l.htm#lwss">LWSS</a>              John Conway            1970
+	c/3   orthogonal <a href="lex_1.htm#a-25p3h1v01">25P3H1V0.1</a>        Dean Hickerson     Aug 1989
+	c/4   orthogonal <a href="lex_1.htm#a-119p4h1v0">119P4H1V0</a>         Dean Hickerson     Dec 1989
+	c/12  diagonal   <a href="lex_c.htm#cordership">Cordership</a>        Dean Hickerson     Apr 1991
+	2c/5  orthogonal <a href="lex_1.htm#a-44p5h2v0">44P5H2V0</a>          Dean Hickerson     Jul 1991
+	c/5   orthogonal <a href="lex_s.htm#snail">snail</a>             Tim Coe            Jan 1996
+	2c/7  orthogonal <a href="lex_w.htm#weekender">weekender</a>         David Eppstein     Jan 2000
+	c/6   orthogonal <a href="lex_d.htm#dragon">dragon</a>            Paul Tooke         Apr 2000
+	c/5   diagonal   <a href="lex_1.htm#a-295p5h1v1">295P5H1V1</a>         Jason Summers      Nov 2000
+	c/6   diagonal   <a href="lex_s.htm#seal">seal</a>              Nicolay Beluchenko Sep 2005
+	c/7   diagonal   <a href="lex_l.htm#lobster">lobster</a>           Matthias Merzenich Aug 2011
+	c/7   orthogonal <a href="lex_l.htm#loafer">loafer</a>            Josh Ball          Feb 2013
+	c/10  orthogonal <a href="lex_c.htm#copperhead">copperhead</a>        zdr                Mar 2016
+	3c/7  orthogonal <a href="lex_s.htm#spaghettimonster">spaghetti monster</a> Tim Coe            Jun 2016
+	--------------------------------------------------------------
+</pre>
+
+### SINGLE-PAGE lexicon.htm ###
+<pre>
+        --------------------------------------------------------------
+        Speed Direction  First Discovery   Discoverer             Date
+        --------------------------------------------------------------
+        c/4   diagonal   <a href="#p9q">glider</a>            Richard Guy            1970
+        c/2   orthogonal <a href="#gr9">LWSS</a>              John Conway            1970
+        c/3   orthogonal <a href="#nmn">25P3H1V0.2</a>        Dean Hickerson     Aug 1989
+        c/4   orthogonal <a href="#gbh">119P4H1V0</a>         Dean Hickerson     Dec 1989
+        c/12  diagonal   <a href="#we6">Cordership</a>        Dean Hickerson     Apr 1991
+        2c/5  orthogonal <a href="#chz">44P5H2V0</a>          Dean Hickerson     Jul 1991
+        c/5   orthogonal <a href="#kfu">snail</a>             Tim Coe            Jan 1996
+        2c/7  orthogonal <a href="#dxb">weekender</a>         David Eppstein     Jan 2000
+        c/6   orthogonal <a href="#nl6">dragon</a>            Paul Tooke         Apr 2000
+        c/5   diagonal   <a href="#hwp">295P5H1V1</a>         Jason Summers      Nov 2000
+        c/6   diagonal   <a href="#fd7">seal</a>              Nicolay Beluchenko Sep 2005
+        c/7   diagonal   <a href="#ij0">lobster</a>           Matthias Merzenich Aug 2011
+        c/7   orthogonal <a href="#jic">loafer</a>            Josh Ball          Feb 2013
+        c/10  orthogonal <a href="#sje">copperhead</a>        zdr                Mar 2016
+        3c/7  orthogonal <a href="#rbf">spaghetti monster</a> Tim Coe            Jun 2016
+        --------------------------------------------------------------
+</pre>
+
+:strict still life:
+<pre>
+        --------------
+        Bits    Number
+        --------------
+         4           2
+         5           1
+         6           5
+         7           4
+         8           9
+         9          10
+        10          25
+        11          46
+        12         121
+        13         240
+        14         619
+        15        1353
+        16        3286
+        17        7773
+        18       19044
+        19       45759
+        20      112243
+        21      273188
+        22      672172
+        23     1646147
+        24     4051711
+        25     9971377
+        26    24619307
+        27    60823008
+        28   150613157
+        29   373188952
+        30   926068847
+        31  2299616637
+        32  5716948683
+        --------------
+</pre>
+
+:true:
+<pre>
+        ------------------------------------
+        Period  Discoverers            Date
+        ------------------------------------
+        20      Matthias Merzenich  May 2013
+                Noam Elkies
+        22      David Eppstein      Aug 2000
+                Jason Summers
+        24      Noam Elkies         Jun 1997
+        30      Bill Gosper         Nov 1970
+        36      Jason Summers       Jul 2004
+        40      Adam P. Goucher     Mar 2013
+                Matthias Merzenich
+                Jason Summers
+        44      Dave Buckingham     Apr 1992
+        45      Matthias Merzenich  Apr 2010
+        46      Bill Gosper             1971
+        48      Noam Elkies         Jun 1997
+        50      Dean Hickerson      Oct 1996
+                Noam Elkies
+                Dave Buckingham
+        54      Dieter Leithner     Jan 1998
+                Noam Elkies
+                Dave Buckingham
+        55      Stephen Silver      Oct 1998
+        56      Dieter Leithner     Jan 1998
+                Dave Buckingham
+                Noam Elkies
+        57      Matthias Merzenich  Apr 2016
+        58      'thunk'             Apr 2016
+                Matthias Merzenich
+                Chris Cain
+        59      Adam P. Goucher     Dec 2009
+                Jason Summers
+        60      Bill Gosper         Nov 1970
+        61      Luka Okanishi       Apr 2016
+        ------------------------------------
+</pre>

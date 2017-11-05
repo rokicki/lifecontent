@@ -11,7 +11,7 @@
 </head>
 <body>
 <center><b class=l>Life Lexicon</b></center>
-<center><a HREF="lex_home.htm">Life Lexicon Home Page</a></center>
+<center><a HREF="http://www.conwaylife.com/ref/lexicon/lex_home.htm">Life Lexicon Home Page</a></center>
 <hr>
 <center>
 <A HREF="lex.htm">Introduction</A> |
@@ -46,6 +46,7 @@
 </center>
 <hr>
 <p><a name=q>:</a><b>Q</b> = <a href="#quetzal">Quetzal</a>
+<p><a name=qd>:</a><b>qd</b> Abbreviation for <a href="#quarterdiagonal">quarter diagonal</a>.
 <p><a name=qpentomino>:</a><b>Q-pentomino</b> Conway's name for the following <a href="lex_p.htm#pentomino">pentomino</a>, a
 <a href="lex_t.htm#trafficlight">traffic light</a> <a href="lex_p.htm#predecessor">predecessor</a>.
 <pre>
@@ -62,7 +63,7 @@ that fit in a 6&times;6 box this is the only <a href="lex_f.htm#flipper">flipper
 	O.O..O
 	OO..OO
 </pre>
-<p><a name=quadlife>:</a><b>QuadLife</b> A form of <a href="lex_c.htm#colorizedlife">colorized Life</a> in which there are four types of
+<p><a name=quadlife>:</a><b>QuadLife</b> A form of <a href="lex_c.htm#colourisedlife">colourised Life</a> in which there are four types of
 ON cell. A newly-born cell takes the type of the majority of its
 three <a href="lex_p.htm#parentcells">parent cells</a>, or the remaining type if its parent cells are
 all of different types. In areas where there are only two types of
@@ -77,9 +78,126 @@ ON cell QuadLife reduces to <a href="lex_i.htm#immigration">Immigration</a>.
 	....O.O
 	.....OO
 </pre>
+<p><a name=quadpseudo>:</a><b>quad pseudo</b> A <a href="lex_s.htm#stilllife">still life</a> that can be broken down into four <a href="lex_s.htm#stable">stable</a>
+pieces but not into two or three. This term may refer to the
+following 34-bit pattern, found by Gabriel Nivasch in July 2001, or
+any similar pattern with the same property.
+<pre>
+	........OO.
+	...OO.O..O.
+	...O.OO.O..
+	........OO.
+	...O.OO...O
+	.OOO.OO.OO.
+	O.......O..
+	.OOO.OO.O..
+	...O.O.O...
+</pre>
+<p>As a consequence of the Four-Colour Theorem, there can be no
+analogous objects requiring decomposition into five or more pieces.
+By convention, patterns like this and the <a href="lex_t.htm#triplepseudo">triple pseudo</a> are
+considered to be <a href="lex_p.htm#pseudostilllife">pseudo still lifes</a>, not <a href="lex_s.htm#strictstilllife">strict still lifes</a>. As
+of November 2017 it has been shown that no quad pseudo patterns exist
+with 32 or fewer bits, but a 33-bit pattern with this property may
+theoretically still be found.
+<p><a name=quadraticfilter>:</a><b>quadratic filter</b> A <a href="lex_t.htm#toolkit">toolkit</a> developed by Dean Hickerson and Gabriel
+Nivasch in 2006, enabling the construction of patterns with
+asymptotic population growth matching an infinite number of different
+sublinear functions - namely, O(<i>t</i><sup><i>(</i></sup>1/2<sup><i>n</i></sup>)) for any chosen <i>n</i>. See
+also <a href="lex_e.htm#exponentialfilter">exponential filter</a>, <a href="lex_r.htm#recursivefilter">recursive filter</a>.
+<p><a name=quadraticgrowth>:</a><b>quadratic growth</b> The fastest possible asymptotic rate of population
+growth for any Life pattern - O(<i>t</i><sup>2</sup>) in big-O notation, where <i>t</i> is
+the number of ticks. The first quadratic-growth pattern found was
+Bill Gosper's <a href="lex_b.htm#breeder">breeder</a>, in 1971; many other types of breeders and
+<a href="lex_s.htm#spacefiller">spacefillers</a> have been constructed since.
+<p>In April 2011, Stephen Silver gave an example of a one-cell-thick
+pattern over a million cells long that exhibited quadratic growth.
+In October 2015, Chris Cain constructed a one-cell-thick pattern with
+a reduced bounding box of 2596&times;1, improving on a series of previous
+longer results. The smallest known quadratic growth pattern by
+initial population is the 23-cell <a href="lex_s.htm#switchenginepingpong">switch-engine ping-pong</a> by
+Michael Simkin.
+<p>There are an infinite number of possible growth rates for Life
+patterns, between linear and quadratic growth. See
+<a href="lex_s.htm#superlineargrowth">superlinear growth</a>.
+<p><a name=quadraticreplicator>:</a><b>quadratic replicator</b> A pattern that fills all or part of the Life
+plane by making copies of itself in a nonlinear way. Small quadratic
+replicators are known in other Life-like rules, but as of November
+2017 no example has been found or constructed in Conway's Life.
+<p><a name=quadraticsawtooth>:</a><b>quadratic sawtooth</b> Any <a href="lex_s.htm#sawtooth">sawtooth</a> pattern with a quadratic envelope,
+or specifically a pattern assembled by Martin Grant in May 2015,
+consisting of two caber tossers with period multipliers for timing
+which activate and deactivate two toggle rake guns. The gliders
+emitted by those rakes annihilate on the diagonal while the rakes are
+eaten by 2<i>c</i>/5 ships. All the rakes and gliders are destroyed before
+the next cycle. See also <a href="lex_o.htm#osqrtlogt">Osqrtlogt</a>.
+<p><a name=quadrisnark>:</a><b>quadri-Snark</b> A period-multiplying <a href="lex_c.htm#colourpreserving">colour-preserving</a> <a href="lex_s.htm#signal">signal</a>
+<a href="lex_c.htm#conduit">conduit</a> found by Tanner Jacobi in October 2017, producing one
+output <a href="lex_g.htm#glider">glider</a> for every four input gliders. It is made by
+replacing one of the eaters in a <a href="lex_t.htm#tremisnark">tremi-Snark</a> with a <a href="lex_c.htm#catalyst">catalyst</a>
+found using <a href="lex_b.htm#bellman">Bellman</a>. The catalyst cause the formation of a <a href="lex_t.htm#tub">tub</a>
+which then requires an additional glider to delete. However, this
+adds 5 ticks to the repeat time, so that it becomes 48. If period
+quadrupling is needed with a <a href="lex_c.htm#colourchanging">colour-changing</a> reaction, a
+<a href="lex_c.htm#cpsemisnark">CP semi-Snark</a> and a <a href="lex_c.htm#ccsemisnark">CC semi-Snark</a> can be used in series, or a
+period-multiplying <a href="lex_h.htm#herschelconduit">Herschel conduit</a> can be connected to a <a href="lex_s.htm#syringe">syringe</a>
+and an appropriately chosen Herschel-to-glider <a href="lex_c.htm#converter">converter</a>.
+<pre>
+	.O.......................................................
+	..O......................................................
+	OOO......................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.............O...........................................
+	..............O..........................................
+	............OOO..........................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................................................
+	.........................O...............................
+	..........................O..............................
+	........................OOO..............OO..............
+	..........................................O..............
+	........................................O.....OO.........
+	........................................OO.....O.........
+	...............................................O.OO......
+	........................................OO..OO.O..O......
+	........................................OO...O.OO........
+	.............................................O...........
+	............................................OO...........
+	...................................................OO....
+	.....................................O.............O.O...
+	......................................O..............O...
+	....................................OOO..............O.OO
+	...........................................OO.....OO.O.O.
+	...........................................OO.....OO.O.O.
+	.....................................................O.OO
+	..................................OO..............OOOO..O
+	.................................O.O..............O...OO.
+	.................................O..................OO...
+	................................OO...................O...
+	...................................................O.....
+	...................................................OO....
+</pre>
 <p><a name=quapole>:</a><b>quapole</b> = <a href="#quadpole">quadpole</a>
-<p><a name=quarter>:</a><b>quarter</b> (<i>c</i>/4 diagonally, p4) The following 25-cell <a href="lex_s.htm#spaceship">spaceship</a>, found
-by Jason Summers in September 2000. See also <a href="lex_t.htm#tubstretcher">tubstretcher</a>.
+<p><a name=quarter>:</a><b>quarter</b> (<i>c</i>/4 diagonally, p4) The following <a href="lex_s.htm#spaceship">spaceship</a>, found by
+Jason Summers in September 2000. The name is due to the 25-cell
+minimum population. This is the smallest known <a href="lex_c.htm#c4spaceship">c/4 spaceship</a> other
+than the <a href="lex_g.htm#glider">glider</a>. This spaceship can also be used to make the
+smallest known <a href="lex_t.htm#tubstretcher">tubstretcher</a>.
 <pre>
 	........OO...
 	.......OO....
@@ -94,6 +212,11 @@ by Jason Summers in September 2000. See also <a href="lex_t.htm#tubstretcher">tu
 	....OO..O....
 	....OO.......
 </pre>
+<p><a name=quarterdiagonal>:</a><b>quarter diagonal</b> A unit of measurement sometimes used for diagonal
+distances, especially for <a href="lex_s.htm#slowsalvo">slow salvo</a> glider <a href="lex_l.htm#lane">lanes</a>. One advantage
+of measurement in quarter diagonals is that gliders travel diagonally
+at 1qd/tick, so that the same integer value can serve as either a
+time or a diagonal distance measurement.
 <p><a name=quasar>:</a><b>quasar</b> (p3) Found by Robert Wainwright, August 1971. See <a href="lex_p.htm#pulsar">pulsar</a>.
 <pre>
 	..........OOO...OOO..........
@@ -126,13 +249,46 @@ by Jason Summers in September 2000. See also <a href="lex_t.htm#tubstretcher">tu
 	.............................
 	..........OOO...OOO..........
 </pre>
+<p><a name=quasistilllife>:</a><b>quasi still life</b> A <a href="lex_s.htm#stable">stable</a> <a href="lex_c.htm#constellation">constellation</a> where the individual
+<a href="lex_s.htm#stilllife">still lifes</a> share dead cells, so the neighborhoods of those dead
+cells are changed, but all cells that used to remain dead from
+under-population still do so. Under Life rules, this occurs when
+objects are diagonally adjacent (e.g., two <a href="lex_b.htm#block">blocks</a> sharing a single
+diagonal neighbor) or when single protruding cells in two objects
+such as <a href="lex_t.htm#tub">tubs</a> share multiple neighbors. The term is due to Mark
+Niemiec.
+<pre>
+	----------------
+	Bits       Count
+	----------------
+	 8             6
+	 9            13
+	10            57
+	11           141
+	12           465
+	13          1224
+	14          3956
+	15         11599
+	16         36538
+	17        107415
+	18        327250
+	19        972040
+	20       2957488
+	21       8879327
+	22      26943317
+	----------------
+</pre>
+<p>As the number of bits increases, the quasi still life count goes up
+exponentially by approximately O(3.04<sup><i>n</i></sup>), slightly more than a
+factor of three. By comparison, the rate for <a href="lex_s.htm#strictstilllife">strict still lifes</a> is
+about O(2.46<sup><i>n</i></sup>) while for <a href="lex_p.htm#pseudostilllife">pseudo still lifes</a> it's around O(2.56<sup><i>n</i></sup>).
 <p><a name=queenbee>:</a><b>queen bee</b> See <a href="#queenbeeshuttle">queen bee shuttle</a>.
 <p><a name=queenbeeshuttle>:</a><b>queen bee shuttle</b> (p30) Found by Bill Gosper in 1970. There are a
 number of ways to stabilize the ends. Gosper originally stabilized
-shuttles against one another in a square of eight shuttles.
-Two simpler methods are shown here; for a third see <a href="lex_b.htm#buckaroo">buckaroo</a>.
-The queen bee shuttle is the basis of all known <a href="lex_t.htm#true">true</a> p30 <a href="lex_g.htm#gun">guns</a>
-(see <a href="lex_g.htm#gosperglidergun">Gosper glider gun</a>).
+shuttles against one another in a square of eight shuttles. Two
+simpler methods are shown here; for a third see <a href="lex_b.htm#buckaroo">buckaroo</a>. The queen
+bee shuttle is the basis of all known <a href="lex_t.htm#true">true</a> p30 <a href="lex_g.htm#gun">guns</a> (see
+<a href="lex_g.htm#gosperglidergun">Gosper glider gun</a>).
 <pre>
 	.........O............
 	.......O.O............
@@ -144,6 +300,40 @@ The queen bee shuttle is the basis of all known <a href="lex_t.htm#true">true</a
 	....................O.
 	....................OO
 </pre>
+<p><a name=queenbeeshuttlepair>:</a><b>queen bee shuttle pair</b> Any arrangement of two <a href="#queenbeeshuttle">queen bee shuttles</a>
+such that the two <a href="lex_b.htm#beehive">beehives</a> created between them are consumed in
+some way. There are many ways that the two shuttles can be placed,
+either head-to-head, or else at right angles. The most well-known
+and useful arrangement results in the <a href="lex_g.htm#gosperglidergun">Gosper glider gun</a>.
+<p>Other arrangements don't create any lasting output, but create
+large <a href="lex_s.htm#spark">sparks</a> which can perturb objects (especially gliders) in
+various ways. For example, here is a useful arrangement found by
+Paul Callahan that can convert an incoming <a href="lex_g.htm#glider">glider</a> to a <a href="lex_l.htm#lwss">LWSS</a>:
+<pre>
+	.O.........................
+	..O........................
+	OOO..........O.............
+	.....O......O.O............
+	....O.O...OO...O.........OO
+	....O.O...OO...O.........OO
+	.....O....OO...O...........
+	............O.O............
+	.............O.............
+	..OO.O.OO..................
+	..O.....O..................
+	...O...O...................
+	....OOO....................
+	...........................
+	...........................
+	...........................
+	...........................
+	...........................
+	...........................
+	...........................
+	.....OO....................
+	.....OO....................
+</pre>
+See <a href="lex_p.htm#p690gun">p690 gun</a> for another example.
 <p><a name=quetzal>:</a><b>Quetzal</b> Dieter Leithner's name for the <a href="lex_t.htm#true">true</a> p54 glider gun he built
 in January 1998. (This is short for <a href="#quetzalcoatlus">Quetzalcoatlus</a> and expresses
 the fact that the gun was a very large <a href="lex_h.htm#herschelloop">Herschel loop</a> that was not
@@ -154,15 +344,15 @@ using a mechanism found by Noam Elkies for this purpose. In October
 <p>Some of the more recent Quetzals are not Herschel loops, but are
 instead short Herschel tracks firing several glider streams all but
 one of which is reflected back to the beginning of the track to
-create a new Herschel. Noam Elkies first had the idea of doing
-this for the p55 case, and Stephen Silver constructed the resulting
-gun shortly after building the original (much larger) p55 Quetzal.
-Jason Summers later built a p54 version, which is more complicated
-because the evenness of the period makes the timing problems
-considerably more difficult.
+create a new Herschel. Noam Elkies first had the idea of doing this
+for the p55 case, and Stephen Silver constructed the resulting gun
+shortly after building the original (much larger) p55 Quetzal. Jason
+Summers later built a p54 version, which is more complicated because
+the evenness of the period makes the timing problems considerably
+more difficult.
 <p><a name=quetzalcoatlus>:</a><b>Quetzalcoatlus</b> A giant flying dinosaur after which Dieter Leithner
-named his p54 gun. Usually abbreviated to <a href="#quetzal">Quetzal</a>, or simply Q
-(as in Q54, Q55, Q56, Q-gun, etc.).
+named his p54 gun. Usually abbreviated to <a href="#quetzal">Quetzal</a>, or simply Q (as
+in Q54, Q55, Q56, Q-gun, etc.).
 <p><a name=quilt>:</a><b>quilt</b> = <a href="lex_s.htm#squaredance">squaredance</a>
 <hr>
 <center>
