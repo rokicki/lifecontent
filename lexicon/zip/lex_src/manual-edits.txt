@@ -1,3 +1,7 @@
+Run Cygwin64 Terminal
+cd c:/location/of/lex_src
+./makehtml.sh
+
 Now for Release 28+, replace in all files except lexicon.txt:
 
 Ekstrom -> Ekstr&ouml;m
@@ -10,6 +14,8 @@ Garden of Edens -> Gardens of Eden
   (lexicon.htm, lex_s.htm)
 
 Search for "Release 28", "November 5", and "November 2017" and replace (where appropriate) with current release date and version.
+
+Search for \n\n\n, replace \n\n
 
 Replace the following original table chunks with <pre>...</pre>
 ###ORIGINAL###
