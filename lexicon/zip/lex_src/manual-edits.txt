@@ -298,6 +298,15 @@ lex_s:
 	--------------------------------------------------------------
 </pre>
 
+Rebuilding ZIP files:
+
+This needs a more detailed walkthrough.  It's very easy to miss a detail and get some of the ZIP contents wrong.  Short summary:
+1) Look at contents of all subfolders of "zip" folder in the GitHub repository.  These folder contents are zipped up to create the archive files.
+2) A should-be-exact copy of all the files in zip\lex_htm2, plus lex_home.htm, is placed in conwaylife.com/ref/lexicon/ for online browsing.
+3) lex_src contains everything needed to create all the contents of all the folders, but it does not contain the results from running the makehtml.sh script.
+
+--------------------------
+
 In files changed for Golly, after running modify.pl, for all 6 tables, replace beginning tags with <pre>, end tags with </pre>, and add eight leading spaces...
 
 :2-glider collisions:
