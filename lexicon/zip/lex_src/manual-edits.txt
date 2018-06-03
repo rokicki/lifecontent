@@ -16,8 +16,9 @@ Garden of Edens -> Gardens of Eden
 Search for "Release 29", "June 2", and "the end of 2017" and replace (where appropriate) with current release date and version.
 
 Replace the following original table chunks with <pre>...</pre>
-###ORIGINAL###
+
 lexicon.htm:
+###ORIGINAL###
 -------------------------------
 result right-angle head-on
 -------------------------------
@@ -183,31 +184,32 @@ nothing 11 17
 -------------------------------
 
 <pre>
-	-------------------------------
-	result     right-angle  head-on
-	-------------------------------
-	nothing             11       17
-	<a href="lex_b.htm#beehive">beehive</a>            1        0
-	<a href="lex_b.htm#bheptomino">B-heptomino</a>        1        2
-	<a href="lex_b.htm#biblock">bi-block</a>           1        0
-	<a href="lex_b.htm#blinker">blinker</a>            2        1
-	<a href="lex_b.htm#block">block</a>              3        3
-	<a href="lex_b.htm#boat">boat</a>               0        1
-	<a href="lex_e.htm#eater1">eater1</a>             1        0
-	<a href="lex_g.htm#glider">glider</a>             1        1
-	<a href="lex_h.htm#honeyfarm">honey farm</a>         3        2
-	<a href="lex_i.htm#interchange">interchange</a>        1        0
-	<a href="lex_l.htm#loaf">loaf</a>               0        1
-	<a href="lex_l.htm#lumpsofmuck">lumps of muck</a>      1        0
-	<a href="lex_o.htm#octomino">octomino</a>           0        1
-	<a href="lex_p.htm#piheptomino">pi-heptomino</a>       2        1
-	<a href="lex_p.htm#pond">pond</a>               1        1
-	<a href="lex_t.htm#teardrop">teardrop</a>           1        0
-	<a href="lex_t.htm#trafficlight">traffic light</a>      2        1
-	<a href="lex_f.htm#fourskewedblocks">four skewed blocks</a> 0        1
-	<a href="lex_d.htm#dirty">dirty</a>              6        0
-	-------------------------------
+        -------------------------------
+        result     right-angle  head-on
+        -------------------------------
+        nothing             11       17
+        <a href="lex_b.htm#beehive">beehive</a>              1        0
+        <a href="lex_b.htm#bheptomino">B-heptomino</a>          1        2
+        <a href="lex_b.htm#biblock">bi-block</a>             1        0
+        <a href="lex_b.htm#blinker">blinker</a>              2        1
+        <a href="lex_b.htm#block">block</a>                3        3
+        <a href="lex_b.htm#boat">boat</a>                 0        1
+        <a href="lex_e.htm#eater1">eater1</a>               1        0
+        <a href="lex_g.htm#glider">glider</a>               1        1
+        <a href="lex_h.htm#honeyfarm">honey farm</a>           3        2
+        <a href="lex_i.htm#interchange">interchange</a>          1        0
+        <a href="lex_l.htm#loaf">loaf</a>                 0        1
+        <a href="lex_l.htm#lumpsofmuck">lumps of muck</a>        1        0
+        <a href="lex_o.htm#octomino">octomino</a>             0        1
+        <a href="lex_p.htm#piheptomino">pi-heptomino</a>         2        1
+        <a href="lex_p.htm#pond">pond</a>                 1        1
+        <a href="lex_t.htm#teardrop">teardrop</a>             1        0
+        <a href="lex_t.htm#trafficlight">traffic light</a>        2        1
+        <a href="lex_f.htm#fourskewedblocks">four skewed blocks</a>   0        1
+        <a href="lex_d.htm#dirty">dirty</a>                6        0
+        -------------------------------
 </pre>
+
 
 lex_h:
 <pre>
@@ -309,112 +311,60 @@ This needs a more detailed walkthrough.  It's very easy to miss a detail and get
 
 In files changed for Golly, after running modify.pl, for all 6 tables, replace beginning tags with <pre>, end tags with </pre>, and add eight leading spaces...
 
-:2-glider collisions:
-
-### MULTI-PAGE lex_1.htm ###
+:lex_1.htm:
+2-glider collisions:
 <pre>
         -------------------------------
         result     right-angle  head-on
         -------------------------------
         nothing             11       17
-        <a href="lex_b.htm#beehive">beehive</a>            1        0
-        <a href="lex_b.htm#bheptomino">B-heptomino</a>        1        2
-        <a href="lex_b.htm#biblock">bi-block</a>           1        0
-        <a href="lex_b.htm#blinker">blinker</a>            2        1
-        <a href="lex_b.htm#block">block</a>              3        3
-        <a href="lex_b.htm#boat">boat</a>               0        1
-        <a href="lex_e.htm#eater1">eater1</a>             1        0
-        <a href="lex_g.htm#glider">glider</a>             1        1
-        <a href="lex_h.htm#honeyfarm">honey farm</a>         3        2
-        <a href="lex_i.htm#interchange">interchange</a>        1        0
-        <a href="lex_l.htm#loaf">loaf</a>               0        1
-        <a href="lex_l.htm#lumpsofmuck">lumps of muck</a>      1        0
-        <a href="lex_o.htm#octomino">octomino</a>           0        1
-        <a href="lex_p.htm#piheptomino">pi-heptomino</a>       2        1
-        <a href="lex_p.htm#pond">pond</a>               1        1
-        <a href="lex_t.htm#teardrop">teardrop</a>           1        0
-        <a href="lex_t.htm#trafficlight">traffic light</a>      2        1
-        <a href="lex_f.htm#fourskewedblocks">four skewed blocks</a> 0        1
-        <a href="lex_d.htm#dirty">dirty</a>              6        0
+        <a href="lex_b.htm#beehive">beehive</a>              1        0
+        <a href="lex_b.htm#bheptomino">B-heptomino</a>          1        2
+        <a href="lex_b.htm#biblock">bi-block</a>             1        0
+        <a href="lex_b.htm#blinker">blinker</a>              2        1
+        <a href="lex_b.htm#block">block</a>                3        3
+        <a href="lex_b.htm#boat">boat</a>                 0        1
+        <a href="lex_e.htm#eater1">eater1</a>               1        0
+        <a href="lex_g.htm#glider">glider</a>               1        1
+        <a href="lex_h.htm#honeyfarm">honey farm</a>           3        2
+        <a href="lex_i.htm#interchange">interchange</a>          1        0
+        <a href="lex_l.htm#loaf">loaf</a>                 0        1
+        <a href="lex_l.htm#lumpsofmuck">lumps of muck</a>        1        0
+        <a href="lex_o.htm#octomino">octomino</a>             0        1
+        <a href="lex_p.htm#piheptomino">pi-heptomino</a>         2        1
+        <a href="lex_p.htm#pond">pond</a>                 1        1
+        <a href="lex_t.htm#teardrop">teardrop</a>             1        0
+        <a href="lex_t.htm#trafficlight">traffic light</a>        2        1
+        <a href="lex_f.htm#fourskewedblocks">four skewed blocks</a>   0        1
+        <a href="lex_d.htm#dirty">dirty</a>                6        0
         -------------------------------
 </pre>
 
-### SINGLE-PAGE lexicon.htm ###
-<pre>
-		-------------------------------
-		result     right-angle  head-on
-		-------------------------------
-		nothing             11       17
-		<a href="lex_b.htm#beehive">beehive</a>            1        0
-		<a href="lex_b.htm#bheptomino">B-heptomino</a>        1        2
-		<a href="lex_b.htm#biblock">bi-block</a>           1        0
-		<a href="lex_b.htm#blinker">blinker</a>            2        1
-		<a href="lex_b.htm#block">block</a>              3        3
-		<a href="lex_b.htm#boat">boat</a>               0        1
-		<a href="lex_e.htm#eater1">eater1</a>             1        0
-		<a href="lex_g.htm#glider">glider</a>             1        1
-		<a href="lex_h.htm#honeyfarm">honey farm</a>         3        2
-		<a href="lex_i.htm#interchange">interchange</a>        1        0
-		<a href="lex_l.htm#loaf">loaf</a>               0        1
-		<a href="lex_l.htm#lumpsofmuck">lumps of muck</a>      1        0
-		<a href="lex_o.htm#octomino">octomino</a>           0        1
-		<a href="lex_p.htm#piheptomino">pi-heptomino</a>       2        1
-		<a href="lex_p.htm#pond">pond</a>               1        1
-		<a href="lex_t.htm#teardrop">teardrop</a>           1        0
-		<a href="lex_t.htm#trafficlight">traffic light</a>      2        1
-		<a href="lex_f.htm#fourskewedblocks">four skewed blocks</a> 0        1
-		<a href="lex_d.htm#dirty">dirty</a>              6        0
-		-------------------------------
-</pre>
-
+lex_h.htm:
 :Herschel conduit:
-### MULTI-PAGE lex_h.htm ###
 <pre>
-        -----------------------------------------
-        name/steps  m     dx   dy     discovery
-        -----------------------------------------
-        <a href="lex_r.htm#r64">R64</a>         R    -11    9   DJB, Sep 1995
-        <a href="lex_f.htm#fx77">Fx77</a>        Ff   -25   -8   DJB, Aug 1996
-        <a href="lex_l.htm#l112">L112</a>        L    -12  -33   DJB, Jul 1996
-        <a href="lex_f.htm#f116">F116</a>        F    -32    1   PBC, Feb 1997
-        <a href="lex_f.htm#f117">F117</a>        F    -40   -6   DJB, Jul 1996
-        <a href="lex_b.htm#bx125">Bx125</a>       Bf     9  -17   PBC, Nov 1998
-        <a href="lex_f.htm#fx119">Fx119</a>       Ff   -20   14   DJB, Sep 1996
-        <a href="lex_f.htm#fx153">Fx153</a>       Ff   -48   -4   PBC, Feb 1997
-        <a href="lex_l.htm#l156">L156</a>        L    -17  -41   DJB, Aug 1996
-        <a href="lex_f.htm#fx158">Fx158</a>       Ff   -27   -5   DJB, Jul 1996
-        <a href="lex_f.htm#f166">F166</a>        F    -49    3   PBC, May 1997
-        <a href="lex_f.htm#fx176">Fx176</a>       Ff   -45    0   PBC, Oct 1997
-        <a href="lex_r.htm#r190">R190</a>        R    -24   16   DJB, Jul 1996
-        <a href="lex_l.htm#lx200">Lx200</a>       Lf   -17  -40   PBC, Jun 1997
-        <a href="lex_r.htm#rx202">Rx202</a>       Rf    -7   32   DJB, May 1997
-        <a href="lex_b.htm#bx222">Bx222</a>       Bf     6  -16   PBC, Oct 1998
-        -----------------------------------------
+	------------------------------------------
+	name/steps  m      dx   dy     discovery
+	------------------------------------------
+	<a href="lex_r.htm#r64">R64</a>         R      11    9   DJB, Sep 1995
+	<a href="lex_f.htm#fx77">Fx77</a>        Fflip  25   -8   DJB, Aug 1996
+	<a href="lex_l.htm#l112">L112</a>        L      12  -33   DJB, Jul 1996
+	<a href="lex_f.htm#f116">F116</a>        F      32    1   PBC, Feb 1997
+	<a href="lex_f.htm#f117">F117</a>        F      40   -6   DJB, Jul 1996
+	<a href="lex_b.htm#bx125">Bx125</a>       Bflip  -9  -17   PBC, Nov 1998
+	<a href="lex_f.htm#fx119">Fx119</a>       Fflip  20   14   DJB, Sep 1996
+	<a href="lex_f.htm#fx153">Fx153</a>       Fflip  48   -4   PBC, Feb 1997
+	<a href="lex_l.htm#l156">L156</a>        L      17  -41   DJB, Aug 1996
+	<a href="lex_f.htm#fx158">Fx158</a>       Fflip  27   -5   DJB, Jul 1996
+	<a href="lex_f.htm#f166">F166</a>        F      49    3   PBC, May 1997
+	<a href="lex_f.htm#fx176">Fx176</a>       Fflip  45    0   PBC, Oct 1997
+	<a href="lex_r.htm#r190">R190</a>        R      24   16   DJB, Jul 1996
+	<a href="lex_l.htm#lx200">Lx200</a>       Lflip  17  -40   PBC, Jun 1997
+	<a href="lex_r.htm#rx202">Rx202</a>       Rflip   7   32   DJB, May 1997
+	<a href="lex_b.htm#bx222">Bx222</a>       Bflip  -6  -16   PBC, Oct 1998
+	------------------------------------------
 </pre>
-### SINGLE-PAGE lexicon.htm ###
-<pre>
-        -----------------------------------------
-        name/steps  m     dx   dy     discovery
-        -----------------------------------------
-        <a href="#s7l">R64</a>         R    -11    9   DJB, Sep 1995
-        <a href="#lfj">Fx77</a>        Ff   -25   -8   DJB, Aug 1996
-        <a href="#g9o">L112</a>        L    -12  -33   DJB, Jul 1996
-        <a href="#awl">F116</a>        F    -32    1   PBC, Feb 1997
-        <a href="#awm">F117</a>        F    -40   -6   DJB, Jul 1996
-        <a href="#by4">Bx125</a>       Bf     9  -17   PBC, Nov 1998
-        <a href="#dka">Fx119</a>       Ff   -20   14   DJB, Sep 1996
-        <a href="#duw">Fx153</a>       Ff   -48   -4   PBC, Feb 1997
-        <a href="#gkk">L156</a>        L    -17  -41   DJB, Aug 1996
-        <a href="#dv1">Fx158</a>       Ff   -27   -5   DJB, Jul 1996
-        <a href="#ba2">F166</a>        F    -49    3   PBC, May 1997
-        <a href="#e0d">Fx176</a>       Ff   -45    0   PBC, Oct 1997
-        <a href="#m8d">R190</a>        R    -24   16   DJB, Jul 1996
-        <a href="#amz">Lx200</a>       Lf   -17  -40   PBC, Jun 1997
-        <a href="#pt0">Rx202</a>       Rf    -7   32   DJB, May 1997
-        <a href="#j7e">Bx222</a>       Bf     6  -16   PBC, Oct 1998
-        -----------------------------------------
-</pre>
-
+lex_p.htm:
 :pseudo:
 <pre>
         --------------
@@ -448,6 +398,7 @@ In files changed for Golly, after running modify.pl, for all 6 tables, replace b
         --------------
 </pre>
 
+lex_q.htm:
 :quasi:
 <pre>
         ----------------
@@ -471,8 +422,8 @@ In files changed for Golly, after running modify.pl, for all 6 tables, replace b
         ----------------
 </pre>
 
+lex_s.htm
 :spaceship:
-### MULTI-PAGE lex_s.htm ###
 <pre>
 	--------------------------------------------------------------
 	Speed Direction  First Discovery   Discoverer             Date
@@ -493,29 +444,6 @@ In files changed for Golly, after running modify.pl, for all 6 tables, replace b
 	c/10  orthogonal <a href="lex_c.htm#copperhead">copperhead</a>        zdr                Mar 2016
 	3c/7  orthogonal <a href="lex_s.htm#spaghettimonster">spaghetti monster</a> Tim Coe            Jun 2016
 	--------------------------------------------------------------
-</pre>
-
-### SINGLE-PAGE lexicon.htm ###
-<pre>
-        --------------------------------------------------------------
-        Speed Direction  First Discovery   Discoverer             Date
-        --------------------------------------------------------------
-        c/4   diagonal   <a href="#p9q">glider</a>            Richard Guy            1970
-        c/2   orthogonal <a href="#gr9">LWSS</a>              John Conway            1970
-        c/3   orthogonal <a href="#nmn">25P3H1V0.2</a>        Dean Hickerson     Aug 1989
-        c/4   orthogonal <a href="#gbh">119P4H1V0</a>         Dean Hickerson     Dec 1989
-        c/12  diagonal   <a href="#we6">Cordership</a>        Dean Hickerson     Apr 1991
-        2c/5  orthogonal <a href="#chz">44P5H2V0</a>          Dean Hickerson     Jul 1991
-        c/5   orthogonal <a href="#kfu">snail</a>             Tim Coe            Jan 1996
-        2c/7  orthogonal <a href="#dxb">weekender</a>         David Eppstein     Jan 2000
-        c/6   orthogonal <a href="#nl6">dragon</a>            Paul Tooke         Apr 2000
-        c/5   diagonal   <a href="#hwp">295P5H1V1</a>         Jason Summers      Nov 2000
-        c/6   diagonal   <a href="#fd7">seal</a>              Nicolay Beluchenko Sep 2005
-        c/7   diagonal   <a href="#ij0">lobster</a>           Matthias Merzenich Aug 2011
-        c/7   orthogonal <a href="#jic">loafer</a>            Josh Ball          Feb 2013
-        c/10  orthogonal <a href="#sje">copperhead</a>        zdr                Mar 2016
-        3c/7  orthogonal <a href="#rbf">spaghetti monster</a> Tim Coe            Jun 2016
-        --------------------------------------------------------------
 </pre>
 
 :strict still life:
@@ -555,6 +483,7 @@ In files changed for Golly, after running modify.pl, for all 6 tables, replace b
         --------------
 </pre>
 
+lex_t.htm:
 :true:
 <pre>
         ------------------------------------
