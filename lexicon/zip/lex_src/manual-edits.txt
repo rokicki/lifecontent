@@ -13,9 +13,7 @@ Francois -> Fran&ccedil;ois
 Garden of Edens -> Gardens of Eden
   (lexicon.htm, lex_s.htm)
 
-Search for "Release 28", "November 5", and "November 2017" and replace (where appropriate) with current release date and version.
-
-Search for \n\n\n, replace \n\n
+Search for "Release 29", "June 2", and "the end of 2017" and replace (where appropriate) with current release date and version.
 
 Replace the following original table chunks with <pre>...</pre>
 ###ORIGINAL###
@@ -75,44 +73,44 @@ nothing 11 17
 	-----------------------------------------
 	name/steps  m     dx   dy     discovery
 	-----------------------------------------
-	{R64}       R    -11    9   DJB, Sep 1995
-	{Fx77}      Ff   -25   -8   DJB, Aug 1996
-	{L112}      L    -12  -33   DJB, Jul 1996
-	{F116}      F    -32    1   PBC, Feb 1997
-	{F117}      F    -40   -6   DJB, Jul 1996
-	{Bx125}     Bf     9  -17   PBC, Nov 1998
-	{Fx119}     Ff   -20   14   DJB, Sep 1996
-	{Fx153}     Ff   -48   -4   PBC, Feb 1997
-	{L156}      L    -17  -41   DJB, Aug 1996
-	{Fx158}     Ff   -27   -5   DJB, Jul 1996
-	{F166}      F    -49    3   PBC, May 1997
-	{Fx176}     Ff   -45    0   PBC, Oct 1997
-	{R190}      R    -24   16   DJB, Jul 1996
-	{Lx200}     Lf   -17  -40   PBC, Jun 1997
-	{Rx202}     Rf    -7   32   DJB, May 1997
-	{Bx222}     Bf     6  -16   PBC, Oct 1998
+	{R64}       R     11    9   DJB, Sep 1995
+	{Fx77}      Ff    25   -8   DJB, Aug 1996
+	{L112}      L     12  -33   DJB, Jul 1996
+	{F116}      F     32    1   PBC, Feb 1997
+	{F117}      F     40   -6   DJB, Jul 1996
+	{Bx125}     Bf    -9  -17   PBC, Nov 1998
+	{Fx119}     Ff    20   14   DJB, Sep 1996
+	{Fx153}     Ff    48   -4   PBC, Feb 1997
+	{L156}      L     17  -41   DJB, Aug 1996
+	{Fx158}     Ff    27   -5   DJB, Jul 1996
+	{F166}      F     49    3   PBC, May 1997
+	{Fx176}     Ff    45    0   PBC, Oct 1997
+	{R190}      R     24   16   DJB, Jul 1996
+	{Lx200}     Lf    17  -40   PBC, Jun 1997
+	{Rx202}     Rf     7   32   DJB, May 1997
+	{Bx222}     Bf    -6  -16   PBC, Oct 1998
 	-----------------------------------------
 </pre>
 <pre>
 	-----------------------------------------
 	name/steps  m     dx   dy     discovery
 	-----------------------------------------
-	<a href="#s7l">R64</a>         R    -11    9   DJB, Sep 1995
-	<a href="#lfj">Fx77</a>        Ff   -25   -8   DJB, Aug 1996
-	<a href="#g9o">L112</a>        L    -12  -33   DJB, Jul 1996
-	<a href="#awl">F116</a>        F    -32    1   PBC, Feb 1997
-	<a href="#awm">F117</a>        F    -40   -6   DJB, Jul 1996
-	<a href="#by4">Bx125</a>       Bf     9  -17   PBC, Nov 1998
-	<a href="#dka">Fx119</a>       Ff   -20   14   DJB, Sep 1996
-	<a href="#duw">Fx153</a>       Ff   -48   -4   PBC, Feb 1997
-	<a href="#gkk">L156</a>        L    -17  -41   DJB, Aug 1996
-	<a href="#dv1">Fx158</a>       Ff   -27   -5   DJB, Jul 1996
-	<a href="#ba2">F166</a>        F    -49    3   PBC, May 1997
-	<a href="#e0d">Fx176</a>       Ff   -45    0   PBC, Oct 1997
-	<a href="#m8d">R190</a>        R    -24   16   DJB, Jul 1996
-	<a href="#amz">Lx200</a>       Lf   -17  -40   PBC, Jun 1997
-	<a href="#pt0">Rx202</a>       Rf    -7   32   DJB, May 1997
-	<a href="#j7e">Bx222</a>       Bf     6  -16   PBC, Oct 1998
+	<a href="#s7l">R64</a>         R     11    9   DJB, Sep 1995
+	<a href="#lfj">Fx77</a>        Fflip 25   -8   DJB, Aug 1996
+	<a href="#g9o">L112</a>        L     12  -33   DJB, Jul 1996
+	<a href="#awl">F116</a>        F     32    1   PBC, Feb 1997
+	<a href="#awm">F117</a>        F     40   -6   DJB, Jul 1996
+	<a href="#by4">Bx125</a>       Bflip -9  -17   PBC, Nov 1998
+	<a href="#dka">Fx119</a>       Fflip 20   14   DJB, Sep 1996
+	<a href="#duw">Fx153</a>       Fflip 48   -4   PBC, Feb 1997
+	<a href="#gkk">L156</a>        L     17  -41   DJB, Aug 1996
+	<a href="#dv1">Fx158</a>       Fflip 27   -5   DJB, Jul 1996
+	<a href="#ba2">F166</a>        F     49    3   PBC, May 1997
+	<a href="#e0d">Fx176</a>       Fflip 45    0   PBC, Oct 1997
+	<a href="#m8d">R190</a>        R     24   16   DJB, Jul 1996
+	<a href="#amz">Lx200</a>       Lflip 17  -40   PBC, Jun 1997
+	<a href="#pt0">Rx202</a>       Rflip  7   32   DJB, May 1997
+	<a href="#j7e">Bx222</a>       Bflip -6  -16   PBC, Oct 1998
 	-----------------------------------------
 </pre>
 <pre>
@@ -235,28 +233,27 @@ lex_h:
 	-----------------------------------------
 </pre>
 <pre>
-	-----------------------------------------
-	name/steps  m     dx   dy     discovery
-	-----------------------------------------
-	<a href="lex_r.htm#r64">R64</a>         R    -11    9   DJB, Sep 1995
-	<a href="lex_f.htm#fx77">Fx77</a>        Ff   -25   -8   DJB, Aug 1996
-	<a href="lex_l.htm#l112">L112</a>        L    -12  -33   DJB, Jul 1996
-	<a href="lex_f.htm#f116">F116</a>        F    -32    1   PBC, Feb 1997
-	<a href="lex_f.htm#f117">F117</a>        F    -40   -6   DJB, Jul 1996
-	<a href="lex_b.htm#bx125">Bx125</a>       Bf     9  -17   PBC, Nov 1998
-	<a href="lex_f.htm#fx119">Fx119</a>       Ff   -20   14   DJB, Sep 1996
-	<a href="lex_f.htm#fx153">Fx153</a>       Ff   -48   -4   PBC, Feb 1997
-	<a href="lex_l.htm#l156">L156</a>        L    -17  -41   DJB, Aug 1996
-	<a href="lex_f.htm#fx158">Fx158</a>       Ff   -27   -5   DJB, Jul 1996
-	<a href="lex_f.htm#f166">F166</a>        F    -49    3   PBC, May 1997
-	<a href="lex_f.htm#fx176">Fx176</a>       Ff   -45    0   PBC, Oct 1997
-	<a href="lex_r.htm#r190">R190</a>        R    -24   16   DJB, Jul 1996
-	<a href="lex_l.htm#lx200">Lx200</a>       Lf   -17  -40   PBC, Jun 1997
-	<a href="lex_r.htm#rx202">Rx202</a>       Rf    -7   32   DJB, May 1997
-	<a href="lex_b.htm#bx222">Bx222</a>       Bf     6  -16   PBC, Oct 1998
-	-----------------------------------------
+	------------------------------------------
+	name/steps  m      dx   dy     discovery
+	------------------------------------------
+	<a href="lex_r.htm#r64">R64</a>         R      11    9   DJB, Sep 1995
+	<a href="lex_f.htm#fx77">Fx77</a>        Fflip  25   -8   DJB, Aug 1996
+	<a href="lex_l.htm#l112">L112</a>        L      12  -33   DJB, Jul 1996
+	<a href="lex_f.htm#f116">F116</a>        F      32    1   PBC, Feb 1997
+	<a href="lex_f.htm#f117">F117</a>        F      40   -6   DJB, Jul 1996
+	<a href="lex_b.htm#bx125">Bx125</a>       Bflip   -9  -17   PBC, Nov 1998
+	<a href="lex_f.htm#fx119">Fx119</a>       Fflip  20   14   DJB, Sep 1996
+	<a href="lex_f.htm#fx153">Fx153</a>       Fflip   48   -4   PBC, Feb 1997
+	<a href="lex_l.htm#l156">L156</a>        L      17  -41   DJB, Aug 1996
+	<a href="lex_f.htm#fx158">Fx158</a>       Fflip   27   -5   DJB, Jul 1996
+	<a href="lex_f.htm#f166">F166</a>        F      49    3   PBC, May 1997
+	<a href="lex_f.htm#fx176">Fx176</a>       Fflip  45    0   PBC, Oct 1997
+	<a href="lex_r.htm#r190">R190</a>        R      24   16   DJB, Jul 1996
+	<a href="lex_l.htm#lx200">Lx200</a>       Lflip  17  -40   PBC, Jun 1997
+	<a href="lex_r.htm#rx202">Rx202</a>       Rflip   7   32   DJB, May 1997
+	<a href="lex_b.htm#bx222">Bx222</a>       Bflip  -6  -16   PBC, Oct 1998
+	------------------------------------------
 </pre>
-
 lex_s:
 <pre>
 	----------------------------------------------------------------
