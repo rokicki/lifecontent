@@ -1,5 +1,5 @@
 LIFE LEXICON
-  Release 29, 2018 June 2
+  Release 29, 2018 July 2
   ASCII version
 
 INTRODUCTION
@@ -196,7 +196,7 @@ on 26 February 1999.
 
 :135-degree MWSS-to-G:  The following {converter}, discovered by
    Matthias Merzenich in July 2013.  It accepts an {MWSS} as input, and
-   produces an output {glider} traveling at a 135-degree angle relative
+   produces an output {glider} travelling at a 135-degree angle relative
    to the input direction.
 	......**......
 	......*.*.**.*
@@ -217,7 +217,7 @@ on 26 February 1999.
    speed.  See {Caterpillar} for details.
 
 :180-degree kickback:  The only other two-{glider} collision besides the
-   standard {kickback} that produces a a clean output glider with no
+   standard {kickback} that produces a clean output glider with no
    leftover {ash}.  The 180-degree change in direction is occasionally
    useful in {glider synthesis}, but is rarely used in {signal}
    circuitry or in {self-supporting} patterns like the {Caterpillar} or
@@ -233,6 +233,10 @@ on 26 February 1999.
 	..*
 
 :1G seed:  See {seed}.
+
+:(2,1)c/6 spaceship:  A {knightship} that travels obliquely at the
+   fastest possible speed.  To date the only known example of a
+   spaceship with this velocity is {Sir Robin}.
 
 :(23,5)c/79 Herschel climber:  The following glider-supported
    {Herschel climber} reaction used in the {self-supporting} {waterbear}
@@ -268,8 +272,10 @@ on 26 February 1999.
    Michael Simkin in October 2014, with a bounding box of 21372x172. It
    was the smallest-population quadratic growth pattern for two days,
    until the discovery of {24-cell quadratic growth}. It superseded
-   {26-cell quadratic growth}, which had held the record for eight
-   years.
+   {wedge}, which had held the record for eight years.  See
+   {switch-engine ping-pong} for the lowest-population
+   {superlinear growth} pattern as of July 2018, along with a list of
+   the record-holders.
 
 :25P3H1V0.1: (c/3 orthogonally, p3)  A {spaceship} discovered by Dean
    Hickerson in August 1989.  It was the first c/3 spaceship to be
@@ -303,11 +309,7 @@ on 26 February 1999.
    In December 2017 a collaborative effort found a 26-glider synthesis
    for this spaceship.
 
-:26-cell quadratic growth:  A quadratic growth pattern found by Nick
-   Gotts in March 2006, using ideas found in {metacatacryst} and
-   {Gotts dots}.  It held the record for the smallest-population
-   quadratic growth pattern for eight years, until it was surpassed by
-   {25-cell quadratic growth}.
+:26-cell quadratic growth:  = {wedge}.
 
 :295P5H1V1: (c/5 diagonally, p5) The first {spaceship} of its type to be
    discovered, found by Jason Summers on 22 November 2000.
@@ -439,7 +441,7 @@ on 26 February 1999.
 :2c/5 spaceship:  A {spaceship} travelling at two fifths of the
    {speed of light}.  The only such spaceships that are currently known
    travel orthogonally.  Examples include {30P5H2V0}, {44P5H2V0},
-   {60P5H2V0}, and {70P5H2V0}.  As of the end of 2017, only 30P5H2V0 and
+   {60P5H2V0}, and {70P5H2V0}.  As of June 2018, only 30P5H2V0 and
    60P5H2V0 have known {glider synthesis} {recipe}s.
 
 :2c/7 spaceship:  A {spaceship} travelling at two sevenths of the
@@ -669,7 +671,7 @@ on 26 February 1999.
 :45-degree LWSS-to-G:  = {45-degree MWSS-to-G}.
 
 :45-degree MWSS-to-G:  The following small {converter}, which accepts an
-   MWSS or LWSS as input and produces an output glider traveling at a
+   MWSS or LWSS as input and produces an output glider travelling at a
    45-degree angle relative to the input direction.
 	.........*.**....*.....
 	.........**.*...*.*....
@@ -762,7 +764,7 @@ on 26 February 1999.
 
 :56P6H1V0: (c/6 orthogonally, p6)  A 56-cell {spaceship} discovered by
    Hartmut Holzwart in 2009, the smallest known c/6 orthogonal spaceship
-   as of the end of 2017.
+   as of July 2018.
 	.....***..........***.....
 	***.*.......**.......*.***
 	....*...*..*..*..*...*....
@@ -1161,7 +1163,7 @@ on 26 February 1999.
 	...*..*...
 	....**....
 
-:against the grain:  A term used for {negative spaceship}s traveling in
+:against the grain:  A term used for {negative spaceship}s travelling in
    {zebra stripes} agar, perpendicular to the stripes, and also for
    {against-the-grain grey ship}s.
      Below is a sample {signal}, found by Hartmut Holzwart in April
@@ -1370,9 +1372,9 @@ on 26 February 1999.
 	..**...**...**...**...**...**...**...**...**
 	**...**...**...**...**...**...**...**...**..
 
-:antstretcher:  Any {wickstretcher} that stretches {ants}.  Nicolay
-   Beluchenko and Hartmut Holzwart constructed the following small
-   {extensible} antstretcher in January 2006:
+:antstretcher:  Any {wickstretcher} or {wavestretcher} that stretches
+   {ants}.  Nicolay Beluchenko and Hartmut Holzwart constructed the
+   following small {extensible} antstretcher in January 2006:
 	......................................................**.......
 	.....................................................**........
 	...............................................**.....*........
@@ -1429,9 +1431,9 @@ on 26 February 1999.
 	...*.....*.....................................................
 
 :anvil:  The following {induction coil}.
-	.****.
-	*....*
-	.***.*
+	.****..
+	*....*.
+	.***.*.
 	...*.**
 
 :apgluxe:  See {apgsearch}
@@ -1986,20 +1988,28 @@ on 26 February 1999.
 	.*.....................*
 	*.......................
 
-:B-heptomino: (stabilizes at time 148)  This is a very common pattern.
-   It often arises with the cell at top left shifted one space to the
-   left, which does not affect the subsequent {evolution}. B-heptominoes
+:B-heptomino: (stabilizes at time 148)  This is a very common
+   {methuselah} that evolves into three {block}s, two {glider}s and a
+   {ship} after 148 generations. Compare with {Herschel}, which appears
+   at generation 20 of the B-heptomino's evolution. B-heptominoes
    acquired particular importance in 1996 due to Dave Buckingham's work
    on {B track}s.  See in particular
    {My Experience with B-heptominos in Oscillators}.
 	*.**
 	***.
 	.*..
-     Lexicon patterns such as {BFx59H} and {BRx46B} show the alternate
-   form of the B-heptomino, a seven-bit {polyplet} that shares the same
-   eight-bit descendant but is not technically a heptomino at all. This
-   is standard practice for elementary conduits, since many of these
-   conduits do in fact produce this alternate form as output.
+     This pattern often arises with the cell at top left shifted one
+   space to the left, producing a seven-bit {polyplet} that shares the
+   same eight-bit descendant but is not technically a heptomino at all.
+   This alternate form is shown as the input for {elementary}
+   {converter} patterns such as {BFx59H} and {BRx46B}. This is standard
+   practice for elementary {conduit}s, since many of these conduits do
+   in fact produce this alternate form as output.
+     The B-heptomino is considered a failed {puffer} or failed
+   {spaceship}, since on its own it travels at c/2 for only a short time
+   before being affected by its own trailing debris.  However, it can be
+   stabilized into a c/2 puffer or into a {clean} c/2 rake or spaceship.
+   See, e.g., {ecologist}.
 
 :B-heptomino shuttle:  = {twin bees shuttle}
 
@@ -2163,10 +2173,10 @@ on 26 February 1999.
    reaction.  This makes it easy to reset the memory cell to a known
    state.  Which of the two states is considered the SET and which
    considered the RESET is just a matter of convention.
-     The pattern below shows the "boat" state of the the memory cell in
-   its original 1994 form.  Two gliders are also shown to indicate the
-   input paths used to change the states.  A smaller version is shown
-   under {century eater}, with the circuit in its "block" state.
+     The pattern below shows the "boat" state of the memory cell in its
+   original 1994 form.  Two gliders are also shown to indicate the input
+   paths used to change the states.  A smaller version is shown under
+   {century eater}, with the circuit in its "block" state.
      As shown, the rightmost glider changes the state from a boat to a
    block and emits a glider to the upper right, while the leftmost
    glider passes through unchanged.  Alternatively, when the state
@@ -2426,6 +2436,8 @@ on 26 February 1999.
 
 :block keeper:  See {keeper}.
 
+:block-laying switch engine:  See {stabilized switch engine}.
+
 :block on big table:  = {block and dock}
 
 :block on table: (p1)
@@ -2496,6 +2508,8 @@ on 26 February 1999.
 	.......*...*
 	.........*.*
 	..........*.
+
+:BLSE:  = {block-laying switch engine}
 
 :BNE14T30:  A {B-heptomino} to {glider} {converter} found by Tanner
    Jacobi on 26 May 2016.  This converter has the unusual property of
@@ -2728,8 +2742,8 @@ on 26 February 1999.
 
 :bouncer:  A label used for the small periodic {colour-changing}
    {glider} {reflector}s discovered mainly by Noam Elkies in the late
-   1990s.  See  {p5 bouncer}, {p6 bouncer}, {p7 bouncer}, and
-   {p8 bouncer}.
+   1990s.  See  {p5 bouncer}, {p6 bouncer}, {p7 bouncer}, {p8 bouncer},
+   or {p15 bouncer}.
 
 :bounding box:  The smallest rectangular array of cells that contains
    the whole of a given pattern.  For {oscillator}s and {gun}s this
@@ -2818,7 +2832,7 @@ on 26 February 1999.
    that this is the fastest possible growth rate.
      The term is also sometimes used to mean specifically the breeder
    created by Bill Gosper's group at MIT, which was the first known
-   pattern exhibiting superlinear growth.
+   pattern exhibiting {superlinear growth}.
      There are four common types of breeder, known as MMM, MMS, MSM and
    SMM (where M=moving and S=stationary).  Typically an MMM breeder is a
    {rake} {puffer}, an MMS breeder is a puffer producing puffers which
@@ -2883,7 +2897,7 @@ on 26 February 1999.
    eater in such a way that it can turn a glider, as shown below.  The
    glider turning reaction uses a {banana spark} and is
    {colour-preserving}.  The mechanism was found by Dave Buckingham in
-   the 1970s.  The name is due to Bill Gosper.  .
+   the 1970s.  The name is due to Bill Gosper.
 	..*.....................
 	*.*.....................
 	.**.....................
@@ -2903,9 +2917,9 @@ on 26 February 1999.
 	***
 
 :bumper:  One of several periodic {colour-preserving} {glider}
-   {reflector} discovered by Tanner Jacobi on 6 April 2016.  See
+   {reflector}s discovered by Tanner Jacobi on 6 April 2016.  See
    {p3 bumper}, {p4 bumper}, {p5 bumper}, {p6 bumper}, {p7 bumper},
-   {p8 bumper}, {p9 bumper}, {p15 bumper}, and {p22 bumper}.
+   {p8 bumper}, {p9 bumper}, {p11 bumper}, and {p15 bumper}.
 
 :bun:  The following {induction coil}.  By itself this is a common
    {predecessor} of the {honey farm}.  See also {cis-mirrored R-bee}.
@@ -2940,7 +2954,7 @@ on 26 February 1999.
 :burn:  A reaction which travels indefinitely as a {wave} through the
    components of a {wick} or an {agar}.  A burning wick is known as a
    {fuse}.
-     If the object being burned has a spatial periodocity, then the
+     If the object being burned has a spatial periodicity, then the
    active area of the burning usually remains bounded and so eventually
    develops a periodicity too.  It is unknown whether this will always
    occur.
@@ -3056,11 +3070,11 @@ on 26 February 1999.
 
 :c/10 spaceship:  A {spaceship} travelling at one tenth of the
    {speed of light}.  The first such spaceship to be discovered was the
-   orthogonally traveling {copperhead}, found by 'zdr' on 5 March 2016.
+   orthogonally travelling {copperhead}, found by 'zdr' on 5 March 2016.
    Simon Ekstrom found the related {fireship} two weeks later.  A
    {Caterloopillar} can theoretically be configured to move at c/10, but
    there are technical difficulties with speeds of the form 4n+2, and as
-   of the end of 2017 this has not been done in practice.
+   of June 2018 this has not been done in practice.
 
 :c/12 spaceship:  A {spaceship} travelling at one twelfth of the
    {speed of light}.  The only diagonal spaceships that are currently
@@ -3127,14 +3141,14 @@ on 26 February 1999.
 	..*..............*..................................*.....
    A {Caterloopillar} can theoretically be configured to move at c/6,
    but there are technical difficulties with speeds of the form 4n+2,
-   and as of the end of 2017 this has not been done in practice.
+   and as of July 2018 this has not been done in practice.
 
 :c/7 spaceship:  A {spaceship} travelling at one seventh of the
    {speed of light}.  The first such spaceship to be discovered was the
-   diagonally traveling {lobster}, found by Matthias Merzenich in August
-   2011.  The first known orthogonal c/7 spaceship was the {loafer},
-   discovered by Josh Ball in February 2013.  A {Caterloopillar} has
-   been configured to move at c/7.
+   diagonally travelling {lobster}, found by Matthias Merzenich in
+   August 2011.  The first known orthogonal c/7 spaceship was the
+   {loafer}, discovered by Josh Ball in February 2013.  A
+   {Caterloopillar} has been configured to move at c/7.
 
 :CA:  = {cellular automaton}
 
@@ -3271,12 +3285,12 @@ on 26 February 1999.
 :casing:  That part of the {stator} of an {oscillator} which is not
    adjacent to the {rotor}.  Compare {bushing}.
 
-:catacryst:  A 58-cell quadratic growth pattern found by Nick Gotts in
-   April 2000.  This was formerly the smallest known pattern with
-   superlinear growth, but has since been superseded by the related
-   {metacatacryst}, and later by {Gotts dots}, {wedge},
-   {26-cell quadratic growth}, {25-cell quadratic growth},
-   {24-cell quadratic growth}, and {switch-engine ping-pong}.
+:catacryst:  A 58-cell {quadratic growth} pattern found by Nick Gotts in
+   April 2000.  This was formerly the smallest such pattern known, but
+   has since been superseded by the related {metacatacryst}.  See
+   {switch-engine ping-pong} for the lowest-population
+   {superlinear growth} pattern as of July 2018, along with a list of
+   the record-holders.
      The catacryst consists of three {ark}s plus a glider-producing
    {switch engine}.  It produces a block-laying switch engine every
    47616 generations.  Each block-laying switch engine has only a finite
@@ -3290,15 +3304,15 @@ on 26 February 1999.
    search of random initial configurations and records the eventual
    decay products.  Within a year of operation it had completed a
    {census} of the {ash} objects from over two trillion asymmetric 16x16
-   {soup}s.  As of the end of 2017, over two hundred trillion ash
-   objects have been counted, from nearly ten trillion asymmetric soups.
-     It is often possible to find equivalent {glider synthesis} recipes
-   for selected parts of long-running active reactions.  Results from
-   these random {soup} searches have made it possible to find efficient
-   construction methods for thousands of increasingly rare {still life}s
-   and {oscillator}s, and the occasional {puffer} or {spaceship}.  In
-   many of these cases a {glider synthesis} was previously very
-   difficult or unknown.
+   {soup}s.  As of June 2018, well over two hundred trillion ash objects
+   have been counted, from over a trillion asymmetric soups.
+     It is often possible to use Catagolue search results find
+   equivalent {glider synthesis} recipes for selected parts of
+   long-running active reactions.  These random {soup} searches have
+   made it possible to find efficient construction methods for thousands
+   of increasingly rare {still life}s and {oscillator}s, and the
+   occasional {puffer} or {spaceship}.  In many of these cases a
+   {glider synthesis} was previously very difficult or unknown.
 
 :catalyst:  An object that participates in a reaction but emerges from
    it unharmed.  All {eater}s are catalysts.  Some small {still life}s
@@ -3314,9 +3328,9 @@ on 26 February 1999.
 :catch and throw:  A {technology} used (e.g., in the {Caterpillar}) to
    adjust the timing of a glider by turning it into a stationary object
    using one interaction, and then later restoring it using a second
-   interaction.  The interations are caused by passing objects which are
-   not otherwise affected.  The direction of the glider is not usually
-   changed.
+   interaction.  The interactions are caused by passing objects which
+   are not otherwise affected.  The direction of the glider is not
+   usually changed.
      Here is an example where a glider is turned into a {boat} by the
    first {LWSS}, and is then restored by the remaining {spaceship}s:
 	..................................**.............**.......****.
@@ -3366,7 +3380,7 @@ on 26 February 1999.
    larger constructions, and for any given computer system it is easy to
    choose a speed that makes it impractical to construct a
    Caterloopillar.
-     As of the end of 2017 one significant remaining exception is that
+     As of June 2018 one significant remaining exception is that
    Caterloopillars with periods c/(6+4N) can't be constructed.  This is
    only a limitation of the current construction script, not of the
    underlying Caterloopillar {toolkit}.  For technical reasons, the
@@ -3739,14 +3753,14 @@ on 26 February 1999.
    computation or construction circuitry.
 
 :cis-beacon on anvil: (p2)
-	...**.
-	....*.
-	.*....
-	.**...
-	......
-	.****.
-	*....*
-	.***.*
+	...**..
+	....*..
+	.*.....
+	.**....
+	.......
+	.****..
+	*....*.
+	.***.*.
 	...*.**
 
 :cis-beacon on table: (p2)
@@ -4151,7 +4165,7 @@ on 26 February 1999.
    block or other useful object as a target for output gliders, to one
    side of the {construction lane}; 5)  duplicate the elbow, or 6)
    destroy the elbow.
-     Elbows that receive and emit orthogonally-traveling {spaceship}s
+     Elbows that receive and emit orthogonally-travelling {spaceship}s
    instead of gliders are technically possible, but no working examples
    are currently known.  The discussion below assumes that gliders are
    used to communicate between the shoulder, elbow, and hand locations.
@@ -4219,7 +4233,7 @@ on 26 February 1999.
    Examples of {elementary conduit} converters include {BFx59H},
    {135-degree MWSS-to-G}, and {45-degree MWSS-to-G}.
      The earliest and simplest stable converters known are shown below.
-   These are a HWSS-to-loaf, MWSS-to-beehive, and LWSS-to-blinker.
+   These are an HWSS-to-loaf, MWSS-to-beehive, and LWSS-to-blinker.
    These can serve as {memory cell}s, or as the first steps in
    constructing objects using {salvo}s.
 	.........................*..............................
@@ -4623,15 +4637,15 @@ on 26 February 1999.
    box about 55,000 cells square, and displaces itself by 65 cells
    diagonally every 438,852 generations.
      The first 0hd Demonoid was fired by a {gun}.  No spaceship gun
-   pattern had previously been completed completed before the first
-   appearance of the actual spaceship.
+   pattern had previously been completed before the first appearance of
+   the actual spaceship.
      In June 2017 Dave Greene completed a much simpler {single-channel}
    Demonoid using a temporary {lossless elbow}, which displaces itself
    79 cells diagonally every 1,183,842 ticks.  This was an improvement
    in terms of design complexity, but not in terms of speed, population,
    or bounding box.  However, all of these could be further optimized.
-   As of the end of 2017, a smaller Hashlife-friendly single-channel
-   Demonoid is under construction but not yet complete.
+   A smaller Hashlife-friendly single-channel Demonoid design was
+   completed in 2018.
 
 :demultiplexer:  A simple {Herschel} {circuit} consisting of three
    {eater1}s, found by Brice Due in August 2006.  An input Herschel
@@ -4895,7 +4909,7 @@ on 26 February 1999.
      The same reaction sometimes works in other situations, as shown in
    the following diagram where a pair of blocks eats an {R-pentomino}
    and a {LWSS}.  (The LWSS version was known at least as early 1994,
-   when Paul Callahan saw it form spontaneously as a result of firing a
+   when Paul Callahan saw it form spontaneously as a result of firing an
    LWSS stream at some random junk.)
 	.****.....**....
 	*...*......**.**
@@ -5002,7 +5016,9 @@ on 26 February 1999.
    eater reactions.  Among other uses, it can reflect gliders 90
    degrees.  The following pattern shows an {eater5} eating gliders and
    producing duoplets which are then used to reflect a separate glider
-   stream.
+   stream.  If only one glider is present, the eater5 successfully
+   absorbs it, so this mechanism may be considered to be a simple AND
+   gate.
 	..*....................
 	*.*....................
 	.**....................
@@ -5106,7 +5122,7 @@ on 26 February 1999.
    The first property means that, among other things, it can eat a
    {glider} in a position that would destroy an {eater1}.  This novel
    glider-eating action is occasionally of use in itself, and combined
-   with the symmetry means that an eater2 can eat gliders traveling
+   with the symmetry means that an eater2 can eat gliders travelling
    along four adjacent glider {lane}s, as shown below.
      The following eater2 variant (Stephen Silver, May 1998) can be
    useful for obtaining smaller {bounding box}es.  A more compact
@@ -5198,6 +5214,10 @@ on 26 February 1999.
 	......................*..*....*.*
 	...........................*..*.*
 	..........................**...*.
+     With gliders from either direction, the eater5's eating reaction
+   creates a {spark} that can be used to reflect other gliders.  See the
+   example pattern in {duoplet}, or advance any of the topmost three
+   gliders in the above pattern by two {tick}s.
 
 :eater/block frob: (p4)  Found by Dave Buckingham in 1976 or earlier.
 	.**.......
@@ -5369,8 +5389,8 @@ on 26 February 1999.
    {kickback reaction}) deleting the output gliders from a pair of
    {slide gun}s.
 
-:elbow operation:  A recipe, usually a {salvo} of {glider}s traveling on
-   one or more {construction lane}s, that collides with an {elbow}
+:elbow operation:  A recipe, usually a {salvo} of {glider}s travelling
+   on one or more {construction lane}s, that collides with an {elbow}
    {constellation} and performs one of the standard transformations on
    it:  {push}, {pull}, or {fire} for simple construction arms, along
    with possible construct, duplicate-elbow, or delete-elbow ops for
@@ -5444,7 +5464,7 @@ on 26 February 1999.
 
 :emu:  Dave Buckingham's term for a {Herschel loop} that does not emit
    {glider}s (and so is "flightless").  All known Herschel loops of
-   periods 57, 58, 59 and 61 are emus.  See also {Quetzal}.
+   periods 52, 57, 58, 59 and 61 are emus.  See also {Quetzal}.
 
 :emulator:  Any one of three p4 oscillators that produce {spark}s
    similar to those produced by {LWSS}, {MWSS} and {HWSS}.  See
@@ -5538,7 +5558,7 @@ on 26 February 1999.
 
 :exponential filter:  A {toolkit} developed by Gabriel Nivasch in 2006,
    enabling the construction of patterns with asymptotic population
-   growth matching O((log log ... log(t)) for any number of nested log
+   growth matching O((log log ... log(t))) for any number of nested log
    operations.  See also {quadratic filter}, {recursive filter}.
 
 :exposure:  = {underpopulation}
@@ -5803,8 +5823,8 @@ on 26 February 1999.
    time is enough to drop the average speed of information transmission
    safely below c.
      Leithner named the Fast Forward Force Field in honour of his
-   favourite science fiction writer, the physicist Robert L. Forward.See
-   also {star gate} and {speed booster}.
+   favourite science fiction writer, the physicist Robert L. Forward.
+   See also {star gate} and {speed booster}.
 
 :fate:  The result of evolving a pattern until its final behaviour is
    known.  This answers such questions such as whether or not the
@@ -5983,7 +6003,8 @@ on 26 February 1999.
    from a {Herschel conduit}.
 
 :fish:  A generic term for {LWSS}, {MWSS} and {HWSS}, or, more
-   generally, for any {spaceship}.
+   generally, for any {spaceship}.  In recent years {*WSS} is much more
+   commonly used to refer to the small orthogonal c/2 spaceships.
 
 :fishhook:  = {eater1}
 
@@ -6942,7 +6963,7 @@ on 26 February 1999.
 	...........................*............
 	...........................**...........
 
-:glider pair:  Two gliders traveling in the same direction with a
+:glider pair:  Two gliders travelling in the same direction with a
    specific spacetime offset.  In a {transceiver} the preferred term is
    {tandem glider}.  For several years, glider pairs on {lane}s
    separated by 9 or 10 {half diagonal}s were the standard building
@@ -6950,6 +6971,8 @@ on 26 February 1999.
    0hd and {single-channel} construction toolkits, all gliders share the
    same lane, but glider pairs and {singleton}s are still important
    concepts.
+
+:glider-producing switch engine:  See {stabilized switch engine}.
 
 :glider pusher:  An arrangement of a {queen bee shuttle} and a
    {pentadecathlon} that can push the path of a passing glider out by
@@ -7041,8 +7064,8 @@ on 26 February 1999.
    should not have had to pass through one another to achieve the
    initial arrangement.
      Glider syntheses for all {still life}s and known {oscillator}s with
-   at most 14 cells were found by Dave Buckingham.  As of the end of
-   2017, this limit has been increased to 18 cells.
+   at most 14 cells were found by Dave Buckingham.  As of June 2018,
+   this limit has been increased to 18 cells.
      Perhaps the most interesting glider syntheses are those of
    {spaceship}s, because these can be used to create corresponding
    {gun}s and {rake}s.  Many of the c/2 spaceships that are based on
@@ -7228,8 +7251,11 @@ on 26 February 1999.
 :Gotts dots:  A 41-cell 187x39 {superlinear growth} pattern found by
    Bill Gosper in March 2006, who named it in honour of Nick Gotts,
    discoverer of many other low-population superlinear patterns, such as
-   {Jaws}, {mosquito}s, {teeth}, {catacryst} and {metacatacryst}.
-   Collisions within the pattern cause it to sprout its Nth
+   {Jaws}, the {mosquito}es, {teeth}, {catacryst} and {metacatacryst}.
+   See {switch-engine ping-pong} for the lowest-population
+   {superlinear growth} pattern as of July 2018, along with a list of
+   the record-holders.
+     Collisions within the pattern cause it to sprout its Nth
    {switch engine} at generation T = ~224n-6.  The population of the
    pattern at time t is asymptotically proportional to t times log(t),
    so the growth rate is O(t ln(t)), faster than {linear growth} but
@@ -7260,6 +7286,8 @@ on 26 February 1999.
 
 :gp:  = {glider pair}
 
+:GPSE:  = {glider-producing switch engine}
+
 :grammar:  A set of rules for connecting {component}s together to make
    an object such as a {spaceship}, {oscillator} or {still life}.  For
    example, in August 1989 Dean Hickerson found a grammar for
@@ -7283,7 +7311,7 @@ on 26 February 1999.
      Other patterns have since been found that have a grandparent but no
    great-grandparent, or a great-grandparent but no
    great-great-grandparent.  Further examples in this series almost
-   certainly exist, but as of the end of 2017 none have yet been found.
+   certainly exist, but as of July 2018 none have yet been found.
 
 :Gray counter: (p4)  Found in 1971.  If you look at this in the right
    way you will see that it cycles through the Gray codes from 0 to 3.
@@ -7352,8 +7380,8 @@ on 26 February 1999.
    that its front part moves faster than its back part and a {wick}
    extends between the two.  Put another way, a growing spaceship is a
    {puffer} whose output is burning {clean}ly at a slower rate than the
-   puffer is producing it.  Examples include {blinker ship}s and
-   {pi ship}s.
+   puffer is producing it.  Examples include {blinker ship}s,
+   {pi ship}s, and some {wavestretcher}s.
 
 :G-to-H:  A {converter} that takes a {glider} as an input {signal} and
    produces a {Herschel} output, which can then be used by other
@@ -7456,8 +7484,8 @@ on 26 February 1999.
 :hammer:  To hammer a {LWSS}, {MWSS} or {HWSS} is to smash things into
    the rear end of it in order to transform it into a different type of
    {spaceship}.  A hammer is the object used to do the hammering. In the
-   following example by Dieter Leithner a LWSS is hammered by two more
-   LWSS to make it into a MWSS.
+   following example by Dieter Leithner an LWSS is hammered by two more
+   LWSS to make it into an MWSS.
 	*..*................
 	....*...**..........
 	*...*..***.....****.
@@ -7785,7 +7813,7 @@ on 26 February 1999.
    connected by placing them so that the output {Herschel}s from early
    conduits become the input Herschels for later conduits.  Often the
    initial component is a {converter} accepting some other signal type
-   as input -- usually a glider, in which case a {syringe} is most
+   as input - usually a glider, in which case a {syringe} is most
    commonly used.  The {Silver reflector} is a well-known early
    {Spartan} Herschel circuit from before the syringe was discovered,
    where the initial converter is a {Callahan G-to-H}.
@@ -7821,27 +7849,23 @@ on 26 February 1999.
 :Herschel conduit:  A {conduit} that moves a {Herschel} from one place
    to another.  See also {Herschel loop}.
      Well over a hundred simple stable Herschel conduits are currently
-   known.  As of the end of 2017 the number is approximately 130,
-   depending on the precise definition of "simple" - e.g., fitting
-   inside a 100x100 bounding box, and producing output in no more than
-   300 {tick}s.  In general a Herschel conduit can be called "simple" if
-   its active reaction does not return to a  Herschel stage except at
-   its output.  Compare {elementary conduit}, {composite conduit}.  A
-   description of common usage in complex circuitry, using {syringe}s
-   and {Snark}s to make compact connections, can be found in
-   {Herschel circuit}.
+   known.  As of June 2018 the number is approximately 150, depending on
+   the precise definition of "simple" - e.g., fitting inside a 100x100
+   bounding box, and producing output in no more than 300 {tick}s.  In
+   general a Herschel conduit can be called "simple" if its active
+   reaction does not return to a  Herschel stage except at its output.
+   Compare {elementary conduit}, {composite conduit}.  A description of
+   common usage in complex circuitry, using {syringe}s and {Snark}s to
+   make compact connections, can be found in {Herschel circuit}.
      The original {universal} set consisted of sixteen stable Herschel
    conduits, discovered between 1995 and 1998 by Dave Buckingham (DJB)
    and Paul Callahan (PBC).  These are shown in the following table.  In
    this table, the number in "name/steps" is the number of {tick}s
    needed to produce an output Herschel from the input Herschel.  "m"
-   tells how the Herschel is moved:  R = turned right, L = turned left,
-   B = turned back, F = unturned, and 'flip' = flipped over (mirror
-   image). "dx" and "dy" give the displacement of the centre cell of the
-   Herschel (assumed to start in the orientation shown in the {Herschel}
-   article).
-     As the conduit names indicate, 'x' is a more recent standard than
-   'f' or 'flip' for denoting a mirror-reflected output.
+   tells how the Herschel is moved (R = turned right, L = turned left, B
+   = turned back, F = unturned, f = flipped), and "dx" and "dy" give the
+   displacement of the centre cell of the Herschel (assumed to start in
+   the orientation shown above).
 	-----------------------------------------
 	name/steps  m     dx   dy     discovery
 	-----------------------------------------
@@ -7903,7 +7927,12 @@ on 26 February 1999.
    a higher-period track.  In this way oscillators, and in most cases
    {gun}s, of all periods from 54 onwards can now be constructed
    (although the p55 case is a bit strange, shooting itself with gliders
-   in order to stabilize itself).
+   in order to stabilize itself).  A mechanism for a period-52 loop was
+   found in April 2018, but it includes a stage where the signal is
+   carried by a triplet of {glider}s so it may not be considered to be a
+   pure Herschel loop.  The missing period, 53, is a difficult case
+   simply because 53 is prime and so no small sparkers or reflectors are
+   available.
      See {Simkin glider gun} and {p256 gun} for the smallest known
    Herschel loops.  See also {emu} and {omniperiodic}.
 
@@ -8006,7 +8035,8 @@ on 26 February 1999.
    synchronize multiple signals to produce {gun} patterns or complex
    logic circuitry.  See {NW31T120} for an example.
 
-:Herschel track:  A {track} for {Herschel}s.  See also {B track}.
+:Herschel track:  A {track} for {Herschel}s.  An equivalent term is
+   {Herschel circuit}.  See also {B track}.
 
 :Herschel transceiver:  An adjustable {Herschel conduit} made up of a
    {Herschel transmitter} and a {Herschel receiver}.  The intermediate
@@ -8118,7 +8148,7 @@ on 26 February 1999.
    {telegraph} constructed by Louis-Francois Handfield in February 2017,
    using periodic components to achieve a transmission rate of one bit
    per 192 ticks.  The same ten signals are sent as in the original
-   telegraph and the {p1 telegraph}, but information is encoded more
+   {telegraph} and the {p1 telegraph}, but information is encoded more
    efficiently in the timing of those signals.  Specifically, the new
    transmitter sends five bits every 960 ticks by adjusting the relative
    timings inside each of the five mirror-image paired subunits of the
@@ -8523,10 +8553,10 @@ on 26 February 1999.
    and whose two halves are mirror images of one another, both halves
    being required for the oscillator to work.  The classic examples are
    the {pulsar} and the {tumbler}.  If still lifes are considered as p1
-   oscillators then there are numerous simple examples such as
-   {table on table}, {dead spark coil} and {cis-mirrored R-bee}. Some
-   spaceships, such as the {brain}, the {snail} and the {spider} use the
-   same principle.
+   oscillators then there are numerous simple examples that include this
+   kind of central {gutter}, such as {table on table}, {dead spark coil}
+   and {cis-mirrored R-bee}. Some spaceships, such as the {brain}, the
+   {snail} and the {spider}, use the same principle.
 
 :infinite glider hotel:  A pattern by David Bell, named after Hilbert's
    "infinite hotel" scenario in which a hotel with an infinite number of
@@ -8572,9 +8602,9 @@ on 26 February 1999.
 	....*...
 	..*.....
 	*.*.....
-   Nick Gotts and Paul Callahan have also shown that there is no
-   infinite growth pattern with fewer than 10 cells, so that the
-   question has now been answered.
+   Nick Gotts and Paul Callahan showed in October 1997 that there is no
+   infinite growth pattern with fewer than 10 cells, so that question
+   has now been answered.
      In October 2014, Michael Simkin discovered a three-glider collision
    that produces a glider-producing {stabilized switch engine} and thus
    produces infinite growth from the smallest possible number of gliders
@@ -8804,11 +8834,12 @@ on 26 February 1999.
 
 :Jaws:  A {breeder} constructed by Nick Gotts in February 1997.  In the
    original version Jaws had an initial {population} of 150, which at
-   the time was the smallest for any known pattern with superlinear
-   growth.  In November 1997 Gotts produced a 130-cell Jaws using some
-   {switch engine} {predecessor}s found by Paul Callahan.  Jaws has
-   since been beaten by the even smaller {mosquito}es, {teeth},
-   {catacryst}, {metacatacryst}, {Gotts dots} and {wedge}.
+   the time was the smallest for any known pattern with
+   {superlinear growth}.  In November 1997 Gotts produced a 130-cell
+   Jaws using some {switch engine} {predecessor}s found by Paul
+   Callahan.  See {switch-engine ping-pong} for the lowest-population
+   superlinear growth pattern as of July 2018, along with a list of the
+   record-holders.
      Jaws consists of eight pairs of switch engines which produce a new
    block-laying switch engine (plus masses of junk) every 10752
    generations.  It is therefore an MMS breeder.
@@ -8968,11 +8999,11 @@ on 26 February 1999.
    any speed that moves obliquely in a (2,1) direction.  The first
    Conway's Life knightship was a variant of Andrew Wade's {Gemini}
    spaceship, constructed in May 2010.  The next was an even slower
-   knightship based on the {half-bakery reaction}.  A knightship must be
-   asymmetric and its period must be at least 6.  This is barely within
-   the range of current {search program}s; an elementary knightship,
-   {Sir Robin}, was found on March 6, 2018 by Adam P. Goucher and Tomas
-   Rokicki.
+   knightship based on the {half-bakery reaction}.
+     A knightship must be asymmetric and its period must be at least 6.
+   This is barely within the range of current {search program}s, as
+   proven by the discovery on March 6, 2018 of an {elementary}
+   knightship, {Sir Robin}, by Adam P. Goucher and Tomas Rokicki.
      By analogy with the corresponding fairy chess pieces, spaceships of
    types (3m,m)/n, (3m,2m)/n and (4m,m)/n would presumably be called
    camelships, zebraships and giraffeships, respectively.  Such
@@ -8980,14 +9011,15 @@ on 26 February 1999.
    elementary versions are even more difficult to search for.  Any of
    these ship types could be constructed by trivially modifying a Gemini
    spaceship, or less trivially by reprogramming one of the more recent
-   small {Geminoid} {construction arm}s, but as of the end of 2017 a
-   camelship Gemini is the only example that has been explicitly built.
+   small {Geminoid} {construction arm}s, but as of July 2018 a camelship
+   Gemini is the only example that has been explicitly built.
      Alternatively, the term "knightship" is regularly used to refer to
    any {oblique} spaceship, such as the original {Gemini} or the
    {waterbear}.
 
-:Kok's galaxy: (p8)  Found by Jan Kok in 1971.  See {converter} for a
-   use of this {sparker}.
+:Kok's galaxy: (p8)  An {oscillator} found by Jan Kok in 1971, currently
+   serving as the icon for {Golly}.  See {converter} for a use of this
+   {sparker}.
 	******.**
 	******.**
 	.......**
@@ -9110,9 +9142,9 @@ on 26 February 1999.
 	................***..........
 	..................*..........
 
-:lake:  Any still life consisting of a simple closed curve made from
-   diagonally connected {domino}es.  The smallest example is the {pond},
-   and the next smallest is this (to which the term is sometimes
+:lake: (p1)   Any still life consisting of a simple closed curve made
+   from diagonally connected {domino}es.  The smallest example is the
+   {pond}, and the next smallest is this (to which the term is sometimes
    restricted):
 	....**....
 	...*..*...
@@ -9156,9 +9188,10 @@ on 26 February 1999.
    P. Goucher with a period that is a Mersenne prime with 13,395 digits
    (2^44497-1).
      The next higher Mersenne-prime oscillator, period 2^86243-1, could
-   be constructed with {semi-Snark}s and would actually be smaller than
-   the current record holder, but as of the end of 2017 the construction
-   of this pattern has not yet been completed.
+   be constructed with {quadri-Snark}s and {semi-Snark}s.  It would
+   actually be significantly smaller than the current record holder.  As
+   of June 2018 the construction of this pattern has not yet been
+   completed.
 
 :large S:  = {big S}
 
@@ -9256,7 +9289,7 @@ on 26 February 1999.
 	......***
 	........*
 
-:lightspeed bubble:  A type of {negative spaceship} traveling through
+:lightspeed bubble:  A type of {negative spaceship} travelling through
    the {zebra stripes} agar.  The center of the bubble is simple empty
    space, and the length and/or width of the bubble can usually be
    extended to any desired size.
@@ -9365,7 +9398,7 @@ on 26 February 1999.
    speed of light.  Lightspeed wires are a type of {reburnable fuse}.
    These are potentially useful for various things, but so far the
    necessary mechanisms are very large and unwieldy.  In October 2002,
-   Jason Summers discovered a lightspeed reaction traveling through an
+   Jason Summers discovered a lightspeed reaction travelling through an
    orthogonal chain of beehives.  Summers completed a period-1440
    lightspeed {telegraph} based on this reaction in 2003.
 	...*...........................................................
@@ -9384,8 +9417,8 @@ on 26 February 1999.
    completed by Louis-Francois Handfield in 2017.
      The following diagram shows an older example of a lightspeed wire,
    with a small defect that travels along it at the speed of light.  As
-   of the end of 2017, no method has been found of creating such a
-   defect in the upstream end of this particular stable wire, or of
+   of June 2018, no method has been found of creating such a defect in
+   the upstream end of this particular stable wire, or of
    non-destructively detecting the arrival of the defect and repairing
    the wire at the downstream end.
 	....**..**..**..**..**..**..**..**..**..**..**..**..**....
@@ -9501,8 +9534,8 @@ on 26 February 1999.
 :line-mending reaction:  A reaction which can fully mend a sealed gap in
    an infinite diagonal line of cells, such as the one produced by a
    {line-cutting reaction}.  Such a reaction is demonstrated below.  See
-   the line cutting reaction for a way of creating the gliders traveling
-   parallel to the line.
+   the line cutting reaction for a way of creating the gliders
+   travelling parallel to the line.
 	...........**.............................................
 	...........*..............................................
 	............*.............................................
@@ -9729,7 +9762,7 @@ on 26 February 1999.
 	..*..
 
 :lobster: (c/7 diagonally, p7)  A spaceship discovered by Matthias
-   Merzenich in August 2011, the first diagonally traveling
+   Merzenich in August 2011, the first diagonally travelling
    {c/7 spaceship} to be found. It consists of two {glider}s pulling a
    {tagalong} that then rephases them.
 	............***...........
@@ -9974,7 +10007,7 @@ on 26 February 1999.
 	.*..*
 	*....
 	*...*
-	****
+	****.
      The LWSS possesses a {tail spark} which can easily {perturb} other
    objects which grow into its path.  The spaceship can also perturb
    some objects in additional ways.  For examples, see {blinker ship},
@@ -10157,8 +10190,9 @@ on 26 February 1999.
    {Caterloopillar}.  Engineered spaceships of these types tend to be
    much larger and more complex than {elementary} spaceships.
 
-:mango: (p1)  An uncommon 180-degree rotationally {symmetric} 8-{bit}
-   {still life}. The {acorn} produces a mango as part of its {ash}.
+:mango: (p1)  A relatively rare 180-degree rotationally {symmetric}
+   8-{bit} {still life}. The {acorn} produces a mango as part of its
+   {ash}.
 	.**..
 	*..*.
 	.*..*
@@ -10286,7 +10320,9 @@ on 26 February 1999.
 :metacatacryst:  A 52-cell pattern exhibiting quadratic growth.  Found
    by Nick Gotts, December 2000.  This was for some time the smallest
    known pattern (in terms of initial population) with superlinear
-   growth.  See also {catacryst} for more recent record-holders.
+   growth.  See {switch-engine ping-pong} for the lowest-population
+   {superlinear growth} pattern as of July 2018, along with a list of
+   the record-holders.
 
 :metacell:  CA logic circuitry that emulates the behavior of a single
    cell. The circuitry is hard-wired to emulate a particular CA rule,
@@ -10364,8 +10400,7 @@ on 26 February 1999.
    {R-pentomino}, {blom}, {Iwona}, {Justyna} and {Lidka}.  See also
    {ark}.
 
-:Mickey Mouse: (p1)  A name proposed by Mark Niemiec for the following
-   {still life}:
+:Mickey Mouse: (p1)  The following {still life}, named by Mark Niemiec:
 	.**....**.
 	*..*..*..*
 	*..****..*
@@ -10446,7 +10481,7 @@ on 26 February 1999.
    {parity}.  Compare {monochromatic salvo}.
 
 :Moore neighbourhood:  The set of all cells that are orthogonally or
-   diagonally adjacent to a cell or group of cells.  The von Neumann
+   diagonally adjacent to a cell or group of cells.  The Moore
    neighbourhood of a cell can be thought of as the points at a
    Chebyshev distance of 1 from that cell.  Compare
    {von Neumann neighbourhood}.  The Conway's Life rule is based on the
@@ -10506,10 +10541,11 @@ on 26 February 1999.
 :mosquito5:  A slightly improved version of {mosquito4} which Nick Gotts
    produced in October 1998.  The improvement is of a similar nature to
    the improvement of mosquito4 over mosquito3.  Mosquito5 is a
-   {breeder} with an initial population of 71.  At the time, this was
-   the smallest population for any known pattern with superlinear
-   growth, but it has since been superseded by {teeth}, {catacryst},
-   {metacatacryst}, {Gotts dots} and {wedge}.
+   {breeder} with an initial population of 71.  This was the smallest
+   population for any known pattern with superlinear growth until it was
+   superseded by {teeth}.  See {switch-engine ping-pong} for the
+   smallest such pattern as of July 2018, along with a list of the
+   record-holders.
 
 :mould:  = {mold}
 
@@ -10613,7 +10649,7 @@ on 26 February 1999.
    {blinker puffer} and {glider turner}.
      Dave Buckingham found that the MWSS can be synthesized using three
    gliders, and can be constructed from two gliders and another small
-   object in several more ways.  Here is the three-glider {synthesis}:
+   object in several more ways.  Here is the {glider synthesis}:
 	...........*..
 	...........*.*
 	...........**.
@@ -10628,7 +10664,7 @@ on 26 February 1999.
 :MWSS out of the blue:  The following reaction, found by Peter Rott in
    November 1997, in which a {LWSS} passing by a p46 {oscillator}
    creates a {MWSS} travelling in the opposite direction.  Together with
-   some reactions found by Dieter Leithner, and a LWSS-turning reaction
+   some reactions found by Dieter Leithner, and an LWSS-turning reaction
    which Rott had found in November 1993 (but which was not widely known
    until Paul Callahan rediscovered it in June 1994) this can be used to
    prove that there exist {gliderless} guns for LWSS, MWSS and {HWSS}
@@ -10753,7 +10789,7 @@ on 26 February 1999.
 
 :ND read:  = {non-destructive read}
 
-:negative spaceship:  A type of {signal} traveling through a periodic
+:negative spaceship:  A type of {signal} travelling through a periodic
    {agar} such as {zebra stripes}. The leading edge of the signal
    removes the agar, and the trailing edge rebuilds the agar some time
    later.  The distance between the two edges is sometimes adjustable,
@@ -10930,11 +10966,12 @@ on 26 February 1999.
 	..****
      Charles Corderman may have found this object in 1971 while
    exhaustively investigating the {fate} of all the small {polyomino}es.
-   This is not clear, however, since the records indicate that he found
-   the {switch engine} while investigating the decominos (polyominos
-   having 10 cells). There are probably decominos which result in a
-   {switch engine}, but if he was examining polyominos in order of size,
-   then this smaller {predecessor} should have been found first.
+   Records indicate that he found the {switch engine} while
+   investigating the decominoes (polyominoes having 10 cells). However,
+   there do not appear to be decominoes which result in a {clean}
+   {switch engine}.  If Corderman was examining polyominoes in order of
+   size, then this smaller {predecessor} should have been found first in
+   any case.
 
 :non-spark:  Something that looks like a spark, but isn't.  An {OWSS}
    produces one of these instead of a {belly spark}, and is destroyed by
@@ -10945,10 +10982,10 @@ on 26 February 1999.
 
 :non-trivial:  A non-trivial period-N {oscillator} contains at least one
    cell that oscillates at the full period.  In other words, it is not
-   made up solely of separate oscillators with smaller periods; it
-   includes a {spark} or other reaction that would not occur if all
-   lower-period subpatterns were separated from each other.  See
-   {omniperiodic}.
+   made up solely of separate oscillators with smaller periods. Usually
+   it includes a {spark} or other reaction that would not occur if all
+   lower-period subpatterns were separated from each other, but some
+   exceptions are given under {trivial}.  See also {omniperiodic}.
 
 :novelty generator:  A pattern that appears to have an {unknown fate}
    due to complex feedback loops, for example involving {wave}s of
@@ -11001,17 +11038,17 @@ on 26 February 1999.
    version of {SW-2}, either output can be used to build logical OR
    gates, where multiple input {signal} paths are merged onto the same
    output path.
-   The complete name for this converter is "NW31T120", where 31 is the
+     The complete name for this converter is "NW31T120", where 31 is the
    output glider lane number.  In the above orientation, lane numbers
    get bigger toward the upper right and smaller toward the lower left
    (and may easily be negative).
-   The T120 timing measurement means that a canonical NW glider placed
+     The T120 timing measurement means that a canonical NW glider placed
    on lane 31 at time T=120, at (+31, +0) relative to the input
    Herschel, would in theory reach the exact same spacetime locations as
    the converter's output glider does.
-   Most converters are not edge shooters and their output lanes are not
-   transparent, so they usually have catalysts that would interfere with
-   this theoretically equivalent glider.  This is the case for the
+     Most converters are not edge shooters and their output lanes are
+   not transparent, so they usually have catalysts that would interfere
+   with this theoretically equivalent glider.  This is the case for the
    optional third glider output created by the lower {eater1} catalyst:
    the upper eater1 overlaps its {lane}.  For the alternate {block}
    catalyst suppressing this glider output, see {transparent lane}.
@@ -11080,8 +11117,8 @@ on 26 February 1999.
    list of unresolved cases, all with periods of 58 or below.  The list
    has been progressively reduced since then.  Most recently, period 43
    and 53 oscillators were made possible in 2013 by Mike Playle's
-   {Snark}.  As of the end of 2017, no oscillators are known for periods
-   19, 23, 38, or 41.  If we insist that the oscillator must be
+   {Snark}.  As of June 2018, no oscillators are known for periods 19,
+   23, 38, or 41.  If we insist that the oscillator must be
    {non-trivial}, then 34 should be added to this list.
      Note that if we were to allow infinite oscillators, then all
    periods are certainly possible, as any period of 14 or more can be
@@ -11119,7 +11156,8 @@ on 26 February 1999.
 :one-time:  A term used for {turner}s and {splitter}s, specifying that
    the reaction in question is not repeatable as it would be in a
    {reflector} or {fanout} device.  Instead, the {constellation} is used
-   up in the course of the reaction, usually leaving nothing behind.
+   up, usually in a {clean} reaction, but the much more common {dirty}
+   turners and splitters are also very useful in some situations.
 
 :onion rings:  For each integer n>1 onion rings of order n is a {stable}
    {agar} of {density} 1/2 obtained by tiling the plane with a certain
@@ -11221,17 +11259,20 @@ on 26 February 1999.
    not normal in Life.
      Oscillators consisting of separate objects which do not react in
    any phase are usually ignored.  For example, a separated {blinker}
-   and {pulsar} makes a period 6 oscillator, but is considered trivial.
+   and {pulsar} makes a period 6 oscillator, but is considered
+   {trivial}.
      An oscillator can be divided into a {rotor} and a {stator}, and the
    stator can be further subdivided into {bushing} and {casing}.  Some
    oscillators have no casing cells, and a few 100%-{volatility}
    oscillators also have no bushing cells.
-     An oscillator can be constructed from any {gun} by adding {eater}s
-   to consume its output, and if it is a {true} {gun} then the period of
-   the oscillator will be the same as the gun.
+     An oscillator can be constructed from any {gun} as long as {eater}s
+   can be added to consume its output.  If it is a {true} {gun} then the
+   period of the oscillator will be the same as the gun - unless the
+   eating mechanism multiplies the period, as in the case of gliders
+   caught by a {boat-bit}.
      With the discovery of {reflector}s, {relay}s provide an easy way to
    create oscillators of all large periods.  For example, eight gliders
-   traveling in a loop created by four {Snark}s can create any period
+   travelling in a loop created by four {Snark}s can create any period
    above 42, with a population never exceeding 356 live cells.
      For the very lowest periods, whole families of {extensible}
    oscillators are known.  Examples of this are {barberpole}, {cross},
@@ -11257,9 +11298,9 @@ on 26 February 1999.
    as shown in the example pattern in {memory cell}.  The pattern's
    diametric growth rate is O(sqrt(log(t))), which is the slowest
    possible for any Life pattern, or indeed any 2D Euclidean cellular
-   automaton.  Since the population returns infinitely often to its
-   initial minimum value (during carry operations from 11111...1 to
-   100000...0, it can be considered to be an unusual form of {sawtooth}.
+   automaton.  The population returns infinitely often to its initial
+   minimum value (during carry operations from 11111...1 to 100000...0,
+   so it can be considered to be an unusual form of {sawtooth}.
 
 :OTCA metapixel: (p46 circuitry)  A 2048 x 2048 period 35328 {metacell}
    constructed by Brice Due in 2006.  It contains a large "pixel" area
@@ -11320,6 +11361,12 @@ on 26 February 1999.
 :p1:  Period 1, i.e., {stable}.  In the context of logic {circuit}ry,
    this tends to mean that a mechanism is constructed from
    {Herschel conduit}s that contain only {still life}s as {catalyst}s.
+   In the context of {slow glider construction}, a P1 {slow salvo} is
+   one in which there are no constraints on the {parity} of gliders in
+   the salvo, because the {intermediate target}s are all stable
+   constellations.  (The usual alternative is a "P2 slow salvo", where
+   the relative timing between adjacent gliders can be increased
+   arbitrarily, but only by multiples of two ticks.)
 
 :p104 gun:  A {glider gun} with period 104, found by Noam Elkies on 21
    March 1996.  It is based on an {R-pentomino} {shuttle} reaction.
@@ -11344,6 +11391,50 @@ on 26 February 1999.
 	...**............*.*...................
 	..................*.................**.
 	....................................**.
+
+:p11 bumper: (p11)  A periodic {colour-preserving} {glider} {reflector}
+   with a minimum {repeat time} of 44 ticks.  Unlike the p5 through p8
+   cases where Noam Elkies' {domino}-spark based reflectors are
+   available, no small period-22 {colour-changing} reflector is known.
+   A {stable} {Snark} reflector can be substituted for any {bumper}.
+   This changes the timing of the output glider, which can be useful for
+   rephasing periodic glider streams.
+	............................*..
+	............................*.*
+	............................**.
+	...............................
+	...............................
+	...............................
+	...............................
+	...............................
+	...............................
+	...............................
+	...............................
+	.................*.............
+	.................*.*...........
+	.................**............
+	...............................
+	.........**....**..............
+	.........**...*..*.............
+	...**....**....*.*.............
+	....*.....**....*..............
+	..*.....*.**...................
+	..**..***...........**.........
+	.....*....*.*.......*..........
+	..***.**.**.***......***.......
+	.*....*....*...*.......*.......
+	*.*.*...**.*..*................
+	*.*......*.*.*.................
+	.*..*****..**..................
+	..**....*.*....................
+	....****..*....................
+	..**......**...................
+	..*..*.........................
+	....**.........................
+     In practice this reflector is not useful with input streams below
+   period 121, because lower-period bumpers can be used to reflect all
+   smaller multiples of 11 for which the bumper reaction can be made to
+   work.
 
 :p130 shuttle:  A {shuttle} found in March 2004 by David Eppstein, which
    originally needed several period 5 oscillators for support.  David
@@ -11396,7 +11487,8 @@ on 26 February 1999.
 
 :p15 bouncer:  Noam Elkies' {colour-changing} glider reflector, with
    {Karel's p15} providing the necessary {domino} {spark}.  Compare to
-   the {colour-preserving} {Snark}.  Minimum {repeat time} is 30 ticks.
+   the {colour-preserving} {Snark}.  The minimum {repeat time} is 30
+   ticks.
 	........................*..
 	........................*.*
 	........................**.
@@ -11423,7 +11515,7 @@ on 26 February 1999.
 :p15 bumper:  A periodic {colour-preserving} {glider} {reflector} with
    {Karel's p15} providing the necessary {spark}.  The minimum
    {repeat time} is 45 ticks.  For an equivalent {colour-changing}
-   periodic glider reflector see {p15 reflector}.  A {stable} {Snark}
+   periodic glider reflector see {p15 bouncer}.  A {stable} {Snark}
    reflector can be substituted for any {bumper}.  This changes the
    timing of the output glider, which can be useful for rephasing
    periodic glider streams.
@@ -11457,9 +11549,9 @@ on 26 February 1999.
 	..*....*.......................
 	....**.........................
 
-:p15 reflector:  Traditional name for {p15 bouncer} before 2016, but
-   with the discovery of the {p15 bumper} this has become an ambiguous
-   reference.
+:p15 reflector:  An ambiguous term that may refer to
+   {PD-pair reflector}, {p15 bouncer}, or the more recently discovered
+   {p15 bumper}.
 
 :p184 gun:  A {true} period 184 {double-barrelled} glider gun found by
    Dave Buckingham in July 1996.  The {engine} in this gun is a
@@ -11516,52 +11608,7 @@ on 26 February 1999.
    output signal.  This simplification came at the cost of a much slower
    transmission speed, one bit per 91080 ticks.  In this mechanism,
    sending the entire ten-part signal constitutes a '1' bit, and not
-   sending the signal means '0'.
-
-:p22 bumper:  A periodic {colour-preserving} {glider} {reflector} with a
-   {repeat time} of 44 ticks.  Unlike the p5 through p8 cases where Noam
-   Elkies' {domino}-spark based reflectors are available, no small
-   period-22 {colour-changing} reflector is known.  A {stable} {Snark}
-   reflector can be substituted for any {bumper}.  This changes the
-   timing of the output glider, which can be useful for rephasing
-   periodic glider streams.
-	............................*..
-	............................*.*
-	............................**.
-	...............................
-	...............................
-	...............................
-	...............................
-	...............................
-	...............................
-	...............................
-	*..............................
-	***..............*.............
-	...*.............*.*...........
-	..**.............**............
-	...............................
-	....***........**..............
-	...*...*......*..*.............
-	........*......*.*.............
-	........*.......*..............
-	...**...*......................
-	.....**.............**.........
-	....................*..........
-	.....................***.......
-	.......................*.......
-	...............................
-	...............................
-	...**..........................
-	.*...**........................
-	.*.............................
-	.*.............................
-	..*...*........................
-	...***.........................
-	...............................
-	......**.......................
-	......*........................
-	.......***.....................
-	.........*.....................
+   sending the signal means '0'.  See also {high-bandwidth telegraph}.
 
 :p22 gun:  A {true} period 22 {glider gun} constructed by David Eppstein
    in August 2000, using two interacting copies of a p22 oscillator
@@ -11588,8 +11635,8 @@ on 26 February 1999.
 	.........................*...................
 	.........................**..................
 
-:p246 gun:  A {true} {glider gun} with period 246, discovered by Dave
-   Buckingham in June 1996.  The 180-degree mod-123 symmetry of its
+:p246 gun:  A {true} period {glider gun} with period 246, discovered by
+   Dave Buckingham in June 1996.  The 180-degree mod-123 symmetry of its
    {bookend}-based {engine} makes it trivial to modify it into a
    {double-barrelled} gun.  Its single-barreled form is shown below.
 	..................................*........
@@ -12170,12 +12217,12 @@ on 26 February 1999.
 
 :p4 reflector:  The following {glider} {reflector}, discovered by Karel
    Suhajda in October 2012.  Its minimum repeat time is 52 ticks.
-   Unlike the {pipsquirter}-based reflectors it is a {colour-preserving}
-   reflector, so it was made obsolete the following year by the
-   discovery of the much smaller stable {Snark}, which uses the same
-   initial {bait} reaction and so produces an output glider with the
-   same timing.  For a small periodic {colour-preserving} glider
-   reflector, see {p4 bumper}.
+   Unlike the various {bouncer}s discovered many years earlier, it is a
+   {colour-preserving} reflector, so it was made obsolete the following
+   year by the discovery of the much smaller stable {Snark}, which uses
+   the same initial {bait} reaction and so produces an output glider
+   with the same timing.  For a smaller periodic {colour-preserving}
+   glider reflector with a different output timing, see {p4 bumper}.
 	................................*.........................
 	...............................*..........................
 	...............................***.......*.*..............
@@ -12234,10 +12281,10 @@ on 26 February 1999.
 	**.........................**
 
 :p5 bouncer: (p5)  A {colour-changing} glider reflector constructed by
-   Noam Elkies in September 1998, by welding together two
-   special-purpose period-5 {sparker}s.  Minimum {repeat time} is 25
-   ticks.  For {colour-preserving} glider reflectors see {p5 bumper} and
-   the {stable} {Snark} reflector.
+   Noam Elkies in September 1998 by welding together two special-purpose
+   period-5 {sparker}s.  The minimum {repeat time} is 25 ticks.  For
+   {colour-preserving} glider reflectors see {p5 bumper} and the
+   {stable} {Snark} reflector.
 	..........................*..
 	........................**...
 	.........................**..
@@ -12269,7 +12316,7 @@ on 26 February 1999.
 	...............**............
 
 :p5 bumper:  A periodic {colour-preserving} {glider} {reflector} with a
-   {middleweight volcano} producing the necessary {spark}.  Minimum
+   {middleweight volcano} producing the necessary {spark}.  The minimum
    {repeat time} is 35 ticks.  For an equivalent {colour-changing}
    periodic glider reflector see {p5 bouncer}.  A {stable} {Snark}
    reflector can be substituted for any {bumper}.  This changes the
@@ -12390,11 +12437,12 @@ on 26 February 1999.
 	.......**..........***...
 	.....................*...
 :p6 bumper: (p6)  A periodic {colour-preserving} {glider} {reflector}
-   with a {unix} providing the necessary {spark}.  Minimum {repeat time}
-   is 36 ticks.  For an equivalent {colour-changing} periodic glider
-   reflector see {p6 bouncer}.  A {stable} {Snark} reflector can be
-   substituted for any {bumper}.  This changes the timing of the output
-   glider, which can be useful for rephasing periodic glider streams.
+   with a {unix} providing the necessary {spark}.  The minimum
+   {repeat time} is 36 ticks.  For an equivalent {colour-changing}
+   periodic glider reflector see {p6 bouncer}.  A {stable} {Snark}
+   reflector can be substituted for any {bumper}.  This changes the
+   timing of the output glider, which can be useful for rephasing
+   periodic glider streams.
 	.......................*..
 	.......................*.*
 	.......................**.
@@ -12546,9 +12594,8 @@ on 26 February 1999.
 	........**...............
 
 :p7 bumper: (p7)  A periodic {colour-preserving} {glider} {reflector}
-   with a {p7 pipsquirter} attached to provide the necessary {spark}.
-   Minimum {repeat time} is 35 ticks.  For an equivalent
-   {colour-changing} periodic glider reflector see {p7 reflector}.  A
+   with a minimum {repeat time} of 35 ticks.  For an equivalent
+   {colour-changing} periodic glider reflector see {p7 bouncer}.  A
    {stable} {Snark} reflector can be substituted for any {bumper}.  This
    changes the timing of the output glider, which can be useful for
    rephasing periodic glider streams.
@@ -12643,7 +12690,7 @@ on 26 February 1999.
 	..*...............
 
 :p8 bumper:  A periodic {colour-preserving} {glider} {reflector} with a
-   {blocker} attached to provide the necessary spark.  Minimum
+   {blocker} attached to provide the necessary spark.  The minimum
    {repeat time} is 40 ticks.  For an equivalent {colour-changing}
    periodic glider reflector see {p8 bouncer}.  A {stable} {Snark}
    reflector can be substituted for any {bumper}.  This changes the
@@ -12677,10 +12724,10 @@ on 26 February 1999.
 
 :p8 G-to-H:  A small periodic variant of a stable two-glider-to-Herschel
    component found by Paul Callahan in November 1998  and used in the
-   {Callahan G-to-H}, {Silver reflector} and {Silver G-to-H}. Minimum
-   {repeat time} is 192 ticks, though some lower periods such as 96 are
-   possible via {overclocking}.  Here a {ghost Herschel} marks the
-   output signal location:
+   {Callahan G-to-H}, {Silver reflector} and {Silver G-to-H}.  The
+   minimum {repeat time} is 192 ticks, though some lower periods such as
+   96 are possible via {overclocking}.  Here a {ghost Herschel} marks
+   the output signal location:
 	....*.........*...................
 	....***.....***...................
 	.......*...*......................
@@ -12753,8 +12800,8 @@ on 26 February 1999.
 :p92 gun:  A glider gun with a {true} period of 92.  The first one was
    found by Bill Gosper in 1971 using a period doubling reaction using
    two p46 guns.  Many different p92 guns are known that use multiple
-   {twin bees shuttle}s.  Period 92 guns can also be made by adding a
-   {semi-Snark} to any period 46 glider gun.
+   {twin bees shuttle}s.  A period 92 gun can also be made by adding a
+   {semi-cenark} to any period 46 glider gun.
      On 18 November 2017, Martin Grant found a new gun using one twin
    bees shuttle and one {Tanner's p46} oscillator, making it the
    smallest known p92 gun.
@@ -12819,7 +12866,7 @@ on 26 February 1999.
 
 :pair of tables:  = {table on table}
 
-:paperclip: (p1)  An uncommon 180-degree rotationally {symmetric}
+:paperclip: (p1)  A relatively 180-degree rotationally {symmetric}
    14-{bit} {still life}.  The {Iwona} {methuselah} contains a paperclip
    in its {ash}.
 	..**.
@@ -12901,8 +12948,7 @@ on 26 February 1999.
    but others have none at all (see {Garden of Eden}).  Typically
    parents are considered trivial if they contain groups of cells that
    can be removed without changing the result, such as isolated faraway
-   cells.  Finite patterns have only a finite number of non-trivial
-   parents.
+   cells.
 
 :parent cells:  The three cells that cause a new cell to be born.
 
@@ -12912,8 +12958,9 @@ on 26 February 1999.
    because they contain {blinker}s or {traffic light}s.  A glider
    striking a P2 constellation will generally produce a different result
    depending on its parity. Period-4 intermediate targets are rare (or
-   not used), so it doesn't matter if an incoming glider is in phase 1
-   or phase 3.  Only the even/odd parity is important.
+   not used), so it doesn't matter for example whether an odd-parity
+   glider in a slow salvo is phase 1 or phase 3.  Only the even/odd
+   parity is important.
 
 :partial result:  An intermediate object found by a {search program}
    which might be a substantial part of a complete {spaceship} or
@@ -12922,7 +12969,7 @@ on 26 February 1999.
    {speed of light} corruption from any unfinished edge destroys the
    whole object.  But a partial result can still be used to see whether
    the object (if ever finished) would provide a desired {spark} or
-   {perturbation}.  If no partial results are found than it is likely
+   {perturbation}.  If no partial results are found then it is likely
    that no such object exists under the constraints of the search.
      Very large partial results can indicate that there is a good chance
    that the object being searched for might actually exist (but this is
@@ -12931,42 +12978,49 @@ on 26 February 1999.
    area, or splitting the object into multiple {arm}s might result in
    finding a complete working object.
      As an example, here is a large partial result for a period 6
-   {knightship} found by Josh Ball in April 2017.  See also
-   {almost knightship} for an earlier small example by Eugene Langvagen.
-	.......**......................
-	.....*...*.....................
-	.....*.........................
-	.**.*.**.**....................
-	*...**...**....................
-	*...*...**.....................
-	**...**...*....................
-	.*.............................
-	..*.....***....................
-	....*...*****..................
-	....*......*...**..............
-	.....**...*....**..*.*.........
-	....*..**..*.*...*.*..*........
-	....**...*.*.*.*.**...*........
-	....***..*.*.*..*****..*.......
-	......*.*.*.*.*..*.....*.......
-	..................**....**.....
-	.............****......****....
-	.............****..*....*..*...
-	.............*.*.**..**....***.
-	.....................**....***.
-	........................**.*...
-	...........................*...
-	........................*...*.*
-	...........................**.*
-	............................**.
+   {knightship} found by Josh Ball in April 2017.  The first 22 columns
+   were rediscovered in 2018 as part of the successful search for
+   {Sir Robin}.  See also {almost knightship} for an earlier small
+   example by Eugene Langvagen.
+	....***...................
+	...*..**..................
+	...*....*.................
+	..........................
+	...***...**.***...........
+	.**.*.*....*.**...........
+	...*..*....*..**..........
+	*..*........*.............
+	*....*..**..*..*..........
+	.*.***..**...**...........
+	...**.*.**.*...*..........
+	.........**.***...........
+	.........*.....*..........
+	............***..***......
+	...............*.**.......
+	..........**.*...***......
+	..........**..*..**.......
+	............****...*......
+	.............**.*..*......
+	...........**.*.*.*.......
+	..............*...........
+	...........*.......**.....
+	............**.....**.....
+	..............**.*........
+	................***..*.*..
+	................**...*....
+	.................*........
+	..................*****.*.
+	...................**..***
+	...................**....*
+	.......................**.
 
 :PD:  = {pentadecathlon}
 
 :PD hassler:  = {p29 pentadecathlon hassler}
 
 :PD-pair reflector:  A pair of {pentadecathlon}s arranged so that their
-   {V spark}s turn a glider by 90 degrees.  Minimum {repeat time} is 45
-   ticks.
+   {V spark}s turn a glider by 90 degrees.  The minimum {repeat time} is
+   45 ticks.
 	..............***......
 	.......................
 	.............*...*.....
@@ -12989,7 +13043,7 @@ on 26 February 1999.
    This was found by Mark Niemiec on 6 January 1996, which is relatively
    recent considering how old {pentadecathlon} {technology} is.
 
-:pedestle: (p5)
+:pedestle: (p5)  An {oscillator} found by Dave Buckingham in 1973.
 	.....*.....
 	....*.*....
 	.*..**.....
@@ -13023,10 +13077,11 @@ on 26 February 1999.
 :pentadecathlon: (p15)  Found in 1970 by Conway while tracking the
    history of short rows of cells, 10 cells giving this object, which is
    the most {natural} {oscillator} of period greater than 3.  In fact it
-   is the fifth or sixth most common {oscillator} overall, being about
-   as frequent as the {clock}, but much less frequent than the
-   {blinker}, {toad}, {beacon} or {pulsar}.  The pentadecathlon can be
-   constructed using just three gliders, as shown in {glider synthesis}.
+   is the fifth most common {oscillator} overall, appearing in random
+   soups slightly more frequently than the {clock}, but much less
+   frequently than the {blinker}, {toad}, {beacon} or {pulsar}.  The
+   pentadecathlon can be constructed using just three gliders, as shown
+   in {glider synthesis}.
 	..*....*..
 	**.****.**
 	..*....*..
@@ -13100,8 +13155,8 @@ on 26 February 1999.
    {universal regulator}).
      For {signal} {stream}s, "periodic" means that signals will only be
    present in the stream at one out of every n ticks, where n is the
-   {period} of the stream.  In an intermittent periodic stream there may
-   be gaps, so that signals do not always appear at every nth tick.
+   {period} of the stream.  In a periodic {intermittent stream} there
+   may be gaps, so that signals do not always appear at every nth tick.
    However, if a signal does appear, its distance measured in ticks from
    previous and future signals will always be an exact multiple of n.
 
@@ -13152,7 +13207,7 @@ on 26 February 1999.
 	........*....................................
 	.......**....................................
      See {semi-Snark} and {tremi-Snark} for additional examples using
-   {glider} streams.  As of the end of 2017 no stable period-multiplying
+   {glider} streams.  As of June 2018 no stable period-multiplying
    {elementary conduit}s are known for a multiplication factor of five
    or higher, though it is easy to construct composite ones.
 
@@ -13248,7 +13303,7 @@ on 26 February 1999.
    Several variants of the key catalyst are known, including {weld}ed
    additions for the Fx176 that absorb the following Herschel's first
    natural glider, since a standard fishhook eater doesn't quite fit.
-   The following is a complete [[Fx176]] conduit incorporating the new
+   The following is a complete {Fx176} conduit incorporating the new
    PF45W:
 	   ......................*...........................
 	......................***...**....................
@@ -13343,6 +13398,8 @@ on 26 February 1999.
    easily produce very high period rakes.
      See also {blinker puffer}.
 
+:phase shift:  = {phase change}
+
 :phi:  The following common {spark}.  The name comes from the shape in
    the generation after the one shown here.
 	.***.
@@ -13405,8 +13462,8 @@ on 26 February 1999.
 :Pianola breeder:  A series of patterns by Paul Tooke in 2010, based on
    a simplification and extension of the {Gemini} spaceship's
    construction mechanism.  Tooke  produced a number of
-   slow-salvo-constructed patterns with superlinear growth,  including a
-   series of breeder patterns of previously unknown types.  For some
+   slow-salvo-constructed patterns with {superlinear growth}, including
+   a series of breeder patterns of previously unknown types.  For some
    patterns, the Gemini's two {construction arm}s were moved to a
    permanent stationary platform, using fourteen glider-loop channels
    instead of twelve.
@@ -13442,7 +13499,7 @@ on 26 February 1999.
    "climbing" a chain of blinkers, moving 17 cells every 45 ticks, and
    leaving behind an identical chain of blinkers, shifted downward by 6
    cells.  A single pi climber does not produce any gliders or other
-   output, but two or more of them traveling on nearby blinker chains
+   output, but two or more of them travelling on nearby blinker chains
    can be arranged to emit gliders every 45 ticks.  Compare
    {Herschel-pair climber}.
 	..*..
@@ -13754,7 +13811,7 @@ on 26 February 1999.
 	***...***
      A pair of {tub}s can be placed to eat half the pre-pulsar as it
    replicates; this gives the p30 oscillator {Eureka} where the
-   pre-pulsar's replication becomes a movement back and forth. (See
+   pre-pulsar's replication becomes a movement back and forth. See
    {twirling T-tetsons II} for a variation on this idea.  By other means
    the replication of the pre-pulsar can be made to occur in just 14
    generations as half of it is eaten; this allows the construction of
@@ -13784,6 +13841,8 @@ on 26 February 1999.
    Some improvements were found by Jason Summers in October 2005.
 
 :PRNG:  = {pseudo-random number generator}
+
+:propagator:  = {linear propagator}
 
 :protein: (p3)  Found by Dave Buckingham, November 1972.
 	....**.......
@@ -13945,7 +14004,11 @@ on 26 February 1999.
 	--------------
      Attribution of these counts is given in {strict still life}; see
    also {https://oeis.org/A056613}.  The unique 32-bit {triple pseudo}
-   still life is included in the last count in the table.
+   still life is included in the last count in the table.  As the number
+   of bits increases, the pseudo still life count goes up exponentially
+   by approximately O(2.56^n).  By comparison, the rate for
+   {strict still life}s is about O(2.46^n) while for {quasi still life}s
+   it's around O(3.04^n).
      If a stable pattern's live cells plus its overpopulated dead cells
    do not form a single mutually adjacent group, the pattern is usually
    referred to as a {constellation}.  It is also a {still life} in the
@@ -13975,8 +14038,11 @@ on 26 February 1999.
    such that a new standard spaceship is recreated on the same path as
    the original one.  This forms a closed loop, resulting in a
    high-period puffer for the new speed.
-     As of the end of 2017, puffers have been found matching every known
-   velocity of {elementary} spaceship, except for c/6 and c/7 diagonal.
+     As of June 2018, puffers have been found matching every known
+   velocity of {elementary} spaceship, except for c/6 and c/7 diagonal
+   and (2,1)c/6.  It is also generally easy to create puffers based on
+   {macro-spaceship}s, simply by removing some part of the trailing
+   cleanup mechanism.
 
 :puffer engine:  A pattern which can be used as the main component of a
    {puffer}.  The pattern may itself be a puffer (e.g. the classic
@@ -14112,8 +14178,8 @@ on 26 February 1999.
 
 :pulsar: (p3)  Despite its size, this is the fourth most common
    {oscillator} (and by far the most common of period greater than 2)
-   and was found very early on by Conway.  See also {pre-pulsar} and
-   {pulsar quadrant}.
+   and was found very early on by Conway.  See also {pre-pulsar},
+   {pulsar quadrant}, and {quasar}.
 	..***...***..
 	.............
 	*....*.*....*
@@ -14331,9 +14397,9 @@ on 26 February 1999.
    analogous objects requiring decomposition into five or more pieces.
    By convention, patterns like this and the {triple pseudo} are
    considered to be {pseudo still life}s, not {strict still life}s.  As
-   of the end of 2017, it has been shown that no quad pseudo patterns
-   exist with 32 or fewer bits, but a 33-bit pattern with this property
-   may theoretically still be found.
+   of June 2018, it has been shown that no quad pseudo patterns exist
+   with 32 or fewer bits, but a 33-bit pattern with this property may
+   theoretically still be found.
 
 :quadratic filter:  A {toolkit} developed by Dean Hickerson and Gabriel
    Nivasch in 2006, enabling the construction of patterns with
@@ -14344,7 +14410,7 @@ on 26 February 1999.
 :quadratic growth:  The fastest possible asymptotic rate of population
    growth for any Life pattern - O(t^2) in big-O notation, where t is
    the number of ticks.  The first quadratic-growth pattern found was
-   Bill Gosper's {breeder}, in 1971; many other types of breeders and
+   Bill Gosper's 1971 {breeder}.  Many other types of breeders and
    {spacefiller}s have been constructed since.
      In April 2011, Stephen Silver gave an example of a one-cell-thick
    pattern over a million cells long that exhibited quadratic growth.
@@ -14353,28 +14419,28 @@ on 26 February 1999.
    longer results.  The smallest known quadratic growth pattern by
    initial population is the 23-cell {switch-engine ping-pong} by
    Michael Simkin.
-     There are an infinite number of possible growth rates for Life
-   patterns, between linear and quadratic growth.  See
-   {superlinear growth}.
+     There are an infinite number of possible growth rates between
+   linear and quadratic growth.  See {superlinear growth}.
 
 :quadratic replicator:  A pattern that fills all or part of the Life
    plane by making copies of itself in a nonlinear way.  Small quadratic
-   replicators are known in other Life-like rules, but as of the end of
-   2017 no example has been found or constructed in Conway's Life.
+   replicators are known in other Life-like rules, but as of July 2018
+   no example has been found or constructed in Conway's Life.
 
 :quadratic sawtooth:  Any {sawtooth} pattern with a quadratic envelope,
    or specifically a pattern assembled by Martin Grant in May 2015,
-   consisting of two caber tossers with period multipliers for timing
-   which activate and deactivate two toggle rake guns.  The gliders
-   emitted by those rakes annihilate on the diagonal while the rakes are
-   eaten by 2c/5 ships. All the rakes and gliders are destroyed before
-   the next cycle.  See also {Osqrtlogt}.
+   consisting of two {caber tosser}s with period multipliers for timing
+   which activate and deactivate two toggleable rake guns (see
+   {toggleable gun}).  The gliders emitted by those rakes annihilate on
+   the diagonal while the rakes are eaten by 2c/5 ships. All the rakes
+   and gliders are destroyed before the next cycle.  See also
+   {Osqrtlogt}.
 
 :quadri-Snark:  A period-multiplying {colour-preserving} {signal}
    {conduit} found by Tanner Jacobi in October 2017, producing one
    output {glider} for every four input gliders.  It is made by
    replacing one of the eaters in a {tremi-Snark} with a {catalyst}
-   found using {Bellman}.  The catalyst cause the formation of a {tub}
+   found using {Bellman}.  The catalyst causes the formation of a {tub}
    which then requires an additional glider to delete.  However, this
    adds 5 ticks to the repeat time, so that it becomes 48.  If period
    quadrupling is needed with a {colour-changing} reaction, a
@@ -14564,9 +14630,9 @@ on 26 February 1999.
 	22      26943317
 	----------------
      As the number of bits increases, the quasi still life count goes up
-   exponentially by  approximately O(3.04^n), slightly more than a
-   factor of three.  By comparison, the rate for {strict still life}s is
-   about O(2.46^n) while for {pseudo still life}s it's around O(2.56^n).
+   exponentially by approximately O(3.04^n), slightly more than a factor
+   of three.  By comparison, the rate for {strict still life}s is about
+   O(2.46^n) while for {pseudo still life}s it's around O(2.56^n).
 
 :queen bee:  See {queen bee shuttle}.
 
@@ -14626,13 +14692,16 @@ on 26 February 1999.
 	..............*..........
    See {p690 gun} and {metamorphosis II} for two more examples.
 
-:Quetzal:  Dieter Leithner's name for the {true} p54 glider gun he built
-   in January 1998.  (This is short for {Quetzalcoatlus} and expresses
-   the fact that the gun was a very large {Herschel loop} that was not
-   an {emu}.)  Shortly afterwards Leithner also built a p56 Quetzal
-   using a mechanism found by Noam Elkies for this purpose.  In October
-   1998 Stephen Silver constructed a p55 Quetzal using Elkies' p5
-   {reflector} of the previous month.
+:Quetzal:  Any Herschel track-based gun with a period below 62, which is
+   the lowest period with a stable glider-emitting conduit.  This was
+   Dieter Leithner's name for the {true} p54 glider gun he built in
+   January 1998 - a short form of {Quetzalcoatlus}, which expresses the
+   fact that the gun was a very large {Herschel loop} that was not an
+   {emu}.  Shortly afterwards Leithner also built a p56 Quetzal using a
+   mechanism found by Noam Elkies for this purpose.  In October 1998
+   Stephen Silver constructed a p55 Quetzal using Elkies' p5 {reflector}
+   of the previous month.  Quetzals of periods 57-61 have since been
+   constructed.
      Some of the more recent Quetzals are not Herschel loops, but are
    instead short Herschel tracks firing several glider streams all but
    one of which is reflected back to the beginning of the track to
@@ -14807,6 +14876,24 @@ on 26 February 1999.
 	.......*....
 	......*.....
 	......**....
+
+:rattlesnake: (p11)  Found by Dean Hickerson in January 2016 and named
+   by Jeremy Tan.
+	........**...
+	........*....
+	.........*...
+	........**...
+	.............
+	.............
+	.............
+	.....*.......
+	.....**......
+	**.*.*.***...
+	*.**.*.*.*...
+	......*..***.
+	.......**...*
+	.........***.
+	.........*...
 
 :R-bee:  = {bun}.  This name is due to the fact that the pattern is a
    single-cell modification of a {beehive}.
@@ -14998,11 +15085,11 @@ on 26 February 1999.
    reflector, with a recovery time of 43.  Playle has offered a $100
    prize for a {colour-changing} stable reflector contained within a 25
    by 25 {bounding box}, with a recovery time of 50 generations or less.
-     As of the end of 2017, the following {splitter} is among the
-   smallest known 90-degree {colour-changing} {reflector}s.  The top
-   output can be blocked off by an {eater} if needed.  For small
-   180-degree colour-changing reflectors see {rectifier}, and also the
-   sample pattern in {splitter}.
+     As of June 2018, the following {splitter} is among the smallest
+   known 90-degree {colour-changing} {reflector}s.  The top output can
+   be blocked off by an {eater} if needed.  For small 180-degree
+   colour-changing reflectors see {rectifier}, and also the sample
+   pattern in {splitter}.
 	................**...........*......**..................
 	................**..........*.*....*..*.................
 	............................*.*...*.***..**.............
@@ -15052,9 +15139,8 @@ on 26 February 1999.
    {p256 gun} loop containing one or more {pi}s or {Herschel}s in the
    same loop, but without any external stabilisation mechanism.  Such
    patterns can be proven to exist (see {universal constructor}), but as
-   of the end of 2017 none have been explicitly constructed in Life.
-   There is no upper limit on {multiplicity} for a constructor-based
-   RRO.
+   of June 2018 none have been explicitly constructed in Life.  There is
+   no upper limit on {multiplicity} for a constructor-based RRO.
 
 :regulator:  An object which converts input {glider}s aligned to some
    period to output gliders aligned to a different period.  The most
@@ -15105,6 +15191,25 @@ on 26 February 1999.
    replicates itself only once, allowing no possibility of
    {superlinear growth}.
 
+:reverse caber tosser:  A storage mechanism for data feeding a
+   {universal constructor} designed by Adam P. Goucher in 2018.  A very
+   large integer can be encoded in the position of a very faraway
+   object.  If the distance to that object is measured using {circuit}ry
+   designed to be as simple as possible, a complete decoder and
+   universal constructor can be created by colliding a small number of
+   gliders - no more than 329 according to a June 2018
+   {glider synthesis}, and exactly 43 according to a July 1 redesign by
+   Chris Cain using eight far-distant {GPSE}s and, amazingly, no
+   stationary circuitry except for a single {catalyst} {block}.  Some
+   intermediate designs with 50+ gliders need no stationary circuitry at
+   all.
+     With the correct placement of the faraway object, the complete
+   pattern is theoretically capable of building any glider-constructible
+   object.  This means that 43 is the maximum number of gliders required
+   to build any constructible object, no matter what size.  However, it
+   is not possible to determine in practice what the locations of these
+   43 gliders should be, even for a relatively simple construction.
+
 :reverse fuse:  A {fuse} that produces some initial debris, but then
    burns {clean}ly.  The following is a simple example.
 	.............**
@@ -15134,10 +15239,10 @@ on 26 February 1999.
 :RF28B:  A {converter} with several known forms, many of which found by
    Dave Buckingham in 1972 and in the early 1980s.  It accepts an
    {R-pentomino} as input and produces an output {B-heptomino} 28 ticks
-   later.  Of nine major variants known as of the end of 2017, four
-   versions are shown below.  For each version, the R-pentomino inputs
-   are shown near the left and right edges, along with the B-heptomino
-   output locations near the center.
+   later.  Of nine major variants known as of July 2018, four versions
+   are shown below.  For each version, the R-pentomino inputs are shown
+   near the left and right edges, along with the B-heptomino output
+   locations near the center.
 	........*..........................*........
 	.......*.*.......*................*.*......*
 	........*......***.................*.....***
@@ -15178,9 +15283,9 @@ on 26 February 1999.
    forward glider output.
 
 :RF48H:  Stephen Silver's alternate completion of Paul Callahan's
-   {Herschel receiver}.  As of the end of 2017 there are four known
-   variants.  The original version consists of a single {loaf}.  A
-   {ghost Herschel} marks the output location.
+   {Herschel receiver}.  As of June 2018 there are four known variants.
+   The original version consists of a single {loaf}.  A {ghost Herschel}
+   marks the output location.
 	......*..................*..
 	......**.................*..
 	.....**..................***
@@ -15484,7 +15589,7 @@ on 26 February 1999.
 	.........*...................
 	.....*..*....................
 
-:salvo:  A collection of spaceships, usually gliders, all traveling in
+:salvo:  A collection of spaceships, usually gliders, all travelling in
    the same direction.  Any valid glider construction {recipe} can be
    partitioned into no more than four salvos.  Compare {flotilla}.  In
    contrast with a {convoy}, the spaceships in a salvo are usually
@@ -15529,7 +15634,7 @@ on 26 February 1999.
    forum user with the online handle 'thunk'.  It has a bounding box of
    74x60, and is the smallest known sawtooth in terms of its minimum
    repeating population of 177 cells. The following variant has a higher
-   repeating population of 195 and an optimized bounding box of 62x56:
+   repeating population of 194 and an optimized bounding box of 62x56:
 	.....................................................**.*.....
 	.....................................................*.**.....
 	..............................................................
@@ -15546,9 +15651,9 @@ on 26 February 1999.
 	.......................................*......................
 	..............................................................
 	.................................**...........................
-	........**.......................**...........................
-	........*.*...................................................
-	........*....................**.....**........................
+	.................................**...........................
+	..............................................................
+	.............................**.....**........................
 	.............................**.....**........................
 	..............................................................
 	..............................................................
@@ -15858,15 +15963,15 @@ on 26 February 1999.
      There are also CC and CP variants of a semi-Snark based on a
    two-{glider} to {century} {converter} discovered by Tanner Jacobi in
    November 2017.  These {semi-cenark}s are the fastest semi-Snarks
-   known as of the end of 2017, with a {repeat time} as low as 50 ticks,
-   or a periodic input rate as low as 36 ticks.
+   known as of July 2018, with a {repeat time} as low as 50 ticks, or a
+   periodic input rate as low as 36 ticks.
 
 :sesquihat: (p1)  Halfway between a {hat} and a {twinhat}.
-	....*
+	....*..
 	**.*.*.
 	.*.*.*.
 	.*.*.**
-	..*...
+	..*....
 
 :SGR:  Abbreviation for {stable} {glider} {reflector}.  This term is no
    longer in use.
@@ -15979,7 +16084,7 @@ on 26 February 1999.
    Holzwart in 1992.  The resulting {spaceship} (shown below) has a
    {phase} with only 24 cells, making it in this respect the smallest
    known spaceship other than the {standard spaceship}s and some trivial
-   two-spaceship {flotilla}s derived from them.  Note also that a HWSS
+   two-spaceship {flotilla}s derived from them.  Note also that an HWSS
    can support two sidecars at once.
 	.*......
 	*.....*.
@@ -16274,11 +16379,11 @@ on 26 February 1999.
    efficiently around complex obstructions by bending itself through
    multiple {lossless elbow}s.  Known recipes can also remove an elbow
    when it is no longer needed, by controlled demolition of the Snark.
-     As of the end of 2017, almost all single-channel recipes are made
-   up of {singleton}s and {synchronized} pairs of gliders, but no
-   synchronized triplets or larger groups.  This is not an inherent
-   limitation of single-channel construction, but rather a limitation in
-   the {search program} used to find currently known single-channel
+     As of June 2018, almost all single-channel recipes are made up of
+   {singleton}s and {synchronized} pairs of gliders, but no synchronized
+   triplets or larger groups.  This is not an inherent limitation of
+   single-channel construction, but rather a limitation in the
+   {search program} used to find currently known single-channel
    {toolkit}s.
      A useful byproduct of this limitation is that single-channel
    recipes can be trivially adjusted to allow them to safely cross
@@ -16517,7 +16622,7 @@ on 26 February 1999.
    did), or to be able to detect the transition from one to zero (as
    Hickerson did).
      Dean Hickerson's sliding block memory is used in Paul Chapman's
-   {URM}, and the key salvos from  are used in several other complex
+   {URM}, and the key salvos from it are used in several other complex
    constructions, such as David Bell's {Collatz 5N+1 simulator} and Adam
    P. Goucher's {pi calculator} and {Spartan}
    {universal computer}-constructor.
@@ -16536,9 +16641,9 @@ on 26 February 1999.
 
 :slow:  See {slow glider construction}.
 
-:slow elbow:  A movable {elbow} in a {construction arm} {toolkit} that
-   is controlled by a {slow salvo}, which most likely comes from a
-   previous {construction elbow}.  Unlike a standard {elbow} which is
+:slow elbow:  A movable {construction elbow} that is controlled by a
+   {slow salvo}, which most likely comes from a previous elbow in a
+   multi-elbow {construction arm}.  Unlike a standard elbow which is
    generally fixed on a single {construction lane} or at least within a
    narrow range, a slow elbow can move freely in two dimensions as long
    as there is room for it.  Each slow elbow added to a construction arm
@@ -16613,7 +16718,8 @@ on 26 February 1999.
 
 :small fish:  = {LWSS}
 
-:small lake: (p1)  See also {lake}.
+:small lake: (p1)  A 20-cell {still life}, but technically not actually
+   a {lake} because it is not constructed entirely out of {domino}es.
 	....*....
 	...*.*...
 	...*.*...
@@ -16638,9 +16744,9 @@ on 26 February 1999.
 
 :smoke:  Debris that is fairly long-lived but eventually dies
    completely.  Basically, a large {spark}.  This term is used
-   especially when talking about the output from a {spaceship} such as
-   the {smoking ship}.  Some {Herschel conduit}s such as {Fx119} also
-   create large amounts of smoke.
+   especially when talking about the output from a {smoking ship}.  Some
+   {Herschel conduit}s such as {Fx119} also create large amounts of
+   smoke.
 
 :smoking ship:  A {spaceship} which produces {smoke}.  If the smoke
    extends past the edge of the rest of the spaceship, then it can be
@@ -16770,9 +16876,9 @@ on 26 February 1999.
    utility he wrote called {Bellman}. Compare {boojum reflector}.  Four
    common Snark variants are shown below:  Playle's original at the top,
    and variants by Heinrich Koenig, Simon Ekstrom, and Shannon Omick to
-   the left, bottom, and right, respectively.  As of the end of 2017,
-   only Playle's variant has a known {slow glider construction} {recipe}
-   for all orientations.
+   the left, bottom, and right, respectively.  As of June 2018, only
+   Playle's variant has a known {slow glider construction} {recipe} for
+   all orientations.
 	.............................**....................
 	............................*.*....................
 	......................**....*......................
@@ -17007,8 +17113,8 @@ on 26 February 1999.
    conditions.  See also the entries on individual spaceship speeds:
    {c/2 spaceship}, {c/3 spaceship}, {c/4 spaceship}, {c/5 spaceship},
    {c/6 spaceship}, {c/7 spaceship}, {c/10 spaceship}, {c/12 spaceship},
-   {2c/5 spaceship},  {2c/7 spaceship}, {3c/7 spaceship}, and
-   {17c/45 spaceship}.
+   {2c/5 spaceship},  {2c/7 spaceship}, {3c/7 spaceship},
+   {(2,1)c/6 spaceship}, and {17c/45 spaceship}.
      It is known that there exist spaceships travelling in all rational
    directions and at arbitrarily slow speeds (see
    {universal constructor}).  Before 1989, however, the only known
@@ -17018,36 +17124,57 @@ on 26 February 1999.
    for new {elementary} spaceships, and had considerable success.  Other
    people have continued these searches using tools such as {lifesrc}
    and {gfind}, and as a result we now have a great variety of
-   elementary spaceships travelling at fifteen different velocities.
+   elementary spaceships travelling at sixteen different velocities.
    The following table details the discovery of elementary spaceships
-   with new velocities as of the end of 2017.
-	----------------------------------------------------------------
-	Speed Direction  First Discovery     Discoverer             Date
-	----------------------------------------------------------------
-	c/4   diagonal   {glider}            Richard Guy            1970
-	c/2   orthogonal {LWSS}              John Conway            1970
-	c/3   orthogonal {25P3H1V0.1}        Dean Hickerson     Aug 1989
-	c/4   orthogonal {119P4H1V0}         Dean Hickerson     Dec 1989
-	c/12  diagonal   {Cordership}        Dean Hickerson     Apr 1991
-	2c/5  orthogonal {44P5H2V0}          Dean Hickerson     Jul 1991
-	c/5   orthogonal {snail}             Tim Coe            Jan 1996
-	2c/7  orthogonal {weekender}         David Eppstein     Jan 2000
-	c/6   orthogonal {dragon}            Paul Tooke         Apr 2000
-	c/5   diagonal   {295P5H1V1}         Jason Summers      Nov 2000
-	c/6   diagonal   {seal}              Nicolay Beluchenko Sep 2005
-	c/7   diagonal   {lobster}           Matthias Merzenich Aug 2011
-	c/7   orthogonal {loafer}            Josh Ball          Feb 2013
-	c/10  orthogonal {copperhead}        zdr                Mar 2016
-	3c/7  orthogonal {spaghetti monster} Tim Coe            Jun 2016
-	----------------------------------------------------------------
+   with new velocities as of July 2018.
+
+   -------------------------------------------------------------------
+	Speed    Direction  First Discovery     Discoverer
+   Date
+
+   -------------------------------------------------------------------
+	c/4      diagonal   {glider}            Richard Guy
+   1970
+	c/2      orthogonal {LWSS}              John Conway
+   1970
+	c/3      orthogonal {25P3H1V0.1}        Dean Hickerson     Aug
+   1989
+	c/4      orthogonal {119P4H1V0}         Dean Hickerson     Dec
+   1989
+	c/12     diagonal   {Cordership}        Dean Hickerson     Apr
+   1991
+	2c/5     orthogonal {44P5H2V0}          Dean Hickerson     Jul
+   1991
+	c/5      orthogonal {snail}             Tim Coe            Jan
+   1996
+	2c/7     orthogonal {weekender}         David Eppstein     Jan
+   2000
+	c/6      orthogonal {dragon}            Paul Tooke         Apr
+   2000
+	c/5      diagonal   {295P5H1V1}         Jason Summers      Nov
+   2000
+	c/6      diagonal   {seal}              Nicolay Beluchenko Sep
+   2005
+	c/7      diagonal   {lobster}           Matthias Merzenich Aug
+   2011
+	c/7      orthogonal {loafer}            Josh Ball          Feb
+   2013
+	c/10     orthogonal {copperhead}        zdr                Mar
+   2016
+	3c/7     orthogonal {spaghetti monster} Tim Coe            Jun
+   2016
+	(2,1)c/7 oblique    {Sir Robin}         Adam P. Goucher    Mar
+   2018
+
+   -------------------------------------------------------------------
      Several infinite families of adjustable-velocity {macro-spaceship}s
    have also been constructed, of which the first was Gabriel Nivasch's
    {Caterpillar} from December 2004.  The macro-spaceship with the
    widest range of possible speeds is Michael Simkin's {Caterloopillar}
-   from April 2016; in theory it supports any rational speed strictly
-   less than c<4.  A somewhat similar design supporting any rational
-   speed strictly less than c/2 has been shown to be feasible, but as of
-   the end of 2017 no explicit examples have been constructed.
+   from April 2016; in theory it supports any rational orthogonal speed
+   strictly less than c<4.  A somewhat similar design supporting any
+   rational speed strictly less than c/2 has been shown to be feasible,
+   but as of July 2018 no explicit examples have been constructed.
      A period p spaceship that displaces itself (m,n) during its period,
    where m>=n, is said to be of type (m,n)/p.  It was proved by Conway
    in 1970 that p>=2m+2n.  (This follows immediately from the
@@ -17137,7 +17264,7 @@ on 26 February 1999.
    long-term fate of a sparse Life universe is less certain.  It may
    possibly become dominated by self-reproducing patterns (see
    {universal constructor}), but it is not at all clear that there is
-   any mechanism for these to deal with the all junk produced by switch
+   any mechanism for these to deal with all the junk produced by switch
    engines.
 
 :Spartan:  A pattern composed of subunits that can be easily constructed
@@ -17236,8 +17363,8 @@ on 26 February 1999.
    self-destruct circuitry in {self-constructing} spaceships.
      The following combination, a {syringe} attached to an SE7T14
    {converter} combined with an {NW31} converter, is one of the smallest
-   known glider splitters as of the end of 2017.  Another small splitter
-   with a 90-degree {colour-changing} output is shown under {reflector}.
+   known glider splitters as of July 2018.  Another small splitter with
+   a 90-degree {colour-changing} output is shown under {reflector}.
 	..........**...........*......**....................
 	..........**..........*.*....*..*...................
 	......................*.*...*.***...*...............
@@ -17299,10 +17426,10 @@ on 26 February 1999.
    Charles Corderman soon after he discovered the switch engine itself.
    There is a p288 block-laying type (the more common of the two) and
    the p384 glider-producing type.  These two puffers are the most
-   {natural} infinite growth patterns in Life.  As of the end of 2017
-   they are the basis for every infinite growth pattern ever seen to
-   occur from a random asymmetric {soup}, even after trillions of
-   {census} results by {apgsearch} and similar projects.
+   {natural} infinite growth patterns in Life.  As of June 2018 they are
+   the basis for every infinite growth pattern ever seen to occur from a
+   random asymmetric {soup}, even after trillions of {census} results by
+   {apgsearch} and similar projects.
      Patterns giving rise to block-laying switch engines can be seen
    under {infinite growth}, and one giving rise to a glider-producing
    switch engine is shown under {time bomb}.
@@ -17536,7 +17663,7 @@ on 26 February 1999.
    stable pattern as a {strict still life} only if its {island}s cannot
    be divided into two or more nonempty sets both of which are stable in
    their own right. If such a subdivision can be made, the pattern can
-   referred to as a {constellation}. If its cells form a single
+   be referred to as a {constellation}. If its cells form a single
    {cluster} it is also, more specifically, either a {pseudo still life}
    or a {quasi still life}.
      In rare cases above a certain size threshold, a pattern may be
@@ -17749,6 +17876,10 @@ on 26 February 1999.
 	31  2299616637
 	32  5716948683
 	--------------
+     As the number of bits increases, the strict still life count goes
+   up exponentially by approximately O(2.46^n).  By comparison, the rate
+   for pseudo still life}s is about O(2.56^n) while for
+   {quasi still life}s it's around O(3.04^n).
 
 :strict volatility:  A term suggested by Noam Elkies in August 1998 for
    the proportion of cells involved in a period n {oscillator} which
@@ -17810,7 +17941,10 @@ on 26 February 1999.
    increase in the number of subpatterns present in a pattern, such as
    when describing a {replicator}'s rate of reproduction.  Due to limits
    enforced by the {speed of light}, no pattern's population can grow at
-   an asymptotic rate faster than {quadratic growth}.
+   an asymptotic rate faster than {quadratic growth}.  See
+   {switch-engine ping-pong} for the lowest-population superlinear
+   growth pattern as of July 2018, along with a list of the
+   record-holders.
 
 :superstring:  An infinite orthogonal row of cells stabilized on one
    side so that it moves at the {speed of light}, often leaving debris
@@ -17894,7 +18028,7 @@ on 26 February 1999.
 	...........*..*..
 	.........*...**..
 	.........**......
-   Besides the southwest-traveling glider on lane 1, the converter also
+   Besides the southwest-travelling glider on lane 1, the converter also
    emits the Herschel's standard {first natural glider}, {SW-2}.  The
    converter's full standard name is therefore "HSW1T43_SW-2T21".  See
    {NW31} for an explanation of H-to-G naming conventions.
@@ -18171,7 +18305,11 @@ on 26 February 1999.
 :switch-engine ping-pong:  A very large (210515x183739)
    {quadratic growth} pattern found by Michael Simkin in October 2014.
    Currently this is the smallest starting population (23 cells) known
-   to result in a quadratic population growth rate.
+   to result in a quadratic population growth rate.  Previous
+   record-holders include {Jaws}, {mosquito1}, {mosquito2}, {mosquito3},
+   {mosquito4}, {mosquito5}, {teeth}, {catacryst}, {metacatacryst},
+   {Gotts dots}, {wedge}, {26-cell quadratic growth},
+   {25-cell quadratic growth}, and {24-cell quadratic growth}.
 
 :symmetric:  Any object which can be rotated and/or flipped over an axis
    and still maintain the same shape.  Many common small objects such as
@@ -18225,14 +18363,14 @@ on 26 February 1999.
 
 :syringe:  A small stable {converter} found by Tanner Jacobi in March
    2015, accepting a glider as input and producing an output {Herschel}
-   As of the end of 2017 it is the smallest known converter of this
-   type, so it is very often used to handle input gliders in complex
-   {signal} {circuit}ry, as described in {Herschel circuit}.  A second
-   glider can safely follow the first any time after 78 ticks, but
-   {overclocking} also allows the syringe to work at a {repeat time} of
-   74 or 75 ticks.  If followed by a {dependent conduit} a simple
-   {eater2} can be used instead of the large {weld}ed {catalyst} shown
-   here.  A {ghost Herschel} marks the output location.
+   As of June 2018 it is the smallest known converter of this type, so
+   it is very often used to handle input gliders in complex {signal}
+   {circuit}ry, as described in {Herschel circuit}.  A second glider can
+   safely follow the first any time after 78 ticks, but {overclocking}
+   also allows the syringe to work at a {repeat time} of 74 or 75 ticks.
+   If followed by a {dependent conduit} a simple {eater2} can be used
+   instead of the large {weld}ed {catalyst} shown here.  A
+   {ghost Herschel} marks the output location.
 	....*.............................
 	.....*............................
 	...***............................
@@ -18260,9 +18398,8 @@ on 26 February 1999.
 	......................*.*..**...*.
 	..........**..........*.*.........
 	..........**...........*..........
-     A different version of the large catalyst, with better
-   [[clearance]] for some situations, can be seen in the [[switch]]
-   entry.
+     A different version of the large catalyst, with better {clearance}
+   for some situations, can be seen in the {switch} entry.
 
 :T:  = {T-tetromino}
 
@@ -18324,7 +18461,7 @@ on 26 February 1999.
 
 :taming:  See {tame}.
 
-:tandem glider:  Two gliders traveling on parallel lanes at a fixed
+:tandem glider:  Two gliders travelling on parallel lanes at a fixed
    spacetime offset, usually as a single signal in a
    {Herschel transceiver}.  See also {glider pair}.
 
@@ -18416,8 +18553,10 @@ on 26 February 1999.
 :teeth:  A 65-cell quadratic growth pattern found by Nick Gotts in March
    2000.  This (and a related 65-cell pattern which Gotts found at about
    the same time) beat the record previously held by {mosquito5} for
-   smallest population known to have superlinear growth.  Now superseded
-   by {catacryst}, {metacatacryst}, {Gotts dots} and {wedge}.
+   smallest population known to have superlinear growth, but was later
+   superseded by {catacryst}.  See {switch-engine ping-pong} for the
+   lowest-population {superlinear growth} pattern as of July 2018, along
+   with a list of the record-holders.
 
 :telegraph:  A pattern created by Jason Summers in February 2003.  It
    transmits and receives information using a rare type of
@@ -19210,14 +19349,44 @@ on 26 February 1999.
 	.*.**.......
 	...*........
 	...*........
-   "Trivial" is also used to describe a {parent} of an object which has
-   groups of cells that can be removed without changing the result, such
-   as isolated faraway cells.  For example, here is a trivial parent of
-   a block.
+   However, there are trivial oscillators that meet this requirement,
+   but may still be considered to be {non-trivial} because the
+   different-period {rotor}s are not separated by {stator} cells.  An
+   example is Dean Hickerson's {trivial p6}.  Conversely, there are
+   oscillators formed by trivial combinations of high-period {gun}s or
+   {sparker}s that are only technically non-trivial, because the
+   lower-period components overlap but do not interact in any way.
+     "Trivial" is also used to describe a {parent} of an object which
+   has groups of cells that can be removed without changing the result,
+   such as isolated faraway cells.  For example, here is a trivial
+   parent of a block.
 	*......
 	.*....*
 	.*.....
 	*......
+
+:trivial p6: (p6)  An {oscillator} found by Dean Hickerson in December
+   1994. Every cell has period less than 6, so this is a {trivial}
+   oscillator. It is unusual because it has period-2 cells in contact
+   with period-3 cells.
+	...........**..............
+	...........*......**.......
+	........**.*......*..*.....
+	........*.*.**.**.*.**..*..
+	.*........*..*.*..*..*.*.*.
+	.*.*.....**..*.*.*.**..*..*
+	.*.*.*........**.*.*.**.**.
+	.......*.*.***...*....**...
+	..*...*....*.**........*...
+	....*...***..**.***.*.*.**.
+	**..*......*..........*.*..
+	..*...........**.**...*.*..
+	........*.*****...*....*...
+	........**...*..*..*.......
+	...........****.***........
+	........***....*...........
+	........*..*..*..**........
+	..........**...**.*........
 
 :trombone slide:  An arrangement of four 90-degree {reflector}s that can
    be placed into the path of a {glider} so as to delay it by an
@@ -19517,7 +19686,7 @@ on 26 February 1999.
    row. The {Blockic} 180-degree turner is colour-preserving. The
    {long boat} and {long ship} are again colour-changing; this is
    somewhat counterintuitive as the output glider is on exactly the same
-   {lane} as the input glider, but gliders traveling in opposite
+   {lane} as the input glider, but gliders travelling in opposite
    directions on the same lane always have opposite colours.
      Many small one-time turner {constellation}s have also been
    catalogued. The 90-degree two-block turner on the right, directly
@@ -19685,6 +19854,8 @@ on 26 February 1999.
    streams, which both tend to increase the complexity of
    {self-constructing} circuitry.  Compare {single-arm}.
 
+:two-bit spark:  = {duoplet}.
+
 :two eaters: (p3)  Found by Bill Gosper, September 1971.
 	**.......
 	.*.......
@@ -19772,24 +19943,25 @@ on 26 February 1999.
 
 :universal constructor:  A pattern that is capable of constructing
    almost any pattern that has a {glider synthesis}.  This definition is
-   a bit vague.  A precise definition seems impossible because it has
-   not been proved that all possible glider fleets are constructible. In
+   a bit vague.  A precise definition seems impossible because it is not
+   known, for example, whether all {still life}s are constructible.  In
    any case, a universal constructor ought to be able to construct
-   itself in order to qualify as such.  An outline of Conway's proof
-   that such a pattern exists can be found in {Winning Ways}, and also
-   in {The Recursive Universe}.  The key mechanism for the production of
-   gliders with any given path and timing is known as side-tracking, and
-   is based on the {kickback reaction}.  A universal constructor
-   designed in this way can also function as a universal destructor:  it
-   can delete almost any pattern that can be deleted by gliders.
+   itself in order to qualify as such.
+     An outline of Conway's proof that such a pattern exists can be
+   found in {Winning Ways}, and also in {The Recursive Universe}.  The
+   key mechanism for the production of gliders with any given path and
+   timing is known as side-tracking, and is based on the
+   {kickback reaction}.  A universal constructor designed in this way
+   can also function as a universal destructor:  it can delete almost
+   any pattern that can be deleted by gliders.
      In May 2004, Paul Chapman and Dave Greene produced a prototype
    programmable universal constructor.  This is able to construct
    objects by means of {slow glider construction}s.  It likely that it
    could be programmed to construct itself, but the necessary program
    would be very large; moreover an additional mechanism would be needed
    in order to copy the program.
-     A universal constructor is most useful when attached to a
-   {universal computer}, which can be programmed to control the
+     A universal constructor is theoretically most useful when attached
+   to a {universal computer}, which can be programmed to control the
    constructor to produce the desired pattern of gliders.  In what
    follows I will assume that a universal constructor always includes
    this computer.
@@ -19813,22 +19985,20 @@ on 26 February 1999.
    constructor implies the existence of a {stable} {reflector}.  This
    proof is not so easy, however, and is no longer of much significance
    now that explicit examples of such reflectors are known.
-     Progressively smaller universal-constructor mechanisms have been
-   used in the {linear propagator}, {spiral growth} pattern, and the
-   {Demonoid}s and {Orthogonoid}.  See also {single-channel}.
+     Progressively smaller universal-constructor mechanisms without an
+   attached universal computer have been used in the
+   {linear propagator}, {spiral growth} pattern, and the {Demonoid}s and
+   {Orthogonoid}.  See also {single-channel}.
      Another strange consequence of the existence of universal
-   constructors was pointed out by Adam P. Goucher in 2015.  Any
-   glider-constructible pattern, no matter how large, can be constructed
-   with a fixed number of gliders, probably less than ten thousand.
-   This can be done by working out a construction recipe for some type
-   of {sliding block memory} with a faraway block, attached to a
-   universal constructor.  The block's position encodes an integer value
-   that can be processed to retrieve as many bits of information as are
-   needed to build a {1G seed}.  Eventually, after a completely
-   unreasonable number of ticks, the seed can be {trigger}ed to produce
-   glider salvos which interact to construct the actual target object,
-   after sending a self-destruct signal to the sliding block memory
-   unit.
+   constructors was pointed out by Adam P. Goucher and Tanner Jacobi in
+   2015.  Any glider-constructible pattern, no matter how large, can be
+   constructed with a fixed number of gliders, by working out a
+   construction recipe for a universal constructor attached to a decoder
+   that measures the distance to a faraway object.  The object's
+   position encodes a numeric value that can be processed to retrieve as
+   many bits of information as are needed to build a {slow salvo} to
+   construct any given target pattern.  The simplest design, requiring
+   less than a hundred gliders, is described in {reverse caber tosser}.
 
 :universal destructor:  See {universal constructor}.
 
@@ -19890,13 +20060,13 @@ on 26 February 1999.
    infinite growth.  For example, the fate of the
    {Fermat prime calculator} is currently unknown, but its behaviour is
    otherwise predictable.
-   A different type of unknown fate is that of the
+     A different type of unknown fate is that of the
    {Collatz 5N+1 simulator}, which may become stable, or an oscillator,
    or have an indefinitely growing bounding box.  Its behavior is
    otherwise predictable, and unlike the Fermat prime calculator the
    population is known to be bounded.
      Life objects having even worse behaviour (e.g. {chaotic growth})
-   are not known as of the end of 2017.
+   are not known as of July 2018.
 
 :up boat with tail:  = {trans-boat with tail}
 
@@ -20073,7 +20243,8 @@ on 26 February 1999.
 	..**............
 	..**............
 
-:washerwoman: (2c/3 p18 fuse)  A {fuse} by Earl Abbe.
+:washerwoman: (2c/3 p18 fuse)  A {fuse} discovered by Earl Abbe,
+   published in {LifeLine} Vol 3, September 1971.
 	*.......................................................
 	**....*.....*.....*.....*.....*.....*.....*.....*.....*.
 	***..*.*...*.*...*.*...*.*...*.*...*.*...*.*...*.*...*.*
@@ -20105,10 +20276,13 @@ on 26 February 1999.
 
 :waterbear: ((23,5)c/79 obliquely, p158) A {self-supporting} oblique
    {macro-spaceship} constructed by Brett Berger on December 28, 2014.
-   It is currently the fastest oblique spaceship in Conway's Game of
-   Life by several orders of magnitude, and is also the smallest known
-   oblique spaceship in terms of bounding box, superseding the
-   {Parallel HBK}.  Previous oblique spaceships, the {Gemini} and the
+   It is currently the fastest oblique macro-spaceship in Conway's Game
+   of Life by several orders of magnitude, and is also the smallest
+   known oblique macro-spaceship in terms of bounding box, superseding
+   the {Parallel HBK}.  It is no longer the smallest or fastest oblique
+   spaceship due to the discovery in 2018 of the {elementary}
+   {knightship} {Sir Robin}.
+     Previous oblique spaceships, the {Gemini} and the
    {half-baked knightship}s, are stationary throughout almost all of
    their life cycles, as they construct the necessary mechanisms to
    support a sudden short move.  The waterbear constructs support for
@@ -20117,8 +20291,8 @@ on 26 February 1999.
 
 :wave:  A wick-like structure attached at both ends to moving
    spaceship-like patterns, in such a way that the entire pattern is
-   mobile.  If the wave gets longer over time, the supporting patterns
-   are {wavestretcher}s.
+   mobile.  Especially if the wave gets longer over time, the supporting
+   patterns are {wavestretcher}s.
      Also, the gliders or spaceships emitted by a rake may be referred
    to as a wave, again because the line as a whole appears to move in a
    different direction from the individual components, due to the rake's
@@ -20202,13 +20376,17 @@ on 26 February 1999.
    A required supporting c/5 {spark} is shown at the right edge.  It can
    be supplied by a {spider} or another c/5 orthogonal spaceship with a
    similar {edge spark}.  Alternatively, the c/5 component could
-   theoretically be replaced by a supporting spaceship traveling
+   theoretically be replaced by a supporting spaceship travelling
    diagonally at c/6, to support the same oblique trail of ants.  As of
-   the end of 2017 no workable c/6 component has been found.
+   June 2018 no workable c/6 component has been found.
 
 :wedge:  A 26-cell quadratic growth pattern found by Nick Gotts in March
-   2006, based on {Gotts dots}.  In terms of its initial population,
-   this is the smallest known pattern with superlinear growth.
+   2006, based on ideas found in {metacatacryst} and {Gotts dots}.  It
+   held the record for the smallest-population quadratic growth pattern
+   for eight years, until it was surpassed by
+   {25-cell quadratic growth}.  See {switch-engine ping-pong} for the
+   lowest-population {superlinear growth} pattern as of July 2018, along
+   with a list of the record-holders.
 
 :wedge grow:  = {wedge}.
 
@@ -20348,11 +20526,11 @@ on 26 February 1999.
    wires are known, but the required signals are fairly complex and have
    no known {glider synthesis}.
 
-:with the grain:  A term used for {negative spaceship}s traveling in
+:with the grain:  A term used for {negative spaceship}s travelling in
    {zebra stripes} agar, parallel to the stripes, and also for
    {with-the-grain grey ship}s.
      Below are three small examples of "negative spaceships" found by
-   Gabriel Nivasch in July 1999, traveling with the grain through a
+   Gabriel Nivasch in July 1999, travelling with the grain through a
    stabilized finite segment of zebra stripes agar:
 	.*..*..*..*..*..*..*..*..*..*..*..*..*..*..*..*..*..*.
 	.****************************************************.
@@ -20407,7 +20585,7 @@ on 26 February 1999.
 	......................................................
 	.****************************************************.
 	.*..*..*..*..*..*..*..*..*..*..*..*..*..*..*..*..*..*.
-   It has been proven that signals traveling non-destructively with the
+   It has been proven that signals travelling non-destructively with the
    grain through zebra stripes cannot travel at less than the
    {speed of light}.
 
@@ -20441,11 +20619,12 @@ on 26 February 1999.
 	**.
 	.**
 
-:*WSS:  Any of the standard orthogonal spaceships - {LWSS}, {MWSS}, or
-   {HWSS}.
+:*WSS:  Any of the standard orthogonal {spaceship}s - {LWSS}, {MWSS}, or
+   {HWSS}.  At one point the term {fish} was more common for this group
+   of spaceships.
 
 :x66: (c/2 orthogonally, p4)  Found by Hartmut Holzwart, July 1992. Half
-   of this can be escorted by a HWSS.  The name refers to the fact that
+   of this can be escorted by an HWSS.  The name refers to the fact that
    every cell (live or dead) has at most 6 live neighbours (in contrast
    to {spaceship}s based on {LWSS}, {MWSS} or {HWSS}). In fact this
    spaceship was found by a search with this restriction.
