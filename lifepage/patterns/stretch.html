@@ -1,7 +1,72 @@
-<TITLE>stretch.lif</TITLE>
-<applet code="LifeApp" width=500 height=300>
-<param name=pattern value=stretch>
-</applet>
+
+<html><head>
+<meta charset="UTF-8">
+<meta name="LifeViewer" content="viewer textarea 60 hide">
+<script src="lv-plugin.js"></script>
+<title>stretch.lif</title></head>
+<body><div class="viewer"><a href="" onclick="updateViewer(this); return false;">View Standalone</a><br>
+<textarea rows=4 cols=75>#Life 1.05
+#D Wick stretcher
+#D A c/4 spaceship pulls a wick (line of ants) which is attached
+#D to a stabilizing end. Both halves were found by computer search
+#D by Dean Hickerson, 1992.  See also EFENCE, TIRETRAX, AQUA25.
+#D [[ THUMBNAIL THUMBSIZE 3 ]]
+#N
+#P -20 -9
+*.**..**
+*....**..*
+*.**....**
+......*
+.....*
+.....*
+......*
+*.**....**
+*....**..*
+*.**..**
+#P -9 -12
+......**
+..**....*
+.***.*
+*...****.*.*
+.......*.***
+**....*
+...*
+....*.*....***
+....*.*....***
+...*
+**....*
+.......*.***
+*...****.*.*
+.***.*
+..**....*
+......**
+#P 6 -9
+.**
+.*....**
+...*...*
+..**
+..*....*
+**.*..**
+..**.*
+..*
+.....*
+....*.*
+.....*
+#P 15 -9
+.**
+*..*.**.*
+*.**.*.**
+*..*.*...**
+.*.*.***...*
+*.*...*..**.*
+**....**....*
+..**.*.*.**.**
+*...**.*..*.*
+.**....*..*.*
+..*.***....*
+..*.*
+...*
+</textarea><br><canvas width="1024" height="640"></canvas></div>
 <H1>Comments for <A HREF="stretch.lif">stretch.lif</A></H1>
 <PRE>
 Wick stretcher
@@ -16,5 +81,4 @@ Xref:
 <A HREF="efence.html">efence</A>
 <A HREF="tiretrax.html">tiretrax</A>
 <BR>
-<HR><A HREF="contents.html">Table of Contents</A>,
-<A HREF="javalife.html">About the Applet</A>
+<HR><A HREF="contents.html">Table of Contents</A>

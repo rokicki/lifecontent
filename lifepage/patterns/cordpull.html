@@ -1,7 +1,233 @@
-<TITLE>cordpull.lif</TITLE>
-<applet code="LifeApp" width=500 height=300>
-<param name=pattern value=cordpull>
-</applet>
+
+<html><head>
+<meta charset="UTF-8">
+<meta name="LifeViewer" content="viewer textarea 60 hide">
+<script src="lv-plugin.js"></script>
+<title>cordpull.lif</title></head>
+<body><div class="viewer"><a href="" onclick="updateViewer(this); return false;">View Standalone</a><br>
+<textarea rows=4 cols=75>#Life 1.05
+#D Diagonal sawtooth with expansion factor 6
+#D Population is unbounded but does not tend to infinity.  Its graph is
+#D a sawtooth function with ever-increasing teeth.  More specifically,
+#D the population in generation  t = 8*6^n - 216  (n >= 2)  is  t/36 + 558,
+#D but the population in generation  32*6^n - 429  (n >= 2)  is only  469.
+#D Dean Hickerson, dean@ucdmath.ucdavis.edu  5/14/91
+#D [[ THUMBNAIL THUMBSIZE 3 ]]
+#N
+#P -30 -35
+..***
+.*...*
+*....*
+*..*.*
+**.*.*
+..**.*..*
+....**..*
+.....***
+#P -40 -29
+..***
+.*..*
+*....*
+*..***
+*.....*
+.*******
+.......*
+.......*
+.....**
+#P -56 -9
+..***
+.*...*
+*....*
+*..*.*
+**.*.*
+..**.*..*
+....**..*
+.....***
+#P -18 -33
+..**...***
+.****
+*...**
+.**.*.*
+.
+.........*
+......*..*
+.......***
+#P -32 -17
+***.*
+***.*
+.*........**
+..*...***.**
+...*......*
+....*.*.*.*
+.....*
+#P 2 -10
+...*
+..*.*
+.**.**
+.**.**
+***
+***...*
+.**
+.*.*
+#P -13 5
+....**
+..******
+.******
+*......*
+.***
+..**
+.....*
+#P -24 16
+...*
+..*.*
+.**.**
+.**.**
+***
+***...*
+.**
+.*.*
+#P -48 10
+**
+*
+#P -40 18
+**
+*
+#P -32 26
+**
+*
+#P -2 -28
+**
+*
+#P 6 -20
+**
+*
+#P 14 -12
+**
+*
+#P -3 11
+....*
+**..**.***
+*.....****
+....**
+#P -8 16
+...*
+.***
+*
+**
+#P -13 26
+**...**
+.
+*.....*
+.
+.**.**
+...*
+#P -11 34
+...*
+..*.*
+.*...*
+.*****
+**...**
+.*****
+..***
+...*
+#P -8 50
+**
+*
+#P -4 27
+***
+..*
+.*
+#P 2 32
+***
+*
+.*
+#P 10 19
+...*
+.***
+*
+**
+#P 5 28
+**...**
+.*****
+..***
+...*
+#P 3 40
+..***
+.
+..*.*
+.*****
+**...**
+**...**
+#P 5 53
+**
+*
+#P 15 22
+*
+***
+...*
+..**
+#P 17 31
+**...**
+*.....*
+.
+.*...*
+..***
+#P 19 42
+...*
+.**.**
+.
+*.....*
+.
+**...**
+#P 22 56
+**
+*
+#P 35 31
+.*****
+*.***.*
+.*...*
+..***
+...*
+.**
+*.*
+*.*
+.*
+#P 33 42
+**.*.**
+*.....*
+.*...*
+..***
+#P 35 53
+**
+*
+#P 22 21
+.*
+**
+*.*
+#P 24 16
+.*..*
+*...**..**
+*.......*
+.****
+#P 37 19
+**
+*
+#P 21 -11
+...*
+.***
+*
+**
+#P 16 -2
+**...**
+*.*.*.*
+.*****
+..***
+...*
+#P 21 8
+**
+*
+.***
+...*
+</textarea><br><canvas width="1024" height="640"></canvas></div>
 <H1>Comments for <A HREF="cordpull.lif">cordpull.lif</A></H1>
 <PRE>
 Diagonal sawtooth with expansion factor 6
@@ -14,5 +240,4 @@ Dean Hickerson, dean@ucdmath.ucdavis.edu  5/14/91
 Xref:
 <A HREF="sawtooth.html">sawtooth</A>
 <BR>
-<HR><A HREF="contents.html">Table of Contents</A>,
-<A HREF="javalife.html">About the Applet</A>
+<HR><A HREF="contents.html">Table of Contents</A>

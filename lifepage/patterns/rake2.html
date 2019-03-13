@@ -1,7 +1,46 @@
-<TITLE>rake2.lif</TITLE>
-<applet code="LifeApp" width=500 height=300>
-<param name=pattern value=rake2>
-</applet>
+
+<html><head>
+<meta charset="UTF-8">
+<meta name="LifeViewer" content="viewer textarea 60 hide">
+<script src="lv-plugin.js"></script>
+<title>rake2.lif</title></head>
+<body><div class="viewer"><a href="" onclick="updateViewer(this); return false;">View Standalone</a><br>
+<textarea rows=4 cols=75>#Life 1.05
+#D Backward Rake
+#D
+#D Two LWSS perturb the output of a
+#D puffer train (PUFTRAIN) to make
+#D a moving glider gun. Very
+#D similar to RAKE.
+#D [[ THUMBNAIL THUMBSIZE 3 ]]
+#N
+#P -10 -8
+.**
+****
+**.**
+..**
+#P -2 -8
+...*
+....*
+*...*
+.****
+#P -2 -1
+*
+.**
+..*
+..*
+.*
+#P -2 6
+...*
+....*
+*...*
+.****
+#P -20 8
+...*
+....*
+*...*
+.****
+</textarea><br><canvas width="1024" height="640"></canvas></div>
 <H1>Comments for <A HREF="rake2.lif">rake2.lif</A></H1>
 <PRE>
 Backward Rake
@@ -14,5 +53,4 @@ Xref:
 <A HREF="puftrain.html">puftrain</A>
 <A HREF="rake.html">rake</A>
 <BR>
-<HR><A HREF="contents.html">Table of Contents</A>,
-<A HREF="javalife.html">About the Applet</A>
+<HR><A HREF="contents.html">Table of Contents</A>

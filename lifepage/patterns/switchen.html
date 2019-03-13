@@ -1,7 +1,26 @@
-<TITLE>switchen.lif</TITLE>
-<applet code="LifeApp" width=500 height=300>
-<param name=pattern value=switchen>
-</applet>
+
+<html><head>
+<meta charset="UTF-8">
+<meta name="LifeViewer" content="viewer textarea 60 hide">
+<script src="lv-plugin.js"></script>
+<title>switchen.lif</title></head>
+<body><div class="viewer"><a href="" onclick="updateViewer(this); return false;">View Standalone</a><br>
+<textarea rows=4 cols=75>#Life 1.05
+#D Switch Engine
+#D by Charles Corderman.
+#D The smallest forever-growing
+#D pattern in the Game of Life.
+#D [[ THUMBNAIL THUMBSIZE 3 ]]
+#N
+#P -13 -3
+.*.*
+*
+.*..*
+...***
+#P 13 2
+**
+*
+</textarea><br><canvas width="1024" height="640"></canvas></div>
 <H1>Comments for <A HREF="switchen.lif">switchen.lif</A></H1>
 <PRE>
 Switch Engine
@@ -12,5 +31,4 @@ pattern in the Game of Life.
 Xref:
 <A HREF="corder.html">corder</A>
 <BR>
-<HR><A HREF="contents.html">Table of Contents</A>,
-<A HREF="javalife.html">About the Applet</A>
+<HR><A HREF="contents.html">Table of Contents</A>

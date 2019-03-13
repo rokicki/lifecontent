@@ -1,7 +1,116 @@
-<TITLE>thue.lif</TITLE>
-<applet code="LifeApp" width=500 height=300>
-<param name=pattern value=thue>
-</applet>
+
+<html><head>
+<meta charset="UTF-8">
+<meta name="LifeViewer" content="viewer textarea 60 hide">
+<script src="lv-plugin.js"></script>
+<title>thue.lif</title></head>
+<body><div class="viewer"><a href="" onclick="updateViewer(this); return false;">View Standalone</a><br>
+<textarea rows=4 cols=75>#Life 1.05
+#D Thue generator
+#D
+#D Four puffers produce gliders, whose collisions produce four
+#D lines of blinkers representing the transcendental number
+#D .110110111110110111110110110..., where the n'th bit is 1 if n
+#D is not divisible by 3 and is the complement of the (n/3)'th bit
+#D if n is divisible by 3.
+#D Built by Bill Gosper, in or before 1987
+#D [[ THUMBNAIL THUMBSIZE 3 ]]
+#N
+#P -26 -18
+.**
+**.**
+.****
+..**
+.
+.
+....*
+...**
+..**
+...**
+.
+.
+.
+.
+.**
+**.**
+.****
+..**
+#P -17 -19
+.*
+*
+*...*
+****
+#P 0 -26
+..*.............*
+.***...........***
+**.*.....*....**.*
+***.....***...***
+.**.....*.**...**
+#P 15 -17
+***
+*..*
+*
+*
+.*
+#P 21 0
+.**
+****
+**.**
+..**
+.
+.
+.
+.
+**
+.**
+**
+*
+.
+.
+.**
+****
+**.**
+..**
+#P 12 15
+.****
+*...*
+....*
+...*
+#P -18 21
+.**...**.*.....**
+.***...***.....***
+*.**....*.....*.**
+***...........***
+.*.............*
+#P -19 12
+..*
+...*
+...*
+*..*
+.***
+#P -8 -2
+.**
+**.**
+.****
+..**
+#P -2 -8
+..*
+.***
+**.*
+***
+.**
+#P 3 -2
+.**
+****
+**.**
+..**
+#P -2 3
+.**
+.***
+*.**
+***
+.*
+</textarea><br><canvas width="1024" height="640"></canvas></div>
 <H1>Comments for <A HREF="thue.lif">thue.lif</A></H1>
 <PRE>
 Thue generator
@@ -12,5 +121,4 @@ is not divisible by 3 and is the complement of the (n/3)'th bit
 if n is divisible by 3.
 Built by Bill Gosper, in or before 1987
 </PRE>
-<HR><A HREF="contents.html">Table of Contents</A>,
-<A HREF="javalife.html">About the Applet</A>
+<HR><A HREF="contents.html">Table of Contents</A>

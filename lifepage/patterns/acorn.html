@@ -1,7 +1,21 @@
-<TITLE>acorn.lif</TITLE>
-<applet code="LifeApp" width=500 height=300>
-<param name=pattern value=acorn>
-</applet>
+
+<html><head>
+<meta charset="UTF-8">
+<meta name="LifeViewer" content="viewer textarea 60 hide">
+<script src="lv-plugin.js"></script>
+<title>acorn.lif</title></head>
+<body><div class="viewer"><a href="" onclick="updateViewer(this); return false;">View Standalone</a><br>
+<textarea rows=4 cols=75>#Life 1.05
+#D Acorn
+#D The most vigorously growing 7-cell
+#D "methuselah" pattern.  See also RABBITS.
+#D [[ THUMBNAIL THUMBSIZE 3 ]]
+#N
+#P -3 -1
+.*
+...*
+**..***
+</textarea><br><canvas width="1024" height="640"></canvas></div>
 <H1>Comments for <A HREF="acorn.lif">acorn.lif</A></H1>
 <PRE>
 Acorn
@@ -11,5 +25,4 @@ The most vigorously growing 7-cell
 Xref:
 <A HREF="rabbits.html">rabbits</A>
 <BR>
-<HR><A HREF="contents.html">Table of Contents</A>,
-<A HREF="javalife.html">About the Applet</A>
+<HR><A HREF="contents.html">Table of Contents</A>
