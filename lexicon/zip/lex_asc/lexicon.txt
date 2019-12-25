@@ -17163,7 +17163,7 @@ on 26 February 1999.
    2016
 	3c/7     orthogonal {spaghetti monster} Tim Coe            Jun
    2016
-	(2,1)c/7 oblique    {Sir Robin}         Adam P. Goucher    Mar
+	(2,1)c/6 oblique    {Sir Robin}         Adam P. Goucher    Mar
    2018
 
    -------------------------------------------------------------------

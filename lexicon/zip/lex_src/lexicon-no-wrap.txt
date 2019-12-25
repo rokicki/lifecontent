@@ -12922,7 +12922,7 @@ on 26 February 1999.
         c/7      orthogonal {loafer}            Josh Ball          Feb 2013
         c/10     orthogonal {copperhead}        zdr                Mar 2016
         3c/7     orthogonal {spaghetti monster} Tim Coe            Jun 2016
-        (2,1)c/7 oblique    {Sir Robin}         Adam P. Goucher    Mar 2018
+        (2,1)c/6 oblique    {Sir Robin}         Adam P. Goucher    Mar 2018
         -------------------------------------------------------------------
      Several infinite families of adjustable-velocity {macro-spaceship}s have also been constructed, of which the first was Gabriel Nivasch's {Caterpillar} from December 2004.  The macro-spaceship with the widest range of possible speeds is Michael Simkin's {Caterloopillar} from April 2016; in theory it supports any rational orthogonal speed strictly less than c<4.  A somewhat similar design supporting any rational speed strictly less than c/2 has been shown to be feasible, but as of June 2018 no explicit examples have been constructed.
      A period p spaceship that displaces itself (m,n) during its period, where m>=n, is said to be of type (m,n)/p.  It was proved by Conway in 1970 that p>=2m+2n.  (This follows immediately from the easily-proved fact that a pattern cannot advance diagonally at a rate greater than one half diagonal step every other generation.)
